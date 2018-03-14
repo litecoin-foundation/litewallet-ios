@@ -1,0 +1,30 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+setup_travis
+update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Build iOS dev app"
+  lane :beta do
+    cert(username:"litecoin.foundation.ios.agent@gmail.com")
+    get_provisioning_profile # invokes sigh
+    build_app(workspace: "LitecoinFoundation.xcworkspace",
+                 scheme: "breadwallet",
+                 verbose: true)
+    run_tests(scheme: "breadwallet")
+  end
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(workspace: "LitecoinFoundation.xcworkspace", scheme: "Screenshots")
+  end
+
+
+end
