@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-               BuildableName = "loafwallet.app"
-               BlueprintName = "loafwallet"
+               BuildableName = "litewallet.app"
+               BlueprintName = "litewallet"
                ReferencedContainer = "container:loafwallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,55 +27,42 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
+            BuildableName = "litewallet.app"
+            BlueprintName = "litewallet"
+            ReferencedContainer = "container:loafwallet.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7A31DA5934300A983D8"
-               BuildableName = "loafwalletTests.xctest"
-               BlueprintName = "loafwalletTests"
+               BuildableName = "litewalletTests.xctest"
+               BlueprintName = "litewalletTests"
                ReferencedContainer = "container:loafwallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7AE1DA5934300A983D8"
-               BuildableName = "loafwalletUITests.xctest"
-               BlueprintName = "loafwalletUITests"
-               ReferencedContainer = "container:loafwallet.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEA7E67A1F09A9D2001F8C27"
-               BuildableName = "Screenshots.xctest"
-               BlueprintName = "Screenshots"
+               BuildableName = "litewalletUITests.xctest"
+               BlueprintName = "litewalletUITests"
                ReferencedContainer = "container:loafwallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "loafwallet.app"
-            BlueprintName = "loafwallet"
-            ReferencedContainer = "container:loafwallet.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Testnet"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "en"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -87,23 +74,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "loafwallet.app"
-            BlueprintName = "loafwallet"
+            BuildableName = "litewallet.app"
+            BlueprintName = "litewallet"
             ReferencedContainer = "container:loafwallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -113,8 +91,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "loafwallet.app"
-            BlueprintName = "loafwallet"
+            BuildableName = "litewallet.app"
+            BlueprintName = "litewallet"
             ReferencedContainer = "container:loafwallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -123,7 +101,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Testflight"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

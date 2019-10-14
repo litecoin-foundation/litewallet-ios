@@ -484,10 +484,10 @@
 		75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79A1DA5934300A983D8 /* Assets.xcassets */; };
 		75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */; };
 		75A2A7B41DA5934300A983D8 /* breadwalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */; };
-		75A2A7B91DA5934300A983D8 /* loafwallet WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75A2A7B81DA5934300A983D8 /* loafwallet WatchKit App.app */; };
+		75A2A7B91DA5934300A983D8 /* litewallet WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75A2A7B81DA5934300A983D8 /* litewallet WatchKit App.app */; };
 		75A2A7BF1DA5934300A983D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7BD1DA5934300A983D8 /* Interface.storyboard */; };
 		75A2A7C11DA5934300A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7C01DA5934300A983D8 /* Assets.xcassets */; };
-		75A2A7C81DA5934300A983D8 /* loafwallet WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		75A2A7C81DA5934300A983D8 /* litewallet WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A7C71DA5934300A983D8 /* litewallet WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75A2A7CF1DA5934300A983D8 /* BalanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7CE1DA5934300A983D8 /* BalanceInterfaceController.swift */; };
 		75A2A7D11DA5934300A983D8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7D01DA5934300A983D8 /* ExtensionDelegate.swift */; };
 		75A2A7D31DA5934300A983D8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7D21DA5934300A983D8 /* NotificationController.swift */; };
@@ -891,7 +891,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				75A2A7C81DA5934300A983D8 /* loafwallet WatchKit Extension.appex in Embed App Extensions */,
+				75A2A7C81DA5934300A983D8 /* litewallet WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,7 +902,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				75A2A7B91DA5934300A983D8 /* loafwallet WatchKit App.app in Embed Watch Content */,
+				75A2A7B91DA5934300A983D8 /* litewallet WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,7 +944,7 @@
 		1AAF7086C18CA06FFD847067 /* Pods_loafwalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loafwalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3F74211FFB106200CCA50C /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSettingsViewController.swift; path = src/ViewControllers/BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
 		1B3F74221FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSpendingLimitViewController.swift; path = src/ViewControllers/BiometricsSpendingLimitViewController.swift; sourceTree = "<group>"; };
-		1B86CEBA2091528B00BCE82E /* loafwallet-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "loafwallet-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B86CEBA2091528B00BCE82E /* litewallet-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "litewallet-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86CEBE2091538B00BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1B86CEFA209154F800BCE82E /* MessagesExtension-dev.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MessagesExtension-dev.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B86CF0C209154FA00BCE82E /* TodayExtension-dev.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TodayExtension-dev.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1732,21 +1732,21 @@
 		755CD9D11DAA197C0075898E /* libBRCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBRCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		759DA09F1DAB838D008CC49B /* view.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = view.c; sourceTree = "<group>"; };
 		759DA0A01DAB838D008CC49B /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
-		75A2A7901DA5934300A983D8 /* loafwallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loafwallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7901DA5934300A983D8 /* litewallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = litewallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7931DA5934300A983D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75A2A79A1DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75A2A79D1DA5934300A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75A2A79F1DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7A41DA5934300A983D8 /* loafwalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loafwalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7A41DA5934300A983D8 /* litewalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = litewalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7AA1DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7AF1DA5934300A983D8 /* loafwalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loafwalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7AF1DA5934300A983D8 /* litewalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = litewalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breadwalletUITests.swift; sourceTree = "<group>"; };
 		75A2A7B51DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7B81DA5934300A983D8 /* loafwallet WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "loafwallet WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7B81DA5934300A983D8 /* litewallet WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "litewallet WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7BE1DA5934300A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		75A2A7C01DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75A2A7C21DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "loafwallet WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7C71DA5934300A983D8 /* litewallet WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "litewallet WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7CD1DA5934300A983D8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		75A2A7CE1DA5934300A983D8 /* BalanceInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInterfaceController.swift; sourceTree = "<group>"; };
 		75A2A7D01DA5934300A983D8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -3278,10 +3278,10 @@
 			isa = PBXGroup;
 			children = (
 				75A2A7921DA5934300A983D8 /* loafwallet */,
-				75A2A7A71DA5934300A983D8 /* loafwalletTests */,
-				75A2A7B21DA5934300A983D8 /* loafwalletUITests */,
-				75A2A7BC1DA5934300A983D8 /* loafwallet WatchKit App */,
-				75A2A7CB1DA5934300A983D8 /* loafwallet WatchKit Extension */,
+				75A2A7A71DA5934300A983D8 /* litewalletTests */,
+				75A2A7B21DA5934300A983D8 /* litewalletUITests */,
+				75A2A7BC1DA5934300A983D8 /* litewallet WatchKit App */,
+				75A2A7CB1DA5934300A983D8 /* litewallet WatchKit Extension */,
 				75A2A7F41DA5935F00A983D8 /* MessagesExtension */,
 				75A2A80B1DA5936F00A983D8 /* TodayExtension */,
 				75A2A81D1DA5938500A983D8 /* NotificationServiceExtension */,
@@ -3295,11 +3295,11 @@
 		75A2A7911DA5934300A983D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75A2A7901DA5934300A983D8 /* loafwallet.app */,
-				75A2A7A41DA5934300A983D8 /* loafwalletTests.xctest */,
-				75A2A7AF1DA5934300A983D8 /* loafwalletUITests.xctest */,
-				75A2A7B81DA5934300A983D8 /* loafwallet WatchKit App.app */,
-				75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */,
+				75A2A7901DA5934300A983D8 /* litewallet.app */,
+				75A2A7A41DA5934300A983D8 /* litewalletTests.xctest */,
+				75A2A7AF1DA5934300A983D8 /* litewalletUITests.xctest */,
+				75A2A7B81DA5934300A983D8 /* litewallet WatchKit App.app */,
+				75A2A7C71DA5934300A983D8 /* litewallet WatchKit Extension.appex */,
 				75A2A7F01DA5935F00A983D8 /* MessagesExtension.appex */,
 				75A2A8081DA5936F00A983D8 /* TodayExtension.appex */,
 				75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */,
@@ -3308,7 +3308,7 @@
 				75C735AF1DAA1C9F00251ECF /* libnettle.a */,
 				22A9A9961DF63426000F0016 /* libbz2.framework */,
 				752FB04A1DF8BE6B009086FB /* sqlite3.framework */,
-				1B86CEBA2091528B00BCE82E /* loafwallet-dev.app */,
+				1B86CEBA2091528B00BCE82E /* litewallet-dev.app */,
 				1B86CEFA209154F800BCE82E /* MessagesExtension-dev.appex */,
 				1B86CF0C209154FA00BCE82E /* TodayExtension-dev.appex */,
 				1B86CF19209154FB00BCE82E /* NotificationServiceExtension-dev.appex */,
@@ -3362,7 +3362,7 @@
 			path = loafwallet;
 			sourceTree = "<group>";
 		};
-		75A2A7A71DA5934300A983D8 /* loafwalletTests */ = {
+		75A2A7A71DA5934300A983D8 /* litewalletTests */ = {
 			isa = PBXGroup;
 			children = (
 				75A2A7AA1DA5934300A983D8 /* Info.plist */,
@@ -3377,19 +3377,19 @@
 				CEEC70971E96BF8800EF788E /* DefaultCurrencyTests.swift */,
 				CEA7E6751F057D77001F8C27 /* WalletInfoTest.swift */,
 			);
-			path = loafwalletTests;
+			path = litewalletTests;
 			sourceTree = "<group>";
 		};
-		75A2A7B21DA5934300A983D8 /* loafwalletUITests */ = {
+		75A2A7B21DA5934300A983D8 /* litewalletUITests */ = {
 			isa = PBXGroup;
 			children = (
 				75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */,
 				75A2A7B51DA5934300A983D8 /* Info.plist */,
 			);
-			path = loafwalletUITests;
+			path = litewalletUITests;
 			sourceTree = "<group>";
 		};
-		75A2A7BC1DA5934300A983D8 /* loafwallet WatchKit App */ = {
+		75A2A7BC1DA5934300A983D8 /* litewallet WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				75A2A7BD1DA5934300A983D8 /* Interface.storyboard */,
@@ -3398,10 +3398,10 @@
 				1B86CF1B2091554C00BCE82E /* Dev.plist */,
 				CEFFA2D01EB3BD730085C5D1 /* LoadingIndicator.xcassets */,
 			);
-			path = "loafwallet WatchKit App";
+			path = "litewallet WatchKit App";
 			sourceTree = "<group>";
 		};
-		75A2A7CB1DA5934300A983D8 /* loafwallet WatchKit Extension */ = {
+		75A2A7CB1DA5934300A983D8 /* litewallet WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
 				75A2A7D01DA5934300A983D8 /* ExtensionDelegate.swift */,
@@ -3417,7 +3417,7 @@
 				1B86CF1C2091558000BCE82E /* Dev.plist */,
 				75A2A7CC1DA5934300A983D8 /* Supporting Files */,
 			);
-			path = "loafwallet WatchKit Extension";
+			path = "litewallet WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		75A2A7CC1DA5934300A983D8 /* Supporting Files */ = {
@@ -3902,9 +3902,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		1B86CDBC2091528B00BCE82E /* loafwallet-dev */ = {
+		1B86CDBC2091528B00BCE82E /* litewallet-dev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B86CEB42091528B00BCE82E /* Build configuration list for PBXNativeTarget "loafwallet-dev" */;
+			buildConfigurationList = 1B86CEB42091528B00BCE82E /* Build configuration list for PBXNativeTarget "litewallet-dev" */;
 			buildPhases = (
 				4BE157C2E39480B725A5CAEE /* [CP] Check Pods Manifest.lock */,
 				1B86CDC92091528B00BCE82E /* Sources */,
@@ -3925,9 +3925,9 @@
 				1B86CDC52091528B00BCE82E /* PBXTargetDependency */,
 				1B86CDC72091528B00BCE82E /* PBXTargetDependency */,
 			);
-			name = "loafwallet-dev";
+			name = "litewallet-dev";
 			productName = breadwallet;
-			productReference = 1B86CEBA2091528B00BCE82E /* loafwallet-dev.app */;
+			productReference = 1B86CEBA2091528B00BCE82E /* litewallet-dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1B86CEEC209154F800BCE82E /* MessagesExtension-dev */ = {
@@ -4053,9 +4053,9 @@
 			productReference = 755CD9D11DAA197C0075898E /* libBRCore.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		75A2A78F1DA5934300A983D8 /* loafwallet */ = {
+		75A2A78F1DA5934300A983D8 /* litewallet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet" */;
+			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet" */;
 			buildPhases = (
 				B74CB95ECB6E02CA5A398ED3 /* [CP] Check Pods Manifest.lock */,
 				75A2A78C1DA5934300A983D8 /* Sources */,
@@ -4077,14 +4077,14 @@
 				22A9A99C1DF63426000F0016 /* PBXTargetDependency */,
 				752FB04F1DF8BF5C009086FB /* PBXTargetDependency */,
 			);
-			name = loafwallet;
+			name = litewallet;
 			productName = breadwallet;
-			productReference = 75A2A7901DA5934300A983D8 /* loafwallet.app */;
+			productReference = 75A2A7901DA5934300A983D8 /* litewallet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		75A2A7A31DA5934300A983D8 /* loafwalletTests */ = {
+		75A2A7A31DA5934300A983D8 /* litewalletTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwalletTests" */;
+			buildConfigurationList = 75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewalletTests" */;
 			buildPhases = (
 				FEAE253A4BFF16968418B87B /* [CP] Check Pods Manifest.lock */,
 				75A2A7A01DA5934300A983D8 /* Sources */,
@@ -4096,14 +4096,14 @@
 			dependencies = (
 				75A2A7A61DA5934300A983D8 /* PBXTargetDependency */,
 			);
-			name = loafwalletTests;
+			name = litewalletTests;
 			productName = breadwalletTests;
-			productReference = 75A2A7A41DA5934300A983D8 /* loafwalletTests.xctest */;
+			productReference = 75A2A7A41DA5934300A983D8 /* litewalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		75A2A7AE1DA5934300A983D8 /* loafwalletUITests */ = {
+		75A2A7AE1DA5934300A983D8 /* litewalletUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwalletUITests" */;
+			buildConfigurationList = 75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewalletUITests" */;
 			buildPhases = (
 				2998A5207CC0B1E47619E6C6 /* [CP] Check Pods Manifest.lock */,
 				75A2A7AB1DA5934300A983D8 /* Sources */,
@@ -4115,14 +4115,14 @@
 			dependencies = (
 				75A2A7B11DA5934300A983D8 /* PBXTargetDependency */,
 			);
-			name = loafwalletUITests;
+			name = litewalletUITests;
 			productName = breadwalletUITests;
-			productReference = 75A2A7AF1DA5934300A983D8 /* loafwalletUITests.xctest */;
+			productReference = 75A2A7AF1DA5934300A983D8 /* litewalletUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		75A2A7B71DA5934300A983D8 /* loafwallet WatchKit App */ = {
+		75A2A7B71DA5934300A983D8 /* litewallet WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7DF1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet WatchKit App" */;
+			buildConfigurationList = 75A2A7DF1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet WatchKit App" */;
 			buildPhases = (
 				75A2A7B61DA5934300A983D8 /* Resources */,
 				75A2A7DE1DA5934400A983D8 /* Embed App Extensions */,
@@ -4133,14 +4133,14 @@
 			dependencies = (
 				75A2A7CA1DA5934300A983D8 /* PBXTargetDependency */,
 			);
-			name = "loafwallet WatchKit App";
+			name = "litewallet WatchKit App";
 			productName = "breadwallet WatchKit App";
-			productReference = 75A2A7B81DA5934300A983D8 /* loafwallet WatchKit App.app */;
+			productReference = 75A2A7B81DA5934300A983D8 /* litewallet WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		75A2A7C61DA5934300A983D8 /* loafwallet WatchKit Extension */ = {
+		75A2A7C61DA5934300A983D8 /* litewallet WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7DB1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet WatchKit Extension" */;
+			buildConfigurationList = 75A2A7DB1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet WatchKit Extension" */;
 			buildPhases = (
 				75A2A7C31DA5934300A983D8 /* Sources */,
 				75A2A7C41DA5934300A983D8 /* Frameworks */,
@@ -4151,9 +4151,9 @@
 			);
 			dependencies = (
 			);
-			name = "loafwallet WatchKit Extension";
+			name = "litewallet WatchKit Extension";
 			productName = "breadwallet WatchKit Extension";
-			productReference = 75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */;
+			productReference = 75A2A7C71DA5934300A983D8 /* litewallet WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		75A2A7EF1DA5935F00A983D8 /* MessagesExtension */ = {
@@ -4366,15 +4366,15 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B86CDBC2091528B00BCE82E /* loafwallet-dev */,
+				1B86CDBC2091528B00BCE82E /* litewallet-dev */,
 				1B86CEEC209154F800BCE82E /* MessagesExtension-dev */,
 				1B86CEFC209154FA00BCE82E /* TodayExtension-dev */,
 				1B86CF0E209154FB00BCE82E /* NotificationServiceExtension-dev */,
-				75A2A7A31DA5934300A983D8 /* loafwalletTests */,
-				75A2A7AE1DA5934300A983D8 /* loafwalletUITests */,
-				75A2A78F1DA5934300A983D8 /* loafwallet */,
-				75A2A7B71DA5934300A983D8 /* loafwallet WatchKit App */,
-				75A2A7C61DA5934300A983D8 /* loafwallet WatchKit Extension */,
+				75A2A7A31DA5934300A983D8 /* litewalletTests */,
+				75A2A7AE1DA5934300A983D8 /* litewalletUITests */,
+				75A2A78F1DA5934300A983D8 /* litewallet */,
+				75A2A7B71DA5934300A983D8 /* litewallet WatchKit App */,
+				75A2A7C61DA5934300A983D8 /* litewallet WatchKit Extension */,
 				75A2A7EF1DA5935F00A983D8 /* MessagesExtension */,
 				75A2A8071DA5936F00A983D8 /* TodayExtension */,
 				75A2A81B1DA5938500A983D8 /* NotificationServiceExtension */,
@@ -5469,22 +5469,22 @@
 		};
 		75A2A7A61DA5934300A983D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A78F1DA5934300A983D8 /* loafwallet */;
+			target = 75A2A78F1DA5934300A983D8 /* litewallet */;
 			targetProxy = 75A2A7A51DA5934300A983D8 /* PBXContainerItemProxy */;
 		};
 		75A2A7B11DA5934300A983D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A78F1DA5934300A983D8 /* loafwallet */;
+			target = 75A2A78F1DA5934300A983D8 /* litewallet */;
 			targetProxy = 75A2A7B01DA5934300A983D8 /* PBXContainerItemProxy */;
 		};
 		75A2A7BB1DA5934300A983D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A7B71DA5934300A983D8 /* loafwallet WatchKit App */;
+			target = 75A2A7B71DA5934300A983D8 /* litewallet WatchKit App */;
 			targetProxy = 75A2A7BA1DA5934300A983D8 /* PBXContainerItemProxy */;
 		};
 		75A2A7CA1DA5934300A983D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A7C61DA5934300A983D8 /* loafwallet WatchKit Extension */;
+			target = 75A2A7C61DA5934300A983D8 /* litewallet WatchKit Extension */;
 			targetProxy = 75A2A7C91DA5934300A983D8 /* PBXContainerItemProxy */;
 		};
 		75A2A8131DA5936F00A983D8 /* PBXTargetDependency */ = {
@@ -7113,7 +7113,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B86CEB42091528B00BCE82E /* Build configuration list for PBXNativeTarget "loafwallet-dev" */ = {
+		1B86CEB42091528B00BCE82E /* Build configuration list for PBXNativeTarget "litewallet-dev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B86CEB52091528B00BCE82E /* Development */,
@@ -7223,7 +7223,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7DB1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet WatchKit Extension" */ = {
+		75A2A7DB1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7DC1DA5934400A983D8 /* Development */,
@@ -7234,7 +7234,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7DF1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet WatchKit App" */ = {
+		75A2A7DF1DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7E01DA5934400A983D8 /* Development */,
@@ -7245,7 +7245,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet" */ = {
+		75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7E41DA5934400A983D8 /* Development */,
@@ -7256,7 +7256,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwalletTests" */ = {
+		75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewalletTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7E71DA5934400A983D8 /* Development */,
@@ -7267,7 +7267,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwalletUITests" */ = {
+		75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewalletUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7EA1DA5934400A983D8 /* Development */,
