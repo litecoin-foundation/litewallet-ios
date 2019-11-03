@@ -72,9 +72,17 @@ class BuyCenterTableViewController: UITableViewController, BuyCenterTableViewCel
       let cell = tableView.dequeueReusableCell(withIdentifier: buyCellReuseIdentifier, for: indexPath) as! BuyCenterTableViewCell
       let partnerData = partnerArray[indexPath.row]
         cell.partnerLabel.text = partnerData["title"] as? String
-        cell.financialDetailsLabel.text = (partnerData["details"] as? String)! + Currency.simplexRanges()
+        
+        if let details = partnerData["details"] as? String,
+            let color = partnerData["baseColor"] as? UIColor {
+                cell.financialDetailsLabel.text = details
+                cell.frameView.backgroundColor = color
+        } else {
+                NSLog("ERROR: Unable to retrieve partner details")
+        }
+        
         cell.logoImageView.image = partnerData["logo"] as? UIImage
-        cell.frameView.backgroundColor = (partnerData["baseColor"] as? UIColor)!
+        
         cell.delegate = self
       
      return cell

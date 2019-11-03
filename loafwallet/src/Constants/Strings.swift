@@ -171,7 +171,7 @@ enum S {
       static let buyModalTitle = NSLocalizedString("BuyCenter.ModalTitle", value: "Buy Łitecoin", comment: "Buy Modal Title")
       enum Cells {
         static let simplexTitle = NSLocalizedString("BuyCenter.simplexTitle", value: "Simplex", comment: "Simplex Title")
-        static let simplexFinancialDetails = NSLocalizedString("BuyCenter.simplexFinancialDetails", value: "• Use ID or Passport\n• Buy Litecoin via credit card\n• Buy with USD or EUR", comment: "Simplex buy financial details")
+        static let simplexFinancialDetails = NSLocalizedString("BuyCenter.simplexFinancialDetails", value: "• Get Litecoin in 5 mins!\n• Buy Litecoin via credit card\n• Passport or State ID", comment: "Simplex buy financial details")
         static let changellyTitle = NSLocalizedString("BuyCenter.changellyTitle", value: "Changelly", comment: "Changelly Title")
         static let changellyFinancialDetails = NSLocalizedString("BuyCenter.changellyFinancialDetails", value: "• Change Litecoin for other cryptos\n• No ID Required\n• Buy via credit card\n• Global coverage", comment: "Changelly buy financial details")
         static let bitrefillTitle = NSLocalizedString("BuyCenter.BitrefillTitle", value: "Bitrefill", comment: "Bitrefill Title")
@@ -251,7 +251,7 @@ enum S {
         static let unavailableAlertTitle = NSLocalizedString("TouchIdSettings.unavailableAlertTitle", value:"Touch ID Not Set Up", comment: "Touch ID unavailable alert title")
         static let unavailableAlertMessage = NSLocalizedString("TouchIdSettings.unavailableAlertMessage", value:"You have not set up Touch ID on this device. Go to Settings->Touch ID & Passcode to set it up now.", comment: "Touch ID unavailable alert message")
         static let spendingLimit = NSLocalizedString("TouchIdSettings.spendingLimit", value: "Spending limit: %1$@ (%2$@)", comment: "Spending Limit: b100,000 ($100)")
-        static let limitValue = NSLocalizedString("TouchIdSettings.spendingLimit", value: "%1$@ (%2$@)", comment: " ł100,000 ($100)")
+        static let limitValue = NSLocalizedString("TouchIdSettings.limitValue", value: "%1$@ (%2$@)", comment: " ł100,000 ($100)")
         static let customizeText = NSLocalizedString("TouchIdSettings.customizeText", value: "You can customize your Touch ID spending limit from the %1$@.", comment: "You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]")
         static let linkText = NSLocalizedString("TouchIdSettings.linkText", value: "Touch ID Spending Limit Screen", comment: "Link Text (see TouchIdSettings.customizeText)")
     }
@@ -580,9 +580,9 @@ enum S {
         static let send = NSLocalizedString("Confirmation.send", value: "Send", comment: "Send: (amount)")
         static let to = NSLocalizedString("Confirmation.to", value: "To", comment: "To: (address)")
         static let processingTime = NSLocalizedString("Confirmation.processingTime", value: "Processing time: This transaction will take %1$@ minutes to process.", comment: "eg. Processing time: This transaction will take 10-30 minutes to process.")
-         static let processingAndDonationTime = NSLocalizedString("Confirmation.processingTime", value: "Processing time: These transactions will take %1$@ minutes to process.", comment: "eg. Processing with Donation time: This transaction will take 10-30 minutes to process.")
+         static let processingAndDonationTime = NSLocalizedString("Confirmation.processingAndDonationTime", value: "Processing time: These transactions will take %1$@ minutes to process.", comment: "eg. Processing with Donation time: This transaction will take 10-30 minutes to process.")
         static let amountLabel = NSLocalizedString("Confirmation.amountLabel", value: "Amount to Send:", comment: "Amount to Send: ($1.00)")
-        static let donateLabel = NSLocalizedString("Confirmation.amountLabel", value: "Amount to Donate:", comment: "Amount to Donate: ($1.00)")
+        static let donateLabel = NSLocalizedString("Confirmation.donateLabel", value: "Amount to Donate:", comment: "Amount to Donate: ($1.00)")
         static let feeLabel = NSLocalizedString("Confirmation.feeLabel", value: "Network Fee:", comment: "Network Fee: ($1.00)")
         static let totalLabel = NSLocalizedString("Confirmation.totalLabel", value: "Total Cost:", comment: "Total Cost: ($5.00)")
     }
