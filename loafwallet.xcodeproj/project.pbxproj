@@ -1145,12 +1145,12 @@
 		24B8FADB2162D29100A155B1 /* general.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = general.css; sourceTree = "<group>"; };
 		24B8FADE2163C4D400A155B1 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		24CAE4F3236E45FA00E24A00 /* BIP39Words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BIP39Words.plist; sourceTree = "<group>"; };
-		24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Italic.ttf"; sourceTree = "<group>"; };
-		24D5F22622599C0A00225462 /* BarlowSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		24D5F22D22599C0A00225462 /* BarlowSemiCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Light.ttf"; sourceTree = "<group>"; };
-		24D5F23022599C0B00225462 /* BarlowSemiCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Medium.ttf"; sourceTree = "<group>"; };
-		24D5F23222599C0B00225462 /* BarlowSemiCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-Regular.ttf"; sourceTree = "<group>"; };
-		24D5F23422599C0B00225462 /* BarlowSemiCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowSemiCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
+		24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Italic.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Italic.ttf"; sourceTree = SOURCE_ROOT; };
+		24D5F22622599C0A00225462 /* BarlowSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Bold.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
+		24D5F22D22599C0A00225462 /* BarlowSemiCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Light.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Light.ttf"; sourceTree = SOURCE_ROOT; };
+		24D5F23022599C0B00225462 /* BarlowSemiCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Medium.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Medium.ttf"; sourceTree = SOURCE_ROOT; };
+		24D5F23222599C0B00225462 /* BarlowSemiCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Regular.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		24D5F23422599C0B00225462 /* BarlowSemiCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-SemiBold.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
 		24D5F26D225A5BEA00225462 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		24D91D0A2166923E0077A619 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		24D91D0D2166A5480077A619 /* TestnetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetData.swift; sourceTree = "<group>"; };
