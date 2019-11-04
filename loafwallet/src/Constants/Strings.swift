@@ -30,6 +30,11 @@ enum S {
             }
         }
     }
+    
+    enum Conjuction {
+        static let asOf = NSLocalizedString("Conjunction.asOf", value:"as of", comment: "as of a time or date")
+    }
+
 
     enum Button {
         static let ok = NSLocalizedString("Button.ok", value:"OK", comment: "OK button label")
