@@ -17,7 +17,6 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
     init(store: Store) {
         self.store = store
         self.isLtcSwapped = store.state.isLtcSwapped
-        self.priceTimestampLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
         if let rate = store.state.currentRate {
             self.exchangeRate = rate
             let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
@@ -25,6 +24,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
             self.currentLTCValueLabel = UpdatingLabel(formatter: oneLTCPlaceholder.localFormat)
             self.secondaryBalance = UpdatingLabel(formatter: placeholderAmount.localFormat)
             self.primaryBalance = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
+            self.priceTimestampLabel.text = DateFormatter.localizedString(from: rate.lastTimestamp, dateStyle: .short, timeStyle: .short)
         } else {
             self.secondaryBalance = UpdatingLabel(formatter: NumberFormatter())
             self.primaryBalance = UpdatingLabel(formatter: NumberFormatter())
@@ -74,10 +74,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         }
     }
     private var exchangeRate: Rate? {
-        didSet {
-            setBalances()
-            
-        }
+        didSet { setBalances() }
     }
     private var balance: UInt64 = 0 {
         didSet { setBalances() }
@@ -242,7 +239,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
                                 self.secondaryBalance.formatter = placeholderAmount.localFormat
                                 self.primaryBalance.formatter = placeholderAmount.ltcFormat
                                 self.currentLTCValueLabel.formatter = oneLTCPlaceholder.localFormat
-                                self.priceTimestampLabel.text =  DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
+                                self.priceTimestampLabel.text =  DateFormatter.localizedString(from: rate.lastTimestamp, dateStyle: .short, timeStyle: .short)
                             }
                             self.exchangeRate = $0.currentRate
                         })
@@ -267,7 +264,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
                         selector: {$0.walletState.balance != $1.walletState.balance },
                         callback: { state in
                             if let balance = state.walletState.balance {
-                                self.balance = 555555555//balance
+                                self.balance = balance
                             } })
     }
 
@@ -275,7 +272,8 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         guard let rate = exchangeRate else { return }
         let amount = Amount(amount: balance, rate: rate, maxDigits: store.state.maxDigits)
         let singleLtcAmount = Amount(amount: 100000000, rate: rate , maxDigits: store.state.maxDigits)
-
+        let timeStamp = rate.lastTimestamp
+        
         if !hasInitialized {
             let amount = Amount(amount: balance, rate: exchangeRate!, maxDigits: store.state.maxDigits)
             let singleLtcAmount = Amount(amount: 100000000, rate: rate , maxDigits: store.state.maxDigits)
@@ -322,7 +320,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
             })
             
             currentLTCValueLabel.setValue(singleLtcAmount.localAmount)
-
+            priceTimestampLabel.text = DateFormatter.localizedString(from: rate.lastTimestamp, dateStyle: .short, timeStyle: .short)
         }
     }
 
@@ -349,15 +347,16 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
           return
         }
         
-        var backgroundColor = UIColor.liteWalletBlue
+        var mainBackgroundColor = UIColor.liteWalletBlue
         if #available(iOS 11.0, *) {
             guard let mainColor = UIColor(named: "mainColor") else {
                 NSLog("ERROR: Main color")
                 return
             }
-            backgroundColor = mainColor
+            mainBackgroundColor = mainColor
         }
-        context.setFillColor(backgroundColor.cgColor)
+         
+        context.setFillColor(mainBackgroundColor.cgColor)
         context.fill(bounds)
     }
 
