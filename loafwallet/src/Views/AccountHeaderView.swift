@@ -115,9 +115,9 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         secondaryBalance.adjustsFontSizeToFitWidth = true
 
         currentLTCValueLabel.textColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.5)
-        currentLTCValueLabel.font = UIFont.customLight(size: 18)
+        currentLTCValueLabel.font = UIFont.barloweLight(size: 18)
         currentLTCValueLabel.adjustsFontSizeToFitWidth = true
-        priceTimestampLabel.font = UIFont.customLight(size: 11)
+        priceTimestampLabel.font = UIFont.barloweLight(size: 11)
         priceTimestampLabel.textColor = .whiteTint
         priceTimestampLabel.adjustsFontSizeToFitWidth = true
         
