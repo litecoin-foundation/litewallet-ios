@@ -311,6 +311,8 @@
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
 		2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
+		2485F7D223735858005962F1 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F7D123735858005962F1 /* Keys.swift */; };
+		2485F7D323735858005962F1 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F7D123735858005962F1 /* Keys.swift */; };
 		24A6DCFB2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24A6DCFC2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24AF00FD221B331D00FF636F /* WarningConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */; };
@@ -1136,6 +1138,7 @@
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
+		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		249F976C236EB3550045087A /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
@@ -3851,6 +3854,7 @@
 				CEE20C331EA5B4550086F724 /* ArticleIds.swift */,
 				CEE20C371EA5B4680086F724 /* Strings.swift */,
 				CE3D4C581EF743EF0016B1C8 /* Functions.swift */,
+				2485F7D123735858005962F1 /* Keys.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -4759,6 +4763,7 @@
 				1B86CDEE2091528B00BCE82E /* FeeSelector.swift in Sources */,
 				1B86CDEF2091528B00BCE82E /* ApplicationController.swift in Sources */,
 				1B86CDF02091528B00BCE82E /* BiometricsSettingsViewController.swift in Sources */,
+				2485F7D223735858005962F1 /* Keys.swift in Sources */,
 				1B86CDF12091528B00BCE82E /* StartWipeWalletViewController.swift in Sources */,
 				1B86CDF22091528B00BCE82E /* PaymentProtocol.swift in Sources */,
 				1B86CDF32091528B00BCE82E /* BRBSPatch.swift in Sources */,
@@ -5113,6 +5118,7 @@
 				CEAA9EA81DC3342E0066731D /* PinView.swift in Sources */,
 				CE1D84B61EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift in Sources */,
 				CE4B6C1A1E219CA600CF935B /* WalletCoordinator.swift in Sources */,
+				2485F7D323735858005962F1 /* Keys.swift in Sources */,
 				240A89B6235F7280005E2A2F /* DonationSetupCell.swift in Sources */,
 				CE6D0E5C1E14BFA700137DF1 /* KeyboardNotificationInfo.swift in Sources */,
 				CEA05CC31F21B53C00D850F0 /* FeeSelector.swift in Sources */,
