@@ -1100,6 +1100,12 @@
 /* Confirm paper phrase error message */
 "ConfirmPaperPhrase.error" = "";
 
+/* as of a time or date */
+"Conjunction.asOf" = "";
+
+/* No comment provided by engineer. */
+"Copy" = "";
+
 /* Donate Memo */
 "Donate.memo" = "";
 

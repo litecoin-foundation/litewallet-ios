@@ -573,12 +573,19 @@ class ModalPresenter : Subscriber, Trackable {
             paperPhraseNavigationController.present(verify, animated: true, completion: nil)
         })
         start.navigationItem.title = S.SecurityCenter.Cells.paperKeyTitle
-        let faqButton = UIButton.buildFaqButton(store: store, articleId: ArticleIds.paperKey)
-        faqButton.tintColor = .white
-        start.navigationItem.rightBarButtonItems = [UIBarButtonItem.negativePadding, UIBarButtonItem(customView: faqButton)]
+        
+        
+        var staticColor = UIColor()
+        
+        if #available(iOS 11.0, *),
+            let tempStaticColor = UIColor(named: "staticWhiteColor") {
+            staticColor = tempStaticColor
+        } else {
+            staticColor = .whiteTint
+        }
         
         if UserDefaults.writePaperPhraseDate != nil {
-            start.addCloseNavigationItem(tintColor: .white)
+            start.addCloseNavigationItem(tintColor: staticColor)
         } else {
             start.hideCloseNavigationItem()
         }

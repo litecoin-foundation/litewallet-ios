@@ -31,7 +31,7 @@ class StartViewController : UIViewController {
         image.contentMode = .scaleAspectFit
         return image
     }()
-    private let versionLabel = UILabel(font: .barloweLight(size: 14), color: .transparentWhite)
+    private let versionLabel = UILabel(font: .barloweMedium(size: 14), color: .transparentWhite)
 
     override func viewDidLoad() {
         view.backgroundColor = .white
@@ -48,6 +48,18 @@ class StartViewController : UIViewController {
         message.textAlignment = .center
         versionLabel.text = AppVersion.string
         versionLabel.textAlignment = .right
+        message.textColor = .white
+        versionLabel.textColor = .white
+
+        if #available(iOS 11.0, *) {
+            guard let mainColor = UIColor(named: "mainColor") else {
+                NSLog("ERROR: Custom color not found")
+                return
+            }
+            view.backgroundColor = mainColor
+        } else {
+            view.backgroundColor = .liteWalletBlue
+        }
     }
 
     private func addSubviews() {

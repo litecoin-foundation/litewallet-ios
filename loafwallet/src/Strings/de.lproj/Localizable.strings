@@ -131,6 +131,9 @@
 /* BitID Authentication Request alert view title */
 "BitID.title" = "BitID-Authentifizierungsanfrage";
 
+/* buy button */
+"Button.buy" = "kaufen";
+
 /* Cancel button label */
 "Button.cancel" = "Abbrechen";
 
@@ -161,14 +164,50 @@
 /* Yes button */
 "Button.yes" = "Ja";
 
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "Vergessen Sie Ihre Startphrase oder PIN?";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "- Geschenkgutscheine kaufen\n - Prepaid-Telefone nachfüllen\n - Steam, Amazon, Hotels.com\n - Arbeiten in 170 Ländern";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Coinbase buy financial details */
+"BuyCenter.coinbaseFinancialDetails" = "•  Kaufen Sie Litecoin\n • Erhältlich in 33 Ländern\n • Handeln und lagern Sie Ihre Litecoin\n • Einfach für Kryptowährungsanfänger";
+
+/* Coinbase Title */
+"BuyCenter.CoinbaseTitle" = "Coinbase";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "Kaufen Sie Łitecoin";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• Holen Sie sich Litecoin in 5 Minuten!\n• Kaufen Sie Litecoin per Kreditkarte\n• Reisepass oder Staatsausweis.";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "Kaufen Sie Łitecoin";
+
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "Zentriere deinen Ausweis im Rechteck";
 
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "Betrag, welcher versendet werden soll:";
 
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "Zu spendender Betrag:";
+
 /* Network Fee: ($1.00) */
 "Confirmation.feeLabel" = "Netzwerkgebühr:";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "Verarbeitungszeit: Die Bearbeitung dieser Transaktionen dauert %1$@ Minuten.";
 
 /* eg. Processing time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingTime" = "Verarbeitungszeit: Die Verarbeitung dieser Transaktion wird %1$@ Minuten dauern.";
@@ -185,6 +224,9 @@
 /* Total Cost: ($5.00) */
 "Confirmation.totalLabel" = "Gesamtkosten:";
 
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "Die eingegebenen Wörter stimmen nicht mit Ihrem Papierschlüssel überein. Bitte versuchen Sie es erneut.";
+
 /* Confirm paper phrase view label. */
 "ConfirmPaperPhrase.label" = "Um sicherzustellen, dass alles korrekt notiert worden ist, gib bitte die folgenden Wörter deines Offlineschlüssels ein.";
 
@@ -196,6 +238,15 @@
 
 /* Exchange rate label */
 "DefaultCurrency.rateLabel" = "Wechselkurs";
+
+/* Donate Memo */
+"Donate.memo" = "Spende an die Litecoin Foundation";
+
+/* Donate to the Litecoin Foundation */
+"Donate.title" = "Spenden Sie an die Litecoin Foundation!";
+
+/* Donate Confirmation */
+"Donate.title.confirmation" = "Spendenbestätigung";
 
 /* Email unavailable alert title */
 "ErrorMessages.emailUnavailableMessage" = "Dieses Gerät ist nicht dafür eingerichtet, E-Mails mit der iOS-Mail-App zu versenden.";
@@ -287,6 +338,9 @@
 /* Enter password alert view title */
 "Import.password" = "Dieser private Schlüssel ist passwortgeschützt.";
 
+/* password textfield placeholder */
+"Import.passwordPlaceholder" = "Passwort";
+
 /* Caption for graphics */
 "Import.rightCaption" = "Dein Litewallet";
 
@@ -335,6 +389,9 @@
 /* No permissions for location services */
 "LocationPlugin.notAuthorized" = "Litewallet fehlt die Berechtigung, um auf die Standortdienste zuzugreifen.";
 
+/* No comment provided by engineer. */
+"Malformed URI" = "Fehlgestalteter URI";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Du hast dein Wallet am %1$@ erstellt";
 
@@ -370,6 +427,9 @@
 
 /* button label */
 "MenuViewController.recoverButton" = "Wallet wiederherstellen";
+
+/* No comment provided by engineer. */
+"No wallet" = "Keine Brieftasche";
 
 /* Switch to automatic mode button label */
 "NodeSelector.automaticButton" = "Zum automatischen Modus wechseln";
@@ -575,6 +635,12 @@
 /* Subheader label */
 "ReScan.subheader2" = "Wann soll synchronisiert werden?";
 
+/* Reset walet button  title */
+"resetButton" = "Ja, Wallet zurücksetzen";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "Leeres Wallet zurücksetzen";
+
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Kamerablitz";
 
@@ -647,6 +713,9 @@
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "die Identität des Zahlungsempfängers ist nicht bestätigt.";
 
+/* Insufficient funds error */
+"Send.insufficientFunds" = "Unzureichende Mittel";
+
 /* Invalid address alert message */
 "Send.invalidAddressMessage" = "Die Zieladresse ist keine gültige Litecoin-Adresse.";
 
@@ -704,6 +773,9 @@
 /* Advanced Settings title */
 "Settings.advancedTitle" = "Erweiterte Einstellungen";
 
+/* Blockchain settings section header */
+"Settings.blockchain" = "Blockchain";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Anzeigewährung";
 
@@ -731,6 +803,9 @@
 /* Share anonymous data label */
 "Settings.shareData" = "Übermittle anonyme Nutzungsdaten";
 
+/* Support settings section header */
+"Settings.support" = "Unterstützung";
+
 /* Sync blockchain label */
 "Settings.sync" = "Blockchain-Synchronisation";
 
@@ -754,6 +829,9 @@
 
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Anonyme Nutzungsdaten übermitteln?";
+
+/* Current spending limit: */
+"SpendingLimit.title" = "Aktuelles Ausgabenlimit:";
 
 /* button label */
 "StartPaperPhrase.againButtonTitle" = "Offlineschlüssel erneut notieren";
@@ -799,6 +877,9 @@
 
 /* Touch Id screen label */
 "TouchIdSettings.label" = "Nutze deinen Fingerabdruck, um dein Litewallet zu entsperren und Geld bis zu einer festlegbaren Höchstgrenze zu versenden.";
+
+/*  ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
 
 /* Link Text (see TouchIdSettings.customizeText) */
 "TouchIdSettings.linkText" = "Bildschirm für Touch-ID-Ausgabenmaximum";
@@ -926,6 +1007,9 @@
 /* Disabled until date */
 "UnlockScreen.disabled" = "Deaktiviert bis: %1$@";
 
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "Entsperren mit FaceID";
+
 /* My Address button title */
 "UnlockScreen.myAddress" = "Meine Adresse";
 
@@ -1025,6 +1109,9 @@
 /* Wipe wallet alert title */
 "WipeWallet.alertTitle" = "Wallet löschen?";
 
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "Vergessen Sie Ihre Startphrase oder PIN?";
+
 /* Failed wipe wallet alert message */
 "WipeWallet.failedMessage" = "Wallet konnte nicht gelöscht werden.";
 
@@ -1042,6 +1129,15 @@
 
 /* Wipe wallet navigation item title. */
 "WipeWallet.title" = "Ein anderes Wallet beginnen oder wiederherstellen";
+
+/* Warning Alert */
+"WipeWallet.warningAlert" = "VERLIEREN SIE ES NICHT!";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "Dein LiteWallet ist leer. Beim Zurücksetzen wird der alte private Schlüssel gelöscht und die App-Daten gelöscht.  Bereiten Sie sich nach dem Zurücksetzen darauf vor, die neuen 12 Wörter aufzunehmen und an einem sehr sicheren Ort aufzubewahren.  Kein Entwickler von LiteWallet kann diesen Samen für Sie abrufen.";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "BITTE LESEN!";
 
 /* Wipe wallet button title */
 "WipeWallet.wipe" = "Löschen";
@@ -1061,98 +1157,8 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
 
-/* buy button */
-"Button.buy" = "kaufen";
-
-/* Bitrefill buy financial details */
-"BuyCenter.bitrefillFinancialDetails" = "Vergessen Sie Ihre Startphrase oder PIN?";
-
-/* Bitrefill Title */
-"BuyCenter.BitrefillTitle" = "Bitrefill";
-
-/* Changelly buy financial details */
-"BuyCenter.changellyFinancialDetails" = "- Geschenkgutscheine kaufen\n - Prepaid-Telefone nachfüllen\n - Steam, Amazon, Hotels.com\n - Arbeiten in 170 Ländern";
-
-/* Changelly Title */
-"BuyCenter.changellyTitle" = "Changelly";
-
-/* Coinbase buy financial details */
-"BuyCenter.coinbaseFinancialDetails" = "•  Kaufen Sie Litecoin\n • Erhältlich in 33 Ländern\n • Handeln und lagern Sie Ihre Litecoin\n • Einfach für Kryptowährungsanfänger";
-
-/* Coinbase Title */
-"BuyCenter.CoinbaseTitle" = "Coinbase";
-
-/* Buy Modal Title */
-"BuyCenter.ModalTitle" = "Kaufen Sie Łitecoin";
-
-/* Simplex buy financial details */
-"BuyCenter.simplexFinancialDetails" = "• Holen Sie sich Litecoin in 5 Minuten!\n• Kaufen Sie Litecoin per Kreditkarte\n• Reisepass oder Staatsausweis.";
-
-/* Simplex Title */
-"BuyCenter.simplexTitle" = "Simplex";
-
-/* Buy Center Title */
-"BuyCenter.title" = "Kaufen Sie Łitecoin";
-
-/* Amount to Donate: ($1.00) */
-"Confirmation.donateLabel" = "Zu spendender Betrag:";
-
-/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
-"Confirmation.processingAndDonationTime" = "Verarbeitungszeit: Die Bearbeitung dieser Transaktionen dauert %1$@ Minuten.";
-
-/* Confirm paper phrase error message */
-"ConfirmPaperPhrase.error" = "Die eingegebenen Wörter stimmen nicht mit Ihrem Papierschlüssel überein. Bitte versuchen Sie es erneut.";
-
-/* Donate Memo */
-"Donate.memo" = "Spende an die Litecoin Foundation";
-
-/* Donate to the Litecoin Foundation */
-"Donate.title" = "Spenden Sie an die Litecoin Foundation!";
-
-/* Donate Confirmation */
-"Donate.title.confirmation" = "Spendenbestätigung";
-
-/* password textfield placeholder */
-"Import.passwordPlaceholder" = "Passwort";
+/* as of a time or date */
+"Conjunction.asOf" = "";
 
 /* No comment provided by engineer. */
-"Malformed URI" = "Fehlgestalteter URI";
-
-/* No comment provided by engineer. */
-"No wallet" = "Keine Brieftasche";
-
-/* Reset walet button  title */
-"resetButton" = "Ja, Wallet zurücksetzen";
-
-/* Warning Empty Wipe title */
-"resetTitle" = "Leeres Wallet zurücksetzen";
-
-/* Insufficient funds error */
-"Send.insufficientFunds" = "Unzureichende Mittel";
-
-/* Blockchain settings section header */
-"Settings.blockchain" = "Blockchain";
-
-/* Support settings section header */
-"Settings.support" = "Unterstützung";
-
-/* Current spending limit: */
-"SpendingLimit.title" = "Aktuelles Ausgabenlimit:";
-
-/*  ł100,000 ($100) */
-"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
-
-/* Unlock with FaceID accessibility label */
-"UnlockScreen.faceIdText" = "Entsperren mit FaceID";
-
-/* Warning if user lost phrase */
-"WipeWallet.emptyWallet" = "Vergessen Sie Ihre Startphrase oder PIN?";
-
-/* Warning Alert */
-"WipeWallet.warningAlert" = "VERLIEREN SIE ES NICHT!";
-
-/* Warning description */
-"WipeWallet.warningDescription" = "Dein LiteWallet ist leer. Beim Zurücksetzen wird der alte private Schlüssel gelöscht und die App-Daten gelöscht.  Bereiten Sie sich nach dem Zurücksetzen darauf vor, die neuen 12 Wörter aufzunehmen und an einem sehr sicheren Ort aufzubewahren.  Kein Entwickler von LiteWallet kann diesen Samen für Sie abrufen.";
-
-/* Warning title */
-"WipeWallet.warningTitle" = "BITTE LESEN!";
+"Copy" = "";

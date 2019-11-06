@@ -834,7 +834,7 @@
 "StartPaperPhrase.againButtonTitle" = "Write Down Paper Key Again";
 
 /* Paper key explanation text. */
-"StartPaperPhrase.body" = "Your paper key is the only way to restore your Litewallet if your phone is lost, stolen, broken, or upgraded.\n\nWe will show you a list of words to write down on a piece of paper and keep safe.";
+"StartPaperPhrase.body" = "Your paper key is the only way to restore your Litewallet if your phone is unavailable.\nNo one in the Litecoin Foundation team can give this paper key to you.\n\nWe will show you a list of words to write down on a piece of paper and keep safe.\n\nPLEASE MAKE BACKUPS AND DON'T LOSE IT!";
 
 /* button label */
 "StartPaperPhrase.buttonTitle" = "Write Down Paper Key";
@@ -1150,6 +1150,12 @@
 
 /* Terms of Use button label */
 "About.terms" = "";
+
+/* as of a time or date */
+"Conjunction.asOf" = "";
+
+/* No comment provided by engineer. */
+"Copy" = "";
 
 /* Syncing view header text */
 "SyncingView.header" = "";

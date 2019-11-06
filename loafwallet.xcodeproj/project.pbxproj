@@ -309,6 +309,8 @@
 		240A89B6235F7280005E2A2F /* DonationSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A89B4235F7280005E2A2F /* DonationSetupCell.swift */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
+		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
+		2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
 		24A6DCFB2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24A6DCFC2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24AF00FD221B331D00FF636F /* WarningConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */; };
@@ -1133,6 +1135,7 @@
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
+		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		249F976C236EB3550045087A /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
@@ -3360,6 +3363,7 @@
 				75A2A79F1DA5934300A983D8 /* Info.plist */,
 				1B86CEBE2091538B00BCE82E /* Dev.plist */,
 				24CAE4F3236E45FA00E24A00 /* BIP39Words.plist */,
+				2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */,
 			);
 			path = loafwallet;
 			sourceTree = "<group>";
@@ -4413,6 +4417,7 @@
 				1B86CEA42091528B00BCE82E /* Localizable.strings in Resources */,
 				24B8FADD2162D29100A155B1 /* general.css in Resources */,
 				1B86CEA62091528B00BCE82E /* CircularPro-Medium.otf in Resources */,
+				2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */,
 				24D5F25E22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,
 				1B86CEA72091528B00BCE82E /* CircularPro-Bold.otf in Resources */,
 				1B86CEA92091528B00BCE82E /* Assets.xcassets in Resources */,
@@ -4477,6 +4482,7 @@
 				24D5F25022599C0B00225462 /* BarlowSemiCondensed-Light.ttf in Resources */,
 				CE29901A1EFD6DE50093A0F2 /* Localizable.strings in Resources */,
 				24B8FADC2162D29100A155B1 /* general.css in Resources */,
+				2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */,
 				CEAA9EA41DC2FC700066731D /* CircularPro-Medium.otf in Resources */,
 				24CAE4F4236E45FB00E24A00 /* BIP39Words.plist in Resources */,
 				24D5F25F22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,

@@ -1146,3 +1146,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
+
+/* as of a time or date */
+"Conjunction.asOf" = "";
+
+/* No comment provided by engineer. */
+"Copy" = "";
