@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 private let largeFontSize: CGFloat = 24.0
 private let smallFontSize: CGFloat = 13.0
@@ -240,6 +241,10 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
                                 self.primaryBalance.formatter = placeholderAmount.ltcFormat
                                 self.currentLTCValueLabel.formatter = oneLTCPlaceholder.localFormat
                                 self.priceTimestampLabel.text =  DateFormatter.localizedString(from: rate.lastTimestamp, dateStyle: .short, timeStyle: .short)
+                                 
+                                Mixpanel.mainInstance().track(event: K.MixpanelEvents._20191105_DULP.rawValue,
+                                                              properties: ["priceInfo" : ["price": String(format:"%2.2f USD",oneLTCPlaceholder.localAmount * 100),
+                                                                           "timestamp" : self.priceTimestampLabel.text ?? "--time--"]])
                             }
                             self.exchangeRate = $0.currentRate
                         })

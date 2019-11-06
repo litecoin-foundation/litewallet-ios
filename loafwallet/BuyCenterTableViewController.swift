@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 let buyCellReuseIdentifier = "buyCell"
 
@@ -38,6 +39,7 @@ class BuyCenterTableViewController: UITableViewController, BuyCenterTableViewCel
       self.tableView.register(BuyCenterTableViewCell.self, forCellReuseIdentifier: buyCellReuseIdentifier)
       self.tableView.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1) // #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
       self.clearsSelectionOnViewWillAppear = false
+      Mixpanel.mainInstance().track(event: K.MixpanelEvents._20191105_DTBT.rawValue, properties: nil)
     }
 
     override func didReceiveMemoryWarning() {
