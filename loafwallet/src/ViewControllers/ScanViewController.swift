@@ -178,7 +178,10 @@ extension ScanViewController : AVCaptureMetadataOutputObjectsDelegate {
                 guide.state = .normal
             } else {
                 data.forEach {
-                    guard let uri = $0.stringValue else { return }
+                    guard let uri = $0.stringValue else {
+                        NSLog("ERROR: URI String not found")
+                        return
+                    }
                     if completion != nil {
                         handleURI(uri)
                     } else if scanKeyCompletion != nil {
@@ -186,12 +189,15 @@ extension ScanViewController : AVCaptureMetadataOutputObjectsDelegate {
                     }
                 }
             }
+        } else {
+            NSLog("ERROR: data metadata objects not accesses")
         }
     }
 
     func handleURI(_ uri: String) {
         if self.currentUri != uri {
             self.currentUri = uri
+            print("URI: \(uri)")
             if let paymentRequest = PaymentRequest(string: uri) {
                 saveEvent("scan.litecoinUri")
                 guide.state = .positive
@@ -207,13 +213,15 @@ extension ScanViewController : AVCaptureMetadataOutputObjectsDelegate {
         }
     }
 
-    func handleKey(_ address: String) {
-        if isValidURI(address) {
+    func handleKey(_ keyString: String) {
+
+        print("ADDRESS: \(keyString)")
+        if isValidURI(keyString) {
             saveEvent("scan.privateKey")
             guide.state = .positive
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                 self.dismiss(animated: true, completion: {
-                    self.scanKeyCompletion?(address)
+                    self.scanKeyCompletion?(keyString)
                 })
             })
         } else {

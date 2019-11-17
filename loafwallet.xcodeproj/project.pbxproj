@@ -307,6 +307,10 @@
 		22E773041EE7813000397E0E /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E773031EE7813000397E0E /* Bonjour.swift */; };
 		240A89B5235F7280005E2A2F /* DonationSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A89B4235F7280005E2A2F /* DonationSetupCell.swift */; };
 		240A89B6235F7280005E2A2F /* DonationSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A89B4235F7280005E2A2F /* DonationSetupCell.swift */; };
+		242734292381C1C300E2D22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242734282381C1C200E2D22F /* Main.storyboard */; };
+		2427342A2381C1C300E2D22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242734282381C1C200E2D22F /* Main.storyboard */; };
+		2427342C2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
+		2427342D2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
@@ -1137,6 +1141,8 @@
 		22C431351DF8A6DF0017CAEA /* BRAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRAPIClientTests.swift; sourceTree = "<group>"; };
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
+		242734282381C1C200E2D22F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2427342B2381C21800E2D22F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -2525,6 +2531,7 @@
 			isa = PBXGroup;
 			children = (
 				24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */,
+				242734282381C1C200E2D22F /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -3520,6 +3527,7 @@
 				24C516502158820E007CE038 /* BuyCenter */,
 				CE760ED71E55F9E000EFAC2B /* SecurityCenter */,
 				CEBF32EF1DDCD30600348FC6 /* AccountViewController.swift */,
+				2427342B2381C21800E2D22F /* MainViewController.swift */,
 				CE20C9061DBC587200C8397A /* StartViewController.swift */,
 				CEAA9E8E1DC074410066731D /* StartPaperPhraseViewController.swift */,
 				CEAA9E921DC110E70066731D /* WritePaperPhraseViewController.swift */,
@@ -3871,7 +3879,6 @@
 				646DF58AAF164153D75531F9 /* Pods-loafwalletUITests.release.xcconfig */,
 				18009E4E15F57315ECD92458 /* Pods-loafwalletUITests.testflight.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -4404,6 +4411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242734292381C1C300E2D22F /* Main.storyboard in Resources */,
 				24B8FAD82162B6FB00A155B1 /* bitrefill_index.html in Resources */,
 				1B86CE9F2091528B00BCE82E /* LaunchScreen.storyboard in Resources */,
 				24D5F23722599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */,
@@ -4475,6 +4483,7 @@
 				24D5F23822599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */,
 				CEAA9EA31DC2FC700066731D /* CircularPro-Book.otf in Resources */,
 				24D5F25922599C0B00225462 /* BarlowSemiCondensed-Medium.ttf in Resources */,
+				2427342A2381C1C300E2D22F /* Main.storyboard in Resources */,
 				222319B21F279B3C00008F20 /* POSTBouncer.html in Resources */,
 				24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */,
 				24D5F23B22599C0B00225462 /* BarlowSemiCondensed-Bold.ttf in Resources */,
@@ -4803,6 +4812,7 @@
 				1B86CE152091528B00BCE82E /* Setting.swift in Sources */,
 				1B86CE162091528B00BCE82E /* LoadingProgressView.swift in Sources */,
 				1B86CE172091528B00BCE82E /* ManageWalletViewController.swift in Sources */,
+				2427342C2381C21800E2D22F /* MainViewController.swift in Sources */,
 				1B86CE182091528B00BCE82E /* String+Keys.swift in Sources */,
 				1B86CE192091528B00BCE82E /* PresentModalAnimator.swift in Sources */,
 				1B86CE1A2091528B00BCE82E /* UILabel+BRWAdditions.swift in Sources */,
@@ -5179,6 +5189,7 @@
 				22A9A9521DF61945000F0016 /* BRKVStorePlugin.swift in Sources */,
 				CEAFC8611E5D5B0500E4FD06 /* SegmentedButton.swift in Sources */,
 				CE30F0E61EB27844004B8EE5 /* PhoneWCSessionManager.swift in Sources */,
+				2427342D2381C21800E2D22F /* MainViewController.swift in Sources */,
 				7503773D1DF57428005EB8AE /* WalletManager+Auth.swift in Sources */,
 				22A9A9581DF61945000F0016 /* BRWebViewController.swift in Sources */,
 				CEC4CF091F0C84AB00E5C82E /* UIViewController+Alerts.swift in Sources */,
