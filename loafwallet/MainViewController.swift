@@ -57,14 +57,14 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     override func viewDidLoad() {
        
        
-        self.navigationController?.navigationBar.tintColor = .litecoinBlue
+        self.navigationController?.navigationBar.tintColor = .liteWalletBlue
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.darkText,
             NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
         ]
         //self.navigationController?.setClearNavbar()
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = .litecoinBlue
+        self.navigationController?.navigationBar.barTintColor = .liteWalletBlue
         self.loginView.delegate = self
        
         // detect jailbreak so we can throw up an idiot warning, in viewDidLoad so it can't easily be swizzled out
@@ -78,7 +78,7 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
                     isJailbroken = true
                 }
             }
-            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { note in
+            NotificationCenter.default.addObserver(forName: UIApplication.NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: nil) { note in
                 self.showJailbreakWarnings(isJailbroken: isJailbroken)
             }
             showJailbreakWarnings(isJailbroken: isJailbroken)

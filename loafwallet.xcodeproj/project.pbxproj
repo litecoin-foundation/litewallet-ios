@@ -190,7 +190,7 @@
 		1B86CE7B2091528B00BCE82E /* StartImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E5F251EF083A600BD0F72 /* StartImportViewController.swift */; };
 		1B86CE7C2091528B00BCE82E /* MessageUIPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25BF921DFDA7A500BC67B6 /* MessageUIPresenter.swift */; };
 		1B86CE7D2091528B00BCE82E /* StartFlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C90B1DBC59E600C8397A /* StartFlowPresenter.swift */; };
-		1B86CE7E2091528B00BCE82E /* UIColor+BRWAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8FB1DBB0F3A00C8397A /* UIColor+BRWAdditions.swift */; };
+		1B86CE7E2091528B00BCE82E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8FB1DBB0F3A00C8397A /* UIColor+Extension.swift */; };
 		1B86CE7F2091528B00BCE82E /* CGContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA362691E01150D0061FC0E /* CGContext+Additions.swift */; };
 		1B86CE802091528B00BCE82E /* BRReplicatedKVStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9A9401DF61945000F0016 /* BRReplicatedKVStore.swift */; };
 		1B86CE812091528B00BCE82E /* SecurityCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B6B491E54C0CA00B31405 /* SecurityCenterCell.swift */; };
@@ -311,6 +311,10 @@
 		2427342A2381C1C300E2D22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242734282381C1C200E2D22F /* Main.storyboard */; };
 		2427342C2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
 		2427342D2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
+		24313C742381E73200A83F69 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C732381E73200A83F69 /* TransactionManager.swift */; };
+		24313C752381E73200A83F69 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C732381E73200A83F69 /* TransactionManager.swift */; };
+		24313C772381E8F100A83F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C762381E8F100A83F69 /* TabBarViewController.swift */; };
+		24313C782381E8F100A83F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C762381E8F100A83F69 /* TabBarViewController.swift */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
@@ -528,7 +532,7 @@
 		CE1E5F261EF083A600BD0F72 /* StartImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E5F251EF083A600BD0F72 /* StartImportViewController.swift */; };
 		CE20C8F21DBAF71500C8397A /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8F11DBAF71500C8397A /* ApplicationController.swift */; };
 		CE20C8F61DBAF77D00C8397A /* UIViewController+BRWAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8F51DBAF77D00C8397A /* UIViewController+BRWAdditions.swift */; };
-		CE20C8FC1DBB0F3A00C8397A /* UIColor+BRWAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8FB1DBB0F3A00C8397A /* UIColor+BRWAdditions.swift */; };
+		CE20C8FC1DBB0F3A00C8397A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8FB1DBB0F3A00C8397A /* UIColor+Extension.swift */; };
 		CE20C8FE1DBB133A00C8397A /* SimpleRedux.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8FD1DBB133A00C8397A /* SimpleRedux.swift */; };
 		CE20C9011DBBFFF800C8397A /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C9001DBBFFF800C8397A /* Actions.swift */; };
 		CE20C9071DBC587200C8397A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C9061DBC587200C8397A /* StartViewController.swift */; };
@@ -1143,6 +1147,8 @@
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
 		242734282381C1C200E2D22F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2427342B2381C21800E2D22F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		24313C732381E73200A83F69 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
+		24313C762381E8F100A83F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -1867,7 +1873,7 @@
 		CE1E5F251EF083A600BD0F72 /* StartImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartImportViewController.swift; path = src/ViewControllers/Import/StartImportViewController.swift; sourceTree = "<group>"; };
 		CE20C8F11DBAF71500C8397A /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationController.swift; path = src/ApplicationController.swift; sourceTree = "<group>"; };
 		CE20C8F51DBAF77D00C8397A /* UIViewController+BRWAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+BRWAdditions.swift"; path = "src/Extensions/UIViewController+BRWAdditions.swift"; sourceTree = "<group>"; };
-		CE20C8FB1DBB0F3A00C8397A /* UIColor+BRWAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+BRWAdditions.swift"; path = "src/Extensions/UIColor+BRWAdditions.swift"; sourceTree = "<group>"; };
+		CE20C8FB1DBB0F3A00C8397A /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "src/Extensions/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CE20C8FD1DBB133A00C8397A /* SimpleRedux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleRedux.swift; path = src/SimpleRedux.swift; sourceTree = "<group>"; };
 		CE20C9001DBBFFF800C8397A /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = src/SimpleRedux/Actions.swift; sourceTree = "<group>"; };
 		CE20C9061DBC587200C8397A /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = src/ViewControllers/StartViewController.swift; sourceTree = "<group>"; };
@@ -3558,6 +3564,7 @@
 				1BEA7DDA2142CAA00081602F /* WebViewContainer.swift */,
 				24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */,
 				24D5F26D225A5BEA00225462 /* ContainerViewController.swift */,
+				24313C762381E8F100A83F69 /* TabBarViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -3566,7 +3573,7 @@
 			isa = PBXGroup;
 			children = (
 				CE20C8F51DBAF77D00C8397A /* UIViewController+BRWAdditions.swift */,
-				CE20C8FB1DBB0F3A00C8397A /* UIColor+BRWAdditions.swift */,
+				CE20C8FB1DBB0F3A00C8397A /* UIColor+Extension.swift */,
 				CE20C90D1DBE52B000C8397A /* UIView+BRWAdditions.swift */,
 				CE20C9161DBE6F2A00C8397A /* UIButton+BRWAdditions.swift */,
 				CEAA9E901DC0FDFE0066731D /* UIViewPropertyAnimator+BRWAdditions.swift */,
@@ -3726,6 +3733,7 @@
 				24D91D0D2166A5480077A619 /* TestnetData.swift */,
 				24B8FAC3216128A000A155B1 /* PartnerData.swift */,
 				24B8FADE2163C4D400A155B1 /* Currency.swift */,
+				24313C732381E73200A83F69 /* TransactionManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -4794,6 +4802,7 @@
 				1B86CE062091528B00BCE82E /* StartPaperPhraseViewController.swift in Sources */,
 				1B86CE072091528B00BCE82E /* BiometricsSpendingLimitViewController.swift in Sources */,
 				1B86CE082091528B00BCE82E /* PaymentRequest.swift in Sources */,
+				24313C742381E73200A83F69 /* TransactionManager.swift in Sources */,
 				24AF0100221B349100FF636F /* WarningConfirmationViewController.swift in Sources */,
 				1B86CE092091528B00BCE82E /* URLController.swift in Sources */,
 				1B86CE0A2091528B00BCE82E /* UIButton+BRWAdditions.swift in Sources */,
@@ -4860,6 +4869,7 @@
 				1B86CE402091528B00BCE82E /* RoundedContainer.swift in Sources */,
 				1B86CE412091528B00BCE82E /* MenuViewController.swift in Sources */,
 				1B86CE422091528B00BCE82E /* SettingsViewController.swift in Sources */,
+				24313C772381E8F100A83F69 /* TabBarViewController.swift in Sources */,
 				1B86CE432091528B00BCE82E /* RequestAmountViewController.swift in Sources */,
 				1B86CE442091528B00BCE82E /* VerifyPinViewController.swift in Sources */,
 				1B86CE452091528B00BCE82E /* UserDefaultsUpdater.swift in Sources */,
@@ -4921,7 +4931,7 @@
 				1B86CE7B2091528B00BCE82E /* StartImportViewController.swift in Sources */,
 				1B86CE7C2091528B00BCE82E /* MessageUIPresenter.swift in Sources */,
 				1B86CE7D2091528B00BCE82E /* StartFlowPresenter.swift in Sources */,
-				1B86CE7E2091528B00BCE82E /* UIColor+BRWAdditions.swift in Sources */,
+				1B86CE7E2091528B00BCE82E /* UIColor+Extension.swift in Sources */,
 				1B86CE7F2091528B00BCE82E /* CGContext+Additions.swift in Sources */,
 				1B86CE802091528B00BCE82E /* BRReplicatedKVStore.swift in Sources */,
 				1B86CE812091528B00BCE82E /* SecurityCenterCell.swift in Sources */,
@@ -5090,6 +5100,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24313C782381E8F100A83F69 /* TabBarViewController.swift in Sources */,
 				CEBF29301EF9D76F005C330A /* Environment.swift in Sources */,
 				CEC6AA4D1DF0741100EE5AFD /* ModalDisplayable.swift in Sources */,
 				CED811E11EB302DA003A8D1E /* WatchData.swift in Sources */,
@@ -5212,6 +5223,7 @@
 				CECCE5A91E0378FB00D99448 /* PinPadViewController.swift in Sources */,
 				CEF3D2DB1E8B55C80070178E /* UISlider+Gradient.swift in Sources */,
 				CEC6AA4B1DEFD24C00EE5AFD /* MenuButtonType.swift in Sources */,
+				24313C752381E73200A83F69 /* TransactionManager.swift in Sources */,
 				CE4CA7BC1EE3649100373F11 /* BRActivityView.swift in Sources */,
 				CEC6AA421DEFC88F00EE5AFD /* ReceiveViewController.swift in Sources */,
 				CEE20C2D1EA288FA0086F724 /* UpdatingLabel.swift in Sources */,
@@ -5282,7 +5294,7 @@
 				CE1E5F261EF083A600BD0F72 /* StartImportViewController.swift in Sources */,
 				CE25BF931DFDA7A600BC67B6 /* MessageUIPresenter.swift in Sources */,
 				CE20C90C1DBC59E600C8397A /* StartFlowPresenter.swift in Sources */,
-				CE20C8FC1DBB0F3A00C8397A /* UIColor+BRWAdditions.swift in Sources */,
+				CE20C8FC1DBB0F3A00C8397A /* UIColor+Extension.swift in Sources */,
 				CEA3626A1E01150D0061FC0E /* CGContext+Additions.swift in Sources */,
 				22A9A9541DF61945000F0016 /* BRReplicatedKVStore.swift in Sources */,
 				CE6B6B4A1E54C0CB00B31405 /* SecurityCenterCell.swift in Sources */,

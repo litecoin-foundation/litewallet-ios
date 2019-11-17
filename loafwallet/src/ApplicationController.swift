@@ -227,10 +227,10 @@ class ApplicationController : Subscriber, Trackable {
         }
 
         private func setupAppearance() {
-         let tabBar = UITabBar.appearance()
-         tabBar.barTintColor = UIColor.litecoinBlue
-         tabBar.unselectedItemTintColor = #colorLiteral(red: 0.7764705882, green: 0.7764705882, blue: 0.7843137255, alpha: 0.5)
-         tabBar.tintColor = .white
+            let tabBar = UITabBar.appearance()
+            tabBar.barTintColor = .liteWalletBlue
+            tabBar.unselectedItemTintColor = #colorLiteral(red: 0.7764705882, green: 0.7764705882, blue: 0.7843137255, alpha: 0.5)
+            tabBar.tintColor = .white
         }
 
         private func setupRootViewController() {
