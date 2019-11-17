@@ -7,24 +7,221 @@
 //
 
 import UIKit
+import BRCore
+import MachO
 
-class MainViewController: UIViewController {
+private let transactionsLoadingViewHeightConstant: CGFloat = 48.0
 
+class MainViewController : UIViewController, Subscriber, LoginViewControllerDelegate {
+
+    //MARK: - Private
+    private let store: Store
+    private let transactionsLoadingView = LoadingProgressView()
+    private var transactionsLoadingViewTop: NSLayoutConstraint?
+    private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+    private var isLoginRequired = false
+    private let loginView: LoginViewController
+    private let tempLoginView: LoginViewController
+    private let loginTransitionDelegate = LoginTransitionDelegate()
+    private let welcomeTransitingDelegate = PinTransitioningDelegate()
+    
+    private var loadingTimer: Timer?
+
+    private var didEndLoading = false
+   
+    var walletManager: WalletManager? {
+        didSet {
+            guard let walletManager = walletManager else { return }
+            if !walletManager.noWallet {
+                loginView.walletManager = walletManager
+                loginView.transitioningDelegate = loginTransitionDelegate
+                loginView.modalPresentationStyle = .overFullScreen
+                loginView.modalPresentationCapturesStatusBarAppearance = true
+                loginView.shouldSelfDismiss = true
+                present(loginView, animated: false, completion: {
+                    self.tempLoginView.remove()
+                    self.attemptShowWelcomeView()
+                })
+            }
+           
+        }
+    }
+   
+    init(store: Store) {
+        self.store = store
+        self.loginView = LoginViewController(store: store, isPresentedForLock: false)
+        self.tempLoginView = LoginViewController(store: store, isPresentedForLock: false)
+        super.init(nibName: nil, bundle: nil)
+    }
+   
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+       
+       
+        self.navigationController?.navigationBar.tintColor = .litecoinBlue
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.darkText,
+            NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
+        ]
+        //self.navigationController?.setClearNavbar()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .litecoinBlue
+        self.loginView.delegate = self
+       
+        // detect jailbreak so we can throw up an idiot warning, in viewDidLoad so it can't easily be swizzled out
+        if !E.isSimulator {
+            var s = stat()
+            var isJailbroken = (stat("/bin/sh", &s) == 0) ? true : false
+            for i in 0..<_dyld_image_count() {
+                guard !isJailbroken else { break }
+                // some anti-jailbreak detection tools re-sandbox apps, so do a secondary check for any MobileSubstrate dyld images
+                if strstr(_dyld_get_image_name(i), "MobileSubstrate") != nil {
+                    isJailbroken = true
+                }
+            }
+            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { note in
+                self.showJailbreakWarnings(isJailbroken: isJailbroken)
+            }
+            showJailbreakWarnings(isJailbroken: isJailbroken)
+        }
+       
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: nil) { _ in
+            if UserDefaults.writePaperPhraseDate != nil {
+            }
+        }
+         
+        addAppLifecycleNotificationEvents()
+        addTemporaryStartupViews()
+        setInitialData()
+    }
+   
+    func didUnlockLogin() {
+        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+           
+            vc.store = self.store
+            vc.isLtcSwapped = store.state.isLtcSwapped
+            
+            if let rate = store.state.currentRate {
+                vc.exchangeRate = rate
+                let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
+                vc.secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
+                vc.primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
+            } else {
+                vc.secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+                vc.primaryBalanceLabel
+                    = UpdatingLabel(formatter: NumberFormatter())
+            }
+           
+            addChildViewController(vc, layout:{
+                vc.view.constrain(toSuperviewEdges: nil)
+                vc.view.alpha = 0
+                vc.view.layoutIfNeeded()
+            })
+           
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
+                vc.view.alpha = 1
+            }) { (finished) in
+                NSLog("MainView Controller presented")
+            }
+           
+        } else {
+               NSLog("ERROR: MainView Controller Not presented")
+        }
+      
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
-    */
+   
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+ 
+    private func setInitialData() {
 
+    }
+   
+    private func loadingDidStart() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            if !self.didEndLoading {
+                self.showLoadingView()
+            }
+        })
+    }
+   
+    private func showLoadingView() {
+
+    }
+   
+    private func hideLoadingView() {
+
+    }
+   
+    @objc private func updateLoadingProgress() {
+     }
+   
+    private func addTemporaryStartupViews() {
+
+    }
+   
+    private func addTransactionsView() {
+ 
+    }
+   
+    private func addAppLifecycleNotificationEvents() {
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { note in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.blurView.alpha = 0.0
+            }, completion: { _ in
+                self.blurView.removeFromSuperview()
+            })
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { note in
+            if !self.isLoginRequired && !self.store.state.isPromptingBiometrics {
+                self.blurView.alpha = 1.0
+                self.view.addSubview(self.blurView)
+                self.blurView.constrain(toSuperviewEdges: nil)
+            }
+        }
+    }
+   
+    private func showJailbreakWarnings(isJailbroken: Bool) {
+        guard isJailbroken else { return }
+        let totalSent = walletManager?.wallet?.totalSent ?? 0
+        let message = totalSent > 0 ? S.JailbreakWarnings.messageWithBalance : S.JailbreakWarnings.messageWithBalance
+        let alert = UIAlertController(title: S.JailbreakWarnings.title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: S.JailbreakWarnings.ignore, style: .default, handler: nil))
+        if totalSent > 0 {
+            alert.addAction(UIAlertAction(title: S.JailbreakWarnings.wipe, style: .default, handler: nil)) //TODO - implement wipe
+        } else {
+            alert.addAction(UIAlertAction(title: S.JailbreakWarnings.close, style: .default, handler: { _ in
+                exit(0)
+            }))
+        }
+        present(alert, animated: true, completion: nil)
+    }
+   
+    private func attemptShowWelcomeView() {
+        if !UserDefaults.hasShownWelcome {
+            let welcome = WelcomeViewController()
+            welcome.transitioningDelegate = welcomeTransitingDelegate
+            welcome.modalPresentationStyle = .overFullScreen
+            welcome.modalPresentationCapturesStatusBarAppearance = true
+            welcomeTransitingDelegate.shouldShowMaskView = false
+            loginView.present(welcome, animated: true, completion: nil)
+            UserDefaults.hasShownWelcome = true
+        }
+    }
+   
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .fade
+    }
+   
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+   
+    override required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
