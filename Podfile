@@ -9,6 +9,9 @@ use_frameworks!
 def shared_pods
   pod 'Alamofire', '~> 4.7'
   pod 'Mixpanel-swift' 
+  pod 'QREncoder' 
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'CryptoSwift', '~> 1.0'
 end
 
 def shared_watchOS_pods
