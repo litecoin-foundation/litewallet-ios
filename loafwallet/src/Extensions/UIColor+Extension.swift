@@ -15,9 +15,33 @@ extension UIColor {
   // #4D4D4E, Cool Gray 11 C
   // #FFFFFF, White
   // #345D9D, Blue, 7684 C, UIColor(red: 52.0/255.0, green: 52.0/255.0, blue: 157.0/255.0, alpha: 1.0)
-
+ 
+    static var litecoinWhite: UIColor {
+      return .white
+    }
+    
+    static var litecoinGray: UIColor {
+      return #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    }
+      
+    static var litecoinSilver: UIColor {
+      return #colorLiteral(red: 0.6509078741, green: 0.6621127725, blue: 0.6660699844, alpha: 1)
+    }
+    
+    static var litecoinDarkSilver: UIColor {
+      return #colorLiteral(red: 0.3032740951, green: 0.3032055199, blue: 0.3077734411, alpha: 1)
+    }
+    
     static var liteWalletBlue: UIColor {
-        return #colorLiteral(red: 0.2053973377, green: 0.3632233143, blue: 0.6166344285, alpha: 1)  
+      return #colorLiteral(red: 0.2053973377, green: 0.3632233143, blue: 0.6166344285, alpha: 1)
+    }
+    
+    static var litecoinOrange: UIColor {
+      return #colorLiteral(red: 0.9955089688, green: 0.3714971542, blue: 0.3340456784, alpha: 1)
+    }
+    
+    static var litecoinGreen: UIColor {
+      return #colorLiteral(red: 0.09019607843, green: 0.6196078431, blue: 0.1529411765, alpha: 1)
     }
     // MARK: Buttons
     static var primaryButton: UIColor {

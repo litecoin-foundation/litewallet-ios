@@ -427,7 +427,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     @objc private func unlock() {
         saveEvent("login.unlocked")
         self.delegate?.didUnlockLogin()
-        enterPINLabel.pushNewText(S.UnlockScreen.e)//(S.UnlockScreen.enterPIN)
+        enterPINLabel.pushNewText(S.UnlockScreen.enterPIN)
         pinPadViewController.view.isUserInteractionEnabled = true
         unlockTimer = nil
         disabledView.hide { [weak self] in

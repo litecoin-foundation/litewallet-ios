@@ -182,11 +182,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         return configureTransactionCell(transaction:transaction, indexPath: indexPath)
     }
     
-    private func configureTransactionCell(transaction:Transaction?, indexPath: IndexPath) -> TransactionTableViewCell {
+    private func configureTransactionCell(transaction:Transaction?, indexPath: IndexPath) -> TransactionTableViewCellv2 {
          
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTVC", for: indexPath) as? TransactionTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTVC", for: indexPath) as? TransactionTableViewCellv2 else {
             NSLog("ERROR No cell found")
-            return TransactionTableViewCell()
+            return TransactionTableViewCellv2()
         }
           
         if let transaction = transaction,
@@ -212,9 +212,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                     imageName = "movedTransaction"
                     imageTint = .litecoinGray
                 }
-            
              
-                
                 cell.arrowImageView.image = UIImage(named: imageName)
                 cell.arrowImageView.tintColor = imageTint
                 cell.amountLabel.text = transaction.amountDetails(isLtcSwapped: isLTCSwapped, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
@@ -283,7 +281,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         let isSelected = !self.cellIsSelected(indexPath: indexPath)
         let selectedIndex = NSNumber(value: isSelected)
  
-        if let selectedCell = tableView.cellForRow(at: indexPath) as? TransactionTableViewCell {
+        if let selectedCell = tableView.cellForRow(at: indexPath) as? TransactionTableViewCellv2 {
             
             selectedCell.moreOrLessLabel.text = isSelected ? S.TransactionDetails.less.uppercased() : S.TransactionDetails.more.uppercased()
             

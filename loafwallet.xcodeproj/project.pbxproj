@@ -323,6 +323,8 @@
 		24313C8123820C3900A83F69 /* BuyLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */; };
 		24313C8323820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */; };
 		24313C8423820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */; };
+		24313C8623821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */; };
+		24313C8723821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
@@ -1161,6 +1163,7 @@
 		24313C7C23820C1900A83F69 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyLTCViewController.swift; sourceTree = "<group>"; };
 		24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveLTCViewController.swift; sourceTree = "<group>"; };
+		24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCellv2.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -2545,6 +2548,75 @@
 			path = libbz2;
 			sourceTree = "<group>";
 		};
+		24313C8823823B9F00A83F69 /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				2427342B2381C21800E2D22F /* MainViewController.swift */,
+				24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */,
+			);
+			name = Receive;
+			sourceTree = "<group>";
+		};
+		24313C8923823BB700A83F69 /* WipeWallet */ = {
+			isa = PBXGroup;
+			children = (
+				24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */,
+			);
+			name = WipeWallet;
+			sourceTree = "<group>";
+		};
+		24313C8A23823BC400A83F69 /* SendLTC */ = {
+			isa = PBXGroup;
+			children = (
+				24313C7923820BC200A83F69 /* SendLTCViewController.swift */,
+			);
+			name = SendLTC;
+			sourceTree = "<group>";
+		};
+		24313C8B23823BDD00A83F69 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				24313C7C23820C1900A83F69 /* TransactionsViewController.swift */,
+				CEBF32F51DDCEAF900348FC6 /* TransactionsTableViewController.swift */,
+				CE14E4081E4D506000AEA83A /* TransactionDetailsViewController.swift */,
+			);
+			name = Transactions;
+			sourceTree = "<group>";
+		};
+		24313C8C23823C0F00A83F69 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CE8CD8E01E31976800785E02 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		24313C8D23823C2B00A83F69 /* Pin */ = {
+			isa = PBXGroup;
+			children = (
+				CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */,
+				CE8CD8DE1E2E825000785E02 /* VerifyPinViewController.swift */,
+			);
+			name = Pin;
+			sourceTree = "<group>";
+		};
+		24313C8E23823C5D00A83F69 /* PaperPhrase */ = {
+			isa = PBXGroup;
+			children = (
+				CEAA9E8E1DC074410066731D /* StartPaperPhraseViewController.swift */,
+				CEAA9E921DC110E70066731D /* WritePaperPhraseViewController.swift */,
+			);
+			name = PaperPhrase;
+			sourceTree = "<group>";
+		};
+		24313C8F23823D8500A83F69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				24313C762381E8F100A83F69 /* TabBarViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		24AF00FB221B32EC00FF636F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -2579,15 +2651,16 @@
 			name = css;
 			sourceTree = "<group>";
 		};
-		24C516502158820E007CE038 /* BuyCenter */ = {
+		24C516502158820E007CE038 /* Buy */ = {
 			isa = PBXGroup;
 			children = (
+				24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */,
 				24B8FAC92161632C00A155B1 /* BuyCenterHeaderView.swift */,
 				24B8FAC02160497B00A155B1 /* BuyCenterTableViewController.swift */,
 				24B8FAC621615E3D00A155B1 /* BuyCenterTableViewCell.swift */,
 				24B8FAD12162B10200A155B1 /* BuyCenterWebViewController.swift */,
 			);
-			name = BuyCenter;
+			name = Buy;
 			sourceTree = "<group>";
 		};
 		755CD3831DAA0E3E0075898E /* unbound */ = {
@@ -3536,31 +3609,26 @@
 		CE20C8EF1DBAF6D300C8397A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */,
+				24313C8F23823D8500A83F69 /* Main */,
+				24313C8E23823C5D00A83F69 /* PaperPhrase */,
+				24313C8D23823C2B00A83F69 /* Pin */,
+				24313C8C23823C0F00A83F69 /* Login */,
+				24313C8B23823BDD00A83F69 /* Transactions */,
+				24313C8A23823BC400A83F69 /* SendLTC */,
+				24313C8923823BB700A83F69 /* WipeWallet */,
+				24313C8823823B9F00A83F69 /* Receive */,
 				CE1E5F241EF081F300BD0F72 /* Import */,
 				CEEC70841E90CCA600EF788E /* Settings */,
 				CEB909F81E5FF20A001804DC /* Recover */,
 				CEC6AA3E1DEFC85700EE5AFD /* RootModals */,
 				CE6D0F951DE8B6B600BD4BCF /* ViewControllerTransitions */,
-				24C516502158820E007CE038 /* BuyCenter */,
+				24C516502158820E007CE038 /* Buy */,
 				CE760ED71E55F9E000EFAC2B /* SecurityCenter */,
 				CEBF32EF1DDCD30600348FC6 /* AccountViewController.swift */,
-				2427342B2381C21800E2D22F /* MainViewController.swift */,
-				24313C7923820BC200A83F69 /* SendLTCViewController.swift */,
-				24313C7C23820C1900A83F69 /* TransactionsViewController.swift */,
-				24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */,
 				CE20C9061DBC587200C8397A /* StartViewController.swift */,
-				24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */,
-				CEAA9E8E1DC074410066731D /* StartPaperPhraseViewController.swift */,
-				CEAA9E921DC110E70066731D /* WritePaperPhraseViewController.swift */,
 				CEAA9E981DC262800066731D /* ConfirmPaperPhraseViewController.swift */,
-				CEBF32F51DDCEAF900348FC6 /* TransactionsTableViewController.swift */,
 				CEF3E8351DE60222007C0A9E /* ModalNavigationController.swift */,
 				CE9057191DFF18B2006BA848 /* ScanViewController.swift */,
-				CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */,
-				CE8CD8DE1E2E825000785E02 /* VerifyPinViewController.swift */,
-				CE8CD8E01E31976800785E02 /* LoginViewController.swift */,
-				CE14E4081E4D506000AEA83A /* TransactionDetailsViewController.swift */,
 				CE45C1F81E74B400002C3847 /* ManageWalletViewController.swift */,
 				CEEC708B1E95461A00EF788E /* AboutViewController.swift */,
 				CEEC708F1E95D5C100EF788E /* PushNotificationsViewController.swift */,
@@ -3580,7 +3648,6 @@
 				1BEA7DDA2142CAA00081602F /* WebViewContainer.swift */,
 				24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */,
 				24D5F26D225A5BEA00225462 /* ContainerViewController.swift */,
-				24313C762381E8F100A83F69 /* TabBarViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -3806,6 +3873,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBF32F81DDD193500348FC6 /* TransactionTableViewCell.swift */,
+				24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */,
 				CE3754AC1DDE6E080045B0CB /* MaskedShadow.swift */,
 				CE3754AE1DDE6E2E0045B0CB /* RoundedContainer.swift */,
 			);
@@ -4964,6 +5032,7 @@
 				1B86CE882091528B00BCE82E /* UpdatePinViewController.swift in Sources */,
 				1B86CE892091528B00BCE82E /* BRBitID.swift in Sources */,
 				1B86CE8A2091528B00BCE82E /* AccountFooterView.swift in Sources */,
+				24313C8623821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */,
 				1B86CE8B2091528B00BCE82E /* String+Additions.swift in Sources */,
 				1B86CE8C2091528B00BCE82E /* InAppAlert.swift in Sources */,
 				1B86CE8D2091528B00BCE82E /* UIScreen+Additions.swift in Sources */,
@@ -5153,6 +5222,7 @@
 				CEE1F5631DF13E5A00D733AD /* ModalHeaderView.swift in Sources */,
 				CE5F21DB1E4A93A500C47B8E /* LoginTransitionDelegate.swift in Sources */,
 				CEE659E91F664C73001FF29D /* WelcomeViewController.swift in Sources */,
+				24313C8723821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */,
 				2228734F1E916FC30044BA15 /* BRAPIClient+Wallet.swift in Sources */,
 				CEAA9EA81DC3342E0066731D /* PinView.swift in Sources */,
 				CE1D84B61EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift in Sources */,

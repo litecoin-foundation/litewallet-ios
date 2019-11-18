@@ -159,11 +159,13 @@ enum S {
 
     enum TransactionDetails {
         static let title = NSLocalizedString("TransactionDetails.title", value:"Transaction Details", comment: "Transaction Details Title")
+        static let receiveModaltitle = NSLocalizedString("TransactionDetails.receivedModalTitle", value:"RECEIVE LTC", comment: "RECEIVE LTCTitle")
         static let statusHeader = NSLocalizedString("TransactionDetails.statusHeader", value:"Status", comment: "Status section header")
         static let commentsHeader = NSLocalizedString("TransactionDetails.commentsHeader", value:"Memo", comment: "Memo section header")
         static let amountHeader = NSLocalizedString("TransactionDetails.amountHeader", value:"Amount", comment: "Amount section header")
         static let emptyMessage = NSLocalizedString("TransactionDetails.emptyMessage", value:"Your transactions will appear here.", comment: "Empty transaction list message.")
         static let more = NSLocalizedString("TransactionDetails.more", value:"More...", comment: "More button title")
+        static let less = NSLocalizedString("TransactionDetails.less", value:"Less", comment: "Less button title")
         static let txHashHeader = NSLocalizedString("TransactionDetails.txHashHeader", value:"Litecoin Transaction ID", comment: "Transaction ID header")
         static let sentAmountDescription = NSLocalizedString("TransactionDetails.sentAmountDescription", value: "Sent <b>%1@</b>", comment: "Sent $5.00")
         static let receivedAmountDescription = NSLocalizedString("TransactionDetails.receivedAmountDescription", value: "Received <b>%1@</b>", comment: "Received $5.00")
@@ -177,7 +179,7 @@ enum S {
         static let blockHeightLabel = NSLocalizedString("TransactionDetails.blockHeightLabel", value: "Confirmed in Block", comment: "Block height label")
         static let notConfirmedBlockHeightLabel = NSLocalizedString("TransactionDetails.notConfirmedBlockHeightLabel", value: "Not Confirmed", comment: "eg. Confirmed in Block: Not Confirmed")
         static let staticTXIDLabel = NSLocalizedString("TransactionDetails.staticTXLabel", value: "TXID:", comment: "Label for TXID")
-        static let priceTimeStampLabel = NSLocalizedString("TransactionDetails.priceTimeStampPrefix", value: "as of", comment: "Prefix for price")
+        static let priceTimeStampLabel = NSLocalizedString("TransactionDetails.priceTimeStampPrefix", value: "as of", comment: "Prefix for price") 
     }
   
     enum BuyCenter {
@@ -581,25 +583,29 @@ enum S {
         static let warningAlert = NSLocalizedString("WipeWallet.warningAlert", value: "DO NOT LOSE IT!", comment: "Warning Alert")
     }
 
-//    enum FeeSelector {
-//        static let title = NSLocalizedString("FeeSelector.title", value: "Processing Speed", comment: "Fee Selector title")
-//        static let regularLabel = NSLocalizedString("FeeSelector.regularLabel", value: "Estimated Delivery: 10-30 minutes", comment: "Fee Selector regular fee description")
-//        static let economyLabel = NSLocalizedString("FeeSelector.economyLabel", value: "Estimated Delivery: 60+ minutes", comment: "Fee Selector economly fee description")
-//        static let economyWarning = NSLocalizedString("FeeSelector.economyWarning", value: "This option is not recommended for time-sensitive transactions.", comment: "Warning message for economy fee")
-//        static let regular = NSLocalizedString("FeeSelector.regular", value: "Regular", comment: "Regular fee")
-//        static let economy = NSLocalizedString("FeeSelector.economy", value: "Economy", comment: "Economy fee")
-//    }
+    enum FeeSelector {
+        static let title = NSLocalizedString("FeeSelector.title", value: "Processing Speed", comment: "Fee Selector title")
+        static let regularLabel = NSLocalizedString("FeeSelector.regularLabel", value: "Estimated Delivery: 10-30 minutes", comment: "Fee Selector regular fee description")
+        static let economyLabel = NSLocalizedString("FeeSelector.economyLabel", value: "Estimated Delivery: 60+ minutes", comment: "Fee Selector economly fee description")
+        static let economyWarning = NSLocalizedString("FeeSelector.economyWarning", value: "This option is not recommended for time-sensitive transactions.", comment: "Warning message for economy fee")
+        static let regular = NSLocalizedString("FeeSelector.regular", value: "Regular", comment: "Regular fee")
+        static let economy = NSLocalizedString("FeeSelector.economy", value: "Economy", comment: "Economy fee")
+    }
 
     enum Confirmation {
         static let title = NSLocalizedString("Confirmation.title", value: "Confirmation", comment: "Confirmation Screen title")
         static let send = NSLocalizedString("Confirmation.send", value: "Send", comment: "Send: (amount)")
         static let to = NSLocalizedString("Confirmation.to", value: "To", comment: "To: (address)")
+        static let staticAddressLabel = NSLocalizedString("Confirmation.staticAddressLabel", value: "ADDRESS:", comment: "Address label")
+
         static let processingTime = NSLocalizedString("Confirmation.processingTime", value: "Processing time: This transaction will take %1$@ minutes to process.", comment: "eg. Processing time: This transaction will take 10-30 minutes to process.")
          static let processingAndDonationTime = NSLocalizedString("Confirmation.processingAndDonationTime", value: "Processing time: These transactions will take %1$@ minutes to process.", comment: "eg. Processing with Donation time: This transaction will take 10-30 minutes to process.")
         static let amountLabel = NSLocalizedString("Confirmation.amountLabel", value: "Amount to Send:", comment: "Amount to Send: ($1.00)")
         static let donateLabel = NSLocalizedString("Confirmation.donateLabel", value: "Amount to Donate:", comment: "Amount to Donate: ($1.00)")
         static let feeLabel = NSLocalizedString("Confirmation.feeLabel", value: "Network Fee:", comment: "Network Fee: ($1.00)")
+        static let shortFeeLabel = NSLocalizedString("Confirmation.shortFeeLabel", value: "FEE:", comment: "Short Network Fee: ($1.00)")
         static let totalLabel = NSLocalizedString("Confirmation.totalLabel", value: "Total Cost:", comment: "Total Cost: ($5.00)")
+        static let amountDetailLabel = NSLocalizedString("Confirmation.amountDetailLabel", value: "Exchange details:", comment: "$53.09/L + 1.07%")
     }
 
     enum BCH {
