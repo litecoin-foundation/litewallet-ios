@@ -307,8 +307,6 @@
 		22E773041EE7813000397E0E /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E773031EE7813000397E0E /* Bonjour.swift */; };
 		240A89B5235F7280005E2A2F /* DonationSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A89B4235F7280005E2A2F /* DonationSetupCell.swift */; };
 		240A89B6235F7280005E2A2F /* DonationSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A89B4235F7280005E2A2F /* DonationSetupCell.swift */; };
-		242734292381C1C300E2D22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242734282381C1C200E2D22F /* Main.storyboard */; };
-		2427342A2381C1C300E2D22F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242734282381C1C200E2D22F /* Main.storyboard */; };
 		2427342C2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
 		2427342D2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
 		24313C742381E73200A83F69 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C732381E73200A83F69 /* TransactionManager.swift */; };
@@ -327,6 +325,22 @@
 		24313C8723821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */; };
 		24313C912382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */; };
 		24313C922382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */; };
+		24313C9A23824F5800A83F69 /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9323824F5700A83F69 /* Transactions.storyboard */; };
+		24313C9B23824F5800A83F69 /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9323824F5700A83F69 /* Transactions.storyboard */; };
+		24313C9C23824F5800A83F69 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9423824F5700A83F69 /* Alerts.storyboard */; };
+		24313C9D23824F5800A83F69 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9423824F5700A83F69 /* Alerts.storyboard */; };
+		24313C9E23824F5800A83F69 /* Animate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9523824F5700A83F69 /* Animate.storyboard */; };
+		24313C9F23824F5800A83F69 /* Animate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9523824F5700A83F69 /* Animate.storyboard */; };
+		24313CA023824F5800A83F69 /* Receive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9623824F5800A83F69 /* Receive.storyboard */; };
+		24313CA123824F5800A83F69 /* Receive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9623824F5800A83F69 /* Receive.storyboard */; };
+		24313CA223824F5800A83F69 /* Send.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9723824F5800A83F69 /* Send.storyboard */; };
+		24313CA323824F5800A83F69 /* Send.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9723824F5800A83F69 /* Send.storyboard */; };
+		24313CA423824F5800A83F69 /* Buy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9823824F5800A83F69 /* Buy.storyboard */; };
+		24313CA523824F5800A83F69 /* Buy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9823824F5800A83F69 /* Buy.storyboard */; };
+		24313CA623824F5800A83F69 /* Spend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9923824F5800A83F69 /* Spend.storyboard */; };
+		24313CA723824F5800A83F69 /* Spend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9923824F5800A83F69 /* Spend.storyboard */; };
+		24313CA923824F9800A83F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313CA823824F9800A83F69 /* Main.storyboard */; };
+		24313CAA23824F9800A83F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313CA823824F9800A83F69 /* Main.storyboard */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
@@ -1157,7 +1171,6 @@
 		22C431351DF8A6DF0017CAEA /* BRAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRAPIClientTests.swift; sourceTree = "<group>"; };
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
-		242734282381C1C200E2D22F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2427342B2381C21800E2D22F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		24313C732381E73200A83F69 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		24313C762381E8F100A83F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -1167,6 +1180,14 @@
 		24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveLTCViewController.swift; sourceTree = "<group>"; };
 		24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCellv2.swift; sourceTree = "<group>"; };
 		24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFModalReceiveQRViewController.swift; sourceTree = "<group>"; };
+		24313C9323824F5700A83F69 /* Transactions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transactions.storyboard; sourceTree = "<group>"; };
+		24313C9423824F5700A83F69 /* Alerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
+		24313C9523824F5700A83F69 /* Animate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Animate.storyboard; sourceTree = "<group>"; };
+		24313C9623824F5800A83F69 /* Receive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Receive.storyboard; sourceTree = "<group>"; };
+		24313C9723824F5800A83F69 /* Send.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Send.storyboard; sourceTree = "<group>"; };
+		24313C9823824F5800A83F69 /* Buy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buy.storyboard; sourceTree = "<group>"; };
+		24313C9923824F5800A83F69 /* Spend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Spend.storyboard; sourceTree = "<group>"; };
+		24313CA823824F9800A83F69 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -2624,8 +2645,15 @@
 		24AF00FB221B32EC00FF636F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				24313CA823824F9800A83F69 /* Main.storyboard */,
+				24313C9423824F5700A83F69 /* Alerts.storyboard */,
+				24313C9523824F5700A83F69 /* Animate.storyboard */,
+				24313C9823824F5800A83F69 /* Buy.storyboard */,
+				24313C9623824F5800A83F69 /* Receive.storyboard */,
+				24313C9723824F5800A83F69 /* Send.storyboard */,
+				24313C9923824F5800A83F69 /* Spend.storyboard */,
+				24313C9323824F5700A83F69 /* Transactions.storyboard */,
 				24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */,
-				242734282381C1C200E2D22F /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -4507,12 +4535,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242734292381C1C300E2D22F /* Main.storyboard in Resources */,
+				24313CA423824F5800A83F69 /* Buy.storyboard in Resources */,
 				24B8FAD82162B6FB00A155B1 /* bitrefill_index.html in Resources */,
 				1B86CE9F2091528B00BCE82E /* LaunchScreen.storyboard in Resources */,
 				24D5F23722599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */,
 				1B86CEA02091528B00BCE82E /* CircularPro-Book.otf in Resources */,
+				24313CA023824F5800A83F69 /* Receive.storyboard in Resources */,
 				24D5F25822599C0B00225462 /* BarlowSemiCondensed-Medium.ttf in Resources */,
+				24313CA923824F9800A83F69 /* Main.storyboard in Resources */,
+				24313C9C23824F5800A83F69 /* Alerts.storyboard in Resources */,
 				1B86CEA12091528B00BCE82E /* POSTBouncer.html in Resources */,
 				24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */,
 				24D5F23A22599C0B00225462 /* BarlowSemiCondensed-Bold.ttf in Resources */,
@@ -4520,12 +4551,16 @@
 				24D5F26422599C0B00225462 /* BarlowSemiCondensed-SemiBold.ttf in Resources */,
 				1B86CEA22091528B00BCE82E /* coinflip.aiff in Resources */,
 				1B86CEA32091528B00BCE82E /* Icon.xcassets in Resources */,
+				24313C9A23824F5800A83F69 /* Transactions.storyboard in Resources */,
 				24D5F24F22599C0B00225462 /* BarlowSemiCondensed-Light.ttf in Resources */,
+				24313C9E23824F5800A83F69 /* Animate.storyboard in Resources */,
+				24313CA223824F5800A83F69 /* Send.storyboard in Resources */,
 				1B86CEA42091528B00BCE82E /* Localizable.strings in Resources */,
 				24B8FADD2162D29100A155B1 /* general.css in Resources */,
 				1B86CEA62091528B00BCE82E /* CircularPro-Medium.otf in Resources */,
 				2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */,
 				24D5F25E22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,
+				24313CA623824F5800A83F69 /* Spend.storyboard in Resources */,
 				1B86CEA72091528B00BCE82E /* CircularPro-Bold.otf in Resources */,
 				1B86CEA92091528B00BCE82E /* Assets.xcassets in Resources */,
 			);
@@ -4579,22 +4614,29 @@
 				24D5F23822599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */,
 				CEAA9EA31DC2FC700066731D /* CircularPro-Book.otf in Resources */,
 				24D5F25922599C0B00225462 /* BarlowSemiCondensed-Medium.ttf in Resources */,
-				2427342A2381C1C300E2D22F /* Main.storyboard in Resources */,
+				24313C9B23824F5800A83F69 /* Transactions.storyboard in Resources */,
 				222319B21F279B3C00008F20 /* POSTBouncer.html in Resources */,
 				24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */,
+				24313CA523824F5800A83F69 /* Buy.storyboard in Resources */,
 				24D5F23B22599C0B00225462 /* BarlowSemiCondensed-Bold.ttf in Resources */,
 				24AF00FE221B331D00FF636F /* WarningConfirmation.storyboard in Resources */,
+				24313C9D23824F5800A83F69 /* Alerts.storyboard in Resources */,
+				24313CA123824F5800A83F69 /* Receive.storyboard in Resources */,
 				24D5F26522599C0B00225462 /* BarlowSemiCondensed-SemiBold.ttf in Resources */,
 				CE473D7C1F042F1E00C0ACFD /* coinflip.aiff in Resources */,
 				CE5E6C9A1EB9135000A476DB /* Icon.xcassets in Resources */,
 				24D5F25022599C0B00225462 /* BarlowSemiCondensed-Light.ttf in Resources */,
 				CE29901A1EFD6DE50093A0F2 /* Localizable.strings in Resources */,
+				24313C9F23824F5800A83F69 /* Animate.storyboard in Resources */,
 				24B8FADC2162D29100A155B1 /* general.css in Resources */,
+				24313CA323824F5800A83F69 /* Send.storyboard in Resources */,
 				2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */,
 				CEAA9EA41DC2FC700066731D /* CircularPro-Medium.otf in Resources */,
 				24CAE4F4236E45FB00E24A00 /* BIP39Words.plist in Resources */,
+				24313CAA23824F9800A83F69 /* Main.storyboard in Resources */,
 				24D5F25F22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,
 				CEAA9E9E1DC2F90C0066731D /* CircularPro-Bold.otf in Resources */,
+				24313CA723824F5800A83F69 /* Spend.storyboard in Resources */,
 				75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
