@@ -92,6 +92,7 @@ enum S {
         static let remoteRequestError = NSLocalizedString("Send.remoteRequestError", value: "Could not load payment request", comment: "Could not load remote request error message")
         static let loadingRequest = NSLocalizedString("Send.loadingRequest", value: "Loading Request", comment: "Loading request activity view message")
         static let insufficientFunds = NSLocalizedString("Send.insufficientFunds", value: "Insufficient Funds", comment: "Insufficient funds error")
+        static let barItemTitle = NSLocalizedString("Send.barItemTitle", value:"Send", comment: "Send Bar Item Title")
     }
 
     enum Receive {
@@ -101,10 +102,16 @@ enum S {
         static let copied = NSLocalizedString("Receive.copied", value:"Copied to clipboard.", comment: "Address copied message.")
         static let share = NSLocalizedString("Receive.share", value:"Share", comment: "Share button label")
         static let request = NSLocalizedString("Receive.request", value:"Request an Amount", comment: "Request button label")
+        static let barItemTitle = NSLocalizedString("Receive.barItemTitle", value:"Receive", comment: "Receive Bar Item Title")
     }
-
+    
+    enum Spend {
+        static let barItemTitle = NSLocalizedString("Spend.barItemTitle", value:"Spend", comment: "Spend Bar Item Title")
+    }
+    
     enum Account {
         static let loadingMessage = NSLocalizedString("Account.loadingMessage", value:"Loading Wallet", comment: "Loading Wallet Message")
+        static let barItemTitle = NSLocalizedString("Account.barItemTitle", value:"Account", comment: "Account Bar Item Title")
     }
 
     enum JailbreakWarnings {
@@ -127,14 +134,14 @@ enum S {
         static let myAddress = NSLocalizedString("UnlockScreen.myAddress", value:"My Address", comment: "My Address button title")
         static let scan = NSLocalizedString("UnlockScreen.scan", value:"Scan", comment: "Scan button title")
         static let touchIdText = NSLocalizedString("UnlockScreen.touchIdText", value:"Unlock with TouchID", comment: "Unlock with TouchID accessibility label")
-        static let touchIdPrompt = NSLocalizedString("UnlockScreen.touchIdPrompt", value:"Unlock your Litewallet.", comment: "TouchID/FaceID prompt text")
-        static let subheader = NSLocalizedString("UnlockScreen.subheader", value:"Enter PIN", comment: "Unlock Screen sub-header")
+        static let touchIdPrompt = NSLocalizedString("UnlockScreen.touchIdPrompt", value:"Unlock your LoafWallet.", comment: "TouchID/FaceID prompt text")
+        static let enterPIN = NSLocalizedString("UnlockScreen.enterPin", value:"Enter PIN", comment: "Unlock Screen sub-header")
         static let unlocked = NSLocalizedString("UnlockScreen.unlocked", value:"Wallet Unlocked", comment: "Wallet unlocked message")
         static let disabled = NSLocalizedString("UnlockScreen.disabled", value:"Disabled until: %1$@", comment: "Disabled until date")
         static let resetPin = NSLocalizedString("UnlockScreen.resetPin", value:"Reset PIN", comment: "Reset PIN with Paper Key button label.")
         static let faceIdText = NSLocalizedString("UnlockScreen.faceIdText", value:"Unlock with FaceID", comment: "Unlock with FaceID accessibility label")
     }
-
+    
     enum Transaction {
         static let justNow = NSLocalizedString("Transaction.justNow", value:"just now", comment: "Timestamp label for event that just happened")
         static let invalid = NSLocalizedString("Transaction.invalid", value:"INVALID", comment: "Invalid transaction")
@@ -169,6 +176,8 @@ enum S {
         static let from = NSLocalizedString("TransactionDetails.from", value:"at %1$@", comment: "[received] at <address> (received title 2/2)")
         static let blockHeightLabel = NSLocalizedString("TransactionDetails.blockHeightLabel", value: "Confirmed in Block", comment: "Block height label")
         static let notConfirmedBlockHeightLabel = NSLocalizedString("TransactionDetails.notConfirmedBlockHeightLabel", value: "Not Confirmed", comment: "eg. Confirmed in Block: Not Confirmed")
+        static let staticTXIDLabel = NSLocalizedString("TransactionDetails.staticTXLabel", value: "TXID:", comment: "Label for TXID")
+        static let priceTimeStampLabel = NSLocalizedString("TransactionDetails.priceTimeStampPrefix", value: "as of", comment: "Prefix for price")
     }
   
     enum BuyCenter {
@@ -183,7 +192,8 @@ enum S {
         static let bitrefillFinancialDetails = NSLocalizedString("BuyCenter.bitrefillFinancialDetails", value: "• Buy gift cards\n• Refill prepaid phones\n• Steam, Amazon, Hotels.com\n• Works in 170 countries", comment: "Bitrefill buy financial details")
         static let coinbaseTitle = NSLocalizedString("BuyCenter.CoinbaseTitle", value: "Coinbase", comment: "Coinbase Title")
         static let coinbaseFinancialDetails = NSLocalizedString("BuyCenter.coinbaseFinancialDetails", value: "• Buy Litecoin\n• Available in 33 countries\n• Trade and Store your Litecoin\n• Easy for cryptocurrency novices", comment: "Coinbase buy financial details")
-      }
+        }
+      static let barItemTitle = NSLocalizedString("BuyCenter.barItemTitle", value:"Buy", comment: "Buy Bar Item Title")
     }
 
     enum SecurityCenter {
@@ -571,14 +581,14 @@ enum S {
         static let warningAlert = NSLocalizedString("WipeWallet.warningAlert", value: "DO NOT LOSE IT!", comment: "Warning Alert")
     }
 
-    enum FeeSelector {
-        static let title = NSLocalizedString("FeeSelector.title", value: "Processing Speed", comment: "Fee Selector title")
-        static let regularLabel = NSLocalizedString("FeeSelector.regularLabel", value: "Estimated Delivery: 10-30 minutes", comment: "Fee Selector regular fee description")
-        static let economyLabel = NSLocalizedString("FeeSelector.economyLabel", value: "Estimated Delivery: 60+ minutes", comment: "Fee Selector economly fee description")
-        static let economyWarning = NSLocalizedString("FeeSelector.economyWarning", value: "This option is not recommended for time-sensitive transactions.", comment: "Warning message for economy fee")
-        static let regular = NSLocalizedString("FeeSelector.regular", value: "Regular", comment: "Regular fee")
-        static let economy = NSLocalizedString("FeeSelector.economy", value: "Economy", comment: "Economy fee")
-    }
+//    enum FeeSelector {
+//        static let title = NSLocalizedString("FeeSelector.title", value: "Processing Speed", comment: "Fee Selector title")
+//        static let regularLabel = NSLocalizedString("FeeSelector.regularLabel", value: "Estimated Delivery: 10-30 minutes", comment: "Fee Selector regular fee description")
+//        static let economyLabel = NSLocalizedString("FeeSelector.economyLabel", value: "Estimated Delivery: 60+ minutes", comment: "Fee Selector economly fee description")
+//        static let economyWarning = NSLocalizedString("FeeSelector.economyWarning", value: "This option is not recommended for time-sensitive transactions.", comment: "Warning message for economy fee")
+//        static let regular = NSLocalizedString("FeeSelector.regular", value: "Regular", comment: "Regular fee")
+//        static let economy = NSLocalizedString("FeeSelector.economy", value: "Economy", comment: "Economy fee")
+//    }
 
     enum Confirmation {
         static let title = NSLocalizedString("Confirmation.title", value: "Confirmation", comment: "Confirmation Screen title")

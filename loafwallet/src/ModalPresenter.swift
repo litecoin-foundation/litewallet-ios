@@ -713,7 +713,7 @@ class ModalPresenter : Subscriber, Trackable {
         self.currentRequest = request
         guard !store.state.isLoginRequired else { presentModal(.send); return }
 
-        if topViewController is AccountViewController {
+        if topViewController is MainViewController {
             presentModal(.send)
         } else {
             if let presented = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController {
@@ -727,7 +727,7 @@ class ModalPresenter : Subscriber, Trackable {
     private func handleScanQrURL() {
         guard !store.state.isLoginRequired else { presentLoginScan(); return }
 
-        if topViewController is AccountViewController || topViewController is LoginViewController {
+        if topViewController is MainViewController || topViewController is LoginViewController {
             presentLoginScan()
         } else {
             if let presented = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController {

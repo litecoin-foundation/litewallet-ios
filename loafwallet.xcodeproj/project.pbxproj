@@ -315,6 +315,14 @@
 		24313C752381E73200A83F69 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C732381E73200A83F69 /* TransactionManager.swift */; };
 		24313C772381E8F100A83F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C762381E8F100A83F69 /* TabBarViewController.swift */; };
 		24313C782381E8F100A83F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C762381E8F100A83F69 /* TabBarViewController.swift */; };
+		24313C7A23820BC200A83F69 /* SendLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7923820BC200A83F69 /* SendLTCViewController.swift */; };
+		24313C7B23820BC200A83F69 /* SendLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7923820BC200A83F69 /* SendLTCViewController.swift */; };
+		24313C7D23820C1900A83F69 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7C23820C1900A83F69 /* TransactionsViewController.swift */; };
+		24313C7E23820C1900A83F69 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7C23820C1900A83F69 /* TransactionsViewController.swift */; };
+		24313C8023820C3900A83F69 /* BuyLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */; };
+		24313C8123820C3900A83F69 /* BuyLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */; };
+		24313C8323820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */; };
+		24313C8423820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
@@ -1149,6 +1157,10 @@
 		2427342B2381C21800E2D22F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		24313C732381E73200A83F69 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		24313C762381E8F100A83F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		24313C7923820BC200A83F69 /* SendLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLTCViewController.swift; sourceTree = "<group>"; };
+		24313C7C23820C1900A83F69 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyLTCViewController.swift; sourceTree = "<group>"; };
+		24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveLTCViewController.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -3534,7 +3546,11 @@
 				CE760ED71E55F9E000EFAC2B /* SecurityCenter */,
 				CEBF32EF1DDCD30600348FC6 /* AccountViewController.swift */,
 				2427342B2381C21800E2D22F /* MainViewController.swift */,
+				24313C7923820BC200A83F69 /* SendLTCViewController.swift */,
+				24313C7C23820C1900A83F69 /* TransactionsViewController.swift */,
+				24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */,
 				CE20C9061DBC587200C8397A /* StartViewController.swift */,
+				24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */,
 				CEAA9E8E1DC074410066731D /* StartPaperPhraseViewController.swift */,
 				CEAA9E921DC110E70066731D /* WritePaperPhraseViewController.swift */,
 				CEAA9E981DC262800066731D /* ConfirmPaperPhraseViewController.swift */,
@@ -4775,6 +4791,7 @@
 				1B86CDEC2091528B00BCE82E /* WalletCoordinator.swift in Sources */,
 				1B86CDED2091528B00BCE82E /* KeyboardNotificationInfo.swift in Sources */,
 				1B86CDEE2091528B00BCE82E /* FeeSelector.swift in Sources */,
+				24313C8323820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */,
 				1B86CDEF2091528B00BCE82E /* ApplicationController.swift in Sources */,
 				1B86CDF02091528B00BCE82E /* BiometricsSettingsViewController.swift in Sources */,
 				2485F7D223735858005962F1 /* Keys.swift in Sources */,
@@ -4855,9 +4872,11 @@
 				1B86CE322091528B00BCE82E /* WalletDisabledView.swift in Sources */,
 				1B86CE332091528B00BCE82E /* AnimatableIcon.swift in Sources */,
 				1B86CE342091528B00BCE82E /* NumberFormatter+Additions.swift in Sources */,
+				24313C7D23820C1900A83F69 /* TransactionsViewController.swift in Sources */,
 				1B86CE352091528B00BCE82E /* CheckView.swift in Sources */,
 				1B86CE362091528B00BCE82E /* PinPadViewController.swift in Sources */,
 				1B86CE372091528B00BCE82E /* UISlider+Gradient.swift in Sources */,
+				24313C7A23820BC200A83F69 /* SendLTCViewController.swift in Sources */,
 				1B86CE382091528B00BCE82E /* MenuButtonType.swift in Sources */,
 				1B86CE392091528B00BCE82E /* BRActivityView.swift in Sources */,
 				1B86CE3A2091528B00BCE82E /* ReceiveViewController.swift in Sources */,
@@ -4865,6 +4884,7 @@
 				1B86CE3C2091528B00BCE82E /* Functions.swift in Sources */,
 				1B86CE3D2091528B00BCE82E /* ArticleIds.swift in Sources */,
 				1B86CE3E2091528B00BCE82E /* Rate.swift in Sources */,
+				24313C8023820C3900A83F69 /* BuyLTCViewController.swift in Sources */,
 				1B86CE3F2091528B00BCE82E /* Constants.swift in Sources */,
 				1B86CE402091528B00BCE82E /* RoundedContainer.swift in Sources */,
 				1B86CE412091528B00BCE82E /* MenuViewController.swift in Sources */,
@@ -5116,6 +5136,7 @@
 				CE20C8F61DBAF77D00C8397A /* UIViewController+BRWAdditions.swift in Sources */,
 				222319B01F27985A00008F20 /* BRBrowserViewController.swift in Sources */,
 				CE74F58D1E3BA85600ED5FA9 /* ExchangeUpdater.swift in Sources */,
+				24313C7B23820BC200A83F69 /* SendLTCViewController.swift in Sources */,
 				CE6DCC251E6001E50044257B /* UIControl+Callback.swift in Sources */,
 				223DB2191DF691260076A151 /* BRSocketHelpers.c in Sources */,
 				CEF3E82D1DE528BF007C0A9E /* AlertView.swift in Sources */,
@@ -5183,6 +5204,7 @@
 				CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */,
 				CEE20C2F1EA3E5820086F724 /* BlinkingView.swift in Sources */,
 				CEC6AA441DEFCDE900EE5AFD /* ModalViewController.swift in Sources */,
+				24313C8423820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */,
 				CEEC70831E90C07C00EF788E /* Setting.swift in Sources */,
 				CE4B6C1C1E21A96D00CF935B /* LoadingProgressView.swift in Sources */,
 				CE45C1F91E74B400002C3847 /* ManageWalletViewController.swift in Sources */,
@@ -5196,6 +5218,7 @@
 				CECCE5AE1E04AD6300D99448 /* AddressCell.swift in Sources */,
 				CE6BCF5D1EE9E89A0029849C /* CustomTitleView.swift in Sources */,
 				CE2DC1391EBC36EE000FE727 /* Prompt.swift in Sources */,
+				24313C8123820C3900A83F69 /* BuyLTCViewController.swift in Sources */,
 				CE83DE2A1E9EB7F600D07636 /* SendAmountCell.swift in Sources */,
 				22A9A9521DF61945000F0016 /* BRKVStorePlugin.swift in Sources */,
 				CEAFC8611E5D5B0500E4FD06 /* SegmentedButton.swift in Sources */,
@@ -5209,6 +5232,7 @@
 				CED82D4E1E575A5500507A9B /* main.swift in Sources */,
 				CEEC708E1E954AAB00EF788E /* AboutCell.swift in Sources */,
 				22A9A9461DF61945000F0016 /* BRAPIClient.swift in Sources */,
+				24313C7E23820C1900A83F69 /* TransactionsViewController.swift in Sources */,
 				CEAA9E9B1DC2B9320066731D /* ConfirmPhrase.swift in Sources */,
 				75A2A7941DA5934300A983D8 /* AppDelegate.swift in Sources */,
 				CEEC70901E95D5C100EF788E /* PushNotificationsViewController.swift in Sources */,

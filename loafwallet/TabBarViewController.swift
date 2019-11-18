@@ -80,7 +80,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             self.setBalances()
         }
         
-        guard let array = self.tabBar.items as? [UITabBarItem] else {
+        guard let array = self.tabBar.items else {
             NSLog("ERROR: no items found")
             return
         }
