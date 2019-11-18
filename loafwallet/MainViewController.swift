@@ -78,10 +78,10 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
                     isJailbroken = true
                 }
             }
-            NotificationCenter.default.addObserver(forName: UIApplication.NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: nil) { note in
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: nil) { (notification) in
                 self.showJailbreakWarnings(isJailbroken: isJailbroken)
             }
-            showJailbreakWarnings(isJailbroken: isJailbroken)
         }
        
         NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: nil) { _ in
@@ -169,14 +169,16 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     }
    
     private func addAppLifecycleNotificationEvents() {
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { note in
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { note in
             UIView.animate(withDuration: 0.1, animations: {
                 self.blurView.alpha = 0.0
             }, completion: { _ in
                 self.blurView.removeFromSuperview()
             })
         }
-        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { note in
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: nil) { note in
             if !self.isLoginRequired && !self.store.state.isPromptingBiometrics {
                 self.blurView.alpha = 1.0
                 self.view.addSubview(self.blurView)
