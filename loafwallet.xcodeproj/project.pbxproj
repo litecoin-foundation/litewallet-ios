@@ -325,6 +325,8 @@
 		24313C8423820C4B00A83F69 /* ReceiveLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */; };
 		24313C8623821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */; };
 		24313C8723821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */; };
+		24313C912382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */; };
+		24313C922382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */; };
 		24670EAD2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */; };
 		2485F7CF23728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
@@ -1164,6 +1166,7 @@
 		24313C7F23820C3900A83F69 /* BuyLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyLTCViewController.swift; sourceTree = "<group>"; };
 		24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveLTCViewController.swift; sourceTree = "<group>"; };
 		24313C8523821B8C00A83F69 /* TransactionTableViewCellv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCellv2.swift; sourceTree = "<group>"; };
+		24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFModalReceiveQRViewController.swift; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -2551,8 +2554,8 @@
 		24313C8823823B9F00A83F69 /* Receive */ = {
 			isa = PBXGroup;
 			children = (
-				2427342B2381C21800E2D22F /* MainViewController.swift */,
 				24313C8223820C4B00A83F69 /* ReceiveLTCViewController.swift */,
+				24313C902382433700A83F69 /* LFModalReceiveQRViewController.swift */,
 			);
 			name = Receive;
 			sourceTree = "<group>";
@@ -2612,6 +2615,7 @@
 		24313C8F23823D8500A83F69 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2427342B2381C21800E2D22F /* MainViewController.swift */,
 				24313C762381E8F100A83F69 /* TabBarViewController.swift */,
 			);
 			name = Main;
@@ -5032,6 +5036,7 @@
 				1B86CE882091528B00BCE82E /* UpdatePinViewController.swift in Sources */,
 				1B86CE892091528B00BCE82E /* BRBitID.swift in Sources */,
 				1B86CE8A2091528B00BCE82E /* AccountFooterView.swift in Sources */,
+				24313C912382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */,
 				24313C8623821B8C00A83F69 /* TransactionTableViewCellv2.swift in Sources */,
 				1B86CE8B2091528B00BCE82E /* String+Additions.swift in Sources */,
 				1B86CE8C2091528B00BCE82E /* InAppAlert.swift in Sources */,
@@ -5260,6 +5265,7 @@
 				1B3F74241FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift in Sources */,
 				CEC6F8451E886723000795B8 /* PaymentRequest.swift in Sources */,
 				CE4C1CC81ED88B600063E184 /* URLController.swift in Sources */,
+				24313C922382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */,
 				CE20C9171DBE6F2A00C8397A /* UIButton+BRWAdditions.swift in Sources */,
 				CEAA9E931DC110E70066731D /* WritePaperPhraseViewController.swift in Sources */,
 				CE92F9F41DED59E80046B516 /* UIView+AnimationAdditions.swift in Sources */,
