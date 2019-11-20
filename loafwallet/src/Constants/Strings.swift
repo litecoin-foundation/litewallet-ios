@@ -575,7 +575,7 @@ enum S {
         static let instruction = NSLocalizedString("WipeWallet.instruction", value: "To start a new wallet or restore an existing wallet, you must first erase the wallet that is currently installed. To continue, enter the current wallet's Paper Key.", comment: "Enter key to wipe wallet instruction.")
         static let startMessage = NSLocalizedString("WipeWallet.startMessage", value: "Starting or recovering another wallet allows you to access and manage a different Litewallet wallet on this device.", comment: "Start wipe wallet view message")
         static let startWarning = NSLocalizedString("WipeWallet.startWarning", value: "Your current wallet will be removed from this device. If you wish to restore it in the future, you will need to enter your Paper Key.", comment: "Start wipe wallet view warning")
-        static let emptyWallet = NSLocalizedString("WipeWallet.emptyWallet", value: "Forget your seed phrase or PIN?", comment: "Warning if user lost phrase")
+        static let emptyWallet = NSLocalizedString("WipeWallet.emptyWallet", value: "Forget seed or PIN?", comment: "Warning if user lost phrase")
         static let resetTitle = NSLocalizedString("resetTitle", value: "Empty Wallet Reset", comment: "Warning Empty Wipe title")
         static let resetButton = NSLocalizedString("resetButton", value: "Yes, reset wallet", comment: "Reset walet button  title")
         static let warningTitle = NSLocalizedString("WipeWallet.warningTitle", value: "PLEASE READ!", comment: "Warning title")

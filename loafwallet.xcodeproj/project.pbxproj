@@ -62,10 +62,8 @@
 		1B86CDFB2091528B00BCE82E /* TxMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9A93D1DF61945000F0016 /* TxMetaData.swift */; };
 		1B86CDFC2091528B00BCE82E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD8E01E31976800785E02 /* LoginViewController.swift */; };
 		1B86CDFD2091528B00BCE82E /* UINavigationController+BRAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6AA381DEE10BA00EE5AFD /* UINavigationController+BRAdditions.swift */; };
-		1B86CDFE2091528B00BCE82E /* GenericPinPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5AA1E038C9900D99448 /* GenericPinPadCell.swift */; };
 		1B86CDFF2091528B00BCE82E /* DescriptionSendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5AF1E04AD7600D99448 /* DescriptionSendCell.swift */; };
 		1B86CE002091528B00BCE82E /* NodeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE44BA1A1F33BFC500392A1A /* NodeSelectorViewController.swift */; };
-		1B86CE012091528B00BCE82E /* ClearNumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3645491E7B426B0079D0CF /* ClearNumberPad.swift */; };
 		1B86CE022091528B00BCE82E /* SyncingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CFF1E69170900DFA146 /* SyncingView.swift */; };
 		1B86CE032091528B00BCE82E /* UIView+BRWAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C90D1DBE52B000C8397A /* UIView+BRWAdditions.swift */; };
 		1B86CE042091528B00BCE82E /* UIView+InitAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314821E08E5BB00D4AFE0 /* UIView+InitAdditions.swift */; };
@@ -153,7 +151,6 @@
 		1B86CE562091528B00BCE82E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC708B1E95461A00EF788E /* AboutViewController.swift */; };
 		1B86CE572091528B00BCE82E /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF61B131ED0D10000C7EA6A /* Types.swift */; };
 		1B86CE582091528B00BCE82E /* UnEditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC70891E945E3B00EF788E /* UnEditableTextView.swift */; };
-		1B86CE592091528B00BCE82E /* WhiteNumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3645471E7B424D0079D0CF /* WhiteNumberPad.swift */; };
 		1B86CE5A2091528B00BCE82E /* ConfirmPaperPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA9E981DC262800066731D /* ConfirmPaperPhraseViewController.swift */; };
 		1B86CE5B2091528B00BCE82E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9A9451DF61945000F0016 /* Extensions.swift */; };
 		1B86CE5C2091528B00BCE82E /* BRGeoLocationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9A9381DF61945000F0016 /* BRGeoLocationPlugin.swift */; };
@@ -195,7 +192,7 @@
 		1B86CE802091528B00BCE82E /* BRReplicatedKVStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9A9401DF61945000F0016 /* BRReplicatedKVStore.swift */; };
 		1B86CE812091528B00BCE82E /* SecurityCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B6B491E54C0CA00B31405 /* SecurityCenterCell.swift */; };
 		1B86CE822091528B00BCE82E /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30F0E91EB282C8004B8EE5 /* SharedConstants.swift */; };
-		1B86CE832091528B00BCE82E /* WhiteDecimalPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36454B1E7B42850079D0CF /* WhiteDecimalPad.swift */; };
+		1B86CE832091528B00BCE82E /* PinPadCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36454B1E7B42850079D0CF /* PinPadCells.swift */; };
 		1B86CE842091528B00BCE82E /* DismissLoginAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F21D81E4A922700C47B8E /* DismissLoginAnimator.swift */; };
 		1B86CE852091528B00BCE82E /* UIView+FrameChangeBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5A41E02408300D99448 /* UIView+FrameChangeBlocking.swift */; };
 		1B86CE862091528B00BCE82E /* BRHTTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9A93B1DF61945000F0016 /* BRHTTPRouter.swift */; };
@@ -576,9 +573,7 @@
 		CE30F0E61EB27844004B8EE5 /* PhoneWCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30F0E51EB27844004B8EE5 /* PhoneWCSessionManager.swift */; };
 		CE30F0E81EB27FA2004B8EE5 /* WatchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30F0E71EB27FA2004B8EE5 /* WatchDataManager.swift */; };
 		CE30F0EA1EB282C8004B8EE5 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30F0E91EB282C8004B8EE5 /* SharedConstants.swift */; };
-		CE3645481E7B424D0079D0CF /* WhiteNumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3645471E7B424D0079D0CF /* WhiteNumberPad.swift */; };
-		CE36454A1E7B426B0079D0CF /* ClearNumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3645491E7B426B0079D0CF /* ClearNumberPad.swift */; };
-		CE36454C1E7B42850079D0CF /* WhiteDecimalPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36454B1E7B42850079D0CF /* WhiteDecimalPad.swift */; };
+		CE36454C1E7B42850079D0CF /* PinPadCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36454B1E7B42850079D0CF /* PinPadCells.swift */; };
 		CE3754AD1DDE6E080045B0CB /* MaskedShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3754AC1DDE6E080045B0CB /* MaskedShadow.swift */; };
 		CE3754AF1DDE6E2E0045B0CB /* RoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3754AE1DDE6E2E0045B0CB /* RoundedContainer.swift */; };
 		CE3D4C571EF5D5740016B1C8 /* ReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D4C561EF5D5740016B1C8 /* ReachabilityMonitor.swift */; };
@@ -683,7 +678,6 @@
 		CECB9DB61E4985CE0081A172 /* LoginBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB9DB51E4985CE0081A172 /* LoginBackgroundView.swift */; };
 		CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5A41E02408300D99448 /* UIView+FrameChangeBlocking.swift */; };
 		CECCE5A91E0378FB00D99448 /* PinPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */; };
-		CECCE5AB1E038C9900D99448 /* GenericPinPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5AA1E038C9900D99448 /* GenericPinPadCell.swift */; };
 		CECCE5AE1E04AD6300D99448 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5AD1E04AD6300D99448 /* AddressCell.swift */; };
 		CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5AF1E04AD7600D99448 /* DescriptionSendCell.swift */; };
 		CECCE5B21E04B00D00D99448 /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE5B11E04B00D00D99448 /* SendCell.swift */; };
@@ -1940,9 +1934,7 @@
 		CE30F0E71EB27FA2004B8EE5 /* WatchDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchDataManager.swift; sourceTree = "<group>"; };
 		CE30F0E91EB282C8004B8EE5 /* SharedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		CE30F0EB1EB28542004B8EE5 /* WatchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchData.swift; path = src/Watch/WatchData.swift; sourceTree = "<group>"; };
-		CE3645471E7B424D0079D0CF /* WhiteNumberPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteNumberPad.swift; path = src/Views/PinPadCells/WhiteNumberPad.swift; sourceTree = "<group>"; };
-		CE3645491E7B426B0079D0CF /* ClearNumberPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClearNumberPad.swift; path = src/Views/PinPadCells/ClearNumberPad.swift; sourceTree = "<group>"; };
-		CE36454B1E7B42850079D0CF /* WhiteDecimalPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhiteDecimalPad.swift; path = src/Views/PinPadCells/WhiteDecimalPad.swift; sourceTree = "<group>"; };
+		CE36454B1E7B42850079D0CF /* PinPadCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinPadCells.swift; path = src/Views/PinPadCells/PinPadCells.swift; sourceTree = "<group>"; };
 		CE3754AC1DDE6E080045B0CB /* MaskedShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaskedShadow.swift; path = src/Views/TransactionCells/MaskedShadow.swift; sourceTree = "<group>"; };
 		CE3754AE1DDE6E2E0045B0CB /* RoundedContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedContainer.swift; path = src/Views/TransactionCells/RoundedContainer.swift; sourceTree = "<group>"; };
 		CE3D4C561EF5D5740016B1C8 /* ReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReachabilityMonitor.swift; path = src/ReachabilityMonitor.swift; sourceTree = "<group>"; };
@@ -2052,7 +2044,6 @@
 		CECB9DB51E4985CE0081A172 /* LoginBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginBackgroundView.swift; path = src/Views/LoginBackgroundView.swift; sourceTree = "<group>"; };
 		CECCE5A41E02408300D99448 /* UIView+FrameChangeBlocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+FrameChangeBlocking.swift"; path = "src/Extensions/UIView+FrameChangeBlocking.swift"; sourceTree = "<group>"; };
 		CECCE5A81E0378FB00D99448 /* PinPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinPadViewController.swift; path = src/ViewControllers/PinPadViewController.swift; sourceTree = "<group>"; };
-		CECCE5AA1E038C9900D99448 /* GenericPinPadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericPinPadCell.swift; path = src/Views/GenericPinPadCell.swift; sourceTree = "<group>"; };
 		CECCE5AD1E04AD6300D99448 /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressCell.swift; path = src/Views/SendViewCells/AddressCell.swift; sourceTree = "<group>"; };
 		CECCE5AF1E04AD7600D99448 /* DescriptionSendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionSendCell.swift; path = src/Views/SendViewCells/DescriptionSendCell.swift; sourceTree = "<group>"; };
 		CECCE5B11E04B00D00D99448 /* SendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendCell.swift; path = src/Views/SendViewCells/SendCell.swift; sourceTree = "<group>"; };
@@ -3813,10 +3804,7 @@
 		CE3645461E7B40280079D0CF /* PinPadCells */ = {
 			isa = PBXGroup;
 			children = (
-				CECCE5AA1E038C9900D99448 /* GenericPinPadCell.swift */,
-				CE3645471E7B424D0079D0CF /* WhiteNumberPad.swift */,
-				CE3645491E7B426B0079D0CF /* ClearNumberPad.swift */,
-				CE36454B1E7B42850079D0CF /* WhiteDecimalPad.swift */,
+				CE36454B1E7B42850079D0CF /* PinPadCells.swift */,
 			);
 			name = PinPadCells;
 			sourceTree = "<group>";
@@ -4922,10 +4910,8 @@
 				1B86CDFB2091528B00BCE82E /* TxMetaData.swift in Sources */,
 				1B86CDFC2091528B00BCE82E /* LoginViewController.swift in Sources */,
 				1B86CDFD2091528B00BCE82E /* UINavigationController+BRAdditions.swift in Sources */,
-				1B86CDFE2091528B00BCE82E /* GenericPinPadCell.swift in Sources */,
 				1B86CDFF2091528B00BCE82E /* DescriptionSendCell.swift in Sources */,
 				1B86CE002091528B00BCE82E /* NodeSelectorViewController.swift in Sources */,
-				1B86CE012091528B00BCE82E /* ClearNumberPad.swift in Sources */,
 				1B86CE022091528B00BCE82E /* SyncingView.swift in Sources */,
 				1B86CE032091528B00BCE82E /* UIView+BRWAdditions.swift in Sources */,
 				1B86CE042091528B00BCE82E /* UIView+InitAdditions.swift in Sources */,
@@ -5027,7 +5013,6 @@
 				1B86CE562091528B00BCE82E /* AboutViewController.swift in Sources */,
 				1B86CE572091528B00BCE82E /* Types.swift in Sources */,
 				1B86CE582091528B00BCE82E /* UnEditableTextView.swift in Sources */,
-				1B86CE592091528B00BCE82E /* WhiteNumberPad.swift in Sources */,
 				1B86CE5A2091528B00BCE82E /* ConfirmPaperPhraseViewController.swift in Sources */,
 				1B86CE5B2091528B00BCE82E /* Extensions.swift in Sources */,
 				1B86CE5C2091528B00BCE82E /* BRGeoLocationPlugin.swift in Sources */,
@@ -5070,7 +5055,7 @@
 				1B86CE802091528B00BCE82E /* BRReplicatedKVStore.swift in Sources */,
 				1B86CE812091528B00BCE82E /* SecurityCenterCell.swift in Sources */,
 				1B86CE822091528B00BCE82E /* SharedConstants.swift in Sources */,
-				1B86CE832091528B00BCE82E /* WhiteDecimalPad.swift in Sources */,
+				1B86CE832091528B00BCE82E /* PinPadCells.swift in Sources */,
 				1B86CE842091528B00BCE82E /* DismissLoginAnimator.swift in Sources */,
 				1B86CE852091528B00BCE82E /* UIView+FrameChangeBlocking.swift in Sources */,
 				1B86CE862091528B00BCE82E /* BRHTTPRouter.swift in Sources */,
@@ -5295,10 +5280,8 @@
 				22A9A9511DF61945000F0016 /* TxMetaData.swift in Sources */,
 				CE8CD8E11E31976800785E02 /* LoginViewController.swift in Sources */,
 				CEC6AA391DEE10BA00EE5AFD /* UINavigationController+BRAdditions.swift in Sources */,
-				CECCE5AB1E038C9900D99448 /* GenericPinPadCell.swift in Sources */,
 				CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */,
 				CE44BA1B1F33BFC500392A1A /* NodeSelectorViewController.swift in Sources */,
-				CE36454A1E7B426B0079D0CF /* ClearNumberPad.swift in Sources */,
 				CE124D001E69170900DFA146 /* SyncingView.swift in Sources */,
 				CE20C90E1DBE52B000C8397A /* UIView+BRWAdditions.swift in Sources */,
 				CE6314831E08E5BB00D4AFE0 /* UIView+InitAdditions.swift in Sources */,
@@ -5398,7 +5381,6 @@
 				CEEC708C1E95461A00EF788E /* AboutViewController.swift in Sources */,
 				CEF61B141ED0D10000C7EA6A /* Types.swift in Sources */,
 				CEEC708A1E945E3B00EF788E /* UnEditableTextView.swift in Sources */,
-				CE3645481E7B424D0079D0CF /* WhiteNumberPad.swift in Sources */,
 				CEAA9E991DC262800066731D /* ConfirmPaperPhraseViewController.swift in Sources */,
 				22A9A9591DF61945000F0016 /* Extensions.swift in Sources */,
 				22A9A94C1DF61945000F0016 /* BRGeoLocationPlugin.swift in Sources */,
@@ -5441,7 +5423,7 @@
 				22A9A9541DF61945000F0016 /* BRReplicatedKVStore.swift in Sources */,
 				CE6B6B4A1E54C0CB00B31405 /* SecurityCenterCell.swift in Sources */,
 				CED811AA1EB2B2D1003A8D1E /* SharedConstants.swift in Sources */,
-				CE36454C1E7B42850079D0CF /* WhiteDecimalPad.swift in Sources */,
+				CE36454C1E7B42850079D0CF /* PinPadCells.swift in Sources */,
 				CE5F21D91E4A922700C47B8E /* DismissLoginAnimator.swift in Sources */,
 				CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */,
 				22A9A94F1DF61945000F0016 /* BRHTTPRouter.swift in Sources */,
