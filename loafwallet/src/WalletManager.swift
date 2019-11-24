@@ -128,7 +128,10 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
 
     lazy var allWords: Set<String> = {
         var set: Set<String> = Set()
+        
+        print(Bundle.main.localizations.debugDescription)
         Bundle.main.localizations.forEach { lang in
+            
             if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang) {
                 if let words = NSArray(contentsOfFile: path) as? [NSString] {
                     set.formUnion(words.map { $0 as String })

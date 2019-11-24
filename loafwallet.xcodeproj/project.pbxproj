@@ -350,6 +350,7 @@
 		24AF00FE221B331D00FF636F /* WarningConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */; };
 		24AF0100221B349100FF636F /* WarningConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */; };
 		24AF0101221B349100FF636F /* WarningConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */; };
+		24B523AD238A53DC0030594D /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24B523AF238A53DC0030594D /* BIP39Words.plist */; };
 		24B8FAC12160497C00A155B1 /* BuyCenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8FAC02160497B00A155B1 /* BuyCenterTableViewController.swift */; };
 		24B8FAC22160497C00A155B1 /* BuyCenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8FAC02160497B00A155B1 /* BuyCenterTableViewController.swift */; };
 		24B8FAC4216128A000A155B1 /* PartnerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8FAC3216128A000A155B1 /* PartnerData.swift */; };
@@ -366,7 +367,6 @@
 		24B8FADD2162D29100A155B1 /* general.css in Resources */ = {isa = PBXBuildFile; fileRef = 24B8FADB2162D29100A155B1 /* general.css */; };
 		24B8FADF2163C4D400A155B1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8FADE2163C4D400A155B1 /* Currency.swift */; };
 		24B8FAE02163C4D400A155B1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8FADE2163C4D400A155B1 /* Currency.swift */; };
-		24CAE4F4236E45FB00E24A00 /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24CAE4F3236E45FA00E24A00 /* BIP39Words.plist */; };
 		24D5F23722599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */; };
 		24D5F23822599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */; };
 		24D5F23922599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */; };
@@ -1182,6 +1182,12 @@
 		24313C9823824F5800A83F69 /* Buy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buy.storyboard; sourceTree = "<group>"; };
 		24313C9923824F5800A83F69 /* Spend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Spend.storyboard; sourceTree = "<group>"; };
 		24313CA823824F9800A83F69 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2464B6DA238A53FC00B2A2CB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hant"; path = "zh-Hant.lproj/BIP39Words.plist"; sourceTree = "<group>"; };
+		2464B6DB238A543300B2A2CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		2464B6DC238A543800B2A2CB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ja; path = ja.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		2464B6DD238A543D00B2A2CB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		2464B6DE238A586100B2A2CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		2464B6DF238A586600B2A2CB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -1193,6 +1199,8 @@
 		24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WipeEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WarningConfirmation.storyboard; sourceTree = "<group>"; };
 		24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningConfirmationViewController.swift; sourceTree = "<group>"; };
+		24B523AE238A53DC0030594D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		24B523B0238A53E40030594D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/BIP39Words.plist"; sourceTree = "<group>"; };
 		24B8FAC02160497B00A155B1 /* BuyCenterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyCenterTableViewController.swift; sourceTree = "<group>"; };
 		24B8FAC3216128A000A155B1 /* PartnerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerData.swift; sourceTree = "<group>"; };
 		24B8FAC621615E3D00A155B1 /* BuyCenterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCenterTableViewCell.swift; sourceTree = "<group>"; };
@@ -1201,7 +1209,6 @@
 		24B8FAD62162B6FB00A155B1 /* bitrefill_index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = bitrefill_index.html; sourceTree = "<group>"; };
 		24B8FADB2162D29100A155B1 /* general.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = general.css; sourceTree = "<group>"; };
 		24B8FADE2163C4D400A155B1 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		24CAE4F3236E45FA00E24A00 /* BIP39Words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BIP39Words.plist; sourceTree = "<group>"; };
 		24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Italic.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Italic.ttf"; sourceTree = SOURCE_ROOT; };
 		24D5F22622599C0A00225462 /* BarlowSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Bold.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		24D5F22D22599C0A00225462 /* BarlowSemiCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Light.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Light.ttf"; sourceTree = SOURCE_ROOT; };
@@ -3462,7 +3469,7 @@
 				75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */,
 				75A2A79F1DA5934300A983D8 /* Info.plist */,
 				1B86CEBE2091538B00BCE82E /* Dev.plist */,
-				24CAE4F3236E45FA00E24A00 /* BIP39Words.plist */,
+				24B523AF238A53DC0030594D /* BIP39Words.plist */,
 				2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */,
 			);
 			path = loafwallet;
@@ -4620,7 +4627,7 @@
 				24313CA323824F5800A83F69 /* Send.storyboard in Resources */,
 				2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */,
 				CEAA9EA41DC2FC700066731D /* CircularPro-Medium.otf in Resources */,
-				24CAE4F4236E45FB00E24A00 /* BIP39Words.plist in Resources */,
+				24B523AD238A53DC0030594D /* BIP39Words.plist in Resources */,
 				24313CAA23824F9800A83F69 /* Main.storyboard in Resources */,
 				24D5F25F22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,
 				CEAA9E9E1DC2F90C0066731D /* CircularPro-Bold.otf in Resources */,
@@ -5663,6 +5670,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		24B523AF238A53DC0030594D /* BIP39Words.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24B523AE238A53DC0030594D /* en */,
+				24B523B0238A53E40030594D /* zh-Hans */,
+				2464B6DA238A53FC00B2A2CB /* zh-Hant */,
+				2464B6DB238A543300B2A2CB /* fr */,
+				2464B6DC238A543800B2A2CB /* ja */,
+				2464B6DD238A543D00B2A2CB /* ko */,
+				2464B6DE238A586100B2A2CB /* de */,
+				2464B6DF238A586600B2A2CB /* es */,
+			);
+			name = BIP39Words.plist;
+			sourceTree = "<group>";
+		};
 		75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
