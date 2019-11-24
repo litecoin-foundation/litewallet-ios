@@ -194,8 +194,6 @@ class ModalPresenter : Subscriber, Trackable {
         switch type {
         case .none:
             return nil
-        case .buy:
-            return presentBuyController()
         case .send:
             return makeSendView()
         case .receive:
@@ -325,11 +323,11 @@ class ModalPresenter : Subscriber, Trackable {
         })
     }
 
-    private func presentSettings() {
+   private func presentSettings() {
         guard let top = topViewController else { return }
         guard let walletManager = self.walletManager else { return }
         let settingsNav = UINavigationController()
-        let sections = ["Wallet", "Manage", "Support", "Blockchain"]
+        let sections = ["Wallet", "Manage", "LoafWallet", "Advanced"]
         var rows = [
             "Wallet": [Setting(title: S.Settings.importTile, callback: { [weak self] in
                     guard let myself = self else { return }
@@ -392,9 +390,7 @@ class ModalPresenter : Subscriber, Trackable {
                     let identifier = Locale.identifier(fromComponents: components)
                     return Locale(identifier: identifier).currencyCode ?? ""
                 }, callback: {
-                    guard let wm = self.walletManager else {
-                        NSLog("ERROR: NO WALLET MANAGER!")
-                        return }
+                    guard let wm = self.walletManager else { print("NO WALLET MANAGER!"); return }
                     settingsNav.pushViewController(DefaultCurrencyViewController(walletManager: wm, store: self.store), animated: true)
                 }),
                 Setting(title: S.Settings.sync, callback: {
@@ -405,7 +401,7 @@ class ModalPresenter : Subscriber, Trackable {
                     settingsNav.pushViewController(updatePin, animated: true)
                 })
             ],
-            "Support": [
+            "LoafWallet": [
                 Setting(title: S.Settings.shareData, callback: {
                     settingsNav.pushViewController(ShareDataViewController(store: self.store), animated: true)
                 }),
@@ -413,8 +409,8 @@ class ModalPresenter : Subscriber, Trackable {
                     settingsNav.pushViewController(AboutViewController(), animated: true)
                 }),
             ],
-            "Blockchain": [
-                Setting(title: S.Settings.advancedTitle, callback: { [weak self] in
+            "Advanced": [
+                Setting(title: "Advanced", callback: { [weak self] in
                     guard let myself = self else { return }
                     guard let walletManager = myself.walletManager else { return }
                     let sections = ["Network"]
@@ -434,7 +430,7 @@ class ModalPresenter : Subscriber, Trackable {
         ]
 
         if BRAPIClient.featureEnabled(.earlyAccess) {
-            rows["Litewallet"]?.insert(Setting(title: S.Settings.earlyAccess, callback: {
+            rows["LoafWallet"]?.insert(Setting(title: S.Settings.earlyAccess, callback: {
                 settingsNav.dismiss(animated: true, completion: {
                     self.presentWebView("/ea")
                 })
@@ -445,20 +441,11 @@ class ModalPresenter : Subscriber, Trackable {
         settings.addCloseNavigationItem()
         settingsNav.viewControllers = [settings]
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-        if #available(iOS 11.0, *) {
-            guard let textColor = UIColor(named: "labelTextColor"),
-            let backGroundColor = UIColor(named: "lfBackgroundColor") else {
-                NSLog("ERROR: Custom color not found")
-                return
-            }
-         //TODO: Remove this code and create new Settings View Controller...this is a mess
-            view.backgroundColor = .whiteTint
-        } else {
-            view.backgroundColor = .whiteTint
-        }
-        
+        view.backgroundColor = .whiteTint
         settingsNav.navigationBar.setBackgroundImage(view.imageRepresentation, for: .default)
         settingsNav.navigationBar.shadowImage = UIImage()
+        settingsNav.navigationBar.isTranslucent = false
+        settingsNav.setBlackBackArrow()
         top.present(settingsNav, animated: true, completion: nil)
     }
 
@@ -594,18 +581,18 @@ class ModalPresenter : Subscriber, Trackable {
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
  
-    private func presentBuyController(_ mountPoint: String) {
-        guard let walletManager = self.walletManager else { return }
-      
-      let vc : BuyCenterTableViewController
-        #if Debug || Testflight
-         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
-        #else
-         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
-        #endif
-      
-         topViewController?.present(vc, animated: true, completion: nil)
-    }
+//    private func presentBuyController(_ mountPoint: String) {
+//        guard let walletManager = self.walletManager else { return }
+//
+//      let vc : BuyCenterTableViewController
+//        #if Debug || Testflight
+//         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
+//        #else
+//         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
+//        #endif
+//
+//         topViewController?.present(vc, animated: true, completion: nil)
+//    }
 
 
     private func presentRescan() {
