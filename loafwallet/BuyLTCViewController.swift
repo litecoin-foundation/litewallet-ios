@@ -63,7 +63,7 @@ class BuyLTCViewController: UIViewController, BuyCenterTableViewCellDelegate, UI
         sectionView.backgroundColor = .white
         let headerLabel = UILabel(font: UIFont.barloweBold(size: 18), color: .white)
         headerLabel.backgroundColor = .white
-        headerLabel.textColor = .litecoinBlue
+        headerLabel.textColor = .liteWalletBlue
         headerLabel.frame = CGRect(x: 20, y: 0, width: 190, height: kSectionHeaderHeight)
         sectionView.addSubview(headerLabel)
         switch section {
@@ -86,7 +86,7 @@ class BuyLTCViewController: UIViewController, BuyCenterTableViewCellDelegate, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: buyCellReuseIdentifier, for: indexPath) as! BuyCenterTableViewCell
         let partnerData = partnerArray[indexPath.row]
         cell.partnerLabel.text = partnerData["title"] as? String
-        cell.financialDetailsLabel.text = (partnerData["details"] as? String)! + Currency.simplexRanges()
+        cell.financialDetailsLabel.text = (partnerData["details"] as? String)!  /* TODO removed Currency.simplexRanges()*/
         cell.parnerLogoImageView.image = partnerData["logo"] as? UIImage
         cell.frameView.backgroundColor = (partnerData["baseColor"] as? UIColor)!
 
