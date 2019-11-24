@@ -593,12 +593,20 @@ class ModalPresenter : Subscriber, Trackable {
         paperPhraseNavigationController.viewControllers = [start]
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
-
-    private func presentBuyController() -> UIViewController {
-
-      let buyVC = BuyCenterTableViewController(store: store, walletManager: walletManager!, mountPoint:"/buy")
-      return buyVC
+ 
+    private func presentBuyController(_ mountPoint: String) {
+        guard let walletManager = self.walletManager else { return }
+      
+      let vc : BuyCenterTableViewController
+        #if Debug || Testflight
+         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
+        #else
+         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
+        #endif
+      
+         topViewController?.present(vc, animated: true, completion: nil)
     }
+
 
     private func presentRescan() {
         let vc = ReScanViewController(store: self.store)
