@@ -1186,8 +1186,8 @@
 		2464B6DB238A543300B2A2CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		2464B6DC238A543800B2A2CB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ja; path = ja.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		2464B6DD238A543D00B2A2CB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/BIP39Words.plist; sourceTree = "<group>"; };
-		2464B6DE238A586100B2A2CB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		2464B6DF238A586600B2A2CB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		2464B6E0238A60F200B2A2CB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -5679,8 +5679,8 @@
 				2464B6DB238A543300B2A2CB /* fr */,
 				2464B6DC238A543800B2A2CB /* ja */,
 				2464B6DD238A543D00B2A2CB /* ko */,
-				2464B6DE238A586100B2A2CB /* de */,
 				2464B6DF238A586600B2A2CB /* es */,
+				2464B6E0238A60F200B2A2CB /* it */,
 			);
 			name = BIP39Words.plist;
 			sourceTree = "<group>";
