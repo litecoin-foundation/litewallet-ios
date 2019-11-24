@@ -390,7 +390,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         default:
             fatalError("Tab viewController not set")
         }
-        //self.exchangeRate = TransactionManager.sharedInstance.rate
+        self.exchangeRate = TransactionManager.sharedInstance.rate
         
         self.addChildViewController(contentController)
         contentController.view.frame = self.containerView.frame
