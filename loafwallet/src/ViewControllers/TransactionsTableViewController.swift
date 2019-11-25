@@ -294,7 +294,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
                 tableView.addSubview(emptyMessage)
                 emptyMessage.constrain([
                     emptyMessage.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
-                    emptyMessage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -accountHeaderHeight),
+                    emptyMessage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
                     emptyMessage.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -C.padding[2]) ])
             }
         } else {

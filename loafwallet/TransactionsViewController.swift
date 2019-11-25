@@ -15,7 +15,6 @@ private let promptDelay: TimeInterval = 0.6
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber, Trackable {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     var store: Store? = nil
     var transactions: [Transaction]?

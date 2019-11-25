@@ -48,16 +48,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmH-Ee-H6k">
-                                        <rect key="frame" x="374" y="15" width="30" height="30"/>
+                                        <rect key="frame" x="380" y="18" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="SNR-Zg-W9P"/>
-                                            <constraint firstAttribute="height" constant="30" id="ZBi-x8-IGn"/>
+                                            <constraint firstAttribute="width" constant="24" id="SNR-Zg-W9P"/>
+                                            <constraint firstAttribute="height" constant="24" id="ZBi-x8-IGn"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="settingsWhite"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="RAg-vc-Wor">
-                                        <rect key="frame" x="315.33333333333331" y="12" width="38.666666666666686" height="36"/>
+                                        <rect key="frame" x="331.33333333333331" y="12" width="38.666666666666686" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dET-GI-JeX">
                                                 <rect key="frame" x="0.0" y="0.0" width="38.666666666666664" height="21.666666666666668"/>
@@ -72,11 +72,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="M3y-Ln-jGL"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="zmH-Ee-H6k" firstAttribute="leading" secondItem="RAg-vc-Wor" secondAttribute="trailing" constant="20" id="LKm-Ws-j91"/>
+                                    <constraint firstItem="zmH-Ee-H6k" firstAttribute="leading" secondItem="RAg-vc-Wor" secondAttribute="trailing" constant="10" id="LKm-Ws-j91"/>
                                     <constraint firstItem="RAg-vc-Wor" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="huE-hU-1KP"/>
                                     <constraint firstAttribute="height" constant="60" id="iBk-qu-OG6"/>
                                     <constraint firstItem="zmH-Ee-H6k" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="ksC-fB-keg"/>
@@ -116,6 +119,8 @@
                         <outlet property="settingsButton" destination="zmH-Ee-H6k" id="k3e-rQ-MBP"/>
                         <outlet property="tabBar" destination="j3Z-Gw-zod" id="PpH-h0-AQX"/>
                         <outlet property="timeStampLabel" destination="eVZ-9F-hgM" id="s8z-9v-5Gc"/>
+                        <outlet property="timeStampStackView" destination="RAg-vc-Wor" id="mfo-7A-ayM"/>
+                        <outlet property="timeStampStackViewHeight" destination="M3y-Ln-jGL" id="aUv-Zm-IFf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bt-6z-wZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +132,7 @@
             <objects>
                 <viewController id="0H7-tx-uMf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z4T-ui-Ve5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="578"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="529"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UuX-cb-qOU"/>
