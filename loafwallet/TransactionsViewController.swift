@@ -47,16 +47,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     private func setup() {
         self.transactions = TransactionManager.sharedInstance.transactions
         self.rate = TransactionManager.sharedInstance.rate
-         
-        //Customize Search Bar
-        self.searchBar.backgroundColor = .liteWalletBlue
-        self.searchBar.barTintColor = .liteWalletBlue
-        self.searchBar.tintColor = .white
-        self.searchBar.searchBarStyle = .prominent
-        self.searchBar.searchTextField.backgroundColor = .white
-        self.searchBar.searchTextField.tintColor = .black
-        self.searchBar.searchTextField.font = .barloweRegular(size: 14)
-        self.searchBar.backgroundImage = UIImage()
      }
     
     
@@ -323,39 +313,39 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
 }
 
-extension TransactionsViewController:  UISearchBarDelegate {
-    
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        isSearchActive = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        guard let transactions = self.transactions else {
-            NSLog("Error: Transactions is nil")
-            return
-        }
-        
-        filteredTransactions = transactions.filter({  $0.longTimestamp.contains(searchText) })
-        
-        //|| $0.toAddress?.contains(searchText) || $0.comment?.contains(searchText)
-        if filteredTransactions.count == 0 {
-            isSearchActive = false
-        } else {
-            isSearchActive = true
-        }
-        tableView.reloadData()
-    }
-}
+//extension TransactionsViewController:  UISearchBarDelegate {
+//    
+//    
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        isSearchActive = true
+//    }
+//    
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        isSearchActive = false
+//    }
+//    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        isSearchActive = false
+//    }
+//    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        
+//        guard let transactions = self.transactions else {
+//            NSLog("Error: Transactions is nil")
+//            return
+//        }
+//        
+//        filteredTransactions = transactions.filter({  $0.longTimestamp.contains(searchText) })
+//        
+//        //|| $0.toAddress?.contains(searchText) || $0.comment?.contains(searchText)
+//        if filteredTransactions.count == 0 {
+//            isSearchActive = false
+//        } else {
+//            isSearchActive = true
+//        }
+//        tableView.reloadData()
+//    }
+//}
  
  
 //    let didSelectTransaction: ([Transaction], Int) -> Void

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
         <!--Transactions View Controller-->
         <scene sceneID="9uR-VG-jkV">
             <objects>
-                <viewController storyboardIdentifier="TransactionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XfV-N2-tFK" customClass="TransactionsViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XfV-N2-tFK" customClass="TransactionsViewController" customModule="Litewallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjo-tv-BL1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,21 +37,11 @@
                                     <constraint firstAttribute="height" constant="1" id="qPP-w0-kl0"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suD-rr-qby">
-                                <rect key="frame" x="0.0" y="45" width="414" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XfV-N2-tFK" id="V7e-jO-qaF"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p5w-09-ukX">
-                                <rect key="frame" x="0.0" y="101" width="414" height="761"/>
+                                <rect key="frame" x="0.0" y="45" width="414" height="817"/>
                                 <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionTVC" rowHeight="300" id="Cry-No-ndT" customClass="TransactionTableViewCell" customModule="loafwallet" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionTVC" rowHeight="300" id="Cry-No-ndT" customClass="TransactionTableViewCell" customModule="Litewallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cry-No-ndT" id="CRy-dD-nSj" userLabel="staticBackgroundView">
@@ -321,19 +311,15 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                         <constraints>
                             <constraint firstItem="bab-aS-KHM" firstAttribute="top" secondItem="y8a-1z-ofq" secondAttribute="top" id="A7S-oo-3ko"/>
                             <constraint firstItem="p5w-09-ukX" firstAttribute="leading" secondItem="y8a-1z-ofq" secondAttribute="leading" id="CrV-aI-I37"/>
-                            <constraint firstItem="suD-rr-qby" firstAttribute="trailing" secondItem="y8a-1z-ofq" secondAttribute="trailing" id="IV0-jR-lCw"/>
                             <constraint firstItem="y8a-1z-ofq" firstAttribute="trailing" secondItem="p5w-09-ukX" secondAttribute="trailing" id="J6E-tY-acr"/>
-                            <constraint firstItem="suD-rr-qby" firstAttribute="leading" secondItem="y8a-1z-ofq" secondAttribute="leading" id="Umu-qR-dXr"/>
                             <constraint firstItem="bab-aS-KHM" firstAttribute="leading" secondItem="jjo-tv-BL1" secondAttribute="leading" id="ZiP-0w-fQV"/>
-                            <constraint firstItem="p5w-09-ukX" firstAttribute="top" secondItem="suD-rr-qby" secondAttribute="bottom" id="aCr-7h-CcI"/>
+                            <constraint firstItem="p5w-09-ukX" firstAttribute="top" secondItem="bab-aS-KHM" secondAttribute="bottom" id="heW-yk-rm7"/>
                             <constraint firstAttribute="trailing" secondItem="bab-aS-KHM" secondAttribute="trailing" id="jML-5m-koY"/>
-                            <constraint firstItem="suD-rr-qby" firstAttribute="top" secondItem="bab-aS-KHM" secondAttribute="bottom" id="rlQ-Bx-k0a"/>
                             <constraint firstItem="y8a-1z-ofq" firstAttribute="bottom" secondItem="p5w-09-ukX" secondAttribute="bottom" id="vaf-3E-h3T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y8a-1z-ofq"/>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="suD-rr-qby" id="IZs-Bg-iUj"/>
                         <outlet property="tableView" destination="p5w-09-ukX" id="LL2-aK-OW0"/>
                     </connections>
                 </viewController>

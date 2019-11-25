@@ -312,11 +312,8 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         let label = UILabel(font: enterPINLabel.font)
         label.textColor = .white
         label.text = S.UnlockScreen.unlocked
-        label.alpha = 0.0
         let lock = UIImageView(image: #imageLiteral(resourceName: "unlock"))
-        lock.alpha = 0.0
-        
-        
+         
         if let _pinView = self.pinView {
             enterPINLabel.removeFromSuperview()
             _pinView.removeFromSuperview()
@@ -332,17 +329,20 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             lock.topAnchor.constraint(equalTo: label.bottomAnchor, constant: C.padding[1]),
             lock.centerXAnchor.constraint(equalTo: label.centerXAnchor) ])
         view.layoutIfNeeded()
-
+  
         self.logo.alpha = 0.0
+        self.wipeBannerButton.alpha = 1.0
         
-        UIView.spring(0.5, animations: {
+        UIView.spring(0.6, delay: 0.4, animations: {
             self.pinPadBottom?.constant = self.pinPadViewController.height
             self.topControlTop?.constant = -100.0
-            lock.alpha = 1.0
-            label.alpha = 1.0
-            
+             
+            lock.alpha = 0.0
+            label.alpha = 0.0
+            self.wipeBannerButton.alpha = 0.0
             self.enterPINLabel.alpha = 0.0
             self.pinView?.alpha = 0.0
+            
             self.view.layoutIfNeeded()
         }) { completion in
             self.delegate?.didUnlockLogin()

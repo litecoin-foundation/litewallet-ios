@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
         <!--SendLTC View Controller-->
         <scene sceneID="2uU-jb-OpB">
             <objects>
-                <viewController storyboardIdentifier="SendLTCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KIX-7n-xQg" customClass="SendLTCViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendLTCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KIX-7n-xQg" customClass="SendLTCViewController" customModule="Litewallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rvw-Dp-7Qc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,38 +79,8 @@
                                     <constraint firstAttribute="bottom" secondItem="2s6-yW-TN1" secondAttribute="bottom" constant="10" id="vRZ-cn-bFc"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpp-fk-K80">
-                                <rect key="frame" x="0.0" y="44" width="207" height="60"/>
-                                <color key="backgroundColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="dVk-kG-KKg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="17"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Address">
-                                    <color key="titleColor" red="0.30327409509999997" green="0.3032055199" blue="0.30777344109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIl-JC-MwP">
-                                <rect key="frame" x="207" y="44" width="207" height="60"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="tYe-VF-cdN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="17"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Contact">
-                                    <color key="titleColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIg-b2-4nM">
-                                <rect key="frame" x="0.0" y="104" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Litecoin Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhb-DE-89k">
                                         <rect key="frame" x="30" y="90" width="99" height="18"/>
@@ -245,20 +215,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TIg-b2-4nM" firstAttribute="leading" secondItem="gAO-ux-TSt" secondAttribute="leading" id="DlE-ZX-Yj5"/>
-                            <constraint firstItem="gAO-ux-TSt" firstAttribute="trailing" secondItem="pIl-JC-MwP" secondAttribute="trailing" id="J1L-Ri-KL2"/>
                             <constraint firstItem="q6K-qc-2Pn" firstAttribute="leading" secondItem="3EU-Fo-1FW" secondAttribute="trailing" id="Qve-z2-ILh"/>
                             <constraint firstItem="3EU-Fo-1FW" firstAttribute="bottom" secondItem="gAO-ux-TSt" secondAttribute="bottom" id="SZf-Bf-qGP"/>
-                            <constraint firstItem="pIl-JC-MwP" firstAttribute="leading" secondItem="Hpp-fk-K80" secondAttribute="trailing" id="VSP-fe-98B"/>
                             <constraint firstItem="3EU-Fo-1FW" firstAttribute="leading" secondItem="gAO-ux-TSt" secondAttribute="leading" id="Wjd-kc-VEc"/>
                             <constraint firstItem="q6K-qc-2Pn" firstAttribute="top" secondItem="TIg-b2-4nM" secondAttribute="bottom" id="aSp-8i-lNP"/>
                             <constraint firstItem="gAO-ux-TSt" firstAttribute="trailing" secondItem="q6K-qc-2Pn" secondAttribute="trailing" id="eHD-Yt-pIV"/>
-                            <constraint firstItem="pIl-JC-MwP" firstAttribute="width" secondItem="Hpp-fk-K80" secondAttribute="width" id="ecu-Ng-16y"/>
-                            <constraint firstItem="pIl-JC-MwP" firstAttribute="top" secondItem="gAO-ux-TSt" secondAttribute="top" id="l23-8Q-aUs"/>
-                            <constraint firstItem="TIg-b2-4nM" firstAttribute="top" secondItem="Hpp-fk-K80" secondAttribute="bottom" id="lFi-p2-w7j"/>
                             <constraint firstItem="gAO-ux-TSt" firstAttribute="bottom" secondItem="q6K-qc-2Pn" secondAttribute="bottom" id="o6E-2N-ivT"/>
                             <constraint firstItem="gAO-ux-TSt" firstAttribute="trailing" secondItem="TIg-b2-4nM" secondAttribute="trailing" id="s4x-wW-ofv"/>
-                            <constraint firstItem="Hpp-fk-K80" firstAttribute="leading" secondItem="rvw-Dp-7Qc" secondAttribute="leading" id="t3P-2F-CqY"/>
-                            <constraint firstItem="Hpp-fk-K80" firstAttribute="top" secondItem="gAO-ux-TSt" secondAttribute="top" id="y1i-vo-6Ho"/>
+                            <constraint firstItem="TIg-b2-4nM" firstAttribute="top" secondItem="gAO-ux-TSt" secondAttribute="top" id="uyv-5s-Ggf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gAO-ux-TSt"/>
                     </view>
