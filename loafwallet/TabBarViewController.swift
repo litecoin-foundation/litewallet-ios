@@ -14,7 +14,6 @@ enum TabViewControllerIndex: Int {
     case send = 1
     case buy = 2
     case receive = 3
-    case spend = 4
 }
  
 protocol MainTabBarControllerDelegate {
@@ -23,7 +22,7 @@ protocol MainTabBarControllerDelegate {
 
 class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
       
-    let kInitialChildViewControllerIndex = 2 // BuyLTCViewController
+    let kInitialChildViewControllerIndex = 0 // TransactionsViewController
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: UITabBar!
@@ -35,11 +34,11 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     var primaryBalanceLabel: UpdatingLabel?
     var secondaryBalanceLabel: UpdatingLabel?
-    private let largeFontSize: CGFloat = 26.0
-    private let smallFontSize: CGFloat = 13.0
+    private let largeFontSize: CGFloat = 24.0
+    private let smallFontSize: CGFloat = 12.0
     private var hasInitialized = false
     private let dateFormatter = DateFormatter()
-    private let equalsLabel = UILabel(font: .barloweMedium(size: 13), color: .whiteTint)
+    private let equalsLabel = UILabel(font: .barloweMedium(size: 12), color: .whiteTint)
     private var regularConstraints: [NSLayoutConstraint] = []
     private var swappedConstraints: [NSLayoutConstraint] = []
     private let currencyTapView = UIView()
@@ -113,7 +112,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         let halfRemainingWidth = (CGFloat(self.view.frame.width) - CGFloat(currentLTCPriceLabel.frame.width + CGFloat(settingsButton.frame.width)))/2 - equalsWidth
  
         primaryLabel.font = UIFont.barloweSemiBold(size: largeFontSize)
-        secondaryLabel.font = UIFont.barloweSemiBold(size: smallFontSize)
+        secondaryLabel.font = UIFont.barloweSemiBold(size: largeFontSize)
         
         equalsLabel.text = S.AccountHeader.equals 
         headerView.addSubview(primaryLabel)
@@ -127,18 +126,21 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         equalsLabel.translatesAutoresizingMaskIntoConstraints = false
         primaryLabel.translatesAutoresizingMaskIntoConstraints = false
     
+//        let ttete = -C.padding[1]
+//        let ttete2 = -C.padding[2]
+
         regularConstraints = [
-            primaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -C.padding[1]),
+            primaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
             primaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[2]),
-            equalsLabel.firstBaselineAnchor.constraint(equalTo: primaryLabel.firstBaselineAnchor),
+            equalsLabel.firstBaselineAnchor.constraint(equalTo: primaryLabel.firstBaselineAnchor, constant: 0),
             equalsLabel.leadingAnchor.constraint(equalTo: primaryLabel.trailingAnchor, constant: C.padding[1]/2.0),
             secondaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1]/2.0),
          ]
          
         swappedConstraints = [
-            secondaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -C.padding[1]),
+            secondaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
             secondaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[2]),
-            equalsLabel.firstBaselineAnchor.constraint(equalTo: secondaryLabel.firstBaselineAnchor),
+            equalsLabel.firstBaselineAnchor.constraint(equalTo: secondaryLabel.firstBaselineAnchor, constant: 0),
             equalsLabel.leadingAnchor.constraint(equalTo: secondaryLabel.trailingAnchor, constant: C.padding[1]/2.0),
             primaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1]/2.0),
          ]
@@ -228,21 +230,19 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         }
          
         let amount = Amount(amount: balance, rate: rate, maxDigits: store.state.maxDigits)
-        let testAmount = 34444.4444
 
         if !hasInitialized {
             let amount = Amount(amount: balance, rate: exchangeRate!, maxDigits: store.state.maxDigits)
             NSLayoutConstraint.deactivate(isLTCSwapped ? self.regularConstraints : self.swappedConstraints)
             NSLayoutConstraint.activate(isLTCSwapped ? self.swappedConstraints : self.regularConstraints)
-            primaryLabel.setValue(testAmount)  //amount.amountForLtcFormat
-            secondaryLabel.setValue(testAmount) //amount.localAmount
+            primaryLabel.setValue(amount.amountForLtcFormat)
+            secondaryLabel.setValue(amount.localAmount)
             if isLTCSwapped {
                 primaryLabel.transform = transform(forView: primaryLabel)
             } else {
                 secondaryLabel.transform = transform(forView: secondaryLabel)
             }
             hasInitialized = true
-            //hideExtraViews()
         } else {
             if primaryLabel.isHidden {
                 primaryLabel.isHidden = false
@@ -251,9 +251,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             if secondaryLabel.isHidden {
                 secondaryLabel.isHidden = false
             }
-             
-            //amount.amountForLtcFormat
-            primaryLabel.setValueAnimated(testAmount, completion: { [weak self] in
+              
+            primaryLabel.setValueAnimated(amount.amountForLtcFormat, completion: { [weak self] in
                 guard let myself = self else { return }
                 guard let isLTCSwapped = myself.isLtcSwapped else { return }
                 guard let primaryLabel = myself.primaryBalanceLabel else {
@@ -266,11 +265,9 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
                 } else {
                     primaryLabel.transform = myself.transform(forView: primaryLabel)
                 }
-                //myself.hideExtraViews()
             })
-             
-           // amount.localAmount
-            secondaryLabel.setValueAnimated(testAmount, completion: { [weak self] in
+              
+            secondaryLabel.setValueAnimated(amount.localAmount, completion: { [weak self] in
                 guard let myself = self else { return }
                 guard let isLTCSwapped = myself.isLtcSwapped else { return }
                 guard let secondaryLabel = myself.secondaryBalanceLabel else {
@@ -282,7 +279,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
                 } else {
                     secondaryLabel.transform = myself.transform(forView: secondaryLabel)
                 }
-                //myself.hideExtraViews()
             })
         }
         
@@ -291,32 +287,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         let formattedFiatString = String(format: "%.02f", fiatRate)
         self.currentLTCPriceLabel.text = Currency.getSymbolForCurrencyCode(code: rate.code)! + formattedFiatString
     }
-    
-//    private func hideExtraViews() {
-//        var didHide = false
-//
-//        guard let primaryLabel = self.primaryBalanceLabel,
-//                   let secondaryLabel = self.secondaryBalanceLabel else {
-//                       NSLog("ERROR: Price labels not initialized")
-//                       return
-//               }
-//
-//        if secondaryLabel.frame.maxX > currentLTCPriceLabel.frame.minX {
-//            secondaryLabel.isHidden = true
-//            didHide = true
-//        } else {
-//            secondaryLabel.isHidden = false
-//        }
-//
-//        if primaryLabel.frame.maxX > currentLTCPriceLabel.frame.minX {
-//            primaryLabel.isHidden = true
-//            didHide = true
-//        } else {
-//            primaryLabel.isHidden = false
-//        }
-//        equalsLabel.isHidden = didHide
-//    }
-    
+   
     private func transform(forView: UIView) ->  CGAffineTransform {
         forView.transform = .identity //Must reset the view's transform before we calculate the next transform
         let scaleFactor: CGFloat = smallFontSize/largeFontSize
@@ -354,8 +325,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         super.viewDidAppear(animated)
         self.displayContentController(contentController: viewControllers[kInitialChildViewControllerIndex])
     }
-
-    
+ 
     func displayContentController(contentController:UIViewController) {
         
         var rawStringClassName = NSStringFromClass(contentController.classForCoder)
@@ -409,7 +379,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         }
         self.displayContentController(contentController: viewControllers[item.tag])
     }
-    
 }
 
 extension TabBarViewController {
@@ -423,8 +392,6 @@ extension TabBarViewController {
                 NSLog("ERROR: Price labels not initialized")
                 return
         }
-        print(primaryLabel.font.pointSize)
-        print(secondaryLabel.font.pointSize)
 
         UIView.spring(0.7, animations: {
             primaryLabel.transform = primaryLabel.transform.isIdentity ? self.transform(forView: primaryLabel) : .identity

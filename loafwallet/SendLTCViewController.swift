@@ -11,4 +11,7 @@ import UIKit
 
 class SendLTCViewController: UIViewController {
     
+    override func viewDidLoad() {
+        <#code#>
+    }
 }
