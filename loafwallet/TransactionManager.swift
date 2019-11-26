@@ -26,14 +26,13 @@ class TransactionManager: NSObject, Subscriber {
                             self.transactions = state.walletState.transactions
         })
         
-        
         store.subscribe(self,selector: { $0.currentRate != $1.currentRate},
                         callback: {
                             
                             self.rate = $0.currentRate
         })
         
-         store.subscribe(self, selector: { $0.walletState.syncState != $1.walletState.syncState }, callback: { _ in
+        store.subscribe(self, selector: { $0.walletState.syncState != $1.walletState.syncState }, callback: { _ in
                     //reload
                 })
         
