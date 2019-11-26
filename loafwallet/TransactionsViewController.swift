@@ -173,89 +173,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
     private func configureTransactionCell(transaction:Transaction?, indexPath: IndexPath) -> TransactionTableViewCellv2 {
          
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTVC", for: indexPath) as? TransactionTableViewCellv2 else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTVC2", for: indexPath) as? TransactionTableViewCellv2 else {
             NSLog("ERROR No cell found")
             return TransactionTableViewCellv2()
         }
-          
-        if let transaction = transaction,
-            let isLTCSwapped = self.isLtcSwapped {
-       
-        cell.setupViews()
-        cell.addressLabel.text = transaction.toAddress
-                cell.timedateLabel.text = transaction.shortTimestamp
-                
-                cell.isExpanded = cellIsSelected(indexPath: indexPath)
-                cell.expandCardView.alpha = 0.0
-                
-                var imageName = ""
-                var imageTint = UIColor.white
-                switch transaction.direction {
-                case .received:
-                    imageName = "down-chevron-green"
-                    imageTint = .litecoinGreen
-                case .sent:
-                    imageName = "up-chevron-gray"
-                    imageTint = .litecoinOrange
-                case .moved:
-                    imageName = "movedTransaction"
-                    imageTint = .litecoinGray
-                }
-             
-                cell.arrowImageView.image = UIImage(named: imageName)
-                cell.arrowImageView.tintColor = imageTint
-                cell.amountLabel.text = transaction.amountDetails(isLtcSwapped: isLTCSwapped, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-            
-                cell.statusLabel.text = transaction.status
-                
-                cell.moreOrLessLabel.text = cellIsSelected(indexPath: indexPath) ? S.TransactionDetails.less.uppercased() : S.TransactionDetails.more.uppercased()
-                
-                cell.staticTxIDLabel.text = S.TransactionDetails.staticTXIDLabel
-                cell.txidStringLabel.text = transaction.hash
-                
-                cell.staticAmountDetailLabel.text = S.Confirmation.amountDetailLabel.uppercased() + ":"
-                
-                cell.startingBalanceLabel.text =  transaction.amountDetailsStartingBalanceString(isLtcSwapped: false, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-                cell.endingBalanceLabel.text = transaction.amountDetailsEndingBalanceString(isLtcSwapped: isLTCSwapped, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-                cell.exchangeRateLabel.text = transaction.amountExchangeString(isLtcSwapped: isLTCSwapped, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-                
-                cell.staticBlockLabel.text = S.TransactionDetails.blockHeightLabel.uppercased() + ":"
-                cell.blockLabel.text = transaction.blockHeight
-                
-                cell.addressLabel.text = transaction.toAddress
-                
-                cell.staticCommentLabel.text = S.TransactionDetails.commentsHeader.uppercased() + ":"
-                if transaction.comment != "" {
-                    cell.memoTextLabel.text = transaction.comment
-                } else {
-                    cell.memoTextLabel.text = "--"
-                }
-                ///<div>Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
-                
-                cell.showQRModalAction = { [unowned self] in
-                    
-                    if let addressString = transaction.toAddress,
-                        let qrImage = transaction.toAddress?.qrCode,
-                        let receiveLTCtoAddressModal = UIStoryboard.init(name: "Alerts", bundle: nil).instantiateViewController(withIdentifier: "LFModalReceiveQRViewController") as? LFModalReceiveQRViewController {
-                        
-                        receiveLTCtoAddressModal.providesPresentationContextTransitionStyle = true
-                        receiveLTCtoAddressModal.definesPresentationContext = true
-                        receiveLTCtoAddressModal.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                        receiveLTCtoAddressModal.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                        receiveLTCtoAddressModal.dismissQRModalAction = { [unowned self] in
-                          self.dismiss(animated: true, completion: nil)
-                        }
-                        
-                        self.present(receiveLTCtoAddressModal, animated: true) {
-                             receiveLTCtoAddressModal.addressLabel.text = addressString
-                             receiveLTCtoAddressModal.qrImageView.image = qrImage
-                             receiveLTCtoAddressModal.receiveModalTitleLabel.text = S.TransactionDetails.receiveModaltitle
-                        }
-                    }
-                }
-        } else {
-            assertionFailure("ERROR must have transaction")
-        }
+        
         return cell
     }
       
