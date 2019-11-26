@@ -32,6 +32,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     @IBOutlet weak var timeStampStackView: UIStackView!
     @IBOutlet weak var timeStampStackViewHeight: NSLayoutConstraint!
     
+    
+    
     var primaryBalanceLabel: UpdatingLabel?
     var secondaryBalanceLabel: UpdatingLabel?
     private let largeFontSize: CGFloat = 24.0
@@ -63,6 +65,15 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     var isLtcSwapped: Bool? {
         didSet { setBalances() }
     }
+    
+    @IBAction func showSetttingsAction(_ sender: Any) {
+        guard let store = self.store else {
+            NSLog("ERROR: Store not set")
+            return
+        }
+        store.perform(action: RootModalActions.Present(modal: .menu))
+    }
+    
       
     override func viewDidLoad() {
         super.viewDidLoad()

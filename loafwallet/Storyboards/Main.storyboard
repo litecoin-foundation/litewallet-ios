@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-Gw-zod">
-                                <rect key="frame" x="0.0" y="589" width="414" height="98"/>
+                                <rect key="frame" x="0.0" y="638" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="TzC-tl-jAG"/>
                                 <items>
@@ -55,6 +55,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="settingsWhite"/>
+                                        <connections>
+                                            <action selector="showSetttingsAction:" destination="x3n-5i-KbR" eventType="touchUpInside" id="bBO-5m-5u1"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="RAg-vc-Wor">
                                         <rect key="frame" x="331.33333333333331" y="12" width="38.666666666666686" height="36"/>
@@ -88,7 +91,7 @@
                                 <viewLayoutGuide key="safeArea" id="81g-U6-NOG"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euD-bi-teC">
-                                <rect key="frame" x="0.0" y="60" width="414" height="529"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="578"/>
                                 <viewLayoutGuide key="safeArea" id="spi-yc-QnP"/>
                                 <connections>
                                     <segue destination="0H7-tx-uMf" kind="embed" id="RDN-fw-P5V"/>
