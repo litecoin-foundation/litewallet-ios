@@ -19,13 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_ltcnew" translatesAutoresizingMaskIntoConstraints="NO" id="Hkr-9k-VHy">
-                                <rect key="frame" x="157.5" y="120" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="EM6-55-g3B"/>
-                                    <constraint firstAttribute="width" constant="60" id="HMG-OY-BN4"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litecoinFoundationLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Kkx-de-hJc">
                                 <rect key="frame" x="132.5" y="572" width="110" height="65"/>
                                 <constraints>
@@ -38,9 +31,7 @@
                         <color key="tintColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Kkx-de-hJc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5Ks-zM-9GV"/>
-                            <constraint firstItem="Hkr-9k-VHy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OY7-8i-vfO"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Kkx-de-hJc" secondAttribute="bottom" constant="30" id="UlL-Oq-6vB"/>
-                            <constraint firstItem="Hkr-9k-VHy" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="120" id="XDs-gO-JzJ"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -51,7 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo_ltcnew" width="41.666667938232422" height="41.666667938232422"/>
         <image name="litecoinFoundationLogo" width="126.33333587646484" height="47"/>
     </resources>
 </document>

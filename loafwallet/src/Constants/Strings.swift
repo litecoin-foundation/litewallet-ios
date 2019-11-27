@@ -35,7 +35,6 @@ enum S {
         static let asOf = NSLocalizedString("Conjunction.asOf", value:"as of", comment: "as of a time or date")
     }
 
-
     enum Button {
         static let ok = NSLocalizedString("Button.ok", value:"OK", comment: "OK button label")
         static let cancel = NSLocalizedString("Button.cancel", value:"Cancel", comment: "Cancel button label")
@@ -637,7 +636,7 @@ enum S {
     }
 
     enum Welcome {
-        static let title = NSLocalizedString("Welcome.title", value: "Welcome to Litewallet!", comment: "Welcome view title")
-        static let body = NSLocalizedString("Welcome.body", value: "Litewallet now has a brand new look and some new features.\n\nIf you need help, look for the (?) in the top right of most screens. All coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).", comment: "Welcome view body text")
+        static let title = NSLocalizedString("Welcome.title", value: "Welcome to Litewallet", comment: "Welcome view title")
+        static let body = NSLocalizedString("Welcome.body", value: "Litewallet now has a brand new look and some new features.\n\nAll coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).", comment: "Welcome view body text")
     }
 }

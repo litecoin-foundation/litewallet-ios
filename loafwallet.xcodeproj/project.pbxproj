@@ -639,7 +639,6 @@
 		18009E4E15F57315ECD92458 /* Pods-loafwalletUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwalletUITests.testflight.xcconfig"; path = "Target Support Files/Pods-loafwalletUITests/Pods-loafwalletUITests.testflight.xcconfig"; sourceTree = "<group>"; };
 		1B3F74211FFB106200CCA50C /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSettingsViewController.swift; path = src/ViewControllers/BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
 		1B3F74221FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSpendingLimitViewController.swift; path = src/ViewControllers/BiometricsSpendingLimitViewController.swift; sourceTree = "<group>"; };
-		1B86CEBE2091538B00BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1B86CF1B2091554C00BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1B86CF1C2091558000BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1B86CF1D209155A700BCE82E /* Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Dev.plist; sourceTree = "<group>"; };
@@ -3092,7 +3091,6 @@
 				CE5E6C991EB9135000A476DB /* Icon.xcassets */,
 				75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */,
 				75A2A79F1DA5934300A983D8 /* Info.plist */,
-				1B86CEBE2091538B00BCE82E /* Dev.plist */,
 				24B523AF238A53DC0030594D /* BIP39Words.plist */,
 				2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */,
 			);
