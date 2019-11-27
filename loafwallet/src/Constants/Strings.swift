@@ -111,7 +111,10 @@ enum S {
     
     enum Account {
         static let loadingMessage = NSLocalizedString("Account.loadingMessage", value:"Loading Wallet", comment: "Loading Wallet Message")
-        static let barItemTitle = NSLocalizedString("Account.barItemTitle", value:"Account", comment: "Account Bar Item Title")
+    }
+    
+    enum History {
+        static let barItemTitle = NSLocalizedString("History.barItemTitle", value:"History", comment: "History Bar Item Title")
     }
 
     enum JailbreakWarnings {

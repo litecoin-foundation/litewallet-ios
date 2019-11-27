@@ -839,6 +839,9 @@
 /* buy button */
 "Button.buy" = "";
 
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "";
+
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "";
 
@@ -869,6 +872,9 @@
 /* Buy Center Title */
 "BuyCenter.title" = "";
 
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "";
+
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "";
 
@@ -883,6 +889,12 @@
 
 /* eg. Processing time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingTime" = "";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "";
 
 /* Confirmation Screen title */
 "Confirmation.title" = "";
@@ -956,6 +968,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "";
 
+/* History Bar Item Title */
+"History.barItemTitle" = "";
+
 /* Wrong password alert message */
 "Import.wrongPassword" = "";
 
@@ -1016,6 +1031,9 @@
 /* Push notifications are on label */
 "PushNotifications.on" = "";
 
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "";
+
 /* No amount entered error message. */
 "RequestAnAmount.noAmount" = "";
 
@@ -1027,6 +1045,9 @@
 
 /* Face ID button title */
 "SecurityCenter.faceIdTitle" = "";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "";
 
 /* Empty pasteboard error message */
 "Send.emptyPasteboard" = "";
@@ -1067,6 +1088,9 @@
 /* Start or recover another wallet menu label. */
 "Settings.wipe" = "";
 
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "";
 
@@ -1094,17 +1118,32 @@
 /* Block height label */
 "TransactionDetails.blockHeightLabel" = "";
 
+/* Less button title */
+"TransactionDetails.less" = "";
+
 /* Moved $5.00 */
 "TransactionDetails.movedAmountDescription" = "";
 
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "";
 
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "";
+
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "";
 
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "";
+
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "";
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "";

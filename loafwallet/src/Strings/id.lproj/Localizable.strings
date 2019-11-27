@@ -161,6 +161,9 @@
 /* Yes button */
 "Button.yes" = "";
 
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "";
+
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "";
 
@@ -194,6 +197,9 @@
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "";
 
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "";
+
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "";
 
@@ -211,6 +217,12 @@
 
 /* Send: (amount) */
 "Confirmation.send" = "";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "";
 
 /* Confirmation Screen title */
 "Confirmation.title" = "";
@@ -304,6 +316,9 @@
 
 /* Fee Selector title */
 "FeeSelector.title" = "";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "";
 
 /* Checking private key balance progress view text */
 "Import.checking" = "";
@@ -545,6 +560,9 @@
 /* Push notifications settings view title label */
 "PushNotifications.title" = "";
 
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "";
+
 /* Address copied message. */
 "Receive.copied" = "";
 
@@ -692,6 +710,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "";
 
+/* Send Bar Item Title */
+"Send.barItemTitle" = "";
+
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "";
 
@@ -833,6 +854,9 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "";
 
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "";
 
@@ -965,6 +989,9 @@
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "";
 
+/* Less button title */
+"TransactionDetails.less" = "";
+
 /* More button title */
 "TransactionDetails.more" = "";
 
@@ -977,17 +1004,26 @@
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "";
 
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "";
+
 /* Received $5.00 (received title 1/2) */
 "TransactionDetails.received" = "";
 
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "";
 
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "";
+
 /* Sent $5.00 (sent title 1/2) */
 "TransactionDetails.sent" = "";
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "";
@@ -1009,6 +1045,9 @@
 
 /* Disabled until date */
 "UnlockScreen.disabled" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "";
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "";

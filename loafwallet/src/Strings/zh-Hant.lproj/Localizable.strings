@@ -1067,6 +1067,9 @@
 /* buy button */
 "Button.buy" = "";
 
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "";
+
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "";
 
@@ -1097,11 +1100,20 @@
 /* Buy Center Title */
 "BuyCenter.title" = "";
 
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "";
+
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "";
 
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "";
 
 /* Confirm paper phrase error message */
 "ConfirmPaperPhrase.error" = "";
@@ -1121,17 +1133,26 @@
 /* Donate Confirmation */
 "Donate.title.confirmation" = "";
 
+/* History Bar Item Title */
+"History.barItemTitle" = "";
+
 /* No comment provided by engineer. */
 "Malformed URI" = "";
 
 /* No comment provided by engineer. */
 "No wallet" = "";
 
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "";
+
 /* Reset walet button  title */
 "resetButton" = "";
 
 /* Warning Empty Wipe title */
 "resetTitle" = "";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "";
 
 /* Insufficient funds error */
 "Send.insufficientFunds" = "";
@@ -1142,11 +1163,29 @@
 /* Support settings section header */
 "Settings.support" = "";
 
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";
+
+/* Less button title */
+"TransactionDetails.less" = "";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "";
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "";

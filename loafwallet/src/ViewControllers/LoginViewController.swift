@@ -46,7 +46,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     //MARK: - Private
     private let store: Store
     private let backgroundView = LoginBackgroundView()
-    private let pinPadViewController = PinPadViewController(style: .white, keyboardType: .pinPad, maxDigits: 0)
+    private let pinPadViewController = PinPadViewController(style: .clear, keyboardType: .pinPad, maxDigits: 0)
     private let pinViewContainer = UIView()
     private var pinView: PinView?
     private let isPresentedForLock: Bool
@@ -186,7 +186,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         view.addSubview(versionLabel)
         view.addSubview(enterPINLabel)
 
-        pinPadBackground.backgroundColor = .liteWalletBlue
+        pinPadBackground.backgroundColor = .clear
         if walletManager != nil {
             view.addSubview(pinPadBackground)
         } else {

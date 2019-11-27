@@ -1152,3 +1152,42 @@
 
 /* No comment provided by engineer. */
 "Copy" = "";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "";
+
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "";
+
+/* Less button title */
+"TransactionDetails.less" = "";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "";

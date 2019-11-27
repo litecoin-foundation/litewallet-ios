@@ -31,11 +31,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-Gw-zod">
-                                <rect key="frame" x="0.0" y="638" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="589" width="414" height="98"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="TzC-tl-jAG"/>
                                 <items>
-                                    <tabBarItem title="Account" image="flash" selectedImage="flash" id="qwA-9l-CfE" userLabel="Account"/>
+                                    <tabBarItem title="History" image="historyIcon" selectedImage="historyIcon" id="qwA-9l-CfE" userLabel="History"/>
                                     <tabBarItem tag="2" title="Buy" image="litecoin_cutout24" selectedImage="litecoin_cutout24" id="spP-38-fzY" userLabel="Buy"/>
                                     <tabBarItem tag="1" title="Send" image="SendButtonIcon" selectedImage="SendButtonIcon" id="Idu-CT-kfl" userLabel="Send"/>
                                     <tabBarItem tag="3" title="Receive" image="ReceiveButtonIcon" selectedImage="ReceiveButtonIcon" id="1Ar-eJ-M87" userLabel="Receive"/>
@@ -91,7 +91,7 @@
                                 <viewLayoutGuide key="safeArea" id="81g-U6-NOG"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euD-bi-teC">
-                                <rect key="frame" x="0.0" y="60" width="414" height="578"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="529"/>
                                 <viewLayoutGuide key="safeArea" id="spi-yc-QnP"/>
                                 <connections>
                                     <segue destination="0H7-tx-uMf" kind="embed" id="RDN-fw-P5V"/>
@@ -346,7 +346,7 @@
         <image name="ReceiveButtonIcon" width="20" height="24"/>
         <image name="SendButtonIcon" width="20" height="24"/>
         <image name="coinBlueWhite" width="230" height="230"/>
-        <image name="flash" width="16" height="16"/>
+        <image name="historyIcon" width="32" height="32"/>
         <image name="litecoin_cutout24" width="24" height="24"/>
         <image name="settingsWhite" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
