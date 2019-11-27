@@ -32,9 +32,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "マイブレッド";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "管理";
 
@@ -1060,6 +1057,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
+
+/* Equals symbol */
+"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

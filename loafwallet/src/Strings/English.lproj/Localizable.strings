@@ -1151,6 +1151,9 @@
 /* Terms of Use button label */
 "About.terms" = "";
 
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "";
+
 /* Buy Bar Item Title */
 "BuyCenter.barItemTitle" = "";
 

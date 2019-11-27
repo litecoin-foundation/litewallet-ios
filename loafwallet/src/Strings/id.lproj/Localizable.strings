@@ -35,6 +35,9 @@
 /* Equals symbol */
 "AccountHeader.equals" = " = "";
 
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "";
+
 /* Error alert title */
 "Alert.error" = "";
 

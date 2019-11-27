@@ -32,9 +32,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "Mitt Litewallet";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "HANTERA";
 
@@ -1063,6 +1060,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d av %2$d";
+
+/* Equals symbol */
+"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

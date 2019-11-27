@@ -785,6 +785,9 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d از %2$d";
 
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "";
+
 /* Send BCH view body. */
 "BCH.body" = "";
 

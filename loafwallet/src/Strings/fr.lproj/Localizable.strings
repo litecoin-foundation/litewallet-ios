@@ -32,9 +32,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "Mon Litewallet";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "GÉRER";
 
@@ -1063,6 +1060,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
+
+/* Equals symbol */
+"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

@@ -1058,6 +1058,9 @@
 /* Equals symbol */
 "AccountHeader.equals" = " = "";
 
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "";
+
 /* buy button */
 "Button.buy" = "";
 

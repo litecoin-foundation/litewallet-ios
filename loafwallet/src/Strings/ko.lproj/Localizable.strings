@@ -32,9 +32,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "나의 Litewallet";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "관리하기";
 
@@ -1063,6 +1060,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
+
+/* Equals symbol */
+"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

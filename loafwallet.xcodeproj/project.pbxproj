@@ -75,6 +75,7 @@
 		22E773041EE7813000397E0E /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E773031EE7813000397E0E /* Bonjour.swift */; };
 		240A89B6235F7280005E2A2F /* DonationSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A89B4235F7280005E2A2F /* DonationSetupCell.swift */; };
 		2427342D2381C21800E2D22F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2427342B2381C21800E2D22F /* MainViewController.swift */; };
+		24306797238F3DF900EBEA99 /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24306796238F3DF900EBEA99 /* BartyCrouch.swift */; };
 		24313C752381E73200A83F69 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C732381E73200A83F69 /* TransactionManager.swift */; };
 		24313C782381E8F100A83F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C762381E8F100A83F69 /* TabBarViewController.swift */; };
 		24313C7B23820BC200A83F69 /* SendLTCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24313C7923820BC200A83F69 /* SendLTCViewController.swift */; };
@@ -821,6 +822,7 @@
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
 		2427342B2381C21800E2D22F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		24306796238F3DF900EBEA99 /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		24313C732381E73200A83F69 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		24313C762381E8F100A83F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24313C7923820BC200A83F69 /* SendLTCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLTCViewController.swift; sourceTree = "<group>"; };
@@ -2196,6 +2198,14 @@
 			path = libbz2;
 			sourceTree = "<group>";
 		};
+		24306795238F3DDF00EBEA99 /* BartyCrouch */ = {
+			isa = PBXGroup;
+			children = (
+				24306796238F3DF900EBEA99 /* BartyCrouch.swift */,
+			);
+			name = BartyCrouch;
+			sourceTree = "<group>";
+		};
 		24313C8823823B9F00A83F69 /* Receive */ = {
 			isa = PBXGroup;
 			children = (
@@ -3052,6 +3062,7 @@
 		75A2A7921DA5934300A983D8 /* loafwallet */ = {
 			isa = PBXGroup;
 			children = (
+				24306795238F3DDF00EBEA99 /* BartyCrouch */,
 				75A2A87C1DA59E4E00A983D8 /* loafwallet.entitlements */,
 				75A2A7931DA5934300A983D8 /* AppDelegate.swift */,
 				CE20C8F11DBAF71500C8397A /* ApplicationController.swift */,
@@ -4413,6 +4424,7 @@
 				CE45C1FD1E7650F5002C3847 /* KVStoreCoordinator.swift in Sources */,
 				754AE0BC1DFE8A46007FD001 /* BRCore.swift in Sources */,
 				22A9A94A1DF61945000F0016 /* BRCameraPlugin.swift in Sources */,
+				24306797238F3DF900EBEA99 /* BartyCrouch.swift in Sources */,
 				CEC6AA3B1DEE4EB000EE5AFD /* CGRect+Additions.swift in Sources */,
 				CE45C1FB1E74F89C002C3847 /* WalletInfo.swift in Sources */,
 				CE14E40B1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift in Sources */,

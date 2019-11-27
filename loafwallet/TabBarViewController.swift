@@ -122,7 +122,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         primaryLabel.font = UIFont.barloweSemiBold(size: largeFontSize)
         secondaryLabel.font = UIFont.barloweSemiBold(size: largeFontSize)
         
-        equalsLabel.text = S.AccountHeader.equals 
+        equalsLabel.text = "="
         headerView.addSubview(primaryLabel)
         headerView.addSubview(secondaryLabel)
         headerView.addSubview(equalsLabel)
@@ -133,10 +133,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
         equalsLabel.translatesAutoresizingMaskIntoConstraints = false
         primaryLabel.translatesAutoresizingMaskIntoConstraints = false
-    
-//        let ttete = -C.padding[1]
-//        let ttete2 = -C.padding[2]
-
+      
         regularConstraints = [
             primaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
             primaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[2]),

@@ -32,9 +32,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "Mit Litewallet";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "ADMINISTRER";
 
@@ -1060,6 +1057,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d af %2$d";
+
+/* Equals symbol */
+"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

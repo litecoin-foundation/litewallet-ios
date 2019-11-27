@@ -28,9 +28,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "My Litewallet";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "MANAGE";
 
