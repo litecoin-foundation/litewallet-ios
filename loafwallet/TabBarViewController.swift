@@ -42,8 +42,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     private var regularConstraints: [NSLayoutConstraint] = []
     private var swappedConstraints: [NSLayoutConstraint] = []
     private let currencyTapView = UIView()
-    private let storyboardNames:[String] = ["Transactions","Send","Buy","Receive"]
-    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController", "BuyLTCViewController","ReceiveLTCViewController"]
+    private let storyboardNames:[String] = ["Transactions","Buy","Send","Receive"]
+    var storyboardIDs:[String] = ["TransactionsViewController", "BuyLTCViewController","SendLTCViewController","ReceiveLTCViewController"]
     var viewControllers:[UIViewController] = []
     var activeController:UIViewController? = nil
     
@@ -75,8 +75,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             viewControllers.append(controller)
         }
         
-       
-         
         self.updateTimer = Timer.scheduledTimer(withTimeInterval: 120.0, repeats: true) { timer in
             self.setBalances()
         }
@@ -94,7 +92,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     private func configurePriceLabels() {
 
-        
         //TODO: Debug the reizing of label...very important
         guard let primaryLabel = self.primaryBalanceLabel ,
             let secondaryLabel = self.secondaryBalanceLabel else {
@@ -309,11 +306,10 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         array.forEach { item in
             
             switch item.tag {
-            case 0: item.title = S.Account.barItemTitle
-            case 1: item.title = S.Send.barItemTitle
-            case 2: item.title = S.BuyCenter.barItemTitle
+            case 0: item.title = S.History.barItemTitle
+            case 1: item.title = S.BuyCenter.barItemTitle
+            case 2: item.title = S.Send.barItemTitle
             case 3: item.title = S.Receive.barItemTitle
-            case 4: item.title = S.Spend.barItemTitle
             default:
                 item.title = "XXXXXX"
                 NSLog("ERROR: UITabbar item count is wrong")
@@ -331,7 +327,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         var rawStringClassName = NSStringFromClass(contentController.classForCoder)
          
         switch NSStringFromClass(contentController.classForCoder) {
-        case "Litewallet_dev.TransactionsViewController", "Litewallet.TransactionsViewController":
+        case "Litewallet_Dev.TransactionsViewController", "Litewallet.TransactionsViewController":
 
             guard var transactionVC = contentController as? TransactionsViewController else  {
                 return
@@ -339,20 +335,24 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             transactionVC.store = self.store
             transactionVC.walletManager = self.walletManager
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
-
-        case "Litewallet_dev.SendLTCViewController", "Litewallet.SendLTCViewController":
+        
+        case "Litewallet_Dev.BuyLTCViewController", "Litewallet.BuyLTCViewController":
+                guard var buyVC = contentController as? BuyLTCViewController else  {
+                    return
+            }
+            
+        case "Litewallet_Dev.SendLTCViewController", "Litewallet.SendLTCViewController":
             guard var sendVC = contentController as? SendLTCViewController else  {
                 return
             }
             
-        case "Litewallet_dev.BuyLTCViewController", "Litewallet.BuyLTCViewController":
-            guard var buyVC = contentController as? BuyLTCViewController else  {
-                return
-            }
-        case "Litewallet_dev.ReceiveLTCViewController", "Litewallet.ReceiveLTCViewController":
+            sendVC.store = self.store
+            
+        case "Litewallet_Dev.ReceiveLTCViewController", "Litewallet.ReceiveLTCViewController":
             guard var receiveVC = contentController as? ReceiveLTCViewController else  {
                 return
             }
+            receiveVC.store = self.store
             
         default:
             fatalError("Tab viewController not set")

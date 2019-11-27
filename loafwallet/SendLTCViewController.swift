@@ -11,7 +11,21 @@ import UIKit
 
 class SendLTCViewController: UIViewController {
     
+    var store: Store?
+    
     override func viewDidLoad() {
-        <#code#>
+        
+
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let store = self.store else {
+            NSLog("ERROR: Store is not initialized")
+            return
+        }
+        
+        store.perform(action: RootModalActions.Present(modal: .send))
+    }
+    
+    
 }
