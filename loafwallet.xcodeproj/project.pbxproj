@@ -858,7 +858,6 @@
 		24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LFColorPalette.xcassets; sourceTree = "<group>"; };
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		249F976C236EB3550045087A /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
 		249F976F236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -3415,6 +3414,7 @@
 		CE2990171EFD6DAF0093A0F2 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
+				CEE20C371EA5B4680086F724 /* Strings.swift */,
 				CE29901C1EFD6DE50093A0F2 /* Localizable.strings */,
 			);
 			name = Strings;
@@ -3576,7 +3576,6 @@
 				CEE20C351EA5B4620086F724 /* Constants.swift */,
 				CEBF292F1EF9D76F005C330A /* Environment.swift */,
 				CEE20C331EA5B4550086F724 /* ArticleIds.swift */,
-				CEE20C371EA5B4680086F724 /* Strings.swift */,
 				CE3D4C581EF743EF0016B1C8 /* Functions.swift */,
 				2485F7D123735858005962F1 /* Keys.swift */,
 			);
@@ -3736,6 +3735,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet" */;
 			buildPhases = (
+				240AC609238E85520021766C /* Update Localizable through BartyCrouch */,
 				99019425211CCCB309C62207 /* [CP] Check Pods Manifest.lock */,
 				75A2A78C1DA5934300A983D8 /* Sources */,
 				75A2A78D1DA5934300A983D8 /* Frameworks */,
@@ -3745,7 +3745,6 @@
 				22A9A9831DF63288000F0016 /* Embed Frameworks */,
 				CEE0EF531EBF8C8A0018DB36 /* Icon Versioning */,
 				0EFAC3B5E78B08742F671320 /* [CP] Embed Pods Frameworks */,
-				240AC609238E85520021766C /* Update Localizable through BartyCrouch */,
 			);
 			buildRules = (
 			);
@@ -4001,12 +4000,10 @@
 			};
 			buildConfigurationList = 75A2A78B1DA5934300A983D8 /* Build configuration list for PBXProject "loafwallet" */;
 			compatibilityVersion = "Xcode 10.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
-				Base,
 				fr,
 				es,
 				ja,
@@ -4026,6 +4023,7 @@
 				hu,
 				el,
 				id,
+				Base,
 			);
 			mainGroup = 75A2A7871DA5934300A983D8;
 			productRefGroup = 75A2A7911DA5934300A983D8 /* Products */;
@@ -4200,7 +4198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\n    echo \"Barty Crouch linting...\"\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
 		};
 		3C43577A16830AC6154F834D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4952,7 +4950,6 @@
 				CEE659EE1F68AAB9001FF29D /* zh-Hans */,
 				CE0FC0F81F72417200E7C626 /* ko */,
 				CE0FC0F91F72417500E7C626 /* sv */,
-				249F976C236EB3550045087A /* English */,
 			);
 			name = Localizable.strings;
 			path = src/Strings;
