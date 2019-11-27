@@ -19,11 +19,6 @@ end
 
 target 'loafwallet' do
   platform :ios, '10.0'
-  shared_pods  
-end
-
-target 'loafwallet-dev' do
-  platform :ios, '10.0'
   shared_pods
   
   target 'loafwalletTests' do
@@ -35,4 +30,4 @@ target 'loafwallet-dev' do
   end
   
 end
-
+ 
