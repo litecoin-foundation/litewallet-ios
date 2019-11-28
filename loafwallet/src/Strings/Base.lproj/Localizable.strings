@@ -1085,7 +1085,7 @@
 "Webview.updating" = "Updating...";
 
 /* Welcome view body text */
-"Welcome.body" = "Litewallet now has a brand new look and some new features.\n\nIf you need help, look for the (?) in the top right of most screens. All coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).";
+"Welcome.body" = "Litewallet now has a brand new look and some new features.\n\nAll coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).";
 
 /* Welcome view title */
 "Welcome.title" = "Welcome to Litewallet!";

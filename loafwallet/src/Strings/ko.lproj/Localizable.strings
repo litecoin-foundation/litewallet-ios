@@ -11,9 +11,6 @@
 /* About screen reddit label */
 "About.reddit" = "레딧";
 
-/* Terms of Use button label */
-"About.terms" = "이용 약관";
-
 /* About screen title */
 "About.title" = "관련 사항";
 
@@ -773,12 +770,6 @@
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "연결 중";
 
-/* Syncing view header text */
-"SyncingView.header" = "동기화 중";
-
-/* Retry button label */
-"SyncingView.retry" = "다시 시도";
-
 /* Syncing view syncing state header text */
 "SyncingView.syncing" = "동기화 중";
 
@@ -1060,9 +1051,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
-
-/* Equals symbol */
-"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

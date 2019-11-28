@@ -29,12 +29,6 @@
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "My Litewallet";
 
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
-/* Manage wallet button title */
-"AccountHeader.manageButtonName" = "MANAGE";
-
 /* Error alert title */
 "Alert.error" = "Error";
 
@@ -1148,9 +1142,6 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
 
-/* Terms of Use button label */
-"About.terms" = "";
-
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "";
 
@@ -1183,12 +1174,6 @@
 
 /* Spend Bar Item Title */
 "Spend.barItemTitle" = "";
-
-/* Syncing view header text */
-"SyncingView.header" = "";
-
-/* Retry button label */
-"SyncingView.retry" = "";
 
 /* Less button title */
 "TransactionDetails.less" = "";

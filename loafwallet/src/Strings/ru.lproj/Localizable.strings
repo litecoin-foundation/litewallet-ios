@@ -11,9 +11,6 @@
 /* About screen reddit label */
 "About.reddit" = "Reddit";
 
-/* Terms of Use button label */
-"About.terms" = "Условия использования";
-
 /* About screen title */
 "About.title" = "О нас";
 
@@ -773,12 +770,6 @@
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Соединение";
 
-/* Syncing view header text */
-"SyncingView.header" = "Синхронизация";
-
-/* Retry button label */
-"SyncingView.retry" = "Повторить";
-
 /* Syncing view syncing state header text */
 "SyncingView.syncing" = "Синхронизация";
 
@@ -1060,9 +1051,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d из %2$d";
-
-/* Equals symbol */
-"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

@@ -11,9 +11,6 @@
 /* About screen reddit label */
 "About.reddit" = "Reddit";
 
-/* Terms of Use button label */
-"About.terms" = "使用規定";
-
 /* About screen title */
 "About.title" = "關於";
 
@@ -773,12 +770,6 @@
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "正在連線";
 
-/* Syncing view header text */
-"SyncingView.header" = "正在同步";
-
-/* Retry button label */
-"SyncingView.retry" = "重試";
-
 /* Syncing view syncing state header text */
 "SyncingView.syncing" = "正在同步";
 
@@ -1060,9 +1051,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
-
-/* Equals symbol */
-"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";

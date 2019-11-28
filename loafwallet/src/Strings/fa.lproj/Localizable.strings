@@ -11,9 +11,6 @@
 /* About screen reddit label */
 "About.reddit" = "رِدیت";
 
-/* Terms of Use button label */
-"About.terms" = "شرایط استفاده";
-
 /* About screen title */
 "About.title" = "درباره";
 
@@ -31,12 +28,6 @@
 
 /* Default wallet name */
 "AccountHeader.defaultWalletName" = "کیف من";
-
-/* Equals symbol */
-"AccountHeader.equals" = " = ";
-
-/* Manage wallet button title */
-"AccountHeader.manageButtonName" = "مدیریت";
 
 /* Error alert title */
 "Alert.error" = "خطا";
@@ -565,12 +556,6 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "آخرین‌بار کلید چاپی را در تاریخ %1$@ یادداشت کرده‌اید.";
-
-/* Syncing view header text */
-"SyncingView.header" = "در حال همگامسازی";
-
-/* Retry button label */
-"SyncingView.retry" = "دوباره تلاش شود";
 
 /* 6 d (6 days) */
 "TimeSince.days" = "%1$@ روز";

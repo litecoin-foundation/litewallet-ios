@@ -11,9 +11,6 @@
 /* About screen reddit label */
 "About.reddit" = "Reddit";
 
-/* Terms of Use button label */
-"About.terms" = "使用条款";
-
 /* About screen title */
 "About.title" = "关于";
 
@@ -773,12 +770,6 @@
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "连接中";
 
-/* Syncing view header text */
-"SyncingView.header" = "正在同步";
-
-/* Retry button label */
-"SyncingView.retry" = "重试";
-
 /* Syncing view syncing state header text */
 "SyncingView.syncing" = "同步中";
 
@@ -1060,9 +1051,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
-
-/* Equals symbol */
-"AccountHeader.equals" = " = "";
 
 /* buy button */
 "Button.buy" = "";
