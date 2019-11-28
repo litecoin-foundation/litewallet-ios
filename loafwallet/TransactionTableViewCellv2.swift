@@ -8,7 +8,7 @@
 import UIKit
 
 private let timestampRefreshRate: TimeInterval = 10.0
-let kMaxTransactionCellHeight: CGFloat = 300.0
+let kMaxTransactionCellHeight: CGFloat = 240.0
 
 class TransactionTableViewCellv2 : UITableViewCell, Subscriber {
  
@@ -72,10 +72,10 @@ class TransactionTableViewCellv2 : UITableViewCell, Subscriber {
         //TODO: polish when successful compiling happens
         self.backgroundColor = .white
         cardView.layer.cornerRadius = 5.0
-        cardView.layer.shadowColor = UIColor.black.cgColor
-        cardView.layer.shadowOffset = CGSize(width: 0.0,height: 2.0)
-        cardView.layer.shadowRadius = 2.0
-        cardView.layer.shadowOpacity = 1.0
+//        cardView.layer.shadowColor = UIColor.black.cgColor
+//        cardView.layer.shadowOffset = CGSize(width: 0.0,height: 2.0)
+//        cardView.layer.shadowRadius = 2.0
+//        cardView.layer.shadowOpacity = 1.0
         
         staticBackgroundView.backgroundColor = .liteWalletBlue
         expandCardHeightLayoutContstraint.constant = 0.0

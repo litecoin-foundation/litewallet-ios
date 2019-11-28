@@ -3748,8 +3748,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "loafwallet" */;
 			buildPhases = (
-				2430679A238F538C00EBEA99 /* Update Localizable using BartyCrouch */,
 				99019425211CCCB309C62207 /* [CP] Check Pods Manifest.lock */,
+				2430679A238F538C00EBEA99 /* Update Localizable using BartyCrouch */,
 				75A2A78C1DA5934300A983D8 /* Sources */,
 				75A2A78D1DA5934300A983D8 /* Frameworks */,
 				75A2A78E1DA5934300A983D8 /* Resources */,

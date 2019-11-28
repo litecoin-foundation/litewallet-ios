@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GIt-PS-8VS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GIt-PS-8VS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
         <!--Animated Launch View Controller-->
         <scene sceneID="oee-gf-NRa">
             <objects>
-                <viewController storyboardIdentifier="AnimatedLaunchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GIt-PS-8VS" customClass="AnimatedLaunchViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnimatedLaunchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GIt-PS-8VS" customClass="AnimatedLaunchViewController" customModule="Litewallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5aq-E0-4hP"/>
                         <viewControllerLayoutGuide type="bottom" id="3NJ-G3-iZY"/>
@@ -25,30 +25,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinBlueWhite" translatesAutoresizingMaskIntoConstraints="NO" id="OYR-kO-4Ih">
-                                <rect key="frame" x="162" y="333" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="EuM-df-vaI"/>
-                                    <constraint firstAttribute="height" constant="90" id="qzd-yu-ng4"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LiteWallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqP-Cm-aKT">
-                                <rect key="frame" x="170" y="438" width="74" height="20"/>
-                                <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ij8-DJ-d08">
-                                <rect key="frame" x="122" y="760" width="170" height="15.5"/>
+                                <rect key="frame" x="128.5" y="759" width="157" height="16"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designed by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToX-b0-0YF">
-                                        <rect key="frame" x="0.0" y="0.0" width="73" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="16"/>
                                         <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thetokens_whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Z4d-gD-Sip">
-                                        <rect key="frame" x="80" y="0.5" width="90" height="15"/>
+                                        <rect key="frame" x="67" y="1" width="90" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="QLN-db-fjN"/>
                                             <constraint firstAttribute="height" constant="15" id="kKf-95-Ovm"/>
@@ -57,7 +44,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Litecoin Foundation, Ltd" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L46-Ii-Lre">
-                                <rect key="frame" x="131" y="805.5" width="152.5" height="16.5"/>
+                                <rect key="frame" x="142" y="805" width="130" height="17"/>
                                 <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -65,14 +52,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TqP-Cm-aKT" firstAttribute="centerY" secondItem="jId-Rg-JZi" secondAttribute="centerY" id="6t4-LC-tf8"/>
                             <constraint firstItem="3NJ-G3-iZY" firstAttribute="top" secondItem="L46-Ii-Lre" secondAttribute="bottom" constant="40" id="B6S-Vv-YgP"/>
                             <constraint firstItem="L46-Ii-Lre" firstAttribute="centerX" secondItem="jId-Rg-JZi" secondAttribute="centerX" id="LH4-ay-Ucg"/>
                             <constraint firstItem="Ij8-DJ-d08" firstAttribute="centerX" secondItem="jId-Rg-JZi" secondAttribute="centerX" id="Y4n-hj-F1H"/>
                             <constraint firstItem="L46-Ii-Lre" firstAttribute="top" secondItem="Ij8-DJ-d08" secondAttribute="bottom" constant="30" id="a1u-AI-ztY"/>
-                            <constraint firstItem="TqP-Cm-aKT" firstAttribute="centerX" secondItem="jId-Rg-JZi" secondAttribute="centerX" id="gqk-jw-aNT"/>
-                            <constraint firstItem="OYR-kO-4Ih" firstAttribute="centerY" secondItem="jId-Rg-JZi" secondAttribute="centerY" constant="-70" id="ohb-dR-vXh"/>
-                            <constraint firstItem="OYR-kO-4Ih" firstAttribute="centerX" secondItem="jId-Rg-JZi" secondAttribute="centerX" id="uOC-Ic-CTE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S9y-uF-4fh"/>
                     </view>
@@ -80,8 +63,6 @@
                         <outlet property="designedByLabel" destination="ToX-b0-0YF" id="sPa-DQ-Bmc"/>
                         <outlet property="designedStackView" destination="Ij8-DJ-d08" id="Lxg-1M-EF9"/>
                         <outlet property="foundationLabel" destination="L46-Ii-Lre" id="dst-ta-1VL"/>
-                        <outlet property="litecoinLogoImageView" destination="OYR-kO-4Ih" id="Tzx-Fe-4Z3"/>
-                        <outlet property="litewalletLabel" destination="6t4-LC-tf8" id="wCs-s6-gqK"/>
                         <outlet property="theTokensImageView" destination="Z4d-gD-Sip" id="48Q-Gx-pTW"/>
                     </connections>
                 </viewController>
@@ -91,7 +72,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="coinBlueWhite" width="230" height="230"/>
         <image name="thetokens_whiteLogo" width="959.66668701171875" height="145.33332824707031"/>
     </resources>
 </document>

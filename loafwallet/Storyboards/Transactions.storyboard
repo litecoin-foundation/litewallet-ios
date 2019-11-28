@@ -8,14 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="BarlowSemiCondensed-Bold.ttf">
-            <string>BarlowSemiCondensed-Bold</string>
-        </array>
         <array key="BarlowSemiCondensed-Light.ttf">
             <string>BarlowSemiCondensed-Light</string>
         </array>
         <array key="BarlowSemiCondensed-Medium.ttf">
             <string>BarlowSemiCondensed-Medium</string>
+        </array>
+        <array key="BarlowSemiCondensed-Regular.ttf">
+            <string>BarlowSemiCondensed-Regular</string>
         </array>
         <array key="BarlowSemiCondensed-SemiBold.ttf">
             <string>BarlowSemiCondensed-SemiBold</string>
@@ -49,31 +49,31 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVt-sY-Qec" userLabel="cardview">
-                                                    <rect key="frame" x="10" y="10" width="394" height="280"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="284"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8q7-bA-WA2">
-                                                            <rect key="frame" x="8" y="80" width="378" height="195"/>
+                                                            <rect key="frame" x="8" y="84" width="382" height="195"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMOUNT DETAIL:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFq-iG-J7b">
-                                                                    <rect key="frame" x="0.0" y="53" width="94" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="51.5" width="80.5" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOCK:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzz-gs-8Pt">
-                                                                    <rect key="frame" x="0.0" y="161" width="41.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="154.5" width="36" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEMO:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdS-q1-5nq">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="16"/>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="13"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="31.5" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKL-xJ-96h">
-                                                                    <rect key="frame" x="318" y="5" width="60" height="60"/>
+                                                                    <rect key="frame" x="322" y="5" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="60" id="Hkb-Zi-cpH"/>
                                                                         <constraint firstAttribute="height" constant="60" id="kCy-uZ-hIJ"/>
@@ -84,23 +84,23 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TXID:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqv-gb-jwW">
-                                                                    <rect key="frame" x="0.0" y="123" width="30.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="119" width="26" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="To5-us-LvG">
-                                                                    <rect key="frame" x="0.0" y="16" width="308" height="32"/>
+                                                                    <rect key="frame" x="0.0" y="14.5" width="312" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="32" id="EWf-qd-jr3"/>
                                                                     </constraints>
                                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Bal.:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYA-cL-gzC">
-                                                                    <rect key="frame" x="0.0" y="70" width="149" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="66" width="151" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="u0S-QS-07d"/>
                                                                     </constraints>
@@ -109,7 +109,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-6f-Mvw">
-                                                                    <rect key="frame" x="0.0" y="86" width="378" height="32"/>
+                                                                    <rect key="frame" x="0.0" y="82" width="382" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="32" id="QJn-Kr-gjD"/>
                                                                     </constraints>
@@ -120,7 +120,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Bal.:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqB-Ii-Tx5">
-                                                                    <rect key="frame" x="159" y="70" width="149" height="16"/>
+                                                                    <rect key="frame" x="161" y="66" width="151" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="Tm7-kz-IlX"/>
                                                                     </constraints>
@@ -129,7 +129,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-70-tbd">
-                                                                    <rect key="frame" x="0.0" y="178" width="378" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="169" width="382" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="L4e-Uo-yXQ"/>
                                                                     </constraints>
@@ -138,7 +138,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h80-9K-rst">
-                                                                    <rect key="frame" x="0.0" y="140" width="378" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="133.5" width="382" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="pVB-go-qoy"/>
                                                                     </constraints>
@@ -183,34 +183,34 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5O2-TM-gNs">
-                                                            <rect key="frame" x="8" y="8" width="378" height="20"/>
+                                                            <rect key="frame" x="8" y="8" width="382" height="20"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LYPH5Ua9vpPbZnuNQrftC1y9yeAYELQi5W" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBM-iM-BMW">
-                                                                    <rect key="frame" x="0.0" y="0.5" width="213" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="0.5" width="224" height="19"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="150" id="dTR-Hg-QXX"/>
                                                                         <constraint firstAttribute="height" constant="19" id="sRz-71-9LR"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.22243Ł" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-Wl-g2d" userLabel="Amount Label">
-                                                                    <rect key="frame" x="221" y="0.0" width="130" height="20"/>
+                                                                    <rect key="frame" x="232" y="0.0" width="130" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="130" id="ebC-gI-udh"/>
                                                                         <constraint firstAttribute="height" constant="20" id="pAr-bn-EwB"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Bold" family="Barlow Semi Condensed" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Regular" family="Barlow Semi Condensed" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up.arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-Ft-S4Y">
-                                                                    <rect key="frame" x="359" y="1.5" width="19" height="17"/>
+                                                                    <rect key="frame" x="370" y="5" width="12" height="10"/>
                                                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="19" id="1Sy-fD-Grp"/>
-                                                                        <constraint firstAttribute="width" constant="19" id="ulx-2F-Mr2"/>
+                                                                        <constraint firstAttribute="height" constant="12" id="1Sy-fD-Grp"/>
+                                                                        <constraint firstAttribute="width" constant="12" id="ulx-2F-Mr2"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
@@ -219,12 +219,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep 06, 2019 09:34" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg2-kF-UtZ">
-                                                            <rect key="frame" x="236" y="28" width="150" height="19"/>
+                                                            <rect key="frame" x="240" y="28" width="150" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="qIr-fu-SA9"/>
                                                                 <constraint firstAttribute="width" constant="150" id="uTi-W7-Ij1"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -234,17 +234,17 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                                 <constraint firstAttribute="height" constant="19" id="1Vu-nL-rum"/>
                                                                 <constraint firstAttribute="width" constant="80" id="Nl9-X2-eyA"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
                                                             <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="percentage 20%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-eg-yvf">
-                                                            <rect key="frame" x="266" y="47" width="120" height="20"/>
+                                                            <rect key="frame" x="270" y="47" width="120" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="3tN-Ou-sec"/>
                                                                 <constraint firstAttribute="width" constant="120" id="65d-GS-pcw"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="12"/>
                                                             <color key="textColor" red="0.30327409509999997" green="0.3032055199" blue="0.30777344109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -269,10 +269,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="xVt-sY-Qec" secondAttribute="bottom" constant="10" id="0Uo-w9-HxO"/>
-                                                <constraint firstAttribute="trailing" secondItem="xVt-sY-Qec" secondAttribute="trailing" constant="10" id="Vdj-Ff-99M"/>
-                                                <constraint firstItem="xVt-sY-Qec" firstAttribute="leading" secondItem="CRy-dD-nSj" secondAttribute="leading" constant="10" id="fea-pq-KlU"/>
-                                                <constraint firstItem="xVt-sY-Qec" firstAttribute="top" secondItem="CRy-dD-nSj" secondAttribute="top" constant="10" id="vyJ-PZ-WgO"/>
+                                                <constraint firstAttribute="bottom" secondItem="xVt-sY-Qec" secondAttribute="bottom" constant="8" id="0Uo-w9-HxO"/>
+                                                <constraint firstAttribute="trailing" secondItem="xVt-sY-Qec" secondAttribute="trailing" constant="8" id="Vdj-Ff-99M"/>
+                                                <constraint firstItem="xVt-sY-Qec" firstAttribute="leading" secondItem="CRy-dD-nSj" secondAttribute="leading" constant="8" id="fea-pq-KlU"/>
+                                                <constraint firstItem="xVt-sY-Qec" firstAttribute="top" secondItem="CRy-dD-nSj" secondAttribute="top" constant="8" id="vyJ-PZ-WgO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
