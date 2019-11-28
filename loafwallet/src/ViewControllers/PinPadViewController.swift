@@ -317,7 +317,7 @@ class ClearNumberPad : GenericPinPadCell {
                 imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
                 imageView.tintColor = .white
             } else {
-                backgroundColor = .transparentWhite
+                backgroundColor = .clear
             }
         }
     }

@@ -1151,7 +1151,7 @@
 "Copy" = "";
 
 /* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "";
+"BuyCenter.barItemTitle" = "BUY";
 
 /* $53.09/L + 1.07% */
 "Confirmation.amountDetailLabel" = "";
@@ -1163,16 +1163,13 @@
 "Confirmation.staticAddressLabel" = "";
 
 /* History Bar Item Title */
-"History.barItemTitle" = "";
+"History.barItemTitle" = "HISTORY";
 
 /* Receive Bar Item Title */
-"Receive.barItemTitle" = "";
+"Receive.barItemTitle" = "RECEIVE";
 
 /* Send Bar Item Title */
-"Send.barItemTitle" = "";
-
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
+"Send.barItemTitle" = "SEND";
 
 /* Less button title */
 "TransactionDetails.less" = "";
@@ -1188,3 +1185,6 @@
 
 /* Unlock Screen sub-header */
 "UnlockScreen.enterPin" = "";
+
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "";

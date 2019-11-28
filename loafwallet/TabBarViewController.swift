@@ -335,7 +335,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         var rawStringClassName = NSStringFromClass(contentController.classForCoder)
          
         switch NSStringFromClass(contentController.classForCoder) {
-        case "Litewallet_Dev.TransactionsViewController", "Litewallet.TransactionsViewController":
+        case "Litewallet.TransactionsViewController":
 
             guard var transactionVC = contentController as? TransactionsViewController else  {
                 return
@@ -344,19 +344,19 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             transactionVC.walletManager = self.walletManager
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
         
-        case "Litewallet_Dev.BuyLTCViewController", "Litewallet.BuyLTCViewController":
+        case "Litewallet.BuyLTCViewController":
                 guard var buyVC = contentController as? BuyLTCViewController else  {
                     return
             }
             
-        case "Litewallet_Dev.SendLTCViewController", "Litewallet.SendLTCViewController":
+        case "Litewallet.SendLTCViewController":
             guard var sendVC = contentController as? SendLTCViewController else  {
                 return
             }
             
             sendVC.store = self.store
             
-        case "Litewallet_Dev.ReceiveLTCViewController", "Litewallet.ReceiveLTCViewController":
+        case "Litewallet.ReceiveLTCViewController":
             guard var receiveVC = contentController as? ReceiveLTCViewController else  {
                 return
             }

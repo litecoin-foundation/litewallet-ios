@@ -158,6 +158,9 @@
 /* Yes button */
 "Button.yes" = "Yes";
 
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "BUY";
+
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "• Buy gift cards\n• Refill prepaid phones\n• Steam, Amazon, Hotels.com\n• Works in 170 countries";
 
@@ -295,6 +298,9 @@
 
 /* Fee Selector title */
 "FeeSelector.title" = "Processing Speed";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "HISTORY";
 
 /* Checking private key balance progress view text */
 "Import.checking" = "Checking private key balance...";
@@ -536,6 +542,9 @@
 /* Push notifications settings view title label */
 "PushNotifications.title" = "Notifications";
 
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "RECEIVE";
+
 /* Address copied message. */
 "Receive.copied" = "Copied to clipboard.";
 
@@ -683,6 +692,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Balance: %1$@";
 
+/* Send Bar Item Title */
+"Send.barItemTitle" = "SEND";
+
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "Go to Settings to allow camera access.";
 
@@ -823,6 +835,9 @@
 
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Share Anonymous Data?";
+
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "SPEND";
 
 /* Current spending limit: */
 "SpendingLimit.title" = "Current Spending Limit: ";
@@ -1145,9 +1160,6 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
 
-/* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "";
-
 /* $53.09/L + 1.07% */
 "Confirmation.amountDetailLabel" = "";
 
@@ -1162,18 +1174,6 @@
 
 /* No comment provided by engineer. */
 "Copy" = "";
-
-/* History Bar Item Title */
-"History.barItemTitle" = "";
-
-/* Receive Bar Item Title */
-"Receive.barItemTitle" = "";
-
-/* Send Bar Item Title */
-"Send.barItemTitle" = "";
-
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
 
 /* Less button title */
 "TransactionDetails.less" = "";

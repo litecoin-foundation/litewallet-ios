@@ -35,6 +35,20 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    private var currentPrompt: Prompt?
+//        didSet {
+//            if currentPrompt != nil && oldValue == nil {
+//                tableView.beginUpdates()
+//                tableView.insertSections(IndexSet(integer: 0), with: .automatic)
+//                tableView.endUpdates()
+//            } else if currentPrompt == nil && oldValue != nil && !isSyncingViewVisible {
+//                tableView.beginUpdates()
+//                tableView.deleteSections(IndexSet(integer: 0), with: .automatic)
+//                tableView.endUpdates()
+//            }
+//        }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         //
     }
@@ -88,20 +102,20 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             self.reload()
         })
         store.subscribe(self, name: .didUpgradePin, callback: { _ in
-//            if self.currentPrompt?.type == .upgradePin {
-//                self.currentPrompt = nil
-//            }
+            if self.currentPrompt?.type == .upgradePin {
+                self.currentPrompt = nil
+            }
         })
          
         store.subscribe(self, name: .didEnableShareData, callback: { _ in
-//            if self.currentPrompt?.type == .shareData {
-//                self.currentPrompt = nil
-//            }
+            if self.currentPrompt?.type == .shareData {
+                self.currentPrompt = nil
+            }
         })
         store.subscribe(self, name: .didWritePaperKey, callback: { _ in
-//            if self.currentPrompt?.type == .paperKey {
-//                self.currentPrompt = nil
-//            }
+            if self.currentPrompt?.type == .paperKey {
+                self.currentPrompt = nil
+            }
         })
 
         store.subscribe(self, name: .txMemoUpdated(""), callback: {
