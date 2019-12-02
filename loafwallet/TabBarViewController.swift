@@ -340,6 +340,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             guard var transactionVC = contentController as? TransactionsViewController else  {
                 return
             }
+            
             transactionVC.store = self.store
             transactionVC.walletManager = self.walletManager
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped

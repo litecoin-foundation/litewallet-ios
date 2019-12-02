@@ -49,19 +49,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVt-sY-Qec" userLabel="cardview">
-                                                    <rect key="frame" x="8" y="8" width="398" height="284"/>
+                                                    <rect key="frame" x="8" y="1" width="398" height="298"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8q7-bA-WA2">
-                                                            <rect key="frame" x="8" y="84" width="382" height="195"/>
+                                                            <rect key="frame" x="8" y="102" width="382" height="195"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMOUNT DETAIL:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFq-iG-J7b">
-                                                                    <rect key="frame" x="0.0" y="51.5" width="80.5" height="14.5"/>
+                                                                    <rect key="frame" x="0.0" y="90" width="80.5" height="14.5"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOCK:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzz-gs-8Pt">
-                                                                    <rect key="frame" x="0.0" y="154.5" width="36" height="14.5"/>
+                                                                    <rect key="frame" x="0.0" y="175.5" width="36" height="14.5"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -73,10 +73,11 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKL-xJ-96h">
-                                                                    <rect key="frame" x="322" y="5" width="60" height="60"/>
+                                                                    <rect key="frame" x="342" y="93" width="40" height="40"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="Hkb-Zi-cpH"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="kCy-uZ-hIJ"/>
+                                                                        <constraint firstAttribute="width" constant="40" id="Hkb-Zi-cpH"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="kCy-uZ-hIJ"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="genericqricon"/>
                                                                     <connections>
@@ -84,13 +85,13 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TXID:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqv-gb-jwW">
-                                                                    <rect key="frame" x="0.0" y="119" width="26" height="14.5"/>
+                                                                    <rect key="frame" x="0.0" y="153" width="26" height="14.5"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="12"/>
                                                                     <color key="textColor" red="0.65090787409999995" green="0.6621127725" blue="0.66606998439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="To5-us-LvG">
-                                                                    <rect key="frame" x="0.0" y="14.5" width="312" height="32"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="To5-us-LvG">
+                                                                    <rect key="frame" x="0.0" y="50" width="200" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="32" id="EWf-qd-jr3"/>
                                                                     </constraints>
@@ -99,8 +100,8 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Bal.:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYA-cL-gzC">
-                                                                    <rect key="frame" x="0.0" y="66" width="151" height="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Starting Bal.:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYA-cL-gzC">
+                                                                    <rect key="frame" x="0.0" y="104.5" width="200" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="u0S-QS-07d"/>
                                                                     </constraints>
@@ -108,37 +109,8 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-6f-Mvw">
-                                                                    <rect key="frame" x="0.0" y="82" width="382" height="32"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="32" id="QJn-Kr-gjD"/>
-                                                                    </constraints>
-                                                                    <string key="text">What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Bal.:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqB-Ii-Tx5">
-                                                                    <rect key="frame" x="161" y="66" width="151" height="16"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="16" id="Tm7-kz-IlX"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-70-tbd">
-                                                                    <rect key="frame" x="0.0" y="169" width="382" height="16"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="16" id="L4e-Uo-yXQ"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h80-9K-rst">
-                                                                    <rect key="frame" x="0.0" y="133.5" width="382" height="16"/>
+                                                                    <rect key="frame" x="38.5" y="152.5" width="343.5" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="16" id="pVB-go-qoy"/>
                                                                     </constraints>
@@ -146,44 +118,55 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnQ-70-tbd">
+                                                                    <rect key="frame" x="41" y="175" width="120" height="16"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="120" id="6cM-jC-QDl"/>
+                                                                        <constraint firstAttribute="height" constant="16" id="L4e-Uo-yXQ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ending Bal.:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqB-Ii-Tx5">
+                                                                    <rect key="frame" x="0.0" y="128.5" width="200" height="16"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="16" id="Tm7-kz-IlX"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="tnQ-70-tbd" firstAttribute="top" secondItem="kzz-gs-8Pt" secondAttribute="bottom" id="2dI-vZ-tIw"/>
                                                                 <constraint firstAttribute="trailing" secondItem="h80-9K-rst" secondAttribute="trailing" id="5Rg-Yi-LaS"/>
                                                                 <constraint firstItem="FqB-Ii-Tx5" firstAttribute="width" secondItem="dYA-cL-gzC" secondAttribute="width" id="5sG-mS-hIc"/>
+                                                                <constraint firstItem="h80-9K-rst" firstAttribute="top" secondItem="fKL-xJ-96h" secondAttribute="bottom" constant="19.5" id="67R-ab-FBY"/>
                                                                 <constraint firstItem="kzz-gs-8Pt" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="7Ik-WN-7Gj"/>
-                                                                <constraint firstItem="tnQ-70-tbd" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="Hjx-1J-apc"/>
-                                                                <constraint firstAttribute="trailing" secondItem="XE3-6f-Mvw" secondAttribute="trailing" id="M8j-Wi-1vL"/>
-                                                                <constraint firstItem="Jqv-gb-jwW" firstAttribute="top" secondItem="XE3-6f-Mvw" secondAttribute="bottom" constant="5" id="Mrf-Fu-fLd"/>
-                                                                <constraint firstItem="h80-9K-rst" firstAttribute="top" secondItem="Jqv-gb-jwW" secondAttribute="bottom" id="N64-tx-d8G"/>
+                                                                <constraint firstItem="tnQ-70-tbd" firstAttribute="leading" secondItem="kzz-gs-8Pt" secondAttribute="trailing" constant="5" id="9f5-6D-0Lk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="kzz-gs-8Pt" secondAttribute="bottom" constant="5" id="ETI-hh-6vZ"/>
                                                                 <constraint firstItem="qdS-q1-5nq" firstAttribute="top" secondItem="8q7-bA-WA2" secondAttribute="top" id="Njz-yH-5hV"/>
+                                                                <constraint firstItem="h80-9K-rst" firstAttribute="centerY" secondItem="Jqv-gb-jwW" secondAttribute="centerY" id="NvC-Dh-Gjc"/>
+                                                                <constraint firstItem="kzz-gs-8Pt" firstAttribute="top" secondItem="Jqv-gb-jwW" secondAttribute="bottom" constant="8" id="SLl-YR-Ud1"/>
                                                                 <constraint firstAttribute="height" constant="195" id="SS6-SK-qtw"/>
-                                                                <constraint firstItem="h80-9K-rst" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="V7S-Np-6uD"/>
                                                                 <constraint firstItem="Jqv-gb-jwW" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="Vfa-Ba-E3d"/>
                                                                 <constraint firstItem="qdS-q1-5nq" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="Wfk-Oi-HnL"/>
-                                                                <constraint firstItem="PFq-iG-J7b" firstAttribute="top" secondItem="To5-us-LvG" secondAttribute="bottom" constant="5" id="ZU9-vL-CiJ"/>
-                                                                <constraint firstItem="kzz-gs-8Pt" firstAttribute="top" secondItem="h80-9K-rst" secondAttribute="bottom" constant="5" id="aSH-Dl-7Ds"/>
                                                                 <constraint firstItem="PFq-iG-J7b" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="d4U-rI-lFw"/>
-                                                                <constraint firstItem="To5-us-LvG" firstAttribute="top" secondItem="qdS-q1-5nq" secondAttribute="bottom" id="dM3-f8-j9u"/>
                                                                 <constraint firstItem="PFq-iG-J7b" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="dey-H2-bdN"/>
-                                                                <constraint firstItem="fKL-xJ-96h" firstAttribute="top" secondItem="8q7-bA-WA2" secondAttribute="top" constant="5" id="erd-hb-ESe"/>
-                                                                <constraint firstItem="Jqv-gb-jwW" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="fEQ-tJ-mds"/>
+                                                                <constraint firstItem="FqB-Ii-Tx5" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="fVh-5n-Sg2"/>
+                                                                <constraint firstItem="PFq-iG-J7b" firstAttribute="top" secondItem="To5-us-LvG" secondAttribute="bottom" constant="8" id="gS9-Xh-uct"/>
                                                                 <constraint firstItem="To5-us-LvG" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="hCv-4G-8y0"/>
                                                                 <constraint firstItem="dYA-cL-gzC" firstAttribute="top" secondItem="PFq-iG-J7b" secondAttribute="bottom" id="i89-54-G0x"/>
-                                                                <constraint firstItem="XE3-6f-Mvw" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="jkC-Vl-j4l"/>
-                                                                <constraint firstItem="fKL-xJ-96h" firstAttribute="leading" secondItem="FqB-Ii-Tx5" secondAttribute="trailing" constant="10" id="kpw-hC-AkL"/>
-                                                                <constraint firstItem="FqB-Ii-Tx5" firstAttribute="leading" secondItem="dYA-cL-gzC" secondAttribute="trailing" constant="10" id="ldD-le-nO1"/>
-                                                                <constraint firstItem="XE3-6f-Mvw" firstAttribute="top" secondItem="dYA-cL-gzC" secondAttribute="bottom" id="nRS-Ya-OOg"/>
-                                                                <constraint firstAttribute="trailing" secondItem="tnQ-70-tbd" secondAttribute="trailing" id="p0i-ab-LFE"/>
+                                                                <constraint firstItem="FqB-Ii-Tx5" firstAttribute="top" secondItem="dYA-cL-gzC" secondAttribute="bottom" constant="8" id="oSd-5w-HGH"/>
                                                                 <constraint firstItem="dYA-cL-gzC" firstAttribute="leading" secondItem="8q7-bA-WA2" secondAttribute="leading" id="r8L-vX-5aa"/>
                                                                 <constraint firstAttribute="trailing" secondItem="fKL-xJ-96h" secondAttribute="trailing" id="syY-w1-fWB"/>
-                                                                <constraint firstItem="fKL-xJ-96h" firstAttribute="leading" secondItem="To5-us-LvG" secondAttribute="trailing" constant="10" id="u0v-mF-6QS"/>
-                                                                <constraint firstItem="FqB-Ii-Tx5" firstAttribute="top" secondItem="dYA-cL-gzC" secondAttribute="top" id="vnq-me-n1f"/>
+                                                                <constraint firstItem="h80-9K-rst" firstAttribute="top" secondItem="FqB-Ii-Tx5" secondAttribute="bottom" constant="8" id="xQe-dG-9h0"/>
+                                                                <constraint firstItem="tnQ-70-tbd" firstAttribute="centerY" secondItem="kzz-gs-8Pt" secondAttribute="centerY" id="zIw-fg-sLW"/>
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5O2-TM-gNs">
-                                                            <rect key="frame" x="8" y="8" width="382" height="20"/>
+                                                            <rect key="frame" x="8" y="1" width="382" height="20"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LYPH5Ua9vpPbZnuNQrftC1y9yeAYELQi5W" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBM-iM-BMW">
                                                                     <rect key="frame" x="0.0" y="0.5" width="224" height="19"/>
@@ -219,7 +202,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep 06, 2019 09:34" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg2-kF-UtZ">
-                                                            <rect key="frame" x="240" y="28" width="150" height="19"/>
+                                                            <rect key="frame" x="240" y="21" width="150" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="qIr-fu-SA9"/>
                                                                 <constraint firstAttribute="width" constant="150" id="uTi-W7-Ij1"/>
@@ -229,7 +212,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZj-Gu-V35">
-                                                            <rect key="frame" x="8" y="32" width="80" height="19"/>
+                                                            <rect key="frame" x="8" y="25" width="80" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="1Vu-nL-rum"/>
                                                                 <constraint firstAttribute="width" constant="80" id="Nl9-X2-eyA"/>
@@ -239,7 +222,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="percentage 20%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-eg-yvf">
-                                                            <rect key="frame" x="270" y="47" width="120" height="20"/>
+                                                            <rect key="frame" x="270" y="40" width="120" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="3tN-Ou-sec"/>
                                                                 <constraint firstAttribute="width" constant="120" id="65d-GS-pcw"/>
@@ -258,10 +241,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                                         <constraint firstAttribute="trailing" secondItem="sg2-kF-UtZ" secondAttribute="trailing" constant="8" id="Tea-fZ-7RS"/>
                                                         <constraint firstItem="lZj-Gu-V35" firstAttribute="leading" secondItem="5O2-TM-gNs" secondAttribute="leading" id="aWG-Ze-6Uk"/>
                                                         <constraint firstItem="lZj-Gu-V35" firstAttribute="top" secondItem="5O2-TM-gNs" secondAttribute="bottom" constant="4" id="fEK-1L-Y0A"/>
-                                                        <constraint firstItem="5O2-TM-gNs" firstAttribute="top" secondItem="xVt-sY-Qec" secondAttribute="top" constant="8" id="fWl-QS-l0e"/>
+                                                        <constraint firstItem="5O2-TM-gNs" firstAttribute="top" secondItem="xVt-sY-Qec" secondAttribute="top" constant="1" id="fWl-QS-l0e"/>
                                                         <constraint firstItem="DuQ-eg-yvf" firstAttribute="top" secondItem="sg2-kF-UtZ" secondAttribute="bottom" id="hPt-dO-hSJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="8q7-bA-WA2" secondAttribute="trailing" constant="8" id="iVT-7k-7QA"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8q7-bA-WA2" secondAttribute="bottom" constant="5" id="iii-hg-HSQ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8q7-bA-WA2" secondAttribute="bottom" constant="1" id="iii-hg-HSQ"/>
                                                         <constraint firstItem="8q7-bA-WA2" firstAttribute="leading" secondItem="xVt-sY-Qec" secondAttribute="leading" constant="8" id="pc2-NJ-Rxs"/>
                                                         <constraint firstItem="sg2-kF-UtZ" firstAttribute="top" secondItem="5O2-TM-gNs" secondAttribute="bottom" id="rkC-ax-ues"/>
                                                     </constraints>
@@ -269,10 +252,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="xVt-sY-Qec" secondAttribute="bottom" constant="8" id="0Uo-w9-HxO"/>
+                                                <constraint firstAttribute="bottom" secondItem="xVt-sY-Qec" secondAttribute="bottom" constant="1" id="0Uo-w9-HxO"/>
                                                 <constraint firstAttribute="trailing" secondItem="xVt-sY-Qec" secondAttribute="trailing" constant="8" id="Vdj-Ff-99M"/>
                                                 <constraint firstItem="xVt-sY-Qec" firstAttribute="leading" secondItem="CRy-dD-nSj" secondAttribute="leading" constant="8" id="fea-pq-KlU"/>
-                                                <constraint firstItem="xVt-sY-Qec" firstAttribute="top" secondItem="CRy-dD-nSj" secondAttribute="top" constant="8" id="vyJ-PZ-WgO"/>
+                                                <constraint firstItem="xVt-sY-Qec" firstAttribute="top" secondItem="CRy-dD-nSj" secondAttribute="top" constant="1" id="vyJ-PZ-WgO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -282,7 +265,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting in </string>
                                             <outlet property="blockLabel" destination="tnQ-70-tbd" id="fvy-5W-zNR"/>
                                             <outlet property="cardView" destination="xVt-sY-Qec" id="We9-gi-vT3"/>
                                             <outlet property="endingBalanceLabel" destination="FqB-Ii-Tx5" id="J37-34-7vi"/>
-                                            <outlet property="exchangeRateLabel" destination="XE3-6f-Mvw" id="TFC-Td-0q2"/>
                                             <outlet property="expandCardHeightLayoutContstraint" destination="SS6-SK-qtw" id="USC-xZ-33H"/>
                                             <outlet property="expandCardView" destination="8q7-bA-WA2" id="9fD-UI-k8t"/>
                                             <outlet property="memoTextLabel" destination="To5-us-LvG" id="Nv4-5Z-sCN"/>
