@@ -965,6 +965,9 @@
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "at %1$@";
 
+/* Less button title */
+"TransactionDetails.less" = "Less...";
+
 /* More button title */
 "TransactionDetails.more" = "More...";
 
@@ -1174,9 +1177,6 @@
 
 /* No comment provided by engineer. */
 "Copy" = "";
-
-/* Less button title */
-"TransactionDetails.less" = "";
 
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";

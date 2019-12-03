@@ -1172,7 +1172,7 @@
 "Send.barItemTitle" = "SEND";
 
 /* Less button title */
-"TransactionDetails.less" = "";
+"TransactionDetails.less" = "Less...";
 
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";

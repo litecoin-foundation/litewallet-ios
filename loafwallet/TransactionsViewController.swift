@@ -262,7 +262,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         if cellIsSelected(indexPath: indexPath) {
             return kMaxTransactionCellHeight
         } else {
-            return kMaxTransactionCellHeight / 3.0
+            return kNormalTransactionCellHeight
         }
     }
     
@@ -284,62 +284,41 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             NSLog("ERROR No cell found")
             return TransactionTableViewCellv2()
         }
-          
+        
+        if hasExtraSection && indexPath.section == 0 {
+            
+            if let transactionCell = cell as? TransactionTableViewCellv2 {
+                transactionCell.subviews.forEach {
+                    $0.removeFromSuperview()
+                }
+                if let prompt = currentPrompt {
+                    transactionCell.addSubview(prompt)
+                    prompt.constrain(toSuperviewEdges: nil)
+                    prompt.constrain([
+                        prompt.heightAnchor.constraint(equalToConstant: 88.0) ])
+                 } else {
+                    transactionCell.addSubview(syncingView)
+                    syncingView.constrain(toSuperviewEdges: nil)
+                    syncingView.constrain([
+                        syncingView.heightAnchor.constraint(equalToConstant: 88.0) ])
+                 }
+            }
+            return cell
+        } else {
+  
+            if let transactionCell = cell as? TransactionTableViewCellv2,
+                let rate = rate,
+                let store = self.store,
+                let isLtcSwapped = self.isLtcSwapped {
+                transactionCell.setTransaction(transactions[indexPath.row], isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
+            }
+            return cell
+        }
+         
         if let transaction = transaction,
             let isLTCSwapped = self.isLtcSwapped {
-       
-        cell.setupViews()
-        cell.addressLabel.text = transaction.toAddress
-                cell.timedateLabel.text = transaction.shortTimestamp
-                
-                cell.isExpanded = cellIsSelected(indexPath: indexPath)
-                cell.expandCardView.alpha = 0.0
-                
-                var imageName = ""
-                var imageTint = UIColor.white
-                switch transaction.direction {
-                case .received:
-                    imageName = "down-chevron-green"
-                    imageTint = .litecoinGreen
-                case .sent:
-                    imageName = "up-chevron-gray"
-                    imageTint = .litecoinOrange
-                case .moved:
-                    imageName = "movedTransaction"
-                    imageTint = .litecoinGray
-                }
-             
-                cell.arrowImageView.image = UIImage(named: imageName)
-                cell.arrowImageView.tintColor = imageTint
-                cell.amountLabel.text = transaction.amountDetails(isLtcSwapped: isLTCSwapped, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-            
-                cell.statusLabel.text = transaction.status
-                
-                cell.moreOrLessLabel.text = cellIsSelected(indexPath: indexPath) ? S.TransactionDetails.less.uppercased() : S.TransactionDetails.more.uppercased()
-                
-                cell.staticTxIDLabel.text = S.TransactionDetails.staticTXIDLabel
-                cell.txidStringLabel.text = transaction.hash
-                
-                cell.staticAmountDetailLabel.text = S.Confirmation.amountDetailLabel.uppercased() + ":"
-                
-                cell.startingBalanceLabel.text =  transaction.amountDetailsStartingBalanceString(isLtcSwapped: false, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-                cell.endingBalanceLabel.text = transaction.amountDetailsEndingBalanceString(isLtcSwapped: isLTCSwapped, rate: self.rate!, rates: [self.rate!], maxDigits: 6)
-                 
-                cell.staticBlockLabel.text = S.TransactionDetails.blockHeightLabel.uppercased() + ":"
-                cell.blockLabel.text = transaction.blockHeight
-                
-                cell.addressLabel.text = transaction.toAddress
-                
-                cell.staticCommentLabel.text = S.TransactionDetails.commentsHeader.uppercased() + ":"
-                if transaction.comment != "" {
-                    cell.memoTextLabel.text = transaction.comment
-                } else {
-                    cell.memoTextLabel.text = "--"
-                }
-                ///<div>Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
-                
+  
                 cell.showQRModalAction = { [unowned self] in
-                    
                     if let addressString = transaction.toAddress,
                         let qrImage = transaction.toAddress?.qrCode,
                         let receiveLTCtoAddressModal = UIStoryboard.init(name: "Alerts", bundle: nil).instantiateViewController(withIdentifier: "LFModalReceiveQRViewController") as? LFModalReceiveQRViewController {
@@ -372,6 +351,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
         let isSelected = !self.cellIsSelected(indexPath: indexPath)
         let selectedIndex = NSNumber(value: isSelected)
@@ -381,17 +361,13 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             selectedCell.moreOrLessLabel.text = isSelected ? S.TransactionDetails.less.uppercased() : S.TransactionDetails.more.uppercased()
             
             if isSelected {
-                let expandCardHeight = 195.0
                 let newAlpha = 1.0
-                UIView.animate(withDuration: 0.9, animations: {
-                    selectedCell.expandCardHeightLayoutContstraint.constant = CGFloat(expandCardHeight)
+                UIView.animate(withDuration: 0.2, delay: 0.1, animations: {
                     selectedCell.expandCardView.alpha = CGFloat(newAlpha)
                 })
             } else {
-                let expandCardHeight = 0.0
                 let newAlpha = 0.0
-                UIView.animate(withDuration: 0.2, animations: {
-                    selectedCell.expandCardHeightLayoutContstraint.constant = CGFloat(expandCardHeight)
+                UIView.animate(withDuration: 0.1, delay: 0.0, animations: {
                     selectedCell.expandCardView.alpha = CGFloat(newAlpha)
                 })
             }
