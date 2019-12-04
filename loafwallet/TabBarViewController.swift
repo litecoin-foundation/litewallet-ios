@@ -6,7 +6,7 @@
 //  Copyright © 2019 Litecoin Foundation. All rights reserved.
 
 import UIKit
-import Foundation
+import Foundation 
 import SwiftyJSON
 
 enum TabViewControllerIndex: Int {
@@ -352,7 +352,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         var rawStringClassName = NSStringFromClass(contentController.classForCoder)
          
         switch NSStringFromClass(contentController.classForCoder) {
-        case "Litewallet.TransactionsViewController":
+        case "loafwallet.TransactionsViewController":
 
             guard var transactionVC = contentController as? TransactionsViewController else  {
                 return
@@ -362,19 +362,19 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             transactionVC.walletManager = self.walletManager
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
         
-        case "Litewallet.BuyLTCViewController":
+        case "loafwallet.BuyLTCViewController":
                 guard var buyVC = contentController as? BuyLTCViewController else  {
                     return
             }
             
-        case "Litewallet.SendLTCViewController":
+        case "loafwallet.SendLTCViewController":
             guard var sendVC = contentController as? SendLTCViewController else  {
                 return
             }
             
             sendVC.store = self.store
             
-        case "Litewallet.ReceiveLTCViewController":
+        case "loafwallet.ReceiveLTCViewController":
             guard var receiveVC = contentController as? ReceiveLTCViewController else  {
                 return
             }

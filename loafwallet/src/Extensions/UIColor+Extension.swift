@@ -33,7 +33,7 @@ extension UIColor {
     }
     
     static var liteWalletBlue: UIColor {
-      return #colorLiteral(red: 0.2053973377, green: 0.3632233143, blue: 0.6166344285, alpha: 1)
+      return #colorLiteral(red: 0.2039215686, green: 0.3647058824, blue: 0.6156862745, alpha: 1)
     }
     
     static var litecoinOrange: UIColor {

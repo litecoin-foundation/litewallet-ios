@@ -18,7 +18,7 @@ def shared_watchOS_pods
 end
 
 target 'loafwallet' do
-  platform :ios, '10.0'
+  platform :ios, '12.0'
   shared_pods
   
   target 'loafwalletTests' do

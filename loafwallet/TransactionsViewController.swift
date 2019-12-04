@@ -115,6 +115,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             if type == .shareData {
                 UserDefaults.hasPromptedShareData = true
             }
+            
         } else {
             currentPrompt = nil
         }
@@ -200,6 +201,24 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                self.reload(txHash: txHash)
            }
        })
+        
+        store.subscribe(self, selector: { $0.walletState.syncProgress != $1.walletState.syncProgress },
+                        callback: { state in
+                            self.syncingView.progress = CGFloat(state.walletState.syncProgress)
+                            self.syncingView.timestamp = state.walletState.lastBlockTimestamp
+        })
+
+        store.lazySubscribe(self, selector: { $0.walletState.syncState != $1.walletState.syncState },
+                            callback: { state in
+                                guard let peerManager = self.walletManager?.peerManager else { return }
+                                if state.walletState.syncState == .success {
+                                    self.isSyncingViewVisible = false
+                                } else if peerManager.shouldShowSyncingView {
+                                    self.isSyncingViewVisible = true
+                                } else {
+                                    self.isSyncingViewVisible = false
+                                }
+        })
 
        emptyMessage.textAlignment = .center
        emptyMessage.text = S.TransactionDetails.emptyMessage
@@ -322,6 +341,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             cell.subviews.forEach {
                 $0.removeFromSuperview()
             }
+            
             if let prompt = currentPrompt {
                 cell.addSubview(prompt)
                 prompt.constrain(toSuperviewEdges: nil)
