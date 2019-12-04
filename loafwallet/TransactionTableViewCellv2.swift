@@ -9,7 +9,7 @@ import UIKit
 
 private let timestampRefreshRate: TimeInterval = 10.0
 let kNormalTransactionCellHeight: CGFloat = 70.0
-let kMaxTransactionCellHeight: CGFloat = 190.0
+let kMaxTransactionCellHeight: CGFloat = 220.0
 
 class TransactionTableViewCellv2 : UITableViewCell, Subscriber {
  
@@ -29,11 +29,13 @@ class TransactionTableViewCellv2 : UITableViewCell, Subscriber {
     @IBOutlet weak var blockLabel: UILabel!
     @IBOutlet weak var qrModalButton: UIButton!
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var staticBackgroundView: UIView!
-    @IBOutlet weak var moreOrLessLabel: UILabel!
+    @IBOutlet weak var staticBackgroundView: UIView! 
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var dropArrowImageView: UIImageView!
     @IBOutlet weak var expandCardView: UIView!
+    @IBOutlet weak var qrBackgroundView: UIView!
+    
     var didReceiveLitecoin: Bool?
     var showQRModalAction: (() -> ())?
     ///https://fluffy.es/handling-button-tap-inside-uitableviewcell-without-using-tag/
@@ -74,69 +76,103 @@ class TransactionTableViewCellv2 : UITableViewCell, Subscriber {
  
     func setupViews() {
         //TODO: polish when successful compiling happens
+        
+        staticTxIDLabel.text = S.Transaction.txIDLabel.lowercased()
+        staticAmountDetailLabel.text = S.Transaction.amountDetailLabel.lowercased()
+        staticBlockLabel.text = S.Transaction.blockHeightLabel.lowercased()
+        staticCommentLabel.text = S.Transaction.commentLabel.lowercased()
+         
         self.backgroundColor = .white
         staticBackgroundView.backgroundColor = .liteWalletBlue
+        qrModalButton.setImage(UIImage(named: "genericqricon"), for: .normal) 
     }
     
     func setTransaction(_ transaction: Transaction, isLtcSwapped: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
-           self.transaction = transaction
-           expandCardView.alpha = 0.0
-
-           amountLabel.attributedText = transaction.descriptionString(isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: maxDigits)
-           addressLabel.text = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "")
-           statusLabel.text = transaction.status
-           commentTextLabel.text = transaction.comment
-           blockLabel.text = transaction.blockHeight
-           txidStringLabel.text = transaction.hash
-           availabilityLabel.text = transaction.shouldDisplayAvailableToSpend ? S.Transaction.available : ""
-           arrowImageView.image = UIImage(named: "black-circle-arrow-right")?.withRenderingMode(.alwaysTemplate)
         
-//           startingBalanceLabel.text = transaction.amountDetailsStartingBalanceString(isLtcSwapped: isLtcSwapped, rate: rate, rates: <#T##[Rate]#>, maxDigits: maxDigits)
-//           endingBalanceLabel.text = transaction.amountDetailsEndingBalanceString(isLtcSwapped: isLtcSwapped, rate: rate, rates: <#T##[Rate]#>, maxDigits: maxDigits)
+       self.transaction = transaction
+       expandCardView.alpha = 0.0
+
+       amountLabel.attributedText = transaction.descriptionString(isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: maxDigits)
+       addressLabel.text = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "")
+       statusLabel.text = transaction.status
+       commentTextLabel.text = transaction.comment
+       blockLabel.text = transaction.blockHeight
+       txidStringLabel.text = transaction.hash
+       availabilityLabel.text = transaction.shouldDisplayAvailableToSpend ? S.Transaction.available : ""
+       arrowImageView.image = UIImage(named: "black-circle-arrow-right")?.withRenderingMode(.alwaysTemplate)
+       startingBalanceLabel.text = transaction.amountDetailsStartingBalanceString(isLtcSwapped: isLtcSwapped, rate: rate, rates: [rate], maxDigits: maxDigits)
+       endingBalanceLabel.text = transaction.amountDetailsEndingBalanceString(isLtcSwapped: isLtcSwapped, rate: rate, rates: [rate], maxDigits: maxDigits)
+       dropArrowImageView.image = UIImage(named: "modeDropArrow")
+            
+       if #available(iOS 11.0, *) {
         
-           if #available(iOS 11.0, *) {
-                      guard let textColor = UIColor(named: "labelTextColor") else {
-                          NSLog("ERROR: Custom color not found")
-                          return
-                      }
-                      amountLabel.textColor = textColor
-                      addressLabel.textColor = textColor
-                      commentTextLabel.textColor = textColor
-                      statusLabel.textColor = textColor
-                      timedateLabel.textColor = textColor
- 
-                  } else {
-                      commentTextLabel.textColor = .darkText
-                      statusLabel.textColor = .darkText
-                      timedateLabel.textColor = .grayTextTint
-                  }
-
-           if transaction.status == S.Transaction.complete {
-               statusLabel.isHidden = false
-           } else {
-               statusLabel.isHidden = isSyncing
-           }
-
-           let timestampInfo = transaction.timeSince
-           timedateLabel.text = timestampInfo.0
-           if timestampInfo.1 {
-               timer = Timer.scheduledTimer(timeInterval: timestampRefreshRate, target: TransactionCellWrapper(target: self), selector: NSSelectorFromString("timerDidFire"), userInfo: nil, repeats: true)
-           } else {
-               timer?.invalidate()
-           }
-           timedateLabel.isHidden = !transaction.isValid
-
-           let identity: CGAffineTransform = .identity
-           if transaction.direction == .received {
-               arrowImageView.transform = identity.rotated(by: π/2.0)
-               arrowImageView.tintColor = .txListGreen
-           } else {
-               arrowImageView.transform = identity.rotated(by: 3.0*π/2.0)
-               arrowImageView.tintColor = .cameraGuideNegative
-           }
+          guard let textColor = UIColor(named: "labelTextColor") else {
+              NSLog("ERROR: Custom color not found")
+              return
+          }
+        
+          guard let backgroundColor = UIColor(named: "inverseBackgroundViewColor") else {
+             NSLog("ERROR: Custom color not found")
+             return
+          }
+         
+          amountLabel.textColor = textColor
+          addressLabel.textColor = textColor
+          commentTextLabel.textColor = textColor
+          statusLabel.textColor = textColor
+          timedateLabel.textColor = textColor
+        
+          staticCommentLabel.textColor = textColor
+          staticTxIDLabel.textColor = textColor
+          staticAmountDetailLabel.textColor = textColor
+          staticBlockLabel.textColor = textColor
+        
+          qrBackgroundView.backgroundColor = backgroundColor
+        
+       } else {
+          commentTextLabel.textColor = .darkText
+          statusLabel.textColor = .darkText
+          timedateLabel.textColor = .darkText
+        
+          staticCommentLabel.textColor = .darkText
+          staticTxIDLabel.textColor = .darkText
+          staticAmountDetailLabel.textColor = .darkText
+          staticBlockLabel.textColor = .darkText
+        
+          qrBackgroundView.backgroundColor = .white
        }
-     
-   
+
+       if transaction.status == S.Transaction.complete {
+           statusLabel.isHidden = false
+       } else {
+           statusLabel.isHidden = isSyncing
+       }
+
+       let timestampInfo = transaction.timeSince
+       timedateLabel.text = timestampInfo.0
+       if timestampInfo.1 {
+           timer = Timer.scheduledTimer(timeInterval: timestampRefreshRate, target: TransactionCellWrapper(target: self), selector: NSSelectorFromString("timerDidFire"), userInfo: nil, repeats: true)
+       } else {
+           timer?.invalidate()
+       }
+       timedateLabel.isHidden = !transaction.isValid
+
+       let identity: CGAffineTransform = .identity
+       if transaction.direction == .received {
+           arrowImageView.transform = identity.rotated(by: π/2.0)
+           arrowImageView.tintColor = .txListGreen
+       } else {
+           arrowImageView.transform = identity.rotated(by: 3.0*π/2.0)
+           arrowImageView.tintColor = .cameraGuideNegative
+       }
+    
+       if transaction.direction == .received {
+           qrModalButton.isHidden = false
+       } else {
+           qrModalButton.isHidden = true
+       }
+   }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         
 

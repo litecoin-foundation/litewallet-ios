@@ -17,8 +17,7 @@ class BuyLTCViewController: UIViewController, BuyCenterTableViewCellDelegate, UI
     var walletManager: WalletManager?
     private let mountPoint: String = ""
     let partnerArray = Partner.dataArray()
-    
-    @IBOutlet weak var headerTitleView: UIView!
+     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -102,21 +101,33 @@ class BuyLTCViewController: UIViewController, BuyCenterTableViewCellDelegate, UI
     
     func didClickPartnerCell(partner: String) {
         
-//        switch partner {
-//        case "Simplex":
-//            let simplexWebviewVC = BRWebViewController(partner: "Simplex", mountPoint: mountPoint + "_simplex", walletManager: walletManager, store: store, noAuthApiClient: nil)
-//            present(simplexWebviewVC, animated: true
-//                , completion: nil)
-//        case "Changelly":
-//            print("Changelly No Code Placeholder")
-//        case "Coinbase":
-//            let coinbaseWebViewWC = BRWebViewController(partner: "Coinbase", mountPoint: mountPoint + "_coinbase", walletManager: walletManager, store: store, noAuthApiClient: nil)
-//            present(coinbaseWebViewWC, animated: true) {
-//                //
-//            }
-//        default:
-//            fatalError("No Partner Chosen")
-//        }
+        
+        guard let store = self.store else {
+            NSLog("ERROR: Store not initialized")
+            return
+        }
+        
+        guard let walletManager = self.walletManager else {
+            NSLog("ERROR Wallet manager not initialized")
+            return
+        }
+        
+        
+        switch partner {
+        case "Simplex":
+            let simplexWebviewVC = BRWebViewController(partner: "Simplex", mountPoint: mountPoint + "_simplex", walletManager: walletManager, store: store, noAuthApiClient: nil)
+            present(simplexWebviewVC, animated: true
+                , completion: nil)
+        case "Changelly":
+            print("Changelly No Code Placeholder")
+        case "Coinbase":
+            let coinbaseWebViewWC = BRWebViewController(partner: "Coinbase", mountPoint: mountPoint + "_coinbase", walletManager: walletManager, store: store, noAuthApiClient: nil)
+            present(coinbaseWebViewWC, animated: true) {
+                //
+            }
+        default:
+            fatalError("No Partner Chosen")
+        }
     }
     
     @objc func dismissWebContainer() {
@@ -158,7 +169,14 @@ class BuyCenterTableViewCell : UITableViewCell {
     cellButton.addTarget(self, action: #selector(cellButtonPressed), for: .touchUpInside)
     cellButton.addTarget(self, action: #selector(cellButtonImageChanged), for: .touchDown)
     cellButton.addTarget(self, action: #selector(cellButtonImageChanged), for: .touchUpOutside)
-
+    
+    if #available(iOS 11.0, *),
+         let  backgroundColor = UIColor(named: "mainColor") {
+         containerView.backgroundColor = backgroundColor
+    } else {
+         containerView.backgroundColor = .liteWalletBlue
+    }
+    
   }
    
   

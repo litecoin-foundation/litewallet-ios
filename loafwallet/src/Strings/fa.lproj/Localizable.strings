@@ -644,9 +644,6 @@
 /* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
 "TransactionDetails.from" = "از یک آدرس";
 
-/* More button title */
-"TransactionDetails.more" = "بیشتر...";
-
 /* Moved $5.00 (as in "I moved $5 to another location") */
 "TransactionDetails.moved" = "مقدار %1$@ منتقل شد.";
 
@@ -1097,17 +1094,32 @@
 /* Always require passcode option */
 "TouchIdSpendingLimit" = "";
 
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "";
+
 /* Exchange rate on date header */
 "Transaction.exchangeOnDayReceived" = "";
 
 /* Exchange rate on date header */
 "Transaction.exchangeOnDaySent" = "";
 
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "";
+
 /* Block height label */
 "TransactionDetails.blockHeightLabel" = "";
-
-/* Less button title */
-"TransactionDetails.less" = "";
 
 /* Moved $5.00 */
 "TransactionDetails.movedAmountDescription" = "";

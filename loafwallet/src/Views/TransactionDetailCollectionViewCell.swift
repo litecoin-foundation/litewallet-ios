@@ -64,15 +64,8 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
     var kvStore: BRReplicatedKVStore?
     var transaction: Transaction?
     var rate: Rate?
-    var store: Store? {
-        didSet {
-            if oldValue == nil {
-                guard let store = store else { return }
-                header.faqInfo = (store, ArticleIds.transactionDetails)
-            }
-        }
-    }
-
+    var store: Store?
+    
     //MARK: - Private
     private let header = ModalHeaderView(title: S.TransactionDetails.title, style: .dark)
     var timestamp: UILabel?
@@ -312,15 +305,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         comment.isScrollEnabled = false
         comment.returnKeyType = .done
         comment.delegate = self
-
-        moreButton.setTitle(S.TransactionDetails.more, for: .normal)
-//        moreButton.tintColor = .grayTextTint
-        moreButton.titleLabel?.font = .customBold(size: 14.0)
-
-        moreButton.tap = { [weak self] in
-            self?.addMoreView()
-        }
-
+ 
         amount.minimumScaleFactor = 0.5
         amount.adjustsFontSizeToFitWidth = true
 

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-
+//
 //protocol BuyCenterTableViewCellDelegate : class {
 //  func didClickPartnerCell(partner: String)
 //}
@@ -145,4 +145,4 @@ import UIKit
 //  
 //  
 //}
-
+//

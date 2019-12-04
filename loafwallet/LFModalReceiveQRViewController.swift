@@ -14,12 +14,17 @@ class LFModalReceiveQRViewController: UIViewController {
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
-    
     @IBOutlet weak var receiveModalTitleLabel: UILabel!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var dismissQRModalAction: (() -> ())?
 
     @IBAction func didCancelAction(_ sender: Any) {
         dismissQRModalAction?()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        activityIndicatorView.startAnimating()
     }
       
     override func viewDidLoad() {
@@ -36,5 +41,6 @@ class LFModalReceiveQRViewController: UIViewController {
         modalView.clipsToBounds = true
         
         addressLabel.text = ""
+        receiveModalTitleLabel.text = ""
     }
 }

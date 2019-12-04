@@ -44,8 +44,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     private var regularConstraints: [NSLayoutConstraint] = []
     private var swappedConstraints: [NSLayoutConstraint] = []
     private let currencyTapView = UIView()
-    private let storyboardNames:[String] = ["Transactions","Buy","Send","Receive"]
-    var storyboardIDs:[String] = ["TransactionsViewController", "BuyLTCViewController","SendLTCViewController","ReceiveLTCViewController"]
+    private let storyboardNames:[String] = ["Transactions","Send","Receive","Buy"]
+    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","ReceiveLTCViewController","BuyLTCViewController"]
     var viewControllers:[UIViewController] = []
     var activeController:UIViewController? = nil
     
@@ -77,6 +77,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
       
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         configurePriceLabels()
         addSubscriptions()
         dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a")
@@ -99,6 +100,22 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     deinit {
         self.updateTimer = nil
+    }
+    
+    private func setupViews() {
+        
+       if #available(iOS 11.0, *),
+            let  backgroundColor = UIColor(named: "mainColor") {
+            headerView.backgroundColor = backgroundColor
+            tabBar.barTintColor = backgroundColor
+            containerView.backgroundColor = backgroundColor
+            self.view.backgroundColor = backgroundColor
+       } else {
+            headerView.backgroundColor = .liteWalletBlue
+            tabBar.barTintColor = .liteWalletBlue
+            containerView.backgroundColor = .liteWalletBlue
+            self.view.backgroundColor = .liteWalletBlue
+       }
     }
     
     private func configurePriceLabels() {
@@ -315,9 +332,9 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             
             switch item.tag {
             case 0: item.title = S.History.barItemTitle
-            case 1: item.title = S.BuyCenter.barItemTitle
-            case 2: item.title = S.Send.barItemTitle
-            case 3: item.title = S.Receive.barItemTitle
+            case 1: item.title = S.Send.barItemTitle
+            case 2: item.title = S.Receive.barItemTitle
+            case 3: item.title = S.BuyCenter.barItemTitle
             default:
                 item.title = "XXXXXX"
                 NSLog("ERROR: UITabbar item count is wrong")

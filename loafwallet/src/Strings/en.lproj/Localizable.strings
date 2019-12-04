@@ -911,8 +911,17 @@
 /* Touch Id spending limit screen title */
 "TouchIdSpendingLimit.title" = "Touch ID Spending Limit";
 
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Amount Detail:";
+
 /* Availability status text */
 "Transaction.available" = "Available to Spend";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Block:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Memo:";
 
 /* Transaction complete label */
 "Transaction.complete" = "Complete";
@@ -944,6 +953,9 @@
 /* eg. Starting balance: $50.00 */
 "Transaction.starting" = "Starting balance: %1$@";
 
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
 /* Waiting to be confirmed string */
 "Transaction.waiting" = "Waiting to be confirmed. Some merchants require confirmation to complete a transaction. Estimated time: 1-2 hours.";
 
@@ -965,12 +977,6 @@
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "at %1$@";
 
-/* Less button title */
-"TransactionDetails.less" = "Less...";
-
-/* More button title */
-"TransactionDetails.more" = "More...";
-
 /* Moved $5.00 */
 "TransactionDetails.moved" = "Moved %1$@";
 
@@ -985,6 +991,9 @@
 
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "Received <b>%1@</b>";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "RECEIVE ADDRESS";
 
 /* Sent $5.00 (sent title 1/2) */
 "TransactionDetails.sent" = "Sent %1$@";
@@ -1178,11 +1187,14 @@
 /* No comment provided by engineer. */
 "Copy" = "";
 
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "";
+
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";
-
-/* RECEIVE LTCTitle */
-"TransactionDetails.receivedModalTitle" = "";
 
 /* Label for TXID */
 "TransactionDetails.staticTXLabel" = "";

@@ -947,9 +947,6 @@
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "at %1$@";
 
-/* More button title */
-"TransactionDetails.more" = "More...";
-
 /* Moved $5.00 */
 "TransactionDetails.moved" = "Moved %1$@";
 
@@ -1175,8 +1172,23 @@
 /* Spend Bar Item Title */
 "Spend.barItemTitle" = "";
 
-/* Less button title */
-"TransactionDetails.less" = "";
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "";
 
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";

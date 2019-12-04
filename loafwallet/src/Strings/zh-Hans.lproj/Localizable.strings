@@ -872,9 +872,6 @@
 /* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
 "TransactionDetails.from" = "在 %1$@";
 
-/* More button title */
-"TransactionDetails.more" = "更多...";
-
 /* Moved $5.00 (as in "I moved $5 to another location") */
 "TransactionDetails.moved" = "移出 %1$@";
 
@@ -1160,8 +1157,23 @@
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";
 
-/* Less button title */
-"TransactionDetails.less" = "";
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "";
 
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";

@@ -2,17 +2,19 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "grayDropArrow.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
+      "filename" : "whiteDropArrow.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ]
+      ],
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
@@ -30,19 +32,17 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "qr-code.png",
       "scale" : "3x"
     },
     {
       "idiom" : "universal",
-      "filename" : "invert-qr-code.png",
+      "scale" : "3x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "3x"
+      ]
     }
   ],
   "info" : {

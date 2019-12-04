@@ -157,6 +157,12 @@ enum S {
         static let receivedStatus = NSLocalizedString("Transaction.receivedStatus", value: "**In progress: %1$@**", comment: "Receive status text: 'In progress: 20%'")
         static let sendingStatus = NSLocalizedString("Transaction.sendingStatus", value: "**In progress: %1$@**", comment: "Send status text: 'In progress: 20%'")
         static let available = NSLocalizedString("Transaction.available", value: "**Available to Spend**", comment: "Availability status text")
+        static let txIDLabel = NSLocalizedString("Transaction.txIDLabel", value: "**Transaction txID**", comment: "Static TX iD Label")
+        static let amountDetailLabel = NSLocalizedString("Transaction.amountDetailLabel", value: "**Transaction amount detail**", comment: "Static amount Label")
+        static let startingAmountDetailLabel = NSLocalizedString("Transaction.startingAmountDetailLabel", value: "**Transaction starting amount detail**", comment: "Static starting amount Label")
+        static let endAmountDetailLabel = NSLocalizedString("Transaction.endAmountDetailLabel", value: "**Transaction end amount detail**", comment: "Static end amount Label")
+        static let blockHeightLabel = NSLocalizedString("Transaction.blockHeightLabel", value: "**Transaction blockHeightLabel**", comment: "Static blockHeight Label")
+        static let commentLabel = NSLocalizedString("Transaction.commentLabel", value: "**Transaction comment label**", comment: "Static comment Label")
     }
 
     enum TransactionDetails {
@@ -165,9 +171,7 @@ enum S {
         static let statusHeader = NSLocalizedString("TransactionDetails.statusHeader", value: "**Status**", comment: "Status section header")
         static let commentsHeader = NSLocalizedString("TransactionDetails.commentsHeader", value: "**Memo**", comment: "Memo section header")
         static let amountHeader = NSLocalizedString("TransactionDetails.amountHeader", value: "**Amount**", comment: "Amount section header")
-        static let emptyMessage = NSLocalizedString("TransactionDetails.emptyMessage", value: "**Your transactions will appear here.**", comment: "Empty transaction list message.")
-        static let more = NSLocalizedString("TransactionDetails.more", value: "**More...**", comment: "More button title")
-        static let less = NSLocalizedString("TransactionDetails.less", value: "**Less**", comment: "Less button title")
+        static let emptyMessage = NSLocalizedString("TransactionDetails.emptyMessage", value: "**Your transactions will appear here.**", comment: "Empty transaction list message.") 
         static let txHashHeader = NSLocalizedString("TransactionDetails.txHashHeader", value: "**Litecoin Transaction ID**", comment: "Transaction ID header")
         static let sentAmountDescription = NSLocalizedString("TransactionDetails.sentAmountDescription", value: "**Sent <b>%1@</b>**", comment: "Sent $5.00")
         static let receivedAmountDescription = NSLocalizedString("TransactionDetails.receivedAmountDescription", value: "**Received <b>%1@</b>**", comment: "Received $5.00")

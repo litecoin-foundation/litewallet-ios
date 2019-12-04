@@ -131,6 +131,13 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     private func setup() {
         self.transactions = TransactionManager.sharedInstance.transactions
         self.rate = TransactionManager.sharedInstance.rate
+    
+       if #available(iOS 11.0, *),
+            let  backgroundColor = UIColor(named: "mainColor") {
+            tableView.backgroundColor = backgroundColor
+       } else {
+            tableView.backgroundColor = .liteWalletBlue
+       }
      }
     
     private func addSubscriptions() {
@@ -224,9 +231,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
    private func checkTransactionCountForReview(transactions: [Transaction]) {
       
-      if  transactions.count % 3 == 0 &&
-          transactions.count < 7 {
-        
+      if  transactions.count < 2 {
         if #available( iOS 10.3,*){
           SKStoreReviewController.requestReview()
         }
@@ -285,63 +290,60 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             return TransactionTableViewCellv2()
         }
         
-        if hasExtraSection && indexPath.section == 0 {
-            
-            if let transactionCell = cell as? TransactionTableViewCellv2 {
-                transactionCell.subviews.forEach {
-                    $0.removeFromSuperview()
-                }
-                if let prompt = currentPrompt {
-                    transactionCell.addSubview(prompt)
-                    prompt.constrain(toSuperviewEdges: nil)
-                    prompt.constrain([
-                        prompt.heightAnchor.constraint(equalToConstant: 88.0) ])
-                 } else {
-                    transactionCell.addSubview(syncingView)
-                    syncingView.constrain(toSuperviewEdges: nil)
-                    syncingView.constrain([
-                        syncingView.heightAnchor.constraint(equalToConstant: 88.0) ])
-                 }
-            }
-            return cell
-        } else {
-  
-            if let transactionCell = cell as? TransactionTableViewCellv2,
-                let rate = rate,
-                let store = self.store,
-                let isLtcSwapped = self.isLtcSwapped {
-                transactionCell.setTransaction(transactions[indexPath.row], isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
-            }
-            return cell
-        }
-         
-        if let transaction = transaction,
-            let isLTCSwapped = self.isLtcSwapped {
-  
-                cell.showQRModalAction = { [unowned self] in
-                    if let addressString = transaction.toAddress,
-                        let qrImage = transaction.toAddress?.qrCode,
-                        let receiveLTCtoAddressModal = UIStoryboard.init(name: "Alerts", bundle: nil).instantiateViewController(withIdentifier: "LFModalReceiveQRViewController") as? LFModalReceiveQRViewController {
-                        
-                        receiveLTCtoAddressModal.providesPresentationContextTransitionStyle = true
-                        receiveLTCtoAddressModal.definesPresentationContext = true
-                        receiveLTCtoAddressModal.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                        receiveLTCtoAddressModal.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                        receiveLTCtoAddressModal.dismissQRModalAction = { [unowned self] in
-                          self.dismiss(animated: true, completion: nil)
-                        }
-                        
-                        self.present(receiveLTCtoAddressModal, animated: true) {
-                             receiveLTCtoAddressModal.addressLabel.text = addressString
-                             receiveLTCtoAddressModal.qrImageView.image = qrImage
-                             receiveLTCtoAddressModal.receiveModalTitleLabel.text = S.TransactionDetails.receiveModaltitle
-                        }
+        let transaction = transactions[indexPath.row] as Transaction
+        
+        if transaction.direction == .received { 
+            cell.showQRModalAction = { [unowned self] in
+                
+                if let addressString = transaction.toAddress,
+                    let qrImage = transaction.toAddress?.qrCode,
+                    let receiveLTCtoAddressModal = UIStoryboard.init(name: "Alerts", bundle: nil).instantiateViewController(withIdentifier: "LFModalReceiveQRViewController") as? LFModalReceiveQRViewController {
+                    
+                    receiveLTCtoAddressModal.providesPresentationContextTransitionStyle = true
+                    receiveLTCtoAddressModal.definesPresentationContext = true
+                    receiveLTCtoAddressModal.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                    receiveLTCtoAddressModal.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                    receiveLTCtoAddressModal.dismissQRModalAction = { [unowned self] in
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    
+                    self.present(receiveLTCtoAddressModal, animated: true) {
+                         receiveLTCtoAddressModal.receiveModalTitleLabel.text = S.TransactionDetails.receiveModaltitle
+                         receiveLTCtoAddressModal.addressLabel.text = addressString
+                         receiveLTCtoAddressModal.qrImageView.image = qrImage
+                         receiveLTCtoAddressModal.activityIndicatorView.stopAnimating()
                     }
                 }
-        } else {
-            assertionFailure("ERROR must have transaction")
+            }
         }
-        return cell
+         
+        if hasExtraSection && indexPath.section == 0 {
+             
+            cell.subviews.forEach {
+                $0.removeFromSuperview()
+            }
+            if let prompt = currentPrompt {
+                cell.addSubview(prompt)
+                prompt.constrain(toSuperviewEdges: nil)
+                prompt.constrain([
+                    prompt.heightAnchor.constraint(equalToConstant: 88.0) ])
+             } else {
+                cell.addSubview(syncingView)
+                syncingView.constrain(toSuperviewEdges: nil)
+                syncingView.constrain([
+                    syncingView.heightAnchor.constraint(equalToConstant: 88.0) ])
+             }
+             
+            return cell
+        } else {
+  
+            if let rate = rate,
+                let store = self.store,
+                let isLtcSwapped = self.isLtcSwapped {
+                cell.setTransaction(transaction, isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
+            }
+            return cell
+        }
     }
       
     private func cellIsSelected(indexPath: IndexPath) -> Bool {
@@ -353,28 +355,30 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        tableView.beginUpdates()
         let isSelected = !self.cellIsSelected(indexPath: indexPath)
         let selectedIndex = NSNumber(value: isSelected)
- 
+        selectedIndexes[indexPath] = selectedIndex
+
         if let selectedCell = tableView.cellForRow(at: indexPath) as? TransactionTableViewCellv2 {
-            
-            selectedCell.moreOrLessLabel.text = isSelected ? S.TransactionDetails.less.uppercased() : S.TransactionDetails.more.uppercased()
+             
+            let identity: CGAffineTransform = .identity
             
             if isSelected {
                 let newAlpha = 1.0
+                 
                 UIView.animate(withDuration: 0.2, delay: 0.1, animations: {
                     selectedCell.expandCardView.alpha = CGFloat(newAlpha)
+                    selectedCell.dropArrowImageView.transform = identity.rotated(by: π)
                 })
             } else {
                 let newAlpha = 0.0
                 UIView.animate(withDuration: 0.1, delay: 0.0, animations: {
                     selectedCell.expandCardView.alpha = CGFloat(newAlpha)
+                    selectedCell.dropArrowImageView.transform = identity.rotated(by: -4.0*π/2.0)
                 })
             }
         }
-        
-        selectedIndexes[indexPath] = selectedIndex
-        tableView.beginUpdates()
         tableView.endUpdates()
     }
     
