@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
         <!--Alert View Controller-->
         <scene sceneID="JSq-9z-swI">
             <objects>
-                <viewController storyboardIdentifier="LFAlertViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SCW-vE-Bas" customClass="LFAlertViewController" customModule="Litewallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LFAlertViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SCW-vE-Bas" customClass="LFAlertViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wbk-sg-7Kj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
         <!--Modal ReceiveQR View Controller-->
         <scene sceneID="dUe-97-gnl">
             <objects>
-                <viewController storyboardIdentifier="LFModalReceiveQRViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3tF-rI-LAg" customClass="LFModalReceiveQRViewController" customModule="Litewallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LFModalReceiveQRViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3tF-rI-LAg" customClass="LFModalReceiveQRViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5i-5b-4fH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,14 +128,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqB-Yh-voE">
                                 <rect key="frame" x="67" y="258" width="280" height="380"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6ly-mq-IPQ">
-                                        <rect key="frame" x="130" y="160" width="20" height="20"/>
-                                    </activityIndicatorView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8F-OS-LkJ">
-                                        <rect key="frame" x="20" y="50.5" width="240" height="240"/>
+                                        <rect key="frame" x="30" y="50.5" width="220" height="220"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="240" id="JSd-gp-uPn"/>
-                                            <constraint firstAttribute="width" constant="240" id="orh-Aa-9g9"/>
+                                            <constraint firstAttribute="height" constant="220" id="JSd-gp-uPn"/>
+                                            <constraint firstAttribute="width" constant="220" id="orh-Aa-9g9"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udq-Ym-0Cp">
@@ -162,7 +159,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADDRESS XXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HP-6q-OZT">
-                                        <rect key="frame" x="10" y="298.5" width="260" height="20.5"/>
+                                        <rect key="frame" x="10" y="278.5" width="260" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="UKl-oS-bOT"/>
                                         </constraints>
@@ -185,10 +182,8 @@
                                     <constraint firstItem="3HP-6q-OZT" firstAttribute="leading" secondItem="dqB-Yh-voE" secondAttribute="leading" constant="10" id="fyy-bC-XLb"/>
                                     <constraint firstAttribute="height" constant="380" id="ida-mn-pTa"/>
                                     <constraint firstItem="wTI-Q5-Xjf" firstAttribute="leading" secondItem="dqB-Yh-voE" secondAttribute="leading" constant="10" id="iem-II-xSz"/>
-                                    <constraint firstItem="6ly-mq-IPQ" firstAttribute="centerY" secondItem="dqB-Yh-voE" secondAttribute="centerY" constant="-20" id="qsZ-Zt-wSz"/>
                                     <constraint firstItem="R8F-OS-LkJ" firstAttribute="top" secondItem="wTI-Q5-Xjf" secondAttribute="bottom" constant="20" id="t3z-Oy-N34"/>
                                     <constraint firstItem="3HP-6q-OZT" firstAttribute="centerX" secondItem="dqB-Yh-voE" secondAttribute="centerX" id="wzE-5N-3Zx"/>
-                                    <constraint firstItem="6ly-mq-IPQ" firstAttribute="centerX" secondItem="dqB-Yh-voE" secondAttribute="centerX" id="y8r-Rp-ycI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -200,7 +195,6 @@
                         <viewLayoutGuide key="safeArea" id="i0X-Hn-AgZ"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="6ly-mq-IPQ" id="ddL-hn-UKk"/>
                         <outlet property="addressLabel" destination="3HP-6q-OZT" id="f72-JD-TQ2"/>
                         <outlet property="doneButton" destination="udq-Ym-0Cp" id="pnj-Z0-Q6S"/>
                         <outlet property="modalView" destination="dqB-Yh-voE" id="YOG-iO-ZdL"/>

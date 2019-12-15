@@ -330,8 +330,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                          receiveLTCtoAddressModal.receiveModalTitleLabel.text = S.TransactionDetails.receiveModaltitle
                          receiveLTCtoAddressModal.addressLabel.text = addressString
                          receiveLTCtoAddressModal.qrImageView.image = qrImage
-                         receiveLTCtoAddressModal.activityIndicatorView.stopAnimating()
-                    }
+                     }
                 }
             }
         }

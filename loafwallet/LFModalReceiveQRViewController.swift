@@ -15,8 +15,7 @@ class LFModalReceiveQRViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var receiveModalTitleLabel: UILabel!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-    
+ 
     var dismissQRModalAction: (() -> ())?
 
     @IBAction func didCancelAction(_ sender: Any) {
@@ -24,7 +23,7 @@ class LFModalReceiveQRViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        activityIndicatorView.startAnimating()
+
     }
       
     override func viewDidLoad() {

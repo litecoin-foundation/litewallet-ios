@@ -415,18 +415,23 @@ extension WalletManager : WalletAuthenticator {
     // wipe the existing wallet from the keychain
     func wipeWallet(pin: String = "forceWipe") -> Bool {
         guard pin == "forceWipe" || authenticate(pin: pin) else { return false }
+        print("WALLET TIME SEQUENCE 5 \(Date())")
 
         do {
             lazyWallet = nil
             lazyPeerManager = nil
             if db != nil { sqlite3_close(db) }
             db = nil
+            print("WALLET TIME SEQUENCE 6 \(Date())")
+
             masterPubKey = BRMasterPubKey()
             didInitWallet = false
             earliestKeyTime = 0
             if let bundleId = Bundle.main.bundleIdentifier {
                 UserDefaults.standard.removePersistentDomain(forName: bundleId)
             }
+            print("WALLET TIME SEQUENCE 7 \(Date())")
+
             try BRAPIClient(authenticator: self).kv?.rmdb()
             try? FileManager.default.removeItem(atPath: dbPath)
             try? FileManager.default.removeItem(at: BRReplicatedKVStore.dbPath)
@@ -439,6 +444,7 @@ extension WalletManager : WalletAuthenticator {
             try setKeychainItem(key: KeychainKey.masterPubKey, item: nil as Data?)
             try setKeychainItem(key: KeychainKey.seed, item: nil as Data?)
             try setKeychainItem(key: KeychainKey.mnemonic, item: nil as String?, authenticated: true)
+            print("WALLET TIME SEQUENCE 8 \(Date())")
             NotificationCenter.default.post(name: .WalletDidWipe, object: nil)
             return true
         }

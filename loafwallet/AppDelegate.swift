@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var mixpanelToken = ""
         #if Debug || Testflight
              mixpanelToken = K.mixpanelTokenDevelopment
-        #else
+         #else
              mixpanelToken = K.mixpanelTokenProduction
         #endif
         Mixpanel.initialize(token: mixpanelToken)

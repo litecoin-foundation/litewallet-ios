@@ -10,7 +10,10 @@ import XCTest
 @testable import loafwallet
 
 class WalletManagerTests: XCTestCase {
-
+    
+    private let walletManager: WalletManager = try! WalletManager(store: Store(), dbPath: nil)
+    private let pin = "123456"
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -20,7 +23,14 @@ class WalletManagerTests: XCTestCase {
     }
     
     func testSyncingWallet() {
-        
+        //Given:
+        //When:
+        //Then:
     }
+    
+    func testWalletPeerManagerDisconnection() {
+      //   walletManager.peerManager?.disconnect()
+    }
+    
  
 }

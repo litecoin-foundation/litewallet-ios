@@ -606,9 +606,16 @@ class ModalPresenter : Subscriber, Trackable {
                 self.topViewController?.present(activity, animated: true, completion: nil)
                 DispatchQueue.walletQueue.async {
                     self.walletManager?.peerManager?.disconnect()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                    print("WALLET TIME SEQUENCE 1 \(Date())")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        print("WALLET TIME SEQUENCE 2 \(Date())")
+
                         if (self.walletManager?.wipeWallet(pin: "forceWipe"))! {
+                            print("WALLET TIME SEQUENCE 3\(Date())")
+
                             self.store.trigger(name: .reinitWalletManager({
+                                print("WALLET TIME SEQUENCE 4 \(Date())")
+
                               activity.dismiss(animated: true, completion: {})
                             }))
                          } else {
