@@ -445,7 +445,7 @@ extension WalletManager : WalletAuthenticator {
             try setKeychainItem(key: KeychainKey.seed, item: nil as Data?)
             try setKeychainItem(key: KeychainKey.mnemonic, item: nil as String?, authenticated: true)
             print("WALLET TIME SEQUENCE 8 \(Date())")
-            NotificationCenter.default.post(name: .WalletDidWipe, object: nil)
+            NotificationCenter.default.post(name: .WalletDidWipeNotification, object: nil)
             return true
         }
         catch let error {

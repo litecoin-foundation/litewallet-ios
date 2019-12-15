@@ -41,7 +41,7 @@ extension NSNotification.Name {
     public static let WalletTxRejectedNotification = NSNotification.Name("WalletTxRejected")
     public static let WalletSyncStartedNotification = NSNotification.Name("WalletSyncStarted")
     public static let WalletSyncStoppedNotification = NSNotification.Name("WalletSyncStopped")
-    public static let WalletDidWipe = NSNotification.Name("WalletDidWipe")
+    public static let WalletDidWipeNotification = NSNotification.Name("WalletDidWipe")
 }
 
 private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> UnsafePointer<T>? {
