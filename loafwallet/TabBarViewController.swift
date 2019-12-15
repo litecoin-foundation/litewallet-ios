@@ -323,7 +323,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
         super.viewWillAppear(animated)
         
-        guard let array = self.tabBar.items as? [UITabBarItem] else {
+        guard let array = self.tabBar.items else {
             NSLog("ERROR: no items found")
             return
         }
@@ -349,8 +349,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
  
     func displayContentController(contentController:UIViewController) {
         
-        var rawStringClassName = NSStringFromClass(contentController.classForCoder)
-         
+        
         switch NSStringFromClass(contentController.classForCoder) {
         case "loafwallet.TransactionsViewController":
 

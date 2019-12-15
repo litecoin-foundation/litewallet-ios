@@ -1,5 +1,5 @@
 //
-//  loafwalletUITests.swift
+//  MainNavigationVIewUITests.swift
 //  loafwalletUITests
 //
 //  Created by Kerry Washington on 12/14/19.
@@ -8,8 +8,8 @@
 
 import XCTest
 
-class loafwalletUITests: XCTestCase {
-    
+class MainNavigationVIewUITests: XCTestCase {
+
     var app: XCUIApplication!
 
     override func setUp() {
@@ -24,13 +24,30 @@ class loafwalletUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
- 
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+
+    func testTabBarHistoryTab() {
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["History"].tap()
     }
+    
+    func testTabBarReceiveTab() {
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Receive"].tap()
+    }
+    
+    func testTabBarSendTab() {
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Send"].tap()
+    }
+    
+    func testTabBarBuyTab() {
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["Buy"].tap()
+    }
+     
+    func testDisplayContentController() {
+        //contentController:UIViewController
+        ///TBD TabBarViewController: 350
+    }
+ 
 }

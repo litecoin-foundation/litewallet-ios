@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
 workspace 'loafwallet.xcworkspace'
-project 'loafwallet.xcodeproj', 'Development' => :debug,'Release' => :release
+project 'loafwallet.xcodeproj', 'Debug' => :debug,'Release' => :release
 use_frameworks!
 
 
