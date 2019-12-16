@@ -43,7 +43,6 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
                     self.attemptShowWelcomeView()
                 })
             }
-           
         }
     }
    
@@ -157,10 +156,26 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     }
    
     @objc private func updateLoadingProgress() {
-     }
+        
+    }
    
     private func addTemporaryStartupViews() {
-
+        guardProtected(queue: DispatchQueue.main) {
+            if !WalletManager.staticNoWallet {
+                self.addChildViewController(self.tempLoginView, layout: {
+                    self.tempLoginView.view.constrain(toSuperviewEdges: nil)
+                })
+            } else {
+                let startView = StartViewController(store: self.store, didTapCreate: {}, didTapRecover: {})
+                self.addChildViewController(startView, layout: {
+                    startView.view.constrain(toSuperviewEdges: nil)
+                    startView.view.isUserInteractionEnabled = false
+                })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    startView.remove()
+                })
+            }
+        }
     }
    
     private func addTransactionsView() {
