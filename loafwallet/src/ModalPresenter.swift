@@ -598,32 +598,33 @@ class ModalPresenter : Subscriber, Trackable {
     }
 
     func wipeWallet() {
+         
+        let group = DispatchGroup()
         let alert = UIAlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: S.Button.cancel, style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: S.WipeWallet.wipe, style: .default, handler: { _ in
             self.topViewController?.dismiss(animated: true, completion: {
                 let activity = BRActivityViewController(message: S.WipeWallet.wiping)
                 self.topViewController?.present(activity, animated: true, completion: nil)
+                
+                group.enter()
                 DispatchQueue.walletQueue.async {
                     self.walletManager?.peerManager?.disconnect()
-                    print("WALLET TIME SEQUENCE 1 \(Date())")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                        print("WALLET TIME SEQUENCE 2 \(Date())")
+                    group.leave()
+                }
+                
+                group.notify(queue: .main) {
+                   if (self.walletManager?.wipeWallet(pin: "forceWipe"))! {
 
-                        if (self.walletManager?.wipeWallet(pin: "forceWipe"))! {
-                            print("WALLET TIME SEQUENCE 3\(Date())")
+                       self.store.trigger(name: .reinitWalletManager({
 
-                            self.store.trigger(name: .reinitWalletManager({
-                                print("WALLET TIME SEQUENCE 4 \(Date())")
-
-                              activity.dismiss(animated: true, completion: {})
-                            }))
-                         } else {
-                            let failure = UIAlertController(title: S.WipeWallet.failedTitle, message: S.WipeWallet.failedMessage, preferredStyle: .alert)
-                            failure.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
-                            self.topViewController?.present(failure, animated: true, completion: nil)
-                         }
-                    })
+                         activity.dismiss(animated: true, completion: {})
+                       }))
+                    } else {
+                       let failure = UIAlertController(title: S.WipeWallet.failedTitle, message: S.WipeWallet.failedMessage, preferredStyle: .alert)
+                       failure.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+                       self.topViewController?.present(failure, animated: true, completion: nil)
+                    }
                 }
             })
         }))

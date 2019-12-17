@@ -118,8 +118,10 @@ class ApplicationController : Subscriber, Trackable {
             if shouldRequireLogin() {
                 store.perform(action: RequireLogin())
             }
-            DispatchQueue.walletQueue.async {
-                walletManager.peerManager?.connect()
+            if walletManager.wallet?.balance != 0 {
+                DispatchQueue.walletQueue.async {
+                  walletManager.peerManager?.connect()
+                }
             }
             exchangeUpdater?.refresh(completion: {})
             feeUpdater?.refresh()
@@ -133,8 +135,10 @@ class ApplicationController : Subscriber, Trackable {
         func retryAfterIsReachable() {
             guard let walletManager = walletManager else { return }
             guard !walletManager.noWallet else { return }
-            DispatchQueue.walletQueue.async {
-                walletManager.peerManager?.connect()
+            if walletManager.wallet?.balance != 0 {
+                DispatchQueue.walletQueue.async {
+                  walletManager.peerManager?.connect()
+                }
             }
             exchangeUpdater?.refresh(completion: {})
             feeUpdater?.refresh()
@@ -196,18 +200,23 @@ class ApplicationController : Subscriber, Trackable {
                     store.perform(action: ShowStartFlow())
                 } else {
                     modalPresenter?.walletManager = walletManager
-                    DispatchQueue.walletQueue.async {
-                        walletManager.peerManager?.connect()
+                    if walletManager.wallet?.balance != 0 {
+                        DispatchQueue.walletQueue.async {
+                          walletManager.peerManager?.connect()
+                        }
                     }
                     self.startDataFetchers()
                 }
 
             //For when watch app launches app in background
             } else {
-                DispatchQueue.walletQueue.async { [weak self] in
-                    walletManager.peerManager?.connect()
-                    if self?.fetchCompletionHandler != nil {
-                        self?.performBackgroundFetch()
+                
+                if walletManager.wallet?.balance != 0 {
+                    DispatchQueue.walletQueue.async { [weak self] in
+                        walletManager.peerManager?.connect()
+                        if self?.fetchCompletionHandler != nil {
+                            self?.performBackgroundFetch()
+                        }
                     }
                 }
             }
