@@ -86,7 +86,8 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
             if UserDefaults.writePaperPhraseDate != nil {
             }
         }
-         
+        
+        addSubscriptions()
         addAppLifecycleNotificationEvents()
         addTemporaryStartupViews()
         setInitialData()
@@ -176,6 +177,44 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
                 })
             }
         }
+    }
+    
+    private func addSubscriptions() {
+               store.subscribe(self, selector: { $0.isLoginRequired != $1.isLoginRequired },
+                               callback: { self.isLoginRequired = $0.isLoginRequired
+               })
+
+//                store.subscribe(self, selector: { $0.walletState.syncProgress != $1.walletState.syncProgress },
+//                                callback: { state in
+//                                    self.transactionsTableView.syncingView.progress = CGFloat(state.walletState.syncProgress)
+//                                    self.transactionsTableView.syncingView.timestamp = state.walletState.lastBlockTimestamp
+//                })
+//
+//                store.lazySubscribe(self, selector: { $0.walletState.syncState != $1.walletState.syncState },
+//                                    callback: { state in
+//                                        guard let peerManager = self.walletManager?.peerManager else { return }
+//                                        if state.walletState.syncState == .success {
+//                                            self.transactionsTableView.isSyncingViewVisible = false
+//                                        } else if peerManager.shouldShowSyncingView {
+//                                            self.transactionsTableView.isSyncingViewVisible = true
+//                                        } else {
+//                                            self.transactionsTableView.isSyncingViewVisible = false
+//                                        }
+//                })
+//
+//                store.subscribe(self, selector: { $0.isLoadingTransactions != $1.isLoadingTransactions }, callback: {
+//                    if $0.isLoadingTransactions {
+//                        self.loadingDidStart()
+//                    } else {
+//                        self.hideLoadingView()
+//                    }
+//                })
+//                store.subscribe(self, name: .showStatusBar, callback: { _ in
+//                    self.shouldShowStatusBar = true
+//                })
+//                store.subscribe(self, name: .hideStatusBar, callback: { _ in
+//                    self.shouldShowStatusBar = false
+//                })
     }
    
     private func addTransactionsView() {

@@ -219,6 +219,10 @@ class ApplicationController : Subscriber, Trackable {
                         }
                     }
                 }
+                exchangeUpdater?.refresh(completion: {
+                    self.watchSessionManager.walletManager = self.walletManager
+                    self.watchSessionManager.rate = self.store.state.currentRate
+                })
             }
         }
 
@@ -243,8 +247,27 @@ class ApplicationController : Subscriber, Trackable {
         }
 
         private func setupRootViewController() {
-           
+//           let didSelectTransaction: ([Transaction], Int) -> Void = { transactions, selectedIndex in
+//               guard let kvStore = self.walletManager?.apiClient?.kv else { return }
+//               let transactionDetails = TransactionDetailsViewController(store: self.store, transactions: transactions, selectedIndex: selectedIndex, kvStore: kvStore)
+//               transactionDetails.modalPresentationStyle = .overFullScreen
+//               transactionDetails.transitioningDelegate = self.transitionDelegate
+//               transactionDetails.modalPresentationCapturesStatusBarAppearance = true
+//               self.window.rootViewController?.present(transactionDetails, animated: true, completion: nil)
+//           }
+//           accountViewController = AccountViewController(store: store, didSelectTransaction: didSelectTransaction)
+//           accountViewController?.sendCallback = { self.store.perform(action: RootModalActions.Present(modal: .send)) }
+//           accountViewController?.buyCallback = { self.store.perform(action: RootModalActions.Present(modal: .buy)) }
+//           accountViewController?.receiveCallback = { self.store.perform(action: RootModalActions.Present(modal: .receive)) }
+//           accountViewController?.menuCallback = { self.store.perform(action: RootModalActions.Present(modal: .menu)) }
+//           window.rootViewController = accountViewController
+            
+            guard let walletManager = walletManager else { assert(false, "WalletManager should exist!"); return }
+
+            
             mainViewController = MainViewController(store: store)
+            mainViewController?.walletManager = walletManager
+            
             window.rootViewController = mainViewController
         }
 
@@ -255,7 +278,8 @@ class ApplicationController : Subscriber, Trackable {
             defaultsUpdater?.refresh()
             walletManager?.apiClient?.events?.up()
             exchangeUpdater?.refresh(completion: {
-                
+                self.watchSessionManager.walletManager = self.walletManager
+                self.watchSessionManager.rate = self.store.state.currentRate
             })
         }
 
