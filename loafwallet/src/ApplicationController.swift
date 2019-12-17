@@ -255,6 +255,7 @@ class ApplicationController : Subscriber, Trackable {
             defaultsUpdater?.refresh()
             walletManager?.apiClient?.events?.up()
             exchangeUpdater?.refresh(completion: {
+                
             })
         }
 
