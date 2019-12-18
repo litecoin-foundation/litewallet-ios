@@ -63,7 +63,7 @@ class ModalHeaderView : UIView {
     private func setColors() {
         
         if #available(iOS 11.0, *),
-             let textColor = UIColor(named: "labelTextColor") {
+             let textColor = UIColor(named: "inverseTextColor") {
              backgroundColor = textColor
         } else {
              backgroundColor = .white
@@ -75,7 +75,6 @@ class ModalHeaderView : UIView {
             case .dark:
                 border.backgroundColor = .secondaryShadow
             }
-      //  }
     }
 
     required init?(coder aDecoder: NSCoder) {

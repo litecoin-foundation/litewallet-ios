@@ -176,7 +176,8 @@ class ApplicationController : Subscriber, Trackable {
 
         private func didInitWalletManager() {
             guard let walletManager = walletManager else { assert(false, "WalletManager should exist!"); return }
-             guard let rootViewController = window.rootViewController else { return }
+            guard let rootViewController = window.rootViewController else { return }
+            
             hasPerformedWalletDependentInitialization = true
             store.perform(action: PinLength.set(walletManager.pinLength))
             walletCoordinator = WalletCoordinator(walletManager: walletManager, store: store)
@@ -246,22 +247,6 @@ class ApplicationController : Subscriber, Trackable {
         }
 
         private func setupRootViewController() {
-//           let didSelectTransaction: ([Transaction], Int) -> Void = { transactions, selectedIndex in
-//               guard let kvStore = self.walletManager?.apiClient?.kv else { return }
-//               let transactionDetails = TransactionDetailsViewController(store: self.store, transactions: transactions, selectedIndex: selectedIndex, kvStore: kvStore)
-//               transactionDetails.modalPresentationStyle = .overFullScreen
-//               transactionDetails.transitioningDelegate = self.transitionDelegate
-//               transactionDetails.modalPresentationCapturesStatusBarAppearance = true
-//               self.window.rootViewController?.present(transactionDetails, animated: true, completion: nil)
-//           }
-//           accountViewController = AccountViewController(store: store, didSelectTransaction: didSelectTransaction)
-//           accountViewController?.sendCallback = { self.store.perform(action: RootModalActions.Present(modal: .send)) }
-//           accountViewController?.buyCallback = { self.store.perform(action: RootModalActions.Present(modal: .buy)) }
-//           accountViewController?.receiveCallback = { self.store.perform(action: RootModalActions.Present(modal: .receive)) }
-//           accountViewController?.menuCallback = { self.store.perform(action: RootModalActions.Present(modal: .menu)) }
-//           window.rootViewController = accountViewController
-            
-  
             mainViewController = MainViewController(store: store)
             mainViewController?.walletManager = walletManager
             window.rootViewController = mainViewController
@@ -283,7 +268,8 @@ class ApplicationController : Subscriber, Trackable {
             store.subscribe(self, name: .didCreateOrRecoverWallet, callback: { _ in
                 self.modalPresenter?.walletManager = self.walletManager
                 self.startDataFetchers()
-            })
+                self.mainViewController?.didUnlockLogin()
+             })
         }
       
         private func initKVStoreCoordinator() {
@@ -377,8 +363,9 @@ class ApplicationController : Subscriber, Trackable {
     extension ApplicationController {
         func listenForPushNotificationRequest() {
             store.subscribe(self, name: .registerForPushNotificationToken, callback: { _ in
-                let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-                self.application?.registerUserNotificationSettings(settings)
+                //TODO: Refactor, APNS is not setup
+                 let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+                  self.application?.registerUserNotificationSettings(settings)
             })
         }
 

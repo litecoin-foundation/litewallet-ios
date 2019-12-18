@@ -613,11 +613,16 @@ class ModalPresenter : Subscriber, Trackable {
                     group.leave()
                 }
                 
+                group.enter()
+                DispatchQueue.walletQueue.asyncAfter(deadline: .now() + 2.0) {
+                    print("Pausing to show 'Wiping' Dialog")
+                    group.leave()
+                }
+               
                 group.notify(queue: .main) {
-                   if (self.walletManager?.wipeWallet(pin: "forceWipe"))! {
-
+                    if let canForceWipeWallet = (self.walletManager?.wipeWallet(pin: "forceWipe")),
+                        canForceWipeWallet {
                        self.store.trigger(name: .reinitWalletManager({
-
                          activity.dismiss(animated: true, completion: {})
                        }))
                     } else {
