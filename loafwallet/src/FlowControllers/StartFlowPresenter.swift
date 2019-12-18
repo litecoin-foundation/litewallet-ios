@@ -44,9 +44,8 @@ class StartFlowPresenter : Subscriber {
         store.lazySubscribe(self,
                         selector: { $0.isLoginRequired != $1.isLoginRequired },
                         callback: { self.handleLoginRequiredChange(state: $0) }) //TODO - this should probably be in modal presenter
-        store.subscribe(self, name: .lock, callback: { _ in
-            self.presentLoginFlow(isPresentedForLock: true)
-        })
+        store.subscribe(self, name: .lock,
+                        callback: { _ in self.presentLoginFlow(isPresentedForLock: true) })
     }
 
     private func handleStartFlowChange(state: State) {
@@ -70,7 +69,7 @@ class StartFlowPresenter : Subscriber {
     private func presentStartFlow() {
         let startViewController = StartViewController(store: store,
                                                       didTapCreate: { [weak self] in
-                                                        self?.pushPinCreationViewControllerForNewWallet()
+            self?.pushPinCreationViewControllerForNewWallet()
         },
                                                       didTapRecover: { [weak self] in
             guard let myself = self else { return }

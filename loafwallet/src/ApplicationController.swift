@@ -76,7 +76,6 @@ class ApplicationController : Subscriber, Trackable {
         if !hasPerformedWalletDependentInitialization && didInitWallet {
             didInitWalletManager()
         }
-
     }
 
     private func setup() {
@@ -262,12 +261,9 @@ class ApplicationController : Subscriber, Trackable {
 //           accountViewController?.menuCallback = { self.store.perform(action: RootModalActions.Present(modal: .menu)) }
 //           window.rootViewController = accountViewController
             
-            guard let walletManager = walletManager else { assert(false, "WalletManager should exist!"); return }
-
-            
+  
             mainViewController = MainViewController(store: store)
             mainViewController?.walletManager = walletManager
-            
             window.rootViewController = mainViewController
         }
 
