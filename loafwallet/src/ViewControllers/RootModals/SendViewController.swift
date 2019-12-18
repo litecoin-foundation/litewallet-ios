@@ -57,7 +57,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private let addressCell = AddressCell()
     private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
     private let donationCell: DonationSetupCell
-    private var sendButton = ShadowButton(title: S.Send.sendLabel, type: .primary)
+    private var sendButton = ShadowButton(title: S.Send.sendLabel, type: .flatLitecoinBlue)  
     private let currency: ShadowButton
     private let currencyBorder = UIView(color: .secondaryShadow)
     private var pinPadHeightConstraint: NSLayoutConstraint?

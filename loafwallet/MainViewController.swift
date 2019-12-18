@@ -55,6 +55,8 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
    
     override func viewDidLoad() {
         
+        self.view.backgroundColor = .liteWalletBlue
+        
         self.navigationController?.navigationBar.tintColor = .liteWalletBlue
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.darkText,
