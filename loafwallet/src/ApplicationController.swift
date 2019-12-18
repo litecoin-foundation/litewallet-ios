@@ -248,7 +248,6 @@ class ApplicationController : Subscriber, Trackable {
 
         private func setupRootViewController() {
             mainViewController = MainViewController(store: store)
-            mainViewController?.walletManager = walletManager
             window.rootViewController = mainViewController
         }
 
