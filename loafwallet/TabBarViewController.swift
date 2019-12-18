@@ -45,7 +45,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     private var swappedConstraints: [NSLayoutConstraint] = []
     private let currencyTapView = UIView()
     private let storyboardNames:[String] = ["Transactions","Send","Receive","Buy"]
-    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","ReceiveLTCViewController","BuyLTCViewController"]
+    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","ReceiveLTCViewController","BuyTableViewController"]
     var viewControllers:[UIViewController] = []
     var activeController:UIViewController? = nil
     
@@ -361,8 +361,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             transactionVC.walletManager = self.walletManager
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
         
-        case "loafwallet.BuyLTCViewController":
-                guard var buyVC = contentController as? BuyLTCViewController else  {
+        case "loafwallet.BuyTableViewController":
+                guard var buyVC = contentController as? BuyTableViewController else  {
                     return
             }
             
