@@ -49,21 +49,23 @@ class BuyTableViewController: UITableViewController {
             return
         }
 
-//        switch partner {
-//        case "Simplex":
-//            let simplexWebviewVC = BRWebViewController(partner: "Simplex", mountPoint: mountPoint + "_simplex", walletManager: walletManager, store: store, noAuthApiClient: nil)
-//            present(simplexWebviewVC, animated: true
-//                , completion: nil)
-//        case "Changelly":
-//            print("Changelly No Code Placeholder")
-//        case "Coinbase":
-//            let coinbaseWebViewWC = BRWebViewController(partner: "Coinbase", mountPoint: mountPoint + "_coinbase", walletManager: walletManager, store: store, noAuthApiClient: nil)
-//            present(coinbaseWebViewWC, animated: true) {
-//                //
-//            }
-//        default:
-//            fatalError("No Partner Chosen")
-//        }
+        switch partner {
+        case "Simplex":
+            let simplexWebviewVC = BRWebViewController(partner: "Simplex", mountPoint: mountPoint + "_simplex", walletManager: WalletManager.sharedInstance, store: store, noAuthApiClient: nil)
+            
+            print("\(WalletManager.sharedInstance.store)")
+            present(simplexWebviewVC, animated: true
+                , completion: nil)
+        case "Changelly":
+            print("Changelly No Code Placeholder")
+        case "Coinbase":
+            let coinbaseWebViewWC = BRWebViewController(partner: "Coinbase", mountPoint: mountPoint + "_coinbase", walletManager: WalletManager.sharedInstance, store: store, noAuthApiClient: nil)
+            present(coinbaseWebViewWC, animated: true) {
+                //
+            }
+        default:
+            fatalError("No Partner Chosen")
+        }
     }
 
     @objc func dismissWebContainer() {

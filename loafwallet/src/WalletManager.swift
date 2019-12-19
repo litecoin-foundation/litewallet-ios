@@ -53,6 +53,8 @@ private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> 
 // After instantiating a WalletManager object, call myWalletManager.peerManager.connect() to begin syncing.
 
 class WalletManager : BRWalletListener, BRPeerManagerListener {
+    
+
     internal var didInitWallet = false
     internal let dbPath: String
     internal var db: OpaquePointer? = nil
@@ -62,6 +64,17 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
     internal let store: Store
     var masterPubKey = BRMasterPubKey()
     var earliestKeyTime: TimeInterval = 0
+    
+    static let sharedInstance : WalletManager = {
+        var instance: WalletManager?
+        do {
+            instance = try WalletManager(store: Store(), dbPath: nil)
+        } catch {
+            NSLog("ERROR: Instance of WalletManager not initialized")
+        }
+        return instance!
+    }()
+
 
     var wallet: BRWallet? {
         guard self.masterPubKey != BRMasterPubKey() else { return nil }
