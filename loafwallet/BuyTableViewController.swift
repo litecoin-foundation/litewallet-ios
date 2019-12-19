@@ -17,7 +17,15 @@ class BuyTableViewController: UITableViewController {
     @IBOutlet weak var simplexCellContainerView: UIView!
     
     @IBAction func didTapSimplex(_ sender: Any) {
-        didClickPartnerCell(partner: "Simplex")
+        
+        if let vcWKVC = UIStoryboard.init(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController {
+            //mountPoint + "_simplex"
+            addChildViewController(vcWKVC)
+            self.view.addSubview(vcWKVC.view)
+            vcWKVC.didMove(toParentViewController: self)
+        } else {
+            print("XXXXX cannot init vc")
+        }
     }
     
     var store: Store?
@@ -25,11 +33,16 @@ class BuyTableViewController: UITableViewController {
     let mountPoint = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let thinHeaderView = UIView()
+        thinHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 0.5)
+        thinHeaderView.backgroundColor = .white
+        tableView.tableHeaderView = thinHeaderView
         tableView.tableFooterView = UIView()
+        
         setupData()
     }
-
- 
+    
     private func setupData() {
         
         let simplexData = Partner.partnerDataArray()[0]
@@ -40,35 +53,5 @@ class BuyTableViewController: UITableViewController {
         simplexCellContainerView.layer.borderColor = UIColor.white.cgColor
         simplexCellContainerView.layer.borderWidth = 2.0
         simplexCellContainerView.clipsToBounds = true
-    }
- 
-    @objc func didClickPartnerCell(partner: String) {
-
-        guard let store = self.store else {
-            NSLog("ERROR: Store not initialized")
-            return
-        }
-
-        switch partner {
-        case "Simplex":
-            let simplexWebviewVC = BRWebViewController(partner: "Simplex", mountPoint: mountPoint + "_simplex", walletManager: WalletManager.sharedInstance, store: store, noAuthApiClient: nil)
-            
-            print("\(WalletManager.sharedInstance.store)")
-            present(simplexWebviewVC, animated: true
-                , completion: nil)
-        case "Changelly":
-            print("Changelly No Code Placeholder")
-        case "Coinbase":
-            let coinbaseWebViewWC = BRWebViewController(partner: "Coinbase", mountPoint: mountPoint + "_coinbase", walletManager: WalletManager.sharedInstance, store: store, noAuthApiClient: nil)
-            present(coinbaseWebViewWC, animated: true) {
-                //
-            }
-        default:
-            fatalError("No Partner Chosen")
-        }
-    }
-
-    @objc func dismissWebContainer() {
-        dismiss(animated: true, completion: nil)
     }
 }

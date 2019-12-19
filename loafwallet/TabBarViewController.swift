@@ -349,7 +349,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
  
     func displayContentController(contentController:UIViewController) {
         
-         print("XXX\(self.walletManager)")
         switch NSStringFromClass(contentController.classForCoder) {
         case "loafwallet.TransactionsViewController":
 

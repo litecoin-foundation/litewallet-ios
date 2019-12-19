@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -120,6 +121,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myM-MV-3kE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1444.9275362318842" y="-33.482142857142854"/>
+        </scene>
+        <!--BuyWK Web View Controller-->
+        <scene sceneID="XEI-Kr-8Xn">
+            <objects>
+                <viewController storyboardIdentifier="BuyWKWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hvo-xO-y06" customClass="BuyWKWebViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WC9-Pq-nli">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-DW-bzr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="s2m-cd-QH3"/>
+                                </constraints>
+                                <state key="normal" title="&lt;"/>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AU-n5-U1U">
+                                <rect key="frame" x="0.0" y="74" width="414" height="788"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8AU-n5-U1U" firstAttribute="leading" secondItem="9uu-Tk-X1Z" secondAttribute="leading" id="6UY-yD-XdY"/>
+                            <constraint firstItem="8AU-n5-U1U" firstAttribute="top" secondItem="g2l-DW-bzr" secondAttribute="bottom" id="GxP-5U-5R0"/>
+                            <constraint firstItem="9uu-Tk-X1Z" firstAttribute="trailing" secondItem="g2l-DW-bzr" secondAttribute="trailing" id="HRy-BI-wqJ"/>
+                            <constraint firstItem="g2l-DW-bzr" firstAttribute="top" secondItem="9uu-Tk-X1Z" secondAttribute="top" id="OBC-8z-UIb"/>
+                            <constraint firstItem="9uu-Tk-X1Z" firstAttribute="trailing" secondItem="8AU-n5-U1U" secondAttribute="trailing" id="Uxd-Hh-TKg"/>
+                            <constraint firstItem="9uu-Tk-X1Z" firstAttribute="bottom" secondItem="8AU-n5-U1U" secondAttribute="bottom" id="ndj-gF-lPO"/>
+                            <constraint firstItem="g2l-DW-bzr" firstAttribute="leading" secondItem="9uu-Tk-X1Z" secondAttribute="leading" id="pdB-yf-0ar"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9uu-Tk-X1Z"/>
+                    </view>
+                    <connections>
+                        <outlet property="backbutton" destination="g2l-DW-bzr" id="YZt-e1-sJu"/>
+                        <outlet property="wkWebView" destination="8AU-n5-U1U" id="5w9-3d-NoN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKr-IL-zAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2289" y="-24"/>
         </scene>
     </scenes>
     <resources>

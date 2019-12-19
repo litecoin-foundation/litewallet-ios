@@ -108,6 +108,7 @@
 		2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */; };
 		2485F7D323735858005962F1 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F7D123735858005962F1 /* Keys.swift */; };
 		248BFE2423AAD53700CE1A71 /* BuyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */; };
+		248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */; };
 		24A6DCFC2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24AF00FE221B331D00FF636F /* WarningConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */; };
 		24AF0101221B349100FF636F /* WarningConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */; };
@@ -883,6 +884,7 @@
 		2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTableViewController.swift; sourceTree = "<group>"; };
+		248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyWKWebViewController.swift; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
 		249F976F236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -2392,6 +2394,7 @@
 				24B8FAC02160497B00A155B1 /* BuyCenterTableViewController.swift */,
 				24B8FAD12162B10200A155B1 /* BuyCenterWebViewController.swift */,
 				248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */,
+				248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */,
 			);
 			name = Buy;
 			sourceTree = "<group>";
@@ -4499,6 +4502,7 @@
 				CE45C1FB1E74F89C002C3847 /* WalletInfo.swift in Sources */,
 				CE14E40B1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift in Sources */,
 				CEE659E71F65A936001FF29D /* RetryTimer.swift in Sources */,
+				248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */,
 				CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */,
 				CE20C8F61DBAF77D00C8397A /* UIViewController+BRWAdditions.swift in Sources */,
 				222319B01F27985A00008F20 /* BRBrowserViewController.swift in Sources */,
