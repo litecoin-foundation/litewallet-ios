@@ -236,9 +236,9 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         //
         //
         //        ExchangeRates.setRates(currentRate:
-        ////            store.subscribe(self,
-        ////                            selector: { $0.walletState.name != $1.walletState.name },
-        ////                            callback: { self.name.text = $0.walletState.name })
+        //            store.subscribe(self,
+        //                            selector: { $0.walletState.name != $1.walletState.name },
+        //                            callback: { self.name.text = $0.walletState.name })
     }
     
     private func setBalances() {
@@ -349,11 +349,11 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
  
     func displayContentController(contentController:UIViewController) {
         
-        
+         print("XXX\(self.walletManager)")
         switch NSStringFromClass(contentController.classForCoder) {
         case "loafwallet.TransactionsViewController":
 
-            guard var transactionVC = contentController as? TransactionsViewController else  {
+            guard let transactionVC = contentController as? TransactionsViewController else  {
                 return
             }
             
@@ -362,19 +362,21 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
         
         case "loafwallet.BuyTableViewController":
-                guard var buyVC = contentController as? BuyTableViewController else  {
+                guard let buyVC = contentController as? BuyTableViewController else  {
                     return
             }
+            buyVC.store = self.store
+            buyVC.walletManager = self.walletManager
             
         case "loafwallet.SendLTCViewController":
-            guard var sendVC = contentController as? SendLTCViewController else  {
+            guard let sendVC = contentController as? SendLTCViewController else  {
                 return
             }
             
             sendVC.store = self.store
             
         case "loafwallet.ReceiveLTCViewController":
-            guard var receiveVC = contentController as? ReceiveLTCViewController else  {
+            guard let receiveVC = contentController as? ReceiveLTCViewController else  {
                 return
             }
             receiveVC.store = self.store

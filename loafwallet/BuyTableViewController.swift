@@ -9,44 +9,46 @@
 import UIKit
 
 class BuyTableViewController: UITableViewController {
-
+ 
+    
+    @IBOutlet weak var simplexLogoImageView: UIImageView!
+    @IBOutlet weak var simplexHeaderLabel: UILabel!
+    @IBOutlet weak var simplexDetailsLabel: UILabel!
+    @IBOutlet weak var simplexCellContainerView: UIView!
+    
+    @IBAction func didTapSimplex(_ sender: Any) {
+        didClickPartnerCell(partner: "Simplex")
+    }
+    
+    var store: Store?
+    var walletManager: WalletManager?
+    let mountPoint = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.tableFooterView = UIView()
+        setupData()
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+ 
+    private func setupData() {
+        
+        let simplexData = Partner.partnerDataArray()[0]
+        simplexLogoImageView.image = simplexData.logo
+        simplexHeaderLabel.text = simplexData.headerTitle
+        simplexDetailsLabel.text = simplexData.details
+        simplexCellContainerView.layer.cornerRadius = 5.0
+        simplexCellContainerView.layer.borderColor = UIColor.white.cgColor
+        simplexCellContainerView.layer.borderWidth = 2.0
+        simplexCellContainerView.clipsToBounds = true
     }
+ 
+    @objc func didClickPartnerCell(partner: String) {
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+        guard let store = self.store else {
+            NSLog("ERROR: Store not initialized")
+            return
+        }
 
-//
-//    func didClickPartnerCell(partner: String) {
-//
-//
-//        guard let store = self.store else {
-//            NSLog("ERROR: Store not initialized")
-//            return
-//        }
-//
-//        guard let walletManager = self.walletManager else {
-//            NSLog("ERROR Wallet manager not initialized")
-//            return
-//        }
-//
-//
 //        switch partner {
 //        case "Simplex":
 //            let simplexWebviewVC = BRWebViewController(partner: "Simplex", mountPoint: mountPoint + "_simplex", walletManager: walletManager, store: store, noAuthApiClient: nil)
@@ -62,9 +64,9 @@ class BuyTableViewController: UITableViewController {
 //        default:
 //            fatalError("No Partner Chosen")
 //        }
-//    }
-//
-//    @objc func dismissWebContainer() {
-//        dismiss(animated: true, completion: nil)
-//    }
+    }
+
+    @objc func dismissWebContainer() {
+        dismiss(animated: true, completion: nil)
+    }
 }
