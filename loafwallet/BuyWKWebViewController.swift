@@ -12,7 +12,7 @@ import WebKit
 class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
  
     @IBOutlet weak var backbutton: UIButton!
-    @IBOutlet weak var wkWebView: WKWebView!
+    @IBOutlet weak var wkWebContainerView: UIView!
     @IBOutlet weak var currentAddressLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
@@ -55,27 +55,28 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
         
         let contentController = WKUserContentController()
         contentController.add(self, name: "callback")
-
+  
         let config = WKWebViewConfiguration()
         config.processPool = wkProcessPool
         config.userContentController = contentController
-    
+        
+        let wkWebView = WKWebView(frame: self.wkWebContainerView.bounds, configuration: config)
         wkWebView.navigationDelegate = self
         wkWebView.allowsBackForwardNavigationGestures = true
+        wkWebView.scrollView.contentInset = UIEdgeInsetsMake(-70, 0, -70, 0)
+        self.wkWebContainerView.addSubview(wkWebView)
         
         let timestamp = Int(appInstallDate.timeIntervalSince1970)
-        
         let urlString =  "https://buy.loafwallet.org/?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
-        
         guard let url = URL(string: urlString) else {
         NSLog("ERROR: URL not initialized")
             return
         }
-         
+        
         let request = URLRequest(url: url)
         wkWebView.load(request)
     }
-     
+      
     @IBAction func backAction(_ sender: Any) {
        didDismissChildView?()
     }
@@ -83,7 +84,6 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
     func closeNow() {
        didDismissChildView?()
     }
-    
 }
 
 extension BuyWKWebViewController {
@@ -102,20 +102,22 @@ extension BuyWKWebViewController {
         }
         return decisionHandler(.allow)
     }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) { }
      
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let response = message.body as? String else { return }
-
-        let URLString = URL(string: "https://checkout.simplexcc.com/payments/new")
+        guard let url = URL(string: "https://checkout.simplexcc.com/payments/new") else { return }
         
-        var req = URLRequest(url: URLString!)
+        var req = URLRequest(url: url)
         req.httpBody = Data(response.utf8)
         req.httpMethod = "POST"
-        
-        DispatchQueue.main.async {
-            let browser = BRBrowserViewController()
-            browser.load(req)
-            self.present(browser, animated: true, completion: nil)
-        }
+           
+        let vc = BRBrowserViewController()
+        vc.navigationBar.isHidden = true
+        vc.load(req)
+        addChildViewController(vc)
+        self.wkWebContainerView.addSubview(vc.view)
+        vc.didMove(toParentViewController: self)
     }
 }
