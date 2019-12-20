@@ -110,6 +110,7 @@
 		248BFE2423AAD53700CE1A71 /* BuyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */; };
 		248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */; };
 		2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494037523AD35C000369261 /* BuyWKWebVCTests.swift */; };
+		2494037823AD53B900369261 /* ChildViewTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494037723AD53B900369261 /* ChildViewTransitioningDelegate.swift */; };
 		24A6DCFC2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24AF00FE221B331D00FF636F /* WarningConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */; };
 		24AF0101221B349100FF636F /* WarningConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */; };
@@ -887,6 +888,7 @@
 		248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTableViewController.swift; sourceTree = "<group>"; };
 		248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyWKWebViewController.swift; sourceTree = "<group>"; };
 		2494037523AD35C000369261 /* BuyWKWebVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyWKWebVCTests.swift; sourceTree = "<group>"; };
+		2494037723AD53B900369261 /* ChildViewTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewTransitioningDelegate.swift; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
 		249F976F236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -3524,6 +3526,7 @@
 				CE5F21D81E4A922700C47B8E /* DismissLoginAnimator.swift */,
 				CE5F21DA1E4A93A500C47B8E /* LoginTransitionDelegate.swift */,
 				CEE0EF511EBD14B60018DB36 /* PinTransitioningDelegate.swift */,
+				2494037723AD53B900369261 /* ChildViewTransitioningDelegate.swift */,
 			);
 			name = ViewControllerTransitions;
 			sourceTree = "<group>";
@@ -4557,6 +4560,7 @@
 				CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */,
 				CE44BA1B1F33BFC500392A1A /* NodeSelectorViewController.swift in Sources */,
 				CE124D001E69170900DFA146 /* SyncingView.swift in Sources */,
+				2494037823AD53B900369261 /* ChildViewTransitioningDelegate.swift in Sources */,
 				CE20C90E1DBE52B000C8397A /* UIView+BRWAdditions.swift in Sources */,
 				CE6314831E08E5BB00D4AFE0 /* UIView+InitAdditions.swift in Sources */,
 				CEC6AA401DEFC87300EE5AFD /* SendViewController.swift in Sources */,

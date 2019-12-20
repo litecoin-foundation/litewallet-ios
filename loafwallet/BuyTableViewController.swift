@@ -21,10 +21,14 @@ class BuyTableViewController: UITableViewController {
         if let vcWKVC = UIStoryboard.init(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController {
             vcWKVC.partnerPrefixString = "_simplex"
             addChildViewController(vcWKVC)
-            self.view.addSubview(vcWKVC.view)
+            UIView.transition(with: self.view, duration: 0.5, options: .transitionFlipFromTop, animations: {
+                self.view.addSubview(vcWKVC.view)
+            }, completion: nil)
+            
             vcWKVC.didMove(toParentViewController: self)
             
-            vcWKVC.didDismissChildView = { [unowned self] in
+            vcWKVC.didDismissChildView = { [weak self] in
+                guard self != nil else { return }
                 vcWKVC.willMove(toParentViewController: nil)
                 vcWKVC.view.removeFromSuperview()
                 vcWKVC.removeFromParentViewController()
