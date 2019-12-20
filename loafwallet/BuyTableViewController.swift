@@ -19,12 +19,12 @@ class BuyTableViewController: UITableViewController {
     @IBAction func didTapSimplex(_ sender: Any) {
         
         if let vcWKVC = UIStoryboard.init(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController {
-            //mountPoint + "_simplex"
+            vcWKVC.partnerPrefixString = "_simplex"
             addChildViewController(vcWKVC)
             self.view.addSubview(vcWKVC.view)
             vcWKVC.didMove(toParentViewController: self)
         } else {
-            print("XXXXX cannot init vc")
+            NSLog("ERROR: Storyboard not initialized")
         }
     }
     

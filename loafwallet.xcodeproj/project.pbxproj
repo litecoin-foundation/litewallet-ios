@@ -109,6 +109,7 @@
 		2485F7D323735858005962F1 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F7D123735858005962F1 /* Keys.swift */; };
 		248BFE2423AAD53700CE1A71 /* BuyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */; };
 		248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */; };
+		2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494037523AD35C000369261 /* BuyWKWebVCTests.swift */; };
 		24A6DCFC2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */; };
 		24AF00FE221B331D00FF636F /* WarningConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */; };
 		24AF0101221B349100FF636F /* WarningConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */; };
@@ -885,6 +886,7 @@
 		2485F7D123735858005962F1 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		248BFE2323AAD53700CE1A71 /* BuyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTableViewController.swift; sourceTree = "<group>"; };
 		248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyWKWebViewController.swift; sourceTree = "<group>"; };
+		2494037523AD35C000369261 /* BuyWKWebVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyWKWebVCTests.swift; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
 		249F976F236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -2319,6 +2321,7 @@
 			isa = PBXGroup;
 			children = (
 				24470E4423A608A700ADDA27 /* AmountTests.swift */,
+				2494037523AD35C000369261 /* BuyWKWebVCTests.swift */,
 			);
 			path = "Class Tests";
 			sourceTree = "<group>";
@@ -4358,6 +4361,7 @@
 				24470E2123A5DA9700ADDA27 /* APIManagerTests.swift in Sources */,
 				24470E3423A5F5E600ADDA27 /* PaymentRequestTests.swift in Sources */,
 				24470E2E23A5F4FF00ADDA27 /* BRCoderTests.swift in Sources */,
+				2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */,
 				24470E3223A5F5B100ADDA27 /* NSDataExtensionTests.swift in Sources */,
 				24470E2C23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift in Sources */,
 				24470E4023A6004800ADDA27 /* WalletCreationTests.swift in Sources */,

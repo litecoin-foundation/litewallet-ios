@@ -20,7 +20,7 @@ class Currency {
     return result?.currencySymbol
   }
    
-  class func checkSimplexFiatSupport(givenCode:String) -> String? {
+  class func returnSimplexSupportedFiat(givenCode:String) -> String {
     if (givenCode == "USD" || givenCode == "EUR") {
       return givenCode
     }

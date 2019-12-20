@@ -64,7 +64,7 @@ import WebKit
     private func getSimplexParams(appInstallDate: Date?, walletAddress: String?, currencyCode: String?, uuid: String?) -> String {
         guard let appInstallDate = appInstallDate else { return "" }
         guard let walletAddress = walletAddress else { return "" }
-        guard let currencyCode = Currency.checkSimplexFiatSupport(givenCode: currencyCode!) else { return "USD" }
+        let currencyCode = Currency.returnSimplexSupportedFiat(givenCode: currencyCode!)
         guard let uuid = uuid else { return "" }
         
         let timestamp = Int(appInstallDate.timeIntervalSince1970)
