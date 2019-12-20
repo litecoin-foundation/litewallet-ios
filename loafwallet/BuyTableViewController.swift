@@ -23,11 +23,18 @@ class BuyTableViewController: UITableViewController {
             addChildViewController(vcWKVC)
             self.view.addSubview(vcWKVC.view)
             vcWKVC.didMove(toParentViewController: self)
+            
+            vcWKVC.didDismissChildView = { [unowned self] in
+                vcWKVC.willMove(toParentViewController: nil)
+                vcWKVC.view.removeFromSuperview()
+                vcWKVC.removeFromParentViewController()
+            }
+            
         } else {
             NSLog("ERROR: Storyboard not initialized")
         }
     }
-    
+ 
     var store: Store?
     var walletManager: WalletManager?
     let mountPoint = ""

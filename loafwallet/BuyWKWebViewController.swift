@@ -13,6 +13,11 @@ class BuyWKWebViewController: UIViewController {
     @IBOutlet weak var backbutton: UIButton!
     @IBOutlet weak var wkWebView: WKWebView!
     
+    @IBOutlet weak var currentAddressLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    var didDismissChildView: (() -> ())? 
+
     private let uuidString : String = {
         return  UIDevice.current.identifierForVendor?.uuidString ?? ""
     }()
@@ -28,7 +33,25 @@ class BuyWKWebViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupSubViews()
+        loadRequest()
      }
 
+    private func setupSubViews() {
+        currentAddressLabel.text = currentWalletAddress
+    }
+    
+    private func loadRequest() {
+        guard let url = URL(string: "https://www.yahoo.com") else {
+        NSLog("ERROR: URL not initialized")
+            return
+        }
+        let request = URLRequest(url: url)
+        wkWebView.load(request)
+    }
+     
+    @IBAction func backAction(_ sender: Any) {
+       didDismissChildView?()
+    }
+    
 }
