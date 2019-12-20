@@ -172,7 +172,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             enterPINLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor) ])
        
         logo.constrain([
-            logo.topAnchor.constraint(equalTo: enterPINLabel.topAnchor, constant: -90),
+            logo.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.constraint(.height, constant: 70),
             logo.constraint(.width, constant: 70) ])
@@ -253,7 +253,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             wipeBannerButton.adjustsImageWhenHighlighted = true
             
             wipeBannerButton.constrain([
-                wipeBannerButton.bottomAnchor.constraint(equalTo:pinPadViewController.view.topAnchor, constant: -10),
+               wipeBannerButton.bottomAnchor.constraint(equalTo:pinPadViewController.view.topAnchor, constant: -20),
                 wipeBannerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 wipeBannerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 wipeBannerButton.heightAnchor.constraint(equalToConstant: 40)])

@@ -27,7 +27,7 @@ import UIKit
 import LocalAuthentication
 import Mixpanel
 
-
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var window: UIWindow? {

@@ -18,7 +18,7 @@ class EnterPhraseCollectionViewController : UICollectionViewController {
         return itemHeight * 4.0
     }
     #if Debug || Testflight
-    let mockPhraseString = MockSeeds.mockPhraseModelX
+    //let mockPhraseString = MockSeeds.mockPhraseModelX
     #endif
     
     init(walletManager: WalletManager) {
@@ -78,7 +78,7 @@ class EnterPhraseCollectionViewController : UICollectionViewController {
         enterPhraseCell.didTapDone = { [weak self] in
             guard var phrase = self?.phrase else { return }
             #if Debug || Testflight
-                phrase = MockSeeds.mockPhraseModelX
+                //phrase = MockSeeds.mockPhraseModelX
             #endif
             self?.didFinishPhraseEntry?(phrase)
         }

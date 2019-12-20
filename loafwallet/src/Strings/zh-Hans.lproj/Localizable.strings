@@ -422,6 +422,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "不可信证书";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "PLACEHOLDER";
 
@@ -446,6 +449,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "交易被拒";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet 已升级到使用 6 位 PIN。点击此处升级。";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "升级 PIN";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "与我们分享您的匿名数据来帮助改善 Litewallet。";
 
@@ -457,12 +466,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "启用触摸 ID";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet 已升级到使用 6 位 PIN。点击此处升级。";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "升级 PIN";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "打开推送通知，以便将来从 Litewallet 接收特殊消息。";
@@ -1127,6 +1130,15 @@
 /* No comment provided by engineer. */
 "No wallet" = "";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1153,6 +1165,18 @@
 
 /* Current spending limit: */
 "SpendingLimit.title" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";

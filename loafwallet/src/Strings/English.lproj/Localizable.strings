@@ -476,6 +476,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "untrusted certificate";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "Tap here to enable Face ID";
 
@@ -511,12 +514,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Enable Touch ID";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "Upgrade PIN";
 
 /* Push notifications settings view body */
 "PushNotifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
@@ -1163,6 +1160,21 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1171,6 +1183,18 @@
 
 /* Spend Bar Item Title */
 "Spend.barItemTitle" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /* Static amount Label */
 "Transaction.amountDetailLabel" = "";

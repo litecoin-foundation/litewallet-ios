@@ -479,6 +479,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "untrusted certificate";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "Tap here to enable Face ID";
 
@@ -486,7 +489,7 @@
 "Prompts.FaceId.title" = "Enable Face ID";
 
 /* No passcode set warning body */
-"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings and turn passcode on.";
+"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings to turn passcode on.";
 
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Turn device passcode on";
@@ -503,6 +506,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "Transaction Rejected";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "Upgrade PIN";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Help improve Litewallet by sharing your anonymous data with us";
 
@@ -514,12 +523,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Enable Touch ID";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "Upgrade PIN";
 
 /* Push notifications settings view body */
 "PushNotifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
@@ -1163,6 +1166,15 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1171,6 +1183,18 @@
 
 /* Spend Bar Item Title */
 "Spend.barItemTitle" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /* Static amount Label */
 "Transaction.amountDetailLabel" = "";

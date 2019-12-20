@@ -13,9 +13,10 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
  
     @IBOutlet weak var backbutton: UIButton!
     @IBOutlet weak var wkWebContainerView: UIView!
-    @IBOutlet weak var currentAddressLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    
+    @IBOutlet weak var currentAddressButton: UIButton!
+    @IBOutlet weak var copiedLabel: UILabel!
+ 
     var didDismissChildView: (() -> ())? 
 
     private let uuidString : String = {
@@ -48,10 +49,13 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
      }
 
     private func setupSubViews() {
-        currentAddressLabel.text = currentWalletAddress
-    }
+        currentAddressButton.setTitle(currentWalletAddress, for: .normal)
+        currentAddressButton.setTitle("Copied", for: .selected)
+        copiedLabel.text = ""
+        copiedLabel.alpha = 0.0
+     }
     
-    private func loadRequest() {
+    func loadRequest() {
         
         let contentController = WKUserContentController()
         contentController.add(self, name: "callback")
@@ -76,7 +80,17 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
         let request = URLRequest(url: url)
         wkWebView.load(request)
     }
-      
+    
+    @IBAction func didTapCurrentAddressButton(_ sender: Any) {
+        UIPasteboard.general.string = currentWalletAddress
+        copiedLabel.alpha = 1
+        copiedLabel.text = S.Receive.copied
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseInOut, animations: {
+            self.copiedLabel.alpha = 0.0
+        }, completion: nil)
+
+    }
+    
     @IBAction func backAction(_ sender: Any) {
        didDismissChildView?()
     }

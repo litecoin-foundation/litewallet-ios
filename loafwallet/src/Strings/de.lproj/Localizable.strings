@@ -479,6 +479,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "Nicht vertrauenswürdiges Zertifikat";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "PLACEHOLDER";
 
@@ -503,6 +506,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "Transaktion abgelehnt";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet nutzt mittlerweile eine 6-stellige PIN. Hier antippen, um upzugraden.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "PIN upgraden";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Tragen Sie zur Verbesserung von Litewallet bei, indem Sie Ihre anonymen Daten mit uns teilen";
 
@@ -514,12 +523,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID aktivieren";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet nutzt mittlerweile eine 6-stellige PIN. Hier antippen, um upzugraden.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "PIN upgraden";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "Schalten Sie Benachrichtigungen ein, um in Zukunft besondere Meldungen von Litewallet zu erhalten.";
@@ -1163,6 +1166,15 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1171,6 +1183,18 @@
 
 /* Spend Bar Item Title */
 "Spend.barItemTitle" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /* Static amount Label */
 "Transaction.amountDetailLabel" = "";

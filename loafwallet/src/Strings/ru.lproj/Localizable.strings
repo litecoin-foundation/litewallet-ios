@@ -446,6 +446,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "Транзакция отклонена";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet обновил свой интерфейс до использования 6-цифрового PIN-кода. Коснитесь здесь для обновления.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "Обновить PIN-код";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Помогите улучшить Litewallet, поделившись с нами своими анонимными данными";
 
@@ -457,12 +463,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Активировать функцию Touch ID";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet обновил свой интерфейс до использования 6-цифрового PIN-кода. Коснитесь здесь для обновления.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "Обновить PIN-код";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "Включите уведомления, чтобы в будущем получать от Litewallet важные сообщения.";
@@ -1127,6 +1127,18 @@
 /* No comment provided by engineer. */
 "No wallet" = "";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1153,6 +1165,18 @@
 
 /* Current spending limit: */
 "SpendingLimit.title" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";

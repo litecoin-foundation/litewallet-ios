@@ -443,6 +443,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "トランザクションが拒否されました";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "ブレッドは6桁のPINコード使用にアップグレードされました。こちらをタップして更新してください。";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "PINコードを更新する";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "匿名のデータを共有してLitewalletの機能向上に役立てる";
 
@@ -454,12 +460,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch IDを有効化する";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "ブレッドは6桁のPINコード使用にアップグレードされました。こちらをタップして更新してください。";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "PINコードを更新する";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "今後、Litewalletからの特別なメッセージを受け取るために通知をオンにしてください。";
@@ -1127,6 +1127,18 @@
 /* No comment provided by engineer. */
 "No wallet" = "";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1153,6 +1165,18 @@
 
 /* Current spending limit: */
 "SpendingLimit.title" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";

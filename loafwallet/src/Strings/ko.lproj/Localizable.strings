@@ -422,6 +422,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "신용할 수 없는 증명서";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "PLACEHOLDER";
 
@@ -446,6 +449,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "거래 거절됨";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "6자리 PIN을 사용하도록 브레드가 업그레이드되었습니다. 업그레이드하려면 여기를 탭하세요.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "PIN 업그레이드";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Litewallet가 발전할 수 있도록 익명 데이터를 공유해주십시오";
 
@@ -457,12 +466,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID 켜";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "6자리 PIN을 사용하도록 브레드가 업그레이드되었습니다. 업그레이드하려면 여기를 탭하세요.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "PIN 업그레이드";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "알림을 켜두시면, 향후 브레드의 특별 메시지를 수신할 수 있습니다.";
@@ -1127,6 +1130,15 @@
 /* No comment provided by engineer. */
 "No wallet" = "";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1153,6 +1165,18 @@
 
 /* Current spending limit: */
 "SpendingLimit.title" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";

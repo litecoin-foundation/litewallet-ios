@@ -117,11 +117,11 @@ class ApplicationController : Subscriber, Trackable {
             if shouldRequireLogin() {
                 store.perform(action: RequireLogin())
             }
-            if walletManager.wallet?.balance != 0 {
+         //   if walletManager.wallet?.balance != 0 {
                 DispatchQueue.walletQueue.async {
                   walletManager.peerManager?.connect()
                 }
-            }
+         //   }
             exchangeUpdater?.refresh(completion: {})
             feeUpdater?.refresh()
             walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
@@ -134,11 +134,11 @@ class ApplicationController : Subscriber, Trackable {
         func retryAfterIsReachable() {
             guard let walletManager = walletManager else { return }
             guard !walletManager.noWallet else { return }
-            if walletManager.wallet?.balance != 0 {
+       //     if walletManager.wallet?.balance != 0 {
                 DispatchQueue.walletQueue.async {
                   walletManager.peerManager?.connect()
                 }
-            }
+           // }
             exchangeUpdater?.refresh(completion: {})
             feeUpdater?.refresh()
             walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
@@ -181,7 +181,7 @@ class ApplicationController : Subscriber, Trackable {
             hasPerformedWalletDependentInitialization = true
             store.perform(action: PinLength.set(walletManager.pinLength))
             walletCoordinator = WalletCoordinator(walletManager: walletManager, store: store)
-             modalPresenter = ModalPresenter(store: store, walletManager: walletManager, window: window, apiClient: noAuthApiClient)
+            modalPresenter = ModalPresenter(store: store, walletManager: walletManager, window: window, apiClient: noAuthApiClient)
             exchangeUpdater = ExchangeUpdater(store: store, walletManager: walletManager)
             feeUpdater = FeeUpdater(walletManager: walletManager, store: store)
             startFlowController = StartFlowPresenter(store: store, walletManager: walletManager, rootViewController: rootViewController)
@@ -200,10 +200,10 @@ class ApplicationController : Subscriber, Trackable {
                     store.perform(action: ShowStartFlow())
                 } else {
                     modalPresenter?.walletManager = walletManager
-                    if walletManager.wallet?.balance != 0 {
+                //    if walletManager.wallet?.balance != 0 {
                         DispatchQueue.walletQueue.async {
                           walletManager.peerManager?.connect()
-                        }
+                  //      }
                     }
                     self.startDataFetchers()
                 }
@@ -211,14 +211,14 @@ class ApplicationController : Subscriber, Trackable {
             //For when watch app launches app in background
             } else {
                 
-                if walletManager.wallet?.balance != 0 {
+          //      if walletManager.wallet?.balance != 0 {
                     DispatchQueue.walletQueue.async { [weak self] in
                         walletManager.peerManager?.connect()
                         if self?.fetchCompletionHandler != nil {
                             self?.performBackgroundFetch()
                         }
-                    }
-                }
+                   }
+          //      }
                 exchangeUpdater?.refresh(completion: {
                     self.watchSessionManager.walletManager = self.walletManager
                     self.watchSessionManager.rate = self.store.state.currentRate

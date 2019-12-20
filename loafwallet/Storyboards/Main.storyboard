@@ -56,7 +56,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="settingsWhite"/>
                                         <connections>
-                                            <action selector="showSetttingsAction:" destination="x3n-5i-KbR" eventType="touchUpInside" id="bBO-5m-5u1"/>
+                                            <action selector="showSettingsAction:" destination="x3n-5i-KbR" eventType="touchUpInside" id="34N-aU-I4A"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="RAg-vc-Wor">

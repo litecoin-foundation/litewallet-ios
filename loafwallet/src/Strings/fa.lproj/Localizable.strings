@@ -275,6 +275,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "گواهی نامعتبر";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Warning about paper key. */
 "Prompts.PaperKey.body" = "کلید کاغذی این کیف تاکنون نوشته نشده است. برای مشاهده آن اینجا تپ کنید.";
 
@@ -292,12 +295,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "تاچ آی.دی فعال شود";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "برِد ارتقا یافته تا از پین ۶ عددی استفاده کنید. برای ارتقا اینجا را لمس کنید.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "پین را ارتقا دهید";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "وقتی پول دریافتی‌تان آمادهٔ خرج کردن شد، یک اعلان دریافت کنید.";
@@ -1004,6 +1001,21 @@
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "";
 
@@ -1081,6 +1093,18 @@
 
 /* Start view message */
 "StartViewController.message" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "";

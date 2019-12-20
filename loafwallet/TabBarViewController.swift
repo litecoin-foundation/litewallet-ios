@@ -66,7 +66,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         didSet { setBalances() }
     }
     
-    @IBAction func showSetttingsAction(_ sender: Any) {
+    @IBAction func showSettingsAction(_ sender: Any) {
         guard let store = self.store else {
             NSLog("ERROR: Store not set")
             return
@@ -150,10 +150,9 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
         equalsLabel.translatesAutoresizingMaskIntoConstraints = false
         primaryLabel.translatesAutoresizingMaskIntoConstraints = false
-      
         regularConstraints = [
             primaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
-            primaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[2]),
+            primaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[1]*1.25),
             equalsLabel.firstBaselineAnchor.constraint(equalTo: primaryLabel.firstBaselineAnchor, constant: 0),
             equalsLabel.leadingAnchor.constraint(equalTo: primaryLabel.trailingAnchor, constant: C.padding[1]/2.0),
             secondaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1]/2.0),
@@ -161,7 +160,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
          
         swappedConstraints = [
             secondaryLabel.firstBaselineAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -12),
-            secondaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[2]),
+            secondaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[1]*1.25),
             equalsLabel.firstBaselineAnchor.constraint(equalTo: secondaryLabel.firstBaselineAnchor, constant: 0),
             equalsLabel.leadingAnchor.constraint(equalTo: secondaryLabel.trailingAnchor, constant: C.padding[1]/2.0),
             primaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1]/2.0),
@@ -193,6 +192,11 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
           NSLog("ERROR: Price labels not initialized")
                 return
         }
+        
+        store.subscribe(self, selector: { $0.walletState.syncProgress != $1.walletState.syncProgress },
+                        callback: { _ in
+                            self.tabBar.selectedItem = self.tabBar.items?.first
+        })
  
         store.lazySubscribe(self,
                             selector: { $0.isLtcSwapped != $1.isLtcSwapped },

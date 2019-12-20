@@ -443,6 +443,12 @@
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "Transaktion afvist";
 
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet er blevet opgraderet til at bruge en 6-cifret PIN. Tryk her for at opgradere.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "Opgader PIN";
+
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Hjælp med at forbedre Litewallet ved at dele dine anonyme data med os";
 
@@ -454,12 +460,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Aktiver Touch ID";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet er blevet opgraderet til at bruge en 6-cifret PIN. Tryk her for at opgradere.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "Opgader PIN";
 
 /* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
 "PushNotifications.body" = "Slå notifikationer til for at modtage særlige meddelelser fra Litewallet i fremtiden.";
@@ -1127,6 +1127,18 @@
 /* No comment provided by engineer. */
 "No wallet" = "";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
@@ -1153,6 +1165,18 @@
 
 /* Current spending limit: */
 "SpendingLimit.title" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "";

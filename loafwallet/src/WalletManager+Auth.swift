@@ -130,7 +130,10 @@ extension WalletManager : WalletAuthenticator {
             return UInt64(UserDefaults.standard.double(forKey: DefaultsKey.spendLimitAmount))
         }
         set {
-            guard let wallet = self.wallet else { assert(false, "No wallet!"); return }
+            guard let wallet = self.wallet else {
+                assert(false, "No wallet!");
+                return
+            }
             do {
                 try setKeychainItem(key: KeychainKey.spendLimit, item: Int64(wallet.totalSent + newValue))
                 UserDefaults.standard.set(newValue, forKey: DefaultsKey.spendLimitAmount)

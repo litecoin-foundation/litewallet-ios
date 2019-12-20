@@ -349,6 +349,14 @@ enum S {
         static let syncing = NSLocalizedString("SyncingView.syncing", value: "**Syncing**", comment: "Syncing view syncing state header text")
         static let connecting = NSLocalizedString("SyncingView.connecting", value: "**Connecting**", comment: "Syncing view connectiong state header text")
     }
+    
+    enum SyncingHeader {
+        static let syncing = NSLocalizedString("SyncingHeader.syncing", value: "**Syncing...**", comment: "Syncing view syncing state header text")
+        static let connecting = NSLocalizedString("SyncingHeader.connecting", value: "**Connecting...**", comment: "Syncing view connection state header text")
+        static let success = NSLocalizedString("SyncingHeader.success", value: "**Success!**", comment: "Syncing header success state header text")
+        static let rescanning = NSLocalizedString("SyncingHeader.rescan", value: "**Rescanning...*", comment: "Rescanning header success state header text")
+        
+    }
 
     enum ReScan {
         static let header = NSLocalizedString("ReScan.header", value: "**Sync Blockchain**", comment: "Sync Blockchain view header")
@@ -446,17 +454,21 @@ enum S {
     }
 
     enum Prompts {
+        static let affirm = NSLocalizedString("Prompts.PaperKey.affirm", value: "**Continue**", comment: "Affirm button title.")
+        static let cancel = NSLocalizedString("Prompts.PaperKey.cancel", value: "**Cancel**", comment: "Cancel button.")
+        static let enable = NSLocalizedString("Prompts.PaperKey.enable", value: "**Enable**", comment: "Enable button.")
+        static let dismiss = NSLocalizedString("Prompts.dismiss", value: "****Dismiss**", comment: "Dismiss button.")
         enum TouchId {
             static let title = NSLocalizedString("Prompts.TouchId.title", value: "**Enable Touch ID**", comment: "Enable touch ID prompt title")
             static let body = NSLocalizedString("Prompts.TouchId.body", value: "**Tap here to enable Touch ID**", comment: "Enable touch ID prompt body")
         }
         enum PaperKey {
             static let title = NSLocalizedString("Prompts.PaperKey.title", value: "**Action Required**", comment: "An action is required (You must do this action).")
-            static let body = NSLocalizedString("Prompts.PaperKey.body", value: "**Your Paper Key must be saved in case you ever lose or change your phone. Tap here to continue.**", comment: "Warning about paper key.")
+            static let body = NSLocalizedString("Prompts.PaperKey.body", value: "**Your Paper Key must be kept in a safe place. It is the only way modify or restore your Litewallet or transfer your Litecoin. Please write it down.**", comment: "Warning about paper key.")
         }
-        enum UpgradePin {
-            static let title = NSLocalizedString("Prompts.UpgradePin.title", value: "**Upgrade PIN**", comment: "Upgrade PIN prompt title.")
-            static let body = NSLocalizedString("Prompts.UpgradePin.body", value: "**Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.**", comment: "Upgrade PIN prompt body.")
+        enum SetPin {
+            static let title = NSLocalizedString("Prompts.SetPin.title", value: "**Set PIN**", comment: "Set PIN prompt title.")
+            static let body = NSLocalizedString("Prompts.SetPin.body", value: "**Litewallet requires a 6-digit PIN. Please set and store your PIN in a safe place.**", comment: "Upgrade PIN prompt body.")
         }
         enum RecommendRescan {
             static let title = NSLocalizedString("Prompts.RecommendRescan.title", value: "**Transaction Rejected**", comment: "Transaction rejected prompt title")
@@ -464,7 +476,7 @@ enum S {
         }
         enum NoPasscode {
             static let title = NSLocalizedString("Prompts.NoPasscode.title", value: "**Turn device passcode on**", comment: "No Passcode set warning title")
-            static let body = NSLocalizedString("Prompts.NoPasscode.body", value: "**A device passcode is needed to safeguard your wallet. Go to settings and turn passcode on.**", comment: "No passcode set warning body")
+            static let body = NSLocalizedString("Prompts.NoPasscode.body", value: "**A device passcode is needed to safeguard your wallet.**", comment: "No passcode set warning body")
         }
         enum ShareData {
             static let title = NSLocalizedString("Prompts.ShareData.title", value: "**Share Anonymous Data**", comment: "Share data prompt title")
@@ -584,7 +596,7 @@ enum S {
         static let resetTitle = NSLocalizedString("resetTitle", value: "**Empty Wallet Reset**", comment: "Warning Empty Wipe title")
         static let resetButton = NSLocalizedString("resetButton", value: "**Yes, reset wallet**", comment: "Reset walet button  title")
         static let warningTitle = NSLocalizedString("WipeWallet.warningTitle", value: "**PLEASE READ!**", comment: "Warning title")
-        static let warningDescription = NSLocalizedString("WipeWallet.warningDescription", value: "**Your LiteWallet is empty. Reseting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.**", comment: "Warning description")
+        static let warningDescription = NSLocalizedString("WipeWallet.warningDescription", value: "**Your LiteWallet is empty. Resetting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.**", comment: "Warning description")
         static let warningAlert = NSLocalizedString("WipeWallet.warningAlert", value: "**DO NOT LOSE IT!**", comment: "Warning Alert")
     }
 

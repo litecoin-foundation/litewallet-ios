@@ -485,6 +485,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "untrusted certificate";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "Tap here to enable Face ID";
 
@@ -492,13 +495,13 @@
 "Prompts.FaceId.title" = "Enable Face ID";
 
 /* No passcode set warning body */
-"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings and turn passcode on.";
+"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings to turn passcode on.";
 
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Turn device passcode on";
 
 /* Warning about paper key. */
-"Prompts.PaperKey.body" = "Your Paper Key must be saved in case you ever lose or change your phone. Tap here to continue.";
+"Prompts.PaperKey.body" = "Your Paper Key must be kept in a safe place. It is the only way modify or restore your Litewallet or transfer your Litecoin. Please write it down.";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "Action Required";
@@ -508,6 +511,12 @@
 
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "Transaction Rejected";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet requires a 6-digit PIN. Please set and store your PIN in a safe place.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "SET PIN";
 
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Help improve Litewallet by sharing your anonymous data with us";
@@ -520,12 +529,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Enable Touch ID";
-
-/* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "Upgrade PIN";
 
 /* Push notifications settings view body */
 "PushNotifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
@@ -857,6 +860,15 @@
 /* Start view message */
 "StartViewController.message" = "The most secure and safest way to use Litecoin.";
 
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Connecting...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Rescanning...";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Syncing...";
+
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Connecting";
 
@@ -1186,6 +1198,18 @@
 
 /* No comment provided by engineer. */
 "Copy" = "";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
 
 /* Static end amount Label */
 "Transaction.endAmountDetailLabel" = "";

@@ -21,7 +21,7 @@ struct Padding {
         }
     }
 }
-
+  
 struct DonationAddress {
     
     static let firstLF: String = kDonationAddress1

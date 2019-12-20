@@ -485,13 +485,13 @@
 "Prompts.FaceId.title" = "Enable Face ID";
 
 /* No passcode set warning body */
-"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings and turn passcode on.";
+"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet.";
 
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Turn device passcode on";
 
 /* Warning about paper key. */
-"Prompts.PaperKey.body" = "Your Paper Key must be saved in case you ever lose or change your phone. Tap here to continue.";
+"Prompts.PaperKey.body" = "Your Paper Key must be kept in a safe place. It is the only way modify or restore your Litewallet or transfer your Litecoin. Please write it down.";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "Action Required";
@@ -515,10 +515,10 @@
 "Prompts.TouchId.title" = "Enable Touch ID";
 
 /* Upgrade PIN prompt body. */
-"Prompts.UpgradePin.body" = "Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.";
+"Prompts.SetPin.body" = "Litewallet requires a 6-digit PIN. Please set and store your PIN in a safe place.";
 
 /* Upgrade PIN prompt title. */
-"Prompts.UpgradePin.title" = "Upgrade PIN";
+"Prompts.SetPin.title" = "Set PIN";
 
 /* Push notifications settings view body */
 "PushNotifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
@@ -1118,7 +1118,7 @@
 "WipeWallet.warningAlert" = "DO NOT LOSE IT!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Your LiteWallet is empty. Reseting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.";
+"WipeWallet.warningDescription" = "Your LiteWallet is empty. Resetting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "PLEASE READ!";
@@ -1203,3 +1203,27 @@
 
 /* Static starting amount Label */
 "Transaction.startingAmountDetailLabel" = "";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Connecting...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Syncing...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Rescanning...";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "";
+
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";

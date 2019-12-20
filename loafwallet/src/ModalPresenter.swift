@@ -46,7 +46,14 @@ class ModalPresenter : Subscriber, Trackable {
         store.subscribe(self,
                         selector: { $0.alert != $1.alert && $1.alert != nil },
                         callback: { self.handleAlertChange($0.alert) })
-
+        
+        store.subscribe(self, name: .openFile(Data()), callback: {
+            guard let trigger = $0 else { return }
+            if case .openFile(let file) = trigger {
+                self.handleFile(file)
+            }
+        })
+        
         //Subscribe to prompt actions
         store.subscribe(self, name: .promptUpgradePin, callback: { _ in
             self.presentUpgradePin()
@@ -69,7 +76,7 @@ class ModalPresenter : Subscriber, Trackable {
         store.subscribe(self, name: .recommendRescan, callback: { _ in
             self.presentRescan()
         })
-
+ 
         //URLs
         store.subscribe(self, name: .receivedPaymentRequest(nil), callback: {
             guard let trigger = $0 else { return }
@@ -116,7 +123,56 @@ class ModalPresenter : Subscriber, Trackable {
             }
         })
     }
+    
+    //MARK: - Prompts
+    private func presentRescan() {
+        let vc = ReScanViewController(store: self.store)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.setClearNavbar()
+        vc.addCloseNavigationItem()
+        topViewController?.present(nc, animated: true, completion: nil)
+    }
+    
+    func presentBiometricsSetting() {
+        guard let walletManager = walletManager else { return }
+        let biometricsSettings = BiometricsSettingsViewController(walletManager: walletManager, store: store)
+        biometricsSettings.addCloseNavigationItem(tintColor: .white)
+        let nc = ModalNavigationController(rootViewController: biometricsSettings)
+        biometricsSettings.presentSpendingLimit = strongify(self) { myself in
+            myself.pushBiometricsSpendingLimit(onNc: nc)
+        }
+        nc.setDefaultStyle()
+        nc.isNavigationBarHidden = true
+        nc.delegate = securityCenterNavigationDelegate
+        topViewController?.present(nc, animated: true, completion: nil)
+    }
 
+    private func promptShareData() {
+        let shareData = ShareDataViewController(store: store)
+        let nc = ModalNavigationController(rootViewController: shareData)
+        nc.setDefaultStyle()
+        nc.isNavigationBarHidden = true
+        nc.delegate = securityCenterNavigationDelegate
+        shareData.addCloseNavigationItem()
+        topViewController?.present(nc, animated: true, completion: nil)
+    }
+
+    func presentWritePaperKey() {
+        guard let vc = topViewController else { return }
+        presentWritePaperKey(fromViewController: vc)
+    }
+
+    func presentUpgradePin() {
+        guard let walletManager = walletManager else { return }
+        let updatePin = UpdatePinViewController(store: store, walletManager: walletManager, type: .update)
+        let nc = ModalNavigationController(rootViewController: updatePin)
+        nc.setDefaultStyle()
+        nc.isNavigationBarHidden = true
+        nc.delegate = securityCenterNavigationDelegate
+        updatePin.addCloseNavigationItem()
+        topViewController?.present(nc, animated: true, completion: nil)
+    }
+     
     private func presentModal(_ type: RootModal, configuration: ((UIViewController) -> Void)? = nil) {
         guard type != .loginScan else { return presentLoginScan() }
         guard let vc = rootModalViewController(type) else {
@@ -185,8 +241,7 @@ class ModalPresenter : Subscriber, Trackable {
         
         vc.modalPresentationStyle = .overFullScreen
         vc.modalPresentationCapturesStatusBarAppearance = true
-        vc.transitioningDelegate = vc
-        
+        vc.transitioningDelegate = vc 
         topViewController?.present(vc, animated: true, completion: {})
     }
 
@@ -575,27 +630,6 @@ class ModalPresenter : Subscriber, Trackable {
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
  
-//    private func presentBuyController(_ mountPoint: String) {
-//        guard let walletManager = self.walletManager else { return }
-//
-//      let vc : BuyCenterTableViewController
-//        #if Debug || Testflight
-//         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
-//        #else
-//         vc = BuyCenterTableViewController(store: store, walletManager: walletManager, mountPoint: mountPoint)
-//        #endif
-//
-//         topViewController?.present(vc, animated: true, completion: nil)
-//    }
-
-
-    private func presentRescan() {
-        let vc = ReScanViewController(store: self.store)
-        let nc = UINavigationController(rootViewController: vc)
-        nc.setClearNavbar()
-        vc.addCloseNavigationItem()
-        topViewController?.present(nc, animated: true, completion: nil)
-    }
 
     func wipeWallet() {
          
@@ -635,48 +669,7 @@ class ModalPresenter : Subscriber, Trackable {
         }))
         topViewController?.present(alert, animated: true, completion: nil)
     }
-
-    //MARK: - Prompts
-    func presentBiometricsSetting() {
-        guard let walletManager = walletManager else { return }
-        let biometricsSettings = BiometricsSettingsViewController(walletManager: walletManager, store: store)
-        biometricsSettings.addCloseNavigationItem(tintColor: .white)
-        let nc = ModalNavigationController(rootViewController: biometricsSettings)
-        biometricsSettings.presentSpendingLimit = strongify(self) { myself in
-            myself.pushBiometricsSpendingLimit(onNc: nc)
-        }
-        nc.setDefaultStyle()
-        nc.isNavigationBarHidden = true
-        nc.delegate = securityCenterNavigationDelegate
-        topViewController?.present(nc, animated: true, completion: nil)
-    }
-
-    private func promptShareData() {
-        let shareData = ShareDataViewController(store: store)
-        let nc = ModalNavigationController(rootViewController: shareData)
-        nc.setDefaultStyle()
-        nc.isNavigationBarHidden = true
-        nc.delegate = securityCenterNavigationDelegate
-        shareData.addCloseNavigationItem()
-        topViewController?.present(nc, animated: true, completion: nil)
-    }
-
-    func presentWritePaperKey() {
-        guard let vc = topViewController else { return }
-        presentWritePaperKey(fromViewController: vc)
-    }
-
-    func presentUpgradePin() {
-        guard let walletManager = walletManager else { return }
-        let updatePin = UpdatePinViewController(store: store, walletManager: walletManager, type: .update)
-        let nc = ModalNavigationController(rootViewController: updatePin)
-        nc.setDefaultStyle()
-        nc.isNavigationBarHidden = true
-        nc.delegate = securityCenterNavigationDelegate
-        updatePin.addCloseNavigationItem()
-        topViewController?.present(nc, animated: true, completion: nil)
-    }
-
+ 
     private func handleFile(_ file: Data) {
         if let request = PaymentProtocolRequest(data: file) {
             if let topVC = topViewController as? ModalViewController {

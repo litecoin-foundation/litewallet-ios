@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="BarlowSemiCondensed-Light.ttf">
+            <string>BarlowSemiCondensed-Light</string>
+        </array>
         <array key="BarlowSemiCondensed-Medium.ttf">
             <string>BarlowSemiCondensed-Medium</string>
         </array>
@@ -205,6 +208,95 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eie-N7-yw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994.20289855072474" y="55.580357142857139"/>
+        </scene>
+        <!--Prompt Modal View Controller-->
+        <scene sceneID="K6H-yX-hNz">
+            <objects>
+                <viewController storyboardIdentifier="PromptModalViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d35-N6-2Y4" customClass="PromptModalViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mqq-5p-nVF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYn-lt-jgA">
+                                <rect key="frame" x="67" y="258" width="280" height="380"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-JH-cfI">
+                                        <rect key="frame" x="0.0" y="340" width="280" height="40"/>
+                                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LlE-s1-XFu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="16"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H5-yd-KS3">
+                                        <rect key="frame" x="0.0" y="300" width="280" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="RCd-LS-6q3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="16"/>
+                                        <state key="normal" title="CANCEL">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALERT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-y0-On1">
+                                        <rect key="frame" x="10" y="10" width="260" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="gKY-pZ-aWm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MESSAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kk-YH-yJg">
+                                        <rect key="frame" x="109" y="50.5" width="62.5" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="Icp-lg-HsJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6Or-JH-cfI" secondAttribute="trailing" id="2nx-Dm-UXQ"/>
+                                    <constraint firstItem="5Kk-YH-yJg" firstAttribute="top" secondItem="I1b-y0-On1" secondAttribute="bottom" constant="20" id="2pn-ep-9qd"/>
+                                    <constraint firstItem="8H5-yd-KS3" firstAttribute="leading" secondItem="YYn-lt-jgA" secondAttribute="leading" id="DSp-FK-Ghn"/>
+                                    <constraint firstAttribute="trailing" secondItem="I1b-y0-On1" secondAttribute="trailing" constant="10" id="FEH-Sb-9je"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Or-JH-cfI" secondAttribute="bottom" id="Omc-5z-Pyx"/>
+                                    <constraint firstItem="5Kk-YH-yJg" firstAttribute="centerX" secondItem="YYn-lt-jgA" secondAttribute="centerX" id="Rnm-Pb-Bb5"/>
+                                    <constraint firstItem="6Or-JH-cfI" firstAttribute="top" secondItem="8H5-yd-KS3" secondAttribute="bottom" id="S3j-ai-viy"/>
+                                    <constraint firstAttribute="height" constant="380" id="SUn-MY-Yx1"/>
+                                    <constraint firstAttribute="width" constant="280" id="k8x-dq-yFS"/>
+                                    <constraint firstAttribute="trailing" secondItem="8H5-yd-KS3" secondAttribute="trailing" id="ofH-A4-eCQ"/>
+                                    <constraint firstItem="6Or-JH-cfI" firstAttribute="leading" secondItem="YYn-lt-jgA" secondAttribute="leading" id="qOM-nI-Yx6"/>
+                                    <constraint firstItem="I1b-y0-On1" firstAttribute="leading" secondItem="YYn-lt-jgA" secondAttribute="leading" constant="10" id="wbC-wc-RGu"/>
+                                    <constraint firstItem="8H5-yd-KS3" firstAttribute="top" secondItem="5Kk-YH-yJg" secondAttribute="bottom" priority="999" constant="20" id="xFt-a3-1sa"/>
+                                    <constraint firstItem="I1b-y0-On1" firstAttribute="top" secondItem="YYn-lt-jgA" secondAttribute="top" constant="10" id="yML-Te-O0J"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="YYn-lt-jgA" firstAttribute="centerX" secondItem="mqq-5p-nVF" secondAttribute="centerX" id="0CP-OM-wUy"/>
+                            <constraint firstItem="YYn-lt-jgA" firstAttribute="centerX" secondItem="mqq-5p-nVF" secondAttribute="centerX" id="WTE-pP-xwf"/>
+                            <constraint firstItem="YYn-lt-jgA" firstAttribute="centerY" secondItem="mqq-5p-nVF" secondAttribute="centerY" id="a2N-rv-4TX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iPa-47-zE0"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="8H5-yd-KS3" id="bza-9i-h4I"/>
+                        <outlet property="headerTitleLabel" destination="I1b-y0-On1" id="5O1-Wg-dGA"/>
+                        <outlet property="messageLabel" destination="5Kk-YH-yJg" id="qOe-9W-5Fp"/>
+                        <outlet property="okButton" destination="6Or-JH-cfI" id="mXp-f1-CUW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RtV-4t-7Cg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="56"/>
         </scene>
     </scenes>
 </document>
