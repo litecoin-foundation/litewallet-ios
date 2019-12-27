@@ -923,9 +923,6 @@
 /* Scan button title */
 "UnlockScreen.scan" = "Escanear";
 
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "Introduce tu PIN";
-
 /* TouchID prompt text */
 "UnlockScreen.touchIdPrompt" = "Desbloquea tu Litewallet.";
 
@@ -1160,9 +1157,6 @@
 /* Support settings section header */
 "Settings.support" = "";
 
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
-
 /* Current spending limit: */
 "SpendingLimit.title" = "";
 
@@ -1199,6 +1193,9 @@
 /* Static TX iD Label */
 "Transaction.txIDLabel" = "";
 
+/* Less button title */
+"TransactionDetails.less" = "";
+
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";
 
@@ -1213,6 +1210,9 @@
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.subheader" = "";
 
 /* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "";

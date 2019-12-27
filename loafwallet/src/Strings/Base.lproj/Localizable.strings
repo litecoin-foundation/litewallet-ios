@@ -1003,9 +1003,6 @@
 /* Scan button title */
 "UnlockScreen.scan" = "Scan";
 
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "Enter PIN";
-
 /* TouchID/FaceID prompt text */
 "UnlockScreen.touchIdPrompt" = "Unlock your Litewallet.";
 
@@ -1142,22 +1139,22 @@
 "WritePaperPhrase.step" = "%1$d of %2$d";
 
 /* as of a time or date */
-"Conjunction.asOf" = "";
+"Conjunction.asOf" = "as of";
 
 /* No comment provided by engineer. */
-"Copy" = "";
+"Copy" = "Copy";
 
 /* Buy Bar Item Title */
 "BuyCenter.barItemTitle" = "BUY";
 
 /* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "";
+"Confirmation.amountDetailLabel" = "Exchange details:";
 
 /* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "";
+"Confirmation.shortFeeLabel" = "FEE:";
 
 /* Address label */
-"Confirmation.staticAddressLabel" = "";
+"Confirmation.staticAddressLabel" = "ADDRESS:";
 
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORY";
@@ -1172,19 +1169,16 @@
 "TransactionDetails.less" = "Less...";
 
 /* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "";
+"TransactionDetails.priceTimeStampPrefix" = "as of";
 
 /* RECEIVE LTCTitle */
 "TransactionDetails.receivedModalTitle" = "RECEIVE ADDRESS";
 
 /* Label for TXID */
-"TransactionDetails.staticTXLabel" = "";
+"TransactionDetails.staticTXLabel" = "TXID:";
 
 /* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "";
-
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
+"UnlockScreen.enterPin" = "Enter PIN";
 
 /* Static amount Label */
 "Transaction.amountDetailLabel" = "Amount Detail:";
@@ -1199,16 +1193,16 @@
 "Transaction.txIDLabel" = "Tx ID:";
 
 /* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "";
+"Transaction.endAmountDetailLabel" = "Transaction end amount detail";
 
 /* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "";
+"Transaction.startingAmountDetailLabel" = "Transaction starting amount detail";
 
 /* Syncing view connection state header text */
 "SyncingHeader.connecting" = "Connecting...";
 
 /* Syncing header success state header text */
-"SyncingHeader.success" = "";
+"SyncingHeader.success" = "Success!";
 
 /* Syncing view syncing state header text */
 "SyncingHeader.syncing" = "Syncing...";
@@ -1217,13 +1211,13 @@
 "SyncingHeader.rescan" = "Rescanning...";
 
 /* Affirm button title. */
-"Prompts.PaperKey.affirm" = "";
+"Prompts.PaperKey.affirm" = "Continue";
 
 /* Cancel button. */
-"Prompts.PaperKey.cancel" = "";
+"Prompts.PaperKey.cancel" = "Cancel";
 
 /* Enable button. */
-"Prompts.PaperKey.enable" = "";
+"Prompts.PaperKey.enable" = "Enable";
 
 /* Dismiss button. */
 "Prompts.dismiss" = "DISMISS";

@@ -680,9 +680,6 @@
 /* Scan button title */
 "UnlockScreen.scan" = "اسکن شود";
 
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "پین وارد شود";
-
 /* TouchID prompt text */
 "UnlockScreen.touchIdPrompt" = "برِد خود را باز کنید.";
 
@@ -1085,9 +1082,6 @@
 /* Start or recover another wallet menu label. */
 "Settings.wipe" = "";
 
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
-
 /* Current spending limit: */
 "SpendingLimit.title" = "";
 
@@ -1145,6 +1139,9 @@
 /* Block height label */
 "TransactionDetails.blockHeightLabel" = "";
 
+/* Less button title */
+"TransactionDetails.less" = "";
+
 /* Moved $5.00 */
 "TransactionDetails.movedAmountDescription" = "";
 
@@ -1171,6 +1168,9 @@
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.subheader" = "";
 
 /* Verify PIN for transaction view body */
 "VerifyPin.authorize" = "";

@@ -998,9 +998,6 @@
 /* Scan button title */
 "UnlockScreen.scan" = "Scan";
 
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "Enter PIN";
-
 /* TouchID/FaceID prompt text */
 "UnlockScreen.touchIdPrompt" = "Unlock your Litewallet.";
 
@@ -1181,9 +1178,6 @@
 /* Send Bar Item Title */
 "Send.barItemTitle" = "";
 
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
-
 /* Syncing view connection state header text */
 "SyncingHeader.connecting" = "";
 
@@ -1214,6 +1208,9 @@
 /* Static TX iD Label */
 "Transaction.txIDLabel" = "";
 
+/* Less button title */
+"TransactionDetails.less" = "";
+
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";
 
@@ -1225,3 +1222,6 @@
 
 /* Unlock Screen sub-header */
 "UnlockScreen.enterPin" = "";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.subheader" = "";

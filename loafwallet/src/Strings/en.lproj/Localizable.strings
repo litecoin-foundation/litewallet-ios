@@ -194,6 +194,9 @@
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "Center your ID in the box";
 
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Exchange details:";
+
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "Amount to Send:";
 
@@ -212,6 +215,12 @@
 /* Send: (amount) */
 "Confirmation.send" = "Send";
 
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "FEE:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "ADDRESS:";
+
 /* Confirmation Screen title */
 "Confirmation.title" = "Confirmation";
 
@@ -229,6 +238,12 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Word #%1$@";
+
+/* as of a time or date */
+"Conjunction.asOf" = "as of";
+
+/* No comment provided by engineer. */
+"Copy" = "Copy";
 
 /* Litecoin denomination picker label */
 "DefaultCurrency.bitcoinLabel" = "Litecoin Display Unit";
@@ -495,13 +510,22 @@
 "Prompts.FaceId.title" = "Enable Face ID";
 
 /* No passcode set warning body */
-"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings to turn passcode on.";
+"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet.";
 
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Turn device passcode on";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Continue";
+
 /* Warning about paper key. */
 "Prompts.PaperKey.body" = "Your Paper Key must be kept in a safe place. It is the only way modify or restore your Litewallet or transfer your Litecoin. Please write it down.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "Cancel";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Enable";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "Action Required";
@@ -516,7 +540,7 @@
 "Prompts.SetPin.body" = "Litewallet requires a 6-digit PIN. Please set and store your PIN in a safe place.";
 
 /* Upgrade PIN prompt title. */
-"Prompts.SetPin.title" = "SET PIN";
+"Prompts.SetPin.title" = "Set PIN";
 
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Help improve Litewallet by sharing your anonymous data with us";
@@ -839,9 +863,6 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Share Anonymous Data?";
 
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "SPEND";
-
 /* Current spending limit: */
 "SpendingLimit.title" = "Current Spending Limit: ";
 
@@ -865,6 +886,9 @@
 
 /* Rescanning header success state header text */
 "SyncingHeader.rescan" = "Rescanning...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Success!";
 
 /* Syncing view syncing state header text */
 "SyncingHeader.syncing" = "Syncing...";
@@ -938,6 +962,9 @@
 /* Transaction complete label */
 "Transaction.complete" = "Complete";
 
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Transaction end amount detail";
+
 /* eg. Ending balance: $50.00 */
 "Transaction.ending" = "Ending balance: %1$@";
 
@@ -965,6 +992,9 @@
 /* eg. Starting balance: $50.00 */
 "Transaction.starting" = "Starting balance: %1$@";
 
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Transaction starting amount detail";
+
 /* Static TX iD Label */
 "Transaction.txIDLabel" = "Tx ID:";
 
@@ -989,6 +1019,9 @@
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "at %1$@";
 
+/* Less button title */
+"TransactionDetails.less" = "Less...";
+
 /* Moved $5.00 */
 "TransactionDetails.moved" = "Moved %1$@";
 
@@ -997,6 +1030,9 @@
 
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "Not Confirmed";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "as of";
 
 /* Received $5.00 (received title 1/2) */
 "TransactionDetails.received" = "Received %1$@";
@@ -1012,6 +1048,9 @@
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "Sent <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "Status";
@@ -1033,6 +1072,9 @@
 
 /* Disabled until date */
 "UnlockScreen.disabled" = "Disabled until: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "Enter PIN";
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "Unlock with FaceID";
@@ -1125,7 +1167,7 @@
 "Webview.updating" = "Updating...";
 
 /* Welcome view body text */
-"Welcome.body" = "Litewallet now has a brand new look and some new features.\n\nIf you need help, look for the (?) in the top right of most screens. All coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).";
+"Welcome.body" = "Litewallet now has a brand new look and some new features.\n\nAll coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).";
 
 /* Welcome view title */
 "Welcome.title" = "Welcome to Litewallet!";
@@ -1161,7 +1203,7 @@
 "WipeWallet.warningAlert" = "DO NOT LOSE IT!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Your LiteWallet is empty. Reseting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.";
+"WipeWallet.warningDescription" = "Your LiteWallet is empty. Resetting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "PLEASE READ!";
@@ -1183,45 +1225,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
-
-/* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "";
-
-/* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "";
-
-/* Address label */
-"Confirmation.staticAddressLabel" = "";
-
-/* as of a time or date */
-"Conjunction.asOf" = "";
-
-/* No comment provided by engineer. */
-"Copy" = "";
-
-/* Affirm button title. */
-"Prompts.PaperKey.affirm" = "";
-
-/* Cancel button. */
-"Prompts.PaperKey.cancel" = "";
-
-/* Enable button. */
-"Prompts.PaperKey.enable" = "";
-
-/* Syncing header success state header text */
-"SyncingHeader.success" = "";
-
-/* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "";
-
-/* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "";
-
-/* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "";
-
-/* Label for TXID */
-"TransactionDetails.staticTXLabel" = "";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "";

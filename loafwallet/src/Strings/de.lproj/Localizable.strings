@@ -158,6 +158,9 @@
 /* Yes button */
 "Button.yes" = "Ja";
 
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "Kaufen";
+
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "Vergessen Sie Ihre Startphrase oder PIN?";
 
@@ -191,6 +194,9 @@
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "Zentriere deinen Ausweis im Rechteck";
 
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Austauschdetails:";
+
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "Betrag, welcher versendet werden soll:";
 
@@ -209,6 +215,12 @@
 /* Label for "send" button on final confirmation screen */
 "Confirmation.send" = "Senden";
 
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "GEBÜHR:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "ADRESSE";
+
 /* Confirmation Screen title */
 "Confirmation.title" = "Bestätigung";
 
@@ -226,6 +238,12 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Wort #%1$@";
+
+/* as of a time or date */
+"Conjunction.asOf" = "ab";
+
+/* No comment provided by engineer. */
+"Copy" = "Kopieren";
 
 /* Litecoin denomination picker label */
 "DefaultCurrency.bitcoinLabel" = "Litecoin-Anzeigeeinheit";
@@ -295,6 +313,9 @@
 
 /* Fee Selector title */
 "FeeSelector.title" = "Verarbeitungsgeschwindigkeit";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "GESCHICHTE";
 
 /* Checking private key balance progress view text */
 "Import.checking" = "Das Privatschlüsselguthaben wird überprüft …";
@@ -494,8 +515,17 @@
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Aktivieren Sie den Gerät-Passcode";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Fortsetzen";
+
 /* Warning about paper key. */
 "Prompts.PaperKey.body" = "Ihr Paper-Key muss für den Fall, dass Sie Ihr Telefon verlieren oder wechseln, gespeichert werden. Tippen Sie hier, um fortzufahren.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "Stornieren";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Aktivieren";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "Maßnahme erforderlich";
@@ -538,6 +568,9 @@
 
 /* Push notifications settings view title label */
 "PushNotifications.title" = "Benachrichtigungen";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "ERHALTEN";
 
 /* Address copied message. */
 "Receive.copied" = "In die Zwischenablage kopiert.";
@@ -685,6 +718,9 @@
 
 /* Balance: $4.00 */
 "Send.balance" = "Guthaben: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "SENDEN";
 
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "Rufe die Einstellungen auf, um den Zugriff auf die Kamera zu erlauben.";
@@ -845,6 +881,18 @@
 /* Start view message */
 "StartViewController.message" = "Die sicherste Option zur Nutzung von Litecoin.";
 
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Verbindung wird hergestellt ...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Erneut scannen ...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Erfolg!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Synchronisierung läuft ...";
+
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Verbindet";
 
@@ -899,11 +947,23 @@
 /* Touch Id spending limit screen title */
 "TouchIdSpendingLimit.title" = "Touch-ID-Ausgabenlimit";
 
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Betrag Detail:";
+
 /* Availability status text */
 "Transaction.available" = "Verfügbar für Ausgaben";
 
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Block:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Memo:";
+
 /* Transaction complete label */
 "Transaction.complete" = "Abgeschlossen";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Transaktionsendbetrag Detail";
 
 /* eg. Ending balance: $50.00 */
 "Transaction.ending" = "Endguthaben: %1$@";
@@ -932,6 +992,12 @@
 /* eg. Starting balance: $50.00 */
 "Transaction.starting" = "Startguthaben: %1$@";
 
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Einzelheiten zum Transaktionsstartbetrag";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tk ID:";
+
 /* Waiting to be confirmed string */
 "Transaction.waiting" = "Bestätigung ausstehend. Einige Händler fordern eine Bestätigung, um Transaktionen abzuschließen. Voraussichtliche Dauer: 1–2 Stunden.";
 
@@ -953,6 +1019,9 @@
 /* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
 "TransactionDetails.from" = "an %1$@";
 
+/* Less button title */
+"TransactionDetails.less" = "Weniger";
+
 /* Moved $5.00 (as in "I moved $5 to another location") */
 "TransactionDetails.moved" = "%1$@ bewegt";
 
@@ -962,17 +1031,26 @@
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "Nicht bestätigt";
 
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "ab";
+
 /* "Received [$5] at [which of my addresses]" => This is the "Received [$5]" part. */
 "TransactionDetails.received" = "%1$@ erhalten";
 
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "Erhalten <b>%1@</b>";
 
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "ADRESSE ERHALTEN";
+
 /* "Sent [$5] to [address]" => This is the "Sent [$5]" part. */
 "TransactionDetails.sent" = "%1$@ gesendet";
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "Gesendet <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "Tk ID:";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "Status";
@@ -995,6 +1073,9 @@
 /* Disabled until date */
 "UnlockScreen.disabled" = "Deaktiviert bis: %1$@";
 
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "Pin eingeben";
+
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "Entsperren mit FaceID";
 
@@ -1006,9 +1087,6 @@
 
 /* Scan button title */
 "UnlockScreen.scan" = "Scannen";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "PIN eingeben";
 
 /* TouchID prompt text */
 "UnlockScreen.touchIdPrompt" = "Entsperre dein Litewallet.";
@@ -1145,83 +1223,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
 
-/* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "";
-
-/* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "";
-
-/* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "";
-
-/* Address label */
-"Confirmation.staticAddressLabel" = "";
-
-/* as of a time or date */
-"Conjunction.asOf" = "";
-
-/* No comment provided by engineer. */
-"Copy" = "";
-
-/* History Bar Item Title */
-"History.barItemTitle" = "";
-
-/* Affirm button title. */
-"Prompts.PaperKey.affirm" = "";
-
-/* Cancel button. */
-"Prompts.PaperKey.cancel" = "";
-
-/* Enable button. */
-"Prompts.PaperKey.enable" = "";
-
-/* Receive Bar Item Title */
-"Receive.barItemTitle" = "";
-
-/* Send Bar Item Title */
-"Send.barItemTitle" = "";
-
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
-
-/* Syncing view connection state header text */
-"SyncingHeader.connecting" = "";
-
-/* Rescanning header success state header text */
-"SyncingHeader.rescan" = "";
-
-/* Syncing header success state header text */
-"SyncingHeader.success" = "";
-
-/* Syncing view syncing state header text */
-"SyncingHeader.syncing" = "";
-
-/* Static amount Label */
-"Transaction.amountDetailLabel" = "";
-
-/* Static blockHeight Label */
-"Transaction.blockHeightLabel" = "";
-
-/* Static comment Label */
-"Transaction.commentLabel" = "";
-
-/* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "";
-
-/* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "";
-
-/* Static TX iD Label */
-"Transaction.txIDLabel" = "";
-
-/* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "";
-
-/* RECEIVE LTCTitle */
-"TransactionDetails.receivedModalTitle" = "";
-
-/* Label for TXID */
-"TransactionDetails.staticTXLabel" = "";
-
 /* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "";
+"UnlockScreen.subheader" = "";
