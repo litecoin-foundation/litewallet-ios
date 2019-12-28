@@ -173,12 +173,6 @@
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "Changelly";
 
-/* Coinbase buy financial details */
-"BuyCenter.coinbaseFinancialDetails" = "•  Kaufen Sie Litecoin\n • Erhältlich in 33 Ländern\n • Handeln und lagern Sie Ihre Litecoin\n • Einfach für Kryptowährungsanfänger";
-
-/* Coinbase Title */
-"BuyCenter.CoinbaseTitle" = "Coinbase";
-
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Kaufen Sie Łitecoin";
 
@@ -1222,6 +1216,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "";

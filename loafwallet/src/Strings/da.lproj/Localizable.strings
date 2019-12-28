@@ -1061,12 +1061,6 @@
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "";
 
-/* Coinbase buy financial details */
-"BuyCenter.coinbaseFinancialDetails" = "";
-
-/* Coinbase Title */
-"BuyCenter.CoinbaseTitle" = "";
-
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "";
 
@@ -1210,9 +1204,6 @@
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "";
 
 /* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "";

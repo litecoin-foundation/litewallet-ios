@@ -173,12 +173,6 @@
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "Changelly";
 
-/* Coinbase buy financial details */
-"BuyCenter.coinbaseFinancialDetails" = "• Buy Litecoin\n• Available in 33 countries\n• Trade and Store your Litecoin\n• Easy for cryptocurrency novices";
-
-/* Coinbase Title */
-"BuyCenter.CoinbaseTitle" = "Coinbase";
-
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Buy Łitecoin";
 
@@ -1087,9 +1081,6 @@
 
 /* Scan button title */
 "UnlockScreen.scan" = "Scan";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "Enter PIN";
 
 /* TouchID/FaceID prompt text */
 "UnlockScreen.touchIdPrompt" = "Unlock your Litewallet.";
