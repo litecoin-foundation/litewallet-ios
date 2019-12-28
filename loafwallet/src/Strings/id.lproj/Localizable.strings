@@ -1,849 +1,854 @@
-
 /* About screen website label */
-"About.blog" = "Website";
+"About.blog" = "Situs Web";
 
 /* About screen footer */
-"About.footer" = "Made by the LiteWallet Team\nof the\nLitecoin Foundation\n%1$@";
+"About.footer" = "Dibuat Oleh LiteWallet Tim\ndari\nYayasan Litecoin\n%1$@";
 
 /* Privay Policy button label */
-"About.privacy" = "Privacy Policy";
+"About.privacy" = "Aturan Pribadi";
 
 /* About screen reddit label */
 "About.reddit" = "Reddit";
 
 /* About screen title */
-"About.title" = "About";
+"About.title" = "Mengenai";
 
 /* About screen twitter label */
 "About.twitter" = "Twitter";
 
 /* Close modal button accessibility label */
-"AccessibilityLabels.close" = "Close";
+"AccessibilityLabels.close" = "Tutup";
 
 /* Support center accessibiliy label */
-"AccessibilityLabels.faq" = "Support Center";
+"AccessibilityLabels.faq" = "Dukungan Pusat";
 
 /* Loading Wallet Message */
-"Account.loadingMessage" = "Loading Wallet";
+"Account.loadingMessage" = "Muatan Dompet";
 
 /* Default wallet name */
-"AccountHeader.defaultWalletName" = "My Litewallet";
+"AccountHeader.defaultWalletName" = "Litewallet Saya";
 
 /* Manage wallet button title */
-"AccountHeader.manageButtonName" = "MANAGE";
+"AccountHeader.manageButtonName" = "MENGATUR";
 
 /* Error alert title */
-"Alert.error" = "Error";
+"Alert.error" = "Kesalahan";
 
 /* No internet alert message */
-"Alert.noInternet" = "No internet connection found. Check your connection and try again.";
+"Alert.noInternet" = "Tidak Menemukan Hubungan Internet. Periksa koneksi Anda dan coba lagi.";
 
 /* Warning alert title */
-"Alert.warning" = "Warning";
+"Alert.warning" = "Peringatan";
 
 /* 'the addresses were copied'' Alert title */
-"Alerts.copiedAddressesHeader" = "Addresses Copied";
+"Alerts.copiedAddressesHeader" = "Alamat Tersalin";
 
 /* Addresses Copied Alert sub header */
-"Alerts.copiedAddressesSubheader" = "All wallet addresses successfully copied.";
+"Alerts.copiedAddressesSubheader" = "Semua alamat dompet berhasil tersalin.";
 
 /* Alert Header Label (the paper key was set) */
-"Alerts.paperKeySet" = "Paper Key Set";
+"Alerts.paperKeySet" = "Set Kunci Kertas";
 
 /* Alert Subheader label (playfully positive) */
-"Alerts.paperKeySetSubheader" = "Awesome!";
+"Alerts.paperKeySetSubheader" = "Luar biasa!";
 
 /* Alert Header label (the PIN was set) */
-"Alerts.pinSet" = "PIN Set";
+"Alerts.pinSet" = "Set PIN";
 
 /* Send failure alert header label (the send failed to happen) */
-"Alerts.sendFailure" = "Send failed";
+"Alerts.sendFailure" = "Pengiriman gagal";
 
 /* Send success alert header label (confirmation that the send happened) */
-"Alerts.sendSuccess" = "Send Confirmation";
+"Alerts.sendSuccess" = “Mengkonfirmasi Pengiriman";
 
 /* Send success alert subheader label (e.g. the money was sent) */
-"Alerts.sendSuccessSubheader" = "Money Sent!";
+"Alerts.sendSuccessSubheader" = "Uang Terkirim!";
 
 /* JSON Serialization error message */
-"ApiClient.jsonError" = "JSON Serialization Error";
+"ApiClient.jsonError" = "JSON Kesalahan Serialisasi";
 
 /* Wallet not ready error message */
-"ApiClient.notReady" = "Wallet not ready";
+"ApiClient.notReady" = "Dompet belum siap";
 
 /* API Token error message */
-"ApiClient.tokenError" = "Unable to retrieve API token";
+"ApiClient.tokenError" = "Tidak mampu mendapatkan kembali bukti API";
 
 /* Send BCH view body. */
-"BCH.body" = "Enter a destination BCH address below. All BCH in your wallet at the time of the fork (%1$@) will be sent.";
+"BCH.body" = "Masukan tujuan alamat BCH dibawah. Semua BCH di dompet Anda pada waktu untuk percabangan (%1$@) akan dikirim.";
 
 /* Confirm sending <$5.00> to <address>? */
-"BCH.confirmationMessage" = "Confirm sending %1$@ to %2$@";
+"BCH.confirmationMessage" = "Konfirmasi pengiriman %1$@ to %2$@";
 
 /* Confirmation alert title */
-"BCH.confirmationTitle" = "Confirmation";
+"BCH.confirmationTitle" = "Mengkonfirmasi";
 
 /* Generic bch erorr message */
-"BCH.genericError" = "Your account does not contain any BCH, or you received BCH after the fork.";
+"BCH.genericError" = "Akun Anda tidak mengandung BCH, atau Anda menerima BCH setelah percabangan.";
 
 /* Transaction ID copied message */
-"BCH.hashCopiedMessage" = "Transaction ID copied";
+"BCH.hashCopiedMessage" = "ID Transaksi tersalin";
 
 /* No address error message */
-"BCH.noAddressError" = "Please enter an address";
+"BCH.noAddressError" = "Silahkan masukkan alamat";
 
 /* Attempted to scan unsupported qr code error message. */
-"BCH.paymentProtocolError" = "Payment Protocol Requests are not supported for BCH transactions";
+"BCH.paymentProtocolError" = "Permintaan Protokol Pembayaran tidak didukung untuk transaksi BCH";
 
 /* BCH successfully sent alert message */
-"BCH.successMessage" = "BCH was successfully sent.";
+"BCH.successMessage" = "BCH berhasil terkirim.";
 
 /* Widthdraw BCH view title */
-"BCH.title" = "Withdraw BCH";
+"BCH.title" = "Mengambil BCH";
 
 /* Tx Hash button header */
-"BCH.txHashHeader" = "BCH Transaction ID";
+"BCH.txHashHeader" = "ID transaksi BCH";
 
 /* Approve button label */
-"BitID.approve" = "Approve";
+"BitID.approve" = "Menyetujui";
 
 /* <sitename> is requesting authentication using your Litecoin wallet */
-"BitID.authenticationRequest" = "%1$@ is requesting authentication using your Litecoin wallet";
+"BitID.authenticationRequest" = "%1$@ meminta otentikasi menggunakan dompet Litecoin Anda";
 
 /* Deny button label */
-"BitID.deny" = "Deny";
+"BitID.deny" = "Menyangkal";
 
 /* BitID error alert title */
-"BitID.error" = "Authentication Error";
+"BitID.error" = "Salah Otentikasi";
 
 /* BitID error alert messaage */
-"BitID.errorMessage" = "Please check with the service. You may need to try again.";
+"BitID.errorMessage" = "Silahkan periksa dengan layanan. Anda mungkin perlu coba lagi.";
 
 /* BitID success alert title */
-"BitID.success" = "Successfully Authenticated";
+"BitID.success" = "Berhasil diotentikasi";
 
 /* BitID Authentication Request alert view title */
-"BitID.title" = "BitID Authentication Request";
+"BitID.title" = "Permintaan Otentikasi BitID";
 
 /* buy button */
-"Button.buy" = "buy";
+"Button.buy" = "membeli";
 
 /* Cancel button label */
-"Button.cancel" = "Cancel";
+"Button.cancel" = "Membatalkan";
 
 /* Ignore button label */
-"Button.ignore" = "Ignore";
+"Button.ignore" = "Mengabaikan";
 
 /* menu button */
 "Button.menu" = "menu";
 
 /* No button */
-"Button.no" = "No";
+"Button.no" = "Tidak";
 
 /* OK button label */
 "Button.ok" = "OK";
 
 /* receive button */
-"Button.receive" = "receive";
+"Button.receive" = "menerima";
 
 /* send button */
-"Button.send" = "send";
+"Button.send" = "kirim";
 
 /* Settings button label */
-"Button.settings" = "Settings";
+"Button.settings" = "Pengaturan";
 
 /* Settings button label */
-"Button.submit" = "Submit";
+"Button.submit" = "Mengajukan";
 
 /* Yes button */
-"Button.yes" = "Yes";
+"Button.yes" = "Ya";
 
 /* Bitrefill buy financial details */
-"BuyCenter.bitrefillFinancialDetails" = "• Buy gift cards\n• Refill prepaid phones\n• Steam, Amazon, Hotels.com\n• Works in 170 countries";
+"BuyCenter.bitrefillFinancialDetails" = "• Membeli kartu hadiah\n• Isi ulang telepon prabayar\n• Steam, Amazon, Hotels.com\n• Berfungsi di 170 negara";
 
 /* Bitrefill Title */
 "BuyCenter.BitrefillTitle" = "Bitrefill";
 
 /* Changelly buy financial details */
-"BuyCenter.changellyFinancialDetails" = "• Change Litecoin for other cryptos\n• No ID Required\n• Buy via credit card\n• Global coverage";
+"BuyCenter.changellyFinancialDetails" = "• Ubah Litecoin untuk cryptos lainnya\n• Tidak diperlukan ID\n• Membeli dengan kartu kredit\n• Pencakupan global";
 
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "Changelly";
 
+/* Coinbase buy financial details */
+"BuyCenter.coinbaseFinancialDetails" = "• Membeli Litecoin\n• Tersedia di 33 negara\n• Tukar dan simpan Litecoin Anda\n• Mudah untuk cryptocurrency pemula";
+
+/* Coinbase Title */
+"BuyCenter.CoinbaseTitle" = "Coinbase";
+
 /* Buy Modal Title */
-"BuyCenter.ModalTitle" = "Buy Łitecoin";
+"BuyCenter.ModalTitle" = "Membeli Łitecoin"; Łitecoin";
 
 /* Simplex buy financial details */
-"BuyCenter.simplexFinancialDetails" = "• Get Litecoin in 5 mins!\n• Buy Litecoin via credit card\n• Passport or State ID";
+"BuyCenter.simplexFinancialDetails" = "• Gunakan ID atau Paspor\n• Membeli Litecoin dengan kartu kredit\n• Membeli dengan USD atau EUR";
 
 /* Simplex Title */
 "BuyCenter.simplexTitle" = "Simplex";
 
 /* Buy Center Title */
-"BuyCenter.title" = "Buy Litecoin";
+"BuyCenter.title" = "Membeli Litecoin";
 
 /* Camera plugin instruction */
-"CameraPlugin.centerInstruction" = "Center your ID in the box";
+"CameraPlugin.centerInstruction" = "Pusatkan ID Anda di dalam Kotak";
 
 /* Amount to Send: ($1.00) */
-"Confirmation.amountLabel" = "Amount to Send:";
+"Confirmation.amountLabel" = "Jumlah yang dikirimkan:";
 
 /* Amount to Donate: ($1.00) */
-"Confirmation.donateLabel" = "Amount to Donate:";
+"Confirmation.donateLabel" = "Jumlah yang disumbangkan:";
 
 /* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Network Fee:";
+"Confirmation.feeLabel" = "Biaya Jaringan:";
 
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
-"Confirmation.processingAndDonationTime" = "Processing time: These transactions will take %1$@ minutes to process.";
+"Confirmation.processingAndDonationTime" = "Waktu pemrosesan: Transaksi-transaksi ini akan memakan waktu %1$@ menit untuk diproses.";
 
 /* eg. Processing time: This transaction will take 10-30 minutes to process. */
-"Confirmation.processingTime" = "Processing time: This transaction will take %1$@ minutes to process.";
+"Confirmation.processingTime" = "Waktu memproses: Transaksi ini akan memakan %1$@ menit untuk diproses.";
 
 /* Send: (amount) */
-"Confirmation.send" = "Send";
+"Confirmation.send" = "Kirim";
 
 /* Confirmation Screen title */
-"Confirmation.title" = "Confirmation";
+"Confirmation.title" = "Mengkonfirmasi";
 
 /* To: (address) */
-"Confirmation.to" = "To";
+"Confirmation.to" = "Untuk";
 
 /* Total Cost: ($5.00) */
-"Confirmation.totalLabel" = "Total Cost:";
+"Confirmation.totalLabel" = "Total Biaya:";
 
 /* Confirm paper phrase error message */
-"ConfirmPaperPhrase.error" = "The words entered do not match your paper key. Please try again.";
+"ConfirmPaperPhrase.error" = "Kata-kata yang dimasukan tidak cocok dengan kunci kertas Anda. Silahkan coba lagi.";
 
 /* Confirm paper phrase view label. */
-"ConfirmPaperPhrase.label" = "To make sure everything was written down correctly, please enter the following words from your paper key.";
+"ConfirmPaperPhrase.label" = "Untuk memastikan semuanya ditulis dengan benar, masukkan kata-kata berikut dari kunci kertas Anda.";
 
 /* Word label eg. Word #1, Word #2 */
-"ConfirmPaperPhrase.word" = "Word #%1$@";
+"ConfirmPaperPhrase.word" = "Kata #%1$@";
 
 /* Litecoin denomination picker label */
-"DefaultCurrency.bitcoinLabel" = "Litecoin Display Unit";
+"DefaultCurrency.bitcoinLabel" = "Unit Tampilan Litecoin";
 
 /* Exchange rate label */
-"DefaultCurrency.rateLabel" = "Exchange Rate";
+"DefaultCurrency.rateLabel" = “Nilai Tukar";
 
 /* Donate Memo */
-"Donate.memo" = "Donation to the Litecoin Foundation";
+"Donate.memo" = "Sumbangan untuk Yayasan Litecoin";
 
 /* Donate to the Litecoin Foundation */
-"Donate.title" = "Tap to Donate to the Litecoin Foundation!";
+"Donate.title" = "Ketuk untuk Menyumbang ke Yayasan Litecoin!";
 
 /* Donate Confirmation */
-"Donate.title.confirmation" = "Confirm Donation";
+"Donate.title.confirmation" = "Konfirmasi Sumbangan";
 
 /* Email unavailable alert title */
-"ErrorMessages.emailUnavailableMessage" = "This device isn't configured to send email with the iOS mail app.";
+"ErrorMessages.emailUnavailableMessage" = "Perangkat ini tidak dikonfigurasikan untuk mengirim email dengan aplikasi surat iOS.";
 
 /* Email unavailable alert title */
-"ErrorMessages.emailUnavailableTitle" = "Email Unavailable";
+"ErrorMessages.emailUnavailableTitle" = "Email Tidak Tersedia";
 
 /* Messaging unavailable alert title */
-"ErrorMessages.messagingUnavailableMessage" = "This device isn't configured to send messages.";
+"ErrorMessages.messagingUnavailableMessage" = "Perangkat ini tidak dikonfigurasikan untuk mengirim pesan.";
 
 /* Messaging unavailable alert title */
-"ErrorMessages.messagingUnavailableTitle" = "Messaging Unavailable";
+"ErrorMessages.messagingUnavailableTitle" = "Olahpesan Tidak Tersedia";
 
 /* You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
-"FaceIDSettings.customizeText" = "You can customize your Face ID spending limit from the %1$@.";
+"FaceIDSettings.customizeText" = "Anda dapat menyesuaikan batas pengeluaran ID Wajah dari %1$@.";
 
 /* Face ID screen label */
-"FaceIDSettings.label" = "Use your face to unlock your Litewallet and send money up to a set limit.";
+"FaceIDSettings.label" = "Gunakan wajah Anda untuk membuka kunci Litewallet Anda dan mengirim uang hingga batas yang ditentukan.";
 
 /* Link Text (see TouchIdSettings.customizeText) */
-"FaceIDSettings.linkText" = "Face ID Spending Limit Screen";
+"FaceIDSettings.linkText" = "Layar Batas Pengeluaran ID Wajah";
 
 /* Face id switch label. */
-"FaceIDSettings.switchLabel" = "Enable Face ID for Litewallet";
+"FaceIDSettings.switchLabel" = "Aktifkan ID Wajah untuk Litewallet";
 
 /* Face ID settings view title */
-"FaceIDSettings.title" = "Face ID";
+"FaceIDSettings.title" = "ID Wajah";
 
 /* Face ID unavailable alert message */
-"FaceIDSettings.unavailableAlertMessage" = "You have not set up Face ID on this device. Go to Settings->Face ID & Passcode to set it up now.";
+"FaceIDSettings.unavailableAlertMessage" = "Anda belum mengatur ID Wajah pada perangkat ini. Pergi ke Pengaturan-> ID Wajah & Kode Sandi untuk mengaturnya sekarang.";
 
 /* Face ID unavailable alert title */
-"FaceIDSettings.unavailableAlertTitle" = "Face ID Not Set Up";
+"FaceIDSettings.unavailableAlertTitle" = "ID Wajah Tidak Diatur";
 
 /* Face Id spending limit screen title */
-"FaceIDSpendingLimit.title" = "Face ID Spending Limit";
+"FaceIDSpendingLimit.title" = "Batas Pengeluaran ID Wajah";
 
 /* Economy fee */
-"FeeSelector.economy" = "Economy";
+"FeeSelector.economy" = "Ekonomi";
 
 /* Fee Selector economly fee description */
-"FeeSelector.economyLabel" = "Estimated Delivery: 60+ minutes";
+"FeeSelector.economyLabel" = "Perkiraan Pengiriman: 60+ menit";
 
 /* Warning message for economy fee */
-"FeeSelector.economyWarning" = "This option is not recommended for time-sensitive transactions.";
+"FeeSelector.economyWarning" = "Pilihan ini tidak disarankan untuk transaksi yang sensitif terhadap waktu.";
 
 /* Regular fee */
-"FeeSelector.regular" = "Regular";
+"FeeSelector.regular" = "Tetap";
 
 /* Fee Selector regular fee description */
-"FeeSelector.regularLabel" = "Estimated Delivery: 10-30 minutes";
+"FeeSelector.regularLabel" = "Perkiraan Pengiriman: 10-30 menit";
 
 /* Fee Selector title */
-"FeeSelector.title" = "Processing Speed";
+"FeeSelector.title" = "Kecepatan pemrosesan";
 
 /* Checking private key balance progress view text */
-"Import.checking" = "Checking private key balance...";
+"Import.checking" = "Memeriksa saldo kunci pribadi...";
 
 /* Sweep private key confirmation message */
-"Import.confirm" = "Send %1$@ from this private key into your wallet? The Litecoin network will receive a fee of %2$@.";
+"Import.confirm" = "Kirim %1$@ dari kunci pribadi ini ke dompet Anda? Jaringan Litecoin akan menerima biaya %2$@.";
 
 /* Duplicate key error message */
-"Import.Error.duplicate" = "This private key is already in your wallet.";
+"Import.Error.duplicate" = "Kunci pribadi ini sudah ada di dompet Anda.";
 
 /* empty private key error message */
-"Import.Error.empty" = "This private key is empty.";
+"Import.Error.empty" = "Kunci pribadi ini kosong.";
 
 /* High fees error message */
-"Import.Error.highFees" = "Transaction fees would cost more than the funds available on this private key.";
+"Import.Error.highFees" = "Biaya transaksi akan lebih mahal daripada dana yang tersedia pada kunci pribadi ini.";
 
 /* Not a valid private key error message */
-"Import.Error.notValid" = "Not a valid private key";
+"Import.Error.notValid" = "Bukan kunci pribadi yang benar";
 
 /* Import signing error message */
-"Import.Error.signing" = "Error signing transaction";
+"Import.Error.signing" = "Kesalahan menandatangani transaksi";
 
 /* Import button label */
-"Import.importButton" = "Import";
+"Import.importButton" = "Impor";
 
 /* Importing wallet progress view label */
-"Import.importing" = "Importing Wallet";
+"Import.importing" = "Mengimpor Dompet";
 
 /* Caption for graphics */
-"Import.leftCaption" = "Wallet to be imported";
+"Import.leftCaption" = "Dompet yang diimpor";
 
 /* Import wallet intro screen message */
-"Import.message" = "Importing a wallet transfers all the money from your other wallet into your Litewallet wallet using a single transaction.";
+"Import.message" = "Mengimpor dompet mentransfer semua uang dari dompet Anda yang lain ke dompet Litewallet Anda menggunakan satu transaksi.";
 
 /* Enter password alert view title */
-"Import.password" = "This private key is password protected.";
+"Import.password" = "Kunci pribadi ini dilindungi kata sandi.";
 
 /* password textfield placeholder */
-"Import.passwordPlaceholder" = "password";
+"Import.passwordPlaceholder" = "kata sandi";
 
 /* Caption for graphics */
-"Import.rightCaption" = "Your Litewallet Wallet";
+"Import.rightCaption" = "Dompet Litewallet Anda";
 
 /* Scan Private key button label */
-"Import.scan" = "Scan Private Key";
+"Import.scan" = "Pemindaian Kunci Pribadi";
 
 /* Import wallet success alert title */
-"Import.success" = "Success";
+"Import.success" = "Keberhasilan";
 
 /* Successfully imported wallet message body */
-"Import.SuccessBody" = "Successfully imported wallet.";
+"Import.SuccessBody" = "Dompet yang berhasil diimpor.";
 
 /* Import Wallet screen title */
-"Import.title" = "Import Wallet";
+"Import.title" = "Impor Dompet";
 
 /* Unlocking Private key activity view message. */
-"Import.unlockingActivity" = "Unlocking Key";
+"Import.unlockingActivity" = "Membuka Kunci";
 
 /* Import wallet intro warning message */
-"Import.warning" = "Importing a wallet does not include transaction history or other details.";
+"Import.warning" = "Mengimpor dompet tidak termasuk riwayat transaksi atau detail lainnya.";
 
 /* Wrong password alert message */
-"Import.wrongPassword" = "Wrong password, please try again.";
+"Import.wrongPassword" = "Kata sandi salah, silakan coba lagi.";
 
 /* Close app button */
-"JailbreakWarnings.close" = "Close";
+"JailbreakWarnings.close" = "Tutup";
 
 /* Ignore jailbreak warning button */
-"JailbreakWarnings.ignore" = "Ignore";
+"JailbreakWarnings.ignore" = "Mengabaikan";
 
 /* Jailbreak warning message */
-"JailbreakWarnings.messageWithBalance" = "DEVICE SECURITY COMPROMISED\n Any 'jailbreak' app can access Litewallet's keychain data and steal your Litecoin! Wipe this wallet immediately and restore on a secure device.";
+"JailbreakWarnings.messageWithBalance" = "KEAMANAN PERANGKAT YANG KOMPROMISASI\n Setiap aplikasi 'jailbreak' dapat mengakses data gantungan kunci Litewallet dan mencuri Litecoin Anda! Segera bersihkan dompet ini dan pulihkan pada perangkat yang aman.";
 
 /* Jailbreak warning message */
-"JailbreakWarnings.messageWithoutBalance" = "DEVICE SECURITY COMPROMISED\n Any 'jailbreak' app can access Litewallet's keychain data and steal your Litecoin. Please only use Litewallet on a non-jailbroken device.";
+"JailbreakWarnings.messageWithoutBalance" = "PERANGKAT KEAMANAN DI KOMPROMISASI\n Setiap aplikasi 'jailbreak' dapat mengakses data gantungan kunci Litewallet dan mencuri Litecoin Anda. Harap hanya menggunakan Litewallet pada perangkat yang tidak dipenjara.";
 
 /* Jailbreak warning title */
-"JailbreakWarnings.title" = "WARNING";
+"JailbreakWarnings.title" = "Peringatan";
 
 /* Wipe wallet button */
-"JailbreakWarnings.wipe" = "Wipe";
+"JailbreakWarnings.wipe" = "Hapus";
 
 /* Location services disabled error */
-"LocationPlugin.disabled" = "Location services are disabled.";
+"LocationPlugin.disabled" = "Layanan lokasi dinonaktifkan.";
 
 /* No permissions for location services */
-"LocationPlugin.notAuthorized" = "Litewallet does not have permission to access location services.";
+"LocationPlugin.notAuthorized" = "Litewallet tidak memiliki izin untuk mengakses layanan lokasi.";
 
 /* No comment provided by engineer. */
-"Malformed URI" = "Malformed URI";
+"Malformed URI" = “URI Cacat";
 
 /* Wallet creation date prefix */
-"ManageWallet.creationDatePrefix" = "You created your wallet on %1$@";
+"ManageWallet.creationDatePrefix" = "Anda membuat dompet Anda di %1$@";
 
 /* Manage wallet description text */
-"ManageWallet.description" = "Your wallet name only appears in your account transaction history and cannot be seen by anyone else.";
+"ManageWallet.description" = "Nama dompet Anda hanya muncul dalam riwayat transaksi akun Anda dan tidak dapat dilihat oleh orang lain.";
 
 /* Change Wallet name textfield label */
-"ManageWallet.textFeildLabel" = "Wallet Name";
+"ManageWallet.textFeildLabel" = "Nama Dompet";
 
 /* Manage wallet modal title */
-"ManageWallet.title" = "Manage Wallet";
+"ManageWallet.title" = "Mengelola Dompet";
 
 /* Buy Litecoin title */
-"MenuButton.buy" = "Buy Litecoin";
+"MenuButton.buy" = "Membeli Litecoin";
 
 /* Menu button title */
-"MenuButton.lock" = "Lock Wallet";
+"MenuButton.lock" = "Dompet Kunci";
 
 /* Menu button title */
-"MenuButton.security" = "Security Center";
+"MenuButton.security" = "Pusat Keamanan";
 
 /* Menu button title */
-"MenuButton.settings" = "Settings";
+"MenuButton.settings" = "Pengaturan";
 
 /* Menu button title */
-"MenuButton.support" = "Support";
+"MenuButton.support" = "Dukungan";
 
 /* button label */
-"MenuViewController.createButton" = "Create New Wallet";
+"MenuViewController.createButton" = "Buat Dompet Baru";
 
 /* Menu modal title */
 "MenuViewController.modalTitle" = "Menu";
 
 /* button label */
-"MenuViewController.recoverButton" = "Recover Wallet";
+"MenuViewController.recoverButton" = "Pulihkan Dompet";
 
 /* No comment provided by engineer. */
-"No wallet" = "No wallet";
+"No wallet" = "Tidak Ada Dompet";
 
 /* Switch to automatic mode button label */
-"NodeSelector.automaticButton" = "Switch to Automatic Mode";
+"NodeSelector.automaticButton" = "Beralih ke Mode Otomatis";
 
 /* Node is connected label */
-"NodeSelector.connected" = "Connected";
+"NodeSelector.connected" = "Terhubung";
 
 /* Enter node ip address view body */
-"NodeSelector.enterBody" = "Enter Node IP address and port (optional)";
+"NodeSelector.enterBody" = "Masukkan alamat IP Node dan pelabuhan(opsional)";
 
 /* Enter Node ip address view title */
-"NodeSelector.enterTitle" = "Enter Node";
+"NodeSelector.enterTitle" = "Masukkan Node";
 
 /* Switch to manual mode button label */
-"NodeSelector.manualButton" = "Switch to Manual Mode";
+"NodeSelector.manualButton" = "Beralih ke Mode Manual";
 
 /* Node address label */
-"NodeSelector.nodeLabel" = "Current Primary Node";
+"NodeSelector.nodeLabel" = "Primer Node Saat Ini";
 
 /* Node is not connected label */
-"NodeSelector.notConnected" = "Not Connected";
+"NodeSelector.notConnected" = "Tidak Terhubung";
 
 /* Node status label */
-"NodeSelector.statusLabel" = "Node Connection Status";
+"NodeSelector.statusLabel" = "Status Koneksi Node";
 
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin Nodes";
 
 /* Bad Payment request alert title */
-"PaymentProtocol.Errors.badPaymentRequest" = "Bad Payment Request";
+"PaymentProtocol.Errors.badPaymentRequest" = “Permintaan Pembayaran yang Buruk";
 
 /* Error opening payment protocol file message */
-"PaymentProtocol.Errors.corruptedDocument" = "Unsupported or corrupted document";
+"PaymentProtocol.Errors.corruptedDocument" = "Dokumen tidak didukung atau rusak";
 
 /* Missing certificate payment protocol error message */
-"PaymentProtocol.Errors.missingCertificate" = "missing certificate";
+"PaymentProtocol.Errors.missingCertificate" = "sertifikat hilang";
 
 /* Request expired payment protocol error message */
-"PaymentProtocol.Errors.requestExpired" = "request expired";
+"PaymentProtocol.Errors.requestExpired" = "permintaan kadaluwarsa";
 
 /* Payment too small alert title */
-"PaymentProtocol.Errors.smallOutputError" = "Couldn't make payment";
+"PaymentProtocol.Errors.smallOutputError" = "Tidak dapat melakukan pembayaran";
 
 /* Amount too small error message */
-"PaymentProtocol.Errors.smallPayment" = "Litecoin payments can't be less than %1$@.";
+"PaymentProtocol.Errors.smallPayment" = "Pembayaran Litecoin tidak boleh kurang dari %1$@.";;
 
 /* Output too small error message. */
-"PaymentProtocol.Errors.smallTransaction" = "Litecoin transaction outputs can't be less than $@.";
+"PaymentProtocol.Errors.smallTransaction" = "Hasil transaksi Litecoin tidak boleh kurang dari $@.";
 
 /* Unsupported signature type payment protocol error message */
-"PaymentProtocol.Errors.unsupportedSignatureType" = "unsupported signature type";
+"PaymentProtocol.Errors.unsupportedSignatureType" = "jenis tanda tangan yang tidak didukung";
 
 /* Untrusted certificate payment protocol error message */
-"PaymentProtocol.Errors.untrustedCertificate" = "untrusted certificate";
+"PaymentProtocol.Errors.untrustedCertificate" = "sertifikat tidak dipercaya";
 
 /* Dismiss button. */
-"Prompts.dismiss" = "DISMISS";
+"Prompts.dismiss" = "Memberhentikan";
 
 /* Enable face ID prompt body */
-"Prompts.FaceId.body" = "Tap here to enable Face ID";
+"Prompts.FaceId.body" = "Ketuk di sini untuk mengaktifkan ID Wajah";
 
 /* Enable face ID prompt title */
-"Prompts.FaceId.title" = "Enable Face ID";
+"Prompts.FaceId.title" = "Aktifkan ID Wajah";
 
 /* No passcode set warning body */
-"Prompts.NoPasscode.body" = "A device passcode is needed to safeguard your wallet. Go to settings to turn passcode on.";
+"Prompts.NoPasscode.body" = "Kode sandi perangkat diperlukan untuk melindungi dompet Anda. Buka pengaturan dan nyalakan kode sandi.";
 
 /* No Passcode set warning title */
-"Prompts.NoPasscode.title" = "Turn device passcode on";
+"Prompts.NoPasscode.title" = "Aktifkan kode sandi perangkat";
 
 /* Warning about paper key. */
-"Prompts.PaperKey.body" = "Your Paper Key must be saved in case you ever lose or change your phone. Tap here to continue.";
+"Prompts.PaperKey.body" = "Kunci Kertas Anda harus disimpan jika Anda kehilangan atau mengganti telepon Anda. Ketuk di sini untuk melanjutkan.";
 
 /* An action is required (You must do this action). */
-"Prompts.PaperKey.title" = "Action Required";
+"Prompts.PaperKey.title" = "Diperlukan Tindakan";
 
 /* Transaction rejected prompt body */
-"Prompts.RecommendRescan.body" = "Your wallet may be out of sync. This can often be fixed by rescanning the blockchain.";
+"Prompts.RecommendRescan.body" = "Dompet Anda mungkin tidak sinkron. Ini sering dapat diperbaiki dengan memindai ulang blockchain.";
 
 /* Transaction rejected prompt title */
-"Prompts.RecommendRescan.title" = "Transaction Rejected";
+"Prompts.RecommendRescan.title" = "Transaksi Ditolak";
 
 /* Upgrade PIN prompt body. */
-"Prompts.SetPin.body" = "Litewallet has upgraded to using a 6-digit PIN. Tap here to upgrade.";
+"Prompts.SetPin.body" = "Litewallet telah ditingkatkan untuk menggunakan PIN 6-digit. Ketuk di sini untuk meningkatkan.";
 
 /* Upgrade PIN prompt title. */
-"Prompts.SetPin.title" = "Upgrade PIN";
+"Prompts.SetPin.title" = "Tingkatkan PIN";
 
 /* Share data prompt body */
-"Prompts.ShareData.body" = "Help improve Litewallet by sharing your anonymous data with us";
+"Prompts.ShareData.body" = "Bantu tingkatkan Litewallet dengan membagikan data anonim Anda kepada kami";
 
 /* Share data prompt title */
-"Prompts.ShareData.title" = "Share Anonymous Data";
+"Prompts.ShareData.title" = "Bagikan Data Anonim";
 
 /* Enable touch ID prompt body */
-"Prompts.TouchId.body" = "Tap here to enable Touch ID";
+"Prompts.TouchId.body" = "Ketuk di sini untuk mengaktifkan Sentuh ID";
 
 /* Enable touch ID prompt title */
-"Prompts.TouchId.title" = "Enable Touch ID";
+"Prompts.TouchId.title" = "Aktifkan Sentuh ID";
 
 /* Push notifications settings view body */
-"PushNotifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
+"PushNotifications.body" = "Aktifkan pemberitahuan untuk menerima pesan khusus dari Litewallet di masa mendatang.";
 
 /* Push notifications toggle switch label */
-"PushNotifications.label" = "Push Notifications";
+"PushNotifications.label" = "Notifikasi dorongan";
 
 /* Push notifications are off label */
-"PushNotifications.off" = "Off";
+"PushNotifications.off" = "Mati";
 
 /* Push notifications are on label */
-"PushNotifications.on" = "On";
+"PushNotifications.on" = "Hidup";
 
 /* Push notifications settings view title label */
-"PushNotifications.title" = "Notifications";
+"PushNotifications.title" = "Notifikasi";
 
 /* Address copied message. */
-"Receive.copied" = "Copied to clipboard.";
+"Receive.copied" = "Disalin ke papan klip.";
 
 /* Share via email button label */
 "Receive.emailButton" = "Email";
 
 /* Request button label */
-"Receive.request" = "Request an Amount";
+"Receive.request" = "Permintaan Jumlah";
 
 /* Share button label */
-"Receive.share" = "Share";
+"Receive.share" = "Bagikan";
 
 /* Share via text message (SMS) */
-"Receive.textButton" = "Text Message";
+"Receive.textButton" = "Pesan teks";
 
 /* Receive modal title */
-"Receive.title" = "Receive";
+"Receive.title" = "Menerima";
 
 /* Done button text */
-"RecoverWallet.done" = "Done";
+"RecoverWallet.done" = "Selesai";
 
 /* Recover wallet header */
-"RecoverWallet.header" = "Recover Wallet";
+"RecoverWallet.header" = "Pulihkan Dompet";
 
 /* Reset PIN with paper key: header */
-"RecoverWallet.header_reset_pin" = "Reset PIN";
+"RecoverWallet.header_reset_pin" = "Atur ulang PIN";
 
 /* Enter paper key instruction */
-"RecoverWallet.instruction" = "Enter Paper Key";
+"RecoverWallet.instruction" = "Masukkan Kunci Kertas";
 
 /* Recover wallet intro */
-"RecoverWallet.intro" = "Recover your Litewallet with your paper key.";
+"RecoverWallet.intro" = "Pulihkan Litewallet Anda dengan kunci kertas Anda.";
 
 /* Invalid paper key message */
-"RecoverWallet.invalid" = "The paper key you entered is invalid. Please double-check each word and try again.";
+"RecoverWallet.invalid" = "Kunci kertas yang Anda masukkan tidak benar. Periksa ulang setiap kata dan coba lagi.";
 
 /* Previous button accessibility label */
-"RecoverWallet.leftArrow" = "Left Arrow";
+"RecoverWallet.leftArrow" = "Panah Kiri";
 
 /* Next button label */
-"RecoverWallet.next" = "Next";
+"RecoverWallet.next" = "Lanjut";
 
 /* Reset PIN with paper key: more information button. */
-"RecoverWallet.reset_pin_more_info" = "Tap here for more information.";
+"RecoverWallet.reset_pin_more_info" = "Ketuk di sini untuk informasi lebih lanjut.";
 
 /* Next button accessibility label */
-"RecoverWallet.rightArrow" = "Right Arrow";
+"RecoverWallet.rightArrow" = "Panah Kanan";
 
 /* Recover wallet sub-header */
-"RecoverWallet.subheader" = "Enter the paper key for the wallet you want to recover.";
+"RecoverWallet.subheader" = "Masukkan kunci kertas untuk dompet yang ingin Anda pulihkan.";;
 
 /* Reset PIN with paper key: sub-header */
-"RecoverWallet.subheader_reset_pin" = "To reset your PIN, enter the words from your paper key into the boxes below.";
+"RecoverWallet.subheader_reset_pin" = "Untuk mengatur ulang PIN Anda, masukkan kata-kata dari kunci kertas Anda ke dalam kotak di bawah ini.";
 
 /* No amount entered error message. */
-"RequestAnAmount.noAmount" = "Please enter an amount first.";
+"RequestAnAmount.noAmount" = "Silakan masukkan jumlah terlebih dahulu.";
 
 /* Request a specific amount of Litecoin */
-"RequestAnAmount.title" = "Request an Amount";
+"RequestAnAmount.title" = "Permintaan Jumlah";
 
 /* Alert action button label */
-"ReScan.alertAction" = "Sync";
+"ReScan.alertAction" = "Sinkron";
 
 /* Alert message body */
-"ReScan.alertMessage" = "You will not be able to send money while syncing.";
+"ReScan.alertMessage" = "Anda tidak akan dapat mengirim uang saat menyinkronkan.";
 
 /* Alert message title */
-"ReScan.alertTitle" = "Sync with Blockchain?";
+"ReScan.alertTitle" = "Sinkron dengan Blockchain?";
 
 /* extimated time */
-"ReScan.body1" = "20-45 minutes";
+"ReScan.body1" = "20-45 menit";
 
 /* Syncing explanation */
-"ReScan.body2" = "If a transaction shows as completed on the Litecoin network but not in your Litewallet.";
+"ReScan.body2" = "Jika suatu transaksi terlihat selesai di jaringan Litecoin tetapi tidak di Litewallet Anda.";
 
 /* Syncing explanation */
-"ReScan.body3" = "You repeatedly get an error saying your transaction was rejected.";
+"ReScan.body3" = "Anda berulang kali mendapatkan pesan kesalahan yang mengatakan transaksi Anda ditolak.";
 
 /* Start Sync button label */
-"ReScan.buttonTitle" = "Start Sync";
+"ReScan.buttonTitle" = "Mulai Sinkron";
 
 /* Sync blockchain view footer */
-"ReScan.footer" = "You will not be able to send money while syncing with the blockchain.";
+"ReScan.footer" = "Anda tidak akan dapat mengirim uang saat menyinkronkan dengan blockchain.";
 
 /* Sync Blockchain view header */
-"ReScan.header" = "Sync Blockchain";
+"ReScan.header" = "Sinkron Blockchain";
 
 /* Subheader label */
-"ReScan.subheader1" = "Estimated time";
+"ReScan.subheader1" = "Perkiraan Waktu";
 
 /* Subheader label */
-"ReScan.subheader2" = "When to Sync?";
+"ReScan.subheader2" = "Kapan Melakukan Sinkron?";
 
 /* Reset walet button  title */
-"resetButton" = "Yes, reset wallet";
+"resetButton" = "Ya, atur ulang dompet";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Empty Wallet Reset";
+"resetTitle" = “Atur ulang Dompet Kosong";
 
 /* Scan Litecoin address camera flash toggle */
-"Scanner.flashButtonLabel" = "Camera Flash";
+"Scanner.flashButtonLabel" = "Flash Kamera";
 
 /* Complete filter label */
-"Search.complete" = "complete";
+"Search.complete" = "lengkap";
 
 /* Pending filter label */
-"Search.pending" = "pending";
+"Search.pending" = "tertunda";;
 
 /* Received filter label */
-"Search.received" = "received";
+"Search.received" = "diterima";
 
 /* Sent filter label */
-"Search.sent" = "sent";
+"Search.sent" = "dikirim";
 
 /* Face ID button title */
-"SecurityCenter.faceIdTitle" = "Face ID";
+"SecurityCenter.faceIdTitle" = “ID Wajah";
 
 /* Security Center Info */
-"SecurityCenter.info" = "Enable all security features for maximum protection.";
+"SecurityCenter.info" = "Aktifkan semua fitur keamanan untuk perlindungan maksimal.";
 
 /* Paper Key button description */
-"SecurityCenter.paperKeyDescription" = "The only way to access your Litecoin if you lose or upgrade your phone.";
+"SecurityCenter.paperKeyDescription" = "Satu-satunya cara untuk mengakses Litecoin Anda jika Anda kehilangan atau meningkatkan telepon Anda.";
 
 /* Paper Key button title */
-"SecurityCenter.paperKeyTitle" = "Paper Key";
+"SecurityCenter.paperKeyTitle" = "Kunci Kertas";
 
 /* PIN button description */
-"SecurityCenter.pinDescription" = "Protects your Litewallet from unauthorized users.";
+"SecurityCenter.pinDescription" = "Melindungi Litewallet Anda dari pengguna yang tidak sah.";
 
 /* PIN button title */
-"SecurityCenter.pinTitle" = "6-Digit PIN";
+"SecurityCenter.pinTitle" = "PIN 6-Digit";
 
 /* Security Center Title */
-"SecurityCenter.title" = "Security Center";
+"SecurityCenter.title" = "Pusat Keamanan";
 
 /* Touch ID/FaceID button description */
-"SecurityCenter.touchIdDescription" = "Conveniently unlock your Litewallet and send money up to a set limit.";
+"SecurityCenter.touchIdDescription" = "Buka kunci Litewallet Anda dengan mudah dan kirim uang hingga batas yang ditentukan.";
 
 /* Touch ID button title */
-"SecurityCenter.touchIdTitle" = "Touch ID";
+"SecurityCenter.touchIdTitle" = "Sentuh ID";
 
 /* Send money amount label */
-"Send.amountLabel" = "Amount";
+"Send.amountLabel" = "Jumlah";
 
 /* Balance: $4.00 */
-"Send.balance" = "Balance: %1$@";
+"Send.balance" = "Saldo: %1$@";
 
 /* Camera not allowed message */
-"Send.cameraunavailableMessage" = "Go to Settings to allow camera access.";
+"Send.cameraunavailableMessage" = "Buka Pengaturan untuk mengizinkan akses kamera.";
 
 /* Camera not allowed alert title */
-"Send.cameraUnavailableTitle" = "Litewallet is not allowed to access the camera";
+"Send.cameraUnavailableTitle" = "Litewallet tidak diizinkan untuk mengakses kamera";
 
 /* Warning when sending to self. */
-"Send.containsAddress" = "The destination is your own address. You cannot send to yourself.";
+"Send.containsAddress" = "Tujuannya adalah alamat Anda sendiri. Anda tidak dapat mengirim ke diri sendiri.";
 
 /* Could not create transaction alert title */
-"Send.creatTransactionError" = "Could not create transaction.";
+"Send.creatTransactionError" = "Tidak dapat membuat transaksi.";
 
 /* Description for sending money label */
 "Send.descriptionLabel" = "Memo";
 
 /* Empty pasteboard error message */
-"Send.emptyPasteboard" = "Pasteboard is empty";
+"Send.emptyPasteboard" = "Papan tulis kosong";
 
 /* Network Fee: $0.01 */
-"Send.fee" = "Network Fee: %1$@";
+"Send.fee" = "Biaya Jaringan: %1$@";
 
 /* Payee identity not certified alert title. */
-"Send.identityNotCertified" = "Payee identity isn't certified.";
+"Send.identityNotCertified" = "Identitas penerima pembayaran tidak disertifikasi.";
 
 /* Insufficient funds error */
-"Send.insufficientFunds" = "Insufficient Funds";
+"Send.insufficientFunds" = "Dana tidak mencukupi";
 
 /* Invalid address alert message */
-"Send.invalidAddressMessage" = "The destination address is not a valid Litecoin address.";
+"Send.invalidAddressMessage" = "Alamat tujuan bukan alamat Litecoin yang benar.";
 
 /* Invalid address on pasteboard message */
-"Send.invalidAddressOnPasteboard" = "Pasteboard does not contain a valid Litecoin address.";
+"Send.invalidAddressOnPasteboard" = "Papan tulis tidak mengandung alamat Litecoin yang benar.";
 
 /* Invalid address alert title */
-"Send.invalidAddressTitle" = "Invalid Address";
+"Send.invalidAddressTitle" = "Alamat tidak benar";
 
 /* Is rescanning error message */
-"Send.isRescanning" = "Sending is disabled during a full rescan.";
+"Send.isRescanning" = "Pengiriman dinonaktifkan selama pemindaian ulang penuh.";
 
 /* Loading request activity view message */
-"Send.loadingRequest" = "Loading Request";
+"Send.loadingRequest" = "Memuat Permintaan";
 
 /* Empty address alert message */
-"Send.noAddress" = "Please enter the recipient's address.";
+"Send.noAddress" = "Silakan masukkan alamat penerima.";
 
 /* Emtpy amount alert message */
-"Send.noAmount" = "Please enter an amount to send.";
+"Send.noAmount" = "Silakan masukkan jumlah.";
 
 /* Paste button label */
-"Send.pasteLabel" = "Paste";
+"Send.pasteLabel" = "Tempel";
 
 /* Could not publish transaction alert title */
-"Send.publishTransactionError" = "Could not publish transaction.";
+"Send.publishTransactionError" = "Tidak dapat mempublikasikan transaksi.";
 
 /* Could not load remote request error message */
-"Send.remoteRequestError" = "Could not load payment request";
+"Send.remoteRequestError" = "Tidak dapat memuat permintaan pembayaran";
 
 /* Scan button label */
-"Send.scanLabel" = "Scan";
+"Send.scanLabel" = "Pemindaian";
 
 /* Send button label */
-"Send.sendLabel" = "Send";
+"Send.sendLabel" = "Kirim";
 
 /* Send modal title */
-"Send.title" = "Send";
+"Send.title" = "Kirim";
 
 /* Send money to label */
-"Send.toLabel" = "To";
+"Send.toLabel" = "Untuk";
 
 /* Adress already used alert message - first part */
-"Send.UsedAddress.firstLine" = "Litecoin addresses are intended for single use only.";
+"Send.UsedAddress.firstLine" = "Alamat Litecoin hanya ditujukan untuk penggunaan tunggal.";
 
 /* Adress already used alert message - second part */
-"Send.UsedAddress.secondLIne" = "Re-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address.";
+"Send.UsedAddress.secondLIne" = "Penggunaan kembali mengurangi privasi untuk Anda dan penerima dan dapat mengakibatkan kerugian jika penerima tidak secara langsung mengontrol alamat.";
 
 /* Adress already used alert title */
-"Send.UsedAddress.title" = "Address Already Used";
+"Send.UsedAddress.title" = "Alamat Sudah Digunakan";
 
 /* About label */
-"Settings.about" = "About";
+"Settings.about" = "Tentang";
 
 /* Advanced Settings title */
-"Settings.advancedTitle" = "Advanced Settings";
+"Settings.advancedTitle" = "Pengaturan lanjutan";
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
 
 /* Default currency label */
-"Settings.currency" = "Display Currency";
+"Settings.currency" = "Mata uang tampilan";
 
 /* Join Early access label */
-"Settings.earlyAccess" = "Join Early Access";
+"Settings.earlyAccess" = "Bergabunglah dengan Akses Dini";
 
 /* Are you enjoying Litewallet alert message body */
-"Settings.enjoying" = "Are you enjoying Litewallet?";
+"Settings.enjoying" = "Apakah Anda menikmati Litewallet?";
 
 /* Face ID spending limit label */
-"Settings.faceIdLimit" = "Face ID Spending Limit";
+"Settings.faceIdLimit" = "Batas Pengeluaran Wajah ID";
 
 /* Import wallet label */
-"Settings.importTitle" = "Import Wallet";
+"Settings.importTitle" = "Impor Dompet";
 
 /* Manage settings section header */
-"Settings.manage" = "Manage";
+"Settings.manage" = "Mengelola";
 
 /* Notifications label */
-"Settings.notifications" = "Notifications";
+"Settings.notifications" = "Notifikasi";
 
 /* Leave review button label */
-"Settings.review" = "Leave us a Review";
+"Settings.review" = "Tinggalkan kami Ulasan";
 
 /* Share anonymous data label */
-"Settings.shareData" = "Share Anonymous Data";
+"Settings.shareData" = "Bagikan Data Anonim";
 
 /* Support settings section header */
-"Settings.support" = "Support";
+"Settings.support" = "Dukung";
 
 /* Sync blockchain label */
-"Settings.sync" = "Sync Blockchain";
+"Settings.sync" = "Blockchain Sinkron";
 
 /* Settings title */
-"Settings.title" = "Settings";
+"Settings.title" = "Pengaturan";
 
 /* Touch ID spending limit label */
-"Settings.touchIdLimit" = "Touch ID Spending Limit";
+"Settings.touchIdLimit" = "Sentuh Batas Pengeluaran ID";
 
 /* Wallet Settings section header */
-"Settings.wallet" = "Wallet";
+"Settings.wallet" = "Dompet";
 
 /* Start or recover another wallet menu label. */
-"Settings.wipe" = "Start/Recover Another Wallet";
+"Settings.wipe" = "Mulai/Pulihkan Dompet Lainnya";
 
 /* Share data view body */
-"ShareData.body" = "Help improve Litewallet by sharing your anonymous data with us. This does not include any financial information. We respect your financial privacy.";
+"ShareData.body" = "Bantu meningkatkan Litewallet dengan membagikan data anonim Anda kepada kami. Ini tidak termasuk informasi keuangan apa pun. Kami menghargai privasi finansial Anda.";
 
 /* Share data header */
-"ShareData.header" = "Share Data?";
+"ShareData.header" = "Bagikan Data?";
 
 /* Share data switch label. */
-"ShareData.toggleLabel" = "Share Anonymous Data?";
+"ShareData.toggleLabel" = "Bagikan Data Anonim?";
 
 /* Current spending limit: */
-"SpendingLimit.title" = "Current Spending Limit: ";
+"SpendingLimit.title" = "Batas Pengeluaran Saat Ini: ";
 
 /* button label */
-"StartPaperPhrase.againButtonTitle" = "Write Down Paper Key Again";
+"StartPaperPhrase.againButtonTitle" = "Tuliskan Kunci Kertas Lagi";
 
 /* Paper key explanation text. */
-"StartPaperPhrase.body" = "Your paper key is the only way to restore your Litewallet if your phone is lost, stolen, broken, or upgraded.\n\nWe will show you a list of words to write down on a piece of paper and keep safe.";
+"StartPaperPhrase.body" = "Kunci kertas Anda adalah satu-satunya cara untuk mengembalikan Litewallet Anda jika ponsel Anda hilang, dicuri, rusak, atau ditingkatkan. \n\n Kami akan menunjukkan kepada Anda daftar kata-kata untuk dituliskan di selembar kertas dan tetap aman.";
 
 /* button label */
-"StartPaperPhrase.buttonTitle" = "Write Down Paper Key";
+"StartPaperPhrase.buttonTitle" = "Tuliskan Kunci Kertas";
 
 /* Argument is date */
-"StartPaperPhrase.date" = "You last wrote down your paper key on %1$@";
+"StartPaperPhrase.date" = "Terakhir Anda menuliskan kunci kertas Anda di %1$@";
 
 /* Start view message */
-"StartViewController.message" = "The most secure and safest way to use Litecoin.";
+"StartViewController.message" = "Cara paling aman dan teraman untuk menggunakan Litecoin.";
 
 /* Syncing view connectiong state header text */
-"SyncingView.connecting" = "Connecting";
+"SyncingView.connecting" = "Menghubungkan";
 
 /* Syncing view syncing state header text */
-"SyncingView.syncing" = "Syncing";
+"SyncingView.syncing" = "Sinkronisasi";
 
 /* 6 d (6 days) */
 "TimeSince.days" = "%1$@ d";
@@ -858,283 +863,286 @@
 "TimeSince.seconds" = "%1$@ s";
 
 /* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
-"TouchIdSettings.customizeText" = "You can customize your Touch ID spending limit from the %1$@.";
+"TouchIdSettings.customizeText" = "Anda dapat menyesuaikan batas pengeluaran ID Sentuh Anda dari %1$@.";
 
 /* Touch Id screen label */
-"TouchIdSettings.label" = "Use your fingerprint to unlock your Litewallet and send money up to a set limit.";
+"TouchIdSettings.label" = "Gunakan sidik jari Anda untuk membuka kunci Litewallet Anda dan mengirim uang hingga batas yang ditentukan.";
 
 /*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "%1$@ (%2$@)";
 
 /* Link Text (see TouchIdSettings.customizeText) */
-"TouchIdSettings.linkText" = "Touch ID Spending Limit Screen";
+"TouchIdSettings.linkText" = "Layar Sentuh ID Batas Pengeluaran";
 
 /* Spending Limit: b100,000 ($100) */
-"TouchIdSettings.spendingLimit" = "Spending limit: %1$@ (%2$@)";
+"TouchIdSettings.spendingLimit" = "Batas pengeluaran: %1$@ (%2$@)";
 
 /* Touch id switch label. */
-"TouchIdSettings.switchLabel" = "Enable Touch ID for Litewallet";
+"TouchIdSettings.switchLabel" = "Aktifkan Sentuh ID untuk Litewallet";
 
 /* Touch ID settings view title */
-"TouchIdSettings.title" = "Touch ID";
+"TouchIdSettings.title" = "Sentuh ID";
 
 /* Touch ID unavailable alert message */
-"TouchIdSettings.unavailableAlertMessage" = "You have not set up Touch ID on this device. Go to Settings->Touch ID & Passcode to set it up now.";
+"TouchIdSettings.unavailableAlertMessage" = "Anda belum mengatur Sentuh ID pada perangkat ini. Pergi ke Pengaturan-> Sentuh ID & Kode Sandi untuk mengaturnya sekarang.";
 
 /* Touch ID unavailable alert title */
-"TouchIdSettings.unavailableAlertTitle" = "Touch ID Not Set Up";
+"TouchIdSettings.unavailableAlertTitle" = "Sentuh ID Tidak Diatur";
 
 /* Always require passcode option */
-"TouchIdSpendingLimit" = "Always require passcode";
+"TouchIdSpendingLimit" = "Selalu memerlukan kode sandi";
 
 /* Touch ID spending limit screen body */
-"TouchIdSpendingLimit.body" = "You will be asked to enter your 6-digit PIN to send any transaction over your spending limit, and every 48 hours since the last time you entered your 6-digit PIN.";
+"TouchIdSpendingLimit.body" = "Anda akan diminta memasukkan 6 digit PIN Anda untuk mengirim transaksi apa pun melebihi batas pengeluaran Anda, dan setiap 48 jam sejak terakhir kali Anda memasukkan 6 digit PIN Anda.";
 
 /* Touch Id spending limit screen title */
-"TouchIdSpendingLimit.title" = "Touch ID Spending Limit";
+"TouchIdSpendingLimit.title" = “Sentuh ID Batas Pengeluaran";;
 
 /* Availability status text */
-"Transaction.available" = "Available to Spend";
+"Transaction.available" = "Tersedia untuk Dibelanjakan";
 
 /* Transaction complete label */
-"Transaction.complete" = "Complete";
+"Transaction.complete" = "Lengkap";
 
 /* eg. Ending balance: $50.00 */
-"Transaction.ending" = "Ending balance: %1$@";
+"Transaction.ending" = “Saldo Akhir: %1$@";
 
 /* Exchange rate on date header */
-"Transaction.exchangeOnDayReceived" = "Exchange rate when received:";
+"Transaction.exchangeOnDayReceived" = "Nilai tukar saat diterima:";
 
 /* Exchange rate on date header */
-"Transaction.exchangeOnDaySent" = "Exchange rate when sent:";
+"Transaction.exchangeOnDaySent" = "Nilai tukar saat dikirim:";;
 
 /* (b600 fee) */
-"Transaction.fee" = "(%1$@ fee)";
+"Transaction.fee" = "(%1$@ biaya)";
 
 /* Invalid transaction */
-"Transaction.invalid" = "INVALID";
+"Transaction.invalid" = “TIDAK BENAR";
 
 /* Timestamp label for event that just happened */
-"Transaction.justNow" = "just now";
+"Transaction.justNow" = “baru saja";
 
 /* Receive status text: 'In progress: 20%' */
-"Transaction.receivedStatus" = "In progress: %1$@";
+"Transaction.receivedStatus" = "Berlangsung: %1$@";
 
 /* Send status text: 'In progress: 20%' */
-"Transaction.sendingStatus" = "In progress: %1$@";
+"Transaction.sendingStatus" = "Berlangsung: %1$@";
 
 /* eg. Starting balance: $50.00 */
-"Transaction.starting" = "Starting balance: %1$@";
+"Transaction.starting" = "Saldo Awal: %1$@";
 
 /* Waiting to be confirmed string */
-"Transaction.waiting" = "Waiting to be confirmed. Some merchants require confirmation to complete a transaction. Estimated time: 1-2 hours.";
+"Transaction.waiting" = "Menunggu untuk dikonfirmasi. Beberapa pedagang memerlukan konfirmasi untuk menyelesaikan transaksi. Perkiraan waktu: 1-2 jam.";
 
 /* e.g. I received money from an account. */
-"TransactionDetails.account" = "account";
+"TransactionDetails.account" = "akun";
 
 /* Amount section header */
-"TransactionDetails.amountHeader" = "Amount";
+"TransactionDetails.amountHeader" = "Jumlah";
 
 /* Block height label */
-"TransactionDetails.blockHeightLabel" = "Confirmed in Block";
+"TransactionDetails.blockHeightLabel" = “Konfirmasi di Blok";
 
 /* Memo section header */
 "TransactionDetails.commentsHeader" = "Memo";
 
 /* Empty transaction list message. */
-"TransactionDetails.emptyMessage" = "Your transactions will appear here.";
+"TransactionDetails.emptyMessage" = "Transaksi Anda akan muncul di sini.";
 
 /* [received] at <address> (received title 2/2) */
-"TransactionDetails.from" = "at %1$@";
+"TransactionDetails.from" = "di %1$@";
 
 /* Moved $5.00 */
-"TransactionDetails.moved" = "Moved %1$@";
+"TransactionDetails.moved" = "Pindahkan %1$@";
 
 /* Moved $5.00 */
-"TransactionDetails.movedAmountDescription" = "Moved <b>%1@</b>";
+"TransactionDetails.movedAmountDescription" = "Pindahkan <b>%1@</b>";
 
 /* eg. Confirmed in Block: Not Confirmed */
-"TransactionDetails.notConfirmedBlockHeightLabel" = "Not Confirmed";
+"TransactionDetails.notConfirmedBlockHeightLabel" = “Tidak Dikonfirmasi";
 
 /* Received $5.00 (received title 1/2) */
-"TransactionDetails.received" = "Received %1$@";
+"TransactionDetails.received" = "Terima %1$@";
 
 /* Received $5.00 */
-"TransactionDetails.receivedAmountDescription" = "Received <b>%1@</b>";
+"TransactionDetails.receivedAmountDescription" = "Terima <b>%1@</b>";;
 
 /* Sent $5.00 (sent title 1/2) */
-"TransactionDetails.sent" = "Sent %1$@";
+"TransactionDetails.sent" = "Kirim %1$@";
 
 /* Sent $5.00 */
-"TransactionDetails.sentAmountDescription" = "Sent <b>%1@</b>";
+"TransactionDetails.sentAmountDescription" = "Kirim <b>%1@</b>";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "Status";
 
 /* Transaction Details Title */
-"TransactionDetails.title" = "Transaction Details";
+"TransactionDetails.title" = “Perincian Transaksi";
 
 /* [sent] to <address> (sent title 2/2) */
-"TransactionDetails.to" = "to %1$@";
+"TransactionDetails.to" = "untuk %1$@";
 
 /* Transaction ID header */
-"TransactionDetails.txHashHeader" = "Litecoin Transaction ID";
+"TransactionDetails.txHashHeader" = “ID Transaksi Litecoin";
 
 /* (this transaction was) Received at this address: */
-"TransactionDirection.address" = "Received at this Address";
+"TransactionDirection.address" = “Diterima di Alamat ini";
 
 /* (this transaction was) Sent to this address: */
-"TransactionDirection.to" = "Sent to this Address";
+"TransactionDirection.to" = “Kirim ke Alamat ini";
 
 /* Disabled until date */
-"UnlockScreen.disabled" = "Disabled until: %1$@";
+"UnlockScreen.disabled" = Dinonaktifkan hingga: %1$@";
 
 /* Unlock with FaceID accessibility label */
-"UnlockScreen.faceIdText" = "Unlock with FaceID";
+"UnlockScreen.faceIdText" = “Buka kunci dengan ID Wajah";
 
 /* My Address button title */
-"UnlockScreen.myAddress" = "My Address";
+"UnlockScreen.myAddress" =  “Alamat Saya";
 
 /* Reset PIN with Paper Key button label. */
-"UnlockScreen.resetPin" = "Reset PIN";
+"UnlockScreen.resetPin" = “Atur Ulang PIN";
 
 /* Scan button title */
-"UnlockScreen.scan" = "Scan";
+"UnlockScreen.scan" = "Memindai";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.subheader" = "Masukkan PIN";
 
 /* TouchID/FaceID prompt text */
-"UnlockScreen.touchIdPrompt" = "Unlock your Litewallet.";
+"UnlockScreen.touchIdPrompt" = “Buka Kunci Litewallet Anda.";
 
 /* Unlock with TouchID accessibility label */
-"UnlockScreen.touchIdText" = "Unlock with TouchID";
+"UnlockScreen.touchIdText" = “Buka Kunci dengan Sentuh ID";
 
 /* Wallet unlocked message */
-"UnlockScreen.unlocked" = "Wallet Unlocked";
+"UnlockScreen.unlocked" = “Dompet tidak Terkunci";;
 
 /* Update PIN caption text */
-"UpdatePin.caption" = "Remember this PIN. If you forget it, you won't be able to access your Litecoin.";
+"UpdatePin.caption" = "Ingat PIN ini. Jika Anda lupa, Anda tidak akan dapat mengakses Litecoin Anda.";
 
 /* PIN creation info. */
-"UpdatePin.createInstruction" = "Your PIN will be used to unlock your Litewallet and send money.";
+"UpdatePin.createInstruction" = "PIN Anda akan digunakan untuk membuka kunci Litewallet Anda dan mengirim uang.";
 
 /* Update PIN title */
-"UpdatePin.createTitle" = "Set PIN";
+"UpdatePin.createTitle" = "Tetapkan PIN";
 
 /* Update PIN title */
-"UpdatePin.createTitleConfirm" = "Re-Enter PIN";
+"UpdatePin.createTitleConfirm" = "Masukkan kembali PIN";
 
 /* Enter current PIN instruction */
-"UpdatePin.enterCurrent" = "Enter your current PIN.";
+"UpdatePin.enterCurrent" = "Masukkan PIN Anda sekarang ini.";
 
 /* Enter new PIN instruction */
-"UpdatePin.enterNew" = "Enter your new PIN.";
+"UpdatePin.enterNew" = "Masukkan PIN baru Anda.";
 
 /* Re-Enter new PIN instruction */
-"UpdatePin.reEnterNew" = "Re-Enter your new PIN.";
+"UpdatePin.reEnterNew" = “Masukkan kembali PIN baru Anda.";
 
 /* Update PIN failure error message. */
-"UpdatePin.setPinError" = "Sorry, could not update PIN.";
+"UpdatePin.setPinError" = “Maaf, tidak dapat memperbarui PIN.";;
 
 /* Update PIN failure alert view title */
-"UpdatePin.setPinErrorTitle" = "Update PIN Error";
+"UpdatePin.setPinErrorTitle" = “Perbarui Kesalahan PIN";
 
 /* Update PIN title */
-"UpdatePin.updateTitle" = "Update PIN";
+"UpdatePin.updateTitle" = "Perbarui PIN";
 
 /* Authorize to copy wallet addresses alert message */
-"URLHandling.addressaddressListAlertMessage" = "Copy wallet addresses to clipboard?";
+"URLHandling.addressaddressListAlertMessage" = "Salin alamat dompet ke papan klip?";
 
 /* Authorize to copy wallet address PIN view prompt. */
-"URLHandling.addressList" = "Authorize to copy wallet address to clipboard";
+"URLHandling.addressList" = "Otorisasi untuk menyalin alamat dompet ke papan klip";
 
 /* Authorize to copy wallet address alert title */
-"URLHandling.addressListAlertTitle" = "Copy Wallet Addresses";
+"URLHandling.addressListAlertTitle" = “Salin Alamat Dompet";
 
 /* Copy wallet addresses alert button label */
-"URLHandling.copy" = "Copy";
+"URLHandling.copy" = "Salin";
 
 /* Verify PIN for transaction view body */
-"VerifyPin.authorize" = "Please enter your PIN to authorize this transaction.";
+"VerifyPin.authorize" = “Silahkan masukkan PIN Anda untuk otorisasi transaksi ini.";
 
 /* Verify PIN view body */
-"VerifyPin.continueBody" = "Please enter your PIN to continue.";
+"VerifyPin.continueBody" = “Silahkan masukkan PIN Anda untuk melanjutkan.";
 
 /* Verify PIN view title */
-"VerifyPin.title" = "PIN Required";
+"VerifyPin.title" = “Dibutuhkan PIN";
 
 /* Authorize transaction with touch id message */
-"VerifyPin.touchIdMessage" = "Authorize this transaction";
+"VerifyPin.touchIdMessage" = “Otorisasi transaksi ini";
 
 /* 'No wallet' warning for watch app */
-"Watch.noWalletWarning" = "Open the Litewallet iPhone app to set up your wallet.";
+"Watch.noWalletWarning" = "Buka aplikasi iPhone Litewallet untuk mengatur dompet Anda.";
 
 /* Dismiss button label */
-"Webview.dismiss" = "Dismiss";
+"Webview.dismiss" = "Memberhentikan";
 
 /* Webview loading error message */
-"Webview.errorMessage" = "There was an error loading the content. Please try again.";
+"Webview.errorMessage" = "Terjadi kesalahan saat memuat konten. Silakan coba lagi.";
 
 /* Updating webview message */
-"Webview.updating" = "Updating...";
+"Webview.updating" = "Memperbarui...";
 
 /* Welcome view body text */
-"Welcome.body" = "Litewallet now has a brand new look and some new features.\n\nIf you need help, look for the (?) in the top right of most screens. All coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).";
+"Welcome.body" = "Litewallet sekarang memiliki tampilan baru dan beberapa fitur baru.\n\nJika Anda butuh bantuan, cari (?) Di kanan atas sebagian besar layar. Semua koin ditampilkan dalam lites(ł). 1 Litecoin (Ł) = 1000 lites (ł).";
 
 /* Welcome view title */
-"Welcome.title" = "Welcome to Litewallet!";
+"Welcome.title" = “Selamat dating di Litewallet!";
 
 /* Wipe wallet alert message */
-"WipeWallet.alertMessage" = "Are you sure you want to delete this wallet?";
+"WipeWallet.alertMessage" = "Yakin ingin menghapus dompet ini?";
 
 /* Wipe wallet alert title */
-"WipeWallet.alertTitle" = "Wipe Wallet?";
+"WipeWallet.alertTitle" = "Hapus Dompet?";
 
 /* Warning if user lost phrase */
-"WipeWallet.emptyWallet" = "Forget your seed phrase or PIN?";
+"WipeWallet.emptyWallet" = "Lupakan frasa atau PIN awal Anda?";
 
 /* Failed wipe wallet alert message */
-"WipeWallet.failedMessage" = "Failed to wipe wallet.";
+"WipeWallet.failedMessage" = “Gagal menghapus dompet.";
 
 /* Failed wipe wallet alert title */
-"WipeWallet.failedTitle" = "Failed";
+"WipeWallet.failedTitle" = "Gagal";
 
 /* Enter key to wipe wallet instruction. */
-"WipeWallet.instruction" = "To start a new wallet or restore an existing wallet, you must first erase the wallet that is currently installed. To continue, enter the current wallet's Paper Key.";
+"WipeWallet.instruction" = "Untuk memulai dompet baru atau mengembalikan dompet yang ada, Anda harus terlebih dahulu menghapus dompet yang saat ini dipasang. Untuk melanjutkan, masukkan Kunci Kertas dompet saat ini.";
 
 /* Start wipe wallet view message */
-"WipeWallet.startMessage" = "Starting or recovering another wallet allows you to access and manage a different Litewallet wallet on this device.";
+"WipeWallet.startMessage" = "Memulai atau memulihkan dompet lain memungkinkan Anda mengakses dan mengelola dompet Litewallet berbeda di perangkat ini.";
 
 /* Start wipe wallet view warning */
-"WipeWallet.startWarning" = "Your current wallet will be removed from this device. If you wish to restore it in the future, you will need to enter your Paper Key.";
+"WipeWallet.startWarning" = "Dompet Anda saat ini akan dihapus dari perangkat ini. Jika Anda ingin mengembalikannya di masa mendatang, Anda harus memasukkan Kunci Kertas Anda.";
 
 /* Wipe wallet navigation item title. */
-"WipeWallet.title" = "Start or Recover Another Wallet";
+"WipeWallet.title" = "Mulai atau Pulihkan Dompet Lainnya";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "DO NOT LOSE IT!";
+"WipeWallet.warningAlert" = “JANGAN KEHILANGAN!";;
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Your LiteWallet is empty. Reseting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.";
+"WipeWallet.warningDescription" = "LiteWallet Anda kosong. Mengatur slang akan menghapus kunci pribadi lama dan menghapus data aplikasi.\n\nSetelah atur ulang, bersiaplah untuk merekam 12 kata baru dan simpan di tempat yang sangat aman. \n\nTidak ada pengembang LiteWallet yang dapat mengambil benih ini untuk Anda.";
 
 /* Warning title */
-"WipeWallet.warningTitle" = "PLEASE READ!";
+"WipeWallet.warningTitle" = “TOLONG BACA!";
 
 /* Wipe wallet button title */
-"WipeWallet.wipe" = "Wipe";
+"WipeWallet.wipe" = "Hapus";
 
 /* Wiping activity message */
-"WipeWallet.wiping" = "Wiping...";
+"WipeWallet.wiping" =  "Menghapus...";
 
 /* Paper key instructions. */
-"WritePaperPhrase.instruction" = "Write down each word in order and store it in a safe place.";
+"WritePaperPhrase.instruction" = "Tuliskan setiap kata secara berurutan dan simpan di tempat yang aman.";
 
 /* button label */
-"WritePaperPhrase.next" = "Next";
+"WritePaperPhrase.next" = "Lanjut";
 
 /* button label */
-"WritePaperPhrase.previous" = "Previous";
+"WritePaperPhrase.previous" = "Sebelumnya";
 
 /* 1 of 3 */
-"WritePaperPhrase.step" = "%1$d of %2$d";
+"WritePaperPhrase.step" = "%1$d dari %2$d";
 
 /* Buy Bar Item Title */
 "BuyCenter.barItemTitle" = "";
@@ -1172,6 +1180,9 @@
 /* Send Bar Item Title */
 "Send.barItemTitle" = "";
 
+/* Spend Bar Item Title */
+"Spend.barItemTitle" = "";
+
 /* Syncing view connection state header text */
 "SyncingHeader.connecting" = "";
 
@@ -1202,9 +1213,6 @@
 /* Static TX iD Label */
 "Transaction.txIDLabel" = "";
 
-/* Less button title */
-"TransactionDetails.less" = "";
-
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";
 
@@ -1216,3 +1224,91 @@
 
 /* Unlock Screen sub-header */
 "UnlockScreen.enterPin" = "";
+
+//////////////////////////////
+/* as of a time or date */
+"Conjunction.asOf" = "as of";
+
+/* No comment provided by engineer. */
+"Copy" = "";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "BELI";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Detail pertukaran
+:";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "BIAYA:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "ALAMAT:";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "SEJARAH";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "TERIMA";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "KIRIM";
+
+/* Less button title */
+"TransactionDetails.less" = "Kurang...";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "pada";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "ALAMAT PENERIMA";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "MASUKAN PIN";
+
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Detail jumlah:";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "BLOK:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Memo:";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Detail jumlah akhir transaksi";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Detail jumlah mulai transaksi";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Menghubungkan...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Berhasil!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Sinkronisasi...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Pemindaian ulang...";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Terus";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "Membatalkan";
+
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Memungkinkan";
+
+
+/* Dismiss button. */
+"Prompts.dismiss" = "MEMBERHENTIKAN";

@@ -1016,9 +1016,6 @@
 /* Less button title */
 "TransactionDetails.less" = "もっと少なく";
 
-/* Less button title */
-"TransactionDetails.less" = "もっと少なく";
-
 /* Moved $5.00 (as in "I moved $5 to another location") */
 "TransactionDetails.moved" = "%1$@を移動させました";
 
