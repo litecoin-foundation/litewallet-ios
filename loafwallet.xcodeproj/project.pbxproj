@@ -649,9 +649,6 @@
 		1B3F74221FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSpendingLimitViewController.swift; path = src/ViewControllers/BiometricsSpendingLimitViewController.swift; sourceTree = "<group>"; };
 		1B86CF1B2091554C00BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1B86CF1C2091558000BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
-		1B86CF1D209155A700BCE82E /* Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Dev.plist; sourceTree = "<group>"; };
-		1B86CF1E209155BB00BCE82E /* Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Dev.plist; sourceTree = "<group>"; };
-		1B86CF1F2091560700BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1BA74B85206AD60A0083BD2A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1BA74B86206AD60A0083BD2A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1BA9FE3B216F68A600BB2DE8 /* BRBech32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBech32.h; sourceTree = "<group>"; };
@@ -3263,7 +3260,6 @@
 				75A2A7F71DA5935F00A983D8 /* MainInterface.storyboard */,
 				75A2A7FA1DA5935F00A983D8 /* Assets.xcassets */,
 				75A2A7FC1DA5935F00A983D8 /* Info.plist */,
-				1B86CF1D209155A700BCE82E /* Dev.plist */,
 			);
 			path = MessagesExtension;
 			sourceTree = "<group>";
@@ -3281,7 +3277,6 @@
 				CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */,
 				75A2A80E1DA5936F00A983D8 /* MainInterface.storyboard */,
 				75A2A8111DA5936F00A983D8 /* Info.plist */,
-				1B86CF1E209155BB00BCE82E /* Dev.plist */,
 				CE916E291EDA7E4400D641D6 /* Media.xcassets */,
 			);
 			path = TodayExtension;
@@ -3292,7 +3287,6 @@
 			children = (
 				75A2A81E1DA5938500A983D8 /* NotificationService.swift */,
 				75A2A8201DA5938500A983D8 /* Info.plist */,
-				1B86CF1F2091560700BCE82E /* Dev.plist */,
 			);
 			path = NotificationServiceExtension;
 			sourceTree = "<group>";
