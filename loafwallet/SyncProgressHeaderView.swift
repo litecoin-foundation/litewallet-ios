@@ -36,6 +36,7 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber {
     var timestamp: UInt32 = 0 {
         didSet {
             timestampLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: Double(timestamp)))
+            timestampLabel.setNeedsDisplay()
         }
     }
     var isRescanning: Bool = false {
@@ -61,6 +62,7 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 2) 
     } 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

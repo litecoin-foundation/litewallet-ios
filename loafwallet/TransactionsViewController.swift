@@ -66,6 +66,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         self.transactions = TransactionManager.sharedInstance.transactions
         self.rate = TransactionManager.sharedInstance.rate
         tableView.backgroundColor = .liteWalletBlue
+        
+        self.syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
+        owner: self,
+        options: nil)?.first as? SyncProgressHeaderView
         attemptShowPrompt()
     }
     
@@ -106,25 +110,21 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             self.syncingHeaderView?.noSendImageView.alpha = 1.0
             self.syncingHeaderView?.timestamp = state.walletState.lastBlockTimestamp
             self.shouldBeSyncing = true
-             self.reload()
         } else if state.walletState.syncProgress > 0.95 {
             self.shouldBeSyncing = false
             self.syncingHeaderView = nil
-            self.reload()
         } else {
             self.shouldBeSyncing = true
             self.syncingHeaderView?.progress = CGFloat(state.walletState.syncProgress)
             self.syncingHeaderView?.headerMessage = state.walletState.syncState
             self.syncingHeaderView?.timestamp = state.walletState.lastBlockTimestamp
-            self.syncingHeaderView?.noSendImageView.alpha = 0.0 
+            self.syncingHeaderView?.noSendImageView.alpha = 0.0
         }
+        self.reload()
         })
         
         store.subscribe(self, selector: { $0.walletState.syncState != $1.walletState.syncState },
                      callback: { state in
-            self.syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
-                                                              owner: self,
-                                                              options: nil)?.first as? SyncProgressHeaderView
             guard let _ = self.walletManager?.peerManager else {
               assertionFailure("PEER MANAGER Not initialized")
             return

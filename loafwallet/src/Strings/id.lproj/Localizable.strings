@@ -1,3 +1,4 @@
+
 /* About screen website label */
 "About.blog" = "Situs Web";
 
@@ -57,9 +58,6 @@
 
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Pengiriman gagal";
-
-/* Send success alert header label (confirmation that the send happened) */
-"Alerts.sendSuccess" = “Mengkonfirmasi Pengiriman";
 
 /* Send success alert subheader label (e.g. the money was sent) */
 "Alerts.sendSuccessSubheader" = "Uang Terkirim!";
@@ -169,12 +167,6 @@
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "Changelly";
 
-/* Coinbase buy financial details */
-"BuyCenter.coinbaseFinancialDetails" = "• Membeli Litecoin\n• Tersedia di 33 negara\n• Tukar dan simpan Litecoin Anda\n• Mudah untuk cryptocurrency pemula";
-
-/* Coinbase Title */
-"BuyCenter.CoinbaseTitle" = "Coinbase";
-
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Membeli Łitecoin"; Łitecoin";
 
@@ -228,9 +220,6 @@
 
 /* Litecoin denomination picker label */
 "DefaultCurrency.bitcoinLabel" = "Unit Tampilan Litecoin";
-
-/* Exchange rate label */
-"DefaultCurrency.rateLabel" = “Nilai Tukar";
 
 /* Donate Memo */
 "Donate.memo" = "Sumbangan untuk Yayasan Litecoin";
@@ -382,9 +371,6 @@
 /* No permissions for location services */
 "LocationPlugin.notAuthorized" = "Litewallet tidak memiliki izin untuk mengakses layanan lokasi.";
 
-/* No comment provided by engineer. */
-"Malformed URI" = “URI Cacat";
-
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Anda membuat dompet Anda di %1$@";
 
@@ -450,9 +436,6 @@
 
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin Nodes";
-
-/* Bad Payment request alert title */
-"PaymentProtocol.Errors.badPaymentRequest" = “Permintaan Pembayaran yang Buruk";
 
 /* Error opening payment protocol file message */
 "PaymentProtocol.Errors.corruptedDocument" = "Dokumen tidak didukung atau rusak";
@@ -634,9 +617,6 @@
 /* Reset walet button  title */
 "resetButton" = "Ya, atur ulang dompet";
 
-/* Warning Empty Wipe title */
-"resetTitle" = “Atur ulang Dompet Kosong";
-
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Flash Kamera";
 
@@ -651,9 +631,6 @@
 
 /* Sent filter label */
 "Search.sent" = "dikirim";
-
-/* Face ID button title */
-"SecurityCenter.faceIdTitle" = “ID Wajah";
 
 /* Security Center Info */
 "SecurityCenter.info" = "Aktifkan semua fitur keamanan untuk perlindungan maksimal.";
@@ -895,17 +872,11 @@
 /* Touch ID spending limit screen body */
 "TouchIdSpendingLimit.body" = "Anda akan diminta memasukkan 6 digit PIN Anda untuk mengirim transaksi apa pun melebihi batas pengeluaran Anda, dan setiap 48 jam sejak terakhir kali Anda memasukkan 6 digit PIN Anda.";
 
-/* Touch Id spending limit screen title */
-"TouchIdSpendingLimit.title" = “Sentuh ID Batas Pengeluaran";;
-
 /* Availability status text */
 "Transaction.available" = "Tersedia untuk Dibelanjakan";
 
 /* Transaction complete label */
 "Transaction.complete" = "Lengkap";
-
-/* eg. Ending balance: $50.00 */
-"Transaction.ending" = “Saldo Akhir: %1$@";
 
 /* Exchange rate on date header */
 "Transaction.exchangeOnDayReceived" = "Nilai tukar saat diterima:";
@@ -915,12 +886,6 @@
 
 /* (b600 fee) */
 "Transaction.fee" = "(%1$@ biaya)";
-
-/* Invalid transaction */
-"Transaction.invalid" = “TIDAK BENAR";
-
-/* Timestamp label for event that just happened */
-"Transaction.justNow" = “baru saja";
 
 /* Receive status text: 'In progress: 20%' */
 "Transaction.receivedStatus" = "Berlangsung: %1$@";
@@ -940,9 +905,6 @@
 /* Amount section header */
 "TransactionDetails.amountHeader" = "Jumlah";
 
-/* Block height label */
-"TransactionDetails.blockHeightLabel" = “Konfirmasi di Blok";
-
 /* Memo section header */
 "TransactionDetails.commentsHeader" = "Memo";
 
@@ -952,14 +914,14 @@
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "di %1$@";
 
+/* Less button title */
+"TransactionDetails.less" = "Kurang...";
+
 /* Moved $5.00 */
 "TransactionDetails.moved" = "Pindahkan %1$@";
 
 /* Moved $5.00 */
 "TransactionDetails.movedAmountDescription" = "Pindahkan <b>%1@</b>";
-
-/* eg. Confirmed in Block: Not Confirmed */
-"TransactionDetails.notConfirmedBlockHeightLabel" = “Tidak Dikonfirmasi";
 
 /* Received $5.00 (received title 1/2) */
 "TransactionDetails.received" = "Terima %1$@";
@@ -976,47 +938,11 @@
 /* Status section header */
 "TransactionDetails.statusHeader" = "Status";
 
-/* Transaction Details Title */
-"TransactionDetails.title" = “Perincian Transaksi";
-
 /* [sent] to <address> (sent title 2/2) */
 "TransactionDetails.to" = "untuk %1$@";
 
-/* Transaction ID header */
-"TransactionDetails.txHashHeader" = “ID Transaksi Litecoin";
-
-/* (this transaction was) Received at this address: */
-"TransactionDirection.address" = “Diterima di Alamat ini";
-
-/* (this transaction was) Sent to this address: */
-"TransactionDirection.to" = “Kirim ke Alamat ini";
-
-/* Disabled until date */
-"UnlockScreen.disabled" = Dinonaktifkan hingga: %1$@";
-
-/* Unlock with FaceID accessibility label */
-"UnlockScreen.faceIdText" = “Buka kunci dengan ID Wajah";
-
-/* My Address button title */
-"UnlockScreen.myAddress" =  “Alamat Saya";
-
-/* Reset PIN with Paper Key button label. */
-"UnlockScreen.resetPin" = “Atur Ulang PIN";
-
 /* Scan button title */
 "UnlockScreen.scan" = "Memindai";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.subheader" = "Masukkan PIN";
-
-/* TouchID/FaceID prompt text */
-"UnlockScreen.touchIdPrompt" = “Buka Kunci Litewallet Anda.";
-
-/* Unlock with TouchID accessibility label */
-"UnlockScreen.touchIdText" = “Buka Kunci dengan Sentuh ID";
-
-/* Wallet unlocked message */
-"UnlockScreen.unlocked" = “Dompet tidak Terkunci";;
 
 /* Update PIN caption text */
 "UpdatePin.caption" = "Ingat PIN ini. Jika Anda lupa, Anda tidak akan dapat mengakses Litecoin Anda.";
@@ -1036,15 +962,6 @@
 /* Enter new PIN instruction */
 "UpdatePin.enterNew" = "Masukkan PIN baru Anda.";
 
-/* Re-Enter new PIN instruction */
-"UpdatePin.reEnterNew" = “Masukkan kembali PIN baru Anda.";
-
-/* Update PIN failure error message. */
-"UpdatePin.setPinError" = “Maaf, tidak dapat memperbarui PIN.";;
-
-/* Update PIN failure alert view title */
-"UpdatePin.setPinErrorTitle" = “Perbarui Kesalahan PIN";
-
 /* Update PIN title */
 "UpdatePin.updateTitle" = "Perbarui PIN";
 
@@ -1054,23 +971,8 @@
 /* Authorize to copy wallet address PIN view prompt. */
 "URLHandling.addressList" = "Otorisasi untuk menyalin alamat dompet ke papan klip";
 
-/* Authorize to copy wallet address alert title */
-"URLHandling.addressListAlertTitle" = “Salin Alamat Dompet";
-
 /* Copy wallet addresses alert button label */
 "URLHandling.copy" = "Salin";
-
-/* Verify PIN for transaction view body */
-"VerifyPin.authorize" = “Silahkan masukkan PIN Anda untuk otorisasi transaksi ini.";
-
-/* Verify PIN view body */
-"VerifyPin.continueBody" = “Silahkan masukkan PIN Anda untuk melanjutkan.";
-
-/* Verify PIN view title */
-"VerifyPin.title" = “Dibutuhkan PIN";
-
-/* Authorize transaction with touch id message */
-"VerifyPin.touchIdMessage" = “Otorisasi transaksi ini";
 
 /* 'No wallet' warning for watch app */
 "Watch.noWalletWarning" = "Buka aplikasi iPhone Litewallet untuk mengatur dompet Anda.";
@@ -1087,9 +989,6 @@
 /* Welcome view body text */
 "Welcome.body" = "Litewallet sekarang memiliki tampilan baru dan beberapa fitur baru.\n\nJika Anda butuh bantuan, cari (?) Di kanan atas sebagian besar layar. Semua koin ditampilkan dalam lites(ł). 1 Litecoin (Ł) = 1000 lites (ł).";
 
-/* Welcome view title */
-"Welcome.title" = “Selamat dating di Litewallet!";
-
 /* Wipe wallet alert message */
 "WipeWallet.alertMessage" = "Yakin ingin menghapus dompet ini?";
 
@@ -1098,9 +997,6 @@
 
 /* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "Lupakan frasa atau PIN awal Anda?";
-
-/* Failed wipe wallet alert message */
-"WipeWallet.failedMessage" = “Gagal menghapus dompet.";
 
 /* Failed wipe wallet alert title */
 "WipeWallet.failedTitle" = "Gagal";
@@ -1117,20 +1013,14 @@
 /* Wipe wallet navigation item title. */
 "WipeWallet.title" = "Mulai atau Pulihkan Dompet Lainnya";
 
-/* Warning Alert */
-"WipeWallet.warningAlert" = “JANGAN KEHILANGAN!";;
-
 /* Warning description */
 "WipeWallet.warningDescription" = "LiteWallet Anda kosong. Mengatur slang akan menghapus kunci pribadi lama dan menghapus data aplikasi.\n\nSetelah atur ulang, bersiaplah untuk merekam 12 kata baru dan simpan di tempat yang sangat aman. \n\nTidak ada pengembang LiteWallet yang dapat mengambil benih ini untuk Anda.";
-
-/* Warning title */
-"WipeWallet.warningTitle" = “TOLONG BACA!";
 
 /* Wipe wallet button title */
 "WipeWallet.wipe" = "Hapus";
 
 /* Wiping activity message */
-"WipeWallet.wiping" =  "Menghapus...";
+"WipeWallet.wiping" = "Menghapus...";
 
 /* Paper key instructions. */
 "WritePaperPhrase.instruction" = "Tuliskan setiap kata secara berurutan dan simpan di tempat yang aman.";
@@ -1143,6 +1033,9 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d dari %2$d";
+
+/* Send success alert header label (confirmation that the send happened) */
+"Alerts.sendSuccess" = "";
 
 /* Buy Bar Item Title */
 "BuyCenter.barItemTitle" = "";
@@ -1162,8 +1055,20 @@
 /* No comment provided by engineer. */
 "Copy" = "";
 
+/* Exchange rate label */
+"DefaultCurrency.rateLabel" = "";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "";
+
+/* Http error code */
+"Malformed URI" = "";
+
+/* Bad Payment request alert title */
+"PaymentProtocol.Errors.badPaymentRequest" = "";
+
+/* Output too small error message. */
+"PaymentProtocol.Errors.smallTransaction" = "";
 
 /* Affirm button title. */
 "Prompts.PaperKey.affirm" = "";
@@ -1177,11 +1082,20 @@
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "";
 
+/* Reset PIN with paper key: sub-header */
+"RecoverWallet.subheader_reset_pin" = "";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "";
+
+/* Received filter label */
+"Search.received" = "";
+
+/* Face ID button title */
+"SecurityCenter.faceIdTitle" = "";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "";
-
-/* Spend Bar Item Title */
-"Spend.barItemTitle" = "";
 
 /* Syncing view connection state header text */
 "SyncingHeader.connecting" = "";
@@ -1195,6 +1109,9 @@
 /* Syncing view syncing state header text */
 "SyncingHeader.syncing" = "";
 
+/* Touch Id spending limit screen title */
+"TouchIdSpendingLimit.title" = "";
+
 /* Static amount Label */
 "Transaction.amountDetailLabel" = "";
 
@@ -1207,11 +1124,29 @@
 /* Static end amount Label */
 "Transaction.endAmountDetailLabel" = "";
 
+/* eg. Ending balance: $50.00 */
+"Transaction.ending" = "";
+
+/* (b600 fee) */
+"Transaction.fee" = "";
+
+/* Invalid transaction */
+"Transaction.invalid" = "";
+
+/* Timestamp label for event that just happened */
+"Transaction.justNow" = "";
+
 /* Static starting amount Label */
 "Transaction.startingAmountDetailLabel" = "";
 
 /* Static TX iD Label */
 "Transaction.txIDLabel" = "";
+
+/* Block height label */
+"TransactionDetails.blockHeightLabel" = "";
+
+/* eg. Confirmed in Block: Not Confirmed */
+"TransactionDetails.notConfirmedBlockHeightLabel" = "";
 
 /* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "";
@@ -1219,96 +1154,80 @@
 /* RECEIVE LTCTitle */
 "TransactionDetails.receivedModalTitle" = "";
 
+/* Sent $5.00 (sent title 1/2) */
+"TransactionDetails.sent" = "";
+
 /* Label for TXID */
 "TransactionDetails.staticTXLabel" = "";
+
+/* Transaction Details Title */
+"TransactionDetails.title" = "";
+
+/* Transaction ID header */
+"TransactionDetails.txHashHeader" = "";
+
+/* (this transaction was) Received at this address: */
+"TransactionDirection.address" = "";
+
+/* (this transaction was) Sent to this address: */
+"TransactionDirection.to" = "";
+
+/* Disabled until date */
+"UnlockScreen.disabled" = "";
 
 /* Unlock Screen sub-header */
 "UnlockScreen.enterPin" = "";
 
-//////////////////////////////
-/* as of a time or date */
-"Conjunction.asOf" = "as of";
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "";
 
-/* No comment provided by engineer. */
-"Copy" = "";
+/* My Address button title */
+"UnlockScreen.myAddress" = "";
 
-/* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "BELI";
+/* Reset PIN with Paper Key button label. */
+"UnlockScreen.resetPin" = "";
 
-/* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "Detail pertukaran
-:";
+/* TouchID/FaceID prompt text */
+"UnlockScreen.touchIdPrompt" = "";
 
-/* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "BIAYA:";
+/* Unlock with TouchID accessibility label */
+"UnlockScreen.touchIdText" = "";
 
-/* Address label */
-"Confirmation.staticAddressLabel" = "ALAMAT:";
+/* Wallet unlocked message */
+"UnlockScreen.unlocked" = "";
 
-/* History Bar Item Title */
-"History.barItemTitle" = "SEJARAH";
+/* Re-Enter new PIN instruction */
+"UpdatePin.reEnterNew" = "";
 
-/* Receive Bar Item Title */
-"Receive.barItemTitle" = "TERIMA";
+/* Update PIN failure error message. */
+"UpdatePin.setPinError" = "";
 
-/* Send Bar Item Title */
-"Send.barItemTitle" = "KIRIM";
+/* Update PIN failure alert view title */
+"UpdatePin.setPinErrorTitle" = "";
 
-/* Less button title */
-"TransactionDetails.less" = "Kurang...";
+/* Authorize to copy wallet address alert title */
+"URLHandling.addressListAlertTitle" = "";
 
-/* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "pada";
+/* Verify PIN for transaction view body */
+"VerifyPin.authorize" = "";
 
-/* RECEIVE LTCTitle */
-"TransactionDetails.receivedModalTitle" = "ALAMAT PENERIMA";
+/* Verify PIN view body */
+"VerifyPin.continueBody" = "";
 
-/* Label for TXID */
-"TransactionDetails.staticTXLabel" = "TXID:";
+/* Verify PIN view title */
+"VerifyPin.title" = "";
 
-/* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "MASUKAN PIN";
+/* Authorize transaction with touch id message */
+"VerifyPin.touchIdMessage" = "";
 
-/* Static amount Label */
-"Transaction.amountDetailLabel" = "Detail jumlah:";
+/* Welcome view title */
+"Welcome.title" = "";
 
-/* Static blockHeight Label */
-"Transaction.blockHeightLabel" = "BLOK:";
+/* Failed wipe wallet alert message */
+"WipeWallet.failedMessage" = "";
 
-/* Static comment Label */
-"Transaction.commentLabel" = "Memo:";
+/* Warning Alert */
+"WipeWallet.warningAlert" = "";
 
-/* Static TX iD Label */
-"Transaction.txIDLabel" = "Tx ID:";
-
-/* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "Detail jumlah akhir transaksi";
-
-/* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "Detail jumlah mulai transaksi";
-
-/* Syncing view connection state header text */
-"SyncingHeader.connecting" = "Menghubungkan...";
-
-/* Syncing header success state header text */
-"SyncingHeader.success" = "Berhasil!";
-
-/* Syncing view syncing state header text */
-"SyncingHeader.syncing" = "Sinkronisasi...";
-
-/* Rescanning header success state header text */
-"SyncingHeader.rescan" = "Pemindaian ulang...";
-
-/* Affirm button title. */
-"Prompts.PaperKey.affirm" = "Terus";
-
-/* Cancel button. */
-"Prompts.PaperKey.cancel" = "Membatalkan";
-
-
-/* Enable button. */
-"Prompts.PaperKey.enable" = "Memungkinkan";
-
-
-/* Dismiss button. */
-"Prompts.dismiss" = "MEMBERHENTIKAN";
+/* Warning title */
+"WipeWallet.warningTitle" = "";
