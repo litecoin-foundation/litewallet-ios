@@ -803,6 +803,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
 
+/* Change Languages label */
+"Settings.changelanguage" = "Change Language";
+
 /* Default currency label */
 "Settings.currency" = "Display Currency";
 
@@ -817,6 +820,9 @@
 
 /* Import wallet label */
 "Settings.importTitle" = "Import Wallet";
+
+/* Languages label */
+"Settings.languages" = "Languages";
 
 /* Manage settings section header */
 "Settings.manage" = "Manage";

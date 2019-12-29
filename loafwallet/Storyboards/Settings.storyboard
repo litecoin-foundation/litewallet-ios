@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="BarlowSemiCondensed-Light.ttf">
+            <string>BarlowSemiCondensed-Light</string>
+        </array>
+        <array key="BarlowSemiCondensed-Medium.ttf">
+            <string>BarlowSemiCondensed-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Languages View Controller-->
+        <scene sceneID="8lJ-N7-qYG">
+            <objects>
+                <viewController storyboardIdentifier="LanguagesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gn6-Nf-J2L" customClass="LanguagesViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YHx-tj-IDE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ANz-3S-nUd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="languagesCell" rowHeight="60" id="Kx9-DE-EOL" customClass="LanguagesTableViewCell" customModule="loafwallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kx9-DE-EOL" id="wjd-GO-HlN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g7-6l-AQu">
+                                                    <rect key="frame" x="20" y="19" width="37.5" height="22"/>
+                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CircleCheck" translatesAutoresizingMaskIntoConstraints="NO" id="LDB-lx-QV4">
+                                                    <rect key="frame" x="364" y="15" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="4cK-sZ-K9k"/>
+                                                        <constraint firstAttribute="width" constant="30" id="MGB-tm-owW"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9g7-6l-AQu" firstAttribute="centerY" secondItem="wjd-GO-HlN" secondAttribute="centerY" id="KN6-Oa-L4H"/>
+                                                <constraint firstItem="9g7-6l-AQu" firstAttribute="leading" secondItem="wjd-GO-HlN" secondAttribute="leading" constant="20" id="YZG-8O-fK8"/>
+                                                <constraint firstAttribute="trailing" secondItem="LDB-lx-QV4" secondAttribute="trailing" constant="20" id="aFi-wI-Vn7"/>
+                                                <constraint firstItem="LDB-lx-QV4" firstAttribute="centerY" secondItem="wjd-GO-HlN" secondAttribute="centerY" id="x9A-yi-352"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fullNameLabel" destination="9g7-6l-AQu" id="Ikn-qe-184"/>
+                                            <outlet property="selectionImageView" destination="LDB-lx-QV4" id="qCB-Wk-DV7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gn6-Nf-J2L" id="iV0-J0-KBA"/>
+                                    <outlet property="delegate" destination="gn6-Nf-J2L" id="0Cw-b9-Ewd"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xnq-Nn-OSX">
+                                <rect key="frame" x="0.0" y="742" width="414" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8m9-EL-XTe">
+                                        <rect key="frame" x="20" y="38" width="374" height="44"/>
+                                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="h9J-UE-nCk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapChangeLanguageAction:" destination="gn6-Nf-J2L" eventType="touchUpInside" id="CUS-Lw-qEq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="CAQ-0e-rk8"/>
+                                    <constraint firstItem="8m9-EL-XTe" firstAttribute="centerX" secondItem="Xnq-Nn-OSX" secondAttribute="centerX" id="Wbu-fF-UkE"/>
+                                    <constraint firstItem="8m9-EL-XTe" firstAttribute="centerY" secondItem="Xnq-Nn-OSX" secondAttribute="centerY" id="nzt-Pg-Fsc"/>
+                                    <constraint firstAttribute="trailing" secondItem="8m9-EL-XTe" secondAttribute="trailing" constant="20" id="qKY-iB-ccS"/>
+                                    <constraint firstItem="8m9-EL-XTe" firstAttribute="leading" secondItem="Xnq-Nn-OSX" secondAttribute="leading" constant="20" id="znR-Ty-mSl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="ANz-3S-nUd" firstAttribute="leading" secondItem="Afw-GA-dKW" secondAttribute="leading" id="1im-pX-mn1"/>
+                            <constraint firstItem="Afw-GA-dKW" firstAttribute="trailing" secondItem="ANz-3S-nUd" secondAttribute="trailing" id="8PD-H8-0yA"/>
+                            <constraint firstItem="Xnq-Nn-OSX" firstAttribute="leading" secondItem="Afw-GA-dKW" secondAttribute="leading" id="CAG-6p-yIU"/>
+                            <constraint firstItem="Afw-GA-dKW" firstAttribute="bottom" secondItem="Xnq-Nn-OSX" secondAttribute="bottom" id="dwB-qs-2YV"/>
+                            <constraint firstItem="Xnq-Nn-OSX" firstAttribute="top" secondItem="ANz-3S-nUd" secondAttribute="bottom" id="i3E-8V-Jlq"/>
+                            <constraint firstItem="Afw-GA-dKW" firstAttribute="trailing" secondItem="Xnq-Nn-OSX" secondAttribute="trailing" id="t8Z-dd-Zof"/>
+                            <constraint firstItem="ANz-3S-nUd" firstAttribute="top" secondItem="Afw-GA-dKW" secondAttribute="top" id="wGv-xd-4IB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Afw-GA-dKW"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomContainerView" destination="Xnq-Nn-OSX" id="JVT-8U-qMm"/>
+                        <outlet property="changeLanguageButton" destination="8m9-EL-XTe" id="ehu-1J-UaM"/>
+                        <outlet property="tableView" destination="ANz-3S-nUd" id="Uc6-21-Fmn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgn-Ey-bxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.623188405797109" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CircleCheck" width="16" height="16"/>
+    </resources>
+    <color key="tintColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

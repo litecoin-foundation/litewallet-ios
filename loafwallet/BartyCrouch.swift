@@ -29,7 +29,9 @@ enum BartyCrouch {
         case portuguese = "pt"
         case russian = "ru"
         case spanish = "es"
-        case turkish = "tr"
+        case danish = "da"
+        case dutch = "nl"
+        case swedish = "sv"
     }
 
     static func translate(key: String, translations: [SupportedLanguage: String], comment: String? = nil) -> String {

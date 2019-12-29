@@ -803,6 +803,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "blockchain";
 
+/* Change Languages label */
+"Settings.changelanguage" = "Skift sprog";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Vis valuta";
 
@@ -817,6 +820,9 @@
 
 /* Import wallet label */
 "Settings.importTitle" = "Importer pung";
+
+/* Languages label */
+"Settings.languages" = "Sprog";
 
 /* Manage settings section header */
 "Settings.manage" = "Administrer";

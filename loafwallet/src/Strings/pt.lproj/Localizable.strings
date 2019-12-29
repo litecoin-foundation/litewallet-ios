@@ -803,6 +803,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Cadeia bloco";
 
+/* Change Languages label */
+"Settings.changelanguage" = "Mudar idioma";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Mostrar moeda";
 
@@ -817,6 +820,9 @@
 
 /* Import wallet label */
 "Settings.importTitle" = "Importar Carteira";
+
+/* Languages label */
+"Settings.languages" = "línguas";
 
 /* Manage settings section header */
 "Settings.manage" = "Gerir";

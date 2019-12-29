@@ -20,7 +20,7 @@ class ModalPresenter : Subscriber, Trackable {
         self.walletManager = walletManager
         self.modalTransitionDelegate = ModalTransitionDelegate(type: .regular, store: store)
         self.wipeNavigationDelegate = StartNavigationDelegate(store: store)
-        self.noAuthApiClient = apiClient
+        self.noAuthApiClient = apiClient        
         addSubscriptions()
     }
 
@@ -420,10 +420,10 @@ class ModalPresenter : Subscriber, Trackable {
                }),
             ],
             "Manage": [
-                Setting(title: S.Settings.notifications, accessoryText: {
-                    return self.store.state.isPushNotificationsEnabled ? S.PushNotifications.on : S.PushNotifications.off
-                }, callback: {
-                    settingsNav.pushViewController(PushNotificationsViewController(store: self.store), animated: true)
+                Setting(title: S.Settings.languages, callback: strongify(self) { myself in
+                    if let languagesVC = UIStoryboard.init(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "LanguagesViewController") as? LanguagesViewController {
+                        settingsNav.pushViewController(languagesVC, animated: true) 
+                    }
                 }),
                 Setting(title: LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit, accessoryText: { [weak self] in
                     guard let myself = self else { return "" }

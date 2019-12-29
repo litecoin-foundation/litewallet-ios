@@ -1215,3 +1215,9 @@
 
 /* Dismiss button. */
 "Prompts.dismiss" = "DISMISS";
+
+/* Languages label */
+"Settings.languages" = "Languages";
+
+/* Change Languages label */
+"Settings.changelanguage" = "Change language";

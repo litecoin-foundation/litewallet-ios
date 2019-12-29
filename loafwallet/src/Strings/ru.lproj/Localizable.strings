@@ -125,6 +125,9 @@
 /* BitID Authentication Request alert view title */
 "BitID.title" = "Запрос на аутентификацию BitID";
 
+/* buy button */
+"Button.buy" = "купить";
+
 /* Cancel button label */
 "Button.cancel" = "Отменить";
 
@@ -155,20 +158,62 @@
 /* Yes button */
 "Button.yes" = "Да";
 
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "КУПИТЬ";
+
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "• Купить подарочные карты \n • Пополнить предоплатные телефоны \n • Steam, Amazon, Hotels.com \n • Работает в 170 странах";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "• Поменять Litecoin на другие криптографии \n • Идентификатор не требуется \n • Купить с помощью кредитной карты \n • Глобальное покрытие";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "Купить Litecoin";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• Получить Litecoin за 5 минут! \n • Купить Litecoin с помощью кредитной карты \n • Паспорт или удостоверение личности штата";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "Купить Litecoin";
+
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "Поместите ваш ID-номер в центр данного поля";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Детали обмена:";
 
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "Сумма для отправки:";
 
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "Сумма пожертвования:";
+
 /* Network Fee: ($1.00) */
 "Confirmation.feeLabel" = "Комиссия сети:";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "Время обработки: обработка этих транзакций займет% 1 $ @ минут.";
 
 /* eg. Processing time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingTime" = "Время обработки: для обработки этой транзакции потребуется %1$@ минут.";
 
 /* Label for "send" button on final confirmation screen */
 "Confirmation.send" = "Отправить";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "СБОР:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "АДРЕС:";
 
 /* Confirmation Screen title */
 "Confirmation.title" = "Подтверждение";
@@ -179,17 +224,35 @@
 /* Total Cost: ($5.00) */
 "Confirmation.totalLabel" = "Общая стоимость:";
 
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "Введенные слова не соответствуют вашему бумажному ключу. Пожалуйста, попробуйте еще раз.";
+
 /* Confirm paper phrase view label. */
 "ConfirmPaperPhrase.label" = "Чтобы убедиться, что всё записано корректно, пожалуйста, введите следующие слова с вашего бумажного ключа.";
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Слово #%1$@";
 
+/* as of a time or date */
+"Conjunction.asOf" = "по состоянию на";
+
+/* No comment provided by engineer. */
+"Copy" = "копия";
+
 /* Litecoin denomination picker label */
 "DefaultCurrency.bitcoinLabel" = "Единица отображения биткойна";
 
 /* Exchange rate label */
 "DefaultCurrency.rateLabel" = "Обменный курс";
+
+/* Donate Memo */
+"Donate.memo" = "Пожертвование в фонд Litecoin";
+
+/* Donate to the Litecoin Foundation */
+"Donate.title" = "Нажмите, чтобы пожертвовать в фонд Litecoin!";
+
+/* Donate Confirmation */
+"Donate.title.confirmation" = "Подтвердите Пожертвование";
 
 /* Email unavailable alert title */
 "ErrorMessages.emailUnavailableMessage" = "Для этого устройства не настроена отправка электронных писем через почтовое приложение iOS.";
@@ -244,6 +307,9 @@
 
 /* Fee Selector title */
 "FeeSelector.title" = "Скорость обработки";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "ИСТОРИЯ";
 
 /* Checking private key balance progress view text */
 "Import.checking" = "Проверяем баланс по персональному ключу...";
@@ -332,6 +398,9 @@
 /* No permissions for location services */
 "LocationPlugin.notAuthorized" = "У Litewallet не разрешения на доступ к сервисам определения местоположения.";
 
+/* No comment provided by engineer. */
+"Malformed URI" = "Неверно сформированный URI";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Вы создали ваш кошелек %1$@";
 
@@ -367,6 +436,9 @@
 
 /* button label */
 "MenuViewController.recoverButton" = "Восстановить кошелек";
+
+/* No comment provided by engineer. */
+"No wallet" = "Нет кошелька";
 
 /* Switch to automatic mode button label */
 "NodeSelector.automaticButton" = "Переключиться в автоматический режим";
@@ -422,6 +494,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "недостоверный сертификат";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "ЗАКРЫТЬ";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "PLACEHOLDER";
 
@@ -434,8 +509,17 @@
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Включить код доступа к устройству";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Продолжить";
+
 /* Warning about paper key. */
 "Prompts.PaperKey.body" = "Ваш бумажный ключ нужно сохранить на случай, если вы потеряете или смените свой телефон. Нажмите сюда, чтобы продолжить.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "Отмена";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "включить";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "Необходимо совершить действие";
@@ -478,6 +562,9 @@
 
 /* Push notifications settings view title label */
 "PushNotifications.title" = "Уведомления";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "ПОЛУЧАТЬ";
 
 /* Address copied message. */
 "Receive.copied" = "Скопировано в буфер обмена.";
@@ -572,6 +659,12 @@
 /* Subheader label */
 "ReScan.subheader2" = "Когда синхронизировать?";
 
+/* Reset walet button  title */
+"resetButton" = "Да, сбросить кошелек";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "Сбросить пустой кошелек";
+
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Вспышка камеры";
 
@@ -620,6 +713,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Баланс: %1$@";
 
+/* Send Bar Item Title */
+"Send.barItemTitle" = "ОТПРАВИТЬ";
+
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "Перейдите в \"Настройки\", чтобы разрешить доступ к камере.";
 
@@ -643,6 +739,9 @@
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Личность получателя платежа не сертифицирована.";
+
+/* Insufficient funds error */
+"Send.insufficientFunds" = "Недостаточно средств";
 
 /* Invalid address alert message */
 "Send.invalidAddressMessage" = "Недействительный биткоин-адрес получателя.";
@@ -701,6 +800,12 @@
 /* Advanced Settings title */
 "Settings.advancedTitle" = "Расширенные настройки";
 
+/* Blockchain settings section header */
+"Settings.blockchain" = "Blockchain";
+
+/* Change Languages label */
+"Settings.changelanguage" = "Изменить язык";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Отображать валюту";
 
@@ -716,6 +821,9 @@
 /* Import wallet label */
 "Settings.importTitle" = "Импортировать кошелек";
 
+/* Languages label */
+"Settings.languages" = "Языки";
+
 /* Manage settings section header */
 "Settings.manage" = "Управление";
 
@@ -727,6 +835,9 @@
 
 /* Share anonymous data label */
 "Settings.shareData" = "Поделиться анонимными данными";
+
+/* Support settings section header */
+"Settings.support" = "Служба поддержки";
 
 /* Sync blockchain label */
 "Settings.sync" = "Синхронизация с Blockchain";
@@ -752,6 +863,9 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Поделиться анонимными данными?";
 
+/* Current spending limit: */
+"SpendingLimit.title" = "Текущий лимит расходов:";
+
 /* button label */
 "StartPaperPhrase.againButtonTitle" = "Выписать бумажный ключ снова";
 
@@ -766,6 +880,18 @@
 
 /* Start view message */
 "StartViewController.message" = "Самый надежный и безопасный способ использования биткойна.";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Подключение ...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Повторный осмотр ...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Успех!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Синхронизации...";
 
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Соединение";
@@ -790,6 +916,9 @@
 
 /* Touch Id screen label */
 "TouchIdSettings.label" = "Используйте отпечатки ваших пальцев для разблокирования Litewallet-кошелька и отправки сумм, не превышающих ваш лимит на расходы.";
+
+/*  ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
 
 /* Link Text (see TouchIdSettings.customizeText) */
 "TouchIdSettings.linkText" = "Экран лимита расходов Touch ID";
@@ -818,11 +947,23 @@
 /* Touch Id spending limit screen title */
 "TouchIdSpendingLimit.title" = "Лимит на расходы Touch ID";
 
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Деталь суммы:";
+
 /* Availability status text */
 "Transaction.available" = "Доступно для использования";
 
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Блок:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Напоминание:";
+
 /* Transaction complete label */
 "Transaction.complete" = "Выполнено";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Детализация суммы транзакции";
 
 /* eg. Ending balance: $50.00 */
 "Transaction.ending" = "Конечный баланс: %1$@";
@@ -851,6 +992,12 @@
 /* eg. Starting balance: $50.00 */
 "Transaction.starting" = "Начальный баланс: %1$@";
 
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Подробности стартовой суммы транзакции";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
 /* Waiting to be confirmed string */
 "Transaction.waiting" = "Ожидает подтверждения. Некоторые продавцы требуют подтверждения для выполнения транзакции. Предполагаемое время: 1-2 часа.";
 
@@ -872,6 +1019,9 @@
 /* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
 "TransactionDetails.from" = "на %1$@";
 
+/* Less button title */
+"TransactionDetails.less" = "Меньше...";
+
 /* Moved $5.00 (as in "I moved $5 to another location") */
 "TransactionDetails.moved" = "Перемещено %1$@";
 
@@ -881,17 +1031,26 @@
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "Не подтверждено";
 
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "по состоянию на ";
+
 /* "Received [$5] at [which of my addresses]" => This is the "Received [$5]" part. */
 "TransactionDetails.received" = "Получено %1$@";
 
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "Получено <b>%1@</b>";
 
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "TransactionDetails.receivedModalTitle";
+
 /* "Sent [$5] to [address]" => This is the "Sent [$5]" part. */
 "TransactionDetails.sent" = "Отправить %1$@";
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "Отправлено <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "Статус";
@@ -913,6 +1072,12 @@
 
 /* Disabled until date */
 "UnlockScreen.disabled" = "Отключено до: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "Введите PIN-код";
+
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "Разблокировать с помощью FaceID";
 
 /* My Address button title */
 "UnlockScreen.myAddress" = "Мой адрес";
@@ -1010,6 +1175,9 @@
 /* Wipe wallet alert title */
 "WipeWallet.alertTitle" = "Удалить кошелек?";
 
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "Забыли свою начальную фразу или PIN-код?";
+
 /* Failed wipe wallet alert message */
 "WipeWallet.failedMessage" = "Не удалось удалить кошелек.";
 
@@ -1028,6 +1196,15 @@
 /* Wipe wallet navigation item title. */
 "WipeWallet.title" = "Запуск или восстановление другого кошелька";
 
+/* Warning Alert */
+"WipeWallet.warningAlert" = "НЕ ПОТЕРЯТЬ ЕГО!";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "Ваш LiteWallet пуст. Сброс приведет к удалению старого закрытого ключа и стиранию данных приложения. \ N \ nПосле сброса будьте готовы записать новые 12 слов и хранить их в очень безопасном месте. \ N \ nНет разработчиков LiteWallet вы можете получить это начальное значение для вас.";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "ПОЖАЛУЙСТА, ПРОЧИТАЙТЕ!";
+
 /* Wipe wallet button title */
 "WipeWallet.wipe" = "Удалить";
 
@@ -1045,174 +1222,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d из %2$d";
-
-/* buy button */
-"Button.buy" = "";
-
-/* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "";
-
-/* Bitrefill buy financial details */
-"BuyCenter.bitrefillFinancialDetails" = "";
-
-/* Bitrefill Title */
-"BuyCenter.BitrefillTitle" = "";
-
-/* Changelly buy financial details */
-"BuyCenter.changellyFinancialDetails" = "";
-
-/* Changelly Title */
-"BuyCenter.changellyTitle" = "";
-
-/* Buy Modal Title */
-"BuyCenter.ModalTitle" = "";
-
-/* Simplex buy financial details */
-"BuyCenter.simplexFinancialDetails" = "";
-
-/* Simplex Title */
-"BuyCenter.simplexTitle" = "";
-
-/* Buy Center Title */
-"BuyCenter.title" = "";
-
-/* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "";
-
-/* Amount to Donate: ($1.00) */
-"Confirmation.donateLabel" = "";
-
-/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
-"Confirmation.processingAndDonationTime" = "";
-
-/* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "";
-
-/* Address label */
-"Confirmation.staticAddressLabel" = "";
-
-/* Confirm paper phrase error message */
-"ConfirmPaperPhrase.error" = "";
-
-/* as of a time or date */
-"Conjunction.asOf" = "";
-
-/* No comment provided by engineer. */
-"Copy" = "";
-
-/* Donate Memo */
-"Donate.memo" = "";
-
-/* Donate to the Litecoin Foundation */
-"Donate.title" = "";
-
-/* Donate Confirmation */
-"Donate.title.confirmation" = "";
-
-/* History Bar Item Title */
-"History.barItemTitle" = "";
-
-/* No comment provided by engineer. */
-"Malformed URI" = "";
-
-/* No comment provided by engineer. */
-"No wallet" = "";
-
-/* Dismiss button. */
-"Prompts.dismiss" = "";
-
-/* Affirm button title. */
-"Prompts.PaperKey.affirm" = "";
-
-/* Cancel button. */
-"Prompts.PaperKey.cancel" = "";
-
-/* Enable button. */
-"Prompts.PaperKey.enable" = "";
-
-/* Receive Bar Item Title */
-"Receive.barItemTitle" = "";
-
-/* Reset walet button  title */
-"resetButton" = "";
-
-/* Warning Empty Wipe title */
-"resetTitle" = "";
-
-/* Send Bar Item Title */
-"Send.barItemTitle" = "";
-
-/* Insufficient funds error */
-"Send.insufficientFunds" = "";
-
-/* Blockchain settings section header */
-"Settings.blockchain" = "";
-
-/* Support settings section header */
-"Settings.support" = "";
-
-/* Current spending limit: */
-"SpendingLimit.title" = "";
-
-/* Syncing view connection state header text */
-"SyncingHeader.connecting" = "";
-
-/* Rescanning header success state header text */
-"SyncingHeader.rescan" = "";
-
-/* Syncing header success state header text */
-"SyncingHeader.success" = "";
-
-/* Syncing view syncing state header text */
-"SyncingHeader.syncing" = "";
-
-/*  ł100,000 ($100) */
-"TouchIdSettings.limitValue" = "";
-
-/* Static amount Label */
-"Transaction.amountDetailLabel" = "";
-
-/* Static blockHeight Label */
-"Transaction.blockHeightLabel" = "";
-
-/* Static comment Label */
-"Transaction.commentLabel" = "";
-
-/* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "";
-
-/* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "";
-
-/* Static TX iD Label */
-"Transaction.txIDLabel" = "";
-
-/* Less button title */
-"TransactionDetails.less" = "";
-
-/* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "";
-
-/* RECEIVE LTCTitle */
-"TransactionDetails.receivedModalTitle" = "";
-
-/* Label for TXID */
-"TransactionDetails.staticTXLabel" = "";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "";
-
-/* Unlock with FaceID accessibility label */
-"UnlockScreen.faceIdText" = "";
-
-/* Warning if user lost phrase */
-"WipeWallet.emptyWallet" = "";
-
-/* Warning Alert */
-"WipeWallet.warningAlert" = "";
-
-/* Warning description */
-"WipeWallet.warningDescription" = "";
-
-/* Warning title */
-"WipeWallet.warningTitle" = "";

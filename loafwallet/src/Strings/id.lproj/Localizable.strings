@@ -812,6 +812,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
 
+/* Change Languages label */
+"Settings.changelanguage" = "Ganti BAHASA";
+
 /* Default currency label */
 "Settings.currency" = "Mata uang tampilan";
 
@@ -826,6 +829,9 @@
 
 /* Import wallet label */
 "Settings.importTitle" = "Impor Dompet";
+
+/* Languages label */
+"Settings.languages" = "Bahasa";
 
 /* Manage settings section header */
 "Settings.manage" = "Mengelola";

@@ -701,6 +701,9 @@
 /* Advanced Settings title */
 "Settings.advancedTitle" = "Geavanceerde instellingen";
 
+/* Change Languages label */
+"Settings.changelanguage" = "Verander de taal";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Toon valuta";
 
@@ -715,6 +718,9 @@
 
 /* Import wallet label */
 "Settings.importTitle" = "Importeer Portemonnee";
+
+/* Languages label */
+"Settings.languages" = "talen";
 
 /* Manage settings section header */
 "Settings.manage" = "Beheer";

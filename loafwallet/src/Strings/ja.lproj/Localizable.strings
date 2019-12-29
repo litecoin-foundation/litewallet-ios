@@ -803,6 +803,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "ブロックチェーン";
 
+/* Change Languages label */
+"Settings.changelanguage" = "言語を変えてください";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "表示される通貨";
 
@@ -817,6 +820,9 @@
 
 /* Import wallet label */
 "Settings.importTitle" = "ウォレットをインポート";
+
+/* Languages label */
+"Settings.languages" = "言語";
 
 /* Manage settings section header */
 "Settings.manage" = "管理";
