@@ -39,12 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var mixpanelToken = ""
         #if Debug || Testflight
-             mixpanelToken = K.mixpanelTokenDevelopment
+        mixpanelToken = EnvironmentVariables.mixpanelTokenDevKey
          #else
-             mixpanelToken = K.mixpanelTokenProduction
+             mixpanelToken = EnvironmentVariables.mixpanelTokenProdKey
         #endif
         Mixpanel.initialize(token: mixpanelToken)
-        Mixpanel.mainInstance().track(event: K.MixpanelEvents._20191105_AL.rawValue, properties: ["app details":["VERSION": AppVersion.string]])
+        Mixpanel.mainInstance().track(event: 
+            
+            MixpanelEvents._20191105_AL.rawValue, properties: ["app details":["VERSION": AppVersion.string]])
         
         UserDefaults.standard.set(true, forKey: "musicon")
            

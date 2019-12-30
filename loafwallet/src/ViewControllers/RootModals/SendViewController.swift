@@ -37,7 +37,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false)
         self.donationCell = DonationSetupCell(store: store, wantsToDonate: true)
         
-        Mixpanel.mainInstance().track(event: K.MixpanelEvents._20191105_VSC.rawValue)
+        Mixpanel.mainInstance().track(event: MixpanelEvents._20191105_VSC.rawValue)
 
         super.init(nibName: nil, bundle: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
@@ -367,7 +367,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                         myself.onPublishSuccess?()
                     })
                     self?.saveEvent("send.success")
-                    Mixpanel.mainInstance().track(event: K.MixpanelEvents._20191105_DSL.rawValue)
+                    Mixpanel.mainInstance().track(event: MixpanelEvents._20191105_DSL.rawValue)
 
                 case .creationError(let message):
                     self?.showAlert(title: S.Send.createTransactionError, message: message, buttonLabel: S.Button.ok)

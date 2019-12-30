@@ -70,3 +70,21 @@ struct E {
       return UIScreen.main.bounds.size.height
     }
 }
+
+struct EnvironmentVariables {
+    static var mixpanelTokenProdKey: String = EnvironmentVariables.variable(name: "SECRET_MIXPANL_PROD_ENVIRONMENT_KEY") ?? CI.mixpanelTokenProdKey
+    static var mixpanelTokenDevKey: String = EnvironmentVariables.variable(name: "SECRET_MIXPANL_DEV_ENVIRONMENT_KEY") ?? CI.mixpanelTokenDevKey
+    static var newRelicTokenProdKey: String = EnvironmentVariables.variable(name: "SECRET_NR_PROD_ENVIRONMENT_KEY") ?? CI.newRelicTokenProdKey
+    static var newRelicTokenDevKey: String = EnvironmentVariables.variable(name: "SECRET_NR_DEV_ENVIRONMENT_KEY") ?? CI.newRelicTokenDevKey
+
+    static func variable(name: String) -> String? {
+        let processInfo = ProcessInfo.processInfo
+        guard let value = processInfo.environment[name] else {
+            NSLog("Process Info env var name not found: \(name)")
+            return nil
+        }
+        return value
+    }
+     
+}
+
