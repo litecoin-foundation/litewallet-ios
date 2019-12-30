@@ -804,9 +804,6 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Cadena articulada";
 
-/* Change Languages label */
-"Settings.changelanguage" = "Cambiar idioma";
-
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Mostrar moneda";
 

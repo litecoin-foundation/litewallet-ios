@@ -1218,6 +1218,3 @@
 
 /* Languages label */
 "Settings.languages" = "Languages";
-
-/* Change Languages label */
-"Settings.changelanguage" = "Change language";

@@ -803,9 +803,6 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "區塊鏈";
 
-/* Change Languages label */
-"Settings.changelanguage" = "改變語言";
-
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "顯示貨幣";
 

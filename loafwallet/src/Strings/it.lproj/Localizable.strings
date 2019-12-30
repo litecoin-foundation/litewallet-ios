@@ -159,7 +159,7 @@
 "Button.yes" = "Sì";
 
 /* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "Acquistare";
+"BuyCenter.barItemTitle" = "ACQUISTARE";
 
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "• Acquista buoni regalo \n • Ricarica telefoni prepagati \n • Steam, Amazon, Hotels.com \n • Funziona in 170 paesi";
@@ -564,7 +564,7 @@
 "PushNotifications.title" = "Notifiche";
 
 /* Receive Bar Item Title */
-"Receive.barItemTitle" = "Ricevere";
+"Receive.barItemTitle" = "RICEVERE";
 
 /* Address copied message. */
 "Receive.copied" = "Copiato negli appunti.";
@@ -714,7 +714,7 @@
 "Send.balance" = "Saldo: %1$@";
 
 /* Send Bar Item Title */
-"Send.barItemTitle" = "Spedire";
+"Send.barItemTitle" = "SPEDIRE";
 
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "Vai su Impostazioni per consentire l'accesso alla fotocamera.";
@@ -802,9 +802,6 @@
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "blockchain";
-
-/* Change Languages label */
-"Settings.changelanguage" = "Cambia lingua";
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Visualizza valuta";

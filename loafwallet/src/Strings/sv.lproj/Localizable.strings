@@ -803,9 +803,6 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "blockchain";
 
-/* Change Languages label */
-"Settings.changelanguage" = "Ändra språk";
-
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Visa valuta";
 

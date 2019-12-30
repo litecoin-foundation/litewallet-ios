@@ -457,7 +457,7 @@ class ModalPresenter : Subscriber, Trackable {
                 }),
             ],
             "Advanced": [
-                Setting(title: "Advanced", callback: { [weak self] in
+                Setting(title:S.Settings.advancedTitle, callback: { [weak self] in
                     guard let myself = self else { return }
                     guard let walletManager = myself.walletManager else { return }
                     let sections = ["Network"]

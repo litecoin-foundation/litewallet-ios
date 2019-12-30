@@ -316,7 +316,7 @@ enum S {
         static let advancedTitle = NSLocalizedString("Settings.advancedTitle", value: "**Advanced Settings**", comment: "Advanced Settings title")
         static let faceIdLimit = NSLocalizedString("Settings.faceIdLimit", value: "**Face ID Spending Limit**", comment: "Face ID spending limit label")
         static let languages = NSLocalizedString("Settings.languages", value: "**Languages**", comment: "Languages label")
-        static let changelanguage = NSLocalizedString("Settings.changelanguage", value: "**Change Language**", comment: "Change Languages label")
+
     }
 
     enum About {
