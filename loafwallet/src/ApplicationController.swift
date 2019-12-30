@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import StoreKit
 
 private let timeSinceLastExitKey = "TimeSinceLastExit"
 private let shouldRequireLoginTimeoutKey = "ShouldRequireLoginTimeoutKey"
+private let numberOfLitewalletLaunches = "NumberOfLitewalletLaunches"
 
 class ApplicationController : Subscriber, Trackable {
 
@@ -80,6 +82,7 @@ class ApplicationController : Subscriber, Trackable {
 
     private func setup() {
             setupDefaults()
+            countLaunches()
             setupAppearance()
             setupRootViewController()
             window.makeKeyAndVisible()
@@ -117,11 +120,9 @@ class ApplicationController : Subscriber, Trackable {
             if shouldRequireLogin() {
                 store.perform(action: RequireLogin())
             }
-         //   if walletManager.wallet?.balance != 0 {
-                DispatchQueue.walletQueue.async {
-                  walletManager.peerManager?.connect()
-                }
-         //   }
+            DispatchQueue.walletQueue.async {
+              walletManager.peerManager?.connect()
+            }
             exchangeUpdater?.refresh(completion: {})
             feeUpdater?.refresh()
             walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
@@ -134,11 +135,9 @@ class ApplicationController : Subscriber, Trackable {
         func retryAfterIsReachable() {
             guard let walletManager = walletManager else { return }
             guard !walletManager.noWallet else { return }
-       //     if walletManager.wallet?.balance != 0 {
-                DispatchQueue.walletQueue.async {
-                  walletManager.peerManager?.connect()
-                }
-           // }
+            DispatchQueue.walletQueue.async {
+              walletManager.peerManager?.connect()
+            }
             exchangeUpdater?.refresh(completion: {})
             feeUpdater?.refresh()
             walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
@@ -200,25 +199,20 @@ class ApplicationController : Subscriber, Trackable {
                     store.perform(action: ShowStartFlow())
                 } else {
                     modalPresenter?.walletManager = walletManager
-                //    if walletManager.wallet?.balance != 0 {
-                        DispatchQueue.walletQueue.async {
-                          walletManager.peerManager?.connect()
-                  //      }
+                    DispatchQueue.walletQueue.async {
+                      walletManager.peerManager?.connect()
                     }
                     self.startDataFetchers()
                 }
 
             //For when watch app launches app in background
             } else {
-                
-          //      if walletManager.wallet?.balance != 0 {
-                    DispatchQueue.walletQueue.async { [weak self] in
-                        walletManager.peerManager?.connect()
-                        if self?.fetchCompletionHandler != nil {
-                            self?.performBackgroundFetch()
-                        }
-                   }
-          //      }
+                DispatchQueue.walletQueue.async { [weak self] in
+                    walletManager.peerManager?.connect()
+                    if self?.fetchCompletionHandler != nil {
+                        self?.performBackgroundFetch()
+                    }
+                }
                 exchangeUpdater?.refresh(completion: {
                     self.watchSessionManager.walletManager = self.walletManager
                     self.watchSessionManager.rate = self.store.state.currentRate
@@ -238,7 +232,20 @@ class ApplicationController : Subscriber, Trackable {
                 UserDefaults.standard.set(60.0*3.0, forKey: shouldRequireLoginTimeoutKey) //Default 3 min timeout
             }
         }
-
+    
+        private func countLaunches() {
+            if var launchNumber = UserDefaults.standard.object(forKey: numberOfLitewalletLaunches) as? Int {
+                launchNumber += 1
+                UserDefaults.standard.set(NSNumber(value: launchNumber), forKey: numberOfLitewalletLaunches)
+                if launchNumber == 5 {
+                    SKStoreReviewController.requestReview()
+                }
+                
+            } else {
+                UserDefaults.standard.set(NSNumber(value: 1), forKey: numberOfLitewalletLaunches)
+            }
+        }
+     
         private func setupAppearance() {
             let tabBar = UITabBar.appearance()
             tabBar.barTintColor = .liteWalletBlue

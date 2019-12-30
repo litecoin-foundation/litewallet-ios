@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import StoreKit
 import QREncoder
 import LocalAuthentication
 
@@ -199,17 +198,9 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
      
      
     private func reload() {
-        
-        self.checkTransactionCountForReview(transactions: self.transactions)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-    
-   private func checkTransactionCountForReview(transactions: [Transaction]) {
-      if  transactions.count < 2 {
-          SKStoreReviewController.requestReview()
-      }
     }
     
     private func reload(txHash: String) {
