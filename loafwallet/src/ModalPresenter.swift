@@ -420,10 +420,8 @@ class ModalPresenter : Subscriber, Trackable {
                }),
             ],
             "Manage": [
-                Setting(title: S.Settings.languages, callback: strongify(self) { myself in
-                    if let languagesVC = UIStoryboard.init(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "LanguagesViewController") as? LanguagesViewController {
-                        settingsNav.pushViewController(languagesVC, animated: true) 
-                    }
+                Setting(title: S.Settings.languages, callback: strongify(self) { _ in
+                    UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
                 }),
                 Setting(title: LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit, accessoryText: { [weak self] in
                     guard let myself = self else { return "" }

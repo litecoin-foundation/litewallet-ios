@@ -346,6 +346,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 let isLtcSwapped = self.isLtcSwapped {
                 cell.setTransaction(transaction, isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: store.state.maxDigits, isSyncing: store.state.walletState.syncState != .success)
             }
+            
+            cell.staticBlockLabel.text = S.TransactionDetails.blockHeightLabel
+            cell.staticCommentLabel.text = S.TransactionDetails.commentsHeader
+            cell.staticAmountDetailLabel.text = S.Transaction.amountDetailLabel
         }
         else {
             assertionFailure("Transaction must exist")

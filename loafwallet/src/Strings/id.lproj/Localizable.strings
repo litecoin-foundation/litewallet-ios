@@ -3,7 +3,7 @@
 "About.blog" = "Situs Web";
 
 /* About screen footer */
-"About.footer" = "Dibuat Oleh LiteWallet Tim\ndari\nYayasan Litecoin\n%1$@";
+"About.footer" = "Dibuat Oleh LiteWallet Tim \n dari \n Yayasan Litecoin \n %1$@";
 
 /* Privay Policy button label */
 "About.privacy" = "Aturan Pribadi";
@@ -162,22 +162,22 @@
 "BuyCenter.barItemTitle" = "MEMBELI";
 
 /* Bitrefill buy financial details */
-"BuyCenter.bitrefillFinancialDetails" = "• Membeli kartu hadiah\n• Isi ulang telepon prabayar\n• Steam, Amazon, Hotels.com\n• Berfungsi di 170 negara";
+"BuyCenter.bitrefillFinancialDetails" = "• Membeli kartu hadiah \n • Isi ulang telepon prabayar \n • Steam, Amazon, Hotels.com \n • Berfungsi di 170 negara";
 
 /* Bitrefill Title */
 "BuyCenter.BitrefillTitle" = "Bitrefill";
 
 /* Changelly buy financial details */
-"BuyCenter.changellyFinancialDetails" = "• Ubah Litecoin untuk cryptos lainnya\n• Tidak diperlukan ID\n• Membeli dengan kartu kredit\n• Pencakupan global";
+"BuyCenter.changellyFinancialDetails" = "• Ubah Litecoin untuk cryptos lainnya \n • Tidak diperlukan ID \n • Membeli dengan kartu kredit \n • Pencakupan global";
 
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "Changelly";
 
 /* Buy Modal Title */
-"BuyCenter.ModalTitle" = "Membeli Łitecoin"; Łitecoin";
+"BuyCenter.ModalTitle" = "Membeli Łitecoin";
 
 /* Simplex buy financial details */
-"BuyCenter.simplexFinancialDetails" = "• Gunakan ID atau Paspor\n• Membeli Litecoin dengan kartu kredit\n• Membeli dengan USD atau EUR";
+"BuyCenter.simplexFinancialDetails" = "• Gunakan ID atau Paspor \n • Membeli Litecoin dengan kartu kredit \n • Membeli dengan USD atau EUR";
 
 /* Simplex Title */
 "BuyCenter.simplexTitle" = "Simplex";
@@ -483,13 +483,10 @@
 "PaymentProtocol.Errors.smallOutputError" = "Tidak dapat melakukan pembayaran";
 
 /* Amount too small error message */
-"PaymentProtocol.Errors.smallPayment" = "Pembayaran Litecoin tidak boleh kurang dari %1$@.";;
+"PaymentProtocol.Errors.smallPayment" = "Pembayaran Litecoin tidak boleh kurang dari %1$@.";
 
 /* Output too small error message. */
 "PaymentProtocol.Errors.smallTransaction" = "Hasil transaksi Litecoin tidak boleh kurang dari $@.";
-
-/* Output too small error message. */
-"PaymentProtocol.Errors.smallTransaction" = "Output transaksi Litecoin tidak boleh kurang dari $@.";
 
 /* Unsupported signature type payment protocol error message */
 "PaymentProtocol.Errors.unsupportedSignatureType" = "jenis tanda tangan yang tidak didukung";
@@ -618,10 +615,7 @@
 "RecoverWallet.rightArrow" = "Panah Kanan";
 
 /* Recover wallet sub-header */
-"RecoverWallet.subheader" = "Masukkan kunci kertas untuk dompet yang ingin Anda pulihkan.";;
-
-/* Reset PIN with paper key: sub-header */
-"RecoverWallet.subheader_reset_pin" = "Untuk mengatur ulang PIN Anda, masukkan kata-kata dari kunci kertas Anda ke dalam kotak di bawah ini.";
+"RecoverWallet.subheader" = "Masukkan kunci kertas untuk dompet yang ingin Anda pulihkan.";
 
 /* Reset PIN with paper key: sub-header */
 "RecoverWallet.subheader_reset_pin" = "Untuk mengatur ulang PIN Anda, masukkan kata-kata dari kunci kertas Anda ke dalam kotak di bawah ini.";
@@ -678,10 +672,7 @@
 "Search.complete" = "lengkap";
 
 /* Pending filter label */
-"Search.pending" = "tertunda";;
-
-/* Received filter label */
-"Search.received" = "diterima";
+"Search.pending" = "tertunda";
 
 /* Received filter label */
 "Search.received" = "diterima";
@@ -981,10 +972,7 @@
 "Transaction.exchangeOnDayReceived" = "Nilai tukar saat diterima:";
 
 /* Exchange rate on date header */
-"Transaction.exchangeOnDaySent" = "Nilai tukar saat dikirim:";;
-
-/* (b600 fee) */
-"Transaction.fee" = "(%1$@ biaya)";
+"Transaction.exchangeOnDaySent" = "Nilai tukar saat dikirim:";
 
 /* (b600 fee) */
 "Transaction.fee" = "(%1$@ biaya)";
@@ -1050,16 +1038,13 @@
 "TransactionDetails.received" = "Terima %1$@";
 
 /* Received $5.00 */
-"TransactionDetails.receivedAmountDescription" = "Terima <b>%1@</b>";;
-
-/* Sent $5.00 (sent title 1/2) */
-"TransactionDetails.sent" = "Kirim %1$@";
+"TransactionDetails.receivedAmountDescription" = "Terima <b>%1@</b>";
 
 /* RECEIVE LTCTitle */
 "TransactionDetails.receivedModalTitle" = "TransactionDetails.receivedModalTitle";
 
 /* Sent $5.00 (sent title 1/2) */
-"TransactionDetails.sent" = "Terkirim% 1 $ @";
+"TransactionDetails.sent" = "Kirim %1$@";
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "Kirim <b>%1@</b>";

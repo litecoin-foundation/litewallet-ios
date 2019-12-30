@@ -153,22 +153,22 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z14-nb-ffq">
-                                                                    <rect key="frame" x="0.0" y="106.5" width="80" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="106.5" width="180" height="16"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Detail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coa-gK-FYe">
-                                                                    <rect key="frame" x="0.0" y="71" width="80" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="71" width="180" height="16"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="80" id="YAa-xY-hGN"/>
+                                                                        <constraint firstAttribute="width" constant="180" id="YAa-xY-hGN"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TxID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqv-B3-FVl">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="16"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -180,7 +180,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Block:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoS-Ka-BnG">
-                                                                    <rect key="frame" x="0.0" y="35.5" width="80" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="35.5" width="180" height="16"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
