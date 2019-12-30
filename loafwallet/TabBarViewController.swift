@@ -133,8 +133,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             view?.backgroundColor = .clear
             view?.textColor = .white
         }
-        let equalsWidth: CGFloat = 20
-        let halfRemainingWidth = (CGFloat(self.view.frame.width) - CGFloat(currentLTCPriceLabel.frame.width + CGFloat(settingsButton.frame.width)))/2 - equalsWidth
  
         primaryLabel.font = UIFont.barloweSemiBold(size: largeFontSize)
         secondaryLabel.font = UIFont.barloweSemiBold(size: largeFontSize)

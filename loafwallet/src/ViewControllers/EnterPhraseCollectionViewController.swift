@@ -76,7 +76,10 @@ class EnterPhraseCollectionViewController : UICollectionViewController {
             self?.becomeFirstResponder(atIndex: indexPath.row - 1)
         }
         enterPhraseCell.didTapDone = { [weak self] in
-            guard var phrase = self?.phrase else { return }
+            guard let phrase = self?.phrase else {
+                NSLog("Phrase not initialized")
+                return
+            }
             #if Debug || Testflight
                 //phrase = MockSeeds.mockPhraseModelX
             #endif

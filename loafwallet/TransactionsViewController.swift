@@ -199,6 +199,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
      
      
     private func reload() {
+        
+        self.checkTransactionCountForReview(transactions: self.transactions)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -217,7 +219,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                     self.tableView.beginUpdates()
                     self.tableView.reloadRows(at: [IndexPath(row: i, section: self.hasExtraSection ? 1 : 0)], with: .automatic)
                     self.tableView.endUpdates()
-                    self.checkTransactionCountForReview(transactions: self.transactions)
                 }
             }
         }

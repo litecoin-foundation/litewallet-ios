@@ -73,9 +73,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     override func viewDidLoad() {
         
         if #available(iOS 11.0, *) {
-            guard let mainColor = UIColor(named: "mainColor"),
-                let textColor = UIColor(named: "labelTextColor"),
-                let backgroundColor = UIColor(named: "lfBackgroundColor") else {
+            guard let backgroundColor = UIColor(named: "lfBackgroundColor") else {
                NSLog("ERROR: Main color")
                return
             }

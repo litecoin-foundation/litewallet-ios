@@ -209,7 +209,7 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
         return .lightContent
     }
    
-    ;    override required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

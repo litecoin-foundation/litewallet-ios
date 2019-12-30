@@ -44,7 +44,7 @@ class ReScanViewController : UIViewController, Subscriber {
     private func addConstraints() {
         header.constrain([
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
-            header.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: C.padding[2]) ])
+            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]) ])
         faq.constrain([
             faq.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
             faq.centerYAnchor.constraint(equalTo: header.centerYAnchor),
@@ -57,7 +57,7 @@ class ReScanViewController : UIViewController, Subscriber {
         footer.constrain([
             footer.leadingAnchor.constraint(equalTo: header.leadingAnchor),
             footer.trailingAnchor.constraint(equalTo: faq.trailingAnchor),
-            footer.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -C.padding[3]) ])
+            footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -C.padding[3]) ])
         button.constrain([
             button.leadingAnchor.constraint(equalTo: footer.leadingAnchor),
             button.trailingAnchor.constraint(equalTo: footer.trailingAnchor),

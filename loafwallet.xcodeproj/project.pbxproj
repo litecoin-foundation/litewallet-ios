@@ -274,21 +274,17 @@
 		75A2A7B91DA5934300A983D8 /* loafwallet WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75A2A7B81DA5934300A983D8 /* loafwallet WatchKit App.app */; };
 		75A2A7BF1DA5934300A983D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7BD1DA5934300A983D8 /* Interface.storyboard */; };
 		75A2A7C11DA5934300A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7C01DA5934300A983D8 /* Assets.xcassets */; };
-		75A2A7C81DA5934300A983D8 /* loafwallet WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		75A2A7C81DA5934300A983D8 /* Litewallet.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A7C71DA5934300A983D8 /* Litewallet.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75A2A7CF1DA5934300A983D8 /* BalanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7CE1DA5934300A983D8 /* BalanceInterfaceController.swift */; };
 		75A2A7D11DA5934300A983D8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7D01DA5934300A983D8 /* ExtensionDelegate.swift */; };
 		75A2A7D31DA5934300A983D8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7D21DA5934300A983D8 /* NotificationController.swift */; };
 		75A2A7D51DA5934300A983D8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7D41DA5934300A983D8 /* ComplicationController.swift */; };
 		75A2A7D71DA5934400A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7D61DA5934300A983D8 /* Assets.xcassets */; };
-		75A2A7F31DA5935F00A983D8 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A7F21DA5935F00A983D8 /* Messages.framework */; };
-		75A2A7F61DA5935F00A983D8 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7F51DA5935F00A983D8 /* MessagesViewController.swift */; };
-		75A2A7F91DA5935F00A983D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7F71DA5935F00A983D8 /* MainInterface.storyboard */; };
-		75A2A7FB1DA5935F00A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7FA1DA5935F00A983D8 /* Assets.xcassets */; };
 		75A2A80A1DA5936F00A983D8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */; };
 		75A2A8101DA5936F00A983D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A80E1DA5936F00A983D8 /* MainInterface.storyboard */; };
 		75A2A8141DA5936F00A983D8 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A8081DA5936F00A983D8 /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
-		75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		75A2A8231DA5938500A983D8 /* Litewallet.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* Litewallet.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
 		CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC711EF193800038E3A8 /* String+Keys.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
@@ -298,7 +294,6 @@
 		CE124CFE1E68F57700DFA146 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CFD1E68F57700DFA146 /* Async.swift */; };
 		CE124D001E69170900DFA146 /* SyncingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CFF1E69170900DFA146 /* SyncingView.swift */; };
 		CE1280F61EEA855C00D27649 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1280F51EEA855C00D27649 /* Date+Additions.swift */; };
-		CE14E40B1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14E40A1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift */; };
 		CE1D84B61EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D84B51EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift */; };
 		CE1E5F261EF083A600BD0F72 /* StartImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E5F251EF083A600BD0F72 /* StartImportViewController.swift */; };
 		CE20C8F21DBAF71500C8397A /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C8F11DBAF71500C8397A /* ApplicationController.swift */; };
@@ -592,7 +587,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				75A2A7C81DA5934300A983D8 /* loafwallet WatchKit Extension.appex in Embed App Extensions */,
+				75A2A7C81DA5934300A983D8 /* Litewallet.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,7 +610,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				75A2A8141DA5936F00A983D8 /* TodayExtension.appex in Embed App Extensions */,
-				75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */,
+				75A2A8231DA5938500A983D8 /* Litewallet.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,8 +643,6 @@
 		18009E4E15F57315ECD92458 /* Pods-loafwalletUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwalletUITests.testflight.xcconfig"; path = "Target Support Files/Pods-loafwalletUITests/Pods-loafwalletUITests.testflight.xcconfig"; sourceTree = "<group>"; };
 		1B3F74211FFB106200CCA50C /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSettingsViewController.swift; path = src/ViewControllers/BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
 		1B3F74221FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiometricsSpendingLimitViewController.swift; path = src/ViewControllers/BiometricsSpendingLimitViewController.swift; sourceTree = "<group>"; };
-		1B86CF1B2091554C00BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
-		1B86CF1C2091558000BCE82E /* Dev.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = Dev.plist; sourceTree = "<group>"; };
 		1BA74B85206AD60A0083BD2A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1BA74B86206AD60A0083BD2A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1BA9FE3B216F68A600BB2DE8 /* BRBech32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBech32.h; sourceTree = "<group>"; };
@@ -889,7 +882,6 @@
 		249C570423B51F9B009CB5A9 /* TransactionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewControllerTests.swift; sourceTree = "<group>"; };
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
-		249F976F236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		249F9770236F862C0045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WipeEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WarningConfirmation.storyboard; sourceTree = "<group>"; };
@@ -902,6 +894,12 @@
 		24B8FAD62162B6FB00A155B1 /* bitrefill_index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = bitrefill_index.html; sourceTree = "<group>"; };
 		24B8FADB2162D29100A155B1 /* general.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = general.css; sourceTree = "<group>"; };
 		24B8FADE2163C4D400A155B1 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		24B9621123BA64C100ECD938 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
+		24B9621323BA64C600ECD938 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Interface.strings; sourceTree = "<group>"; };
+		24B9621523BA64CC00ECD938 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Interface.strings; sourceTree = "<group>"; };
+		24B9621723BA66CC00ECD938 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		24B9621923BA66CE00ECD938 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		24B9621B23BA66CF00ECD938 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Italic.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Italic.ttf"; sourceTree = SOURCE_ROOT; };
 		24D5F22622599C0A00225462 /* BarlowSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Bold.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		24D5F22D22599C0A00225462 /* BarlowSemiCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Light.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Light.ttf"; sourceTree = SOURCE_ROOT; };
@@ -1506,7 +1504,7 @@
 		75A2A7BE1DA5934300A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		75A2A7C01DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75A2A7C21DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "loafwallet WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7C71DA5934300A983D8 /* Litewallet.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Litewallet.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7CD1DA5934300A983D8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		75A2A7CE1DA5934300A983D8 /* BalanceInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInterfaceController.swift; sourceTree = "<group>"; };
 		75A2A7D01DA5934300A983D8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -1514,51 +1512,35 @@
 		75A2A7D41DA5934300A983D8 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		75A2A7D61DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75A2A7D81DA5934400A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7F01DA5935F00A983D8 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7F21DA5935F00A983D8 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		75A2A7F51DA5935F00A983D8 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		75A2A7F81DA5935F00A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		75A2A7FA1DA5935F00A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		75A2A7FC1DA5935F00A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2A8081DA5936F00A983D8 /* TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		75A2A80F1DA5936F00A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		75A2A8111DA5936F00A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A81C1DA5938500A983D8 /* Litewallet.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Litewallet.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A81E1DA5938500A983D8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		75A2A8201DA5938500A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2A8291DA59B2A00A983D8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A82A1DA59B2A00A983D8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A82B1DA59B2A00A983D8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A82E1DA59B2F00A983D8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A82F1DA59B2F00A983D8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8301DA59B2F00A983D8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8331DA59B3600A983D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
-		75A2A8341DA59B3600A983D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		75A2A8351DA59B3600A983D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		75A2A8381DA59B3C00A983D8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A8391DA59B3C00A983D8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A83A1DA59B3C00A983D8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A83D1DA59B4500A983D8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A83E1DA59B4500A983D8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A83F1DA59B4500A983D8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8421DA59B4B00A983D8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A8431DA59B4B00A983D8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8441DA59B4B00A983D8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8471DA59B5100A983D8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A8481DA59B5100A983D8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8491DA59B5100A983D8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A84C1DA59B5700A983D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A84D1DA59B5700A983D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A84E1DA59B5700A983D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8561DA59B6A00A983D8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A8571DA59B6A00A983D8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8581DA59B6A00A983D8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8601DA59BF500A983D8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A8611DA59BF500A983D8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8621DA59BF500A983D8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8651DA59BFB00A983D8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
-		75A2A8661DA59BFB00A983D8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A8671DA59BFB00A983D8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A87C1DA59E4E00A983D8 /* loafwallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = loafwallet.entitlements; sourceTree = "<group>"; };
 		75C735AF1DAA1C9F00251ECF /* libnettle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnettle.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1591,7 +1573,6 @@
 		CE124CFD1E68F57700DFA146 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Async.swift; path = src/Extensions/Async.swift; sourceTree = "<group>"; };
 		CE124CFF1E69170900DFA146 /* SyncingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyncingView.swift; path = src/Views/SyncingView.swift; sourceTree = "<group>"; };
 		CE1280F51EEA855C00D27649 /* Date+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Additions.swift"; path = "src/Extensions/Date+Additions.swift"; sourceTree = "<group>"; };
-		CE14E40A1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = TransactionDetailCollectionViewCell.swift; path = src/Views/TransactionDetailCollectionViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CE1D84B51EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Additions.swift"; path = "src/Extensions/UIBarButtonItem+Additions.swift"; sourceTree = "<group>"; };
 		CE1E5F251EF083A600BD0F72 /* StartImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartImportViewController.swift; path = src/ViewControllers/Import/StartImportViewController.swift; sourceTree = "<group>"; };
 		CE20C8F11DBAF71500C8397A /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationController.swift; path = src/ApplicationController.swift; sourceTree = "<group>"; };
@@ -1848,14 +1829,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75A2A7ED1DA5935F00A983D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75A2A7F31DA5935F00A983D8 /* Messages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3094,7 +3067,6 @@
 				2465872723A5AAC200A32E9E /* loafwalletUITests */,
 				75A2A7BC1DA5934300A983D8 /* loafwallet WatchKit App */,
 				75A2A7CB1DA5934300A983D8 /* loafwallet WatchKit Extension */,
-				75A2A7F41DA5935F00A983D8 /* MessagesExtension */,
 				75A2A80B1DA5936F00A983D8 /* TodayExtension */,
 				75A2A81D1DA5938500A983D8 /* NotificationServiceExtension */,
 				75B6F52F1DA71DCC0031A93F /* Modules */,
@@ -3109,10 +3081,9 @@
 			children = (
 				75A2A7901DA5934300A983D8 /* Litewallet.app */,
 				75A2A7B81DA5934300A983D8 /* loafwallet WatchKit App.app */,
-				75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */,
-				75A2A7F01DA5935F00A983D8 /* MessagesExtension.appex */,
+				75A2A7C71DA5934300A983D8 /* Litewallet.appex */,
 				75A2A8081DA5936F00A983D8 /* TodayExtension.appex */,
-				75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */,
+				75A2A81C1DA5938500A983D8 /* Litewallet.appex */,
 				755CD9C41DAA18420075898E /* libunbound.a */,
 				755CD9D11DAA197C0075898E /* libBRCore.a */,
 				75C735AF1DAA1C9F00251ECF /* libnettle.a */,
@@ -3178,7 +3149,6 @@
 				75A2A7BD1DA5934300A983D8 /* Interface.storyboard */,
 				75A2A7C01DA5934300A983D8 /* Assets.xcassets */,
 				75A2A7C21DA5934300A983D8 /* Info.plist */,
-				1B86CF1B2091554C00BCE82E /* Dev.plist */,
 				CEFFA2D01EB3BD730085C5D1 /* LoadingIndicator.xcassets */,
 			);
 			path = "loafwallet WatchKit App";
@@ -3197,7 +3167,6 @@
 				CED811AB1EB2BCDE003A8D1E /* BRAWWeakTimerTarget.swift */,
 				75A2A7D61DA5934300A983D8 /* Assets.xcassets */,
 				75A2A7D81DA5934400A983D8 /* Info.plist */,
-				1B86CF1C2091558000BCE82E /* Dev.plist */,
 				75A2A7CC1DA5934300A983D8 /* Supporting Files */,
 			);
 			path = "loafwallet WatchKit Extension";
@@ -3234,17 +3203,6 @@
 				2CF8845B661B040CA0780C35 /* Pods_LitewalletUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		75A2A7F41DA5935F00A983D8 /* MessagesExtension */ = {
-			isa = PBXGroup;
-			children = (
-				75A2A7F51DA5935F00A983D8 /* MessagesViewController.swift */,
-				75A2A7F71DA5935F00A983D8 /* MainInterface.storyboard */,
-				75A2A7FA1DA5935F00A983D8 /* Assets.xcassets */,
-				75A2A7FC1DA5935F00A983D8 /* Info.plist */,
-			);
-			path = MessagesExtension;
 			sourceTree = "<group>";
 		};
 		75A2A80B1DA5936F00A983D8 /* TodayExtension */ = {
@@ -3438,7 +3396,6 @@
 				CE4B6C1B1E21A96D00CF935B /* LoadingProgressView.swift */,
 				CE8CD8E21E31978100785E02 /* LoginBackgroundTriangle.swift */,
 				CECB9DB51E4985CE0081A172 /* LoginBackgroundView.swift */,
-				CE14E40A1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift */,
 				CE6B6B491E54C0CA00B31405 /* SecurityCenterCell.swift */,
 				CE6DCC261E6108D50044257B /* EnterPhraseCell.swift */,
 				CEAFC8601E5D5B0500E4FD06 /* SegmentedButton.swift */,
@@ -3879,25 +3836,8 @@
 			);
 			name = "loafwallet WatchKit Extension";
 			productName = "breadwallet WatchKit Extension";
-			productReference = 75A2A7C71DA5934300A983D8 /* loafwallet WatchKit Extension.appex */;
+			productReference = 75A2A7C71DA5934300A983D8 /* Litewallet.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
-		};
-		75A2A7EF1DA5935F00A983D8 /* MessagesExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A8001DA5935F00A983D8 /* Build configuration list for PBXNativeTarget "MessagesExtension" */;
-			buildPhases = (
-				75A2A7EC1DA5935F00A983D8 /* Sources */,
-				75A2A7ED1DA5935F00A983D8 /* Frameworks */,
-				75A2A7EE1DA5935F00A983D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MessagesExtension;
-			productName = MessagesExtension;
-			productReference = 75A2A7F01DA5935F00A983D8 /* MessagesExtension.appex */;
-			productType = "com.apple.product-type.app-extension.messages";
 		};
 		75A2A8071DA5936F00A983D8 /* TodayExtension */ = {
 			isa = PBXNativeTarget;
@@ -3930,7 +3870,7 @@
 			);
 			name = NotificationServiceExtension;
 			productName = NotificationServiceExtension;
-			productReference = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */;
+			productReference = 75A2A81C1DA5938500A983D8 /* Litewallet.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		75C735AE1DAA1C9F00251ECF /* nettle */ = {
@@ -4017,10 +3957,6 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					75A2A7EF1DA5935F00A983D8 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
 					75A2A8071DA5936F00A983D8 = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
@@ -4073,7 +4009,6 @@
 				2465873523A5AAD000A32E9E /* loafwalletTests */,
 				2465872523A5AAC200A32E9E /* loafwalletUITests */,
 				75A2A7C61DA5934300A983D8 /* loafwallet WatchKit Extension */,
-				75A2A7EF1DA5935F00A983D8 /* MessagesExtension */,
 				75A2A8071DA5936F00A983D8 /* TodayExtension */,
 				75A2A81B1DA5938500A983D8 /* NotificationServiceExtension */,
 				755CD9C31DAA18420075898E /* unbound */,
@@ -4174,15 +4109,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A2A7D71DA5934400A983D8 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75A2A7EE1DA5935F00A983D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75A2A7FB1DA5935F00A983D8 /* Assets.xcassets in Resources */,
-				75A2A7F91DA5935F00A983D8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4493,7 +4419,6 @@
 				24306797238F3DF900EBEA99 /* BartyCrouch.swift in Sources */,
 				CEC6AA3B1DEE4EB000EE5AFD /* CGRect+Additions.swift in Sources */,
 				CE45C1FB1E74F89C002C3847 /* WalletInfo.swift in Sources */,
-				CE14E40B1E4D881500AEA83A /* TransactionDetailCollectionViewCell.swift in Sources */,
 				CEE659E71F65A936001FF29D /* RetryTimer.swift in Sources */,
 				248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */,
 				CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */,
@@ -4720,14 +4645,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75A2A7EC1DA5935F00A983D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75A2A7F61DA5935F00A983D8 /* MessagesViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75A2A8041DA5936F00A983D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4914,28 +4831,11 @@
 				75A2A8601DA59BF500A983D8 /* sv */,
 				75A2A8651DA59BFB00A983D8 /* ru */,
 				249F976E236F86240045087A /* id */,
+				24B9621123BA64C100ECD938 /* zh-Hant */,
+				24B9621323BA64C600ECD938 /* pt */,
+				24B9621523BA64CC00ECD938 /* en */,
 			);
 			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
-		75A2A7F71DA5935F00A983D8 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75A2A7F81DA5935F00A983D8 /* Base */,
-				75A2A82A1DA59B2A00A983D8 /* fr */,
-				75A2A82F1DA59B2F00A983D8 /* de */,
-				75A2A8341DA59B3600A983D8 /* zh-Hans */,
-				75A2A8391DA59B3C00A983D8 /* ja */,
-				75A2A83E1DA59B4500A983D8 /* es */,
-				75A2A8431DA59B4B00A983D8 /* it */,
-				75A2A8481DA59B5100A983D8 /* nl */,
-				75A2A84D1DA59B5700A983D8 /* ko */,
-				75A2A8571DA59B6A00A983D8 /* da */,
-				75A2A8611DA59BF500A983D8 /* sv */,
-				75A2A8661DA59BFB00A983D8 /* ru */,
-				249F976F236F86240045087A /* id */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		75A2A80E1DA5936F00A983D8 /* MainInterface.storyboard */ = {
@@ -4954,6 +4854,9 @@
 				75A2A8621DA59BF500A983D8 /* sv */,
 				75A2A8671DA59BFB00A983D8 /* ru */,
 				249F9770236F862C0045087A /* id */,
+				24B9621723BA66CC00ECD938 /* pt */,
+				24B9621923BA66CE00ECD938 /* zh-Hant */,
+				24B9621B23BA66CF00ECD938 /* en */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -5085,7 +4988,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5116,7 +5019,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				IBSC_MODULE = loafwallet_WatchKit_Extension;
@@ -5287,7 +5190,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/loafwallet WatchKit Extension/Info.plist";
@@ -5298,7 +5201,7 @@
 				);
 				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = Litewallet;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5307,32 +5210,11 @@
 			};
 			name = Debug;
 		};
-		24470E0623A5BF3C00ADDA27 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1420;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ZV7987N2ZC;
-				INFOPLIST_FILE = MessagesExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.6.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		24470E0723A5BF3C00ADDA27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -5354,7 +5236,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
@@ -5366,7 +5248,7 @@
 				);
 				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Litewallet;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -5718,7 +5600,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/loafwallet WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5728,7 +5610,7 @@
 				);
 				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = Litewallet;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5742,7 +5624,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				IBSC_MODULE = loafwallet_WatchKit_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/loafwallet WatchKit App/Info.plist";
@@ -5765,7 +5647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -5789,31 +5671,11 @@
 			};
 			name = Release;
 		};
-		75A2A8021DA5935F00A983D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1420;
-				DEVELOPMENT_TEAM = ZV7987N2ZC;
-				INFOPLIST_FILE = MessagesExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.6.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		75A2A8171DA5936F00A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -5834,7 +5696,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -5845,7 +5707,7 @@
 				);
 				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Litewallet;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -5935,7 +5797,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5966,7 +5828,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				IBSC_MODULE = loafwallet_WatchKit_Extension;
@@ -5987,7 +5849,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/loafwallet WatchKit Extension/Info.plist";
@@ -5998,7 +5860,7 @@
 				);
 				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = Litewallet;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -6007,32 +5869,11 @@
 			};
 			name = Testnet;
 		};
-		CEA7E6A11F0AAA84001F8C27 /* Testnet */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1420;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ZV7987N2ZC;
-				INFOPLIST_FILE = MessagesExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.6.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.MessagesExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Testnet;
-		};
 		CEA7E6A21F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -6054,7 +5895,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1420;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
@@ -6066,7 +5907,7 @@
 				);
 				MARKETING_VERSION = 2.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.NotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Litewallet;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -6292,16 +6133,6 @@
 				24470E0123A5BF3C00ADDA27 /* Debug */,
 				CEA7E69C1F0AAA84001F8C27 /* Testnet */,
 				75A2A7E51DA5934400A983D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75A2A8001DA5935F00A983D8 /* Build configuration list for PBXNativeTarget "MessagesExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24470E0623A5BF3C00ADDA27 /* Debug */,
-				CEA7E6A11F0AAA84001F8C27 /* Testnet */,
-				75A2A8021DA5935F00A983D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

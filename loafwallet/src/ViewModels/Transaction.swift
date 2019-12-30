@@ -128,7 +128,6 @@ class Transaction {
         if let metaData = metaData, let currentRate = rates.filter({ $0.code.lowercased() == metaData.exchangeRateCurrency.lowercased() }).first {
             let difference = (currentRate.rate - metaData.exchangeRate)/metaData.exchangeRate*100.0
             let prefix = difference > 0.0 ? "+" : "-"
-            let firstLine = direction == .sent ? S.Transaction.exchangeOnDaySent : S.Transaction.exchangeOnDayReceived
             let nf = NumberFormatter()
             nf.currencySymbol = currentRate.currencySymbol
             nf.numberStyle = .currency
