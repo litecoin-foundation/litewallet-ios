@@ -72,19 +72,24 @@ struct E {
 }
 
 struct EnvironmentVariables {
-    static var mixpanelTokenProdKey: String = EnvironmentVariables.variable(name: "SECRET_MIXPANL_PROD_ENVIRONMENT_KEY") ?? CI.mixpanelTokenProdKey
-    static var mixpanelTokenDevKey: String = EnvironmentVariables.variable(name: "SECRET_MIXPANL_DEV_ENVIRONMENT_KEY") ?? CI.mixpanelTokenDevKey
-    static var newRelicTokenProdKey: String = EnvironmentVariables.variable(name: "SECRET_NR_PROD_ENVIRONMENT_KEY") ?? CI.newRelicTokenProdKey
-    static var newRelicTokenDevKey: String = EnvironmentVariables.variable(name: "SECRET_NR_DEV_ENVIRONMENT_KEY") ?? CI.newRelicTokenDevKey
+    
+    static let plistDict: NSDictionary? = {
+        var dict: NSDictionary?
+               if let path = Bundle.main.path(forResource: "EnvVars", ofType: "plist") {
+                  dict = NSDictionary(contentsOfFile: path)
+               }
+        return dict
+    }()
+    
+    static var mixpanelTokenProdKey: String = EnvironmentVariables.plistVariable(name: "MXP_PROD_ENV_KEY") ?? CI.mixpanelTokenProdKey
+    static var mixpanelTokenDevKey: String = EnvironmentVariables.plistVariable(name: "MXP_DEV_ENV_KEY") ?? CI.mixpanelTokenDevKey
+    static var newRelicTokenProdKey: String = EnvironmentVariables.plistVariable(name: "NR_PROD_ENV_KEY") ?? CI.newRelicTokenProdKey
+    static var newRelicTokenDevKey: String = EnvironmentVariables.plistVariable(name: "NR_DEV_ENV_KEY") ?? CI.newRelicTokenDevKey
 
-    static func variable(name: String) -> String? {
-        let processInfo = ProcessInfo.processInfo
-        guard let value = processInfo.environment[name] else {
-            NSLog("Process Info env var name not found: \(name)")
-            return nil
+    static func plistVariable(name: String) -> String? {
+        if let key = plistDict?[name] as? String {
+            return key
         }
-        return value
+        return nil
     }
-     
 }
-
