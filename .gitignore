@@ -68,3 +68,4 @@ Screenshots/shots
 /loafwallet/Keys.swift
 *.xcscheme
 /scripts/env-vars.sh
+/loafwallet/EnvVars.plist
