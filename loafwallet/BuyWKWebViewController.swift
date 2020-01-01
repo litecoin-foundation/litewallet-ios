@@ -127,11 +127,12 @@ extension BuyWKWebViewController {
         req.httpBody = Data(response.utf8)
         req.httpMethod = "POST"
            
-        let vc = BRBrowserViewController()
-        vc.navigationBar.isHidden = true
-        vc.load(req)
-        addChildViewController(vc)
-        self.wkWebContainerView.addSubview(vc.view)
-        vc.didMove(toParentViewController: self)
+        DispatchQueue.main.async {
+            let vc = BRBrowserViewController()
+            vc.load(req)
+            self.addChildViewController(vc)
+            self.wkWebContainerView.addSubview(vc.view)
+            vc.didMove(toParentViewController: self)
+        }
     }
 }

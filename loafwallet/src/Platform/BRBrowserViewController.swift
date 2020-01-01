@@ -62,7 +62,7 @@ fileprivate class BRBrowserViewControllerInternal: UIViewController, WKNavigatio
             views: ["progressView": progressView]))
         view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "V:|[topGuide]-0-[progressView(2)]", options: [], metrics: nil,
-            views: ["progressView": progressView, "topGuide": view.safeAreaLayoutGuide.topAnchor]))
+              views: ["progressView": progressView, "topGuide": self.topLayoutGuide]))
         
         // toolbar view
         view.addSubview(toolbarContainerView)
@@ -96,7 +96,7 @@ fileprivate class BRBrowserViewControllerInternal: UIViewController, WKNavigatio
             views: ["webView": webView as WKWebView]))
         view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "V:|[topGuide]-0-[webView]-0-[toolbarContainer]|", options: [], metrics: nil,
-            views: ["webView": webView, "toolbarContainer": toolbarContainerView, "topGuide": view.safeAreaLayoutGuide.topAnchor]))
+            views: ["webView": webView, "toolbarContainer": toolbarContainerView, "topGuide": self.topLayoutGuide]))
     }
     
     open override func viewWillAppear(_ animated: Bool) {
