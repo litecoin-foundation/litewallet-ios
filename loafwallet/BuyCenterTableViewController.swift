@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Mixpanel
 
 //let buyCellReuseIdentifier = "buyCell"
 

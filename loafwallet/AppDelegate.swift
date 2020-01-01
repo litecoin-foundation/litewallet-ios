@@ -47,9 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             MixpanelEvents._20191105_AL.rawValue, properties: ["app details":["VERSION": AppVersion.string]])
         
-        UserDefaults.standard.set(true, forKey: "musicon")
-           
-        
         UIView.swizzleSetFrame()
         applicationController.launch(application: application, options: launchOptions)
         return true
