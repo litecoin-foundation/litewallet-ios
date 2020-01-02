@@ -369,8 +369,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             
             if isSelected {
                 let newAlpha = 1.0
-                 
-                UIView.animate(withDuration: 0.2, delay: 0.1, animations: {
+                UIView.animate(withDuration: 0.1, delay: 0.0, animations: {
                     selectedCell.expandCardView.alpha = CGFloat(newAlpha)
                     selectedCell.dropArrowImageView.transform = identity.rotated(by: π)
                 })
