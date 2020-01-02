@@ -12,6 +12,7 @@ def shared_pods
   pod 'QREncoder' 
   pod 'SwiftyJSON', '~> 4.0'
   pod 'CryptoSwift', '~> 1.0'
+  # add after v2.6.0 pod 'SwiftLint'
 end
 
 def shared_watchOS_pods

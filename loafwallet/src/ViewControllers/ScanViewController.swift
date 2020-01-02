@@ -13,6 +13,13 @@ typealias ScanCompletion = (PaymentRequest?) -> Void
 typealias KeyScanCompletion = (String) -> Void
 
 class ScanViewController : UIViewController, Trackable {
+    //TODO: Add a storyboard
+    @IBOutlet weak var cameraOverlayView: UIView!
+    @IBOutlet weak var toolbarView: UIView!
+    @IBOutlet weak var overlayViewTitleLabel: UILabel!
+     
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var flashButton: UIButton!
 
     static func presentCameraUnavailableAlert(fromRoot: UIViewController) {
         let alertController = UIAlertController(title: S.Send.cameraUnavailableTitle, message: S.Send.cameraUnavailableMessage, preferredStyle: .alert)
@@ -38,7 +45,7 @@ class ScanViewController : UIViewController, Trackable {
     fileprivate let session = AVCaptureSession()
     private let toolbar = UIView()
     private let close = UIButton.close
-    private let flash = UIButton.icon(image: #imageLiteral(resourceName: "Flash"), accessibilityLabel: S.Scanner.flashButtonLabel)
+    private let flash = UIButton.icon(image: UIImage(named: "flashIcon")!, accessibilityLabel: S.Scanner.flashButtonLabel)
     fileprivate var currentUri = ""
 
     init(completion: @escaping ScanCompletion, isValidURI: @escaping (String) -> Bool) {
@@ -71,29 +78,29 @@ class ScanViewController : UIViewController, Trackable {
             close.constrain([
                 close.constraint(.leading, toView: toolbar),
                 close.constraint(.top, toView: toolbar, constant: 2.0),
-                close.constraint(.width, constant: 44.0),
-                close.constraint(.height, constant: 44.0) ])
+                close.constraint(.width, constant: 50.0),
+                close.constraint(.height, constant: 50.0) ])
             
             flash.constrain([
                 flash.constraint(.trailing, toView: toolbar),
                 flash.constraint(.top, toView: toolbar, constant: 2.0),
-                flash.constraint(.width, constant: 44.0),
-                flash.constraint(.height, constant: 44.0) ])
+                flash.constraint(.width, constant: 50.0),
+                flash.constraint(.height, constant: 50.0) ])
             
         } else {
-            toolbar.constrain([ toolbar.constraint(.height, constant: 48.0) ])
+            toolbar.constrain([ toolbar.constraint(.height, constant: 60.0) ])
             
             close.constrain([
-                close.constraint(.leading, toView: toolbar),
+                close.constraint(.leading, toView: toolbar, constant: 10.0),
                 close.constraint(.top, toView: toolbar, constant: 2.0),
                 close.constraint(.bottom, toView: toolbar, constant: -2.0),
-                close.constraint(.width, constant: 44.0) ])
+                close.constraint(.width, constant: 50.0) ])
             
             flash.constrain([
-                flash.constraint(.trailing, toView: toolbar),
+                flash.constraint(.trailing, toView: toolbar, constant: -10.0),
                 flash.constraint(.top, toView: toolbar, constant: 2.0),
                 flash.constraint(.bottom, toView: toolbar, constant: -2.0),
-                flash.constraint(.width, constant: 44.0) ])
+                flash.constraint(.width, constant: 50.0) ])
         }
 
         guide.constrain([
@@ -190,14 +197,13 @@ extension ScanViewController : AVCaptureMetadataOutputObjectsDelegate {
                 }
             }
         } else {
-            NSLog("ERROR: data metadata objects not accesses")
+            NSLog("ERROR: data metadata objects not accessed")
         }
     }
 
     func handleURI(_ uri: String) {
         if self.currentUri != uri {
             self.currentUri = uri
-            print("URI: \(uri)")
             if let paymentRequest = PaymentRequest(string: uri) {
                 saveEvent("scan.litecoinUri")
                 guide.state = .positive
@@ -214,8 +220,6 @@ extension ScanViewController : AVCaptureMetadataOutputObjectsDelegate {
     }
 
     func handleKey(_ keyString: String) {
-
-        print("ADDRESS: \(keyString)")
         if isValidURI(keyString) {
             saveEvent("scan.privateKey")
             guide.state = .positive
