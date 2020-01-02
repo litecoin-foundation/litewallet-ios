@@ -296,6 +296,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             })
         }
         confirm.cancelCallback = {
+            self.wantsToDonate = false
             confirm.dismiss(animated: true, completion: {
                 self.sender.transaction = nil
             })
