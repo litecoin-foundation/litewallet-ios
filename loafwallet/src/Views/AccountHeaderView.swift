@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Mixpanel
 //
 ////private let largeFontSize: CGFloat = 24.0
 ////private let smallFontSize: CGFloat = 13.0
