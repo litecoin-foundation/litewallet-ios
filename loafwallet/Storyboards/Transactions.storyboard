@@ -146,7 +146,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB9-Pn-5ix">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="591c36785e363af5333344aa287c436e9660ce18f7884fc33269edbf63f3214" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB9-Pn-5ix">
                                                                     <rect key="frame" x="0.0" y="51.5" width="330.5" height="14.5"/>
                                                                     <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="12"/>
                                                                     <nil key="textColor"/>
@@ -256,9 +256,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LYPH5Ua9vpPbZnuNQrftC1y9yeAYELQi5W" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOr-k8-GKl">
-                                                            <rect key="frame" x="10" y="22" width="190" height="16"/>
+                                                            <rect key="frame" x="10" y="22" width="230" height="16"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="190" id="2E9-ax-4jx"/>
+                                                                <constraint firstAttribute="width" constant="230" id="2E9-ax-4jx"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -294,10 +294,10 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="availbilty" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxB-4L-ysJ">
-                                                            <rect key="frame" x="252" y="24" width="150" height="17"/>
+                                                            <rect key="frame" x="302" y="24" width="100" height="17"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="Lc7-1T-GY2"/>
+                                                                <constraint firstAttribute="width" constant="100" id="Lc7-1T-GY2"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="BarlowSemiCondensed-Light" family="Barlow Semi Condensed Light" pointSize="14"/>
                                                             <nil key="textColor"/>
