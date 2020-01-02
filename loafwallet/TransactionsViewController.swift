@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import QREncoder
 import LocalAuthentication
 
 private let promptDelay: TimeInterval = 0.6
+private let qrImageSize = 120.0
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber, Trackable {
 
     @IBOutlet weak var tableView: UITableView!
@@ -314,7 +314,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 cell.showQRModalAction = { [unowned self] in
                     
                     if let addressString = transaction.toAddress,
-                        let qrImage = transaction.toAddress?.qrCode,
+                        let qrImage =  UIImage.qrCode(data: addressString.data(using: .utf8) ?? Data(), color: CIColor(color: .black))?.resize(CGSize(width: qrImageSize, height: qrImageSize)),
                         let receiveLTCtoAddressModal = UIStoryboard.init(name: "Alerts", bundle: nil).instantiateViewController(withIdentifier: "LFModalReceiveQRViewController") as? LFModalReceiveQRViewController {
                         
                         receiveLTCtoAddressModal.providesPresentationContextTransitionStyle = true

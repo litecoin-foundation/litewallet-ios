@@ -6,8 +6,7 @@
 //  Copyright © 2019 Litecoin Foundation. All rights reserved.
 //
 
-import UIKit
-import QREncoder
+import UIKit 
 
 struct WalletAddressData {
     var address: String
