@@ -813,6 +813,11 @@
 		22A9A9AB1DF64B97000F0016 /* iphonesim.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = iphonesim.modulemap; path = Modules/libbz2/iphonesim.modulemap; sourceTree = SOURCE_ROOT; };
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
 		240A89B4235F7280005E2A2F /* DonationSetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSetupCell.swift; sourceTree = "<group>"; };
+		240F6C3D23BE81EF00E2C708 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		240F6C3E23BE81F000E2C708 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Interface.strings; sourceTree = "<group>"; };
+		240F6C3F23BE81F000E2C708 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		240F6C4023BE81F000E2C708 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		240F6C4123BE81F000E2C708 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		2427342B2381C21800E2D22F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		24306796238F3DF900EBEA99 /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		24306799238F479500EBEA99 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -4003,6 +4008,7 @@
 				sv,
 				id,
 				Base,
+				ar,
 			);
 			mainGroup = 75A2A7871DA5934300A983D8;
 			productRefGroup = 75A2A7911DA5934300A983D8 /* Products */;
@@ -4826,6 +4832,7 @@
 				24375314238AE09700E1B2AE /* pt */,
 				24375315238AE09900E1B2AE /* ru */,
 				24375316238AE09D00E1B2AE /* sv */,
+				240F6C4123BE81F000E2C708 /* ar */,
 			);
 			name = BIP39Words.plist;
 			sourceTree = "<group>";
@@ -4835,6 +4842,7 @@
 			children = (
 				75A2A79D1DA5934300A983D8 /* Base */,
 				249F976D236F86240045087A /* id */,
+				240F6C3D23BE81EF00E2C708 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -4858,6 +4866,7 @@
 				24B9621123BA64C100ECD938 /* zh-Hant */,
 				24B9621323BA64C600ECD938 /* pt */,
 				24B9621523BA64CC00ECD938 /* en */,
+				240F6C3E23BE81F000E2C708 /* ar */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -4881,6 +4890,7 @@
 				24B9621723BA66CC00ECD938 /* pt */,
 				24B9621923BA66CE00ECD938 /* zh-Hant */,
 				24B9621B23BA66CF00ECD938 /* en */,
+				240F6C3F23BE81F000E2C708 /* ar */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -4904,6 +4914,7 @@
 				CE0FC0F91F72417500E7C626 /* sv */,
 				24306799238F479500EBEA99 /* id */,
 				2430679B238F5A2900EBEA99 /* en */,
+				240F6C4023BE81F000E2C708 /* ar */,
 			);
 			name = Localizable.strings;
 			path = src/Strings;
