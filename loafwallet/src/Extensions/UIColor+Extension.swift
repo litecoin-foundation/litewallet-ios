@@ -20,27 +20,27 @@ extension UIColor {
       return .white
     }
     
-    static var litecoinGray: UIColor {
+    static var litecoinGray: UIColor { //F1F1F1
       return #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
     }
       
-    static var litecoinSilver: UIColor {
-      return #colorLiteral(red: 0.6509078741, green: 0.6621127725, blue: 0.6660699844, alpha: 1)
+    static var litecoinSilver: UIColor { //A6A9AA
+      return #colorLiteral(red: 0.6509803922, green: 0.662745098, blue: 0.6666666667, alpha: 1)
     }
     
-    static var litecoinDarkSilver: UIColor {
-      return #colorLiteral(red: 0.3032740951, green: 0.3032055199, blue: 0.3077734411, alpha: 1)
+    static var litecoinDarkSilver: UIColor { //4D4D4E
+      return #colorLiteral(red: 0.3019607843, green: 0.3019607843, blue: 0.3058823529, alpha: 1)
     }
     
-    static var liteWalletBlue: UIColor {
+    static var liteWalletBlue: UIColor { //345D9D
       return #colorLiteral(red: 0.2039215686, green: 0.3647058824, blue: 0.6156862745, alpha: 1)
     }
     
-    static var litecoinOrange: UIColor {
-      return #colorLiteral(red: 0.9955089688, green: 0.3714971542, blue: 0.3340456784, alpha: 1)
+    static var litecoinOrange: UIColor { // FE5F55
+      return #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.3333333333, alpha: 1)
     }
     
-    static var litecoinGreen: UIColor {
+    static var litecoinGreen: UIColor { //179E27
       return #colorLiteral(red: 0.09019607843, green: 0.6196078431, blue: 0.1529411765, alpha: 1)
     }
     // MARK: Buttons
