@@ -576,21 +576,25 @@ class ModalPresenter : Subscriber, Trackable {
                     var write: WritePaperPhraseViewController?
                     write = WritePaperPhraseViewController(store: myself.store, walletManager: walletManager, pin: pin, callback: { [weak self] in
                         guard let myself = self else { return }
-                        var confirm: ConfirmPaperPhraseViewController?
-                        confirm = ConfirmPaperPhraseViewController(store: myself.store, walletManager: walletManager, pin: pin, callback: {
-                                confirm?.dismiss(animated: true, completion: {
-                                    myself.store.perform(action: Alert.Show(.paperKeySet(callback: {
-                                        myself.store.perform(action: HideStartFlow())
-                                    })))
+                        let confirmVC = UIStoryboard.init(name: "Phrase", bundle: nil).instantiateViewController(withIdentifier: "ConfirmPaperPhraseViewController") as? ConfirmPaperPhraseViewController
+                        confirmVC?.store = myself.store
+                        confirmVC?.walletManager = myself.walletManager
+                        confirmVC?.pin = pin
+                        confirmVC?.didCompleteConfirmation = {
+                            confirmVC?.dismiss(animated: true, completion: {
+                                myself.store.perform(action: Alert.Show(.paperKeySet(callback: {
+                                    myself.store.perform(action: HideStartFlow())
+                                    
+                                })))
                             })
-                        })
-                        write?.navigationItem.title = S.SecurityCenter.Cells.paperKeyTitle
-                        if let confirm = confirm {
+                        }
+                        //write?.navigationItem.title = S.SecurityCenter.Cells.paperKeyTitle
+                        if let confirm = confirmVC {
                             paperPhraseNavigationController.pushViewController(confirm, animated: true)
                         }
                     })
                     write?.hideCloseNavigationItem()
-                    write?.navigationItem.title = S.SecurityCenter.Cells.paperKeyTitle
+                   /// write?.navigationItem.title = S.SecurityCenter.Cells.paperKeyTitle
 
                     vc.dismiss(animated: true, completion: {
                         guard let write = write else { return }

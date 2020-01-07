@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="BarlowSemiCondensed-Bold.ttf">
+            <string>BarlowSemiCondensed-Bold</string>
+        </array>
         <array key="BarlowSemiCondensed-Light.ttf">
             <string>BarlowSemiCondensed-Light</string>
         </array>
@@ -16,9 +19,6 @@
         </array>
         <array key="BarlowSemiCondensed-Regular.ttf">
             <string>BarlowSemiCondensed-Regular</string>
-        </array>
-        <array key="BarlowSemiCondensed-SemiBold.ttf">
-            <string>BarlowSemiCondensed-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -50,19 +50,19 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2a-mL-MNS">
-                                                    <rect key="frame" x="187.5" y="11" width="39.5" height="22"/>
-                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-SemiBold" family="Barlow Semi Condensed SemiBold" pointSize="18"/>
+                                                    <rect key="frame" x="188" y="11" width="38" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Bold" family="Barlow Semi Condensed" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd9-xy-dVL">
-                                                    <rect key="frame" x="10" y="43" width="394" height="18"/>
-                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
+                                                    <rect key="frame" x="20" y="41.5" width="374" height="17"/>
+                                                    <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXY-zL-JKa">
-                                                    <rect key="frame" x="0.0" y="50" width="414" height="70"/>
+                                                    <rect key="frame" x="0.0" y="41.5" width="414" height="78.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title=" "/>
                                                     <connections>
@@ -70,10 +70,10 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVN-b9-Swt">
-                                                    <rect key="frame" x="10" y="16" width="18" height="18"/>
+                                                    <rect key="frame" x="10" y="16" width="15" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="3o5-5Z-fQq"/>
-                                                        <constraint firstAttribute="height" constant="18" id="6yV-1n-NKv"/>
+                                                        <constraint firstAttribute="width" constant="15" id="3o5-5Z-fQq"/>
+                                                        <constraint firstAttribute="height" constant="15" id="6yV-1n-NKv"/>
                                                     </constraints>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="whiteCross"/>
@@ -81,6 +81,13 @@
                                                         <action selector="closeAction:" destination="ILn-x0-c1R" eventType="touchUpInside" id="agM-Hz-hKF"/>
                                                     </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXq-Ak-JsH" userLabel="separatorView">
+                                                    <rect key="frame" x="0.0" y="119" width="414" height="1"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="ORg-aX-wNG"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -88,15 +95,18 @@
                                                 <constraint firstAttribute="trailing" secondItem="1Os-kq-tgj" secondAttribute="trailing" id="6qK-ON-oE1"/>
                                                 <constraint firstItem="qVN-b9-Swt" firstAttribute="leading" secondItem="8nv-qj-8bj" secondAttribute="leading" constant="10" id="KuF-vo-rMS"/>
                                                 <constraint firstItem="qVN-b9-Swt" firstAttribute="top" secondItem="1Os-kq-tgj" secondAttribute="bottom" constant="15" id="LRE-4R-1Wr"/>
-                                                <constraint firstAttribute="trailing" secondItem="Nd9-xy-dVL" secondAttribute="trailing" constant="10" id="NPN-RF-sIo"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nd9-xy-dVL" secondAttribute="trailing" constant="20" id="NPN-RF-sIo"/>
+                                                <constraint firstItem="PXq-Ak-JsH" firstAttribute="leading" secondItem="8nv-qj-8bj" secondAttribute="leading" id="NQ4-ih-dcx"/>
                                                 <constraint firstItem="OXY-zL-JKa" firstAttribute="leading" secondItem="8nv-qj-8bj" secondAttribute="leading" id="Q7j-zW-idK"/>
-                                                <constraint firstItem="Nd9-xy-dVL" firstAttribute="leading" secondItem="8nv-qj-8bj" secondAttribute="leading" constant="10" id="QmU-MV-o2P"/>
-                                                <constraint firstItem="OXY-zL-JKa" firstAttribute="top" secondItem="qVN-b9-Swt" secondAttribute="bottom" constant="16" id="Rb9-hf-bzp"/>
+                                                <constraint firstItem="Nd9-xy-dVL" firstAttribute="leading" secondItem="8nv-qj-8bj" secondAttribute="leading" constant="20" id="QmU-MV-o2P"/>
                                                 <constraint firstItem="Q2a-mL-MNS" firstAttribute="top" secondItem="1Os-kq-tgj" secondAttribute="bottom" constant="10" id="U9b-Zr-ENd"/>
                                                 <constraint firstItem="1Os-kq-tgj" firstAttribute="leading" secondItem="8nv-qj-8bj" secondAttribute="leading" id="XZO-3e-xGF"/>
                                                 <constraint firstAttribute="trailing" secondItem="OXY-zL-JKa" secondAttribute="trailing" id="ZHF-Mp-8ha"/>
+                                                <constraint firstAttribute="trailing" secondItem="PXq-Ak-JsH" secondAttribute="trailing" id="aho-b7-5vx"/>
+                                                <constraint firstAttribute="bottom" secondItem="PXq-Ak-JsH" secondAttribute="bottom" id="ivL-eF-IBt"/>
                                                 <constraint firstItem="Nd9-xy-dVL" firstAttribute="top" secondItem="Q2a-mL-MNS" secondAttribute="bottom" constant="10" id="luq-FJ-dKe"/>
                                                 <constraint firstItem="1Os-kq-tgj" firstAttribute="top" secondItem="8nv-qj-8bj" secondAttribute="top" id="prw-Wk-iOx"/>
+                                                <constraint firstItem="OXY-zL-JKa" firstAttribute="top" secondItem="Nd9-xy-dVL" secondAttribute="top" id="wv0-aF-7tT"/>
                                                 <constraint firstAttribute="bottom" secondItem="OXY-zL-JKa" secondAttribute="bottom" id="xy4-Wj-H6J"/>
                                                 <constraint firstItem="Nd9-xy-dVL" firstAttribute="centerX" secondItem="8nv-qj-8bj" secondAttribute="centerX" id="za6-xr-fNv"/>
                                             </constraints>
