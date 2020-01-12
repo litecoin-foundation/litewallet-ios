@@ -83,8 +83,6 @@ struct EnvironmentVariables {
     
     static var mixpanelTokenProdKey: String = EnvironmentVariables.plistVariable(name: "MXP_PROD_ENV_KEY") ?? CI.mixpanelTokenProdKey
     static var mixpanelTokenDevKey: String = EnvironmentVariables.plistVariable(name: "MXP_DEV_ENV_KEY") ?? CI.mixpanelTokenDevKey
-    static var newRelicTokenProdKey: String = EnvironmentVariables.plistVariable(name: "NR_PROD_ENV_KEY") ?? CI.newRelicTokenProdKey
-    static var newRelicTokenDevKey: String = EnvironmentVariables.plistVariable(name: "NR_DEV_ENV_KEY") ?? CI.newRelicTokenDevKey
 
     static func plistVariable(name: String) -> String? {
         if let key = plistDict?[name] as? String {

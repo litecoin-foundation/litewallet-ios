@@ -30,6 +30,8 @@ enum MixpanelEvents: String {
     case _20200111_WNI = "WALLET_NOT_INITIALIZED"
     case _20200111_PNI = "PHRASE_NOT_INITIALIZED"
     case _20200111_UTST = "UNABLE_TO_SIGN_TRANSACTION"
+    case _20200112_ERR = "ERROR"
+
 
 
 

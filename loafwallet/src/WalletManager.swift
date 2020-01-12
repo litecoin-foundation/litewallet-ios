@@ -27,6 +27,7 @@ import Foundation
 import SystemConfiguration
 import BRCore
 import sqlite3
+import Mixpanel
 
 internal let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
 internal let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
@@ -169,7 +170,8 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
             SQLITE_OPEN_FULLMUTEX | SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE, nil
             ) != SQLITE_OK {
             print(String(cString: sqlite3_errmsg(db)))
-
+            Mixpanel.mainInstance().track(event: MixpanelEvents._20200112_ERR.rawValue,
+                properties: ["sql3":["ERROR_MESSAGE":String(cString: sqlite3_errmsg(db)),"ERROR_CODE": sqlite3_errcode(db)]])
             #if DEBUG
                 throw WalletManagerError.sqliteError(errorCode: sqlite3_errcode(db),
                                                      description: String(cString: sqlite3_errmsg(db)))
@@ -320,6 +322,8 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
 
             guard sqlite3_errcode(self.db) == SQLITE_OK else {
                 print(String(cString: sqlite3_errmsg(self.db)))
+                Mixpanel.mainInstance().track(event: MixpanelEvents._20200112_ERR.rawValue,
+                                              properties: ["sql3":["ERROR_MESSAGE":String(cString: sqlite3_errmsg(self.db)),"ERROR_CODE": sqlite3_errcode(self.db)]])
                 return
             }
             
@@ -427,6 +431,7 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
 
                 guard sqlite3_step(sql) == SQLITE_ROW else {
                     print(String(cString: sqlite3_errmsg(self.db)))
+                    
                     sqlite3_exec(self.db, "rollback", nil, nil, nil)
                     return
                 }
