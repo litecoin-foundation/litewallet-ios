@@ -37,6 +37,13 @@ struct E {
             return false
         #endif
     }()
+    static let isRelease: Bool = {
+        #if Release
+            return true
+        #else
+            return false
+        #endif
+    }()
     static let isScreenshots: Bool = {
         #if Screenshots
             return true
@@ -89,5 +96,10 @@ struct EnvironmentVariables {
             return key
         }
         return nil
+    }
+    
+    enum EnvironmentName: String {
+        case debug      = "Debug"
+        case release    = "Release"
     }
 }

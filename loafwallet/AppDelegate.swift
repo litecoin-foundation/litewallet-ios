@@ -38,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool { 
         var mixpanelToken = ""
         #if Debug || Testflight
-        mixpanelToken = EnvironmentVariables.mixpanelTokenDevKey
+            mixpanelToken = EnvironmentVariables.mixpanelTokenDevKey
          #else
-             mixpanelToken = EnvironmentVariables.mixpanelTokenProdKey
+            mixpanelToken = EnvironmentVariables.mixpanelTokenProdKey
         #endif
         Mixpanel.initialize(token: mixpanelToken)
         Mixpanel.mainInstance().track(event: 

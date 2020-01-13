@@ -1221,3 +1221,12 @@
 
 /* Label to pick fiat */
 "DefaultCurrency.chooseFiatLabel" = "Choose:";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "Environment:";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Litewallet version:";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "Social";

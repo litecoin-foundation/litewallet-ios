@@ -824,6 +824,12 @@
 /* Languages label */
 "Settings.languages" = "språk";
 
+/* Litewallet environment */
+"Settings.litewallet.environment" = "Miljö:";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Litewallet version:";
+
 /* Manage settings section header */
 "Settings.manage" = "Hantera";
 
@@ -835,6 +841,9 @@
 
 /* Share anonymous data label */
 "Settings.shareData" = "Dela anonyma uppgifter";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "Social";
 
 /* Support settings section header */
 "Settings.support" = "Stöd";

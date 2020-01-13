@@ -316,7 +316,9 @@ enum S {
         static let advancedTitle = NSLocalizedString("Settings.advancedTitle", value: "**Advanced Settings**", comment: "Advanced Settings title")
         static let faceIdLimit = NSLocalizedString("Settings.faceIdLimit", value: "**Face ID Spending Limit**", comment: "Face ID spending limit label")
         static let languages = NSLocalizedString("Settings.languages", value: "**Languages**", comment: "Languages label")
-
+        static let litewalletVersion = NSLocalizedString("Settings.litewallet.version", value: "**Litewallet Version:**", comment: "Litewallet version")
+        static let litewalletEnvironment = NSLocalizedString("Settings.litewallet.environment", value: "**Litewallet Environment:**", comment: "Litewallet environment")
+        static let socialLinks = NSLocalizedString("Settings.socialLinks", value: "**Social Links:**", comment: "Litewallet Social links")
     }
 
     enum About {

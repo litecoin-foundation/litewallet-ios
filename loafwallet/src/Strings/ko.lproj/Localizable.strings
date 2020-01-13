@@ -824,6 +824,12 @@
 /* Languages label */
 "Settings.languages" = "언어";
 
+/* Litewallet environment */
+"Settings.litewallet.environment" = "환경:";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "라이트 월렛 버전 :";
+
 /* Manage settings section header */
 "Settings.manage" = "관리";
 
@@ -835,6 +841,9 @@
 
 /* Share anonymous data label */
 "Settings.shareData" = "익명 데이터 공유";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "사회적인";
 
 /* Support settings section header */
 "Settings.support" = "지원하다";
