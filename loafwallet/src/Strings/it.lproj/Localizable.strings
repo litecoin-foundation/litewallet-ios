@@ -32,6 +32,12 @@
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "GESTISCI";
 
+/* Corruption Error alert title */
+"Alert.corruptionError" = "Errore di corruzione locale";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "Elimina database";
+
 /* Error alert title */
 "Alert.error" = "Errore";
 
@@ -1178,11 +1184,23 @@
 /* Top title of welcome screen */
 "Welcome.title" = "Ti diamo il benvenuto su Litewallet!";
 
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "Ciò elimina il database ma conserva il PIN e la frase. Conferma il PIN esistente, esegui il seeding e attendi per completare la sincronizzazione con il nuovo db";
+
 /* Wipe wallet alert message */
 "WipeWallet.alertMessage" = "Sicuro di voler eliminare questo portafogli?";
 
 /* Wipe wallet alert title */
 "WipeWallet.alertTitle" = "Ripulisci portafogli?";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "Elimina database";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "Il database locale è danneggiato. Vai su Impostazioni> Blockchain: Impostazioni> Elimina database per aggiornare";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "Elimina e sincronizza";
 
 /* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "Hai dimenticato la frase seme o il PIN?";

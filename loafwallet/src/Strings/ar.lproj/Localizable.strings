@@ -1231,3 +1231,21 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
+
+/* Corruption Error alert title */
+"Alert.corruptionError" = "";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "";
+
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "";

@@ -36,16 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let applicationController = ApplicationController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool { 
-        var mixpanelToken = ""
+        var mixpanelToken = EnvironmentVariables.mixpanelProdToken
         #if Debug || Testflight
-            mixpanelToken = EnvironmentVariables.mixpanelTokenDevKey
-         #else
-            mixpanelToken = EnvironmentVariables.mixpanelTokenProdKey
+            mixpanelToken = EnvironmentVariables.mixpanelDevToken
         #endif
         Mixpanel.initialize(token: mixpanelToken)
-        Mixpanel.mainInstance().track(event: 
-            
-            MixpanelEvents._20191105_AL.rawValue, properties: ["app details":["VERSION": AppVersion.string]])
+        Mixpanel.mainInstance().track(event: MixpanelEvents._20191105_AL.rawValue,
+                                 properties: ["app details":["VERSION": AppVersion.string]])
         
         UIView.swizzleSetFrame()
         applicationController.launch(application: application, options: launchOptions)

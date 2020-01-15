@@ -60,7 +60,7 @@ extension WalletManager : WalletAuthenticator {
         if !UIApplication.shared.isProtectedDataAvailable {
             throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecNotAvailable))
         }
-
+        
         if try keychainItem(key: KeychainKey.seed) as Data? != nil { // upgrade from old keychain scheme
             let seedPhrase: String? = try keychainItem(key: KeychainKey.mnemonic)
             var seed = UInt512()
@@ -452,6 +452,34 @@ extension WalletManager : WalletAuthenticator {
         }
     }
     
+   func deleteWalletDatabase(pin: String = "forceWipe") -> Bool {
+       guard pin == "forceWipe" || authenticate(pin: pin) else { return false }
+
+       do {
+           lazyWallet = nil
+           lazyPeerManager = nil
+           if db != nil { sqlite3_close(db) }
+           db = nil
+           didInitWallet = false
+           earliestKeyTime = 0
+           if let bundleId = Bundle.main.bundleIdentifier {
+               UserDefaults.standard.removePersistentDomain(forName: bundleId)
+           }
+           try BRAPIClient(authenticator: self).kv?.rmdb()
+           try? FileManager.default.removeItem(atPath: dbPath)
+           try? FileManager.default.removeItem(at: BRReplicatedKVStore.dbPath)
+           NotificationCenter.default.post(name: .DidDeleteWalletDBNotification, object: nil)
+           return true
+       }
+       catch let error {
+           print("Wipe wallet error: \(error)")
+           return false
+       }
+   }
+    
+    
+    
+    
     // key used for authenticated API calls
     var apiAuthKey: String? {
         return autoreleasepool {
@@ -516,6 +544,7 @@ extension WalletManager : WalletAuthenticator {
     private struct DefaultsKey {
         public static let spendLimitAmount = "SPEND_LIMIT_AMOUNT"
         public static let pinUnlockTime = "PIN_UNLOCK_TIME"
+
     }
     
     private func signTx(_ tx: BRTxRef, forkId: Int = 0) -> Bool {

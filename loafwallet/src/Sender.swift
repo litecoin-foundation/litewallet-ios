@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import BRCore
 import Mixpanel
-
+ 
 enum SendResult {
     case success
     case creationError(String)
@@ -91,24 +91,14 @@ class Sender {
     private func verifyPin(tx: BRTxRef, withFunction: (@escaping(String) -> Bool) -> Void, completion:@escaping (SendResult) -> Void) {
         withFunction({ pin in
             var success = false
-            var didSignTransaction = false
             let group = DispatchGroup()
             group.enter()
-            Mixpanel.mainInstance().track(event: MixpanelEvents._20200111_DEDG.rawValue)
-            DispatchQueue.walletQueue.async {
-                if self.walletManager.signTransaction(tx, pin: pin) {
+             DispatchQueue.walletQueue.async {
+                if !self.walletManager.signTransaction(tx, pin: pin) {
                     self.publish(completion: completion)
                     success = true
-                    didSignTransaction = true
-                    group.leave()
-                } else {
-                    didSignTransaction = false
-                    Mixpanel.mainInstance().track(event: MixpanelEvents._20200111_UTST.rawValue)
-                    group.leave()
                 }
-                
-                //Debating it the placement of the group exit is the issue.  In successful scenario the group leave should happen. Currently it is leaving when signing transaction is failing which seems backwards
-                Mixpanel.mainInstance().track(event: MixpanelEvents._20200111_DLDG.rawValue)
+                group.leave()
             }
             let result = group.wait(timeout: .now() + 30.0)
             if result == .timedOut {
@@ -116,8 +106,9 @@ class Sender {
                 Mixpanel.mainInstance().track(event: MixpanelEvents._20200112_ERR.rawValue,
                 properties: ["txerror":["ERROR_TX":"\(tx.txHash)","ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]])
                 
-                let alert = UIAlertController(title: "Error", message: "Did not sign tx within timeout. Erroneous tx: \(tx.txHash) \(tx.blockHeight) . Tx was signed: \(NSNumber.init(value: didSignTransaction.hashValue))", preferredStyle: .alert)
-                
+                let alert = UIAlertController(title: S.Alert.corruptionError, message: S.Alert.corruptionMessage, preferredStyle: .alert)
+          
+                UserDefaults.didSeeCorruption = true
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.topViewController?.present(alert, animated: true, completion: nil)
                 return false
