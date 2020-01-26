@@ -1,2 +1,2 @@
 source "https://rubygems.org"
-gem 'fastlane'
+gem "bundle exec fastlane scan'
