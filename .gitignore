@@ -69,3 +69,5 @@ Screenshots/shots
 *.xcscheme
 /scripts/env-vars.sh
 /loafwallet/EnvVars.plist
+/loafwallet/GoogleService-Info.plist
+/loafwallet/GoogleService-iOS-Beta-Info.plist
