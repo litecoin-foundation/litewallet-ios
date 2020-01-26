@@ -25,7 +25,7 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan --scheme "Debug-loafwallet"
+    scan
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
