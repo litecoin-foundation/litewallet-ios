@@ -241,6 +241,7 @@ class ApplicationController : Subscriber, Trackable {
                 UserDefaults.standard.set(NSNumber(value: launchNumber), forKey: numberOfLitewalletLaunches)
                 if launchNumber == 5 {
                     SKStoreReviewController.requestReview()
+                    Mixpanel.mainInstance().track(event: MixpanelEvents._20200125_DSRR.rawValue)
                 }
                 
             } else {

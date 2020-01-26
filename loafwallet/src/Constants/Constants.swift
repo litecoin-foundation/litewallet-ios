@@ -31,11 +31,7 @@ enum MixpanelEvents: String {
     case _20200111_UTST = "UNABLE_TO_SIGN_TRANSACTION"
     case _20200112_ERR = "ERROR"
     case _20200112_DSR = "DID_START_RESYNC"
-
-
-
-
-
+    case _20200125_DSRR = "DID_SHOW_REVIEW_REQUEST" 
 }
 
 struct Padding {

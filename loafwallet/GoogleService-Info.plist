@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>421583778170-5g6f246e8q2g93pd0slg4cslsuht7ssa.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.421583778170-5g6f246e8q2g93pd0slg4cslsuht7ssa</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDNsu8Rjyl1VytpI-ZqpYpmA13uO7vS9-4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>421583778170</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.litecoin.loafwallet</string>
+	<key>PROJECT_ID</key>
+	<string>litewallet-ios-prod</string>
+	<key>STORAGE_BUCKET</key>
+	<string>litewallet-ios-prod.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:421583778170:ios:57bf2f3bdcfd9c287e66c3</string>
+	<key>DATABASE_URL</key>
+	<string>https://litewallet-ios-prod.firebaseio.com</string>
+</dict>
+</plist>
