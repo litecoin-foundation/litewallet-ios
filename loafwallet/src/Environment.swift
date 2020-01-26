@@ -91,13 +91,18 @@ struct EnvironmentVariables {
     static var mixpanelProdToken: String = EnvironmentVariables.plistVariable(name: "MXP_PROD_ENV") ?? CI.mixpanelProdToken
     static var mixpanelDevToken: String = EnvironmentVariables.plistVariable(name: "MXP_DEV_ENV") ?? CI.mixpanelDevToken
     
-    static var shouldRunFirebase: Bool = EnvironmentVariables.plistVariable(name: "RUN_FIREBASE") ?? CI.shouldRunFirebase
-
+    static var shouldRunFirebase: Bool = EnvironmentVariables.plistBoolean(name: "RUN_FIREBASE")
+    
+ 
     static func plistVariable(name: String) -> String? {
         if let key = plistDict?[name] as? String {
             return key
         }
         return nil
+    }
+    
+    static func plistBoolean(name: String) -> Bool {
+        return plistDict?[name] as? Bool ?? false
     }
     
     enum EnvironmentName: String {

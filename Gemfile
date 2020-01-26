@@ -1,2 +1,3 @@
 source "https://rubygems.org"
-gem "bundle exec fastlane scan'
+gem "cocoapods"
+gem "fastlane"
