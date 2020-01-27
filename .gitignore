@@ -65,9 +65,8 @@ fastlane/screenshots
 fastlane/test_output
 Screenshots/shots
 .DS_Store
-/loafwallet/Keys.swift
 *.xcscheme
 /scripts/env-vars.sh
-/loafwallet/EnvVars.plist
+.generated.swift
 /loafwallet/GoogleService-Info.plist
 /loafwallet/GoogleService-iOS-Beta-Info.plist
