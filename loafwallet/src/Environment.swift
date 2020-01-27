@@ -88,22 +88,16 @@ struct EnvironmentVariables {
         return dict
     }()
     
-    static var mixpanelProdToken: String = EnvironmentVariables.plistVariable(name: "MXP_PROD_ENV") ?? CI.mixpanelProdToken
-    static var mixpanelDevToken: String = EnvironmentVariables.plistVariable(name: "MXP_DEV_ENV") ?? CI.mixpanelDevToken
+    static var mixpanelProdToken: String = EnvironmentVariables.plistVariable(name: "MXP_PROD_ENV")
+    static var mixpanelDevToken: String = EnvironmentVariables.plistVariable(name: "MXP_DEV_ENV")
+    static var shouldRunFirebase: String = EnvironmentVariables.plistVariable(name: "RUN_FIREBASE")
     
-    static var shouldRunFirebase: Bool = EnvironmentVariables.plistBoolean(name: "RUN_FIREBASE")
-    
- 
-    static func plistVariable(name: String) -> String? {
+    static func plistVariable(name:String) -> String {
         if let key = plistDict?[name] as? String {
-            return key
+                return key
         }
-        return nil
-    }
-    
-    static func plistBoolean(name: String) -> Bool {
-        return plistDict?[name] as? Bool ?? false
-    }
+        return ""
+   }
     
     enum EnvironmentName: String {
         case debug      = "Debug"
