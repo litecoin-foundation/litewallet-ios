@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+## Private Frameworks
+PrivateFrameworks/*
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

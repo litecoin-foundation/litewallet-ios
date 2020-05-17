@@ -1,11 +1,3 @@
-//
-//  UIButton+BRWAdditions.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2016-10-24.
-//  Copyright © 2016 breadwallet LLC. All rights reserved.
-//
-
 import UIKit
 
 extension UIButton {
@@ -16,12 +8,12 @@ extension UIButton {
         button.titleLabel?.font = UIFont.customMedium(size: 11.0)
         if let imageSize = button.imageView?.image?.size,
             let font = button.titleLabel?.font {
-            let spacing: CGFloat = C.padding[1]/2.0
-            let titleSize = NSString(string: title).size(withAttributes: [NSAttributedStringKey.font : font])
+            let spacing: CGFloat = C.padding[1] / 2.0
+            let titleSize = NSString(string: title).size(withAttributes: [NSAttributedString.Key.font: font])
 
-            //These edge insets place the image vertically above the title label
-            button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageSize.width, -(imageSize.height + spacing), 0.0)
-            button.imageEdgeInsets = UIEdgeInsetsMake(-(titleSize.height + spacing), 0.0, 0.0, -titleSize.width)
+            // These edge insets place the image vertically above the title label
+            button.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: -(imageSize.height + spacing), right: 0.0)
+            button.imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0.0, bottom: 0.0, right: -titleSize.width)
         }
         return button
     }
@@ -45,9 +37,9 @@ extension UIButton {
         button.setImage(image, for: .normal)
 
         if image == #imageLiteral(resourceName: "Close") {
-            button.imageEdgeInsets = UIEdgeInsetsMake(14.0, 14.0, 14.0, 14.0)
+            button.imageEdgeInsets = UIEdgeInsets(top: 14.0, left: 14.0, bottom: 14.0, right: 14.0)
         } else {
-            button.imageEdgeInsets = UIEdgeInsetsMake(12.0, 12.0, 12.0, 12.0)
+            button.imageEdgeInsets = UIEdgeInsets(top: 12.0, left: 12.0, bottom: 12.0, right: 12.0)
         }
 
         button.tintColor = .darkText
@@ -57,13 +49,12 @@ extension UIButton {
 
     func tempDisable() {
         isEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
             self?.isEnabled = true
-        })
+        }
     }
-    
+
     static func stylizeLitewalletBlueButton(title: String, frame: CGRect) -> UIButton {
-        
         let button = UIButton()
         button.frame = frame
         button.setTitle(title, for: .normal)
@@ -71,6 +62,28 @@ extension UIButton {
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.barlowMedium(size: 18)
         button.clipsToBounds = true
+        return button
+    }
+
+    static func textFieldMaxAmount(height: CGFloat = 44, image: UIImage = UIImage(), title: String = "max.") -> UIButton {
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: 0, y: 0, width: 44, height: height + 40)
+        // button.contentMode = .center
+        button.setImage(image, for: .normal)
+
+//        if image == #imageLiteral(resourceName: "Close") {
+//            button.imageEdgeInsets = UIEdgeInsetsMake(14.0, 14.0, 14.0, 14.0)
+//        } else {
+//            button.imageEdgeInsets = UIEdgeInsetsMake(12.0, 12.0, 12.0, 12.0)
+//        }
+
+        button.tintColor = .liteWalletBlue
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.textColor = .liteWalletBlue
+        button.titleLabel?.font = UIFont.barlowMedium(size: 16)
+        button.layer.borderColor = UIColor.liteWalletBlue.cgColor
+        button.layer.borderWidth = 1.0
+
         return button
     }
 }
