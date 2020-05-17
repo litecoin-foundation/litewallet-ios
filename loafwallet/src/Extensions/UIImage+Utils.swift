@@ -1,19 +1,10 @@
-//
-//  UIImage+Utils.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2016-12-08.
-//  Copyright © 2016 breadwallet LLC. All rights reserved.
-//
-
-import UIKit
 import CoreGraphics
+import UIKit
 
 private let inputImageKey = "inputImage"
 
 extension UIImage {
     static func qrCode(data: Data, color: CIColor) -> UIImage? {
-
         let qrFilter = CIFilter(name: "CIQRCodeGenerator")
         let maskFilter = CIFilter(name: "CIMaskToAlpha")
         let invertFilter = CIFilter(name: "CIColorInvert")
@@ -35,7 +26,7 @@ extension UIImage {
         }
 
         // force software rendering for security (GPU rendering causes image artifacts on iOS 7 and is generally crashy)
-        let context = CIContext(options: [kCIContextUseSoftwareRenderer: true])
+        let context = CIContext(options: [CIContextOption.useSoftwareRenderer: true])
         objc_sync_enter(context)
         defer { objc_sync_exit(context) }
         guard let outputImage = filter?.outputImage else { assert(false, "No qr output image"); return nil }

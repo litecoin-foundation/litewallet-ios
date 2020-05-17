@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+## Private Frameworks
+PrivateFrameworks/*
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
@@ -67,3 +70,4 @@ Screenshots/shots
 .DS_Store
 *.xcscheme
 loafwallet/GoogleService-Info.plist
+/LitewalletPartnerAPI.framework

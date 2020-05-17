@@ -1,16 +1,7 @@
-//
-//  MessageUIPresenter.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2016-12-11.
-//  Copyright © 2016 breadwallet LLC. All rights reserved.
-//
-
-import UIKit
 import MessageUI
+import UIKit
 
 class MessageUIPresenter: NSObject, Trackable {
-
     weak var presenter: UIViewController?
 
     func presentMailCompose(bitcoinAddress: String, image: UIImage) {
@@ -27,7 +18,7 @@ class MessageUIPresenter: NSObject, Trackable {
         UINavigationBar.appearance().titleTextAttributes = nil
         let emailView = MFMailComposeViewController()
         emailView.setMessageBody(string, isHTML: false)
-        if let data = UIImagePNGRepresentation(image) {
+        if let data = image.pngData() {
             emailView.addAttachmentData(data, mimeType: "image/png", fileName: "litecoinqr.png")
         }
         emailView.mailComposeDelegate = self
@@ -69,7 +60,7 @@ class MessageUIPresenter: NSObject, Trackable {
         UINavigationBar.appearance().titleTextAttributes = nil
         let textView = MFMessageComposeViewController()
         textView.body = string
-        if let data = UIImagePNGRepresentation(image) {
+        if let data = image.pngData() {
             textView.addAttachmentData(data, typeIdentifier: "public.image", filename: "litecoinqr.png")
         }
         textView.messageComposeDelegate = self
@@ -77,7 +68,7 @@ class MessageUIPresenter: NSObject, Trackable {
         present(textView)
     }
 
-    fileprivate var originalTitleTextAttributes: [NSAttributedStringKey: Any]?
+    fileprivate var originalTitleTextAttributes: [NSAttributedString.Key: Any]?
 
     private func present(_ viewController: UIViewController) {
         presenter?.view.isFrameChangeBlocked = true
@@ -107,13 +98,13 @@ class MessageUIPresenter: NSObject, Trackable {
 }
 
 extension MessageUIPresenter: MFMailComposeViewControllerDelegate {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith _: MFMailComposeResult, error _: Error?) {
         dismiss(controller)
     }
 }
 
 extension MessageUIPresenter: MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith _: MessageComposeResult) {
         dismiss(controller)
     }
 }
