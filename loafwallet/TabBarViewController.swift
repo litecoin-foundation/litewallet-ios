@@ -401,7 +401,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     // MARK: TabViewController Delegates
 
     func displayContentController(contentController: UIViewController) {
-        print(" class: XX \(contentController.classForCoder)")
         switch NSStringFromClass(contentController.classForCoder) {
         case "loafwallet.TransactionsViewController":
 

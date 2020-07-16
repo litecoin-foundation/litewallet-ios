@@ -70,3 +70,4 @@ Screenshots/shots
 .DS_Store
 *.xcscheme
 loafwallet/GoogleService-Info.plist
+/LitewalletPartnerAPI.framework

@@ -11,10 +11,17 @@ import UIKit
 
 class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, LFAlertViewDelegate {
     static let serviceName = "com.litewallet.litecoincard.service"
-    let rand = Int.random(in: 10000 ..< 20099)
-    let emailRand = "kwashingt+" + "3" + "@gmail.com"
+    let mockDict: [String: Any] = ["firstname":"Test",
+            "lastname":"User",
+            "email":  "kwashington+" + String(Int.random(in: 20000 ..< 30099)) + "@gmail.com",
+            "address1":"123 Main",
+            "city":"Sat",
+            "country":"US",
+            "phone":"1234567890",
+            "zip_code":"95014",
+            "username":"test"
+    ]
     @IBOutlet var scrollView: UIScrollView!
-
     @IBOutlet var headerLabel: UILabel!
 
     @IBOutlet var emailTextField: UITextField!
@@ -107,42 +114,33 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         loginButton.layer.cornerRadius = 5.0
         loginButton.clipsToBounds = true
     }
-
-//    var mockData: Data?
-//      return
-//    """
-//        { "firstname":"Test",
-//            "lastname":"User",
-//            "email": emailRand,
-//            "address1":"123 Main",
-//            "city":"Sat",
-//            "country":"US",
-//            "phone":"1234567890",
-//            "zip_code":"95014",
-//            "username":"test"
-//        }
-//    """.data(using: .utf8)
-
+ 
     @IBAction func registerAction(_: Any) {
         // Validate registration data
-        if let registeredParams = didValidateRegistrationParams() {
-            manager.createUser(userDataParams: registeredParams) { newUser in
-                var newUserData: Data?
+        // TODO: Uncomment
+        if 1 > 0 /*registeredParams = didValidateRegistrationParams()*/ {
+          print("XXXX \(mockDict)")
+          print("XXXX") 
+            manager.createUser(userDataParams: mockDict) { newUser in
+                
+                let jsonEncoder = JSONEncoder()
                 do {
-                    newUserData = try? JSONDecoder().decode(newUser, from: <#T##Data#>)
-                    
-                } catch {
-                    
+                    let jsonData = try jsonEncoder.encode(newUser)
+                    let jsonString = String(data: jsonData, encoding: .utf8)
+                    print("JSON String : " + jsonString!)
+                    self.delegate?.didReceiveOpenLitecoinCardAccount(account: jsonData)
+
                 }
-                self.delegate?.didReceiveOpenLitecoinCardAccount(account: <#T##Data#>)
+                catch {
+
+                }
+                
+ 
             }
+
         } else {
             
         }
-  
-
-        // Send the data to make the REST API
-       // delegate?.didReceiveOpenLitecoinCardAccount(account: mockRegisteredData)
 
      }
 
@@ -154,9 +152,11 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
          do {
             let email = try emailTextField.validatedText(validationType: ValidatorType.email)
-            var password = try passwordTextField.validatedText(validationType: ValidatorType.password)
-            let confirmPassword = try passwordTextField.validatedText(validationType: ValidatorType.password)
-
+            let password = try passwordTextField.validatedText(validationType: ValidatorType.password)
+            let confirmPassword = try confirmPasswordTextField.validatedText(validationType: ValidatorType.password)
+            if password != confirmPassword {
+               throw ValidationError("Password and Confirm password must match")
+            }
             let firstName = try firstNameTextField.validatedText(validationType: ValidatorType.firstName)
             let lastname = try self.lastNameTextField.validatedText(validationType: ValidatorType.lastName)
             let address1 = try address1TextField.validatedText(validationType: ValidatorType.address)
@@ -167,10 +167,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let postalCode = try postalCodeTextField.validatedText(validationType: ValidatorType.postalCode)
             let country = try countryTextField.validatedText(validationType: ValidatorType.country)
             let mobile = try mobileTextField.validatedText(validationType: ValidatorType.mobileNumber)
-            
-            if password != confirmPassword {
-               password = " "
-            }
+             
             return [
                 "email": email,
                 "password": password,
@@ -189,7 +186,6 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
            } catch(let error) {
 
             let message = (error as! ValidationError).message
-
             showErrorAlert(for: message)
 
            }
@@ -204,68 +200,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
     }
-
-    func showRegistrationAlertView(data _: LitecoinCardAccountData) {
-        // TODO: Refactor whenTernio OAUTH is ready
-//
-//        let username = data.email
-//        let password = data.accountID
-//
-//       // password.data(using: String.Encoding.utf8)
-//
-//        var query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
-//                                    kSecAttrAccount as String: username,
-//                                    kSecAttrServer as String: APIServerURL.stagingTernioServer,
-//                                    kSecValueData as String: password]
-//
-//
-//        self.alertModal = UIStoryboard.init(name: "Alerts", bundle: nil).instantiateViewController(withIdentifier: "LFAlertViewController") as? LFAlertViewController
-//
-//        guard let alertModal = self.alertModal else {
-//            NSLog("ERROR: Alert object not initialized")
-//            return
-//
-//        }
-
-//        registrationAlert.headerLabel.text = S.Register.registerAlert
-//        registrationAlert.dynamicLabel.text = ""
-//        alertModal.providesPresentationContextTransitionStyle = true
-//        alertModal.definesPresentationContext = true
-//        alertModal.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        alertModal.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//        alertModal.delegate = self
-//
-//        self.present(alertModal, animated: true) {
-//        APIManager.sharedInstance.getLFUserToken(ternioEndpoint: .user, registrationData: data) { lfObject in
-//
-//                guard let tokenObject = lfObject else {
-//                    NSLog("ERROR: LFToken not retreived")
-//                    return
-//                }
-//
-//            self.fetchLitecoinCardAccount(registrationData: data, tokenObject: tokenObject)
-//
-//            }
-//        }
-    }
-
-    private func createUser(registrationData _: Data) {
-        // TODO: Refactor whenTernio OAUTH is ready
-//        manager.createUser(userDataParams: <#T##[String : Any]#>, completion: <#T##(User?) -> Void#>)
-//
-//            var timestampString = ""
-//
-//            if user != nil,
-//                let jsonObject = try? JSONSerialization.data(withJSONObject: user, options: []) {
-//
-//                timestampString = "lastTimeReachedTimestamp" ///stripped from user timestamp
-//                UserDefaults.standard.set(timestampString, forKey: timeSinceLastLitecoinCardRequest)
-//                UserDefaults.standard.synchronize()
-//                self.delegate?.didReceiveOpenLitecoinCardAccount(account: jsonObject)
-//            }
-//        }
-    }
-
+ 
     private func createLitecoinCardWallet(cardAccountData _: LitecoinCardAccountData) {
         // TODO: Refactor whenTernio OAUTH is ready
 
@@ -329,7 +264,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 return
             }
 
-            scrollView.contentInset = UIEdgeInsets(top: 0 - yPosition, left: 0, bottom: keyboardViewEndFrame.height - view.frame.height, right: 0)
+            scrollView.contentInset = UIEdgeInsets(top: 20 - yPosition, left: 0, bottom: keyboardViewEndFrame.height - view.frame.height, right: 0)
             scrollView.scrollIndicatorInsets = scrollView.contentInset
         }
     }
