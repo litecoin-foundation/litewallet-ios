@@ -67,19 +67,19 @@ class SyncingView: UIView {
 
         header.constrain([
             header.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
-            header.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[2]),
+            header.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[2])
         ])
 
         progressBackground.constrain([
             progressBackground.leadingAnchor.constraint(equalTo: header.leadingAnchor),
             progressBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
             progressBackground.topAnchor.constraint(equalTo: header.bottomAnchor, constant: C.padding[2]),
-            progressBackground.heightAnchor.constraint(equalToConstant: progressHeight),
+            progressBackground.heightAnchor.constraint(equalToConstant: progressHeight)
         ])
 
         date.constrain([
             date.leadingAnchor.constraint(equalTo: progressBackground.leadingAnchor),
-            date.topAnchor.constraint(equalTo: progressBackground.bottomAnchor, constant: C.padding[1]),
+            date.topAnchor.constraint(equalTo: progressBackground.bottomAnchor, constant: C.padding[1])
         ])
 
         progressForegroundWidth = progressForeground.widthAnchor.constraint(equalTo: progressBackground.widthAnchor, multiplier: progress)
@@ -87,7 +87,7 @@ class SyncingView: UIView {
             progressForegroundWidth,
             progressForeground.leadingAnchor.constraint(equalTo: progressBackground.leadingAnchor),
             progressForeground.centerYAnchor.constraint(equalTo: progressBackground.centerYAnchor),
-            progressForeground.heightAnchor.constraint(equalTo: progressBackground.heightAnchor),
+            progressForeground.heightAnchor.constraint(equalTo: progressBackground.heightAnchor)
         ])
 
         setInitialData()

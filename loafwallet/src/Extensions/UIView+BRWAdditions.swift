@@ -32,7 +32,7 @@ extension UIView {
             NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: toSuperviewEdges?.left ?? 0.0),
             NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: toSuperviewEdges?.top ?? 0.0),
             NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: toSuperviewEdges?.right ?? 0.0),
-            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: toSuperviewEdges?.bottom ?? 0.0),
+            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: toSuperviewEdges?.bottom ?? 0.0)
         ])
     }
 
@@ -71,7 +71,7 @@ extension UIView {
         constrain([
             constraint(.width, toView: to),
             constraint(toBottom: to, constant: 0.0),
-            constraint(.height, constant: height),
+            constraint(.height, constant: height)
         ])
     }
 
@@ -98,7 +98,7 @@ extension UIView {
         constrain([
             constraint(.leading, toView: view, constant: sidePadding),
             NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: topPadding),
-            constraint(.trailing, toView: view, constant: -sidePadding),
+            constraint(.trailing, toView: view, constant: -sidePadding)
         ])
     }
 
@@ -107,7 +107,7 @@ extension UIView {
         constrain([
             constraint(.leading, toView: view, constant: sidePadding),
             constraint(.top, toView: view, constant: topPadding),
-            constraint(.trailing, toView: view, constant: -sidePadding),
+            constraint(.trailing, toView: view, constant: -sidePadding)
         ])
     }
 
@@ -117,7 +117,7 @@ extension UIView {
             constraint(.leading, toView: view),
             constraint(.top, toView: view),
             constraint(.trailing, toView: view),
-            constraint(.height, constant: height),
+            constraint(.height, constant: height)
         ])
     }
 
@@ -126,7 +126,7 @@ extension UIView {
         constrain([
             constraint(.leading, toView: view, constant: sidePadding),
             constraint(.bottom, toView: view, constant: -bottomPadding),
-            constraint(.trailing, toView: view, constant: -sidePadding),
+            constraint(.trailing, toView: view, constant: -sidePadding)
         ])
     }
 
@@ -136,7 +136,7 @@ extension UIView {
             constraint(.leading, toView: view),
             constraint(.bottom, toView: view),
             constraint(.trailing, toView: view),
-            constraint(.height, constant: height),
+            constraint(.height, constant: height)
         ])
     }
 
@@ -145,7 +145,7 @@ extension UIView {
         constrain([
             constraint(.top, toView: view),
             constraint(.leading, toView: view),
-            constraint(.bottom, toView: view),
+            constraint(.bottom, toView: view)
         ])
     }
 
@@ -154,7 +154,7 @@ extension UIView {
         constrain([
             constraint(.top, toView: view),
             constraint(.trailing, toView: view),
-            constraint(.bottom, toView: view),
+            constraint(.bottom, toView: view)
         ])
     }
 
@@ -162,7 +162,7 @@ extension UIView {
         guard let view = superview else { assert(false, "Superview cannot be nil when adding contraints"); return }
         constrain([
             constraint(.centerX, toView: view),
-            constraint(.centerY, toView: view),
+            constraint(.centerY, toView: view)
         ])
     }
 
@@ -172,7 +172,7 @@ extension UIView {
             constraint(.width, toView: viewAbove),
             constraint(toBottom: viewAbove, constant: padding),
             centerXAnchor.constraint(equalTo: viewAbove.centerXAnchor),
-            height != nil ? constraint(.height, constant: height!) : nil,
+            height != nil ? constraint(.height, constant: height!) : nil
         ])
     }
 
@@ -180,7 +180,7 @@ extension UIView {
         guard superview != nil else { assert(false, "Superview cannot be nil when adding contraints"); return }
         constrain([
             widthAnchor.constraint(equalToConstant: toSize.width),
-            heightAnchor.constraint(equalToConstant: toSize.height),
+            heightAnchor.constraint(equalToConstant: toSize.height)
         ])
     }
 
@@ -189,7 +189,7 @@ extension UIView {
         guard let view = superview else { assert(false, "Superview cannot be nil when adding contraints"); return }
         constrain([
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
+            topAnchor.constraint(equalTo: view.topAnchor, constant: padding)
         ])
     }
 
@@ -197,7 +197,7 @@ extension UIView {
         guard superview != nil else { assert(false, "Superview cannot be nil when adding contraints"); return }
         constrain([
             leadingAnchor.constraint(equalTo: toView.leadingAnchor),
-            topAnchor.constraint(equalTo: toView.bottomAnchor, constant: topPadding),
+            topAnchor.constraint(equalTo: toView.bottomAnchor, constant: topPadding)
         ])
     }
 }

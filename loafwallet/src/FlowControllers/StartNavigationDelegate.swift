@@ -12,7 +12,7 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate {
             navigationController.navigationBar.tintColor = .white
             navigationController.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.white,
-                NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+                NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
             ]
             navigationController.setClearNavbar()
             navigationController.navigationBar.barTintColor = .clear
@@ -22,7 +22,7 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate {
             navigationController.navigationBar.tintColor = .darkText
             navigationController.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.darkText,
-                NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+                NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
             ]
             navigationController.setClearNavbar()
             navigationController.navigationBar.isTranslucent = false
@@ -33,7 +33,7 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate {
             navigationController.navigationBar.tintColor = .darkText
             navigationController.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.darkText,
-                NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+                NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
             ]
             navigationController.setClearNavbar()
         }

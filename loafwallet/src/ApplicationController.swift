@@ -17,7 +17,7 @@ class ApplicationController: Subscriber, Trackable {
     private var walletCoordinator: WalletCoordinator?
     private var exchangeUpdater: ExchangeUpdater?
     private var feeUpdater: FeeUpdater?
-    private let transitionDelegate: ModalTransitionDelegate
+    private weak var transitionDelegate: ModalTransitionDelegate
     private var kvStoreCoordinator: KVStoreCoordinator?
     private var mainViewController: MainViewController?
     fileprivate var application: UIApplication?
@@ -334,9 +334,7 @@ class ApplicationController: Subscriber, Trackable {
 
         group.enter()
         LWAnalytics.logEventWithParameters(itemName: ._20200111_DEDG)
-        Async.parallel(callbacks: [
-            { self.exchangeUpdater?.refresh(completion: $0) },
-            { self.feeUpdater?.refresh(completion: $0) },
+        Async.parallel(callbacks: [ { self.exchangeUpdater?.refresh(completion: $0) }, { self.feeUpdater?.refresh(completion: $0) }
         ], completion: {
             LWAnalytics.logEventWithParameters(itemName: ._20200111_DLDG)
             group.leave()

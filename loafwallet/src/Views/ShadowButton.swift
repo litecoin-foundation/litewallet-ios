@@ -102,7 +102,7 @@ class ShadowButton: UIControl {
             NSLayoutConstraint(item: shadowView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0.5, constant: 0.0),
             shadowView.constraint(.bottom, toView: self),
             shadowView.constraint(.centerX, toView: self),
-            NSLayoutConstraint(item: shadowView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.8, constant: 0.0),
+            NSLayoutConstraint(item: shadowView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.8, constant: 0.0)
         ])
         shadowView.layer.cornerRadius = 4.0
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -143,7 +143,7 @@ class ShadowButton: UIControl {
         iconImageView.constrainLeadingCorners()
         label.constrainTrailingCorners()
         iconImageView.constrain([
-            iconImageView.constraint(toLeading: label, constant: -C.padding[1]),
+            iconImageView.constraint(toLeading: label, constant: -C.padding[1])
         ])
         imageView = iconImageView
     }

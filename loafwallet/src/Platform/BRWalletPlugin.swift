@@ -5,4 +5,4 @@ enum BitIdAuthResult {
     case success
     case cancelled
     case failed
-} 
+}

@@ -63,7 +63,7 @@ extension TriggerName: Equatable {}
 
 func == (lhs: TriggerName, rhs: TriggerName) -> Bool {
     switch (lhs, rhs) {
-    case (.presentFaq(_), .presentFaq(_)):
+    case (.presentFaq, .presentFaq):
         return true
     case (.registerForPushNotificationToken, .registerForPushNotificationToken):
         return true
@@ -85,33 +85,33 @@ func == (lhs: TriggerName, rhs: TriggerName) -> Bool {
         return true
     case (.unblockModalDismissal, .unblockModalDismissal):
         return true
-    case (.openFile(_), .openFile(_)):
+    case (.openFile, .openFile):
         return true
     case (.recommendRescan, .recommendRescan):
         return true
-    case (.receivedPaymentRequest(_), .receivedPaymentRequest(_)):
+    case (.receivedPaymentRequest, .receivedPaymentRequest):
         return true
     case (.scanQr, .scanQr):
         return true
-    case (.copyWalletAddresses(_, _), .copyWalletAddresses(_, _)):
+    case (.copyWalletAddresses, .copyWalletAddresses):
         return true
-    case (.authenticateForBitId(_, _), .authenticateForBitId(_, _)):
+    case (.authenticateForBitId, .authenticateForBitId):
         return true
     case (.showStatusBar, .showStatusBar):
         return true
     case (.hideStatusBar, .hideStatusBar):
         return true
-    case (.lightWeightAlert(_), .lightWeightAlert(_)):
+    case (.lightWeightAlert, .lightWeightAlert):
         return true
     case (.didCreateOrRecoverWallet, .didCreateOrRecoverWallet):
         return true
-    case (.showAlert(_), .showAlert(_)):
+    case (.showAlert, .showAlert):
         return true
-    case (.reinitWalletManager(_), .reinitWalletManager(_)):
+    case (.reinitWalletManager, .reinitWalletManager):
         return true
     case (.didUpgradePin, .didUpgradePin):
         return true
-    case (.txMemoUpdated(_), .txMemoUpdated(_)):
+    case (.txMemoUpdated, .txMemoUpdated):
         return true
     case (.promptShareData, .promptShareData):
         return true

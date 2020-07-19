@@ -110,22 +110,22 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber {
 
         rateLabelTitle.constrain([
             rateLabelTitle.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: C.padding[2]),
-            rateLabelTitle.topAnchor.constraint(equalTo: header.topAnchor, constant: C.padding[1]),
+            rateLabelTitle.topAnchor.constraint(equalTo: header.topAnchor, constant: C.padding[1])
         ])
         rateLabel.constrain([
             rateLabel.leadingAnchor.constraint(equalTo: rateLabelTitle.leadingAnchor),
-            rateLabel.topAnchor.constraint(equalTo: rateLabelTitle.bottomAnchor),
+            rateLabel.topAnchor.constraint(equalTo: rateLabelTitle.bottomAnchor)
         ])
 
         bitcoinLabel.constrain([
             bitcoinLabel.leadingAnchor.constraint(equalTo: rateLabelTitle.leadingAnchor),
-            bitcoinLabel.topAnchor.constraint(equalTo: rateLabel.bottomAnchor, constant: C.padding[2]),
+            bitcoinLabel.topAnchor.constraint(equalTo: rateLabel.bottomAnchor, constant: C.padding[2])
         ])
         bitcoinSwitch.constrain([
             bitcoinSwitch.leadingAnchor.constraint(equalTo: bitcoinLabel.leadingAnchor),
             bitcoinSwitch.topAnchor.constraint(equalTo: bitcoinLabel.bottomAnchor, constant: C.padding[1]),
             bitcoinSwitch.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -C.padding[2]),
-            bitcoinSwitch.widthAnchor.constraint(equalTo: header.widthAnchor, constant: -C.padding[4]),
+            bitcoinSwitch.widthAnchor.constraint(equalTo: header.widthAnchor, constant: -C.padding[4])
         ])
 
         let settingSegment = store.state.maxDigits

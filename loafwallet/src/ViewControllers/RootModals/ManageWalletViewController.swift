@@ -43,24 +43,24 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
         textFieldLabel.constrain([
             textFieldLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             textFieldLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: C.padding[2]),
-            textFieldLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+            textFieldLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2])
         ])
         textField.constrain([
             textField.leadingAnchor.constraint(equalTo: textFieldLabel.leadingAnchor),
             textField.topAnchor.constraint(equalTo: textFieldLabel.bottomAnchor),
-            textField.trailingAnchor.constraint(equalTo: textFieldLabel.trailingAnchor),
+            textField.trailingAnchor.constraint(equalTo: textFieldLabel.trailingAnchor)
         ])
         separator.constrain([
             separator.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
             separator.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: C.padding[2]),
             separator.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1.0),
+            separator.heightAnchor.constraint(equalToConstant: 1.0)
         ])
         body.constrain([
             body.leadingAnchor.constraint(equalTo: separator.leadingAnchor),
             body.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: C.padding[2]),
             body.trailingAnchor.constraint(equalTo: separator.trailingAnchor),
-            body.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[2]),
+            body.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[2])
         ])
     }
 

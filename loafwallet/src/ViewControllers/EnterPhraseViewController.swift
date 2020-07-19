@@ -77,47 +77,47 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         container.constrain(toSuperviewEdges: nil)
         container.constrain([
-            container.widthAnchor.constraint(equalTo: view.widthAnchor),
+            container.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
         titleLabel.constrain([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             titleLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: C.padding[1]),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: faq.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: faq.leadingAnchor)
         ])
         subheader.constrain([
             subheader.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subheader.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            subheader.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+            subheader.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2])
         ])
         instruction.constrain([
             instruction.topAnchor.constraint(equalTo: subheader.bottomAnchor, constant: C.padding[3]),
-            instruction.leadingAnchor.constraint(equalTo: subheader.leadingAnchor),
+            instruction.leadingAnchor.constraint(equalTo: subheader.leadingAnchor)
         ])
         enterPhrase.view.constrain([
             enterPhrase.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             enterPhrase.view.topAnchor.constraint(equalTo: instruction.bottomAnchor, constant: C.padding[1]),
             enterPhrase.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
-            enterPhrase.view.heightAnchor.constraint(equalToConstant: enterPhrase.height),
+            enterPhrase.view.heightAnchor.constraint(equalToConstant: enterPhrase.height)
         ])
         errorLabel.constrain([
             errorLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: C.padding[2]),
             errorLabel.topAnchor.constraint(equalTo: enterPhrase.view.bottomAnchor, constant: C.padding[1]),
             errorLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -C.padding[2]),
-            errorLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -C.padding[2]),
+            errorLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -C.padding[2])
         ])
         faq.constrain([
             faq.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
             faq.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             faq.widthAnchor.constraint(equalToConstant: 44.0),
-            faq.heightAnchor.constraint(equalToConstant: 44.0),
+            faq.heightAnchor.constraint(equalToConstant: 44.0)
         ])
         moreInfoButton.constrain([
             moreInfoButton.topAnchor.constraint(equalTo: subheader.bottomAnchor, constant: C.padding[2]),
-            moreInfoButton.leadingAnchor.constraint(equalTo: subheader.leadingAnchor),
+            moreInfoButton.leadingAnchor.constraint(equalTo: subheader.leadingAnchor)
         ])
     }
 

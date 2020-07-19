@@ -41,16 +41,16 @@ class ModalHeaderView: UIView {
                 close.constraint(.leading, toView: self, constant: 0.0),
                 close.constraint(.centerY, toView: self, constant: 0.0),
                 close.constraint(.height, constant: buttonSize),
-                close.constraint(.width, constant: buttonSize),
+                close.constraint(.width, constant: buttonSize)
             ])
         }
 
         title.constrain([
             title.constraint(.centerX, toView: self, constant: 0.0),
-            title.constraint(.centerY, toView: self, constant: 0.0),
+            title.constraint(.centerY, toView: self, constant: 0.0)
         ])
         border.constrain([
-            border.constraint(.height, constant: 1.0),
+            border.constraint(.height, constant: 1.0)
         ])
         border.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
     }

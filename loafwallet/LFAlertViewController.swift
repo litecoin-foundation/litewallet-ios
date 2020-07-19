@@ -17,7 +17,7 @@ class LFAlertViewController: UIViewController {
     @IBOutlet var cancelButton: UIButton!
 
     @IBOutlet var alertModalView: UIView!
-    var delegate: LFAlertViewDelegate?
+    weak var delegate: LFAlertViewDelegate?
 
     @IBAction func didCancelRegistrationAction(_: Any) {
         activityIndicatorView.stopAnimating()

@@ -81,7 +81,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
         walletManager.spendingLimit = newLimit
         amount.isHidden = true
         amount.constrain([
-            amount.heightAnchor.constraint(equalToConstant: 0.0),
+            amount.heightAnchor.constraint(equalToConstant: 0.0)
         ])
         tableView.reloadData()
     }
@@ -96,7 +96,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
             body.leadingAnchor.constraint(equalTo: amount.leadingAnchor),
             body.topAnchor.constraint(equalTo: amount.bottomAnchor),
             body.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -C.padding[2]),
-            body.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -C.padding[2]),
+            body.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -C.padding[2])
         ])
         self.header = header
         return header

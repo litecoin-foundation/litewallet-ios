@@ -57,7 +57,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
     private var didIgnoreUsedAddressWarning = false
     private var didIgnoreIdentityNotCertified = false
     private let initialRequest: PaymentRequest?
-    private let confirmTransitioningDelegate = TransitioningDelegate()
+    private weak var confirmTransitioningDelegate = TransitioningDelegate()
     private var feeType: FeeType?
 
     override func viewDidLoad() {
@@ -84,7 +84,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
             amountView.view.constrain([
                 amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 amountView.view.topAnchor.constraint(equalTo: addressCell.bottomAnchor),
-                amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
         })
 
@@ -92,23 +92,23 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
             donationCell.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
             donationCell.topAnchor.constraint(equalTo: amountView.view.bottomAnchor),
             donationCell.leadingAnchor.constraint(equalTo: amountView.view.leadingAnchor),
-            donationCell.heightAnchor.constraint(equalToConstant: 72.0),
+            donationCell.heightAnchor.constraint(equalToConstant: 72.0)
         ])
         descriptionCell.constrain([
             descriptionCell.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
             descriptionCell.topAnchor.constraint(equalTo: donationCell.bottomAnchor),
             descriptionCell.leadingAnchor.constraint(equalTo: amountView.view.leadingAnchor),
-            descriptionCell.heightAnchor.constraint(equalTo: descriptionCell.textView.heightAnchor, constant: C.padding[4]),
+            descriptionCell.heightAnchor.constraint(equalTo: descriptionCell.textView.heightAnchor, constant: C.padding[4])
         ])
         descriptionCell.accessoryView.constrain([
-            descriptionCell.accessoryView.constraint(.width, constant: 0.0),
+            descriptionCell.accessoryView.constraint(.width, constant: 0.0)
         ])
         sendButton.constrain([
             sendButton.constraint(.leading, toView: view, constant: C.padding[2]),
             sendButton.constraint(.trailing, toView: view, constant: -C.padding[2]),
             sendButton.constraint(toBottom: descriptionCell, constant: verticalButtonPadding),
             sendButton.constraint(.height, constant: C.Sizes.buttonHeight),
-            sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2]),
+            sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2])
         ])
         addButtonActions()
         store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
@@ -240,12 +240,12 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
         let balanceAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
-            NSAttributedString.Key.foregroundColor: color,
+            NSAttributedString.Key.foregroundColor: color
         ]
 
         let feeAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
-            NSAttributedString.Key.foregroundColor: UIColor.grayTextTint,
+            NSAttributedString.Key.foregroundColor: UIColor.grayTextTint
         ]
 
         return (NSAttributedString(string: balanceOutput, attributes: balanceAttributes), NSAttributedString(string: feeOutput, attributes: feeAttributes))

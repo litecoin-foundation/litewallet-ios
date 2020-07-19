@@ -70,14 +70,14 @@ class ScanViewController: UIViewController, Trackable {
                 close.constraint(.leading, toView: toolbar),
                 close.constraint(.top, toView: toolbar, constant: 2.0),
                 close.constraint(.width, constant: 50.0),
-                close.constraint(.height, constant: 50.0),
+                close.constraint(.height, constant: 50.0)
             ])
 
             flash.constrain([
                 flash.constraint(.trailing, toView: toolbar),
                 flash.constraint(.top, toView: toolbar, constant: 2.0),
                 flash.constraint(.width, constant: 50.0),
-                flash.constraint(.height, constant: 50.0),
+                flash.constraint(.height, constant: 50.0)
             ])
 
         } else {
@@ -87,14 +87,14 @@ class ScanViewController: UIViewController, Trackable {
                 close.constraint(.leading, toView: toolbar, constant: 10.0),
                 close.constraint(.top, toView: toolbar, constant: 2.0),
                 close.constraint(.bottom, toView: toolbar, constant: -2.0),
-                close.constraint(.width, constant: 50.0),
+                close.constraint(.width, constant: 50.0)
             ])
 
             flash.constrain([
                 flash.constraint(.trailing, toView: toolbar, constant: -10.0),
                 flash.constraint(.top, toView: toolbar, constant: 2.0),
                 flash.constraint(.bottom, toView: toolbar, constant: -2.0),
-                flash.constraint(.width, constant: 50.0),
+                flash.constraint(.width, constant: 50.0)
             ])
         }
 
@@ -102,7 +102,7 @@ class ScanViewController: UIViewController, Trackable {
             guide.constraint(.leading, toView: view, constant: C.padding[6]),
             guide.constraint(.trailing, toView: view, constant: -C.padding[6]),
             guide.constraint(.centerY, toView: view),
-            NSLayoutConstraint(item: guide, attribute: .width, relatedBy: .equal, toItem: guide, attribute: .height, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: guide, attribute: .width, relatedBy: .equal, toItem: guide, attribute: .height, multiplier: 1.0, constant: 0.0)
         ])
         guide.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
 

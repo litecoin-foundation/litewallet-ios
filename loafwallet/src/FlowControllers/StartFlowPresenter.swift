@@ -16,10 +16,10 @@ class StartFlowPresenter: Subscriber {
     private let store: Store
     private let rootViewController: UIViewController
     private var navigationController: ModalNavigationController?
-    private let navigationControllerDelegate: StartNavigationDelegate
+    private weak var navigationControllerDelegate: StartNavigationDelegate
     private let walletManager: WalletManager
     private var loginViewController: UIViewController?
-    private let loginTransitionDelegate = LoginTransitionDelegate()
+    private weak var loginTransitionDelegate = LoginTransitionDelegate()
 
     private var closeButton: UIButton {
         let button = UIButton.close
@@ -140,7 +140,7 @@ class StartFlowPresenter: Subscriber {
 
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+            NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
         ]
         navigationController?.pushViewController(paperPhraseViewController, animated: true)
     }

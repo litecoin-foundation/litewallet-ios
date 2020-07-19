@@ -43,24 +43,24 @@ class SecurityCenterCell: UIControl {
             check.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
             check.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[2]),
             check.widthAnchor.constraint(equalToConstant: buttonSize),
-            check.heightAnchor.constraint(equalToConstant: buttonSize),
+            check.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         titleLabel.constrain([
             titleLabel.leadingAnchor.constraint(equalTo: check.trailingAnchor, constant: C.padding[1]),
             titleLabel.topAnchor.constraint(equalTo: check.topAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2])
         ])
         descriptionLabel.constrain([
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
         ])
         separator.constrain([
             separator.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: C.padding[3]),
             separator.leadingAnchor.constraint(equalTo: check.leadingAnchor),
             separator.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             separator.heightAnchor.constraint(equalToConstant: 1.0),
-            separator.bottomAnchor.constraint(equalTo: bottomAnchor),
+            separator.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 
         descriptionLabel.numberOfLines = 0

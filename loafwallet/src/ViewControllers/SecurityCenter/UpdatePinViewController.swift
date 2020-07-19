@@ -93,35 +93,35 @@ class UpdatePinViewController: UIViewController, Subscriber {
         header.constrain([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
-            header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+            header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2])
         ])
         instruction.constrain([
             instruction.leadingAnchor.constraint(equalTo: header.leadingAnchor),
             instruction.topAnchor.constraint(equalTo: header.bottomAnchor, constant: C.padding[2]),
-            instruction.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            instruction.trailingAnchor.constraint(equalTo: header.trailingAnchor)
         ])
         pinView.constrain([
             pinView.centerYAnchor.constraint(equalTo: spacer.centerYAnchor),
             pinView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pinView.widthAnchor.constraint(equalToConstant: pinView.width),
-            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize),
+            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize)
         ])
 
         addChildViewController(pinPad, layout: {
             pinPad.view.constrainBottomCorners(sidePadding: 0.0, bottomPadding: 0.0)
             pinPad.view.constrain([
                 pinPad.view.heightAnchor.constraint(equalToConstant: pinPad.height),
-                pinPad.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[3]),
+                pinPad.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[3])
             ])
             })
         spacer.constrain([
             spacer.topAnchor.constraint(equalTo: instruction.bottomAnchor),
-            spacer.bottomAnchor.constraint(equalTo: caption.topAnchor),
+            spacer.bottomAnchor.constraint(equalTo: caption.topAnchor)
         ])
         caption.constrain([
             caption.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             caption.bottomAnchor.constraint(equalTo: pinPad.view.topAnchor, constant: -C.padding[2]),
-            caption.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+            caption.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2])
         ])
     }
 
@@ -226,7 +226,7 @@ class UpdatePinViewController: UIViewController, Subscriber {
             pinView.centerYAnchor.constraint(equalTo: spacer.centerYAnchor),
             pinView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pinView.widthAnchor.constraint(equalToConstant: pinView.width),
-            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize),
+            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize)
         ])
     }
 

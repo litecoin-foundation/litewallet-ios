@@ -14,7 +14,7 @@ extension String {
         let code = regex.stringByReplacingMatches(
             in: self,
             options: [],
-            range: NSMakeRange(0, utf8.count),
+            range: NSRange(location: 0, length: utf8.count),
             withTemplate: "$1"
         )
         switch code {

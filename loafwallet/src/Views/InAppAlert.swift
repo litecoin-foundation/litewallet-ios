@@ -33,16 +33,16 @@ class InAppAlert: UIView {
             close.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[2]),
             close.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
             close.widthAnchor.constraint(equalToConstant: 44.0),
-            close.heightAnchor.constraint(equalToConstant: 44.0),
+            close.heightAnchor.constraint(equalToConstant: 44.0)
         ])
         image.constrain([
             image.centerXAnchor.constraint(equalTo: centerXAnchor),
-            image.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[4]),
+            image.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[4])
         ])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
             message.topAnchor.constraint(equalTo: image.bottomAnchor, constant: C.padding[1]),
-            message.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
+            message.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2])
         ])
         close.tap = { [weak self] in
             self?.dismiss()

@@ -143,7 +143,7 @@ open class BRReplicatedKVStore: NSObject {
                     "   thetime         BIGINT  NOT NULL, " + // server unix timestamp in MS
                     "   deleted         BOOL    NOT NULL, " +
                     "   PRIMARY KEY (key, version) " +
-                    ");",
+                    ");"
             ]
             for cmd in commands {
                 var stmt: OpaquePointer?
@@ -711,7 +711,7 @@ open class BRReplicatedKVStore: NSObject {
 
     // validates the key. keys can not start with a _
     fileprivate func checkKey(_ key: String) throws {
-        let m = keyRegex.matches(in: key, options: [], range: NSMakeRange(0, key.count))
+        let m = keyRegex.matches(in: key, options: [], range: NSRange(location: 0, length: key.count))
         if m.count != 1 {
             throw BRReplicatedKVStoreError.invalidKey
         }

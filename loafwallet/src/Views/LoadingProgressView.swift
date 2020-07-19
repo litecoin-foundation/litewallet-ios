@@ -42,13 +42,13 @@ class LoadingProgressView: UIView, GradientDrawable {
 
         label.constrain([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.bottomAnchor.constraint(equalTo: progressBackground.topAnchor, constant: -4.0),
+            label.bottomAnchor.constraint(equalTo: progressBackground.topAnchor, constant: -4.0)
         ])
         progressBackground.constrain([
             progressBackground.centerXAnchor.constraint(equalTo: centerXAnchor),
             progressBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -C.padding[1]),
             progressBackground.heightAnchor.constraint(equalToConstant: progressHeight),
-            progressBackground.widthAnchor.constraint(equalToConstant: progressWidth),
+            progressBackground.widthAnchor.constraint(equalToConstant: progressWidth)
         ])
         progressBackground.addSubview(progressForeground)
         progressWidthConstraint = progressForeground.widthAnchor.constraint(equalToConstant: 0.0)
@@ -56,7 +56,7 @@ class LoadingProgressView: UIView, GradientDrawable {
             progressWidthConstraint,
             progressForeground.leadingAnchor.constraint(equalTo: progressBackground.leadingAnchor),
             progressForeground.heightAnchor.constraint(equalTo: progressBackground.heightAnchor),
-            progressForeground.centerYAnchor.constraint(equalTo: progressBackground.centerYAnchor),
+            progressForeground.centerYAnchor.constraint(equalTo: progressBackground.centerYAnchor)
         ])
         shadowView.backgroundColor = .transparentWhite
         shadowView.constrainTopCorners(height: 0.5)

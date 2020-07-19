@@ -43,7 +43,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     var viewControllers: [UIViewController] = []
     var activeController: UIViewController?
 
-    var delegate: MainTabBarControllerDelegate?
+    weak var delegate: MainTabBarControllerDelegate?
 
     var updateTimer: Timer?
     var store: Store?
@@ -155,7 +155,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         headerView.addSubview(currencyTapView)
 
         secondaryLabel.constrain([
-            secondaryLabel.constraint(.firstBaseline, toView: primaryLabel, constant: 0.0),
+            secondaryLabel.constraint(.firstBaseline, toView: primaryLabel, constant: 0.0)
         ])
 
         equalsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -165,7 +165,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             primaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[1] * 1.25),
             equalsLabel.firstBaselineAnchor.constraint(equalTo: primaryLabel.firstBaselineAnchor, constant: 0),
             equalsLabel.leadingAnchor.constraint(equalTo: primaryLabel.trailingAnchor, constant: C.padding[1] / 2.0),
-            secondaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1] / 2.0),
+            secondaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1] / 2.0)
         ]
 
         swappedConstraints = [
@@ -173,7 +173,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             secondaryLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: C.padding[1] * 1.25),
             equalsLabel.firstBaselineAnchor.constraint(equalTo: secondaryLabel.firstBaselineAnchor, constant: 0),
             equalsLabel.leadingAnchor.constraint(equalTo: secondaryLabel.trailingAnchor, constant: C.padding[1] / 2.0),
-            primaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1] / 2.0),
+            primaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1] / 2.0)
         ]
 
         if let isLTCSwapped = isLtcSwapped {
@@ -184,7 +184,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             currencyTapView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 0),
             currencyTapView.trailingAnchor.constraint(equalTo: timeStampStackView.leadingAnchor, constant: 0),
             currencyTapView.topAnchor.constraint(equalTo: primaryLabel.topAnchor, constant: 0),
-            currencyTapView.bottomAnchor.constraint(equalTo: primaryLabel.bottomAnchor, constant: C.padding[1]),
+            currencyTapView.bottomAnchor.constraint(equalTo: primaryLabel.bottomAnchor, constant: C.padding[1])
         ])
 
         let gr = UITapGestureRecognizer(target: self, action: #selector(currencySwitchTapped))

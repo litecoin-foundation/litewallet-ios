@@ -6,7 +6,7 @@ class LWAnalytics {
         var parameters = [
             AnalyticsParameterItemID: "id-\(itemName.hashValue)",
             AnalyticsParameterItemName: itemName.rawValue,
-            AnalyticsParameterContentType: "cont",
+            AnalyticsParameterContentType: "cont"
         ]
 
         properties?.forEach { key, value in

@@ -34,28 +34,28 @@ class CameraGuideView: UIView {
         context.addLineThrough([
             (0 + lineWidth / 2.0, guideSize),
             (0 + lineWidth / 2.0, 0 + lineWidth / 2.0),
-            (guideSize, 0 + lineWidth / 2.0),
+            (guideSize, 0 + lineWidth / 2.0)
         ])
 
         // top right
         context.addLineThrough([
             (rect.maxX - guideSize, 0 + lineWidth / 2.0),
             (rect.maxX - lineWidth / 2.0, 0 + lineWidth / 2.0),
-            (rect.maxX - lineWidth / 2.0, guideSize),
+            (rect.maxX - lineWidth / 2.0, guideSize)
         ])
 
         // bottom right
         context.addLineThrough([
             (rect.maxX - lineWidth / 2.0, rect.maxY - guideSize),
             (rect.maxY - lineWidth / 2.0, rect.maxY - lineWidth / 2.0),
-            (rect.maxX - guideSize, rect.maxY - lineWidth / 2.0),
+            (rect.maxX - guideSize, rect.maxY - lineWidth / 2.0)
         ])
 
         // bottom left
         context.addLineThrough([
             (lineWidth / 2.0, rect.maxY - guideSize),
             (lineWidth / 2.0, rect.maxY - lineWidth / 2.0),
-            (guideSize, rect.maxY - lineWidth / 2.0),
+            (guideSize, rect.maxY - lineWidth / 2.0)
         ])
 
         state.color.setStroke()

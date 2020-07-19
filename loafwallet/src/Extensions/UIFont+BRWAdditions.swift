@@ -44,14 +44,14 @@ extension UIFont {
     static var regularAttributes: [NSAttributedString.Key: Any] {
         return [
             .font: UIFont.customBody(size: 14.0),
-            .foregroundColor: UIColor.darkText,
+            .foregroundColor: UIColor.darkText
         ]
     }
 
     static var boldAttributes: [NSAttributedString.Key: Any] {
         return [
             .font: UIFont.customBold(size: 14.0),
-            .foregroundColor: UIColor.darkText,
+            .foregroundColor: UIColor.darkText
         ]
     }
 }

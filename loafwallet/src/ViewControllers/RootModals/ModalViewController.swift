@@ -48,19 +48,19 @@ class ModalViewController: UIViewController, Subscriber {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.bottomAnchor.constraint(equalTo: scrollView.topAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            header.heightAnchor.constraint(equalToConstant: headerHeight),
+            header.heightAnchor.constraint(equalToConstant: headerHeight)
         ])
         scrollView.constrain([
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         scrollViewContent.constrain([
             scrollViewContent.topAnchor.constraint(equalTo: scrollView.topAnchor),
             scrollViewContent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             scrollViewContent.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollViewContent.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            scrollViewContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            scrollViewContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
 
         childViewController.view.constrain(toSuperviewEdges: nil)
@@ -77,7 +77,7 @@ class ModalViewController: UIViewController, Subscriber {
         scrollView.constrain([
             minHeight,
             midHeight,
-            maxHeight,
+            maxHeight
         ])
     }
 

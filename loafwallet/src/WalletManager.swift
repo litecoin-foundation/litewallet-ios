@@ -235,9 +235,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 
         while sqlite3_step(sql) == SQLITE_ROW {
             let name = String(cString: sqlite3_column_text(sql, 1))
-            if name == "BRTxMetadataEntity" { txEnt = sqlite3_column_int(sql, 0) }
-            else if name == "BRMerkleBlockEntity" { blockEnt = sqlite3_column_int(sql, 0) }
-            else if name == "BRPeerEntity" { peerEnt = sqlite3_column_int(sql, 0) }
+            if name == "BRTxMetadataEntity" { txEnt = sqlite3_column_int(sql, 0) } else if name == "BRMerkleBlockEntity" { blockEnt = sqlite3_column_int(sql, 0) } else if name == "BRPeerEntity" { peerEnt = sqlite3_column_int(sql, 0) }
         }
 
         if sqlite3_errcode(db) != SQLITE_DONE { print(String(cString: sqlite3_errmsg(db))) }

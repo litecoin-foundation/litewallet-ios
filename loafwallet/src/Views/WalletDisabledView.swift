@@ -57,19 +57,19 @@ class WalletDisabledView: UIView {
         blur.constrain(toSuperviewEdges: nil)
         label.constrain([
             label.centerYAnchor.constraint(equalTo: blur.centerYAnchor),
-            label.centerXAnchor.constraint(equalTo: blur.centerXAnchor),
+            label.centerXAnchor.constraint(equalTo: blur.centerXAnchor)
         ])
         faq.constrain([
             faq.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
             faq.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -C.padding[2]),
             faq.widthAnchor.constraint(equalToConstant: 44.0),
-            faq.heightAnchor.constraint(equalToConstant: 44.0),
+            faq.heightAnchor.constraint(equalToConstant: 44.0)
         ])
         reset.constrain([
             reset.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
             reset.centerYAnchor.constraint(equalTo: faq.centerYAnchor),
             reset.heightAnchor.constraint(equalToConstant: C.Sizes.buttonHeight),
-            reset.widthAnchor.constraint(equalToConstant: 200.0),
+            reset.widthAnchor.constraint(equalToConstant: 200.0)
         ])
     }
 

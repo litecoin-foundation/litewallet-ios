@@ -47,25 +47,25 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable {
             titleLabel.constraint(.width, constant: 210),
             titleLabel.constraint(.height, constant: 40),
             titleLabel.constraint(.top, toView: view, constant: C.padding[4]),
-            titleLabel.constraint(.centerX, toView: view),
+            titleLabel.constraint(.centerX, toView: view)
         ])
         warningDetailTextView.constrain([
             warningDetailTextView.constraint(.width, constant: 300),
             warningDetailTextView.constraint(.height, constant: 300),
             warningDetailTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0.0),
-            warningDetailTextView.constraint(.centerX, toView: view),
+            warningDetailTextView.constraint(.centerX, toView: view)
         ])
         warningAlertLabel.constrain([
             warningAlertLabel.constraint(.width, constant: 300),
             warningAlertLabel.constraint(.height, constant: 40),
             warningAlertLabel.constraint(.bottom, toView: warningDetailTextView, constant: -30.0),
-            warningAlertLabel.constraint(.centerX, toView: view),
+            warningAlertLabel.constraint(.centerX, toView: view)
         ])
         border.constrain([
             border.constraint(.width, toView: view),
             border.constraint(toBottom: warningDetailTextView, constant: 0.0),
             border.constraint(.centerX, toView: view),
-            border.constraint(.height, constant: 1.0),
+            border.constraint(.height, constant: 1.0)
         ])
         resetTop = reset.constraint(toBottom: border, constant: C.padding[3])
         resetBottom = reset.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2])
@@ -74,7 +74,7 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable {
             reset.constraint(.leading, toView: view, constant: C.padding[2]),
             reset.constraint(.trailing, toView: view, constant: -C.padding[2]),
             reset.constraint(.height, constant: C.Sizes.buttonHeight),
-            resetBottom,
+            resetBottom
         ])
     }
 

@@ -72,30 +72,30 @@ class StartViewController: UIViewController {
             logo.constraint(.centerX, toView: view, constant: nil),
             yConstraint,
             logo.constraint(.width, constant: 70),
-            logo.constraint(.height, constant: 70),
+            logo.constraint(.height, constant: 70)
         ])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             message.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: C.padding[3]),
-            message.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            message.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
         recover.constrain([
             recover.constraint(.leading, toView: view, constant: C.padding[2]),
             recover.constraint(.bottom, toView: view, constant: -60),
             recover.constraint(.trailing, toView: view, constant: -C.padding[2]),
-            recover.constraint(.height, constant: C.Sizes.buttonHeight),
+            recover.constraint(.height, constant: C.Sizes.buttonHeight)
         ])
         create.constrain([
             create.constraint(toTop: recover, constant: -C.padding[2]),
             create.constraint(.centerX, toView: recover, constant: nil),
             create.constraint(.width, toView: recover, constant: nil),
-            create.constraint(.height, constant: C.Sizes.buttonHeight),
+            create.constraint(.height, constant: C.Sizes.buttonHeight)
         ])
         versionLabel.constrain([
             versionLabel.constraint(.top, toView: view, constant: 30),
             versionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             versionLabel.widthAnchor.constraint(equalToConstant: 120.0),
-            versionLabel.heightAnchor.constraint(equalToConstant: 44.0),
+            versionLabel.heightAnchor.constraint(equalToConstant: 44.0)
         ])
     }
 

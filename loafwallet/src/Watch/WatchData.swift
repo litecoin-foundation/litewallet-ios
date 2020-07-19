@@ -28,7 +28,7 @@ struct WatchData {
             Keys.latestTransaction: latestTransaction,
             Keys.qrCode: NSKeyedArchiver.archivedData(withRootObject: qrCode),
             Keys.transactions: [],
-            Keys.hasWallet: hasWallet,
+            Keys.hasWallet: hasWallet
         ]
     }
 

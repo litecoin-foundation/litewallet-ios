@@ -59,7 +59,7 @@ extension Rate {
         return [
             "code": code,
             "name": name,
-            "n": rate,
+            "n": rate
         ]
     }
 }

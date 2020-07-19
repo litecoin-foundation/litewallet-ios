@@ -93,7 +93,7 @@ class PinView: UIView {
                 circle.constraint(.width, constant: itemSize),
                 circle.constraint(.height, constant: itemSize),
                 circle.constraint(.centerY, toView: self, constant: nil),
-                leadingConstraint,
+                leadingConstraint
             ])
         }
     }

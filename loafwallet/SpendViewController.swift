@@ -11,15 +11,15 @@ import UIKit
 
 class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, LFAlertViewDelegate {
     static let serviceName = "com.litewallet.litecoincard.service"
-    let mockDict: [String: Any] = ["firstname":"Test",
-            "lastname":"User",
-            "email":  "kwashington+" + String(Int.random(in: 20000 ..< 30099)) + "@gmail.com",
-            "address1":"123 Main",
-            "city":"Sat",
-            "country":"US",
-            "phone":"1234567890",
-            "zip_code":"95014",
-            "username":"test"
+    let mockDict: [String: Any] = ["firstname": "Test",
+            "lastname": "User",
+            "email": "kwashington+" + String(Int.random(in: 20000 ..< 30099)) + "@gmail.com",
+            "address1": "123 Main",
+            "city": "Sat",
+            "country": "US",
+            "phone": "1234567890",
+            "zip_code": "95014",
+            "username": "test"
     ]
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var headerLabel: UILabel!
@@ -30,7 +30,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var address1TextField: UITextField!
-    @IBOutlet var address2TextField: UITextField! 
+    @IBOutlet var address2TextField: UITextField!
     @IBOutlet var cityTextField: UITextField!
     @IBOutlet var stateTextField: UITextField!
     @IBOutlet var countryTextField: UITextField!
@@ -51,7 +51,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     var alertModal: LFAlertViewController?
     var userNotRegistered = true
-    var delegate: LitecoinCardRegistrationViewDelegate?
+    weak var delegate: LitecoinCardRegistrationViewDelegate?
 
     var manager = PartnerAPIManager()
 
@@ -114,15 +114,15 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         loginButton.layer.cornerRadius = 5.0
         loginButton.clipsToBounds = true
     }
- 
+
     @IBAction func registerAction(_: Any) {
         // Validate registration data
         // TODO: Uncomment
         if 1 > 0 /*registeredParams = didValidateRegistrationParams()*/ {
           print("XXXX \(mockDict)")
-          print("XXXX") 
+          print("XXXX")
             manager.createUser(userDataParams: mockDict) { newUser in
-                
+
                 let jsonEncoder = JSONEncoder()
                 do {
                     let jsonData = try jsonEncoder.encode(newUser)
@@ -130,16 +130,14 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     print("JSON String : " + jsonString!)
                     self.delegate?.didReceiveOpenLitecoinCardAccount(account: jsonData)
 
-                }
-                catch {
+                } catch {
 
                 }
-                
- 
+
             }
 
         } else {
-            
+
         }
 
      }
@@ -167,7 +165,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let postalCode = try postalCodeTextField.validatedText(validationType: ValidatorType.postalCode)
             let country = try countryTextField.validatedText(validationType: ValidatorType.country)
             let mobile = try mobileTextField.validatedText(validationType: ValidatorType.mobileNumber)
-             
+
             return [
                 "email": email,
                 "password": password,
@@ -182,8 +180,8 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 "country": country,
                 "phone": mobile
             ]
- 
-           } catch(let error) {
+
+           } catch let error {
 
             let message = (error as! ValidationError).message
             showErrorAlert(for: message)
@@ -200,7 +198,7 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
     }
- 
+
     private func createLitecoinCardWallet(cardAccountData _: LitecoinCardAccountData) {
         // TODO: Refactor whenTernio OAUTH is ready
 

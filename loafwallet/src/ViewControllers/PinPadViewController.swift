@@ -220,7 +220,7 @@ class GenericPinPadCell: UICollectionViewCell {
         "6": "MNO",
         "7": "PORS",
         "8": "TUV",
-        "9": "WXYZ",
+        "9": "WXYZ"
     ]
 
     override var isHighlighted: Bool {
@@ -258,11 +258,11 @@ class GenericPinPadCell: UICollectionViewCell {
         centerLabel.constrain(toSuperviewEdges: nil)
         topLabel.constrain([
             topLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2.5),
+            topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2.5)
         ])
         sublabel.constrain([
             sublabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            sublabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -3.0),
+            sublabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -3.0)
         ])
     }
 

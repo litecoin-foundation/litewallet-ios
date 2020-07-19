@@ -10,7 +10,7 @@ class SeparatorCell: UITableViewCell {
             separator.leadingAnchor.constraint(equalTo: leadingAnchor),
             separator.bottomAnchor.constraint(equalTo: bottomAnchor),
             separator.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1.0),
+            separator.heightAnchor.constraint(equalToConstant: 1.0)
         ])
     }
 

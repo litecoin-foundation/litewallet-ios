@@ -212,7 +212,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
         }
         guard let authKey = authKey else {
             return handler(NSError(domain: BRAPIClientErrorDomain, code: 500, userInfo: [
-                NSLocalizedDescriptionKey: S.ApiClient.notReady,
+                NSLocalizedDescriptionKey: S.ApiClient.notReady
             ]))
         }
         let authPubKey = authKey.publicKey
@@ -225,7 +225,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
         req.setValue("application/json", forHTTPHeaderField: "Accept")
         let reqJson = [
             "pubKey": authPubKey.base58,
-            "deviceID": deviceId,
+            "deviceID": deviceId
         ]
         do {
             let dat = try JSONSerialization.data(withJSONObject: reqJson, options: [])
@@ -235,7 +235,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
             isFetchingAuth = false
             authFetchGroup.leave()
             return handler(NSError(domain: BRAPIClientErrorDomain, code: 500, userInfo: [
-                NSLocalizedDescriptionKey: S.ApiClient.jsonError,
+                NSLocalizedDescriptionKey: S.ApiClient.jsonError
             ]))
         }
         session.dataTask(with: req, completionHandler: { data, resp, err in
@@ -249,7 +249,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
                         self.isFetchingAuth = false
                         self.authFetchGroup.leave()
                         return handler(NSError(domain: BRAPIClientErrorDomain, code: httpResp.statusCode, userInfo: [
-                            NSLocalizedDescriptionKey: S.ApiClient.tokenError,
+                            NSLocalizedDescriptionKey: S.ApiClient.tokenError
                         ]))
                     }
                 }
@@ -336,7 +336,7 @@ private extension URLRequest {
             "",
             allHTTPHeaderFields?.get(lowercasedKey: "content-type") ?? "",
             allHTTPHeaderFields?.get(lowercasedKey: "date") ?? "",
-            url?.resourceString ?? "",
+            url?.resourceString ?? ""
         ]
         if let meth = httpMethod {
             switch meth {

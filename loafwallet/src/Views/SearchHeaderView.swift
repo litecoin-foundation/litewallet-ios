@@ -66,7 +66,7 @@ func == (lhs: SearchFilterType, rhs: SearchFilterType) -> Bool {
         return true
     case (.complete, .complete):
         return true
-    case (.text(_), .text(_)):
+    case (.text, .text):
         return true
     default:
         return false
@@ -127,12 +127,12 @@ class SearchHeaderView: UIView {
         cancel.constrain([
             cancel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
             cancel.centerYAnchor.constraint(equalTo: searchBar.centerYAnchor),
-            cancel.widthAnchor.constraint(equalToConstant: titleSize.width + C.padding[4]),
+            cancel.widthAnchor.constraint(equalToConstant: titleSize.width + C.padding[4])
         ])
         searchBar.constrain([
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[1]),
             searchBar.topAnchor.constraint(equalTo: topAnchor, constant: E.isIPhoneX ? C.padding[5] : C.padding[2]),
-            searchBar.trailingAnchor.constraint(equalTo: cancel.leadingAnchor, constant: -C.padding[1]),
+            searchBar.trailingAnchor.constraint(equalTo: cancel.leadingAnchor, constant: -C.padding[1])
         ])
     }
 
@@ -214,7 +214,7 @@ class SearchHeaderView: UIView {
             stackView.constrain([
                 stackView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
                 stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: C.padding[1]),
-                stackView.trailingAnchor.constraint(equalTo: cancel.trailingAnchor),
+                stackView.trailingAnchor.constraint(equalTo: cancel.trailingAnchor)
             ])
             stackView.addArrangedSubview(sent)
             stackView.addArrangedSubview(received)
@@ -227,19 +227,19 @@ class SearchHeaderView: UIView {
             addSubview(complete)
             sent.constrain([
                 sent.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
-                sent.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: C.padding[1]),
+                sent.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: C.padding[1])
             ])
             received.constrain([
                 received.leadingAnchor.constraint(equalTo: sent.trailingAnchor, constant: C.padding[1]),
-                received.topAnchor.constraint(equalTo: sent.topAnchor),
+                received.topAnchor.constraint(equalTo: sent.topAnchor)
             ])
             pending.constrain([
                 pending.leadingAnchor.constraint(equalTo: received.trailingAnchor, constant: C.padding[1]),
-                pending.topAnchor.constraint(equalTo: received.topAnchor),
+                pending.topAnchor.constraint(equalTo: received.topAnchor)
             ])
             complete.constrain([
                 complete.leadingAnchor.constraint(equalTo: pending.trailingAnchor, constant: C.padding[1]),
-                complete.topAnchor.constraint(equalTo: sent.topAnchor),
+                complete.topAnchor.constraint(equalTo: sent.topAnchor)
             ])
         }
     }

@@ -53,7 +53,7 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter {
                 pinPad.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 pinPad.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: LAContext.biometricType() == .face ? -C.padding[3] : 0.0),
                 pinPad.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                pinPad.view.heightAnchor.constraint(equalToConstant: pinPad.height),
+                pinPad.view.heightAnchor.constraint(equalToConstant: pinPad.height)
             ])
         })
     }
@@ -62,36 +62,36 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter {
         contentBox.constrain([
             contentBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             contentBox.bottomAnchor.constraint(equalTo: pinPad.view.topAnchor, constant: -C.padding[12]),
-            contentBox.widthAnchor.constraint(equalToConstant: 256.0),
+            contentBox.widthAnchor.constraint(equalToConstant: 256.0)
         ])
         titleLabel.constrainTopCorners(sidePadding: C.padding[2], topPadding: C.padding[2])
         body.constrain([
             body.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             body.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            body.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            body.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
         ])
         pinView.constrain([
             pinView.topAnchor.constraint(equalTo: body.bottomAnchor, constant: C.padding[2]),
             pinView.centerXAnchor.constraint(equalTo: body.centerXAnchor),
             pinView.widthAnchor.constraint(equalToConstant: pinView.width),
             pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize),
-            pinView.bottomAnchor.constraint(equalTo: contentBox.bottomAnchor, constant: -C.padding[2]),
+            pinView.bottomAnchor.constraint(equalTo: contentBox.bottomAnchor, constant: -C.padding[2])
         ])
         toolbar.constrain([
             toolbar.leadingAnchor.constraint(equalTo: pinPad.view.leadingAnchor),
             toolbar.bottomAnchor.constraint(equalTo: pinPad.view.topAnchor),
             toolbar.trailingAnchor.constraint(equalTo: pinPad.view.trailingAnchor),
-            toolbar.heightAnchor.constraint(equalToConstant: 44.0),
+            toolbar.heightAnchor.constraint(equalToConstant: 44.0)
         ])
         cancel.constrain([
             cancel.centerYAnchor.constraint(equalTo: toolbar.centerYAnchor),
-            cancel.trailingAnchor.constraint(equalTo: toolbar.trailingAnchor, constant: -C.padding[2]),
+            cancel.trailingAnchor.constraint(equalTo: toolbar.trailingAnchor, constant: -C.padding[2])
         ])
         toolbarBorder.constrain([
             toolbarBorder.leadingAnchor.constraint(equalTo: pinPad.view.leadingAnchor),
             toolbarBorder.bottomAnchor.constraint(equalTo: toolbar.topAnchor),
             toolbarBorder.trailingAnchor.constraint(equalTo: pinPad.view.trailingAnchor),
-            toolbarBorder.heightAnchor.constraint(equalToConstant: 1.0),
+            toolbarBorder.heightAnchor.constraint(equalToConstant: 1.0)
         ])
     }
 

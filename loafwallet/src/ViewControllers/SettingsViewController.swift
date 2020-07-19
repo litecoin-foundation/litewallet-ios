@@ -136,12 +136,12 @@ class SettingsViewController: UITableViewController, CustomTitleView {
             separator.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             separator.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             separator.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1.0),
+            separator.heightAnchor.constraint(equalToConstant: 1.0)
         ])
 
         label.constrain([
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
-            label.bottomAnchor.constraint(equalTo: separator.topAnchor, constant: -4.0),
+            label.bottomAnchor.constraint(equalTo: separator.topAnchor, constant: -4.0)
         ])
 
         return view

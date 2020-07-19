@@ -47,7 +47,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
     private let disabledView: WalletDisabledView
     private let activityView = UIActivityIndicatorView(style: .whiteLarge)
     private let wipeBannerButton = UIButton()
-    var delegate: LoginViewControllerDelegate?
+    weak var delegate: LoginViewControllerDelegate?
 
     private var logo: UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
             nc.navigationBar.tintColor = .darkText
             nc.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.darkText,
-                NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+                NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
             ]
             nc.setClearNavbar()
             nc.navigationBar.isTranslucent = false
@@ -160,19 +160,19 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
             pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -90),
             pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
             pinView.widthAnchor.constraint(equalToConstant: pinView.width),
-            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize),
+            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize)
         ])
 
         enterPINLabel.constrain([
             enterPINLabel.topAnchor.constraint(equalTo: pinView.topAnchor, constant: -60),
-            enterPINLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            enterPINLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
 
         logo.constrain([
             logo.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.constraint(.height, constant: 70),
-            logo.constraint(.width, constant: 70),
+            logo.constraint(.width, constant: 70)
         ])
     }
 
@@ -200,7 +200,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
                     pinPadViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                     pinPadViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                     pinPadBottom,
-                    pinPadViewController.view.heightAnchor.constraint(equalToConstant: pinPadViewController.height),
+                    pinPadViewController.view.heightAnchor.constraint(equalToConstant: pinPadViewController.height)
                 ])
             })
         }
@@ -210,7 +210,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
             versionLabel.constraint(.top, toView: view, constant: 30),
             versionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             versionLabel.widthAnchor.constraint(equalToConstant: 120.0),
-            versionLabel.heightAnchor.constraint(equalToConstant: 44.0),
+            versionLabel.heightAnchor.constraint(equalToConstant: 44.0)
         ])
 
         if walletManager != nil {
@@ -218,12 +218,12 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
                 pinPadBackground.leadingAnchor.constraint(equalTo: pinPadViewController.view.leadingAnchor),
                 pinPadBackground.trailingAnchor.constraint(equalTo: pinPadViewController.view.trailingAnchor),
                 pinPadBackground.topAnchor.constraint(equalTo: pinPadViewController.view.topAnchor),
-                pinPadBackground.bottomAnchor.constraint(equalTo: pinPadViewController.view.bottomAnchor),
+                pinPadBackground.bottomAnchor.constraint(equalTo: pinPadViewController.view.bottomAnchor)
             ])
         } else {
             activityView.constrain([
                 activityView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20.0),
+                activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20.0)
             ])
             activityView.startAnimating()
         }
@@ -257,7 +257,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
                 wipeBannerButton.bottomAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -20),
                 wipeBannerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 wipeBannerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                wipeBannerButton.heightAnchor.constraint(equalToConstant: 40),
+                wipeBannerButton.heightAnchor.constraint(equalToConstant: 40)
             ])
 
             wipeBannerButton.setTitle(S.WipeWallet.emptyWallet, for: .normal)
@@ -276,7 +276,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
             biometrics.widthAnchor.constraint(equalToConstant: biometricsSize),
             biometrics.heightAnchor.constraint(equalToConstant: biometricsSize),
             biometrics.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
-            biometrics.bottomAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -C.padding[2]),
+            biometrics.bottomAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -C.padding[2])
         ])
     }
 
@@ -329,11 +329,11 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 
         label.constrain([
             label.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -C.padding[1]),
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         lock.constrain([
             lock.topAnchor.constraint(equalTo: label.bottomAnchor, constant: C.padding[1]),
-            lock.centerXAnchor.constraint(equalTo: label.centerXAnchor),
+            lock.centerXAnchor.constraint(equalTo: label.centerXAnchor)
         ])
         view.layoutIfNeeded()
 

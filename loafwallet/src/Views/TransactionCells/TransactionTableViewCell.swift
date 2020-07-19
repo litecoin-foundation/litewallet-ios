@@ -137,46 +137,46 @@ class TransactionTableViewCell: UITableViewCell, Subscriber {
         container.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: C.padding[2], bottom: 0, right: -C.padding[2]))
         innerShadow.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
         innerShadow.constrain([
-            innerShadow.constraint(.height, constant: 1.0),
+            innerShadow.constraint(.height, constant: 1.0)
         ])
         arrow.constrain([
             arrow.trailingAnchor.constraint(equalTo: timestamp.leadingAnchor, constant: -4.0),
             arrow.centerYAnchor.constraint(equalTo: timestamp.centerYAnchor),
             arrow.heightAnchor.constraint(equalToConstant: 14.0),
-            arrow.widthAnchor.constraint(equalToConstant: 14.0),
+            arrow.widthAnchor.constraint(equalToConstant: 14.0)
         ])
         transactionLabel.constrain([
             transactionLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: C.padding[2]),
             transactionLabel.constraint(.top, toView: container, constant: topPadding),
-            transactionLabel.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[1]),
+            transactionLabel.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[1])
         ])
         timestamp.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         timestamp.constrain([
             timestamp.constraint(.trailing, toView: container, constant: -C.padding[2]),
-            timestamp.constraint(.top, toView: container, constant: topPadding),
+            timestamp.constraint(.top, toView: container, constant: topPadding)
         ])
 
         address.constrain([
             address.leadingAnchor.constraint(equalTo: transactionLabel.leadingAnchor),
             address.topAnchor.constraint(equalTo: transactionLabel.bottomAnchor),
-            address.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[4]),
+            address.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[4])
         ])
         address.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
 
         comment.constrain([
             comment.constraint(.leading, toView: container, constant: C.padding[2]),
             comment.constraint(toBottom: address, constant: C.padding[1]),
-            comment.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[1]),
+            comment.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[1])
         ])
         status.constrain([
             status.constraint(.leading, toView: container, constant: C.padding[2]),
             status.constraint(toBottom: comment, constant: C.padding[1]),
-            status.constraint(.trailing, toView: container, constant: -C.padding[2]),
+            status.constraint(.trailing, toView: container, constant: -C.padding[2])
         ])
         availability.constrain([
             availability.leadingAnchor.constraint(equalTo: status.leadingAnchor),
             availability.topAnchor.constraint(equalTo: status.bottomAnchor),
-            availability.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -C.padding[2]),
+            availability.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -C.padding[2])
         ])
     }
 

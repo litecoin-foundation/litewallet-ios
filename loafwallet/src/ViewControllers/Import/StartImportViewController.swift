@@ -46,45 +46,45 @@ class StartImportViewController: UIViewController {
     private func addConstraints() {
         header.constrainTopCorners(sidePadding: 0, topPadding: 0)
         header.constrain([
-            header.constraint(.height, constant: 220.0),
+            header.constraint(.height, constant: 220.0)
         ])
         illustration.constrain([
             illustration.constraint(.width, constant: 64.0),
             illustration.constraint(.height, constant: 84.0),
             illustration.constraint(.centerX, toView: header, constant: 0.0),
-            illustration.constraint(.centerY, toView: header, constant: -C.padding[1]),
+            illustration.constraint(.centerY, toView: header, constant: -C.padding[1])
         ])
         leftCaption.constrain([
             leftCaption.topAnchor.constraint(equalTo: illustration.bottomAnchor, constant: C.padding[1]),
             leftCaption.trailingAnchor.constraint(equalTo: header.centerXAnchor, constant: -C.padding[2]),
-            leftCaption.widthAnchor.constraint(equalToConstant: 80.0),
+            leftCaption.widthAnchor.constraint(equalToConstant: 80.0)
         ])
         rightCaption.constrain([
             rightCaption.topAnchor.constraint(equalTo: illustration.bottomAnchor, constant: C.padding[1]),
             rightCaption.leadingAnchor.constraint(equalTo: header.centerXAnchor, constant: C.padding[2]),
-            rightCaption.widthAnchor.constraint(equalToConstant: 80.0),
+            rightCaption.widthAnchor.constraint(equalToConstant: 80.0)
         ])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             message.topAnchor.constraint(equalTo: header.bottomAnchor, constant: C.padding[2]),
-            message.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+            message.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2])
         ])
         bullet.constrain([
             bullet.leadingAnchor.constraint(equalTo: message.leadingAnchor),
             bullet.topAnchor.constraint(equalTo: message.bottomAnchor, constant: C.padding[4]),
             bullet.widthAnchor.constraint(equalToConstant: 16.0),
-            bullet.heightAnchor.constraint(equalToConstant: 16.0),
+            bullet.heightAnchor.constraint(equalToConstant: 16.0)
         ])
         warning.constrain([
             warning.leadingAnchor.constraint(equalTo: bullet.trailingAnchor, constant: C.padding[2]),
             warning.topAnchor.constraint(equalTo: bullet.topAnchor, constant: 0.0),
-            warning.trailingAnchor.constraint(equalTo: message.trailingAnchor),
+            warning.trailingAnchor.constraint(equalTo: message.trailingAnchor)
         ])
         button.constrain([
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
             button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[4]),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[3]),
-            button.constraint(.height, constant: C.Sizes.buttonHeight),
+            button.constraint(.height, constant: C.Sizes.buttonHeight)
         ])
     }
 

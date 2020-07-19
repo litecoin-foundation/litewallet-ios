@@ -63,37 +63,37 @@ class AddressCell: UIView {
     private func addConstraints() {
         label.constrain([
             label.constraint(.centerY, toView: self),
-            label.constraint(.leading, toView: self, constant: C.padding[2]),
+            label.constraint(.leading, toView: self, constant: C.padding[2])
         ])
         contentLabel.constrain([
             contentLabel.constraint(.leading, toView: label),
             contentLabel.constraint(toBottom: label, constant: 0.0),
-            contentLabel.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1]),
+            contentLabel.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1])
         ])
         textField.constrain([
             textField.constraint(.leading, toView: label),
             textField.constraint(toBottom: label, constant: 0.0),
-            textField.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1]),
+            textField.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1])
         ])
         tapView.constrain([
             tapView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tapView.topAnchor.constraint(equalTo: topAnchor),
             tapView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tapView.trailingAnchor.constraint(equalTo: paste.leadingAnchor),
+            tapView.trailingAnchor.constraint(equalTo: paste.leadingAnchor)
         ])
         scan.constrain([
             scan.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
-            scan.centerYAnchor.constraint(equalTo: centerYAnchor),
+            scan.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         paste.constrain([
             paste.centerYAnchor.constraint(equalTo: centerYAnchor),
-            paste.trailingAnchor.constraint(equalTo: scan.leadingAnchor, constant: -C.padding[1]),
+            paste.trailingAnchor.constraint(equalTo: scan.leadingAnchor, constant: -C.padding[1])
         ])
         border.constrain([
             border.leadingAnchor.constraint(equalTo: leadingAnchor),
             border.bottomAnchor.constraint(equalTo: bottomAnchor),
             border.trailingAnchor.constraint(equalTo: trailingAnchor),
-            border.heightAnchor.constraint(equalToConstant: 1.0),
+            border.heightAnchor.constraint(equalToConstant: 1.0)
         ])
     }
 

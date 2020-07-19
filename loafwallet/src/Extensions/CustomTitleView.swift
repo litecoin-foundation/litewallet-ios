@@ -64,7 +64,7 @@ extension CustomTitleView {
         objc_setAssociatedObject(self, &AssociatedKeys.yPosition, newYPosition, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         label.constrain([
             yPosition,
-            label.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
+            label.centerXAnchor.constraint(equalTo: titleView.centerXAnchor)
         ])
         navigationItem.titleView = titleView
     }

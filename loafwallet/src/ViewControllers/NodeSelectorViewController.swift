@@ -47,7 +47,7 @@ class NodeSelectorViewController: UIViewController, Trackable {
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
             button.topAnchor.constraint(equalTo: status.bottomAnchor, constant: C.padding[2]),
-            button.heightAnchor.constraint(equalToConstant: 44.0),
+            button.heightAnchor.constraint(equalToConstant: 44.0)
         ])
     }
 

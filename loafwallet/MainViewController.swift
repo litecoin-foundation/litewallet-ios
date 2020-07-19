@@ -14,8 +14,8 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
     private var isLoginRequired = false
     private let loginView: LoginViewController
     private let tempLoginView: LoginViewController
-    private let loginTransitionDelegate = LoginTransitionDelegate()
-    private let welcomeTransitingDelegate = TransitioningDelegate()
+    private weak var loginTransitionDelegate = LoginTransitionDelegate()
+    private weak var welcomeTransitingDelegate = TransitioningDelegate()
 
     private var loadingTimer: Timer?
     private var didEndLoading = false
@@ -50,7 +50,7 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
         navigationController?.navigationBar.tintColor = .liteWalletBlue
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.darkText,
-            NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+            NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
         ]
 
         navigationController?.navigationBar.isTranslucent = false

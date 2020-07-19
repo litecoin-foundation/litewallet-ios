@@ -30,26 +30,26 @@ class PushNotificationsViewController: UIViewController {
     private func addConstraints() {
         titleLabel.constrain([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2])
         ])
         body.constrain([
             body.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             body.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: C.padding[1]),
-            body.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+            body.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2])
         ])
         label.constrain([
             label.leadingAnchor.constraint(equalTo: body.leadingAnchor),
-            label.topAnchor.constraint(equalTo: body.bottomAnchor, constant: C.padding[3]),
+            label.topAnchor.constraint(equalTo: body.bottomAnchor, constant: C.padding[3])
         ])
         toggle.constrain([
             toggle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
-            toggle.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+            toggle.centerYAnchor.constraint(equalTo: label.centerYAnchor)
         ])
         separator.constrain([
             separator.leadingAnchor.constraint(equalTo: label.leadingAnchor),
             separator.topAnchor.constraint(equalTo: toggle.bottomAnchor, constant: C.padding[2]),
             separator.trailingAnchor.constraint(equalTo: toggle.trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1.0),
+            separator.heightAnchor.constraint(equalToConstant: 1.0)
         ])
     }
 

@@ -27,7 +27,7 @@ class CardLoginViewController: UIViewController, UITextFieldDelegate, UIScrollVi
     var currentTextField: UITextField?
     var isShowingPassword = false
     var loginFailMessage: String?
-    var delegate: LitecoinCardLoginViewDelegate?
+    weak var delegate: LitecoinCardLoginViewDelegate?
 
     var alertModal: LFAlertViewController?
 

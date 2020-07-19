@@ -69,18 +69,18 @@ class EnterPhraseCell: UICollectionViewCell {
         textField.constrain([
             textField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             textField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: C.padding[1]),
-            textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
         separator.constrain([
             separator.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: C.padding[1]),
             separator.topAnchor.constraint(equalTo: textField.bottomAnchor),
             separator.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: -C.padding[1]),
-            separator.heightAnchor.constraint(equalToConstant: 1.0),
+            separator.heightAnchor.constraint(equalToConstant: 1.0)
         ])
         label.constrain([
             label.leadingAnchor.constraint(equalTo: separator.leadingAnchor),
             label.topAnchor.constraint(equalTo: separator.bottomAnchor),
-            label.trailingAnchor.constraint(equalTo: separator.trailingAnchor),
+            label.trailingAnchor.constraint(equalTo: separator.trailingAnchor)
         ])
         setData()
     }
@@ -113,20 +113,20 @@ class EnterPhraseCell: UICollectionViewCell {
             previousField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
             previousField.topAnchor.constraint(equalTo: view.topAnchor),
             previousField.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            previousField.widthAnchor.constraint(equalToConstant: 44.0),
+            previousField.widthAnchor.constraint(equalToConstant: 44.0)
         ])
 
         nextField.constrain([
             nextField.leadingAnchor.constraint(equalTo: previousField.trailingAnchor),
             nextField.topAnchor.constraint(equalTo: view.topAnchor),
             nextField.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            nextField.widthAnchor.constraint(equalToConstant: 44.0),
+            nextField.widthAnchor.constraint(equalToConstant: 44.0)
         ])
 
         done.constrain([
             done.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
             done.topAnchor.constraint(equalTo: view.topAnchor),
-            done.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            done.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
 
         return view

@@ -46,15 +46,15 @@ extension AlertType: Equatable {}
 
 func == (lhs: AlertType, rhs: AlertType) -> Bool {
     switch (lhs, rhs) {
-    case (.pinSet(_), .pinSet(_)):
+    case (.pinSet, .pinSet):
         return true
-    case (.paperKeySet(_), .paperKeySet(_)):
+    case (.paperKeySet, .paperKeySet):
         return true
     case (.sendSuccess, .sendSuccess):
         return true
     case (.addressesCopied, .addressesCopied):
         return true
-    case (.sweepSuccess(_), .sweepSuccess(_)):
+    case (.sweepSuccess, .sweepSuccess):
         return true
     default:
         return false
@@ -120,18 +120,18 @@ class AlertView: UIView, GradientDrawable {
             separator.constraint(.height, constant: 1.0),
             separator.constraint(.width, toView: self, constant: 0.0),
             separator.constraint(.top, toView: self, constant: separatorYOffset),
-            separator.constraint(.leading, toView: self, constant: nil),
+            separator.constraint(.leading, toView: self, constant: nil)
         ])
         icon.constrain([
             icon.constraint(.centerX, toView: self, constant: nil),
             icon.constraint(.centerY, toView: self, constant: nil),
             icon.constraint(.width, constant: iconSize),
-            icon.constraint(.height, constant: iconSize),
+            icon.constraint(.height, constant: iconSize)
         ])
         subheader.constrain([
             subheader.constraint(.leading, toView: self, constant: C.padding[2]),
             subheader.constraint(.trailing, toView: self, constant: -C.padding[2]),
-            subheader.constraint(toBottom: icon, constant: C.padding[3]),
+            subheader.constraint(toBottom: icon, constant: C.padding[3])
         ])
     }
 

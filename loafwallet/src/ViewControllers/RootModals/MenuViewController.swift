@@ -35,13 +35,13 @@ class MenuViewController: UIViewController, Trackable {
                 topConstraint,
                 button.constraint(.leading, toView: view, constant: 0.0),
                 button.constraint(.trailing, toView: view, constant: 0.0),
-                button.constraint(.height, constant: buttonHeight),
+                button.constraint(.height, constant: buttonHeight)
             ])
             previousButton = button
         }
 
         previousButton?.constrain([
-            previousButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[2]),
+            previousButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[2])
         ])
 
         if #available(iOS 11.0, *) {

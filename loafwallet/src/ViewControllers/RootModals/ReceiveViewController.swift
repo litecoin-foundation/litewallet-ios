@@ -77,24 +77,24 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable {
             qrCode.constraint(.width, constant: qrSize),
             qrCode.constraint(.height, constant: qrSize),
             qrCode.constraint(.top, toView: view, constant: C.padding[4]),
-            qrCode.constraint(.centerX, toView: view),
+            qrCode.constraint(.centerX, toView: view)
         ])
         address.constrain([
             address.constraint(toBottom: qrCode, constant: C.padding[1]),
-            address.constraint(.centerX, toView: view),
+            address.constraint(.centerX, toView: view)
         ])
         addressPopout.heightConstraint = addressPopout.constraint(.height, constant: 0.0)
         addressPopout.constrain([
             addressPopout.constraint(toBottom: address, constant: 0.0),
             addressPopout.constraint(.centerX, toView: view),
             addressPopout.constraint(.width, toView: view),
-            addressPopout.heightConstraint,
+            addressPopout.heightConstraint
         ])
         share.constrain([
             share.constraint(toBottom: addressPopout, constant: C.padding[2]),
             share.constraint(.centerX, toView: view),
             share.constraint(.width, constant: qrSize),
-            share.constraint(.height, constant: smallButtonHeight),
+            share.constraint(.height, constant: smallButtonHeight)
         ])
         sharePopout.heightConstraint = sharePopout.constraint(.height, constant: 0.0)
         topSharePopoutConstraint = sharePopout.constraint(toBottom: share, constant: largeSharePadding)
@@ -102,13 +102,13 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable {
             topSharePopoutConstraint,
             sharePopout.constraint(.centerX, toView: view),
             sharePopout.constraint(.width, toView: view),
-            sharePopout.heightConstraint,
+            sharePopout.heightConstraint
         ])
         border.constrain([
             border.constraint(.width, toView: view),
             border.constraint(toBottom: sharePopout, constant: 0.0),
             border.constraint(.centerX, toView: view),
-            border.constraint(.height, constant: 1.0),
+            border.constraint(.height, constant: 1.0)
         ])
         requestTop = request.constraint(toBottom: border, constant: C.padding[3])
         requestBottom = request.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2])
@@ -117,13 +117,13 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable {
             request.constraint(.leading, toView: view, constant: C.padding[2]),
             request.constraint(.trailing, toView: view, constant: -C.padding[2]),
             request.constraint(.height, constant: C.Sizes.buttonHeight),
-            requestBottom,
+            requestBottom
         ])
         addressButton.constrain([
             addressButton.leadingAnchor.constraint(equalTo: address.leadingAnchor, constant: -C.padding[1]),
             addressButton.topAnchor.constraint(equalTo: qrCode.topAnchor),
             addressButton.trailingAnchor.constraint(equalTo: address.trailingAnchor, constant: C.padding[1]),
-            addressButton.bottomAnchor.constraint(equalTo: address.bottomAnchor, constant: C.padding[1]),
+            addressButton.bottomAnchor.constraint(equalTo: address.bottomAnchor, constant: C.padding[1])
         ])
     }
 
@@ -136,7 +136,7 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable {
             border.isHidden = true
             request.isHidden = true
             request.constrain([
-                request.heightAnchor.constraint(equalToConstant: 0.0),
+                request.heightAnchor.constraint(equalToConstant: 0.0)
             ])
             requestTop?.constant = 0.0
             requestBottom?.constant = 0.0
@@ -187,13 +187,13 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable {
             email.constraint(.leading, toView: container, constant: C.padding[2]),
             email.constraint(.top, toView: container, constant: buttonPadding),
             email.constraint(.bottom, toView: container, constant: -buttonPadding),
-            email.trailingAnchor.constraint(equalTo: container.centerXAnchor, constant: -C.padding[1]),
+            email.trailingAnchor.constraint(equalTo: container.centerXAnchor, constant: -C.padding[1])
         ])
         text.constrain([
             text.constraint(.trailing, toView: container, constant: -C.padding[2]),
             text.constraint(.top, toView: container, constant: buttonPadding),
             text.constraint(.bottom, toView: container, constant: -buttonPadding),
-            text.leadingAnchor.constraint(equalTo: container.centerXAnchor, constant: C.padding[1]),
+            text.leadingAnchor.constraint(equalTo: container.centerXAnchor, constant: C.padding[1])
         ])
         sharePopout.contentView = container
         email.addTarget(self, action: #selector(ReceiveViewController.emailTapped), for: .touchUpInside)

@@ -58,7 +58,7 @@ class WatchDataManager: NSObject {
 
         let message = [
             AW_SESSION_REQUEST_TYPE: AWSessionRequestType.fetchData.rawValue,
-            AW_SESSION_REQUEST_DATA_TYPE_KEY: AWSessionRequestDataType.applicationContextData.rawValue,
+            AW_SESSION_REQUEST_DATA_TYPE_KEY: AWSessionRequestDataType.applicationContextData.rawValue
         ]
 
         session.sendMessage(message, replyHandler: { replyMessage in

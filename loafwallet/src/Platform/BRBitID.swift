@@ -119,7 +119,7 @@ open class BRBitID: NSObject {
             let payload: [String: String] = [
                 "address": priv.address()!,
                 "signature": signature,
-                "uri": uriWithNonce,
+                "uri": uriWithNonce
             ]
             let json = try! JSONSerialization.data(withJSONObject: payload, options: [])
 

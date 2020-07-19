@@ -14,7 +14,7 @@ class URLController: Trackable {
         saveEvent("send.handleURL", attributes: [
             "scheme": url.scheme ?? C.null,
             "host": url.host ?? C.null,
-            "path": url.path,
+            "path": url.path
         ])
 
         switch url.scheme ?? "" {

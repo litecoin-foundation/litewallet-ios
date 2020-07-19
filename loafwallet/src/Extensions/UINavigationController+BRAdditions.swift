@@ -10,7 +10,7 @@ extension UINavigationController {
         navigationBar.tintColor = .white
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.customBold(size: 17.0),
+            NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
         ]
         setTintableBackArrow()
     }

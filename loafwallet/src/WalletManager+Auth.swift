@@ -18,7 +18,7 @@ public protocol WalletAuthenticator {
 struct NoAuthAuthenticator: WalletAuthenticator {
     let noWallet = true
     let apiAuthKey: String? = nil
-    var userAccount: [AnyHashable: Any]? = nil
+    var userAccount: [AnyHashable: Any]?
 }
 
 enum BiometricsResult {
