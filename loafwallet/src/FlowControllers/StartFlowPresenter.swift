@@ -16,10 +16,10 @@ class StartFlowPresenter: Subscriber {
     private let store: Store
     private let rootViewController: UIViewController
     private var navigationController: ModalNavigationController?
-    private weak var navigationControllerDelegate: StartNavigationDelegate
+    private var navigationControllerDelegate: StartNavigationDelegate
     private let walletManager: WalletManager
     private var loginViewController: UIViewController?
-    private weak var loginTransitionDelegate = LoginTransitionDelegate()
+    private var loginTransitionDelegate = LoginTransitionDelegate()
 
     private var closeButton: UIButton {
         let button = UIButton.close

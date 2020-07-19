@@ -17,7 +17,7 @@ class ApplicationController: Subscriber, Trackable {
     private var walletCoordinator: WalletCoordinator?
     private var exchangeUpdater: ExchangeUpdater?
     private var feeUpdater: FeeUpdater?
-    private weak var transitionDelegate: ModalTransitionDelegate
+    private weak var transitionDelegate: ModalTransitionDelegate?
     private var kvStoreCoordinator: KVStoreCoordinator?
     private var mainViewController: MainViewController?
     fileprivate var application: UIApplication?

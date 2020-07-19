@@ -316,7 +316,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
                 self.sender.transaction = nil
             })
         }
-        confirmTransitioningDelegate.shouldShowMaskView = false
+        confirmTransitioningDelegate?.shouldShowMaskView = false
         confirm.transitioningDelegate = confirmTransitioningDelegate
         confirm.modalPresentationStyle = .overFullScreen
         confirm.modalPresentationCapturesStatusBarAppearance = true

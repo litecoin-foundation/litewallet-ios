@@ -47,7 +47,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
     private let disabledView: WalletDisabledView
     private let activityView = UIActivityIndicatorView(style: .whiteLarge)
     private let wipeBannerButton = UIButton()
-    weak var delegate: LoginViewControllerDelegate?
+    var delegate: LoginViewControllerDelegate?
 
     private var logo: UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))

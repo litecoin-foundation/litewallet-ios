@@ -182,7 +182,7 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
             welcome.transitioningDelegate = welcomeTransitingDelegate
             welcome.modalPresentationStyle = .overFullScreen
             welcome.modalPresentationCapturesStatusBarAppearance = true
-            welcomeTransitingDelegate.shouldShowMaskView = false
+            welcomeTransitingDelegate?.shouldShowMaskView = false
             loginView.present(welcome, animated: true, completion: nil)
             UserDefaults.hasShownWelcome = true
         }

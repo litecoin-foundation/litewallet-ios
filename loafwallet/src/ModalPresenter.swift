@@ -20,7 +20,7 @@ class ModalPresenter: Subscriber, Trackable {
     private let store: Store
     private let window: UIWindow
     private let alertHeight: CGFloat = 260.0
-    private weak var modalTransitionDelegate: ModalTransitionDelegate
+    private var modalTransitionDelegate: ModalTransitionDelegate?
     private let messagePresenter = MessageUIPresenter()
     private weak var securityCenterNavigationDelegate = SecurityCenterNavigationDelegate()
     private weak var verifyPinTransitionDelegate = TransitioningDelegate()
@@ -29,7 +29,7 @@ class ModalPresenter: Subscriber, Trackable {
     private var currentRequest: PaymentRequest?
     private var reachability = ReachabilityMonitor()
     private var notReachableAlert: InAppAlert?
-    private weak var wipeNavigationDelegate: StartNavigationDelegate
+    private var wipeNavigationDelegate: StartNavigationDelegate
 
     private func addSubscriptions() {
         store.subscribe(self,
@@ -337,7 +337,7 @@ class ModalPresenter: Subscriber, Trackable {
         let menu = MenuViewController()
         let root = ModalViewController(childViewController: menu, store: store)
         menu.didTapSecurity = { [weak self, weak menu] in
-            self?.modalTransitionDelegate.reset()
+            self?.modalTransitionDelegate?.reset()
             menu?.dismiss(animated: true) {
                 self?.presentSecurityCenter()
             }
@@ -681,7 +681,7 @@ class ModalPresenter: Subscriber, Trackable {
                     return false
                 }
                 if !attemptConfirmRequest() {
-                    modalTransitionDelegate.reset()
+                    modalTransitionDelegate?.reset()
                     topVC.dismiss(animated: true, completion: {
                         self.store.perform(action: RootModalActions.Present(modal: .send))
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // This is a hack because present has no callback

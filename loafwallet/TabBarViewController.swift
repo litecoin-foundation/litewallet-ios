@@ -42,8 +42,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "CardLoginViewController", "ReceiveLTCViewController", "BuyTableViewController"]
     var viewControllers: [UIViewController] = []
     var activeController: UIViewController?
-
-    weak var delegate: MainTabBarControllerDelegate?
+    var delegate: MainTabBarControllerDelegate?
 
     var updateTimer: Timer?
     var store: Store?
