@@ -292,8 +292,8 @@
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
 		75A2A8231DA5938500A983D8 /* Litewallet.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* Litewallet.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
-		C3BEB3EC24C3DFC500BCBA70 /* LitewalletPartnerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA319724BB889700C0478E /* LitewalletPartnerAPI.framework */; };
-		C3BEB3ED24C3DFC500BCBA70 /* LitewalletPartnerAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA319724BB889700C0478E /* LitewalletPartnerAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C3BEB3F624C50B4100BCBA70 /* LitewalletPartnerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA319724BB889700C0478E /* LitewalletPartnerAPI.framework */; };
+		C3BEB3F724C50B4100BCBA70 /* LitewalletPartnerAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA319724BB889700C0478E /* LitewalletPartnerAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3C4291124A95319002B5DAB /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C3C4291024A95319002B5DAB /* Makefile */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
@@ -556,7 +556,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C3BEB3ED24C3DFC500BCBA70 /* LitewalletPartnerAPI.framework in Embed Frameworks */,
+				C3BEB3F724C50B4100BCBA70 /* LitewalletPartnerAPI.framework in Embed Frameworks */,
 				754AE0B71DFCA870007FD001 /* libbz2.framework in Embed Frameworks */,
 				754AE0B81DFCA870007FD001 /* sqlite3.framework in Embed Frameworks */,
 			);
@@ -887,7 +887,6 @@
 		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F976E236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Interface.strings; sourceTree = "<group>"; };
 		249F9770236F862C0045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		24A619D4249C7C3B00FB1BC4 /* LitewalletPartnerAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LitewalletPartnerAPI.framework; sourceTree = "<group>"; };
 		24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WipeEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WarningConfirmation.storyboard; sourceTree = "<group>"; };
 		24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -1569,6 +1568,7 @@
 		AEECB9B894818001FF003D73 /* Pods_loafwallet_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loafwallet_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3154DD8B91FCA9927766D10 /* Pods-loafwalletTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwalletTests.development.xcconfig"; path = "Target Support Files/Pods-loafwalletTests/Pods-loafwalletTests.development.xcconfig"; sourceTree = "<group>"; };
 		B58732AF816C61D45E38854A /* Pods-LitewalletTests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitewalletTests.testnet.xcconfig"; path = "Target Support Files/Pods-LitewalletTests/Pods-LitewalletTests.testnet.xcconfig"; sourceTree = "<group>"; };
+		C3071FCA24C544D500D19214 /* LitewalletDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LitewalletDebug.entitlements; sourceTree = "<group>"; };
 		C3C4290D24A9511E002B5DAB /* LitewalletPartnerAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LitewalletPartnerAPI.framework; path = PrivateFrameworks/LitewalletPartnerAPI.framework; sourceTree = "<group>"; };
 		C3C4291024A95319002B5DAB /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C3FA318F24BAF6F700C0478E /* LitewalletPartnerAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LitewalletPartnerAPI.framework; path = ../LitewalletPartnerAPI/LitewalletPartnerAPI.framework; sourceTree = "<group>"; };
@@ -1821,7 +1821,7 @@
 				24D91D0B2166923E0077A619 /* UserNotifications.framework in Frameworks */,
 				22A9A9661DF61FEE000F0016 /* WebKit.framework in Frameworks */,
 				22A9A9641DF61FE7000F0016 /* Security.framework in Frameworks */,
-				C3BEB3EC24C3DFC500BCBA70 /* LitewalletPartnerAPI.framework in Frameworks */,
+				C3BEB3F624C50B4100BCBA70 /* LitewalletPartnerAPI.framework in Frameworks */,
 				22A9A9621DF61FE0000F0016 /* SystemConfiguration.framework in Frameworks */,
 				22A9A9601DF61FD8000F0016 /* CoreLocation.framework in Frameworks */,
 				22A9A95E1DF61FD0000F0016 /* PushKit.framework in Frameworks */,
@@ -2334,14 +2334,6 @@
 				2494037D23AE0C7100369261 /* SyncProgressHeaderView.xib */,
 			);
 			path = XIBs;
-			sourceTree = "<group>";
-		};
-		24A619D3249C78D500FB1BC4 /* PrivateFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				24A619D4249C7C3B00FB1BC4 /* LitewalletPartnerAPI.framework */,
-			);
-			path = PrivateFrameworks;
 			sourceTree = "<group>";
 		};
 		24AF00FB221B32EC00FF636F /* Storyboards */ = {
@@ -3096,7 +3088,6 @@
 			isa = PBXGroup;
 			children = (
 				C3C4291024A95319002B5DAB /* Makefile */,
-				24A619D3249C78D500FB1BC4 /* PrivateFrameworks */,
 				75A2A7921DA5934300A983D8 /* loafwallet */,
 				2465873723A5AAD100A32E9E /* loafwalletTests */,
 				2465872723A5AAC200A32E9E /* loafwalletUITests */,
@@ -3133,6 +3124,7 @@
 		75A2A7921DA5934300A983D8 /* loafwallet */ = {
 			isa = PBXGroup;
 			children = (
+				C3071FCA24C544D500D19214 /* LitewalletDebug.entitlements */,
 				240D61C22472006700F3D0F3 /* GoogleService-Info.plist */,
 				240D61B52471E56D00F3D0F3 /* Alert Modal */,
 				240D61AC2471E49400F3D0F3 /* Countries */,
@@ -5050,7 +5042,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
+				CODE_SIGN_ENTITLEMENTS = loafwallet/LitewalletDebug.entitlements;
 				CURRENT_PROJECT_VERSION = 102;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;

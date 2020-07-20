@@ -11,16 +11,7 @@ import UIKit
 
 class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, LFAlertViewDelegate {
     static let serviceName = "com.litewallet.litecoincard.service"
-    let mockDict: [String: Any] = ["firstname": "Test",
-            "lastname": "User",
-            "email": "kwashington+" + String(Int.random(in: 20000 ..< 30099)) + "@gmail.com",
-            "address1": "123 Main",
-            "city": "Sat",
-            "country": "US",
-            "phone": "1234567890",
-            "zip_code": "95014",
-            "username": "test"
-    ]
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var headerLabel: UILabel!
 
@@ -118,28 +109,31 @@ class SpendViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func registerAction(_: Any) {
         // Validate registration data
         // TODO: Uncomment
-        if 1 > 0 /*registeredParams = didValidateRegistrationParams()*/ {
-          print("XXXX \(mockDict)")
-          print("XXXX")
-            manager.createUser(userDataParams: mockDict) { newUser in
-
-                let jsonEncoder = JSONEncoder()
-                do {
-                    let jsonData = try jsonEncoder.encode(newUser)
-                    let jsonString = String(data: jsonData, encoding: .utf8)
-                    print("JSON String : " + jsonString!)
-                    self.delegate?.didReceiveOpenLitecoinCardAccount(account: jsonData)
-
-                } catch {
-
-                }
-
+        /*if let registeredParams = didValidateRegistrationParams() { } */
+        
+        let mockUserData = manager.randomAddressDict()
+        manager.createUser(userDataParams: mockUserData) { newUser in
+               
+            
+            guard newUser != nil else {
+                print("Error newUser")
+                return
             }
+            print(newUser?.userID)
+            
 
-        } else {
-
+//                let jsonEncoder = JSONEncoder()
+//                do {
+//                    let jsonData = try jsonEncoder.encode(newUser)
+//                    let jsonString = String(data: jsonData, encoding: .utf8)
+//                    print("JSON String : " + jsonString!)
+//                    self.delegate?.didReceiveOpenLitecoinCardAccount(account: jsonData)
+//
+//                } catch {
+//                    print("Error: Cannot encode JSON")
+//                }
         }
-
+        
      }
 
     @IBAction func returnToLoginView(_: Any) {
