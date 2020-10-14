@@ -96,7 +96,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/LoafWallet">
+         RemotePath = "/Litewallet">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A7B71DA5934300A983D8"
@@ -115,7 +115,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/LoafWallet">
+         RemotePath = "/Litewallet">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A7B71DA5934300A983D8"
