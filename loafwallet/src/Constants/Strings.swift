@@ -444,10 +444,6 @@ enum S {
         static let faq = NSLocalizedString("AccessibilityLabels.faq", value: "**Support Center**", comment: "Support center accessibiliy label")
     }
 
-    enum Watch {
-        static let noWalletWarning = NSLocalizedString("Watch.noWalletWarning", value: "**Open the Litewallet iPhone app to set up your wallet.**", comment: "'No wallet' warning for watch app")
-    }
-
     enum Search {
         static let sent = NSLocalizedString("Search.sent", value: "**sent**", comment: "Sent filter label")
         static let received = NSLocalizedString("Search.received", value: "**received**", comment: "Received filter label")
