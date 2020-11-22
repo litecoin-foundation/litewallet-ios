@@ -9,7 +9,7 @@
 import UIKit
 
 let π: CGFloat = .pi
- 
+
 enum CustomEvent: String {
     case _20191105_AL = "APP_LAUNCHED"
     case _20191105_VSC = "VISIT_SEND_CONTROLLER"
@@ -39,7 +39,7 @@ enum CustomEvent: String {
 struct FoundationSupport {
 
     static let url = URL(string: "https://lite-wallet.org/support_address.html")!
-    
+
     /// Litecoin Foundation main donation address: MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe
     /// As of Nov 14th, 2020
     static let supportLTCAddress = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
