@@ -1,4 +1,3 @@
-
 /* About screen blog label */
 "About.blog" = "Blog";
 
@@ -424,6 +423,9 @@
 
 /* Buy Litecoin title */
 "MenuButton.buy" = "Køb Litecoin";
+
+/* Menu button title */
+"MenuButton.customer.support" = "Kunde support";
 
 /* Menu button title */
 "MenuButton.lock" = "Lås pung";
