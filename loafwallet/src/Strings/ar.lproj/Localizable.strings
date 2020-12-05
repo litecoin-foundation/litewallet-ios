@@ -1,4 +1,3 @@
-
 /* About screen website label */
 "About.blog" = "Website";
 
@@ -1240,6 +1239,9 @@
 
 /* Message for luxury fee */
 "FeeSelector.luxuryMessage" = "";
+
+/* Menu button title */
+"MenuButton.customer.support" = "";
 
 /* Delete database title */
 "WipeWallet.alertDeleteTitle" = "";

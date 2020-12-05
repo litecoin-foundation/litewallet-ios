@@ -1,4 +1,3 @@
-
 /* About screen website label */
 "About.blog" = "Website";
 
@@ -424,6 +423,9 @@
 
 /* Buy Litecoin title */
 "MenuButton.buy" = "Buy Litecoin";
+
+/* Menu button title */
+"MenuButton.customer.support" = "Customer support";
 
 /* Menu button title */
 "MenuButton.lock" = "Lock Wallet";
