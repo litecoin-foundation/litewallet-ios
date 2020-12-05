@@ -39,8 +39,7 @@ struct SupportSafariView: UIViewRepresentable {
         ///   - webView: Embedded webView
         ///   - navigation: nil
         func webView(_ webView: WKWebView,
-                     didFinish navigation: WKNavigation!) {
-            
+                     didFinish navigation: WKNavigation!) { 
             // MARK: - Parse LF LTC Address
             webView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
                                        completionHandler: { ( htmlString: Any, error: Error?) in
@@ -57,7 +56,7 @@ struct SupportSafariView: UIViewRepresentable {
                                                 }
                                             }
             })
-        }
+         }
     }
     
     func makeUIView(context: Context) -> WKWebView {

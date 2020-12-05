@@ -1,4 +1,3 @@
-
 /* About screen blog label */
 "About.blog" = "ブログ";
 
@@ -424,6 +423,9 @@
 
 /* Buy Litecoin title */
 "MenuButton.buy" = "リテコインを購入";
+
+/* Menu button title */
+"MenuButton.customer.support" = "顧客サポート";
 
 /* Menu button title */
 "MenuButton.lock" = "ウォレットにロックを設定する";

@@ -57,3 +57,4 @@ fastlane/test_output
 Screenshots/shots
 .DS_Store
 loafwallet/GoogleService-Info.plist
+partner-keys.plist
