@@ -17,15 +17,15 @@ class SupportLitecoinFoundationViewModelTests: XCTestCase {
         super.setUp()
         viewModel = SupportLitecoinFoundationViewModel()
     }
-    
-    func testDidGetLTCAddress() throws {
-                 
-    }
-    
-    func testDidUpdateAddressString() throws {
-         
+     
+    /// Checks the user taps on the closure
+    func testDidTapToDismiss() throws {
+        
+        self.viewModel.didTapToDismiss?()
+  
+        viewModel.didTapToDismiss = {
+            XCTAssert(true, "Tap did work")
+        }
     }
     
 }
-
- 

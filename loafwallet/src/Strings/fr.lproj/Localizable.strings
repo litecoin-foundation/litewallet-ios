@@ -316,6 +316,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Vitesse de traitement";
 
+/* Or */
+"Fragment.or" = "ou";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTOIRE";
 
@@ -745,6 +748,9 @@
 /* Emtpy pasteboard error message */
 "Send.emptyPasteboard" = "Le tableau d'affichage est vide.";
 
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Entrez une adresse Litecoin";
+
 /* Network Fee: $0.01 */
 "Send.fee" = "Frais de réseau : %1$@";
 
@@ -796,6 +802,9 @@
 /* Send money to label */
 "Send.toLabel" = "Pour";
 
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Entrez un domaine .crypto ou .zil";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Les adresses Litecoin sont destinées à une utilisation unique.";
 
@@ -834,6 +843,9 @@
 
 /* Litewallet environment */
 "Settings.litewallet.environment" = "Environnement:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Partenaires Litewallet";
 
 /* Litewallet version */
 "Settings.litewallet.version" = "Version Litewallet:";

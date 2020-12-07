@@ -316,6 +316,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Kecepatan pemrosesan";
 
+/* Or */
+"Fragment.or" = "atau";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "SEJARAH";
 
@@ -745,6 +748,9 @@
 /* Empty pasteboard error message */
 "Send.emptyPasteboard" = "Papan tulis kosong";
 
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Masukkan alamat Litecoin";
+
 /* Network Fee: $0.01 */
 "Send.fee" = "Biaya Jaringan: %1$@";
 
@@ -796,6 +802,9 @@
 /* Send money to label */
 "Send.toLabel" = "Untuk";
 
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Masukkan domain .crypto atau .zil";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Alamat Litecoin hanya ditujukan untuk penggunaan tunggal.";
 
@@ -834,6 +843,9 @@
 
 /* Litewallet environment */
 "Settings.litewallet.environment" = "Lingkungan Hidup:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Mitra Litewallet";
 
 /* Litewallet version */
 "Settings.litewallet.version" = "Versi litewallet:";
