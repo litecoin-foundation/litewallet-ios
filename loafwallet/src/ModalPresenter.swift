@@ -538,22 +538,38 @@ class ModalPresenter : Subscriber, Trackable {
             parent?.present(vc, animated: true, completion: {})
         }
     }
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> develop
     // MARK: - Present Support LF View
     private func presentSupportLF() {
         
         let supportLFView = UIHostingController(rootView: SupportLitecoinFoundationView(viewModel: SupportLitecoinFoundationViewModel()))
+<<<<<<< HEAD
+        
+=======
          
+>>>>>>> develop
         supportLFView.rootView.viewModel.didTapToDismiss = {
             supportLFView.dismiss(animated: true) {
                 //TODO: Track in Analytics
             }
         }
+<<<<<<< HEAD
+        
+        window.rootViewController?.present(supportLFView, animated: true, completion: nil)
+        
+    }
+    
+=======
          
         window.rootViewController?.present(supportLFView, animated: true, completion: nil)
 
     }
 
+>>>>>>> develop
     private func presentSecurityCenter() {
         guard let walletManager = walletManager else { return }
         let securityCenter = SecurityCenterViewController(store: store, walletManager: walletManager)
@@ -670,7 +686,10 @@ class ModalPresenter : Subscriber, Trackable {
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
     
+<<<<<<< HEAD
+=======
     
+>>>>>>> develop
     private func wipeWallet() {
         let group = DispatchGroup()
         let alert = UIAlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
@@ -940,3 +959,7 @@ class SecurityCenterNavigationDelegate : NSObject, UINavigationControllerDelegat
     }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> develop

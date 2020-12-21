@@ -8,7 +8,6 @@
 
 import Foundation
 
-class SupportSafariViewModel: ObservableObject {
-      
+class SupportSafariViewModel: ObservableObject { 
     init() { }
 }

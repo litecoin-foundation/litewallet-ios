@@ -46,8 +46,7 @@ struct FoundationSupport {
     /// Litecoin Foundation main donation address: MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe
     /// As of Nov 14th, 2020
     static let supportLTCAddress = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
-}
- 
+} 
 
 struct APIServer {
      
@@ -56,7 +55,7 @@ struct APIServer {
     #else
     static let baseUrl = "https://api-prod.lite-wallet.org/"
     #endif
-}
+} 
 
 struct Padding {
     subscript(multiplier: Int) -> CGFloat {

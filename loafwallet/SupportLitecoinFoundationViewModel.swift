@@ -16,7 +16,7 @@ class SupportLitecoinFoundationViewModel: ObservableObject {
     //MARK: - Combine Variables
     
     //MARK: - Public Variables
-    var didTapToDismiss: (()->())? 
+    var didTapToDismiss: (()->())?
     
     init() {}
 }
