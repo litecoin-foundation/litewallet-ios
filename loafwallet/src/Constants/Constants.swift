@@ -55,7 +55,7 @@ struct APIServer {
     #else
     static let baseUrl = "https://api-prod.lite-wallet.org/"
     #endif
-}
+} 
 
 struct Padding {
     subscript(multiplier: Int) -> CGFloat {
