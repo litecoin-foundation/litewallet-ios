@@ -66,6 +66,7 @@ enum S {
     enum Send {
         static let title = NSLocalizedString("Send.title", value: "**Send**", comment: "Send modal title")
         static let toLabel = NSLocalizedString("Send.toLabel", value: "**To**", comment: "Send money to label")
+        static let enterLTCAddressLabel = NSLocalizedString("Send.enterLTCAddress", value: "**Enter LTC Address**", comment: "Enter LTC Address")
         static let amountLabel = NSLocalizedString("Send.amountLabel", value: "**Amount**", comment: "Send money amount label")
         static let descriptionLabel = NSLocalizedString("Send.descriptionLabel", value: "**Memo**", comment: "Description for sending money label")
         static let sendLabel = NSLocalizedString("Send.sendLabel", value: "**Send**", comment: "Send button label")
@@ -95,6 +96,11 @@ enum S {
         static let loadingRequest = NSLocalizedString("Send.loadingRequest", value: "**Loading Request**", comment: "Loading request activity view message")
         static let insufficientFunds = NSLocalizedString("Send.insufficientFunds", value: "**Insufficient Funds**", comment: "Insufficient funds error")
         static let barItemTitle = NSLocalizedString("Send.barItemTitle", value: "**Send**", comment: "Send Bar Item Title")
+        
+        enum UnstoppableDomains {
+            static let placeholder = NSLocalizedString("Send.UnstoppableDomains.placeholder", value: "**Enter a .crypto or .zil domain**", comment: "Enter a .crypto or .zil domain")
+            
+        }
     }
 
     enum Receive {
@@ -322,6 +328,7 @@ enum S {
         static let litewalletVersion = NSLocalizedString("Settings.litewallet.version", value: "**Litewallet Version:**", comment: "Litewallet version")
         static let litewalletEnvironment = NSLocalizedString("Settings.litewallet.environment", value: "**Litewallet Environment:**", comment: "Litewallet environment")
         static let socialLinks = NSLocalizedString("Settings.socialLinks", value: "**Social Links:**", comment: "Litewallet Social links")
+        static let litewalletPartners = NSLocalizedString("Settings.litewallet.partners", value: "**Litewallet Partners:**", comment: "Litewallet Partners")
     }
 
     enum About {
@@ -661,5 +668,9 @@ enum S {
     enum Welcome {
         static let title = NSLocalizedString("Welcome.title", value: "**Welcome to Litewallet**", comment: "Welcome view title")
         static let body = NSLocalizedString("Welcome.body", value: "**Litewallet now has a brand new look and some new features.\n\nAll coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).**", comment: "Welcome view body text")
+    }
+    
+    enum Fragments {
+        static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or")
     }
 }

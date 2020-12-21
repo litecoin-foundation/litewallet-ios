@@ -316,6 +316,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "처리 속도";
 
+/* Or */
+"Fragment.or" = "또는";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "역사";
 
@@ -745,6 +748,9 @@
 /* Emtpy pasteboard error message */
 "Send.emptyPasteboard" = "클립보드가 비어 있습니다";
 
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "라이트 코인 주소를 입력하세요";
+
 /* Network Fee: $0.01 */
 "Send.fee" = "네트워크 비용: %1$@";
 
@@ -796,6 +802,9 @@
 /* Send money to label */
 "Send.toLabel" = "수취인";
 
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = ".crypto 또는 .zil 도메인을 입력하세요.";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin 주소는 일회용입니다.";
 
@@ -834,6 +843,9 @@
 
 /* Litewallet environment */
 "Settings.litewallet.environment" = "환경:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewallet 파트너";
 
 /* Litewallet version */
 "Settings.litewallet.version" = "라이트 월렛 버전 :";

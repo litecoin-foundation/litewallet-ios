@@ -316,6 +316,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "処理速度";
 
+/* Or */
+"Fragment.or" = "或いは";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "歴史";
 
@@ -745,6 +748,9 @@
 /* Emtpy pasteboard error message */
 "Send.emptyPasteboard" = "ペーストボードが空です";
 
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Litecoinのアドレスを入力してください。";
+
 /* Network Fee: $0.01 */
 "Send.fee" = "ネットワーク手数料: %1$@";
 
@@ -796,6 +802,9 @@
 /* Send money to label */
 "Send.toLabel" = "宛先";
 
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = ".cryptoまたは.zilドメインを入力してください";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "リテコインアドレスは、個人利用のみを想定しています。";
 
@@ -834,6 +843,9 @@
 
 /* Litewallet environment */
 "Settings.litewallet.environment" = "環境：";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewalletパートナー";
 
 /* Litewallet version */
 "Settings.litewallet.version" = "Litewalletバージョン：";

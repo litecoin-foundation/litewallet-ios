@@ -316,6 +316,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "处理速度";
 
+/* Or */
+"Fragment.or" = "要么";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "历史";
 
@@ -745,6 +748,9 @@
 /* Emtpy pasteboard error message */
 "Send.emptyPasteboard" = "粘贴板为空";
 
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "输入一个Litecoin地址";
+
 /* Network Fee: $0.01 */
 "Send.fee" = "网络费：%1$@";
 
@@ -796,6 +802,9 @@
 /* Send money to label */
 "Send.toLabel" = "至";
 
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "输入.crypto或.zil域";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "莱特币地址仅供一次性使用。";
 
@@ -834,6 +843,9 @@
 
 /* Litewallet environment */
 "Settings.litewallet.environment" = "环境：";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewallet合作伙伴";
 
 /* Litewallet version */
 "Settings.litewallet.version" = "Litewallet版本：";
