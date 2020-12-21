@@ -316,6 +316,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Скорость обработки";
 
+/* Or */
+"Fragment.or" = "или";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "ИСТОРИЯ";
 
@@ -745,6 +748,9 @@
 /* Emtpy pasteboard error message */
 "Send.emptyPasteboard" = "Буфер обмена пуст";
 
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Введите адрес Litecoin";
+
 /* Network Fee: $0.01 */
 "Send.fee" = "Комиссия сети: %1$@";
 
@@ -796,6 +802,9 @@
 /* Send money to label */
 "Send.toLabel" = "На";
 
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Введите домен .crypto или .zil";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Биткойн-адреса предназначены исключительно для однократного использования.";
 
@@ -834,6 +843,9 @@
 
 /* Litewallet environment */
 "Settings.litewallet.environment" = "Окружающая среда:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Партнеры Litewallet";
 
 /* Litewallet version */
 "Settings.litewallet.version" = "Litewallet версия:";
