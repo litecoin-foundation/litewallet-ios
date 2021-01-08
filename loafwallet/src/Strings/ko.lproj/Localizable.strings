@@ -157,6 +157,9 @@
 /* receive button */
 "Button.receive" = "받기";
 
+/* resetFields */
+"Button.resetFields" = "리셋 필드";
+
 /* send button */
 "Button.send" = "보내기";
 
@@ -408,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "초기화";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "카드";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "카드 잔액";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "로그인 실패";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "비밀번호를 잊으 셨나요?";
+
+/* Login */
+"LitecoinCard.login" = "로그인";
+
+/* Logout */
+"LitecoinCard.logout" = "로그 아웃";
+
+/* Register */
+"LitecoinCard.registerCard" = "레지스터";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "라이트 코인 카드 등록";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "사용자 등록 중 ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "주소";
+
+/* city */
+"LitecoinCard.Registration.city" = "시티";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "비밀번호 확인";
+
+/* country */
+"LitecoinCard.Registration.country" = "국가";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "이름";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "신분증";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "고객 파악 ID 유형";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID 유형";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "성";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "휴대폰 번호";
+
+/* password */
+"LitecoinCard.Registration.password" = "암호";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "주 / 도";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "ID 유형";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "비워 둘 수 없습니다.";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "잘못된 이메일 주소";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "휴대 전화 번호는 10 자리 이상이어야합니다.";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "휴대폰 번호가 필요합니다.";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "비밀번호는 6 자 이상이어야합니다.";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "비밀번호는 6 자 이상이어야하며 최소 1 개의 문자와 1 개의 숫자가 있어야합니다.";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "비밀번호가 필요합니다";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "필수 필드";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "우편 번호";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "등록에 문제가 있습니다. 데이터를 확인하고 다시 시도하십시오.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "등록하셨습니다! 이메일을 확인하고 확인하십시오. 그런 다음 다시 로그인하십시오.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "암호를 재설정";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "https://litecoin.dashboard.getblockcard.com/password/forgot을 방문하여 암호를 재설정하십시오.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "위치 서비스가 꺼졌습니다.";
@@ -807,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "수취인";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "조회";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = ".crypto 또는 .zil 도메인을 입력하세요.";
@@ -1272,6 +1386,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
-
-/* Lookup */
-"Send.UnstoppableDomains.lookup" = "조회";

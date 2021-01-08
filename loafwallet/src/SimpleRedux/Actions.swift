@@ -139,7 +139,7 @@ enum ExchangeRates {
 }
 
 //MARK: - Alerts
-enum Alert {
+enum SimpleReduxAlert {
     struct Show : Action {
         let reduce: Reducer
         init(_ type: AlertType) {

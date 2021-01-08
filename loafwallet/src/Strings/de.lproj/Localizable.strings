@@ -157,6 +157,9 @@
 /* receive button */
 "Button.receive" = "erhalten";
 
+/* resetFields */
+"Button.resetFields" = "Felder zurücksetzen";
+
 /* send button */
 "Button.send" = "senden";
 
@@ -408,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Löschen";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "Card";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Kartenguthaben";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Anmeldung fehlgeschlagen";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Passwort vergessen?";
+
+/* Login */
+"LitecoinCard.login" = "Anmeldung";
+
+/* Logout */
+"LitecoinCard.logout" = "Ausloggen";
+
+/* Register */
+"LitecoinCard.registerCard" = "Registrieren";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Registrieren für Litecoin Card";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Benutzer registrieren ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Adresse";
+
+/* city */
+"LitecoinCard.Registration.city" = "Stadt";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Kennwort bestätigen";
+
+/* country */
+"LitecoinCard.Registration.country" = "Land";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "Vorname";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identifizierung";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Kenne deinen Kunden ID-Typ";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID Typ";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "Familienname";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Handynummer";
+
+/* password */
+"LitecoinCard.Registration.password" = "Passwort";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Staat / Provinz";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "E-Mail (Benutzername)";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Darf nicht leer sein";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ungültige E-Mail-Adresse";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Die Handynummer muss mindestens 10 Ziffern haben";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Handynummer ist erforderlich";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Das Passwort muss mindestens 6 Zeichen lang sein";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Das Passwort muss aus mehr als 6 Zeichen bestehen, mit mindestens einem Zeichen und einem numerischen Zeichen";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Passwort wird benötigt";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Pflichtfeld";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Postleitzahl";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Bei Ihrer Registrierung ist ein Problem aufgetreten. Bitte überprüfen Sie Ihre Daten und versuchen Sie es erneut.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Sie haben sich registriert! Bitte überprüfen und bestätigen Sie Ihre E-Mail. Dann komm zurück zum Login.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Passwort zurücksetzen";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Besuchen Sie https://litecoin.dashboard.getblockcard.com/password/forgot, um Ihr Passwort zurückzusetzen.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Standortdienste sind deaktiviert";
@@ -807,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "An";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Nachsehen";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Geben Sie eine .crypto- oder .zil-Domain ein";
@@ -1272,6 +1386,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
-
-/* Lookup */
-"Send.UnstoppableDomains.lookup" = "Nachsehen";

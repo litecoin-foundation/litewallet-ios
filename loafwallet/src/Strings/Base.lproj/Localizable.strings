@@ -1282,11 +1282,125 @@
 /* Litewallet Partners */
 "Settings.litewallet.partners" = "Litewallet partners";
 
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "Card";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Lookup";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Forgot password?";
+
+/* Login */
+"LitecoinCard.login" = "Login";
+
+/* Register */
+"LitecoinCard.registerCard" = "Register";
+
+/* Litecoin card */
+"LitecoinCard.registerCardPhrase" = "Register for Litecoin Card";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Reset password";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Visit https://litecoin.dashboard.getblockcard.com/password/forgot\nto reset your password.";
+
+/* address */
+"LitecoinCard.Registration.address" = "Address";
+
+/* city */
+"LitecoinCard.Registration.city" = "City";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Confirm password";
+
+/* country */
+"LitecoinCard.Registration.country" = "Country";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "First name";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "ID Number";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "Last name";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Mobile number";
+
+/* password */
+"LitecoinCard.Registration.password" = "Password";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "State / Province";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Email (Username)";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Zip / Postcode";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identification";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCard.phrase" = "Register for Litecoin Card";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID Type";
+
+/* resetFields */
+"Button.resetFields" = "Reset fields";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Registering user ...";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Card balance";
+
+/* Logout */
+"LitecoinCard.logout" = "Logout";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "There was a problem with your registration. \nPlease check your data and try again.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "You have registered!\nPlease check and confirm your email. Then come back to login.";
+
 /* Resolved Success */
 "Alerts.resolvedSuccess" = "Domain Resolution";
 
 /* No comment provided by engineer. */
 "Alerts.resolvedSuccessSubheader" = "Address was resolved!";
 
-/* Lookup */
-"Send.UnstoppableDomains.lookup" = "Lookup";
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Must not be empty";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Invalid e-mail Address";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobile number must have at least 10 digits";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobile number is required";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Password must have at least 6 characters";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Password must be more than 6 characters, with at least one character and one numeric character";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Password is Required";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Required field";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Login failed";

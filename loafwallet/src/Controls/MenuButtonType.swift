@@ -37,7 +37,7 @@ enum MenuButtonType {
         case .support:
             return #imageLiteral(resourceName: "FaqFill")
         case .supportLF:
-            return #imageLiteral(resourceName: "BuyLitecoin")
+            return #imageLiteral(resourceName: "buy_icon_gray")
         case .settings:
             return #imageLiteral(resourceName: "Settings")
         case .lock:

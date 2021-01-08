@@ -10,6 +10,7 @@ def shared_pods
   pod 'Firebase/Crashlytics' 
   pod 'Firebase/Analytics'
   pod 'UnstoppableDomainsResolution', '~> 0.1.6'
+  pod 'KeychainAccess', '~> 4.2'
   # add after v2.9.0 pod 'SwiftLint'
 end
 

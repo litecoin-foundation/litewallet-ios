@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 import UIKit
+import SwiftUI
 import LocalAuthentication 
 import Firebase
 
@@ -34,10 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let applicationController = ApplicationController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         setFirebaseConfiguration()
+        
         UIView.swizzleSetFrame()
+        
         applicationController.launch(application: application, window: self.window, options: launchOptions)
+        
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
+               
         return true
     }
 
@@ -95,4 +101,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure()
         }
     }
-}
+} 

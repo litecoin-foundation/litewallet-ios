@@ -104,7 +104,7 @@ class Sender {
                 let properties: [String: String] = ["ERROR_TX":"\(tx.txHash)","ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
                 LWAnalytics.logEventWithParameters(itemName:._20200112_ERR, properties: properties)
 
-                let alert = UIAlertController(title: S.Alert.corruptionError, message: S.Alert.corruptionMessage, preferredStyle: .alert)
+                let alert = UIAlertController(title: S.LitewalletAlert.corruptionError, message: S.LitewalletAlert.corruptionMessage, preferredStyle: .alert)
           
                 UserDefaults.didSeeCorruption = true
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

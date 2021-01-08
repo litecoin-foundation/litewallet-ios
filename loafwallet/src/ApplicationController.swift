@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import StoreKit
+import StoreKit 
  
 private let timeSinceLastExitKey = "TimeSinceLastExit"
 private let shouldRequireLoginTimeoutKey = "ShouldRequireLoginTimeoutKey"
@@ -83,8 +83,7 @@ class ApplicationController : Subscriber, Trackable {
 
     private func setup() {
             setupDefaults()
-            countLaunches()
-            setupAppearance()
+            countLaunches() 
             setupRootViewController()
             window?.makeKeyAndVisible()
             listenForPushNotificationRequest()
@@ -246,14 +245,6 @@ class ApplicationController : Subscriber, Trackable {
                 UserDefaults.standard.set(NSNumber(value: 1), forKey: numberOfLitewalletLaunches)
             }
         }
-     
-        private func setupAppearance() {
-            let tabBar = UITabBar.appearance()
-            tabBar.barTintColor = .liteWalletBlue
-            tabBar.unselectedItemTintColor = #colorLiteral(red: 0.7764705882, green: 0.7764705882, blue: 0.7843137255, alpha: 0.5)
-            tabBar.tintColor = .white
-        }
-
         private func setupRootViewController() {
             mainViewController = MainViewController(store: store)
             window?.rootViewController = mainViewController

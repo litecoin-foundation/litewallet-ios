@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SwiftUI
 import LocalAuthentication
 
 private let promptDelay: TimeInterval = 0.6
 private let qrImageSize = 120.0
+ 
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber, Trackable {
 
     @IBOutlet weak var tableView: UITableView!
@@ -48,7 +50,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     var isLtcSwapped: Bool? {
         didSet { reload() }
     }
-     
+    
+    
     override func viewDidLoad() {
       setup()
       addSubscriptions()
@@ -405,3 +408,21 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
  
+//struct TransactionsSwiftUIView: UIViewControllerRepresentable {
+//    
+//     
+//
+//    typealias UIViewControllerType = TransactionsViewController
+//    
+//  
+//
+//    func makeUIViewController(context: UIViewControllerRepresentableContext<TransactionsSwiftUIView>) -> TransactionsSwiftUIView.UIViewControllerType {
+//        let viewModel = TransactionsViewModel(store: Store(), walletManager: WalletManager(store: Store()))
+//
+//        return TransactionsViewController(viewModel: viewModel, store: )
+//    }
+//
+//    func updateUIViewController(_ uiViewController: TransactionsSwiftUIView.UIViewControllerType, context: UIViewControllerRepresentableContext<TransactionsSwiftUIView>) {
+//        //
+//    }
+//}

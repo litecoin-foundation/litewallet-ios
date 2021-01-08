@@ -64,11 +64,11 @@ class URLController : Trackable {
             return true
         case "litecoin":
             return handleBitcoinUri(url)
-        case "bitid":
-            if BRBitID.isBitIDURL(url) {
-                handleBitId(url)
-            }
-            return true
+//        case "bitid":
+//            if BRBitID.isBitIDURL(url) {
+//                handleBitId(url)
+//            }
+//            return true
         default:
             return false
         }
@@ -103,26 +103,26 @@ class URLController : Trackable {
         }
     }
 
-    private func handleBitId(_ url: URL) {
-        let bitid = BRBitID(url: url, walletManager: walletManager)
-        let message = String(format: S.BitID.authenticationRequest, bitid.siteName)
-        let alert = UIAlertController(title: S.BitID.title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.BitID.deny, style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: S.BitID.approve, style: .default, handler: { _ in
-            bitid.runCallback(store: self.store) { data, response, error in
-                if let resp = response as? HTTPURLResponse, error == nil && resp.statusCode >= 200 && resp.statusCode < 300 {
-                    let alert = UIAlertController(title: S.BitID.success, message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
-                    self.present(alert: alert)
-                } else {
-                    let alert = UIAlertController(title: S.BitID.error, message: S.BitID.errorMessage, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
-                    self.present(alert: alert)
-                }
-            }
-        }))
-        present(alert: alert)
-    }
+//    private func handleBitId(_ url: URL) {
+//        let bitid = BRBitID(url: url, walletManager: walletManager)
+//        let message = String(format: S.BitID.authenticationRequest, bitid.siteName)
+//        let alert = UIAlertController(title: S.BitID.title, message: message, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: S.BitID.deny, style: .cancel, handler: nil))
+//        alert.addAction(UIAlertAction(title: S.BitID.approve, style: .default, handler: { _ in
+//            bitid.runCallback(store: self.store) { data, response, error in
+//                if let resp = response as? HTTPURLResponse, error == nil && resp.statusCode >= 200 && resp.statusCode < 300 {
+//                    let alert = UIAlertController(title: S.BitID.success, message: nil, preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+//                    self.present(alert: alert)
+//                } else {
+//                    let alert = UIAlertController(title: S.BitID.error, message: S.BitID.errorMessage, preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+//                    self.present(alert: alert)
+//                }
+//            }
+//        }))
+//        present(alert: alert)
+//    }
 
     private func present(alert: UIAlertController) {
         store.trigger(name: .showAlert(alert))

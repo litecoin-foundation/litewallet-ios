@@ -6,7 +6,7 @@
 //  Copyright © 2019 Litecoin Foundation. All rights reserved.
 
 import UIKit
-import Foundation
+import Foundation 
 
 enum TabViewControllerIndex: Int {
     case transactions = 0
@@ -14,11 +14,7 @@ enum TabViewControllerIndex: Int {
     case buy = 2
     case receive = 3
 }
- 
-protocol MainTabBarControllerDelegate {
-    func alertViewShouldDismiss()
-}
-
+  
 class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
       
     let kInitialChildViewControllerIndex = 0 // TransactionsViewController
@@ -38,18 +34,17 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     private let largeFontSize: CGFloat = 24.0
     private let smallFontSize: CGFloat = 12.0
     private var hasInitialized = false
+    private var didLoginLitecoinCardAccount = false
     private let dateFormatter = DateFormatter()
     private let equalsLabel = UILabel(font: .barlowMedium(size: 12), color: .whiteTint)
     private var regularConstraints: [NSLayoutConstraint] = []
     private var swappedConstraints: [NSLayoutConstraint] = []
     private let currencyTapView = UIView()
-    private let storyboardNames:[String] = ["Transactions","Send","Receive","Buy"]
-    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","ReceiveLTCViewController","BuyTableViewController"]
+    private let storyboardNames:[String] = ["Transactions","Send","Card","Receive","Buy"]
+    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","CardViewController","ReceiveLTCViewController","BuyTableViewController"]
     var viewControllers:[UIViewController] = []
     var activeController:UIViewController? = nil
-    
-    var delegate: MainTabBarControllerDelegate?
-    
+       
     var updateTimer: Timer?
     var store: Store?
     var walletManager: WalletManager?
@@ -179,6 +174,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     private func addSubscriptions() {
         
+        
+        
         guard let store = self.store else {
             NSLog("ERROR - Store not passed")
             return
@@ -306,10 +303,11 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             switch item.tag {
             case 0: item.title = S.History.barItemTitle
             case 1: item.title = S.Send.barItemTitle
-            case 2: item.title = S.Receive.barItemTitle
-            case 3: item.title = S.BuyCenter.barItemTitle
+            case 2: item.title = S.LitecoinCard.barItemTitle
+            case 3: item.title = S.Receive.barItemTitle
+            case 4: item.title = S.BuyCenter.barItemTitle
             default:
-                item.title = "XXXXXX"
+                item.title = "NO-TITLE"
                 NSLog("ERROR: UITabbar item count is wrong")
             }
         }
@@ -322,6 +320,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
  
     func displayContentController(contentController:UIViewController) {
         
+        //MARK: - Tab View Controllers Configuration
         switch NSStringFromClass(contentController.classForCoder) {
         case "loafwallet.TransactionsViewController":
 
@@ -333,7 +332,15 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             transactionVC.walletManager = self.walletManager
             transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
         
-        case "loafwallet.BuyTableViewController":
+        
+            case "loafwallet.CardViewController":
+                guard let cardVC = contentController as? CardViewController else  {
+                    return
+            } 
+             
+            cardVC.parentFrame = self.containerView.frame
+           
+            case "loafwallet.BuyTableViewController":
                 guard let buyVC = contentController as? BuyTableViewController else  {
                     return
             }

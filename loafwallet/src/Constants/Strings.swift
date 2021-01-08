@@ -35,6 +35,7 @@ enum S {
         static let asOf = NSLocalizedString("Conjunction.asOf", value: "**as of**", comment: "as of a time or date")
     }
 
+    //MARK: - Generic Button labels
     enum Button {
         static let ok = NSLocalizedString("Button.ok", value: "**OK**", comment: "OK button label")
         static let cancel = NSLocalizedString("Button.cancel", value: "**Cancel**", comment: "Cancel button label")
@@ -47,10 +48,10 @@ enum S {
         static let receive = NSLocalizedString("Button.receive", value: "**receive**", comment: "receive button")
         static let menu = NSLocalizedString("Button.menu", value: "**menu**", comment: "menu button")
         static let buy = NSLocalizedString("Button.buy", value: "**buy**", comment: "buy button")
-
+        static let resetFields = NSLocalizedString("Button.resetFields", value: "**reset**", comment: "resetFields") 
     }
 
-    enum Alert {
+    enum LitewalletAlert {
         static let warning = NSLocalizedString("Alert.warning", value: "**Warning**", comment: "Warning alert title")
         static let error = NSLocalizedString("Alert.error", value: "**Error**", comment: "Error alert title")
         static let noInternet = NSLocalizedString("Alert.noInternet", value: "**No internet connection found. Check your connection and try again.**", comment: "No internet alert message")
@@ -113,6 +114,52 @@ enum S {
         static let barItemTitle = NSLocalizedString("Receive.barItemTitle", value: "**Receive**", comment: "Receive Bar Item Title")
     }
     
+   //MARK: - Litecoin Card
+    enum LitecoinCard {
+        static let barItemTitle = NSLocalizedString("LitecoinCard.barItemTitle", value: "**Card**", comment: "Card Bar Item Title")
+        static let login = NSLocalizedString("LitecoinCard.login", value: "**Login**", comment: "Login")
+        static let failedlogin = NSLocalizedString("LitecoinCard.failed.login", value: "**Failed Login**", comment: "Failed Login") 
+        static let logout = NSLocalizedString("LitecoinCard.logout", value: "**Logout**", comment: "Logout")
+        static let forgotPassword = NSLocalizedString("LitecoinCard.forgotPassword", value: "**Forgot password?**", comment: "Forgot password?")
+        static let visitToReset = NSLocalizedString("LitecoinCard.visit.toReset", value: "**Reset Litecoin card visit**", comment: "Litecoin card visit")
+        static let resetPassword = NSLocalizedString("LitecoinCard.resetPassword", value: "**Reset Litecoin card password**", comment: "Reset Litecoin card password")
+        static let registerCard = NSLocalizedString("LitecoinCard.registerCard", value: "**Register**", comment: "Register")
+        static let registeringUser = NSLocalizedString("LitecoinCard.registering.user", value: "**Registering user...**", comment: "Registering user...")
+        
+        static let cardBalance = NSLocalizedString("LitecoinCard.cardBalance", value: "", comment: "Card balance")
+        static let registrationSuccess = NSLocalizedString("LitecoinCard.registrationSuccess", value: "", comment: "Registration success")
+        static let registrationFailure = NSLocalizedString("LitecoinCard.registrationFailure", value: "", comment: "Registration failure")
+    
+        //MARK: - Registration
+        enum Registration {
+            static let registerCardPhrase = NSLocalizedString("LitecoinCard.registerCardPhrase", value: "**Register for Litecoin Card**", comment: "Register for Litecoin Card")
+            static let password = NSLocalizedString("LitecoinCard.Registration.password", value: "", comment: "password")
+            static let confirmPassword = NSLocalizedString("LitecoinCard.Registration.confirmPassword", value: "", comment: "confirm password")
+            static let firstName = NSLocalizedString("LitecoinCard.Registration.firstName", value: "", comment: "First name")
+            static let lastName = NSLocalizedString("LitecoinCard.Registration.lastName", value: "", comment: "Last name")
+            static let kycSSN = NSLocalizedString("LitecoinCard.Registration.kycSSN", value: "", comment: "SSN")
+            static let kycIDNumber = NSLocalizedString("LitecoinCard.Registration.kycIDNumber", value: "", comment: "kycIDNumber")
+            static let kycIDType = NSLocalizedString("LitecoinCard.Registration.kycIDType", value: "", comment: "kycIDType")
+            static let address = NSLocalizedString("LitecoinCard.Registration.address", value: "", comment: "address")
+            static let city = NSLocalizedString("LitecoinCard.Registration.city", value: "", comment: "city")
+            static let stateProvince = NSLocalizedString("LitecoinCard.Registration.stateProvince", value: "", comment: "state province")
+            static let country = NSLocalizedString("LitecoinCard.Registration.country", value: "", comment: "country")
+            static let zipPostCode = NSLocalizedString("LitecoinCard.Registration.zipPostCode", value: "", comment: "zip post Code")
+            static let mobileNumber = NSLocalizedString("LitecoinCard.Registration.mobileNumber", value: "", comment: "mobile number")
+            static let identification = NSLocalizedString("LitecoinCard.Registration.identification", value: "", comment: "identification")
+            
+            enum ValidationError {
+                static let empty = NSLocalizedString("LitecoinCard.Registration.ValidationError.empty", value: "Most not be empty", comment: "must not be empty")
+                static let numberRequired = NSLocalizedString("LitecoinCard.Registration.ValidationError.numberRequired", value: "Mobile number required", comment: "Mobile number required")
+                static let numberDigitsRequired = NSLocalizedString("LitecoinCard.Registration.ValidationError.numberDigitsRequired", value: "Mobile number 10 digits required", comment: "Mobile number 10 digits required")
+                static let requiredField = NSLocalizedString("LitecoinCard.Registration.ValidationError.requiredField", value: "Required field", comment: "Required field")
+                static let passwordRequired = NSLocalizedString("LitecoinCard.Registration.ValidationError.passwordRequired", value: "Password required", comment: "Password required")
+                static let passwordCharacters = NSLocalizedString("LitecoinCard.Registration.ValidationError.passwordCharacters", value: "6 password Characters required", comment: "6 Password characters required")
+                static let passwordComposition = NSLocalizedString("LitecoinCard.Registration.ValidationError.passwordComposition", value: "Capital and numeric password characters required", comment: "Captial and numeric password characters required")
+                static let invalidEmail = NSLocalizedString("LitecoinCard.Registration.ValidationError.invalidEmail", value: "Invalid email address", comment: "Invalid email address")
+            }
+        }
+    }
     enum Account {
         static let loadingMessage = NSLocalizedString("Account.loadingMessage", value: "**Loading Wallet**", comment: "Loading Wallet Message")
     }
@@ -192,7 +239,8 @@ enum S {
         static let staticTXIDLabel = NSLocalizedString("TransactionDetails.staticTXLabel", value: "**TXID:**", comment: "Label for TXID")
         static let priceTimeStampLabel = NSLocalizedString("TransactionDetails.priceTimeStampPrefix", value: "**as of**", comment: "Prefix for price")
     }
-  
+    
+    //MARK: - Buy Center
     enum BuyCenter {
       static let title = NSLocalizedString("BuyCenter.title", value: "**Buy Litecoin**", comment: "Buy Center Title")
       static let buyModalTitle = NSLocalizedString("BuyCenter.ModalTitle", value: "**Buy Łitecoin**", comment: "Buy Modal Title")
@@ -206,7 +254,8 @@ enum S {
         }
       static let barItemTitle = NSLocalizedString("BuyCenter.barItemTitle", value: "**Buy**", comment: "Buy Bar Item Title")
     }
-
+    
+    //MARK: - Security Center
     enum SecurityCenter {
         static let title = NSLocalizedString("SecurityCenter.title", value: "**Security Center**", comment: "Security Center Title")
         static let info = NSLocalizedString("SecurityCenter.info", value: "**Enable all security features for maximum protection.**", comment: "Security Center Info")
@@ -305,6 +354,7 @@ enum S {
         static let title = NSLocalizedString("FaceIDSpendingLimit.title", value: "**Face ID Spending Limit**", comment: "Face Id spending limit screen title")
     }
 
+    //MARK: - Settings
     enum Settings {
         static let title = NSLocalizedString("Settings.title", value: "**Settings**", comment: "Settings title")
         static let wallet = NSLocalizedString("Settings.wallet", value: "**Wallet**", comment: "Wallet Settings section header")
@@ -417,7 +467,8 @@ enum S {
         static let noAmount = NSLocalizedString("RequestAnAmount.noAmount", value: "**Please enter an amount first.**", comment: "No amount entered error message.")
     }
 
-    enum Alerts {
+    //MARK: - Security Alerts
+    enum SecurityAlerts {
         static let pinSet = NSLocalizedString("Alerts.pinSet", value: "**PIN Set**", comment: "Alert Header label (the PIN was set)")
         static let paperKeySet = NSLocalizedString("Alerts.paperKeySet", value: "**Paper Key Set**", comment: "Alert Header Label (the paper key was set)")
         static let sendSuccess = NSLocalizedString("Alerts.sendSuccess", value: "**Send Confirmation**", comment: "Send success alert header label (confirmation that the send happened)")
@@ -495,6 +546,7 @@ enum S {
         }
     }
 
+    //MARK: - Payment Protocol
     enum PaymentProtocol {
         enum Errors {
             static let untrustedCertificate = NSLocalizedString("PaymentProtocol.Errors.untrustedCertificate", value: "**untrusted certificate**", comment: "Untrusted certificate payment protocol error message")
@@ -571,16 +623,17 @@ enum S {
         }
     }
 
-    enum BitID {
-        static let title = NSLocalizedString("BitID.title", value: "**BitID Authentication Request**", comment: "BitID Authentication Request alert view title")
-        static let authenticationRequest = NSLocalizedString("BitID.authenticationRequest", value: "**%1$@ is requesting authentication using your Litecoin wallet**", comment: "<sitename> is requesting authentication using your Litecoin wallet")
-        static let deny = NSLocalizedString("BitID.deny", value: "**Deny**", comment: "Deny button label")
-        static let approve = NSLocalizedString("BitID.approve", value: "**Approve**", comment: "Approve button label")
-        static let success = NSLocalizedString("BitID.success", value: "**Successfully Authenticated**", comment: "BitID success alert title")
-        static let error = NSLocalizedString("BitID.error", value: "**Authentication Error**", comment: "BitID error alert title")
-        static let errorMessage = NSLocalizedString("BitID.errorMessage", value: "**Please check with the service. You may need to try again.**", comment: "BitID error alert messaage")
+ //DEV: Removing eventually
+    //  enum BitID {
+//        static let title = NSLocalizedString("BitID.title", value: "**BitID Authentication Request**", comment: "BitID Authentication Request alert view title")
+//        static let authenticationRequest = NSLocalizedString("BitID.authenticationRequest", value: "**%1$@ is requesting authentication using your Litecoin wallet**", comment: "<sitename> is requesting authentication using your Litecoin wallet")
+//        static let deny = NSLocalizedString("BitID.deny", value: "**Deny**", comment: "Deny button label")
+//        static let approve = NSLocalizedString("BitID.approve", value: "**Approve**", comment: "Approve button label")
+//        static let success = NSLocalizedString("BitID.success", value: "**Successfully Authenticated**", comment: "BitID success alert title")
+//        static let error = NSLocalizedString("BitID.error", value: "**Authentication Error**", comment: "BitID error alert title")
+//        static let errorMessage = NSLocalizedString("BitID.errorMessage", value: "**Please check with the service. You may need to try again.**", comment: "BitID error alert messaage")
 
-    }
+ //   }
     
     enum SupportLitecoinFoundation {
         static let title = NSLocalizedString("SupportTheFoundation.title", value: "**Support the Litecoin Foundation**", comment: "Support the Litecoin Foundation")

@@ -71,6 +71,23 @@ struct Padding {
     }
 }
 
+struct DeviceType {
+    
+    enum Name  {
+        static var iPhoneSE = "iPhone SE"
+        static var iPhoneSE2 = "iPhone SE2"
+        static var iPhone7 = "iPhone 7"
+        static var iPhone8 = "iPhone 8"
+        static var iPhone8Plus = "iPhone 8+"
+        static var iPhoneXSMax = "iPhone Xs Max"
+        static var iPhone11ProMax = "iPhone 11 Pro Max"
+        static var iPhone12Pro = "iPhone 12 Pro"
+        static var iPhone12ProMax = "iPhone 12 Pro Max"
+        static var iPadPro = "iPad Pro (12.9-inch) (3rd generation)"
+    }
+    
+}
+
 struct C {
     static let padding = Padding()
     struct Sizes {

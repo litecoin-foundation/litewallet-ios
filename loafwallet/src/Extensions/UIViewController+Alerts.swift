@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
 
     func showErrorMessage(_ message: String) {
-        let alert = UIAlertController(title: S.Alert.error, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: S.LitewalletAlert.error, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }

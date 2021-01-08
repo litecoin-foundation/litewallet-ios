@@ -263,13 +263,13 @@ class UpdatePinViewController: UIViewController, Subscriber {
                 if let success = success, success == true {
                     if self?.resetFromDisabledSuccess != nil {
                         self?.resetFromDisabledWillSucceed?()
-                        self?.store.perform(action: Alert.Show(.pinSet(callback: { [weak self] in
+                        self?.store.perform(action: SimpleReduxAlert.Show(.pinSet(callback: { [weak self] in
                             self?.dismiss(animated: true, completion: {
                                 self?.resetFromDisabledSuccess?()
                             })
                         })))
                     } else {
-                        self?.store.perform(action: Alert.Show(.pinSet(callback: { [weak self] in
+                        self?.store.perform(action: SimpleReduxAlert.Show(.pinSet(callback: { [weak self] in
                             self?.setPinSuccess?(newPin)
                             if self?.type != .creationNoPhrase {
                                 self?.parent?.dismiss(animated: true, completion: nil)

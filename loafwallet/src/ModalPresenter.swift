@@ -192,7 +192,7 @@ class ModalPresenter : Subscriber, Trackable {
     private func handleAlertChange(_ type: AlertType?) {
         guard let type = type else { return }
         presentAlert(type, completion: {
-            self.store.perform(action: Alert.Hide())
+            self.store.perform(action: SimpleReduxAlert.Hide())
         })
     }
     
@@ -291,7 +291,7 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func makeSendView() -> UIViewController? {
         guard !store.state.walletState.isRescanning else {
-            let alert = UIAlertController(title: S.Alert.error, message: S.Send.isRescanning, preferredStyle: .alert)
+            let alert = UIAlertController(title: S.LitewalletAlert.error, message: S.Send.isRescanning, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
             topViewController?.present(alert, animated: true, completion: nil)
             return nil
@@ -363,10 +363,16 @@ class ModalPresenter : Subscriber, Trackable {
         
         menu.didTapSupportLF = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
-                self?.presentSupportLF()
+                self?.messagePresenter.presenter = self?.topViewController
+                self?.messagePresenter.presentSupportCompose()
             })
         }
         
+        menu.didTapSupportLF = { [weak self, weak menu] in
+            menu?.dismiss(animated: true, completion: {
+                self?.presentSupportLF()
+            })
+        }
         menu.didTapLock = { [weak self, weak menu] in
             menu?.dismiss(animated: true) {
                 self?.store.trigger(name: .lock)
@@ -548,6 +554,7 @@ class ModalPresenter : Subscriber, Trackable {
     private func presentSupportLF() {
         
         let supportLFView = UIHostingController(rootView: SupportLitecoinFoundationView(viewModel: SupportLitecoinFoundationViewModel()))
+
         supportLFView.rootView.viewModel.didTapToDismiss = {
             supportLFView.dismiss(animated: true) {
                 //TODO: Track in Analytics
@@ -556,6 +563,7 @@ class ModalPresenter : Subscriber, Trackable {
         window.rootViewController?.present(supportLFView, animated: true, completion: nil)
         
     }
+	
     private func presentSecurityCenter() {
         guard let walletManager = walletManager else { return }
         let securityCenter = SecurityCenterViewController(store: store, walletManager: walletManager)
@@ -622,7 +630,7 @@ class ModalPresenter : Subscriber, Trackable {
                         confirmVC?.pin = pin
                         confirmVC?.didCompleteConfirmation = {
                             confirmVC?.dismiss(animated: true, completion: {
-                                myself.store.perform(action: Alert.Show(.paperKeySet(callback: {
+                                myself.store.perform(action: SimpleReduxAlert.Show(.paperKeySet(callback: {
                                     myself.store.perform(action: HideStartFlow())
                                     
                                 })))
@@ -671,7 +679,7 @@ class ModalPresenter : Subscriber, Trackable {
         paperPhraseNavigationController.viewControllers = [start]
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
-     
+
     private func wipeWallet() {
         let group = DispatchGroup()
         let alert = UIAlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
@@ -738,7 +746,7 @@ class ModalPresenter : Subscriber, Trackable {
             }
             //TODO - handle payment type
         } else {
-            let alert = UIAlertController(title: S.Alert.error, message: S.PaymentProtocol.Errors.corruptedDocument, preferredStyle: .alert)
+            let alert = UIAlertController(title: S.LitewalletAlert.error, message: S.PaymentProtocol.Errors.corruptedDocument, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
             topViewController?.present(alert, animated: true, completion: nil)
         }
@@ -783,7 +791,7 @@ class ModalPresenter : Subscriber, Trackable {
                 if walletManager.authenticate(pin: pin) {
                     self?.copyAllAddressesToClipboard()
                     view.dismiss(animated: true, completion: {
-                        self?.store.perform(action: Alert.Show(.addressesCopied))
+                        self?.store.perform(action: SimpleReduxAlert.Show(.addressesCopied))
                         if let success = success, let url = URL(string: success) {
                             UIApplication.shared.open(url, options: [:], completionHandler: nil)
                         }
@@ -855,7 +863,7 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func showNotReachable() {
         guard notReachableAlert == nil else { return }
-        let alert = InAppAlert(message: S.Alert.noInternet, image: #imageLiteral(resourceName: "BrokenCloud"))
+        let alert = InAppAlert(message: S.LitewalletAlert.noInternet, image: #imageLiteral(resourceName: "BrokenCloud"))
         notReachableAlert = alert
         let window = UIApplication.shared.keyWindow!
         let size = window.bounds.size
