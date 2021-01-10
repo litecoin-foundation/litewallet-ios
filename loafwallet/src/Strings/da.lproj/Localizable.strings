@@ -61,6 +61,12 @@
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "PIN indstillet";
 
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Domæneopløsning";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Din adresse blev løst!";
+
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Afsendelse mislykkedes";
 
@@ -150,6 +156,9 @@
 
 /* receive button */
 "Button.receive" = "modtag";
+
+/* resetFields */
+"Button.resetFields" = "Nulstil felter";
 
 /* send button */
 "Button.send" = "send";
@@ -402,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Ryd";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "KORT";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Kortbalance";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Login mislykkedes";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Glemt kodeord?";
+
+/* Login */
+"LitecoinCard.login" = "Log på";
+
+/* Logout */
+"LitecoinCard.logout" = "Log ud";
+
+/* Register */
+"LitecoinCard.registerCard" = "Tilmeld";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Tilmeld dig Litecoin-kort";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Registrerer bruger ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Vejnavn";
+
+/* city */
+"LitecoinCard.Registration.city" = "By";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "bekræft kodeord";
+
+/* country */
+"LitecoinCard.Registration.country" = "Land";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "fornavn";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identifikation";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Kend din kunde ID-type";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID-type";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "efternavn";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Mobilnummer";
+
+/* password */
+"LitecoinCard.Registration.password" = "adgangskode";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Stat / provins";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Email";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Må ikke være tom";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ugyldig emailadresse";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobilnummeret skal have mindst 10 cifre";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobilnummer er påkrævet";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Adgangskoden skal indeholde mindst 6 tegn";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Adgangskoden skal bestå af mere end 6 tegn med mindst et tegn og et numerisk tegn";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Adgangskode er påkrævet";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "påkrævet område";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Postnummer";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Der var et problem med din registrering. Kontroller dine data, og prøv igen.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Du har tilmeldt dig! Kontroller og bekræft din e-mail. Så kom tilbage for at logge ind.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Nulstille kodeord";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Besøg https://litecoin.dashboard.getblockcard.com/password/forgot for at nulstille din adgangskode.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Placeringstjenester er deaktiveret.";
@@ -801,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "Til";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Kig op";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Indtast et .crypto- eller .zil-domæne";

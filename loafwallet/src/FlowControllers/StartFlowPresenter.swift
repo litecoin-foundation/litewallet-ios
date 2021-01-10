@@ -169,7 +169,7 @@ class StartFlowPresenter : Subscriber {
             confirmVC?.pin = pin
             confirmVC?.didCompleteConfirmation = { [weak self] in
                 guard let myself = self else { return }
-                myself.store.perform(action: Alert.Show(.paperKeySet(callback: {
+                myself.store.perform(action: SimpleReduxAlert.Show(.paperKeySet(callback: {
                     self?.store.perform(action: HideStartFlow())
                 })))
             }
@@ -192,7 +192,7 @@ class StartFlowPresenter : Subscriber {
     }
     
     private func handleWalletCreationError() {
-        let alert = UIAlertController(title: S.Alert.error, message: "Could not create wallet", preferredStyle: .alert)
+        let alert = UIAlertController(title: S.LitewalletAlert.error, message: "Could not create wallet", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
         navigationController?.present(alert, animated: true, completion: nil)
     }

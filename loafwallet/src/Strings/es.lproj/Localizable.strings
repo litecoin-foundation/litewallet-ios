@@ -61,6 +61,12 @@
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "Conjunto de PIN";
 
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Resolución de dominio";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "¡Tu dirección fue resuelta!";
+
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Error en el envío";
 
@@ -150,6 +156,9 @@
 
 /* receive button */
 "Button.receive" = "recibir";
+
+/* resetFields */
+"Button.resetFields" = "Reestablecer campos";
 
 /* send button */
 "Button.send" = "Enviar";
@@ -403,6 +412,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Borrar";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "TARJETA";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Balance de tarjeta";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "error de inicio de sesion";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "¿Se te olvidó tu contraseña?";
+
+/* Login */
+"LitecoinCard.login" = "Iniciar sesión";
+
+/* Logout */
+"LitecoinCard.logout" = "Cerrar sesión";
+
+/* Register */
+"LitecoinCard.registerCard" = "Registrarse";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Registrarse para la tarjeta Litecoin";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Registrando usuario ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Dirección";
+
+/* city */
+"LitecoinCard.Registration.city" = "Ciudad";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Confirmar contraseña";
+
+/* country */
+"LitecoinCard.Registration.country" = "País";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "primer nombre";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identificación";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Conozca a su cliente Tipo de identificación";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "tipo de identificación";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "apellido";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Número de teléfono móvil";
+
+/* password */
+"LitecoinCard.Registration.password" = "contraseña";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Provincia del estado";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Email";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "No debe estar vacío";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Dirección de correo electrónico inválida";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "El número de móvil debe tener al menos 10 dígitos";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Se requiere un número de celular";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "La contraseña debe tener al menos 6 caracteres";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "La contraseña debe tener más de 6 caracteres, con al menos un carácter y un carácter numérico";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Se requiere contraseña";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Campo requerido";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Código postal";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Hubo un problema con tu registro. Verifique sus datos y vuelva a intentarlo.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "¡Te has registrado! Por favor revise y confirme su correo electrónico. Luego vuelve a iniciar sesión.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Restablecer la contraseña";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Visita https://litecoin.dashboard.getblockcard.com/password/forgot para restablecer tu contraseña.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Los servicios de ubicación están desactivados.";
@@ -802,6 +919,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "A";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Buscar";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Ingrese un dominio .crypto o .zil";

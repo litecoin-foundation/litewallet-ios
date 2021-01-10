@@ -61,6 +61,12 @@
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "PIN Set";
 
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Domain Resolution";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Address was resolved!";
+
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Send failed";
 
@@ -150,6 +156,9 @@
 
 /* receive button */
 "Button.receive" = "receive";
+
+/* resetFields */
+"Button.resetFields" = "Reset fields";
 
 /* send button */
 "Button.send" = "send";
@@ -402,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Wipe";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "CARD";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Card balance";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Login failed";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Forgot password?";
+
+/* Login */
+"LitecoinCard.login" = "Login";
+
+/* Logout */
+"LitecoinCard.logout" = "Logout";
+
+/* Register */
+"LitecoinCard.registerCard" = "Register";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Register for Litecoin Card";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Registering user...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Address";
+
+/* city */
+"LitecoinCard.Registration.city" = "City";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Confirm password";
+
+/* country */
+"LitecoinCard.Registration.country" = "Country";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "First name";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identification";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "ID Number";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID Type";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "Last name";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Mobile number";
+
+/* password */
+"LitecoinCard.Registration.password" = "Password";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "State / Province";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Email (Username)";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Must not be empty";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Invalid e-mail Address";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobile number must have at least 10 digits";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobile number is required";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Password must have at least 6 characters";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Password must be more than 6 characters, with at least one character and one numeric character";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Password is Required";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Required field";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Zip / Postcode";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "There was a problem with your registration. \nPlease check your data and try again.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "You have registered!\nPlease check and confirm your email. Then come back to login.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Reset password";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Visit https://litecoin.dashboard.getblockcard.com/password/forgot\nto reset your password.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Location services are disabled.";
@@ -801,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "To";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Lookup";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Enter a .crypto or .zil domain";

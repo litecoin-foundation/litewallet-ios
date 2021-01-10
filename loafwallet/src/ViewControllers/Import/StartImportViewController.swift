@@ -251,7 +251,7 @@ class StartImportViewController : UIViewController {
     }
 
     private func showSuccess() {
-        store.perform(action: Alert.Show(.sweepSuccess(callback: { [weak self] in
+        store.perform(action: SimpleReduxAlert.Show(.sweepSuccess(callback: { [weak self] in
             guard let myself = self else { return }
             myself.dismiss(animated: true, completion: nil)
         })))

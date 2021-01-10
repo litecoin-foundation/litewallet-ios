@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,14 +34,16 @@
                         <subviews>
                             <tabBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-Gw-zod">
                                 <rect key="frame" x="0.0" y="638" width="414" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="TzC-tl-jAG"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem title="History" image="historyIcon" selectedImage="historyIcon" id="qwA-9l-CfE" userLabel="History"/>
-                                    <tabBarItem tag="1" title="Send" image="SendButtonIcon" selectedImage="SendButtonIcon" id="Idu-CT-kfl" userLabel="Send"/>
-                                    <tabBarItem tag="2" title="Receive" image="ReceiveButtonIcon" selectedImage="ReceiveButtonIcon" id="1Ar-eJ-M87" userLabel="Receive"/>
-                                    <tabBarItem tag="3" title="Buy" image="litecoin_cutout24" selectedImage="litecoin_cutout24" id="spP-38-fzY" userLabel="Buy"/>
+                                    <tabBarItem title="History" image="history_icon" selectedImage="history_icon" id="qwA-9l-CfE" userLabel="History"/>
+                                    <tabBarItem tag="1" title="Send" image="send_icon" selectedImage="send_icon" id="Idu-CT-kfl" userLabel="Send"/>
+                                    <tabBarItem tag="2" title="Card" image="card_icon" selectedImage="card_icon" id="Az7-Jx-H1G" userLabel="Card"/>
+                                    <tabBarItem tag="3" title="Receive" image="receive_icon" selectedImage="receive_icon" id="1Ar-eJ-M87" userLabel="Receive"/>
+                                    <tabBarItem tag="4" title="Buy" image="litecoin_cutout24" selectedImage="litecoin_cutout24" id="spP-38-fzY" userLabel="Buy"/>
                                 </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="delegate" destination="x3n-5i-KbR" id="9hM-1p-ODS"/>
                                 </connections>
@@ -81,7 +84,8 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <viewLayoutGuide key="safeArea" id="81g-U6-NOG"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
                                     <constraint firstItem="zmH-Ee-H6k" firstAttribute="leading" secondItem="RAg-vc-Wor" secondAttribute="trailing" constant="10" id="LKm-Ws-j91"/>
                                     <constraint firstItem="RAg-vc-Wor" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="huE-hU-1KP"/>
@@ -89,7 +93,6 @@
                                     <constraint firstItem="zmH-Ee-H6k" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="ksC-fB-keg"/>
                                     <constraint firstAttribute="trailing" secondItem="zmH-Ee-H6k" secondAttribute="trailing" constant="10" id="vY4-OJ-KBs"/>
                                 </constraints>
-                                <viewLayoutGuide key="safeArea" id="81g-U6-NOG"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euD-bi-teC">
                                 <rect key="frame" x="0.0" y="60" width="414" height="578"/>
@@ -99,7 +102,9 @@
                                 </connections>
                             </containerView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="hBW-LI-2Ec"/>
                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hBW-LI-2Ec" firstAttribute="trailing" secondItem="ZHZ-G5-6k8" secondAttribute="trailing" id="1NP-ep-2dC"/>
                             <constraint firstItem="ZHZ-G5-6k8" firstAttribute="top" secondItem="hBW-LI-2Ec" secondAttribute="top" id="3Md-Ke-jFm"/>
@@ -112,7 +117,6 @@
                             <constraint firstItem="ZHZ-G5-6k8" firstAttribute="leading" secondItem="hBW-LI-2Ec" secondAttribute="leading" id="qTh-4T-6Zi"/>
                             <constraint firstItem="j3Z-Gw-zod" firstAttribute="leading" secondItem="hBW-LI-2Ec" secondAttribute="leading" id="upq-Lf-nte"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hBW-LI-2Ec"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -138,8 +142,8 @@
                     <view key="view" contentMode="scaleToFill" id="z4T-ui-Ve5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="578"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UuX-cb-qOU"/>
+                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPr-X2-pHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,7 +176,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rj-zC-nyS" customClass="PinView" customModule="loafwallet" customModuleProvider="target">
                                 <rect key="frame" x="117" y="348" width="180" height="40"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="NXw-2w-swI"/>
                                     <constraint firstAttribute="height" constant="40" id="SZo-Jc-avg"/>
@@ -184,7 +188,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-wL-DDW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-wL-DDW">
                                 <rect key="frame" x="40" y="428" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="UKW-Da-fdD"/>
@@ -213,6 +217,7 @@
                                 <state key="normal" image="FaceId"/>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="mwK-Ce-wah"/>
                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SHv-75-iaL" firstAttribute="top" secondItem="HyL-Cs-n43" secondAttribute="bottom" constant="20" id="1Ga-gL-Zzm"/>
@@ -233,7 +238,6 @@
                             <constraint firstItem="mwK-Ce-wah" firstAttribute="trailing" secondItem="d6F-wL-DDW" secondAttribute="trailing" constant="40" id="sHw-Dd-ppt"/>
                             <constraint firstItem="mwK-Ce-wah" firstAttribute="bottom" secondItem="SHv-75-iaL" secondAttribute="bottom" id="tw0-uU-eDF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mwK-Ce-wah"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LH5-zJ-Ju2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -264,7 +268,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyP-QP-MRc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyP-QP-MRc">
                                 <rect key="frame" x="40" y="606" width="334" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OZx-0x-Qf8"/>
@@ -274,7 +278,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tY2-1S-SJf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tY2-1S-SJf">
                                 <rect key="frame" x="40" y="516" width="334" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -295,6 +299,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zU7-3k-Fyd"/>
                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zU7-3k-Fyd" firstAttribute="bottom" secondItem="KyP-QP-MRc" secondAttribute="bottom" constant="80" id="BFL-Kq-7AZ"/>
@@ -311,7 +316,6 @@
                             <constraint firstItem="KyP-QP-MRc" firstAttribute="centerX" secondItem="rRX-dh-ee1" secondAttribute="centerX" id="xZA-dk-URi"/>
                             <constraint firstItem="KyP-QP-MRc" firstAttribute="leading" secondItem="zU7-3k-Fyd" secondAttribute="leading" constant="40" id="yCA-Dg-Jet"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zU7-3k-Fyd"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfs-Ik-MPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -328,7 +332,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KRp-4w-Qg0">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bGe-zJ-eDm">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -347,14 +351,14 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4Kg-Nc-6TY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4Kg-Nc-6TY" firstAttribute="trailing" secondItem="KRp-4w-Qg0" secondAttribute="trailing" id="9Bg-qk-ufc"/>
                             <constraint firstItem="4Kg-Nc-6TY" firstAttribute="bottom" secondItem="KRp-4w-Qg0" secondAttribute="bottom" id="azz-kE-hb0"/>
                             <constraint firstItem="KRp-4w-Qg0" firstAttribute="top" secondItem="4Kg-Nc-6TY" secondAttribute="top" id="hSo-UD-PcI"/>
                             <constraint firstItem="KRp-4w-Qg0" firstAttribute="leading" secondItem="4Kg-Nc-6TY" secondAttribute="leading" id="qnz-Mx-T8Q"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4Kg-Nc-6TY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWn-w9-c6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -364,11 +368,18 @@
     </scenes>
     <resources>
         <image name="FaceId" width="24" height="24"/>
-        <image name="ReceiveButtonIcon" width="20" height="24"/>
-        <image name="SendButtonIcon" width="20" height="24"/>
+        <image name="card_icon" width="24" height="24"/>
         <image name="coinBlueWhite" width="230" height="230"/>
-        <image name="historyIcon" width="32" height="32"/>
+        <image name="history_icon" width="32" height="32"/>
         <image name="litecoin_cutout24" width="24" height="24"/>
+        <image name="receive_icon" width="20" height="24"/>
+        <image name="send_icon" width="20" height="24"/>
         <image name="settingsWhite" width="170.66667175292969" height="170.66667175292969"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
