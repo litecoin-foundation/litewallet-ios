@@ -61,6 +61,12 @@
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "PIN-код задан";
 
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Разрешение домена";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Ваш адрес решен!";
+
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Ошибка отправки";
 
@@ -150,6 +156,9 @@
 
 /* receive button */
 "Button.receive" = "получить";
+
+/* resetFields */
+"Button.resetFields" = "Очистить поля";
 
 /* send button */
 "Button.send" = "отправить";
@@ -402,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Очистить";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "КАРТА";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Баланс карты";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Ошибка входа";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Забыли пароль?";
+
+/* Login */
+"LitecoinCard.login" = "Авторизоваться";
+
+/* Logout */
+"LitecoinCard.logout" = "Выйти";
+
+/* Register */
+"LitecoinCard.registerCard" = "регистр";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Зарегистрируйтесь для получения карты Litecoin";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Регистрация пользователя ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Адрес улицы";
+
+/* city */
+"LitecoinCard.Registration.city" = "город";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Подтвердите Пароль";
+
+/* country */
+"LitecoinCard.Registration.country" = "Страна";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "Имя";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Идентификация";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Знай своего клиента Тип ID";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "Тип ID";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "фамилия";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Номер мобильного";
+
+/* password */
+"LitecoinCard.Registration.password" = "пароль";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Штат / провинция";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Эл. адрес";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Не должно быть пустым";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Неверный адрес электронной почты";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Номер мобильного телефона должен состоять не менее чем из 10 цифр.";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Требуется номер мобильного телефона";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Пароль должен состоять не менее чем из 6 символов.";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Пароль должен содержать более 6 символов, по крайней мере, один символ и один цифровой символ.";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Необходим пароль";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Обязательное поле";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Почтовый индекс";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "При регистрации возникла проблема. Пожалуйста, проверьте свои данные и попробуйте еще раз.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Вы зарегистрировались! Пожалуйста, проверьте и подтвердите свою электронную почту. Затем вернитесь к логину.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Сброс пароля";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Посетите https://litecoin.dashboard.getblockcard.com/password/forgot, чтобы сбросить пароль.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Сервисы определения местоположения отключены.";
@@ -801,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "На";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Искать";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Введите домен .crypto или .zil";

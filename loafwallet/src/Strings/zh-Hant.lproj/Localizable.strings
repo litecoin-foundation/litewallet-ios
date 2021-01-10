@@ -61,6 +61,12 @@
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "PIN 已設定";
 
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "域解析";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "您的地址已解決";
+
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "寄出失敗";
 
@@ -150,6 +156,9 @@
 
 /* receive button */
 "Button.receive" = "接收";
+
+/* resetFields */
+"Button.resetFields" = "resetFields";
 
 /* send button */
 "Button.send" = "寄出";
@@ -402,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "抹除";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "卡";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "卡餘額";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "登錄失敗";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "忘記密碼？";
+
+/* Login */
+"LitecoinCard.login" = "登錄";
+
+/* Logout */
+"LitecoinCard.logout" = "登出";
+
+/* Register */
+"LitecoinCard.registerCard" = "寄存器";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "註冊萊特幣卡";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "正在註冊用戶...";
+
+/* address */
+"LitecoinCard.Registration.address" = "街道地址";
+
+/* city */
+"LitecoinCard.Registration.city" = "市";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "確認密碼";
+
+/* country */
+"LitecoinCard.Registration.country" = "國家";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "名字";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "身份證明";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "了解你的顧客 證件類型";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "證件類型";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "姓";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "手機號碼";
+
+/* password */
+"LitecoinCard.Registration.password" = "密碼";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "州/省";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "電子郵件";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "必填項目";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "無效的郵件地址";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "手機號碼必須至少有10位數字";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "手機號碼為必填項";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "密碼必須至少包含6個字符";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "密碼必須超過6個字符，並且至少包含一個字符和一個數字字符";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "密碼是必需的";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "不能為空";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "郵編";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "您的註冊有問題。 請檢查您的數據，然後重試。";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "您已經註冊！ 請檢查並確認您的電子郵件。 然後返回登錄。";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "重設密碼";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "訪問https://litecoin.dashboard.getblockcard.com/password/forgot重設密碼。";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "定位服務已停用。";
@@ -801,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "給";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "抬頭";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "輸入.crypto或.zil域";

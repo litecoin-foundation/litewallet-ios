@@ -61,6 +61,12 @@
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "PIN-kod är inställd";
 
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Domänupplösning";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Din adress har lösts!";
+
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Sändningen misslyckades";
 
@@ -150,6 +156,9 @@
 
 /* receive button */
 "Button.receive" = "ta emot";
+
+/* resetFields */
+"Button.resetFields" = "Nollställ fält";
 
 /* send button */
 "Button.send" = "skicka";
@@ -402,6 +411,114 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Töm";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "KORT";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Kortbalans";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Inloggningen misslyckades";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Glömt ditt lösenord?";
+
+/* Login */
+"LitecoinCard.login" = "Logga in";
+
+/* Logout */
+"LitecoinCard.logout" = "Logga ut";
+
+/* Register */
+"LitecoinCard.registerCard" = "Registrera";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Registrera dig för Litecoin-kort";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Registrerar användare ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Gatuadress";
+
+/* city */
+"LitecoinCard.Registration.city" = "Stad";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "bekräfta lösenord";
+
+/* country */
+"LitecoinCard.Registration.country" = "Land";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "förnamn";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identifiering";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Känn din kund ID-typ";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID-typ";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "efternamn";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Mobilnummer";
+
+/* password */
+"LitecoinCard.Registration.password" = "Lösenord";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Stat / provins";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "E-mail";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Får inte vara tom";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ogiltig e-postadress";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobilnumret måste innehålla minst tio siffror";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobilnummer krävs";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Lösenordet måste innehålla minst sex tecken";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Lösenordet måste innehålla mer än sex tecken, med minst ett tecken och ett numeriskt tecken";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Lösenord krävs";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "obligatoriskt fält";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Postnummer";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Det uppstod ett problem med din registrering.\nKontrollera dina uppgifter och försök igen.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Du har registrerat dig! Kontrollera och bekräfta din e-post.\nKom sedan tillbaka för att logga in.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Återställ lösenord";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Besök https://litecoin.dashboard.getblockcard.com/password/forgot för att återställa ditt lösenord.";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Platstjänster är inaktiverade.";
@@ -801,6 +918,9 @@
 
 /* Send money to label */
 "Send.toLabel" = "Till";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Slå upp";
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Ange en .crypto- eller .zil-domän";

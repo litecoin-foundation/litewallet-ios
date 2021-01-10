@@ -24,6 +24,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     var presentScan: PresentScan?
     var presentVerifyPin: ((String, @escaping VerifyPinCallback)->Void)?
     var onPublishSuccess: (()->Void)?
+    var onResolvedSuccess: (()->Void)?
     var parentView: UIView? //ModalPresentable
     var initialAddress: String?
     var isPresentedFromLock = false
@@ -138,6 +139,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         addressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
         addressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
+
         descriptionCell.didReturn = { textView in
             textView.resignFirstResponder()
         }
@@ -178,12 +180,28 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             }
         }
         
+        //MARK: - Unstopplable Domain Callbacks
+        unstoppableCell.rootView.viewModel.shouldClearAddressField = {
+            
+            ///clear the existing textfield
+            self.addressCell.textField.becomeFirstResponder()
+            self.addressCell.textField.text = ""
+        }
+        
         unstoppableCell.rootView.viewModel.didResolveUDAddress = { resolvedUDAddress in
+            
             ///Paste in Unstoppable Domain resolved LTC address to textField
             self.addressCell.textField.becomeFirstResponder()
             self.addressCell.textField.isHidden = false
-            self.addressCell.textField.text = resolvedUDAddress
+            
+            if !resolvedUDAddress.isEmpty {
+                
+                // Toast the successful resolution
+                self.onResolvedSuccess?()
+                self.addressCell.textField.text = resolvedUDAddress
+            }
         }
+         
     }
     
     private func balanceTextForAmount(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?) {
@@ -221,7 +239,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     
     @objc private func pasteTapped() {
         guard let pasteboard = UIPasteboard.general.string, pasteboard.utf8.count > 0 else {
-            return showAlert(title: S.Alert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
+            return showAlert(title: S.LitewalletAlert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
         }
         guard let request = PaymentRequest(string: pasteboard) else {
             return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressOnPasteboard, buttonLabel: S.Button.ok)
@@ -245,29 +263,29 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         
         if sender.transaction == nil {
             guard let address = addressCell.address else {
-                return showAlert(title: S.Alert.error, message: S.Send.noAddress, buttonLabel: S.Button.ok)
+                return showAlert(title: S.LitewalletAlert.error, message: S.Send.noAddress, buttonLabel: S.Button.ok)
             }
             guard address.isValidAddress else {
                 return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressMessage, buttonLabel: S.Button.ok)
             }
             guard let amount = amount else {
-                return showAlert(title: S.Alert.error, message: S.Send.noAmount, buttonLabel: S.Button.ok)
+                return showAlert(title: S.LitewalletAlert.error, message: S.Send.noAmount, buttonLabel: S.Button.ok)
             }
             if let minOutput = walletManager.wallet?.minOutputAmount {
                 guard amount.rawValue >= minOutput else {
                     let minOutputAmount = Amount(amount: minOutput, rate: Rate.empty, maxDigits: store.state.maxDigits)
                     let message = String(format: S.PaymentProtocol.Errors.smallPayment, minOutputAmount.string(isLtcSwapped: store.state.isLtcSwapped))
-                    return showAlert(title: S.Alert.error, message: message, buttonLabel: S.Button.ok)
+                    return showAlert(title: S.LitewalletAlert.error, message: message, buttonLabel: S.Button.ok)
                 }
             }
             guard !(walletManager.wallet?.containsAddress(address) ?? false) else {
-                return showAlert(title: S.Alert.error, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
+                return showAlert(title: S.LitewalletAlert.error, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
             }
             guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0) else {
-                return showAlert(title: S.Alert.error, message: S.Send.insufficientFunds, buttonLabel: S.Button.ok)
+                return showAlert(title: S.LitewalletAlert.error, message: S.Send.insufficientFunds, buttonLabel: S.Button.ok)
             }
             guard sender.createTransaction(amount: amount.rawValue, to: address) else {
-                return showAlert(title: S.Alert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
+                return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
             }
         }
         
@@ -358,7 +376,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                                 self?.saveEvent("send.publishFailed", attributes: ["errorMessage": message])
                             case .publishFailure(let error):
                                 if case .posixError(let code, let description) = error {
-                                    self?.showAlert(title: S.Alerts.sendFailure, message: "\(description) (\(code))", buttonLabel: S.Button.ok)
+                                    self?.showAlert(title: S.SecurityAlerts.sendFailure, message: "\(description) (\(code))", buttonLabel: S.Button.ok)
                                     self?.saveEvent("send.publishFailed", attributes: ["errorMessage": "\(description) (\(code))"])
                                 }
                         }
@@ -387,10 +405,10 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         }
         
         if wallet.containsAddress(address) {
-            return showAlert(title: S.Alert.warning, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
+            return showAlert(title: S.LitewalletAlert.warning, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
         } else if wallet.addressIsUsed(address) && !didIgnoreUsedAddressWarning {
             let message = "\(S.Send.UsedAddress.title)\n\n\(S.Send.UsedAddress.firstLine)\n\n\(S.Send.UsedAddress.secondLine)"
-            return showError(title: S.Alert.warning, message: message, ignore: { [weak self] in
+            return showError(title: S.LitewalletAlert.warning, message: message, ignore: { [weak self] in
                 self?.didIgnoreUsedAddressWarning = true
                 self?.confirmProtocolRequest(protoReq: protoReq)
             })
@@ -421,7 +439,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         if requestAmount == 0 {
             if let amount = amount {
                 guard sender.createTransaction(amount: amount.rawValue, to: address) else {
-                    return showAlert(title: S.Alert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
+                    return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
                 }
             }
         } else {

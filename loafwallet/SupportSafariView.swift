@@ -40,7 +40,6 @@ struct SupportSafariView: UIViewRepresentable {
         ///   - navigation: nil
         func webView(_ webView: WKWebView,
                       didFinish navigation: WKNavigation!) { }
- 
     }
     
     func makeUIView(context: Context) -> WKWebView {
