@@ -25,12 +25,12 @@ class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Public Variables
     var didResolveUDAddress: ((String) -> Void)?
-    
+     
     var shouldClearAddressField: (() -> Void)?
     
     //MARK: - Private Variables
-    private var ltcAddress = ""
-        
+    private var ltcAddress = "" 
+	
     private var dateFormatter: DateFormatter? {
         
         didSet {
@@ -56,7 +56,7 @@ class UnstoppableDomainViewModel: ObservableObject {
                                            properties:
                                             ["start_time": timestamp])
         
-        self.resolveUDAddress(domainName: searchString)
+        self.resolveUDAddress(domainName: searchString) 
     }
     
     private func resolveUDAddress(domainName: String) {
