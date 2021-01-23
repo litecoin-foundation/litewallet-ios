@@ -10,50 +10,51 @@ import Foundation
 import UIKit
 
 class Currency {
-
-  class func simplexDailyLimits() -> [String:[String]] {
-    return ["EUR":["40","16.000"],"USD":["40","18,500"]]
-  }
-  
-  class func getSymbolForCurrencyCode(code: String) -> String? {
-    let result = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == code }
-    return result?.currencySymbol
-  }
-   
-  class func returnSimplexSupportedFiat(givenCode:String) -> String {
-    if (givenCode == "USD" || givenCode == "EUR") {
-      return givenCode
-    }
-    return "USD"
-  }
     
+    class func getSymbolForCurrencyCode(code: String) -> String? {
+        let result = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == code }
+        return result?.currencySymbol
+    }
 }
 
 enum PartnerFiatOptions: Int, CustomStringConvertible {
     case cad
-    case eur
+    case aud
+    case idr
+    case rub
     case jpy
+    case eur
+    case gbp
     case usd
     
     public var description: String {
         return code
     }
-     
+    
     private var code: String {
         switch self {
-        case .cad: return "CAD"
-        case .eur: return "EUR"
-        case .jpy: return "JPY"
-        case .usd: return "USD"
+            case .cad: return "CAD"
+            case .aud: return "AUD"
+            case .idr: return "IDR"
+            case .rub: return "RUB"
+            case .jpy: return "JPY"
+            case .eur: return "EUR"
+            case .gbp: return "GBP"
+            case .usd: return "USD"
         }
     }
     
     public var index: Int {
         switch self {
-        case .cad: return 0
-        case .eur: return 1
-        case .jpy: return 2
-        case .usd: return 3
+            case .cad: return 0
+            case .aud: return 1
+            case .idr: return 2
+            case .rub: return 3
+            case .jpy: return 4
+            case .eur: return 5
+            case .gbp: return 6
+            case .usd: return 7
         }
     }
 }
+
