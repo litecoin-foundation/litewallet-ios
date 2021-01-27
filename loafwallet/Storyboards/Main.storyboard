@@ -189,7 +189,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-wL-DDW">
-                                <rect key="frame" x="40" y="428" width="334" height="40"/>
+                                <rect key="frame" x="60" y="428" width="294" height="40"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="UKW-Da-fdD"/>
                                 </constraints>
@@ -234,8 +235,8 @@
                             <constraint firstItem="8rj-zC-nyS" firstAttribute="centerX" secondItem="wk9-Gz-pJV" secondAttribute="centerX" id="gaQ-pN-JkO"/>
                             <constraint firstItem="8rj-zC-nyS" firstAttribute="top" secondItem="WKP-YB-Aes" secondAttribute="bottom" constant="40" id="i8Q-w8-pPy"/>
                             <constraint firstItem="WKP-YB-Aes" firstAttribute="centerX" secondItem="wk9-Gz-pJV" secondAttribute="centerX" id="jwZ-VD-13R"/>
-                            <constraint firstItem="d6F-wL-DDW" firstAttribute="leading" secondItem="mwK-Ce-wah" secondAttribute="leading" constant="40" id="qsW-6x-CjM"/>
-                            <constraint firstItem="mwK-Ce-wah" firstAttribute="trailing" secondItem="d6F-wL-DDW" secondAttribute="trailing" constant="40" id="sHw-Dd-ppt"/>
+                            <constraint firstItem="d6F-wL-DDW" firstAttribute="leading" secondItem="mwK-Ce-wah" secondAttribute="leading" constant="60" id="qsW-6x-CjM"/>
+                            <constraint firstItem="mwK-Ce-wah" firstAttribute="trailing" secondItem="d6F-wL-DDW" secondAttribute="trailing" constant="60" id="sHw-Dd-ppt"/>
                             <constraint firstItem="mwK-Ce-wah" firstAttribute="bottom" secondItem="SHv-75-iaL" secondAttribute="bottom" id="tw0-uU-eDF"/>
                         </constraints>
                     </view>
