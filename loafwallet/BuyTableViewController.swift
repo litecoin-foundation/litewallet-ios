@@ -15,7 +15,6 @@ class BuyTableViewController: UITableViewController {
     @IBOutlet weak var simplexDetailsLabel: UILabel!
     @IBOutlet weak var simplexCellContainerView: UIView!
     
-    @IBOutlet weak var chooseFiatLabel: UILabel!
     @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
     
     private var currencyCode: String = "USD"
@@ -29,8 +28,7 @@ class BuyTableViewController: UITableViewController {
             self.view.addSubview(vcWKVC.view)
             vcWKVC.didMove(toParentViewController: self)
             
-            vcWKVC.didDismissChildView = { [weak self] in
-                guard self != nil else { return }
+            vcWKVC.didDismissChildView = { 
                 vcWKVC.willMove(toParentViewController: nil)
                 vcWKVC.view.removeFromSuperview()
                 vcWKVC.removeFromParentViewController()
@@ -54,6 +52,9 @@ class BuyTableViewController: UITableViewController {
         
         currencySegmentedControl.addTarget(self, action: #selector(didChangeCurrency), for: .valueChanged)
         currencySegmentedControl.selectedSegmentIndex = PartnerFiatOptions.usd.index
+        currencySegmentedControl.selectedSegmentTintColor = .white
+        currencySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        currencySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.liteWalletBlue], for: .selected)
         setupData()
     }
     
@@ -66,13 +67,13 @@ class BuyTableViewController: UITableViewController {
         simplexCellContainerView.layer.borderColor = UIColor.white.cgColor
         simplexCellContainerView.layer.borderWidth = 1.0
         simplexCellContainerView.clipsToBounds = true
-        
-        chooseFiatLabel.text = S.DefaultCurrency.chooseFiatLabel
     }
     
     @objc private func didChangeCurrency() {
         if let code = PartnerFiatOptions(rawValue: currencySegmentedControl.selectedSegmentIndex)?.description {
             self.currencyCode = code
+        } else {
+            print("Error: Code not found: XXXX\(currencySegmentedControl.selectedSegmentIndex)")
         }
     }
 }

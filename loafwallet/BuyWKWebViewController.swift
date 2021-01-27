@@ -36,8 +36,11 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
     }()
     
     private let wkProcessPool = WKProcessPool()
+    
     var partnerPrefixString: String?
+    
     var currencyCode: String = "USD"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubViews()
@@ -60,18 +63,18 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
         config.processPool = wkProcessPool
         config.userContentController = contentController
         
-        let wkWithFooter = CGRect(x: 0, y: 0, width: self.wkWebContainerView.bounds.width, height: self.wkWebContainerView.bounds.height-100)
+        let wkWithFooter = CGRect(x: 0, y: 0, width: self.wkWebContainerView.bounds.width,
+                                  height: self.wkWebContainerView.bounds.height - 100)
         let wkWebView = WKWebView(frame:wkWithFooter, configuration: config)
         wkWebView.navigationDelegate = self
         wkWebView.allowsBackForwardNavigationGestures = true
-        wkWebView.scrollView.contentInset = UIEdgeInsetsMake(-50, 0, 0, 0)
-
-        wkWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        wkWebView.contentMode = .scaleAspectFit
+        wkWebView.autoresizesSubviews = true
+        wkWebView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.wkWebContainerView.addSubview(wkWebView)
         
         let timestamp = Int(appInstallDate.timeIntervalSince1970)
         let urlString =  APIServer.baseUrl + "?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
-         
         guard let url = URL(string: urlString) else {
         NSLog("ERROR: URL not initialized")
             return
@@ -119,21 +122,8 @@ extension BuyWKWebViewController {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
-            if complete != nil {
-                
-//                document.documentElement.scrollHeight,
-//                document.body.offsetHeight,
-//                document.documentElement.offsetHeight,
-//                document.documentElement.clientHeight
-//                webView.evaluateJavaScript("document.body.scrollHeight",
-//                completionHandler: { (height, error) in
-//                 })
-//
-//                webView.evaluateJavaScript("document.documentElement.scrollWidth",
-//                completionHandler: { (width, error) in
-//                  })
-            }
-            })
+            if complete != nil { }
+        })
     }
      
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {

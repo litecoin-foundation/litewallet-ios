@@ -35,42 +35,9 @@ import WebKit
     }
     
     var indexUrl: URL {
-        switch mountPoint {
-            case "/buy_simplex":
-                var appInstallDate: Date {
-                    if let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
-                        if let installDate = try! FileManager.default.attributesOfItem(atPath: documentsFolder.path)[.creationDate] as? Date {
-                            return installDate
-                        }
-                    }
-                    return Date()
-                }
-                let walletAddress = walletManager.wallet?.receiveAddress
-                let currencyCode = Locale.current.currencyCode ?? "USD"
-                let uuid = UIDevice.current.identifierForVendor!.uuidString
-
-                return URL(string: getSimplexParams(appInstallDate: appInstallDate, walletAddress: walletAddress, currencyCode: currencyCode, uuid: uuid))!
-            case "/buy_coinbase":
-                return URL(string: "https://api.loafwallet.org/buy")!
-            case "/support":
-                return URL(string: "https://api.loafwallet.org/support")!
-            case "/ea":
-                return URL(string: "https://api.loafwallet.org/ea")!
-            default:
                 return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
-        }
     }
-    
-    private func getSimplexParams(appInstallDate: Date?, walletAddress: String?, currencyCode: String?, uuid: String?) -> String {
-        guard let appInstallDate = appInstallDate else { return "" }
-        guard let walletAddress = walletAddress else { return "" }
-        let currencyCode = Currency.returnSimplexSupportedFiat(givenCode: currencyCode!)
-        guard let uuid = uuid else { return "" }
-        
-        let timestamp = Int(appInstallDate.timeIntervalSince1970)
-        return "https://buy.loafwallet.org/?address=\(walletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuid)"
-    }
-    
+     
     private let messageUIPresenter = MessageUIPresenter()
     
     init(partner: String?, mountPoint: String = "/", walletManager: WalletManager, store: Store, noAuthApiClient: BRAPIClient? = nil) {
