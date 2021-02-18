@@ -220,6 +220,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
                             } })
     }
     
+    /// This is called when the price changes
     private func setBalances() {
         guard let rate = exchangeRate, let store = self.store, let isLTCSwapped = self.isLtcSwapped else {
             NSLog("ERROR: Rate, Store not initialized")
@@ -266,15 +267,29 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             primaryLabel.transform = transform(forView: primaryLabel)
         }
         
-        self.timeStampLabel.text = S.TransactionDetails.priceTimeStampLabel + " " + dateFormatter.string(from: Date())
+        // Time and Price Label
+        let timeText = S.TransactionDetails.priceTimeStampLabel + " " + dateFormatter.string(from: Date())
         let fiatRate = Double(round(100*rate.rate)/100)
         let formattedFiatString = String(format: "%.02f", fiatRate)
-        self.currentLTCPriceLabel.text = Currency.getSymbolForCurrencyCode(code: rate.code)! + formattedFiatString
+        let newPrice = Currency.getSymbolForCurrencyCode(code: rate.code)! + formattedFiatString
         
+        self.currentLTCPriceLabel.text =  " "
+        self.timeStampLabel.text = timeText
+
+        // Transitions when the data changes
+        UIView.transition(with: self.currentLTCPriceLabel,
+                          duration: 2.0,
+                          options: .transitionFlipFromLeft,
+                          animations: { [weak self] in
+                            self?.currentLTCPriceLabel.text =  newPrice
+                          }, completion: nil)
     }
     
+    /// Transform LTC and Fiat  Balances
+    /// - Parameter forView: Views
+    /// - Returns: the inverse transform
     private func transform(forView: UIView) ->  CGAffineTransform {
-        forView.transform = .identity //Must reset the view's transform before we calculate the next transform
+        forView.transform = .identity
         let scaleFactor: CGFloat = smallFontSize/largeFontSize
         let deltaX = forView.frame.width * (1-scaleFactor)
         let deltaY = forView.frame.height * (1-scaleFactor)
@@ -399,6 +414,8 @@ extension TabBarViewController {
             NSLayoutConstraint.deactivate(!isLTCSwapped ? self.regularConstraints : self.swappedConstraints)
             NSLayoutConstraint.activate(!isLTCSwapped ? self.swappedConstraints : self.regularConstraints)
             self.view.layoutIfNeeded()
+            
+            LWAnalytics.logEventWithParameters(itemName: ._20200207_DTHB)
             
         }) { _ in }
         store.perform(action: CurrencyChange.toggle())
