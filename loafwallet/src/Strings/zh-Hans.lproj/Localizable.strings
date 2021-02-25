@@ -478,6 +478,9 @@
 /* No comment provided by engineer. */
 "Malformed URI" = "URI格式错误";
 
+/* Balance */
+"ManageWallet.balance" = "平衡";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "您在%1$@上创建了您的钱包";
 

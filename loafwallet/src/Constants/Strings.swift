@@ -306,6 +306,8 @@ enum S {
         static let textFieldLabel = NSLocalizedString("ManageWallet.textFeildLabel", value: "**Wallet Name**", comment: "Change Wallet name textfield label")
         static let description = NSLocalizedString("ManageWallet.description", value: "**Your wallet name only appears in your account transaction history and cannot be seen by anyone else.**", comment: "Manage wallet description text")
         static let creationDatePrefix = NSLocalizedString("ManageWallet.creationDatePrefix", value: "**You created your wallet on %1$@**", comment: "Wallet creation date prefix")
+        static let balance = NSLocalizedString("ManageWallet.balance", value: "**Balance**", comment: "Balance")
+        
     }
 
     enum AccountHeader {

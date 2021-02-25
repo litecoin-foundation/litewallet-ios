@@ -478,6 +478,9 @@
 /* No comment provided by engineer. */
 "Malformed URI" = "URI mal formé";
 
+/* Balance */
+"ManageWallet.balance" = "Solde";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Vous avez créé votre portefeuille sur %1$@";
 

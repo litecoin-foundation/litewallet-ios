@@ -478,6 +478,9 @@
 /* No comment provided by engineer. */
 "Malformed URI" = "不正なURI";
 
+/* Balance */
+"ManageWallet.balance" = "残高";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "あなたは%1$@でご自身のウォレットを作成しました";
 

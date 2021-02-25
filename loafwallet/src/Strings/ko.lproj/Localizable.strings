@@ -478,6 +478,9 @@
 /* No comment provided by engineer. */
 "Malformed URI" = "잘못된 URI";
 
+/* Balance */
+"ManageWallet.balance" = "밸런스";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "귀하께서는 %1$@ 에 지갑을 만들었습니다";
 

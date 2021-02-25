@@ -26,7 +26,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     @IBOutlet weak var timeStampLabel: UILabel!
     @IBOutlet weak var timeStampStackView: UIStackView!
     @IBOutlet weak var timeStampStackViewHeight: NSLayoutConstraint!
-     
+    @IBOutlet weak var walletBalanceLabel: UILabel!
+    
     var primaryBalanceLabel: UpdatingLabel?
     var secondaryBalanceLabel: UpdatingLabel?
     private let largeFontSize: CGFloat = 24.0
@@ -94,6 +95,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     private func setupViews() {
         
+        walletBalanceLabel.text = S.ManageWallet.balance + ":"
+         
         if #available(iOS 11.0, *),
            let  backgroundColor = UIColor(named: "mainColor") {
             headerView.backgroundColor = backgroundColor

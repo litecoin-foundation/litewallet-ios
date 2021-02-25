@@ -478,6 +478,9 @@
 /* No comment provided by engineer. */
 "Malformed URI" = "Неверно сформированный URI";
 
+/* Balance */
+"ManageWallet.balance" = "Баланс";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Вы создали ваш кошелек %1$@";
 

@@ -1359,3 +1359,6 @@
 
 /* Copy all details */
 "TransactionDetails.copyAllDetails" = "Copy all details";
+
+/* Balance */
+"ManageWallet.balance" = "Balance";

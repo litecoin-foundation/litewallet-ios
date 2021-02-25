@@ -479,6 +479,9 @@
 /* No comment provided by engineer. */
 "Malformed URI" = "URI malformado";
 
+/* Balance */
+"ManageWallet.balance" = "Saldo";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Has creado una cartera en %1$@";
 

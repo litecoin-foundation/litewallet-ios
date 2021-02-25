@@ -478,6 +478,9 @@
 /* Http error code */
 "Malformed URI" = "URI cacat";
 
+/* Balance */
+"ManageWallet.balance" = "Saldo";
+
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Anda membuat dompet Anda di %1$@";
 
