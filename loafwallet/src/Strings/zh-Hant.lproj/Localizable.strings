@@ -367,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "卡餘額";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "-新註冊\n-登錄（現有帳戶）\n-沒有餘額顯示\n-沒有轉移\n-僅限美國";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin卡當前在Litewallet中具有有限的功能。";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "訪問litecoin.getblockcard.com以獲取完全訪問權限";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin卡測試版";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "登錄失敗";
 

@@ -280,6 +280,7 @@
 		C32DC79C2593971500A7FDB4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC79B2593971500A7FDB4 /* CardView.swift */; };
 		C32DC7AC2593B5C900A7FDB4 /* AnimatedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */; };
 		C32DC7B52593B61F00A7FDB4 /* AnimatedCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */; };
+		C330B1C225EEF67600943FD8 /* CardV1ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C330B1C125EEF67600943FD8 /* CardV1ToastView.swift */; };
 		C345D81525A8D52600657E30 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D81425A8D52600657E30 /* LoginViewModelTests.swift */; };
 		C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */; };
 		C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */; };
@@ -1451,6 +1452,7 @@
 		C32DC79B2593971500A7FDB4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardView.swift; sourceTree = "<group>"; };
 		C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModel.swift; sourceTree = "<group>"; };
+		C330B1C125EEF67600943FD8 /* CardV1ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardV1ToastView.swift; sourceTree = "<group>"; };
 		C345D81425A8D52600657E30 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModelTests.swift; sourceTree = "<group>"; };
@@ -1460,6 +1462,7 @@
 		C35ABD322574073F002BB9BB /* PartnersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
 		C379F227259B9BF000B25883 /* RegistrationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAlertView.swift; sourceTree = "<group>"; };
 		C3A4647C259A646A00D74D81 /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
+		C3ACF2DE25DED601008671D4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		C3B7C3B8255EABBF00E98A64 /* SupportSafariViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSafariViewModel.swift; sourceTree = "<group>"; };
 		C3B7C3C1255EAF1200E98A64 /* SupportSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSafariView.swift; sourceTree = "<group>"; };
 		C3B7C3ED255FF59200E98A64 /* ConstantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
@@ -3005,6 +3008,7 @@
 				24B523AF238A53DC0030594D /* BIP39Words.plist */,
 				2485F7CE23728C19005962F1 /* RELEASE_NOTES.md */,
 				24016D8D23F887C2006A6791 /* GoogleService-Info.plist */,
+				C3ACF2DE25DED601008671D4 /* CHANGELOG.md */,
 			);
 			path = loafwallet;
 			sourceTree = "<group>";
@@ -3308,6 +3312,7 @@
 				CEEC70891E945E3B00EF788E /* UnEditableTextView.swift */,
 				CEEC708D1E954AAB00EF788E /* AboutCell.swift */,
 				C3BD49C825954A1B00D97079 /* ForgotView.swift */,
+				C330B1C125EEF67600943FD8 /* CardV1ToastView.swift */,
 				CEEC70911E95DA4400EF788E /* GradientSwitch.swift */,
 				CE83DE291E9EB7F600D07636 /* SendAmountCell.swift */,
 				CEE20C2C1EA288FA0086F724 /* UpdatingLabel.swift */,
@@ -4187,6 +4192,7 @@
 				C354C45A258FA9C000675E0E /* MainTabBarViewModel.swift in Sources */,
 				CEE659E91F664C73001FF29D /* WelcomeViewController.swift in Sources */,
 				24313C8723821B8C00A83F69 /* PromptTableViewCell.swift in Sources */,
+				C330B1C225EEF67600943FD8 /* CardV1ToastView.swift in Sources */,
 				2228734F1E916FC30044BA15 /* BRAPIClient+Wallet.swift in Sources */,
 				CEAA9EA81DC3342E0066731D /* PinView.swift in Sources */,
 				CE1D84B61EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift in Sources */,
@@ -4683,7 +4689,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4697,7 +4703,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.3.0;
 				OTHER_SWIFT_FLAGS = "-DDebug $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
 				PRODUCT_MODULE_NAME = loafwallet;
@@ -4790,7 +4796,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -4800,7 +4806,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5101,7 +5107,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -5114,7 +5120,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.3.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
 				PRODUCT_MODULE_NAME = loafwallet;
@@ -5131,7 +5137,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -5140,7 +5146,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5231,7 +5237,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5245,7 +5251,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.3.0;
 				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
 				PRODUCT_MODULE_NAME = loafwallet;
@@ -5263,7 +5269,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -5273,7 +5279,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

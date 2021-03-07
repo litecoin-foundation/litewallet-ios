@@ -367,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Saldo kartu";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Pendaftaran baru\n- Masuk (akun yang ada)\n- Tidak ada saldo yang ditampilkan\n- Tidak ada transfer\n- Hanya AS";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Kartu Litecoin saat ini memiliki fungsi terbatas di Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Kunjungi litecoin.getblockcard.com untuk akses penuh";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Kartu Litecoin Beta";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Gagal masuk";
 

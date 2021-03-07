@@ -1362,3 +1362,15 @@
 
 /* Balance */
 "ManageWallet.balance" = "Balance";
+
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- New Registration\n- Login (existing account)\n- No balance shown\n- No transfer\n- US Only";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Card currently has limited functionality in Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Visit litecoin.getblockcard.com for full access";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";

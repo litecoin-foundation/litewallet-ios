@@ -35,6 +35,9 @@ struct CardView: View {
     var didTapIForgot: Bool = false
     
     @State
+    var didShowCardView: Bool = false
+    
+    @State
     private var shouldShowRegistrationView: Bool = false
     
     @State
@@ -233,7 +236,12 @@ struct CardView: View {
             animatedViewModel.dropOffset = -200
         }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillHide)) { _ in
             animatedViewModel.dropOffset = 0
+        }.onAppear(){
+            didShowCardView = true
         }
+        .cardV1ToastView(isShowingCardToast: $didShowCardView)
+        .animation(.easeOut)
+        .transition(.scale)       
         .forgotPasswordView(isShowingForgot: $didTapIForgot,
                             emailString: $forgotEmailAddressInput,
                             message: S.LitecoinCard.forgotPassword)

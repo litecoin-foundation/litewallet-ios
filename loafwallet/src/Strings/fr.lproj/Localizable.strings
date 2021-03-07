@@ -367,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Solde de la carte";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Nouvelle inscription\n- Connexion (compte existant)\n- Aucun solde affiché\n- Pas de transfert\n- États-Unis uniquement";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "La carte Litecoin a actuellement des fonctionnalités limitées dans Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Visitez litecoin.getblockcard.com pour un accès complet";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Bêta de la carte Litecoin";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Échec de la connexion";
 

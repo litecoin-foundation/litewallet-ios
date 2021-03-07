@@ -367,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Баланс карты";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Новая регистрация\n- Авторизация (существующая учетная запись)\n- Баланс не отображается\n- Без передачи\n- Только США";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Card в настоящее время имеет ограниченную функциональность в Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Посетите litecoin.getblockcard.com для полного доступа";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Бета-версия карты Litecoin";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Ошибка входа";
 

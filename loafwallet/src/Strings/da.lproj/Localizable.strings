@@ -367,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Kortbalance";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Ny registrering\n- Login (eksisterende konto)\n- Ingen balance vist\n- Ingen overførsel\n- Kun USA";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Card har i øjeblikket begrænset funktionalitet i Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Besøg litecoin.getblockcard.com for fuld adgang";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin-kort Beta";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Login mislykkedes";
 
