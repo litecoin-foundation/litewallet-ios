@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     
-    //MARK: - Combine Variables
+    //MARK: - Combine Variables 
     @ObservedObject
     var viewModel: RegistrationViewModel
     

@@ -99,7 +99,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euD-bi-teC">
-                                <rect key="frame" x="0.0" y="60" width="414" height="578"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="529"/>
                                 <viewLayoutGuide key="safeArea" id="spi-yc-QnP"/>
                                 <connections>
                                     <segue destination="0H7-tx-uMf" kind="embed" id="RDN-fw-P5V"/>
@@ -145,7 +145,7 @@
             <objects>
                 <viewController id="0H7-tx-uMf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z4T-ui-Ve5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="578"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="529"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="UuX-cb-qOU"/>
                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -185,7 +185,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKP-YB-Aes">
-                                <rect key="frame" x="185" y="284" width="44.333333333333343" height="24"/>
+                                <rect key="frame" x="182.66666666666666" y="284" width="49" height="24"/>
                                 <fontDescription key="fontDescription" name="BarlowSemiCondensed-Bold" family="Barlow Semi Condensed" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

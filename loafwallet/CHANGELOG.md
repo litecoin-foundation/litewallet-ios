@@ -16,5 +16,7 @@ The list of changes are below:
     * Add copy data labels and localizations
     * Added Litewallett Customer support portal in place of the email
     * Added animation for the latest LTC price
+    * Added balance label
+	* Added Litecoin Card disclaimer
 ----
 ## Release v3.2.0
