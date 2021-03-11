@@ -85,57 +85,6 @@
 /* API Token error message */
 "ApiClient.tokenError" = "Unable to retrieve API token";
 
-/* Send BCH view body. */
-"BCH.body" = "Enter a destination BCH address below. All BCH in your wallet at the time of the fork (%1$@) will be sent.";
-
-/* Confirm sending <$5.00> to <address>? */
-"BCH.confirmationMessage" = "Confirm sending %1$@ to %2$@";
-
-/* Confirmation alert title */
-"BCH.confirmationTitle" = "Confirmation";
-
-/* Generic bch erorr message */
-"BCH.genericError" = "Your account does not contain any BCH, or you received BCH after the fork.";
-
-/* Transaction ID copied message */
-"BCH.hashCopiedMessage" = "Transaction ID copied";
-
-/* No address error message */
-"BCH.noAddressError" = "Please enter an address";
-
-/* Attempted to scan unsupported qr code error message. */
-"BCH.paymentProtocolError" = "Payment Protocol Requests are not supported for BCH transactions";
-
-/* BCH successfully sent alert message */
-"BCH.successMessage" = "BCH was successfully sent.";
-
-/* Widthdraw BCH view title */
-"BCH.title" = "Withdraw BCH";
-
-/* Tx Hash button header */
-"BCH.txHashHeader" = "BCH Transaction ID";
-
-/* Approve button label */
-"BitID.approve" = "Approve";
-
-/* <sitename> is requesting authentication using your Litecoin wallet */
-"BitID.authenticationRequest" = "%1$@ is requesting authentication using your Litecoin wallet";
-
-/* Deny button label */
-"BitID.deny" = "Deny";
-
-/* BitID error alert title */
-"BitID.error" = "Authentication Error";
-
-/* BitID error alert messaage */
-"BitID.errorMessage" = "Please check with the service. You may need to try again.";
-
-/* BitID success alert title */
-"BitID.success" = "Successfully Authenticated";
-
-/* BitID Authentication Request alert view title */
-"BitID.title" = "BitID Authentication Request";
-
 /* buy button */
 "Button.buy" = "buy";
 
@@ -418,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Card balance";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- New Registration\n- Login (existing account)\n- No balance shown\n- No transfer\n- US Only";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Card currently has limited functionality in Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Visit litecoin.getblockcard.com for full access";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Login failed";
 
@@ -528,6 +489,9 @@
 
 /* No comment provided by engineer. */
 "Malformed URI" = "Malformed URI";
+
+/* Balance */
+"ManageWallet.balance" = "Balance";
 
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "You created your wallet on %1$@";
@@ -1164,6 +1128,12 @@
 
 /* Memo section header */
 "TransactionDetails.commentsHeader" = "Memo";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "Copied";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "Copy all details";
 
 /* Empty transaction list message. */
 "TransactionDetails.emptyMessage" = "Your transactions will appear here.";

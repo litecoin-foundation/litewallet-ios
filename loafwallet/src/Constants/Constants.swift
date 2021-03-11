@@ -37,6 +37,8 @@ enum CustomEvent: String {
     case _20201121_SIL = "STARTED_IFPS_LOOKUP"
     case _20201121_DRIA = "DID_RESOLVE_IPFS_ADDRESS"
     case _20201121_FRIA = "FAILED_RESOLVE_IPFS_ADDRESS"
+    case _20200207_DTHB = "DID_TAP_HEADER_BALANCE"
+
 }
 
 struct FoundationSupport {
