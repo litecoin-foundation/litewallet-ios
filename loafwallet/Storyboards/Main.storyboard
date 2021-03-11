@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-Gw-zod">
-                                <rect key="frame" x="0.0" y="589" width="414" height="98"/>
+                                <rect key="frame" x="0.0" y="638" width="414" height="49"/>
                                 <viewLayoutGuide key="safeArea" id="TzC-tl-jAG"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -66,7 +66,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="38.666666666666664" height="21.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVZ-9F-hgM">
                                                 <rect key="frame" x="15.666666666666686" y="22.666666666666664" width="23" height="13.333333333333336"/>
@@ -79,15 +79,23 @@
                                             <constraint firstAttribute="height" constant="36" id="M3y-Ln-jGL"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXb-8k-gBM">
+                                        <rect key="frame" x="10" y="4" width="32.333333333333336" height="18"/>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="81g-U6-NOG"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
+                                    <constraint firstItem="BXb-8k-gBM" firstAttribute="top" secondItem="81g-U6-NOG" secondAttribute="top" constant="4" id="FgY-7a-fho"/>
                                     <constraint firstItem="zmH-Ee-H6k" firstAttribute="leading" secondItem="RAg-vc-Wor" secondAttribute="trailing" constant="10" id="LKm-Ws-j91"/>
                                     <constraint firstItem="RAg-vc-Wor" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="huE-hU-1KP"/>
                                     <constraint firstAttribute="height" constant="60" id="iBk-qu-OG6"/>
                                     <constraint firstItem="zmH-Ee-H6k" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="ksC-fB-keg"/>
                                     <constraint firstAttribute="trailing" secondItem="zmH-Ee-H6k" secondAttribute="trailing" constant="10" id="vY4-OJ-KBs"/>
+                                    <constraint firstItem="BXb-8k-gBM" firstAttribute="leading" secondItem="81g-U6-NOG" secondAttribute="leading" constant="10" id="wcY-ph-pPP"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euD-bi-teC">
@@ -125,6 +133,7 @@
                         <outlet property="timeStampLabel" destination="eVZ-9F-hgM" id="s8z-9v-5Gc"/>
                         <outlet property="timeStampStackView" destination="RAg-vc-Wor" id="mfo-7A-ayM"/>
                         <outlet property="timeStampStackViewHeight" destination="M3y-Ln-jGL" id="aUv-Zm-IFf"/>
+                        <outlet property="walletBalanceLabel" destination="BXb-8k-gBM" id="XdI-Kh-2yT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bt-6z-wZV" userLabel="First Responder" sceneMemberID="firstResponder"/>

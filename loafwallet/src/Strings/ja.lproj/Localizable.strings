@@ -85,57 +85,6 @@
 /* API Token error message */
 "ApiClient.tokenError" = "APIトークンを取得できません";
 
-/* Send BCH view body. */
-"BCH.body" = "送金先のBCHアドレスを入力してください。フォーク時（%1$@）にウォレット内にあった全てのBCHが送られます。";
-
-/* Confirm sending <$5.00> to <address>? */
-"BCH.confirmationMessage" = "%1$@を%2$@に送金することを確認する";
-
-/* Confirmation alert title */
-"BCH.confirmationTitle" = "承認";
-
-/* Generic bch erorr message */
-"BCH.genericError" = "アカウントにBCHがない、またはフォークの後にBCHを受け取っています。";
-
-/* Transaction ID copied message */
-"BCH.hashCopiedMessage" = "トランザクションIDをコピー済み";
-
-/* No address error message */
-"BCH.noAddressError" = "アドレスを入力してください";
-
-/* Attempted to scan unsupported qr code error message. */
-"BCH.paymentProtocolError" = "BCHのトランザクションでペイメントプロトコルリクエストはサポートされていません。";
-
-/* BCH successfully sent alert message */
-"BCH.successMessage" = "BCHの送金に成功しました。";
-
-/* Widthdraw BCH view title */
-"BCH.title" = "BCHを引き出す";
-
-/* Tx Hash button header */
-"BCH.txHashHeader" = "BCHのトランザクションID";
-
-/* Approve button label */
-"BitID.approve" = "承認する";
-
-/* <sitename> is requesting authentication using your Litecoin wallet */
-"BitID.authenticationRequest" = "%1$@がリテコインウォレットを使っての認証を求めています";
-
-/* Deny button label */
-"BitID.deny" = "拒否する";
-
-/* BitID error alert title */
-"BitID.error" = "認証エラー";
-
-/* BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again) */
-"BitID.errorMessage" = "サービスを確認してください。やり直さなければいけない可能性もあります。";
-
-/* BitID success alert title */
-"BitID.success" = "認証成功";
-
-/* BitID Authentication Request alert view title */
-"BitID.title" = "BitID認証リクエスト";
-
 /* buy button */
 "Button.buy" = "購入";
 
@@ -418,6 +367,18 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "カード残高";
 
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "-新規登録\n-ログイン（既存のアカウント）\n-残高は表示されていません\n-転送なし\n-米国のみ";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "ライトコインカードは現在、ライトウォレットの機能が制限されています。";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "フルアクセスについては、litecoin.getblockcard.comにアクセスしてください";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "ライトコインカードベータ";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "ログインに失敗しました";
 
@@ -528,6 +489,9 @@
 
 /* No comment provided by engineer. */
 "Malformed URI" = "不正なURI";
+
+/* Balance */
+"ManageWallet.balance" = "残高";
 
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "あなたは%1$@でご自身のウォレットを作成しました";
@@ -1164,6 +1128,12 @@
 
 /* Memo section header */
 "TransactionDetails.commentsHeader" = "メモ";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "コピー";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "すべての詳細をコピーする";
 
 /* Empty transaction list message. */
 "TransactionDetails.emptyMessage" = "あなたの取引はこちらに表示されます。";
