@@ -164,17 +164,13 @@ class RegistrationViewModel: ObservableObject {
     }
     
     /// Password  Validator
-    /// - Parameter passwordString: 6 - 10 chars
+    /// - Parameter passwordString: 6 chars minimum
     /// - Returns: Bool
     func isPasswordValid(passwordString: String) -> Bool {
         
-        guard passwordString != "" else {
+        guard passwordString.count >= 6 else {
             return false
-        }
-        
-        guard (passwordString.count >= 6 && passwordString.count <= 10) else {
-            return false
-        }
+        } 
         
         if try! NSRegularExpression(pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$", options: .caseInsensitive)
             .firstMatch(in: passwordString, options: [],
