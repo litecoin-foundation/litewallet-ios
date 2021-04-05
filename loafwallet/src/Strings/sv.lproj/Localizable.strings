@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Köp Litecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Köp LTC med många fiatpar\n• Betala med flera metoder\n• Global betalningsleverantör";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• Skaffa Litecoin inom 5 minuter! \n • Köp Litecoin via kreditkort \n • Pass eller statligt ID";
 

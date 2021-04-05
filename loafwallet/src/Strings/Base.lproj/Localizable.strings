@@ -1360,9 +1360,6 @@
 /* Copy all details */
 "TransactionDetails.copyAllDetails" = "Copy all details";
 
-/* Balance */
-"ManageWallet.balance" = "Balance";
-
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- New Registration\n- Login (existing account)\n- No balance shown\n- No transfer\n- US Only";
 
@@ -1383,3 +1380,12 @@
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "System lookup problem. [Error: %2$d]";
+
+/* Balance */
+"ManageWallet.balance" = "Balance";
+
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Buy LTC with many fiat pairs\n• Pay with multiple methods\n• Global payment provider";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";

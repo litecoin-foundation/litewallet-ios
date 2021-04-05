@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "购买 Łitecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "•购买具有许多法定货币对的LTC\n•以多种方式支付\n•全球支付提供商";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• 5分钟内获得Litecoin！\n •通过信用卡购买Litecoin \n •护照或州ID";
 

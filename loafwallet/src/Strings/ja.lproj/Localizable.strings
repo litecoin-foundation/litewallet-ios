@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Litecoin を購入する";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "•多くの法定紙幣ペアでLTCを購入する\n•複数の方法で支払う\n•グローバル決済プロバイダー";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "•5分でLitecoinを入手！\n •クレジットカードでLitecoinを購入 \n•パスポートまたは州ID";
 

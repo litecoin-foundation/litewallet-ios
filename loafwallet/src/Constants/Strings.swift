@@ -258,6 +258,8 @@ enum S {
       static let title = NSLocalizedString("BuyCenter.title", value: "**Buy Litecoin**", comment: "Buy Center Title")
       static let buyModalTitle = NSLocalizedString("BuyCenter.ModalTitle", value: "**Buy Łitecoin**", comment: "Buy Modal Title")
       enum Cells {
+        static let moonpayTitle = NSLocalizedString("BuyCenter.moonpayTitle", value: "**Moonpay**", comment: "Moonpay Title")
+        static let moonpayFinancialDetails = NSLocalizedString("BuyCenter.moonpayFinancialDetails", value: "**• Point 1 XXXXX\n• Point 2 XXXXn• XXX Point 3**", comment: "Moonpay buy financial details")
         static let simplexTitle = NSLocalizedString("BuyCenter.simplexTitle", value: "**Simplex**", comment: "Simplex Title")
         static let simplexFinancialDetails = NSLocalizedString("BuyCenter.simplexFinancialDetails", value: "**• Get Litecoin in 5 mins!\n• Buy Litecoin via credit card\n• Passport or State ID**", comment: "Simplex buy financial details")
         static let changellyTitle = NSLocalizedString("BuyCenter.changellyTitle", value: "**Changelly**", comment: "Changelly Title")

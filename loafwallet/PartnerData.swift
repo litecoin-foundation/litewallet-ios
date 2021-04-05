@@ -8,11 +8,6 @@
 
 import Foundation
 import UIKit
-
-
-enum PartnerPrefix: String {
-    case simplex = "_simplex"
-}
  
 struct Partner {
     
@@ -21,8 +16,9 @@ struct Partner {
     let details: String
      
     static func partnerDataArray() -> [Partner] {
+        let moonpay = Partner(logo: UIImage(named: "moonpay-logo")!, headerTitle: S.BuyCenter.Cells.moonpayTitle, details: S.BuyCenter.Cells.moonpayFinancialDetails)
         let simplex = Partner(logo: UIImage(named: "simplexLogo")!, headerTitle: S.BuyCenter.Cells.simplexTitle, details: S.BuyCenter.Cells.simplexFinancialDetails)
-        return [simplex]
+        return [moonpay, simplex]
     }
      
 //TODO: Uncomment as integration progresses, kcw-grunt

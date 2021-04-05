@@ -8,6 +8,8 @@
 
 import UIKit
 import WebKit
+import SafariServices
+
 
 class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
  
@@ -17,34 +19,24 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
     @IBOutlet weak var currentAddressButton: UIButton!
     @IBOutlet weak var copiedLabel: UILabel!
  
-    var didDismissChildView: (() -> ())? 
-
-    private let uuidString : String = {
-        return  UIDevice.current.identifierForVendor?.uuidString ?? ""
-    }()
-    private let currentWalletAddress : String = {
-        return WalletManager.sharedInstance.wallet?.receiveAddress ?? ""
-    }()
-
-    private let appInstallDate : Date = {
-         if let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
-                if let installDate = try! FileManager.default.attributesOfItem(atPath: documentsFolder.path)[.creationDate] as? Date {
-                    return installDate
-                }
-            }
-        return Date()
-    }()
+    var didDismissChildView: (() -> ())?
     
+    var uuidString: String = ""
+    
+    var currentWalletAddress: String = ""
+    
+    var timestamp: Int = 0
+ 
+    var appInstallDate: Date = Date()
+ 
     private let wkProcessPool = WKProcessPool()
-    
-    var partnerPrefixString: String?
-    
+     
     var currencyCode: String = "USD"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubViews()
-        loadRequest()
+        loadSimplexRequest()
      }
 
     private func setupSubViews() {
@@ -54,34 +46,34 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
         copiedLabel.alpha = 0.0
      }
     
-    func loadRequest() {
+    func loadSimplexRequest() {
+          
+        let urlString: String = APIServer.baseUrl + "?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
+             
+        guard let url = URL(string: urlString) else {
+            NSLog("ERROR: URL not initialized")
+            return
+        }
         
+        let request = URLRequest(url: url)
+ 
         let contentController = WKUserContentController()
         contentController.add(self, name: "callback")
-  
+        
         let config = WKWebViewConfiguration()
         config.processPool = wkProcessPool
         config.userContentController = contentController
         
         let wkWithFooter = CGRect(x: 0, y: 0, width: self.wkWebContainerView.bounds.width,
                                   height: self.wkWebContainerView.bounds.height - 100)
-        let wkWebView = WKWebView(frame:wkWithFooter, configuration: config)
-        wkWebView.navigationDelegate = self
-        wkWebView.allowsBackForwardNavigationGestures = true
-        wkWebView.contentMode = .scaleAspectFit
-        wkWebView.autoresizesSubviews = true
-        wkWebView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.wkWebContainerView.addSubview(wkWebView)
-        
-        let timestamp = Int(appInstallDate.timeIntervalSince1970)
-        let urlString =  APIServer.baseUrl + "?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
-        guard let url = URL(string: urlString) else {
-        NSLog("ERROR: URL not initialized")
-            return
-        }
-        
-        let request = URLRequest(url: url)
-        wkWebView.load(request)
+        let setupWkWebView = WKWebView(frame:wkWithFooter, configuration: config)
+        setupWkWebView.navigationDelegate = self
+        setupWkWebView.allowsBackForwardNavigationGestures = true
+        setupWkWebView.contentMode = .scaleAspectFit
+        setupWkWebView.autoresizesSubviews = true
+        setupWkWebView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        self.wkWebContainerView.addSubview(setupWkWebView)
+        setupWkWebView.load(request)
     }
     
     @IBAction func didTapCurrentAddressButton(_ sender: Any) {
@@ -97,10 +89,6 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
     @IBAction func backAction(_ sender: Any) {
        didDismissChildView?()
     }
-    
-    func closeNow() {
-       didDismissChildView?()
-    }
 }
 
 extension BuyWKWebViewController {
@@ -109,14 +97,7 @@ extension BuyWKWebViewController {
     
     open func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                       decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if let url = navigationAction.request.url?.absoluteString {
-            let mutableurl = url
-            if mutableurl.contains("/close") {
-                DispatchQueue.main.async {
-                    self.closeNow()
-                }
-            }
-        }
+        
         return decisionHandler(.allow)
     }
     
@@ -125,22 +106,8 @@ extension BuyWKWebViewController {
             if complete != nil { }
         })
     }
+    
+    func userContentController(_ userContentController: WKUserContentController,
+                               didReceive message: WKScriptMessage) { }
      
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let response = message.body as? String else { return }
-        print(response)
-        guard let url = URL(string: "https://checkout.simplexcc.com/payments/new") else { return }
-        
-        var req = URLRequest(url: url)
-        req.httpBody = Data(response.utf8)
-        req.httpMethod = "POST"
-           
-        DispatchQueue.main.async {
-            let vc = BRBrowserViewController()
-            vc.load(req)
-            self.addChildViewController(vc)
-            self.wkWebContainerView.addSubview(vc.view)
-            vc.didMove(toParentViewController: self)
-        }
-    }
 }
