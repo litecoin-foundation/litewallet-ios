@@ -484,6 +484,9 @@
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "重设密码";
 
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "输入与您的Litecoin卡帐户关联的电子邮件地址，并查找包含重置说明的电子邮件。";
+
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "请访问 https://litecoin.dashboard.getblockcard.com/password/forgot 重置您的密码。";
 

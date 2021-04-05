@@ -484,6 +484,9 @@
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Setel ulang kata sandi";
 
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Masukkan alamat email yang terkait dengan akun Kartu Litecoin Anda & cari email dengan instruksi reset.";
+
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Kunjungi https://litecoin.dashboard.getblockcard.com/password/forgot untuk mengatur ulang kata sandi Anda.";
 

@@ -484,6 +484,9 @@
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Réinitialiser le mot de passe";
 
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Entrez l'adresse e-mail associée à votre compte Litecoin Card et recherchez un e-mail avec des instructions de réinitialisation.";
+
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visitez le site https://litecoin.dashboard.getblockcard.com/password/forgot pour réinitialiser votre mot de passe.";
 

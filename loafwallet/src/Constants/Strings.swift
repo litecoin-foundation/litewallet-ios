@@ -124,8 +124,9 @@ enum S {
         static let failedlogin = NSLocalizedString("LitecoinCard.failed.login", value: "**Failed Login**", comment: "Failed Login") 
         static let logout = NSLocalizedString("LitecoinCard.logout", value: "**Logout**", comment: "Logout")
         static let forgotPassword = NSLocalizedString("LitecoinCard.forgotPassword", value: "**Forgot password?**", comment: "Forgot password?")
+        static let resetPassword = NSLocalizedString("LitecoinCard.resetPassword", value: "**Reset password**", comment: "Reset password")
+        static let resetPasswordDetail = NSLocalizedString("LitecoinCard.resetPasswordDetail", value: "**Enter the email that you used to register for your Litecoin Card and check for an email from support@litecoin.getblockcard.com.**", comment: "Reset password detail")
         static let visitToReset = NSLocalizedString("LitecoinCard.visit.toReset", value: "**Reset Litecoin card visit**", comment: "Litecoin card visit")
-        static let resetPassword = NSLocalizedString("LitecoinCard.resetPassword", value: "**Reset Litecoin card password**", comment: "Reset Litecoin card password")
         static let registerCard = NSLocalizedString("LitecoinCard.registerCard", value: "**Register**", comment: "Register")
         static let registeringUser = NSLocalizedString("LitecoinCard.registering.user", value: "**Registering user...**", comment: "Registering user...")
         
