@@ -1380,7 +1380,7 @@
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "System lookup problem. [Error: %2$d]";
- 
+
 /* Balance */
 "ManageWallet.balance" = "Balance";
 
@@ -1389,7 +1389,6 @@
 
 /* Moonpay Title */
 "BuyCenter.moonpayTitle" = "Moonpay";
- 
+
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Enter the email address associated with your Litecoin Card account & look for an email with reset instructions.";
- 

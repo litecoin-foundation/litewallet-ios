@@ -137,7 +137,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
         if let code = PartnerFiatOptions(rawValue: moonpaySegmentedControl.selectedSegmentIndex)?.description {
             self.currencyCode = code
         } else {
-            print("Error: Code not found: XXXX\(moonpaySegmentedControl.selectedSegmentIndex)")
+            print("Error: Code not found: \(moonpaySegmentedControl.selectedSegmentIndex)")
         }
     }
     
@@ -145,7 +145,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
         if let code = PartnerFiatOptions(rawValue: simplexCurrencySegmentedControl.selectedSegmentIndex)?.description {
             self.currencyCode = code
         } else {
-            print("Error: Code not found: XXXX\(simplexCurrencySegmentedControl.selectedSegmentIndex)")
+            print("Error: Code not found: \(simplexCurrencySegmentedControl.selectedSegmentIndex)")
         }
     }
 }

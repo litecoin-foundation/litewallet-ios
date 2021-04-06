@@ -271,6 +271,7 @@
 		C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029EA25D019BC00F08C2B /* CopyButtonView.swift */; };
 		C30AFB4E2598FC1B00CDCF69 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C30AFB4D2598FC1B00CDCF69 /* SwiftPackageProductDependency */; };
 		C30899792616426800EE6A40 /* ForgotAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30899782616426800EE6A40 /* ForgotAlertViewModel.swift */; };
+		C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308993E2616124800EE6A40 /* CardWalletTests.swift */; };
 		C30AFB4E2598FC1B00CDCF69 /* LitewalletPartnerAPI in Frameworks */ = {isa = PBXBuildFile; productRef = C30AFB4D2598FC1B00CDCF69 /* LitewalletPartnerAPI */; };
 		C30AFB642598FFB200CDCF69 /* PartnerAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30AFB632598FFB200CDCF69 /* PartnerAPIManager.swift */; };
 		C316CF49261887FC00E4C09B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */; };
@@ -305,6 +306,7 @@
 		C3BD4A4A2597542700D97079 /* LoginCardAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BD4A492597542700D97079 /* LoginCardAlertView.swift */; };
 		C3BD4A5325975C6000D97079 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BD4A5225975C6000D97079 /* View+Extension.swift */; };
 		C3BD4A6A2597E1E900D97079 /* CardLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BD4A692597E1E900D97079 /* CardLoggedInView.swift */; };
+		C3BF74D926114969001CE2BB /* CardWalletDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF74D826114969001CE2BB /* CardWalletDetails.swift */; };
 		C3BFD349259E31C100136837 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BFD348259E31C100136837 /* LoginViewModel.swift */; };
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
 		C3D4379F2566EA3E00F423E1 /* LWActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */; };
@@ -1448,6 +1450,7 @@
 		C30029E125D0185500F08C2B /* StandardDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDividerView.swift; sourceTree = "<group>"; };
 		C30029EA25D019BC00F08C2B /* CopyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButtonView.swift; sourceTree = "<group>"; };
 		C30899782616426800EE6A40 /* ForgotAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAlertViewModel.swift; sourceTree = "<group>"; };
+		C308993E2616124800EE6A40 /* CardWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWalletTests.swift; sourceTree = "<group>"; };
 		C30AFB632598FFB200CDCF69 /* PartnerAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerAPIManager.swift; sourceTree = "<group>"; };
 		C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		C32142E925C97CD900BECCD0 /* TransactionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellView.swift; sourceTree = "<group>"; };
@@ -1482,6 +1485,7 @@
 		C3BD4A492597542700D97079 /* LoginCardAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCardAlertView.swift; sourceTree = "<group>"; };
 		C3BD4A5225975C6000D97079 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		C3BD4A692597E1E900D97079 /* CardLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoggedInView.swift; sourceTree = "<group>"; };
+		C3BF74D826114969001CE2BB /* CardWalletDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWalletDetails.swift; sourceTree = "<group>"; };
 		C3BFD348259E31C100136837 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
@@ -1721,7 +1725,7 @@
 				22A9A9601DF61FD8000F0016 /* CoreLocation.framework in Frameworks */,
 				22A9A95E1DF61FD0000F0016 /* PushKit.framework in Frameworks */,
 				223DB21B1DF69F0F0076A151 /* libbz2.framework in Frameworks */,
-				C30AFB4E2598FC1B00CDCF69 /* BuildFile in Frameworks */,
+				C30AFB4E2598FC1B00CDCF69 /* LitewalletPartnerAPI in Frameworks */,
 				752FB04D1DF8BF4B009086FB /* sqlite3.framework in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
 				125EE14518C50D13A5D2D20C /* Pods_loafwallet.framework in Frameworks */,
@@ -3104,6 +3108,7 @@
 			isa = PBXGroup;
 			children = (
 				C3270B98259BF7F20073DA7B /* LitecoinCardUser.swift */,
+				C3BF74D826114969001CE2BB /* CardWalletDetails.swift */,
 			);
 			name = CardModels;
 			sourceTree = "<group>";
@@ -3112,6 +3117,7 @@
 			isa = PBXGroup;
 			children = (
 				C345D81425A8D52600657E30 /* LoginViewModelTests.swift */,
+				C308993E2616124800EE6A40 /* CardWalletTests.swift */,
 				C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */,
 				C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */,
 			);
@@ -3695,7 +3701,7 @@
 			);
 			name = loafwallet;
 			packageProductDependencies = (
-				C30AFB4D2598FC1B00CDCF69 /* SwiftPackageProductDependency */,
+				C30AFB4D2598FC1B00CDCF69 /* LitewalletPartnerAPI */,
 			);
 			productName = breadwallet;
 			productReference = 75A2A7901DA5934300A983D8 /* Litewallet.app */;
@@ -3827,7 +3833,7 @@
 			);
 			mainGroup = 75A2A7871DA5934300A983D8;
 			packageReferences = (
-				C30AFB4C2598FC1B00CDCF69 /* RemoteSwiftPackageReference */,
+				C30AFB4C2598FC1B00CDCF69 /* XCRemoteSwiftPackageReference "LitewalletPartnerAPI" */,
 			);
 			productRefGroup = 75A2A7911DA5934300A983D8 /* Products */;
 			projectDirPath = "";
@@ -4066,6 +4072,7 @@
 				2465873923A5AAD100A32E9E /* loafwalletTests.swift in Sources */,
 				C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */,
 				24470E3623A5FDE800ADDA27 /* PhraseTests.swift in Sources */,
+				C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */,
 				24470E4523A608A700ADDA27 /* AmountTests.swift in Sources */,
 				C3B7C3EE255FF59200E98A64 /* ConstantsTests.swift in Sources */,
 				24470E2323A5DB7D00ADDA27 /* WalletManagerTests.swift in Sources */,
@@ -4249,6 +4256,7 @@
 				CE25BF8D1DF3B8A500BC67B6 /* InViewAlert.swift in Sources */,
 				22A9A9511DF61945000F0016 /* TxMetaData.swift in Sources */,
 				CE8CD8E11E31976800785E02 /* LoginViewController.swift in Sources */,
+				C3BF74D926114969001CE2BB /* CardWalletDetails.swift in Sources */,
 				C3F7BCDE25FEC6AD00694C28 /* AlertFailureView.swift in Sources */,
 				CEC6AA391DEE10BA00EE5AFD /* UINavigationController+Extension.swift in Sources */,
 				CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */,
@@ -5122,10 +5130,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				"OTHER_LDFLAGS[arch=*]" = (
-					"-ObjC",
-					" ",
-				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC  ";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/loafwallet/src/Platform";
@@ -5540,20 +5545,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C30AFB4C2598FC1B00CDCF69 /* RemoteSwiftPackageReference */ = {
+		C30AFB4C2598FC1B00CDCF69 /* XCRemoteSwiftPackageReference "LitewalletPartnerAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/litecoin-foundation/LitewalletPartnerAPI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.0;
+			kind = exactVersion;
+				version = 0.7.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C30AFB4D2598FC1B00CDCF69 /* SwiftPackageProductDependency */ = {
+		C30AFB4D2598FC1B00CDCF69 /* LitewalletPartnerAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C30AFB4C2598FC1B00CDCF69 /* RemoteSwiftPackageReference */;
+			package = C30AFB4C2598FC1B00CDCF69 /* XCRemoteSwiftPackageReference "LitewalletPartnerAPI" */;
 			productName = LitewalletPartnerAPI;
 		};
 /* End XCSwiftPackageProductDependency section */

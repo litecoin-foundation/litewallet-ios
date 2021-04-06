@@ -23,4 +23,5 @@ class AnimatedCardViewModel: ObservableObject {
     var dropOffset: CGFloat = -200.0
      
     init() { }
+    
 }
