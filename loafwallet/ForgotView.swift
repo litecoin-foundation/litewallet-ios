@@ -11,7 +11,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
     //MARK: - Combine Variables
     @ObservedObject
     var viewModel = ForgotAlertViewModel()
-
+    
     @Binding
     var isShowingForgot: Bool
     
@@ -27,7 +27,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
     
     @State
     var didCheckEmailAddress: Bool = false
-    
+     
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             HStack{
@@ -35,11 +35,28 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
                 ZStack {
                     self.presenting.disabled(isShowingForgot)
                     VStack {
+                        
+                        //Dismiss button
+                        Button(action: {
+                            viewModel.shouldDismissView {
+                                self.isShowingForgot.toggle()
+                                UIApplication.shared.endEditing()
+                            }
+                            
+                        }) {
+                            Image("whiteCross")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 15,
+                                       height: 15)
+                        }
+                        .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
+                        
                         Text(S.LitecoinCard.forgotPassword)
-                            .font(Font(UIFont.barlowSemiBold(size: 20.0)))
-                            .padding()
+                            .font(Font(UIFont.barlowSemiBold(size: 21.0)))
+                            .padding(.bottom, 8)
                             .foregroundColor(Color.white)
- 
+                        
                         Text(detailMessage)
                             .font(Font(UIFont.barlowRegular(size: 18.0)))
                             .foregroundColor(Color.white)
@@ -79,13 +96,13 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
                                     .foregroundColor(Color.white)
                                     .padding(.all, 8)
                                     .overlay(
-                                    RoundedRectangle(cornerRadius:4)
-                                        .stroke(Color(UIColor.white), lineWidth: 1)
-                                )
-                                .padding([.leading, .trailing], 20)
-                                .padding([.top,.bottom], 10)
+                                        RoundedRectangle(cornerRadius:4)
+                                            .stroke(Color(UIColor.white), lineWidth: 1)
+                                    )
+                                    .padding([.leading, .trailing], 20)
+                                    .padding([.top,.bottom], 10)
                             }
-                             
+                            
                         }
                     }
                     .padding()
@@ -121,6 +138,7 @@ struct ForgotAlertView_Previews: PreviewProvider {
         }
     }
 }
+
 
 
 

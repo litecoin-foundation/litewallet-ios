@@ -31,5 +31,9 @@ class ForgotAlertViewModel: ObservableObject {
             }
         }
     }
+    
+    func shouldDismissView(completion: @escaping () -> Void) {
+        completion()
+    }
 }
 
