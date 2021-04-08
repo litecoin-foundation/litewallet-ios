@@ -374,7 +374,7 @@
 "LitecoinCard.cardBalance" = "Kortbalans";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Ny registrering\n- Inloggning (befintligt konto)\n- Ingen balans visas\n- Ingen överföring\n- Endast USA";
+"LitecoinCard.Disclaimer.bullets" = "- Registrering & inloggning\n- Tillgängligt kortsaldo\n- Återställ lösenord\n- Ingen överföring till Litewallet\n- Endast USA";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card har för närvarande begränsad funktionalitet i Litewallet.";

@@ -15,8 +15,8 @@ let kProgressHeaderHeight: CGFloat = 50.0
 let kDormantHeaderHeight: CGFloat = 1.0
 let kPromptCellHeight : CGFloat = 120.0
 let kQRImageSide: CGFloat = 110.0
-let kFiveYears: UInt32 = 157680000
-let kTodaysEpochTime: UInt32 = UInt32(Date().timeIntervalSince1970)
+let kFiveYears: Double = 157680000.0
+let kTodaysEpochTime: TimeInterval = Date().timeIntervalSince1970
  
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber, Trackable {
 
@@ -156,7 +156,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     ///   - syncProgress: The state of the initial Sync Progress
     ///   - lastBlockTimestamp: Corresponding timestamp
     /// - Returns: CGFloat value
-    private func updateProgressView(syncProgress: CGFloat, lastBlockTimestamp: UInt32) -> CGFloat {
+    private func updateProgressView(syncProgress: CGFloat, lastBlockTimestamp: Double) -> CGFloat {
         
         ///DEV:  HACK if the previous value is the same add a ration
         /// The problem is the progress needs to go to o to 1 .
@@ -357,7 +357,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                             syncView.isRescanning = reduxState.walletState.isRescanning
                             if (syncView.isRescanning || (reduxState.walletState.syncState == .syncing)) {
                                 syncView.progress = CGFloat(self.updateProgressView(syncProgress:
-                                                                                        CGFloat(reduxState.walletState.syncProgress), lastBlockTimestamp: reduxState.walletState.lastBlockTimestamp))
+                                                                                        CGFloat(reduxState.walletState.syncProgress), lastBlockTimestamp: Double(reduxState.walletState.lastBlockTimestamp)))
                                 syncView.headerMessage = reduxState.walletState.syncState
                                 syncView.noSendImageView.alpha = 1.0
                                 

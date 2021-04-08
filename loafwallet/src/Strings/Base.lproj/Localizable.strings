@@ -1361,7 +1361,7 @@
 "TransactionDetails.copyAllDetails" = "Copy all details";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- New Registration\n- Login (existing account)\n- No balance shown\n- No transfer\n- US Only";
+"LitecoinCard.Disclaimer.bullets" = "- Registration & Login\n- Available card balance\n- Reset password\n- No transfer to Litewallet\n- US Only";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card currently has limited functionality in Litewallet.";

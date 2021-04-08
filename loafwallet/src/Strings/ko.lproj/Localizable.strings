@@ -374,7 +374,7 @@
 "LitecoinCard.cardBalance" = "카드 잔액";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "-신규 등록\n-로그인 (기존 계정)\n-잔액이 표시되지 않음\n-환승 불가\n-미국 만";
+"LitecoinCard.Disclaimer.bullets" = "-등록 및 로그인\n-사용 가능한 카드 잔액\n- 암호를 재설정\n-Litewallet으로 양도 불가\n-미국 만 해당";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "라이트 코인 카드는 현재 라이트 월렛에서 제한된 기능을 가지고 있습니다.";
