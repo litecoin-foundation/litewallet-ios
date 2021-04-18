@@ -11,7 +11,7 @@ def shared_pods
   pod 'KeychainAccess', '~> 4.2'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics' 
-  # add after v2.9.0 pod 'SwiftLint'
+  # add pod 'SwiftLint'
 end
 
 target 'loafwallet' do
