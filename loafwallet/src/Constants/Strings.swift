@@ -101,6 +101,9 @@ enum S {
         enum UnstoppableDomains {
             static let placeholder = NSLocalizedString("Send.UnstoppableDomains.placeholder", value: "**Enter a .crypto or .zil domain**", comment: "Enter a .crypto or .zil domain")
             static let lookup = NSLocalizedString("Send.UnstoppableDomains.lookup", value: "**Lookup**", comment: "Lookup")
+            static let lookupFailureHeader = NSLocalizedString("Send.UnstoppableDomains.lookupFailureHeader", value: "**LookupFailureHeader**", comment: "lookupFailureHeader")
+            static let lookupDomainError = NSLocalizedString("Send.UnstoppableDomains.lookupDomainError", value: "**LookupDomainError**", comment: "LookupDomainError")
+            static let udSystemError = NSLocalizedString("Send.UnstoppableDomains.udSystemError", value: "**UDSystemError**", comment: "UDSystemError")
         }
     }
 
@@ -121,8 +124,9 @@ enum S {
         static let failedlogin = NSLocalizedString("LitecoinCard.failed.login", value: "**Failed Login**", comment: "Failed Login") 
         static let logout = NSLocalizedString("LitecoinCard.logout", value: "**Logout**", comment: "Logout")
         static let forgotPassword = NSLocalizedString("LitecoinCard.forgotPassword", value: "**Forgot password?**", comment: "Forgot password?")
+        static let resetPassword = NSLocalizedString("LitecoinCard.resetPassword", value: "**Reset password**", comment: "Reset password")
+        static let resetPasswordDetail = NSLocalizedString("LitecoinCard.resetPasswordDetail", value: "**Enter the email that you used to register for your Litecoin Card and check for an email from support@litecoin.getblockcard.com.**", comment: "Reset password detail")
         static let visitToReset = NSLocalizedString("LitecoinCard.visit.toReset", value: "**Reset Litecoin card visit**", comment: "Litecoin card visit")
-        static let resetPassword = NSLocalizedString("LitecoinCard.resetPassword", value: "**Reset Litecoin card password**", comment: "Reset Litecoin card password")
         static let registerCard = NSLocalizedString("LitecoinCard.registerCard", value: "**Register**", comment: "Register")
         static let registeringUser = NSLocalizedString("LitecoinCard.registering.user", value: "**Registering user...**", comment: "Registering user...")
         
@@ -255,6 +259,8 @@ enum S {
       static let title = NSLocalizedString("BuyCenter.title", value: "**Buy Litecoin**", comment: "Buy Center Title")
       static let buyModalTitle = NSLocalizedString("BuyCenter.ModalTitle", value: "**Buy Łitecoin**", comment: "Buy Modal Title")
       enum Cells {
+        static let moonpayTitle = NSLocalizedString("BuyCenter.moonpayTitle", value: "**Moonpay**", comment: "Moonpay Title")
+        static let moonpayFinancialDetails = NSLocalizedString("BuyCenter.moonpayFinancialDetails", value: "**• Point 1 XXXXX\n• Point 2 XXXXn• XXX Point 3**", comment: "Moonpay buy financial details")
         static let simplexTitle = NSLocalizedString("BuyCenter.simplexTitle", value: "**Simplex**", comment: "Simplex Title")
         static let simplexFinancialDetails = NSLocalizedString("BuyCenter.simplexFinancialDetails", value: "**• Get Litecoin in 5 mins!\n• Buy Litecoin via credit card\n• Passport or State ID**", comment: "Simplex buy financial details")
         static let changellyTitle = NSLocalizedString("BuyCenter.changellyTitle", value: "**Changelly**", comment: "Changelly Title")
@@ -633,8 +639,8 @@ enum S {
             static let highFees = NSLocalizedString("Import.Error.highFees", value: "**Transaction fees would cost more than the funds available on this private key.**", comment: "High fees error message")
             static let signing = NSLocalizedString("Import.Error.signing", value: "**Error signing transaction**", comment: "Import signing error message")
         }
-    } 
-    
+     }
+	 
     enum SupportLitecoinFoundation {
         static let title = NSLocalizedString("SupportTheFoundation.title", value: "**Support the Litecoin Foundation**", comment: "Support the Litecoin Foundation")
     }

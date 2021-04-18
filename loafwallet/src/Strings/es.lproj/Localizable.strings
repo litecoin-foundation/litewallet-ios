@@ -140,6 +140,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Comprar Łitecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Compre LTC con muchos pares fiat\n• Pague con múltiples métodos\n• Proveedor de pago global";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• ¡Obtenga Litecoin en 5 minutos! \n • Compre Litecoin con tarjeta de crédito \n • Pasaporte o identificación del estado";
 
@@ -369,7 +375,7 @@
 "LitecoinCard.cardBalance" = "Balance de tarjeta";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Nuevo registro\n- Ingrese cuenta existente)\n- No se muestra saldo\n- Sin transferencia\n- Estados Unidos solamente";
+"LitecoinCard.Disclaimer.bullets" = "- Registro e inicio de sesión\n- Saldo de tarjeta disponible\n- Restablecer contraseña\n- Sin transferencia a Litewallet\n- Estados Unidos solamente";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "La tarjeta Litecoin actualmente tiene una funcionalidad limitada en Litewallet.";
@@ -478,6 +484,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Restablecer la contraseña";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Ingrese la dirección de correo electrónico asociada con su cuenta de tarjeta Litecoin y busque un correo electrónico con instrucciones para restablecer.";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visita https://litecoin.dashboard.getblockcard.com/password/forgot para restablecer tu contraseña.";
@@ -887,8 +896,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Buscar";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Lo sentimos, no se encontró el dominio. [Error: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Búsqueda fallida";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Ingrese un dominio .crypto o .zil";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problema de búsqueda del sistema. [Error: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Las direcciones Litecoin están diseñadas para un solo uso.";

@@ -164,15 +164,11 @@ class RegistrationViewModel: ObservableObject {
     }
     
     /// Password  Validator
-    /// - Parameter passwordString: 6 - 10 chars
+    /// - Parameter passwordString: 6 chars minimum
     /// - Returns: Bool
     func isPasswordValid(passwordString: String) -> Bool {
         
-        guard passwordString != "" else {
-            return false
-        }
-        
-        guard (passwordString.count >= 6 && passwordString.count <= 10) else {
+        guard passwordString.count >= 6 else {
             return false
         }
         
@@ -209,5 +205,3 @@ class RegistrationViewModel: ObservableObject {
         }
     }
 }
-
-

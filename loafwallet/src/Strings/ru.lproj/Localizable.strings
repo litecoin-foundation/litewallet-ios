@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Купить Litecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Покупайте LTC с помощью множества фиатных пар\n• Оплачивайте несколькими способами\n• Глобальный платежный провайдер";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• Получить Litecoin за 5 минут! \n • Купить Litecoin с помощью кредитной карты \n • Паспорт или удостоверение личности штата";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "Баланс карты";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Новая регистрация\n- Авторизация (существующая учетная запись)\n- Баланс не отображается\n- Без передачи\n- Только США";
+"LitecoinCard.Disclaimer.bullets" = "- Регистрация и вход\n- Доступный баланс карты\n- Сброс пароля\n- Без перевода на Litewallet\n- Только США";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card в настоящее время имеет ограниченную функциональность в Litewallet.";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Сброс пароля";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Введите адрес электронной почты, связанный с вашей учетной записью Litecoin Card, и найдите письмо с инструкциями по сбросу.";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Посетите https://litecoin.dashboard.getblockcard.com/password/forgot, чтобы сбросить пароль.";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Искать";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "К сожалению, домен не найден. [Ошибка: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Ошибка поиска";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Введите домен .crypto или .zil";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Проблема с поиском в системе. [Ошибка: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Биткойн-адреса предназначены исключительно для однократного использования.";

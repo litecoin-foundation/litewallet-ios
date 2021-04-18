@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 import UnstoppableDomainsResolution
-   
+ 
 class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Combine Variables
@@ -27,10 +27,11 @@ class UnstoppableDomainViewModel: ObservableObject {
     var didResolveUDAddress: ((String) -> Void)?
      
     var shouldClearAddressField: (() -> Void)?
+        
+    var didFailToResolve: ((String) -> Void)?
     
     //MARK: - Private Variables
-    private var ltcAddress = "" 
-	
+    private var ltcAddress = ""
     private var dateFormatter: DateFormatter? {
         
         didSet {
@@ -56,7 +57,7 @@ class UnstoppableDomainViewModel: ObservableObject {
                                            properties:
                                             ["start_time": timestamp])
         
-        self.resolveUDAddress(domainName: searchString) 
+        self.resolveUDAddress(domainName: searchString)
     }
     
     private func resolveUDAddress(domainName: String) {
@@ -95,25 +96,29 @@ class UnstoppableDomainViewModel: ObservableObject {
                         self.didResolveUDAddress?(self.ltcAddress)
                         self.isDomainResolving = false
                     }
-                    
+                                                                                                                                                            
                 case .failure(let error):
-                    
+                    print(error)
+                    let errorMessage = DomainResolutionFailure().messageWith(error: error)
                     let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
                     
                     LWAnalytics.logEventWithParameters(itemName:
                                                         CustomEvent._20201121_FRIA,
                                                        properties:
                                                         ["failure_time": timestamp,
+                                                         "error_message":errorMessage,
                                                          "error":error.localizedDescription])
                     
                     ///Quicker resolution: When the resolution is done, the activity indicatior stops and the address is  updated
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3,
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2,
                                                   execute: {
-                       print("Expected LTC Address, but got \(error.localizedDescription)")
+                                        
+                       self.didFailToResolve?(error.localizedDescription)
+                                                     
+                                                    self.didFailToResolve?(errorMessage)
+                                                    self.isDomainResolving = false
                                                     
-                       self.isDomainResolving = false
-                                                    
-                    })
+                                                  })
             }
             group.leave()
         }
@@ -133,3 +138,4 @@ class UnstoppableDomainViewModel: ObservableObject {
         }
     }
 }
+

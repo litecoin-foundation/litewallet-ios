@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "购买 Łitecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "•购买具有许多法定货币对的LTC\n•以多种方式支付\n•全球支付提供商";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• 5分钟内获得Litecoin！\n •通过信用卡购买Litecoin \n •护照或州ID";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "卡余额";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "-新注册\n-登录（现有帐户\n-没有余额显示\n-没有转移\n-仅限美国";
+"LitecoinCard.Disclaimer.bullets" = "-注册和登录\n-可用卡余额\n-重置密码\n-不能转移到Litewallet\n-仅限美国";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin卡当前在Litewallet中具有有限的功能。";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "重设密码";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "输入与您的Litecoin卡帐户关联的电子邮件地址，并查找包含重置说明的电子邮件。";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "请访问 https://litecoin.dashboard.getblockcard.com/password/forgot 重置您的密码。";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "抬头";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "抱歉，找不到域。 [错误: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "查找失败";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "输入.crypto或.zil域";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "系统查找问题。 [错误: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "莱特币地址仅供一次性使用。";
