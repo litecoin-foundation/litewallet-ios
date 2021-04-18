@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Köp Litecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Köp LTC med många fiatpar\n• Betala med flera metoder\n• Global betalningsleverantör";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• Skaffa Litecoin inom 5 minuter! \n • Köp Litecoin via kreditkort \n • Pass eller statligt ID";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "Kortbalans";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Ny registrering\n- Inloggning (befintligt konto)\n- Ingen balans visas\n- Ingen överföring\n- Endast USA";
+"LitecoinCard.Disclaimer.bullets" = "- Registrering & inloggning\n- Tillgängligt kortsaldo\n- Återställ lösenord\n- Ingen överföring till Litewallet\n- Endast USA";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card har för närvarande begränsad funktionalitet i Litewallet.";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Återställ lösenord";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Ange e-postadressen som är kopplad till ditt Litecoin-kortkonto och leta efter ett e-postmeddelande med återställningsinstruktioner.";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Besök https://litecoin.dashboard.getblockcard.com/password/forgot för att återställa ditt lösenord.";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Slå upp";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Tyvärr hittades inte domänen. [Fel: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Sökningen misslyckades";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Ange en .crypto- eller .zil-domän";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problem med systemuppslag. [Fel: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin-adresser är avsedda för engångsanvändning.";

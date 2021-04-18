@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Acquista Łitecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Acquista LTC con molte coppie fiat\n• Paga con più metodi\n• Fornitore globale di pagamenti";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• Ottieni Litecoin in 5 minuti! \n • Acquista Litecoin tramite carta di credito \n • Passaporto o carta d'identità";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "Saldo della carta";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Nuova registrazione\n- Log in in un account esistente)\n- Nessun saldo mostrato\n- Nessun trasferimento\n- Solo USA";
+"LitecoinCard.Disclaimer.bullets" = "- Registrazione e accesso\n- Saldo della carta disponibile\n- Reimposta password\n- Nessun trasferimento a Litewallet\n- Solo negli Stati Uniti";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card ha attualmente funzionalità limitate in Litewallet.";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Resetta la password";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Inserisci l'indirizzo e-mail associato al tuo account Litecoin Card e cerca un'e-mail con le istruzioni per il ripristino.";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visita https://litecoin.dashboard.getblockcard.com/password/forgot per reimpostare la tua password.";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Consultare";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Spiacenti, il dominio non è stato trovato. [Errore: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Ricerca non riuscita";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Inserisci un dominio .crypto o .zil";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problema di ricerca nel sistema. [Errore: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Gli indirizzi Litecoin dovrebbero essere utilizzati una sola volta.";

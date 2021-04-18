@@ -52,15 +52,6 @@ struct CardView: View {
     @State
     var isEmailValid: Bool = false
     
-    @State
-    var isPasswordValid: Bool = false
-    
-    private var shouldEnableLogin: Binding<Bool> {
-        return Binding(
-            get: { return (self.isPasswordValid && self.isEmailValid) },
-            set: { if !$0 { (self.isPasswordValid && self.isEmailValid) } })
-    }
-    
     init(viewModel: CardViewModel) {
          
         self.viewModel = viewModel
@@ -106,14 +97,7 @@ struct CardView: View {
                         if shouldShowPassword {
                             
                             TextField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
-                                .onReceive(loginModel.$passwordString) { currentPassword in
-                                    if !registrationModel.isPasswordValid(passwordString:  currentPassword) {
-                                        isPasswordValid = false
-                                    } else {
-                                        isPasswordValid = true
-                                    }
-                                }
-                                .foregroundColor(isPasswordValid ? .black : Color(UIColor.litecoinOrange))
+                                .foregroundColor(.black)
                                 .font(Font(UIFont.barlowSemiBold(size:18.0)))
                                 .accentColor(Color(UIColor.liteWalletBlue))
                                 .padding(.leading, 20)
@@ -124,14 +108,7 @@ struct CardView: View {
                         } else {
                             
                             SecureField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
-                                .onReceive(loginModel.$passwordString) { currentPassword in
-                                    if !registrationModel.isPasswordValid(passwordString:  currentPassword) {
-                                        isPasswordValid = false
-                                    } else {
-                                        isPasswordValid = true
-                                    }
-                                }
-                                .foregroundColor(isPasswordValid ? .black : Color(UIColor.litecoinOrange))
+                                .foregroundColor(.black)
                                 .font(Font(UIFont.barlowSemiBold(size:18.0)))
                                 .accentColor(Color(UIColor.liteWalletBlue))
                                 .padding(.leading, 20)
@@ -199,15 +176,14 @@ struct CardView: View {
                             .padding()
                             .font(Font(UIFont.barlowMedium(size: 16.0)))
                             .padding([.leading, .trailing], 16)
-                            .foregroundColor(shouldEnableLogin.wrappedValue ? .white : Color(UIColor.litecoinSilver))
-                            .background(shouldEnableLogin.wrappedValue ? Color(UIColor.liteWalletBlue) : Color(UIColor.litecoinGray))
+                            .foregroundColor(.white)
+                            .background(Color(UIColor.liteWalletBlue))
                             .cornerRadius(4.0)
                             .overlay(
                                 RoundedRectangle(cornerRadius:4)
-                                    .stroke(shouldEnableLogin.wrappedValue ? Color(UIColor.liteWalletBlue) : .gray, lineWidth: 1)
+                                    .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
                             )
                     }
-                    .disabled(!shouldEnableLogin.wrappedValue)
                     .padding([.leading, .trailing], 16)
                     
                     // Registration button

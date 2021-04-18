@@ -19,6 +19,9 @@ struct CardLoggedInView: View {
      
     @State
     private var shouldLogout: Bool = false
+    
+    @State
+    var balanceText = ""
       
     init(viewModel: CardViewModel) {
         self.viewModel = viewModel
@@ -70,14 +73,19 @@ struct CardLoggedInView: View {
                                 maxWidth: geometry.size.width * 0.4,
                                 alignment: .center)
                 
-                Text("$")
+                Text(balanceText)
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
                            alignment: .center)
                     .padding()
                     .font(Font(UIFont.barlowBold(size: 40.0)))
-                    .foregroundColor(Color(UIColor.litecoinGray))
+                    .foregroundColor(Color(UIColor.darkGray))
                     .background(Color(UIColor.white))
+                    .onReceive(viewModel.$walletDetails) { newWalletDetails in
+                        
+                        guard let availableBalance = newWalletDetails?.availableBalance else { return }
+                        self.balanceText = "Ł" + String(format:"%6.4f",availableBalance)
+                    }
                 
                 Spacer()
             }

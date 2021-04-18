@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Buy Łitecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Buy LTC with many fiat pairs\n• Pay with multiple methods\n• Global payment provider";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• Get Litecoin in 5 mins!\n• Buy Litecoin via credit card\n• Passport or State ID";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "Card balance";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- New Registration\n- Login (existing account)\n- No balance shown\n- No transfer\n- US Only";
+"LitecoinCard.Disclaimer.bullets" = "- Registration & Login\n- Available card balance\n- Reset password\n- No transfer to Litewallet\n- US Only";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card currently has limited functionality in Litewallet.";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Reset password";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Enter the email address associated with your Litecoin Card account & look for an email with reset instructions.";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visit https://litecoin.dashboard.getblockcard.com/password/forgot\nto reset your password.";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Lookup";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Sorry, domain was not found. [Error:%2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Lookup failed";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Enter a .crypto or .zil domain";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "System lookup problem. [Error:%2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin addresses are intended for single use only.";

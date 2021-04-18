@@ -68,6 +68,11 @@ class CardViewController: UIViewController {
         .addObserver(forName: NSNotification.Name.LitecoinCardLoginNotification,
                      object: nil,
                      queue: nil) { _ in
+            
+            self.viewModel.fetchCardWalletDetails {
+                print("Logged in updated wallet values")
+            }
+			
             self.updateLoginStatusFromViewModel()
         }
          

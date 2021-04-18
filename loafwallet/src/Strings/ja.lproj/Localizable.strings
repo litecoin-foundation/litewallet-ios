@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Litecoin を購入する";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "•多くの法定紙幣ペアでLTCを購入する\n•複数の方法で支払う\n•グローバル決済プロバイダー";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "•5分でLitecoinを入手！\n •クレジットカードでLitecoinを購入 \n•パスポートまたは州ID";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "カード残高";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "-新規登録\n-ログイン（既存のアカウント）\n-残高は表示されていません\n-転送なし\n-米国のみ";
+"LitecoinCard.Disclaimer.bullets" = "-登録とログイン\n-利用可能なカード残高\n- パスワードを再設定する\n-Litewalletへの転送なし\n-米国のみ";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "ライトコインカードは現在、ライトウォレットの機能が制限されています。";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "パスワードを再設定する";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "ライトコインカードアカウントに関連付けられているメールアドレスを入力し、リセット手順が記載されたメールを探します。";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "https://litecoin.dashboard.getblockcard.com/password/forgot にアクセスしてパスワードをリセットしてください。";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "調べる";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "申し訳ありませんが、ドメインが見つかりませんでした。 [エラー: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "ルックアップに失敗しました";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = ".cryptoまたは.zilドメインを入力してください";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "リテコインアドレスは、個人利用のみを想定しています。";

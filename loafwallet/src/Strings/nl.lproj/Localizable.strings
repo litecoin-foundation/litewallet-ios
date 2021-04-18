@@ -139,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Koop Litecoin";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Koop LTC met veel fiat-paren\n• Betaal met meerdere methoden\n• Wereldwijde betalingsprovider";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• Krijg Litecoin in 5 minuten! \n • Koop Litecoin via creditcard \n • Paspoort of staat ID";
 
@@ -368,7 +374,7 @@
 "LitecoinCard.cardBalance" = "Kaartsaldo";
 
 /* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Nieuwe registratie\n- Inloggen (bestaand account)\n- Geen saldo weergegeven\n- Geen overdracht\n- Alleen in de VS.";
+"LitecoinCard.Disclaimer.bullets" = "- Registratie en inloggen\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instellen\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
 
 /* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Card heeft momenteel beperkte functionaliteit in Litewallet.";
@@ -477,6 +483,9 @@
 
 /* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Wachtwoord opnieuw instellen";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Voer het e-mailadres in dat is gekoppeld aan uw Litecoin Card-account en zoek een e-mail met resetinstructies.";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Ga naar https://litecoin.dashboard.getblockcard.com/password/forgot om uw wachtwoord te resetten.";
@@ -886,8 +895,17 @@
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Opzoeken";
 
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Sorry, het domein is niet gevonden. [Fout: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Opzoeken mislukt";
+
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Voer een .crypto- of .zil-domein in";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Systeem opzoeken probleem. [Fout: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin adressen zijn alleen bedoeld voor enkel gebruik.";
