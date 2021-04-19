@@ -1,4 +1,3 @@
-# Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
 workspace 'loafwallet.xcworkspace'
 project 'loafwallet.xcodeproj', 'Debug' => :debug,'Release' => :release
@@ -11,14 +10,14 @@ def shared_pods
   pod 'KeychainAccess', '~> 4.2'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics' 
-  # add after v2.9.0 pod 'SwiftLint'
+  # add pod 'SwiftLint'
 end
 
 target 'loafwallet' do
   shared_pods
   
-  target 'loafwalletTests' do
-    inherit! :search_paths
-  end
+    target 'loafwalletTests' do
+      inherit! :search_paths
+    end
   
 end
