@@ -7,11 +7,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/litecoin-foundation/litewallet-ios?style=plastic)](https://github.com/litecoin-foundation/litewallet-ios/re-frame/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/litecoin-foundation/litewallet-ios?color=00ff00&style=plastic)](https://github.com/litecoin-foundation/litewallet-ios/pulls)
 
-|Balance|Buy|Unstoppable Domains|
-|-------|--------------|--------|
-||||
-=======================================
-
 ## Easy and secure
 Litewallet is the best way to get started with Litecoin. Our simple, streamlined design is easy for beginners, yet powerful enough for experienced users. This is a free app produced by the Litecoin Foundation.
 
