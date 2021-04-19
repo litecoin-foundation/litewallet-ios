@@ -1,10 +1,15 @@
 [![Litewallet](/images/header-ios.png)](https://itunes.apple.com/us/app/loafwallet/id1119332592)
 ======================================= 
 
-[![Release](https://img.shields.io/github/v/release/litecoin-foundation/loafwallet-ios?style=plastic)](https://img.shields.io/github/v/release/litecoin-foundation/loafwallet-ios) 
-[![MIT License](https://img.shields.io/github/license/litecoin-foundation/loafwallet-ios?style=plastic)](https://img.shields.io/github/license/litecoin-foundation/loafwallet-ios?style=plastic)
+[![Release](https://img.shields.io/github/v/release/litecoin-foundation/litewallet-ios?style=plastic)](https://img.shields.io/github/v/release/litecoin-foundation/loafwallet-ios) 
+[![MIT License](https://img.shields.io/github/license/litecoin-foundation/litewallet-ios?style=plastic)](https://img.shields.io/github/license/litecoin-foundation/litewallet-ios?style=plastic)
+[Status](https://app.bitrise.io/app/ba01fd2f1582d2df/status.svg?token=E0SYYWy-g0Fn4kEkqUo6kA)
+[![GitHub issues](https://img.shields.io/github/issues/litecoin-foundation/litewallet-ios?style=plastic)](https://github.com/litecoin-foundation/litewallet-ios/re-frame/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/litecoin-foundation/litewallet-ios?color=00ff00&style=plastic)](https://github.com/litecoin-foundation/litewallet-ios/pulls)
 
-![screenshots](/images/screenshots.jpg)
+|Balance|Buy|Unstoppable Domains|
+|-------|--------------|--------|
+||||
 =======================================
 
 ## Easy and secure
@@ -58,9 +63,6 @@ Simplicity and ease-of-use is **Litewallet**'s core design principle. A simple r
  
 ---
 ## Litewallet Development:
-[Status](https://app.bitrise.io/app/ba01fd2f1582d2df/status.svg?token=E0SYYWy-g0Fn4kEkqUo6kA)
-[![GitHub issues](https://img.shields.io/github/issues/litecoin-foundation/loafwallet-ios?style=plastic)](https://github.com/litecoin-foundation/loafwallet-ios/re-frame/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/litecoin-foundation/loafwallet-ios?color=00ff00&style=plastic)](https://github.com/litecoin-foundation/loafwallet-ios/pulls)
 
 ### Building & Developing Litewallet for iOS:
 ***Installation on jailbroken devices is strongly discouraged.***
