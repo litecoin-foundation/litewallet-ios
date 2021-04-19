@@ -1,7 +1,7 @@
 [![Litewallet](/images/header-ios.png)](https://itunes.apple.com/us/app/loafwallet/id1119332592)
 ======================================= 
 
-[![Release](https://img.shields.io/github/v/release/litecoin-foundation/litewallet-ios?style=plastic)](https://img.shields.io/github/v/release/litecoin-foundation/litefwallet-ios) 
+[![Release](https://img.shields.io/github/v/release/litecoin-foundation/litewallet-ios?style=plastic)](https://img.shields.io/github/v/release/litecoin-foundation/litewallet-ios) 
 [![MIT License](https://img.shields.io/github/license/litecoin-foundation/litewallet-ios?style=plastic)](https://img.shields.io/github/license/litecoin-foundation/litewallet-ios?style=plastic)
 [![Build Status](https://app.bitrise.io/app/3c3c3f9830a3bac7/status.svg?token=zisOsG_I-9nSfT3c1FML7w)](https://app.bitrise.io/app/3c3c3f9830a3bac7)
 [![GitHub issues](https://img.shields.io/github/issues/litecoin-foundation/litewallet-ios?style=plastic)](https://github.com/litecoin-foundation/litewallet-ios/re-frame/issues)
