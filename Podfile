@@ -8,9 +8,15 @@ platform :ios, '13.0'
 def shared_pods 
   pod 'UnstoppableDomainsResolution', '~> 0.3.0'
   pod 'KeychainAccess', '~> 4.2'
+<<<<<<< Updated upstream
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics' 
   # add pod 'SwiftLint'
+=======
+  pod 'Firebase/Analytics', '~> 6.0'
+  pod 'Firebase/Crashlytics'
+  # add after v2.9.0 pod 'SwiftLint'
+>>>>>>> Stashed changes
 end
 
 target 'loafwallet' do
