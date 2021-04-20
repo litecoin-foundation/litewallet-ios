@@ -8,8 +8,8 @@ platform :ios, '13.0'
 def shared_pods 
   pod 'UnstoppableDomainsResolution', '~> 0.3.0'
   pod 'KeychainAccess', '~> 4.2'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Crashlytics' 
+  pod 'Firebase/Analytics', '~> 6.0'
+  pod 'Firebase/Crashlytics', '~> 6.0'
   # add pod 'SwiftLint'
 end
 
