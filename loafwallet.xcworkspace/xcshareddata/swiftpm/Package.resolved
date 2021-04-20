@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LitewalletPartnerAPI",
+        "repositoryURL": "https://github.com/litecoin-foundation/LitewalletPartnerAPI.git",
+        "state": {
+          "branch": null,
+          "revision": "945c891c9606c48de2266daf87e0303f8cf39ea8",
+          "version": "0.7.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
