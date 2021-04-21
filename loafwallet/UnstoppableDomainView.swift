@@ -79,7 +79,7 @@ struct UnstoppableDomainView: View {
                     }.onReceive(viewModel.$searchString, perform: { currentString in
                          
                          // Description: the minmum domain length is 4 e.g.; 'a.zil'
-                         // Enabling the button until the domain string is at least 4 chars long 
+                         // Enabling the button when the domain string is at least 4 chars long 
                          shouldDisableLookupButton = currentString.count < 4
                           
                     })

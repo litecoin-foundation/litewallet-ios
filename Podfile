@@ -14,10 +14,10 @@ def shared_pods
 end
 
 target 'loafwallet' do
-  shared_pods
+  
+    shared_pods
   
     target 'loafwalletTests' do
       inherit! :search_paths
     end
-  
 end

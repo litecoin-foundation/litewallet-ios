@@ -32,6 +32,7 @@ class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Private Variables
     private var ltcAddress = ""
+    
     private var dateFormatter: DateFormatter? {
         
         didSet {
