@@ -87,6 +87,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
     }
 }
 
+// DEV: Retained for debugging.  This code is designed for BTC not LTC. It needs to be refactored.
 //class BRReplicatedKVStoreTest: XCTestCase {
 //    var store: BRReplicatedKVStore!
 //    var key: BRKey {

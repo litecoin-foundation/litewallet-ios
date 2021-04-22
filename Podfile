@@ -22,8 +22,18 @@ end
 
 #Setting the Cocoapods config
 post_install do |installer|
+  
+  #Removes the arm64 models from the sim / test .  May be removed when iOS can handle.
   installer.pods_project.build_configurations.each do |config|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
   end
+  
+  #Sets all pods to iOS 10.0 or greater
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+    end
+  end
+  
 end
+ 
