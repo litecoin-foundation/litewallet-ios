@@ -215,7 +215,7 @@ struct RegistrationView: View {
                             
                             HStack {
                                 VStack {
-                                    //DEV: Will change when EU support comes
+                                    //DEV: Will change when Ex-US support comes
                                     TextField("US", text: $country)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .foregroundColor(.gray)
