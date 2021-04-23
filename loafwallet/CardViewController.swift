@@ -29,7 +29,7 @@ class CardViewController: UIViewController {
     
     private func updateLoginStatusFromViewModel() {
          
-        // Bugfix: https://github.com/litecoin-foundation/loafwallet-ios/issues/175
+        // Bugfix:
         // Verifies the stack has only one VC and it is the UIHostingController
         
         DispatchQueue.main.async {
