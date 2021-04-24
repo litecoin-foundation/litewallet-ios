@@ -72,7 +72,7 @@ Any jailbreak app can grant itself access to every other app's keychain data. Th
 2. Download and install the latest version of [Xcode](https://developer.apple.com/xcode/)
 3. Clone this repo & init submodules
 ```bash
-$ git clone https://github.com/litecoin-foundation/loafwallet-ios
+$ git clone https://github.com/litecoin-foundation/litewallet-ios
 $ git submodule init
 $ git submodule update
 ```
