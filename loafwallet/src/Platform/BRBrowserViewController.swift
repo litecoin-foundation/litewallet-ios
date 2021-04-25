@@ -62,8 +62,13 @@ fileprivate class BRBrowserViewControllerInternal: UIViewController, WKNavigatio
             views: ["progressView": progressView]))
         view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "V:|[topGuide]-0-[progressView(2)]", options: [], metrics: nil,
-              views: ["progressView": progressView, "topGuide": self.topLayoutGuide]))
+                                views: ["progressView": progressView, "topGuide": self.view.safeAreaLayoutGuide.topAnchor]))
         
+        
+        
+        //              views: ["progressView": progressView, "topGuide": self.topLayoutGuide]))
+
+        view.safeAreaLayoutGuide.topAnchor
         // toolbar view
         view.addSubview(toolbarContainerView)
         self.view.addSubview(toolbarContainerView)

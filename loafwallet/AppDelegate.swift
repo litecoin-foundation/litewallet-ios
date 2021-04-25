@@ -71,18 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false // disable extensions such as custom keyboards for security purposes
     }
 
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        applicationController.application(application, didRegister: notificationSettings)
-    }
-
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        applicationController.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
-    }
-
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        applicationController.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
-    }
-
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return applicationController.open(url: url)
     }

@@ -11,14 +11,10 @@ import BRCore
 import MachO
 import SwiftUI
 
-private let transactionsLoadingViewHeightConstant: CGFloat = 48.0
-
 class MainViewController : UIViewController, Subscriber, LoginViewControllerDelegate {
 
     //MARK: - Private
     private let store: Store
-    private let transactionsLoadingView = LoadingProgressView()
-    private var transactionsLoadingViewTop: NSLayoutConstraint?
     private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     private var isLoginRequired = false
     private let loginView: LoginViewController

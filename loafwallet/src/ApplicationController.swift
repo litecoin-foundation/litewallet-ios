@@ -86,7 +86,6 @@ class ApplicationController : Subscriber, Trackable {
             countLaunches() 
             setupRootViewController()
             window?.makeKeyAndVisible()
-            listenForPushNotificationRequest()
             offMainInitialization()
             store.subscribe(self, name: .reinitWalletManager(nil), callback: {
                 guard let trigger = $0 else { return }
@@ -358,24 +357,7 @@ class ApplicationController : Subscriber, Trackable {
         func willResignActive() {
         }
     }
-
-    //MARK: - Push notifications
+ 
     extension ApplicationController {
-        func listenForPushNotificationRequest() {
-            store.subscribe(self, name: .registerForPushNotificationToken, callback: { _ in
-            })
-        }
-
-        func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-            if !notificationSettings.types.isEmpty {
-                application.registerForRemoteNotifications()
-            }
-        }
-
-        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        }
-
-        func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-            print("didFailToRegisterForRemoteNotification: \(error)")
-        }
+ 
     }

@@ -45,13 +45,19 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
 
     //MARK: - Private
     private let store: Store
-    private let backgroundView = LoginBackgroundView()
+    
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .liteWalletBlue
+        return view
+    }()
+      
     private let pinPadViewController = PinPadViewController(style: .clear, keyboardType: .pinPad, maxDigits: 0)
     private let pinViewContainer = UIView()
     private var pinView: PinView?
     private let isPresentedForLock: Bool
     private let disabledView: WalletDisabledView
-    private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .large)
     private let wipeBannerButton = UIButton()
     var delegate: LoginViewControllerDelegate?
     
