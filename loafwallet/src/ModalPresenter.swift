@@ -437,10 +437,10 @@ class ModalPresenter : Subscriber, Trackable {
         let settingsNav = UINavigationController()
         let sections = ["About", "Wallet", "Manage", "Support", "Blockchain"]
         let rows = [
-            "About": [Setting(title: S.Settings.litewalletVersion, accessoryText: { [weak self] in
+            "About": [Setting(title: S.Settings.litewalletVersion, accessoryText: {
                 return AppVersion.string
             }, callback: {}),
-            Setting(title: S.Settings.litewalletEnvironment, accessoryText: { [weak self] in
+            Setting(title: S.Settings.litewalletEnvironment, accessoryText: {
                 var envName = "Release"
                 #if Debug || Testflight
                 envName = "Debug"
