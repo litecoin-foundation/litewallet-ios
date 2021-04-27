@@ -38,7 +38,10 @@ enum CustomEvent: String {
     case _20201121_DRIA = "DID_RESOLVE_IPFS_ADDRESS"
     case _20201121_FRIA = "FAILED_RESOLVE_IPFS_ADDRESS"
     case _20200207_DTHB = "DID_TAP_HEADER_BALANCE"
-    case _20210405_TAWDF = "TERNIO_API_WALLET_DETAILS_FAILURE" 
+    case _20210405_TAWDF = "TERNIO_API_WALLET_DETAILS_FAILURE"
+    //DEV: This is a way to see if the event that rarely happens.
+    case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS"
+
 }
 
 struct FoundationSupport {

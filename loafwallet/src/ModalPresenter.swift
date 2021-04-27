@@ -793,7 +793,9 @@ class ModalPresenter : Subscriber, Trackable {
         if topViewController is MainViewController {
             presentModal(.send)
         } else {
-            if let presented = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController {
+            
+            LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
+            if let presented = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController?.presentedViewController {
                 presented.dismiss(animated: true, completion: {
                     self.presentModal(.send)
                 })
@@ -807,7 +809,9 @@ class ModalPresenter : Subscriber, Trackable {
         if topViewController is MainViewController || topViewController is LoginViewController {
             presentLoginScan()
         } else {
-            if let presented = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController {
+            
+            LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
+            if let presented = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController?.presentedViewController {
                 presented.dismiss(animated: true, completion: {
                     self.presentLoginScan()
                 })

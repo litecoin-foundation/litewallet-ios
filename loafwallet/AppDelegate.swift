@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         applicationController.launch(application: application, window: self.window, options: launchOptions)
         
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
-               
+        
         return true
     }
 
