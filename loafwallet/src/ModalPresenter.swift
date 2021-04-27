@@ -200,7 +200,7 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func presentAlert(_ type: AlertType, completion: @escaping ()->Void) {
         let alertView = AlertView(type: type)
-        let window = UIApplication.shared.keyWindow!
+        let window = UIApplication.shared.windows.filter{$0.isKeyWindow}.first!
         let size = window.bounds.size
         window.addSubview(alertView)
         
@@ -899,7 +899,7 @@ class ModalPresenter : Subscriber, Trackable {
         guard notReachableAlert == nil else { return }
         let alert = InAppAlert(message: S.LitewalletAlert.noInternet, image: #imageLiteral(resourceName: "BrokenCloud"))
         notReachableAlert = alert
-        let window = UIApplication.shared.keyWindow!
+        let window = UIApplication.shared.windows.filter{$0.isKeyWindow}.first!
         let size = window.bounds.size
         window.addSubview(alert)
         let bottomConstraint = alert.bottomAnchor.constraint(equalTo: window.topAnchor, constant: 0.0)
@@ -931,7 +931,7 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func showLightWeightAlert(message: String) {
         let alert = LightWeightAlert(message: message)
-        let view = UIApplication.shared.keyWindow!
+        let view = UIApplication.shared.windows.filter{$0.isKeyWindow}.first!
         view.addSubview(alert)
         alert.constrain([
                             alert.centerXAnchor.constraint(equalTo: view.centerXAnchor),
