@@ -78,7 +78,7 @@ class UnstoppableDomainViewModel: ObservableObject {
                 network: "mainnet")
             )
         ) else {
-            print ("Error: Resolution libraru not initialized")
+            print ("Error: Resolution library not initialized")
             return
         };
         
