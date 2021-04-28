@@ -55,7 +55,7 @@ struct E {
         return (UIScreen.main.bounds.size.height == 480.0)
     }
     static var isIPhone5: Bool {
-        return (UIScreen.main.bounds.size.height == 480.0) && (E.is32Bit)
+        return (UIScreen.main.bounds.size.height == 568.0) && (E.is32Bit)
     }
     static var isIPhoneX: Bool {
         return (UIScreen.main.bounds.size.height == 812.0)

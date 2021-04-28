@@ -227,14 +227,11 @@ class WalletCoordinator : Subscriber, Trackable {
         guard UIApplication.shared.applicationState == .background || UIApplication.shared.applicationState == .inactive else { return }
         guard store.state.isPushNotificationsEnabled else { return }
         UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
-        
-        
-         
-//        let notification = UNNotificationAction.
-//         
-//        notification.alertBody = message
-//        notification.soundName = "coinflip.aiff"
-//        UIApplication.shared.presentLocalNotificationNow(notification)
+        let notification =
+      UILocalNotification()
+        notification.alertBody = message
+        notification.soundName = "coinflip.aiff"
+        UIApplication.shared.presentLocalNotificationNow(notification)
     }
 
     private func reachabilityDidChange(isReachable: Bool) {
