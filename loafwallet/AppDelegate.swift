@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         applicationController.launch(application: application, window: self.window, options: launchOptions)
         
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
-               
+        
         return true
     }
 
@@ -69,18 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplicationExtensionPointIdentifier) -> Bool {
         return false // disable extensions such as custom keyboards for security purposes
-    }
-
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        applicationController.application(application, didRegister: notificationSettings)
-    }
-
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        applicationController.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
-    }
-
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        applicationController.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

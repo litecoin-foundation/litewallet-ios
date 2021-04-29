@@ -269,11 +269,9 @@ class WalletCoordinator : Subscriber, Trackable {
 
     private func startActivity() {
         UIApplication.shared.isIdleTimerDisabled = true
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
 
     private func endActivity() {
         UIApplication.shared.isIdleTimerDisabled = false
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
