@@ -71,11 +71,16 @@ class UnstoppableDomainViewModel: ObservableObject {
             print ("Error: Key path not found")
             return
         }
-        
-        guard let resolution = try? Resolution(providerUrl: keyPath, network: "mainnet") else {
-            print ("Error: Init of Resolution instance with custom parameters failed...")
+         
+        guard let resolution = try? Resolution(configs: Configurations(
+            cns: NamingServiceConfig(
+                providerUrl: keyPath,
+                network: "mainnet")
+            )
+        ) else {
+            print ("Error: Resolution library not initialized")
             return
-        }
+        };
         
         group.enter()
         
