@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 import UnstoppableDomainsResolution
- 
+
 class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Combine Variables
@@ -25,9 +25,9 @@ class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Public Variables
     var didResolveUDAddress: ((String) -> Void)?
-     
+    
     var shouldClearAddressField: (() -> Void)?
-        
+    
     var didFailToResolve: ((String) -> Void)?
     
     //MARK: - Private Variables
@@ -67,11 +67,8 @@ class UnstoppableDomainViewModel: ObservableObject {
         // Otherwise, we may never get in the callback relative to UDR v0.1.6
         let group = DispatchGroup()
         
-        guard let keyPath = fetchKeyPath() else {
-            print ("Error: Key path not found")
-            return
-        }
-         
+        let keyPath = Partner.partnerKeyPath(name: .infura)
+        
         guard let resolution = try? Resolution(configs: Configurations(
             cns: NamingServiceConfig(
                 providerUrl: keyPath,
@@ -102,7 +99,7 @@ class UnstoppableDomainViewModel: ObservableObject {
                         self.didResolveUDAddress?(self.ltcAddress)
                         self.isDomainResolving = false
                     }
-                                                                                                                                                            
+                    
                 case .failure(let error):
                     print(error)
                     let errorMessage = DomainResolutionFailure().messageWith(error: error)
@@ -118,9 +115,9 @@ class UnstoppableDomainViewModel: ObservableObject {
                     ///Quicker resolution: When the resolution is done, the activity indicatior stops and the address is  updated
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2,
                                                   execute: {
-                                        
-                       self.didFailToResolve?(error.localizedDescription)
-                                                     
+                                                    
+                                                    self.didFailToResolve?(error.localizedDescription)
+                                                    
                                                     self.didFailToResolve?(errorMessage)
                                                     self.isDomainResolving = false
                                                     
@@ -131,17 +128,6 @@ class UnstoppableDomainViewModel: ObservableObject {
         group.wait()
     }
     
-    /// Lookup the API Key
-    /// - Returns: String or nil
-    private func fetchKeyPath()  -> String? {
-        
-        if let path = Bundle.main.path(forResource: "partner-keys", ofType: "plist"),
-           let dictionary = NSDictionary(contentsOfFile:path) as? Dictionary<String, AnyObject>,
-           let key = dictionary["infura-api"] as? String {
-            return "https://mainnet.infura.io/v3/" + key
-        } else {
-            return nil
-        }
-    }
 }
+
 
