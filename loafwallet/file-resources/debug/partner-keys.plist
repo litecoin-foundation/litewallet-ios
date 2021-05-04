@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>change-now-api</key>
+	<string>ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</string>
+	<key>infura-api</key>
+	<string>45a00d3533644e92bb412d40e1a47bfa</string>
+</dict>
+</plist>
