@@ -14,7 +14,7 @@ enum PartnerName {
     case infura
     case changeNow
 }
- 
+
 struct Partner {
     
     let logo: UIImage
@@ -34,31 +34,58 @@ struct Partner {
     /// - Returns: Key string
     static func partnerKeyPath(name: PartnerName) -> String {
         
+        /// Switch the config file based on the environment
+        var filePath: String
+        #if Release
+        
+        // Loads the release Partner Keys config file.
+        guard let releasePath = Bundle.main.path(forResource: "partner-keys",
+                                                 ofType: "plist") else {
+            return  "ERROR: FILE-NOT-FOUND"
+        }
+        filePath = releasePath
+        
+        #else
+        
+        // Loads the debug Partner Keys config file.
+        guard let debugPath = Bundle.main.path(forResource: "debug-partner-keys",
+                                               ofType: "plist") else {
+            return  "ERROR: FILE-NOT-FOUND"
+        }
+        
+        filePath = debugPath
+        
+        #endif
+        
         switch name {
             
             case .infura:
                 
-                if let path = Bundle.main.path(forResource: "partner-keys", ofType: "plist"),
-                          let dictionary = NSDictionary(contentsOfFile:path) as? Dictionary<String, AnyObject>,
-                          let key = dictionary["infura-api"] as? String {
-                           return "https://mainnet.infura.io/v3/" + key
-                       } else {
-                           return "ERROR-INFURA_KEY"
-                       }
-                 
+                if let dictionary = NSDictionary(contentsOfFile: filePath) as? Dictionary<String, AnyObject>,
+                   let key = dictionary["infura-api"] as? String {
+                    return "https://mainnet.infura.io/v3/" + key
+                } else {
+                    
+                    let errorDescription = "ERROR-INFURA_KEY"
+                    LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+                    return errorDescription
+                }
+                
             case .changeNow:
                 
-                if let path = Bundle.main.path(forResource: "partner-keys", ofType: "plist"),
-                   let dictionary = NSDictionary(contentsOfFile:path) as? Dictionary<String, AnyObject>,
+                if let dictionary = NSDictionary(contentsOfFile: filePath) as? Dictionary<String, AnyObject>,
                    let key = dictionary["change-now-api"] as? String {
                     return key
                 } else {
-                    return "ERROR-CHANGENOW_KEY"
+                    
+                    let errorDescription = "ERROR-CHANGENOW_KEY"
+                    LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+                    return errorDescription
                 }
         }
         
     }
-     
+    
     //TODO: Uncomment as integration progresses, kcw-grunt
     //    let bitrefillDictionary =
     //      ["title":S.BuyCenter.Cells.bitrefillTitle as AnyObject,
@@ -66,3 +93,4 @@ struct Partner {
     //       "logo":UIImage(named:"bitrefillLogo") ?? " ",
     //       "baseColor":#colorLiteral(red: 0.2235294118, green: 0.5490196078, blue: 0.9333333333, alpha: 1)] as [String : AnyObject]
 }
+

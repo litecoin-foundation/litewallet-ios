@@ -83,32 +83,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    
-    /// Sets the correct plist file
+    /// Sets the correct Google Services  plist file
     private func setFirebaseConfiguration() {
         
-        var filePath: String = ""
-        
         #if Release
-            guard let releasePath = Bundle.main.path(forResource: "file-resource/release/GoogleService-Info", ofType: "plist") else { return
-            }
-        
-            filePath = releasePath
-        
+            // Loads the release Firebase config file.
+            FirebaseApp.configure()
         #else
-            guard let debugPath = Bundle.main.path(forResource: "file-resource/release/GoogleService-Info", ofType: "plist") else {
-                return
-            }
-        
-            filePath = debugPath
-        
+            // Load a Firebase debug config file.
+            let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
+            guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
+            else { assert(false, "Couldn't load Firebase config file") }
+            FirebaseApp.configure(options: fileopts)
         #endif
-        
-        guard let fileopts = FirebaseOptions(contentsOfFile: filePath) else {
-            assert(false, "Couldn't load config file")
-        }
-        
-        FirebaseApp.configure(options: fileopts)
     }
 }
+
+
 
