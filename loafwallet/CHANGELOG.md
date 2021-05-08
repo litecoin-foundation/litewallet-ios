@@ -1,6 +1,35 @@
 #  Changelog
 
+## Draft Release v3.5.0 
+
+The list of changes are below:
+
+### 🦟 Bugfixes 
+
+### 🦺 Tech Debt
+
+### 🥳 Improvements 
+
 ---
+
+## Release v3.4.0 
+This release is the long-awaited addition of Moonpay!! 
+The list of changes are below:
+
+### 🦟 Bugfixes
+    * Bugfixes
+    * Fixed transactions full sync freeze
+    
+### 🦺 Tech Debt
+    * Tech Debt: Polishes
+    * Upgraded UD version to 0.3.5  
+    * Added UD Error Codes
+    * Opened Card Login password range
+
+### 🥳 Improvements
+    * Added Moonpay  
+---
+
 ## Release v3.3.0
 
 This release is the interim to the v2 of the Litecoin Card and fixes mainly bugs.  

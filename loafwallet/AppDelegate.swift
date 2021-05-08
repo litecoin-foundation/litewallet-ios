@@ -25,15 +25,15 @@
 
 import UIKit
 import SwiftUI
-import LocalAuthentication 
+import LocalAuthentication
 import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     let applicationController = ApplicationController()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         setFirebaseConfiguration()
@@ -46,47 +46,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         applicationController.willEnterForeground()
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         applicationController.didEnterBackground()
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         applicationController.willResignActive()
     }
-
+    
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         applicationController.performFetch(completionHandler)
     }
-
+    
     func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplicationExtensionPointIdentifier) -> Bool {
         return false // disable extensions such as custom keyboards for security purposes
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return applicationController.open(url: url)
     }
-
+    
     func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
-       return true
+        return true
     }
     
     func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return true
     }
     
+    /// Sets the correct Google Services  plist file
     private func setFirebaseConfiguration() {
-        //Conditional to pass the CircleCI checks
-        if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
+        
+        #if Release
+            // Loads the release Firebase config file.
             FirebaseApp.configure()
-        }
+        #else
+            // Load a Firebase debug config file.
+            let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
+            guard let fileOpts = FirebaseOptions(contentsOfFile: filePath!)
+            else { assert(false, "Couldn't load Firebase config file") }
+            FirebaseApp.configure(options: fileOpts)
+        #endif
     }
-} 
+}
+
+
+
