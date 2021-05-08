@@ -92,9 +92,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #else
             // Load a Firebase debug config file.
             let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
-            guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
+            guard let fileOpts = FirebaseOptions(contentsOfFile: filePath!)
             else { assert(false, "Couldn't load Firebase config file") }
-            FirebaseApp.configure(options: fileopts)
+            FirebaseApp.configure(options: fileOpts)
         #endif
     }
 }
