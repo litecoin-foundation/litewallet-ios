@@ -1,14 +1,15 @@
 //
-//  TabBarViewController.swift
+//  NonUSTabBarViewController.swift
 //  loafwallet
 //
-//  Created by Kerry Washington on 11/17/19.
-//  Copyright © 2019 Litecoin Foundation. All rights reserved.
-
+//  Created by Kerry Washington on 5/9/21.
+//  Copyright © 2021 Litecoin Foundation. All rights reserved.
+//
+ 
 import UIKit
 import Foundation 
- 
-class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
+
+class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
     
     let kInitialChildViewControllerIndex = 0 // TransactionsViewController
     @IBOutlet weak var headerView: UIView!
@@ -20,7 +21,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     @IBOutlet weak var timeStampStackView: UIStackView!
     @IBOutlet weak var timeStampStackViewHeight: NSLayoutConstraint!
     @IBOutlet weak var walletBalanceLabel: UILabel!
-	
+    
     var primaryBalanceLabel: UpdatingLabel?
     var secondaryBalanceLabel: UpdatingLabel?
     private let largeFontSize: CGFloat = 24.0
@@ -32,8 +33,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     private var regularConstraints: [NSLayoutConstraint] = []
     private var swappedConstraints: [NSLayoutConstraint] = []
     private let currencyTapView = UIView()
-    private let storyboardNames:[String] = ["Transactions","Send","Card","Receive","Buy"]
-    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","CardViewController","ReceiveLTCViewController","BuyTableViewController"]
+    private let storyboardNames:[String] = ["Transactions","Send","Receive","Buy"]
+    var storyboardIDs:[String] = ["TransactionsViewController","SendLTCViewController","ReceiveLTCViewController","BuyTableViewController"]
     var viewControllers:[UIViewController] = []
     var activeController:UIViewController? = nil
     var updateTimer: Timer?
@@ -89,7 +90,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     private func setupViews() {
         
         walletBalanceLabel.text = S.ManageWallet.balance + ":"
-
+        
         if #available(iOS 11.0, *),
            let  backgroundColor = UIColor(named: "mainColor") {
             headerView.backgroundColor = backgroundColor
@@ -271,7 +272,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         
         self.currentLTCPriceLabel.text =  " "
         self.timeStampLabel.text = timeText
-
+        
         // Transitions when the data changes
         UIView.transition(with: self.currentLTCPriceLabel,
                           duration: 2.0,
@@ -307,7 +308,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             switch item.tag {
                 case 0: item.title = S.History.barItemTitle
                 case 1: item.title = S.Send.barItemTitle
-                case 2: item.title = S.LitecoinCard.barItemTitle
                 case 3: item.title = S.Receive.barItemTitle
                 case 4: item.title = S.BuyCenter.barItemTitle
                 default:
@@ -336,13 +336,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
                 transactionVC.walletManager = self.walletManager
                 transactionVC.isLtcSwapped = self.store?.state.isLtcSwapped
                 
-            case "loafwallet.CardViewController":
-                guard let cardVC = contentController as? CardViewController else  {
-                    return
-                }
-                
-                cardVC.parentFrame = self.containerView.frame
-				
             case "loafwallet.BuyTableViewController":
                 guard let buyVC = contentController as? BuyTableViewController else  {
                     return
@@ -392,7 +385,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     }
 }
 
-extension TabBarViewController {
+extension NonUSTabBarViewController {
     
     @objc private func currencySwitchTapped() {
         self.view.layoutIfNeeded()

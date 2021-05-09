@@ -279,6 +279,7 @@
 		C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DAE0625925B7E003FC978 /* Color+Extension.swift */; };
 		C32DAE9125929492003FC978 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DAE9025929492003FC978 /* CardViewController.swift */; };
 		C32DB42D264847FD00017D26 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DB42C264847FD00017D26 /* CardTests.swift */; };
+		C32DB42F26488CAA00017D26 /* NonUSTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DB42E26488CAA00017D26 /* NonUSTabBarViewController.swift */; };
 		C32DC793259396AB00A7FDB4 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC792259396AB00A7FDB4 /* CardViewModel.swift */; };
 		C32DC79C2593971500A7FDB4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC79B2593971500A7FDB4 /* CardView.swift */; };
 		C32DC7AC2593B5C900A7FDB4 /* AnimatedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */; };
@@ -1458,6 +1459,7 @@
 		C32DAE0625925B7E003FC978 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C32DAE9025929492003FC978 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		C32DB42C264847FD00017D26 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
+		C32DB42E26488CAA00017D26 /* NonUSTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonUSTabBarViewController.swift; sourceTree = "<group>"; };
 		C32DC792259396AB00A7FDB4 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		C32DC79B2593971500A7FDB4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardView.swift; sourceTree = "<group>"; };
@@ -2137,6 +2139,7 @@
 			children = (
 				2427342B2381C21800E2D22F /* MainViewController.swift */,
 				24313C762381E8F100A83F69 /* TabBarViewController.swift */,
+				C32DB42E26488CAA00017D26 /* NonUSTabBarViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -4374,6 +4377,7 @@
 				CEAA9E911DC0FDFE0066731D /* UIViewPropertyAnimator+BRWAdditions.swift in Sources */,
 				C3BD4A4A2597542700D97079 /* LoginCardAlertView.swift in Sources */,
 				CEAA9EA01DC2F9F50066731D /* UIFont+BRWAdditions.swift in Sources */,
+				C32DB42F26488CAA00017D26 /* NonUSTabBarViewController.swift in Sources */,
 				CEC6AA491DEFD00100EE5AFD /* MenuButton.swift in Sources */,
 				CEF61B121ECF52C700C7EA6A /* AmountViewController.swift in Sources */,
 				CECCE5B21E04B00D00D99448 /* SendCell.swift in Sources */,

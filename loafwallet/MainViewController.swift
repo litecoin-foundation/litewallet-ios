@@ -91,32 +91,43 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     }
    
     func didUnlockLogin() {
-     
-        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+        
+        var _USTabVC: TabBarViewController
+        var nonUSTabVC: NonUSTabBarViewController
+        
+        if UserDefaults.userIsInUSA {
+            guard let usaVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController else { return }
+            _USTabVC = usaVC
+        } else {
+            guard let exUSAVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NonUSTabBarViewController") as? NonUSTabBarViewController
+            nonUSTabVC = exUSAVC
+        }
+        
+        if let tabViewController = UserDefaults.userIsInUSA ? _USTabVC as TabBarViewController : nonUSTabVC as NonUSTabBarViewController {
 
-            vc.store = self.store
-            vc.isLtcSwapped = store.state.isLtcSwapped
-            vc.walletManager = self.walletManager
+            tabViewController.store = self.store
+            tabViewController.isLtcSwapped = store.state.isLtcSwapped
+            tabViewController.walletManager = self.walletManager
 
             if let rate = store.state.currentRate {
-                vc.exchangeRate = rate
+                tabViewController.exchangeRate = rate
                 let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
-                vc.secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
-                vc.primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
+                tabViewController.secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
+                tabViewController.primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
             } else {
-                vc.secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
-                vc.primaryBalanceLabel
+                tabViewController.secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+                tabViewController.primaryBalanceLabel
                     = UpdatingLabel(formatter: NumberFormatter())
             }
 
-            addChildViewController(vc, layout:{
-                vc.view.constrain(toSuperviewEdges: nil)
-                vc.view.alpha = 0
-                vc.view.layoutIfNeeded()
+            addChildViewController(tabViewController, layout:{
+                tabViewController.view.constrain(toSuperviewEdges: nil)
+                tabViewController.view.alpha = 0
+                tabViewController.view.layoutIfNeeded()
             })
 
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
-                vc.view.alpha = 1
+                tabViewController.view.alpha = 1
             }) { (finished) in
                 NSLog("MainView Controller presented")
             }
