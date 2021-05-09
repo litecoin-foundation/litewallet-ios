@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setFirebaseConfiguration()
         
+        updateCurrentUserLocale(localeId: Locale.current.identifier)
+        
         UIView.swizzleSetFrame()
         
         applicationController.launch(application: application, window: self.window, options: launchOptions)
@@ -96,6 +98,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else { assert(false, "Couldn't load Firebase config file") }
             FirebaseApp.configure(options: fileOpts)
         #endif
+    }
+    
+    /// Check Locale
+    func updateCurrentUserLocale(localeId: String) {
+          
+        let suffix = String(localeId.suffix(3))
+        
+        if suffix == "_US" {
+            UserDefaults.userIsInUSA = true
+        } else {
+            UserDefaults.userIsInUSA = false
+        }
     }
 }
 

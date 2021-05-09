@@ -278,6 +278,7 @@
 		C3270B99259BF7F20073DA7B /* LitecoinCardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3270B98259BF7F20073DA7B /* LitecoinCardUser.swift */; };
 		C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DAE0625925B7E003FC978 /* Color+Extension.swift */; };
 		C32DAE9125929492003FC978 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DAE9025929492003FC978 /* CardViewController.swift */; };
+		C32DB42D264847FD00017D26 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DB42C264847FD00017D26 /* CardTests.swift */; };
 		C32DC793259396AB00A7FDB4 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC792259396AB00A7FDB4 /* CardViewModel.swift */; };
 		C32DC79C2593971500A7FDB4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC79B2593971500A7FDB4 /* CardView.swift */; };
 		C32DC7AC2593B5C900A7FDB4 /* AnimatedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */; };
@@ -1456,6 +1457,7 @@
 		C3270B98259BF7F20073DA7B /* LitecoinCardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitecoinCardUser.swift; sourceTree = "<group>"; };
 		C32DAE0625925B7E003FC978 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C32DAE9025929492003FC978 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		C32DB42C264847FD00017D26 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		C32DC792259396AB00A7FDB4 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		C32DC79B2593971500A7FDB4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardView.swift; sourceTree = "<group>"; };
@@ -2175,6 +2177,7 @@
 		2465873723A5AAD100A32E9E /* loafwalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				C32DB42B264847D500017D26 /* Card Tests */,
 				C3188E3126445E5E0008ADD1 /* File Tests */,
 				C3B7C3EC255FF56100E98A64 /* Constants Tests */,
 				24470E3923A5FF5700ADDA27 /* TestHelpers.swift */,
@@ -3112,6 +3115,14 @@
 			name = CardModels;
 			sourceTree = "<group>";
 		};
+		C32DB42B264847D500017D26 /* Card Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C32DB42C264847FD00017D26 /* CardTests.swift */,
+			);
+			path = "Card Tests";
+			sourceTree = "<group>";
+		};
 		C345D81325A8D50600657E30 /* LitecoinCardTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -4032,6 +4043,7 @@
 				C3188E3326445EA20008ADD1 /* FileTests.swift in Sources */,
 				24470E4223A6007200ADDA27 /* WalletInfoTest.swift in Sources */,
 				24470E2123A5DA9700ADDA27 /* APIManagerTests.swift in Sources */,
+				C32DB42D264847FD00017D26 /* CardTests.swift in Sources */,
 				24470E3423A5F5E600ADDA27 /* PaymentRequestTests.swift in Sources */,
 				24470E2E23A5F4FF00ADDA27 /* BRCoderTests.swift in Sources */,
 				2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */,
