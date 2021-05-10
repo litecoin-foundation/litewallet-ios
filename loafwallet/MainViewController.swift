@@ -91,51 +91,61 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     }
    
     func didUnlockLogin() {
-        
-        var _USTabVC: TabBarViewController
-        var nonUSTabVC: NonUSTabBarViewController
-        
+          
         if UserDefaults.userIsInUSA {
-            guard let usaVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController else { return }
-            _USTabVC = usaVC
-        } else {
-            guard let exUSAVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NonUSTabBarViewController") as? NonUSTabBarViewController
-            nonUSTabVC = exUSAVC
-        }
-        
-        if let tabViewController = UserDefaults.userIsInUSA ? _USTabVC as TabBarViewController : nonUSTabVC as NonUSTabBarViewController {
-
-            tabViewController.store = self.store
-            tabViewController.isLtcSwapped = store.state.isLtcSwapped
-            tabViewController.walletManager = self.walletManager
-
-            if let rate = store.state.currentRate {
-                tabViewController.exchangeRate = rate
-                let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
-                tabViewController.secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
-                tabViewController.primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
-            } else {
-                tabViewController.secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
-                tabViewController.primaryBalanceLabel
-                    = UpdatingLabel(formatter: NumberFormatter())
+            guard let usaVC = UIStoryboard.init(name: "Main", bundle: nil)
+                        .instantiateViewController(withIdentifier: "TabBarViewController")
+                        as? TabBarViewController else {
+                
+                NSLog("TabBarViewController not intialized")
+                return
             }
-
-            addChildViewController(tabViewController, layout:{
-                tabViewController.view.constrain(toSuperviewEdges: nil)
-                tabViewController.view.alpha = 0
-                tabViewController.view.layoutIfNeeded()
+            
+            usaVC.store = self.store
+            usaVC.walletManager = walletManager
+            
+            addChildViewController(usaVC, layout:{
+                usaVC.view.constrain(toSuperviewEdges: nil)
+                usaVC.view.alpha = 0
+                usaVC.view.layoutIfNeeded()
             })
-
-            UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
-                tabViewController.view.alpha = 1
+            
+            UIView.animate(withDuration: 0.3,
+                           delay: 0.1,
+                           options: .transitionCrossDissolve,
+                           animations: {
+                            
+                usaVC.view.alpha = 1
+                            
             }) { (finished) in
-                NSLog("MainView Controller presented")
+                NSLog(" Ex US MainView Controller presented")
             }
-
+             
         } else {
-               NSLog("ERROR: MainView Controller Not presented")
+            
+            guard let exUSAVC = UIStoryboard.init(name: "Main", bundle: nil)
+                        .instantiateViewController(withIdentifier: "NonUSTabBarViewController")
+                        as? NonUSTabBarViewController else {
+                
+                NSLog("NonUSTabBarViewController not intialized")
+                return
+            }
+            
+            exUSAVC.store = self.store
+            exUSAVC.walletManager = walletManager
+            
+            addChildViewController(exUSAVC, layout:{
+                exUSAVC.view.constrain(toSuperviewEdges: nil)
+                exUSAVC.view.alpha = 0
+                exUSAVC.view.layoutIfNeeded()
+            })
+            
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
+                exUSAVC.view.alpha = 1
+            }) { (finished) in
+                NSLog("US MainView Controller presented")
+            }
         }
-        
     }
 
     private func addTemporaryStartupViews() {

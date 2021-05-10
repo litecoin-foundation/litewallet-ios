@@ -61,6 +61,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupModels()
         setupViews()
         configurePriceLabels()
         addSubscriptions()
@@ -84,6 +85,23 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     deinit {
         self.updateTimer = nil
+    }
+    
+    private func setupModels() {
+        
+        guard let store = self.store else { return }
+ 
+         isLtcSwapped = store.state.isLtcSwapped
+        
+        if let rate = store.state.currentRate {
+            exchangeRate = rate
+            let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
+            secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
+            primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
+        } else {
+            secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+            primaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+        } 
     }
     
     private func setupViews() {

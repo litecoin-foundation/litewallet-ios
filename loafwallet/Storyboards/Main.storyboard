@@ -250,13 +250,13 @@
         <!--NonUS Tab Bar View Controller-->
         <scene sceneID="KaL-Vn-Yfq">
             <objects>
-                <viewController storyboardIdentifier="NonUSTabBarViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cEo-Qi-bYI" customClass="NonUSTabBarViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NonUSTabBarViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cEo-Qi-bYI" customClass="NonUSTabBarViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qc8-eV-fQy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zek-0n-Bbp">
-                                <rect key="frame" x="0.0" y="638" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="589" width="414" height="98"/>
                                 <viewLayoutGuide key="safeArea" id="qCH-cU-E5L"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -325,7 +325,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHe-dR-fDI">
-                                <rect key="frame" x="0.0" y="60" width="414" height="578"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="529"/>
                                 <viewLayoutGuide key="safeArea" id="Mbc-cM-i4C"/>
                                 <connections>
                                     <segue destination="OcB-dV-AfP" kind="embed" id="YTB-HG-TRo"/>
@@ -371,7 +371,7 @@
             <objects>
                 <viewController id="OcB-dV-AfP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KFy-EF-Bhg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="578"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="529"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Eg4-W0-GCf"/>
                         <color key="backgroundColor" red="0.232668072" green="0.40775811670000001" blue="0.65472602840000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

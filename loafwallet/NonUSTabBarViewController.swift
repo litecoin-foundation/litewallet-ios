@@ -62,6 +62,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupModels()
         setupViews()
         configurePriceLabels()
         addSubscriptions()
@@ -85,6 +86,23 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
     
     deinit {
         self.updateTimer = nil
+    }
+    
+    private func setupModels() {
+        
+        guard let store = self.store else { return }
+        
+        isLtcSwapped = store.state.isLtcSwapped
+        
+        if let rate = store.state.currentRate {
+            exchangeRate = rate
+            let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
+            secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
+            primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
+        } else {
+            secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+            primaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+        }
     }
     
     private func setupViews() {
