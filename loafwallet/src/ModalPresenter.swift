@@ -11,7 +11,6 @@ import LocalAuthentication
 import SwiftUI
 import SafariServices
 
-
 class ModalPresenter : Subscriber, Trackable {
     
     //MARK: - Public
@@ -246,11 +245,11 @@ class ModalPresenter : Subscriber, Trackable {
                                      completion: @escaping ()->Void) {
         
         let hostingViewController = UIHostingController(rootView: AlertFailureView(alertFailureType:.failedResolution,
-                                                                             errorMessage: errorMessage))
-            
+                                                                                   errorMessage: errorMessage))
+        
         guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first,
               let failureAlertView = hostingViewController.view else { return }
-                
+        
         let size = window.bounds.size
         window.addSubview(failureAlertView)
         
@@ -258,15 +257,15 @@ class ModalPresenter : Subscriber, Trackable {
         failureAlertView.constrain([
                                     failureAlertView.constraint(.width, constant: size.width),
                                     failureAlertView.constraint(.height, constant: alertHeight + 50.0),
-                                     failureAlertView.constraint(.leading, toView: window, constant: nil),
-                                topConstraint ])
+                                    failureAlertView.constraint(.leading, toView: window, constant: nil),
+                                    topConstraint ])
         window.layoutIfNeeded()
         
         UIView.spring(0.6, animations: {
             topConstraint?.constant = size.height - self.alertHeight
             window.layoutIfNeeded()
         }, completion: { _ in
-          
+            
             UIView.spring(0.6, delay: 5.0, animations: {
                 topConstraint?.constant = size.height
                 window.layoutIfNeeded()
@@ -361,7 +360,7 @@ class ModalPresenter : Subscriber, Trackable {
         sendVC.onResolutionFailure = { [weak self] failureMessage in
             self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
         }
-		
+        
         return root
     }
     
@@ -398,13 +397,13 @@ class ModalPresenter : Subscriber, Trackable {
                 let urlString = "https://litecoinfoundation.zendesk.com/hc/en-us"
                 
                 guard let url = URL(string: urlString) else { return }
-                 
+                
                 let vc = SFSafariViewController(url: url)
                 self?.topViewController?.present(vc, animated: true, completion: nil)
             })
-
+            
         }
-
+        
         menu.didTapGiveSupportLF = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
                 self?.presentSupportLF()
@@ -516,6 +515,22 @@ class ModalPresenter : Subscriber, Trackable {
                     guard let wm = self.walletManager else { print("NO WALLET MANAGER!"); return }
                     settingsNav.pushViewController(DefaultCurrencyViewController(walletManager: wm, store: self.store), animated: true)
                 }),
+                Setting(title: "Current Locale", accessoryText: {
+                    
+                    // Get the current locale
+                    let currentLocale = Locale.current
+                    
+                    if let regionCode = currentLocale.regionCode,
+                       let displayName = currentLocale.localizedString(forRegionCode: regionCode) {
+                        return displayName
+                    } else {
+                        return ""
+                    }
+                    
+                }, callback: {
+                    let localeView = UIHostingController(rootView: LocaleChangeView(viewModel: LocaleChangeViewModel()))
+                    settingsNav.pushViewController(localeView, animated: true)
+                }),
                 Setting(title: S.Settings.sync, callback: {
                     settingsNav.pushViewController(ReScanViewController(store: self.store), animated: true)
                 }),
@@ -563,8 +578,7 @@ class ModalPresenter : Subscriber, Trackable {
         view.backgroundColor = .whiteTint
         settingsNav.navigationBar.setBackgroundImage(view.imageRepresentation, for: .default)
         settingsNav.navigationBar.shadowImage = UIImage()
-        settingsNav.navigationBar.isTranslucent = false
-        settingsNav.setBlackBackArrow()
+        settingsNav.navigationBar.isTranslucent = false 
         top.present(settingsNav, animated: true, completion: nil)
     }
     
@@ -592,7 +606,7 @@ class ModalPresenter : Subscriber, Trackable {
     private func presentSupportLF() {
         
         let supportLFView = UIHostingController(rootView: SupportLitecoinFoundationView(viewModel: SupportLitecoinFoundationViewModel()))
-
+        
         supportLFView.rootView.viewModel.didTapToDismiss = {
             supportLFView.dismiss(animated: true) {
                 //TODO: Track in Analytics
@@ -601,7 +615,7 @@ class ModalPresenter : Subscriber, Trackable {
         window.rootViewController?.present(supportLFView, animated: true, completion: nil)
         
     }
-	
+    
     private func presentSecurityCenter() {
         guard let walletManager = walletManager else { return }
         let securityCenter = SecurityCenterViewController(store: store, walletManager: walletManager)
@@ -717,7 +731,7 @@ class ModalPresenter : Subscriber, Trackable {
         paperPhraseNavigationController.viewControllers = [start]
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
-
+    
     private func wipeWallet() {
         let group = DispatchGroup()
         let alert = UIAlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
@@ -998,3 +1012,4 @@ class SecurityCenterNavigationDelegate : NSObject, UINavigationControllerDelegat
         }
     }
 }
+

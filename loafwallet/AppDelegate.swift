@@ -40,9 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         updateCurrentUserLocale(localeId: Locale.current.identifier)
         
+        guard let thisWindow = self.window  else { return false }
+        
+        thisWindow.tintColor = .liteWalletBlue
+        
         UIView.swizzleSetFrame()
         
-        applicationController.launch(application: application, window: self.window, options: launchOptions)
+        applicationController.launch(application: application, window: thisWindow, options: launchOptions)
         
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
         
