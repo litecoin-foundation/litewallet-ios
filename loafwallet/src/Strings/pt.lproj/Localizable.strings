@@ -929,6 +929,9 @@
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Mostrar moeda";
 
+/* Current Locale */
+"Settings.currentLocale" = "Localidade atual:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Registe-se no Acesso Antecipado";
 

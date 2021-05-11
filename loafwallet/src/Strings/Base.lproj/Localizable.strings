@@ -1392,3 +1392,6 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Enter the email address associated with your Litecoin Card account & look for an email with reset instructions.";
+
+/* Current Locale */
+"Settings.currentLocale" = "Current Locale:";

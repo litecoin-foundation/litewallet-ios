@@ -928,6 +928,9 @@
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Toon valuta";
 
+/* Current Locale */
+"Settings.currentLocale" = "Huidige landinstelling:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Doe Mee aan Early Access";
 

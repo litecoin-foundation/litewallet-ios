@@ -928,6 +928,9 @@
 /* Default currency label */
 "Settings.currency" = "Mata uang tampilan";
 
+/* Current Locale */
+"Settings.currentLocale" = "Lokal Saat Ini:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Bergabunglah dengan Akses Dini";
 
