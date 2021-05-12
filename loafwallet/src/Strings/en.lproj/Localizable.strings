@@ -928,6 +928,9 @@
 /* Default currency label */
 "Settings.currency" = "Display Currency";
 
+/* Current Locale */
+"Settings.currentLocale" = "Current Locale:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Join Early Access";
 
@@ -1374,6 +1377,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
-
-/* Current Locale */
-"Settings.currentLocale" = "";

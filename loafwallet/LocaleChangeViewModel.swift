@@ -9,13 +9,14 @@
 import Foundation
 class LocaleChangeViewModel: ObservableObject {
     
-    var updatedLocale: Locale = Locale.current
-     
     //MARK: - Combine Variables
     @Published
     var displayName: String = ""
+     
+    private var updatedLocale: Locale = Locale.current
     
     init() {
+        
         let currentLocale = Locale.current
          
         if let regionCode = currentLocale.regionCode,

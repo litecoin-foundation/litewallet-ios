@@ -11,15 +11,24 @@ import Firebase
 @testable import loafwallet
 
 class CardTests: XCTestCase {
-     
+    
     var sharedAppDelegate = AppDelegate()
     
     func testUserDefaultsOfUSALocaleIsCorrect() throws {
-        XCTAssertTrue(UserDefaults.userIsInUSA)
-    }
         
+        //Setup the target Locale
+        let usLocale = Locale(identifier: "en_US")
+         
+        //The test server simulator can be in another locale so but cases should pass
+        if Locale.current == usLocale {
+            XCTAssertTrue(UserDefaults.userIsInUSA)
+        } else {
+            XCTAssertFalse(UserDefaults.userIsInUSA)
+        }
+    }
+    
     func testCheckUserIsExUSA() throws {
-          
+        
         let 🇲🇽 = Locale(identifier: "mx_MX")
         let 🇮🇩 = Locale(identifier: "id_ID")
         let 🇷🇺 = Locale(identifier: "ru_RU")
@@ -39,7 +48,7 @@ class CardTests: XCTestCase {
     }
     
     func testCheckUserIsBilingualInUSA() throws {
-          
+        
         let 🇺🇸 = Locale(identifier: "en_US")
         let 🇲🇽🇺🇸 = Locale(identifier: "mx_US")
         let 🇮🇩🇺🇸 = Locale(identifier: "id_US")
@@ -57,20 +66,6 @@ class CardTests: XCTestCase {
             sharedAppDelegate.updateCurrentUserLocale(localeId: locale.identifier)
             XCTAssertTrue(UserDefaults.userIsInUSA)
         }
-
     }
-    
-    func testMainViewIsShowingCardTabForUSAUsers() throws {
-        XCTAssertTrue(UserDefaults.userIsInUSA)
-        ///Check middle tab is the Card Tab
-        
-        ///Check the right tab count = 5
-    }
-    
-    func testMainViewIsNotShowingCardTabForExUSAUsers() throws {
-        ///Check tabs
-        
-        ///Check the right tab count == 4
-    }
-
 }
+
