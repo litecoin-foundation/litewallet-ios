@@ -14,19 +14,6 @@ class CardTests: XCTestCase {
     
     var sharedAppDelegate = AppDelegate()
     
-    func testUserDefaultsOfUSALocaleIsCorrect() throws {
-        
-        //Setup the target Locale
-        let usLocale = Locale(identifier: "en_US")
-         
-        //The test server simulator can be in another locale so but cases should pass
-        if Locale.current == usLocale {
-            XCTAssertTrue(UserDefaults.userIsInUSA)
-        } else {
-            XCTAssertFalse(UserDefaults.userIsInUSA)
-        }
-    }
-    
     func testCheckUserIsExUSA() throws {
         
         let 🇲🇽 = Locale(identifier: "mx_MX")
