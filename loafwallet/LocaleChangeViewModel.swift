@@ -11,9 +11,7 @@ class LocaleChangeViewModel: ObservableObject {
     
     //MARK: - Combine Variables
     @Published
-    var displayName: String = ""
-     
-    private var updatedLocale: Locale = Locale.current
+    var displayName: String = "" 
     
     init() {
         

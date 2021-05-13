@@ -515,7 +515,7 @@ class ModalPresenter : Subscriber, Trackable {
                     guard let wm = self.walletManager else { print("NO WALLET MANAGER!"); return }
                     settingsNav.pushViewController(DefaultCurrencyViewController(walletManager: wm, store: self.store), animated: true)
                 }),
-                Setting(title: "Current Locale", accessoryText: {
+                Setting(title: S.Settings.currentLocale, accessoryText: {
                     
                     // Get the current locale
                     let currentLocale = Locale.current
