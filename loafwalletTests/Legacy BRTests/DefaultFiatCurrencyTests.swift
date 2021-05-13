@@ -9,17 +9,18 @@ import XCTest
  @testable import loafwallet
 
 class DefaultCurrencyTests : XCTestCase {
+    
+    let defaultLocalCurrency = Locale(identifier: "en_US")
 
     override func setUp() {
         UserDefaults.standard.removeObject(forKey: "defaultcurrency")
     }
 
     func testInitialValue() {
-        guard let localCurrency = Locale.current.currencyCode else {
-            XCTFail("We should have a local currency")
-            return
-        }
-        XCTAssertTrue(localCurrency == UserDefaults.defaultCurrencyCode, "Default currency should be equal to the local currency by default")
+                
+        XCTAssertTrue(defaultLocalCurrency.currencyCode ==
+                        UserDefaults.defaultCurrencyCode,
+                      "Default currency should be equal to the local currency (USD) by default")
     }
 
     func testUpdateEUR() {

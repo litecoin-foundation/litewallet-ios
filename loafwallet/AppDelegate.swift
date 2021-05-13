@@ -38,9 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setFirebaseConfiguration()
         
+        updateCurrentUserLocale(localeId: Locale.current.identifier)
+        
+        guard let thisWindow = self.window  else { return false }
+        
+        thisWindow.tintColor = .liteWalletBlue
+        
         UIView.swizzleSetFrame()
         
-        applicationController.launch(application: application, window: self.window, options: launchOptions)
+        applicationController.launch(application: application, window: thisWindow, options: launchOptions)
         
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
         
@@ -96,6 +102,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else { assert(false, "Couldn't load Firebase config file") }
             FirebaseApp.configure(options: fileOpts)
         #endif
+    }
+    
+    /// Check Locale
+    func updateCurrentUserLocale(localeId: String) {
+          
+        let suffix = String(localeId.suffix(3))
+        
+        if suffix == "_US" {
+            UserDefaults.userIsInUSA = true
+        } else {
+            UserDefaults.userIsInUSA = false
+        }
     }
 }
 

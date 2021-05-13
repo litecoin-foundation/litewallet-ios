@@ -928,6 +928,9 @@
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Vis valuta";
 
+/* Current Locale */
+"Settings.currentLocale" = "Nuværende landestandard:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Tilmeld dig Early Access";
 

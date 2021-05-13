@@ -928,6 +928,9 @@
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Afficher la devise";
 
+/* Current Locale */
+"Settings.currentLocale" = "Paramètres régionaux actuels:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Rejoignez l'accès anticipé";
 

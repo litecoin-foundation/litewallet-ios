@@ -928,6 +928,9 @@
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "顯示貨幣";
 
+/* Current Locale */
+"Settings.currentLocale" = "當前語言環境：";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "參加「先行體驗」";
 

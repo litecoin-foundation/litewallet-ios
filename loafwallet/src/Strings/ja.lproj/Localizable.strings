@@ -928,6 +928,9 @@
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "表示される通貨";
 
+/* Current Locale */
+"Settings.currentLocale" = "現在のロケール：";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "早期アクセスに参加";
 
