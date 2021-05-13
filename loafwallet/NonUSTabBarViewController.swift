@@ -5,9 +5,9 @@
 //  Created by Kerry Washington on 5/9/21.
 //  Copyright © 2021 Litecoin Foundation. All rights reserved.
 //
- 
+
 import UIKit
-import Foundation 
+import Foundation
 
 class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
     
@@ -324,13 +324,13 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
         array.forEach { item in
             
             switch item.tag {
-                case 0: item.title = S.History.barItemTitle
-                case 1: item.title = S.Send.barItemTitle
-                case 3: item.title = S.Receive.barItemTitle
-                case 4: item.title = S.BuyCenter.barItemTitle
-                default:
-                    item.title = "NO-TITLE"
-                    NSLog("ERROR: UITabbar item count is wrong")
+            case 0: item.title = S.History.barItemTitle
+            case 1: item.title = S.Send.barItemTitle
+            case 3: item.title = S.Receive.barItemTitle
+            case 4: item.title = S.BuyCenter.barItemTitle
+            default:
+                item.title = "NO-TITLE"
+                NSLog("ERROR: UITabbar item count is wrong")
             }
         }
     }
@@ -428,3 +428,4 @@ extension NonUSTabBarViewController {
         store.perform(action: CurrencyChange.toggle())
     }
 }
+
