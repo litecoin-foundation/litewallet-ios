@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 import LocalAuthentication
 import FirebaseCrashlytics
 
@@ -51,7 +52,11 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         view.backgroundColor = .liteWalletBlue
         return view
     }()
-      
+    
+    private let headerView: UIHostingController<LockScreenHeaderView> = {
+        let viewModel = LockScreenHeaderViewModel()
+        return UIHostingController(rootView: LockScreenHeaderView(viewModel: viewModel))
+    }()
     private let pinPadViewController = PinPadViewController(style: .clear, keyboardType: .pinPad, maxDigits: 0)
     private let pinViewContainer = UIView()
     private var pinView: PinView?
@@ -86,7 +91,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     private var hasAttemptedToShowBiometrics = false
     private let lockedOverlay = UIVisualEffectView()
     private var isResetting = false
-    private let versionLabel = UILabel(font: .barlowLight(size: 14), color: .transparentWhite)
+    private let versionLabel = UILabel(font: .barlowLight(size: 14), color: .white)
     private var isWalletEmpty = false
   
     override func viewDidLoad() {
@@ -169,17 +174,17 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         pinViewContainer.addSubview(pinView)
         
         pinView.constrain([
-            pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -90),
-        pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
-        pinView.widthAnchor.constraint(equalToConstant: pinView.width),
-        pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
+                            pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -90),
+                            pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
+                            pinView.widthAnchor.constraint(equalToConstant: pinView.width),
+                            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
         
         enterPINLabel.constrain([
             enterPINLabel.topAnchor.constraint(equalTo: pinView.topAnchor, constant: -60),
             enterPINLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor) ])
        
         logo.constrain([
-            logo.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.constraint(.height, constant: 70),
             logo.constraint(.width, constant: 70) ])
@@ -188,6 +193,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
 
     private func addSubviews() {
         view.addSubview(backgroundView)
+        view.addSubview(headerView.view)
         view.addSubview(pinViewContainer)
         view.addSubview(logo)
         view.addSubview(versionLabel)
@@ -203,6 +209,12 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
 
     private func addConstraints() {
         backgroundView.constrain(toSuperviewEdges: nil)
+        headerView.view.constrain([
+                                    headerView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                    headerView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                    headerView.view.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+                                    headerView.view.heightAnchor.constraint(equalToConstant: 150)])
+
         if walletManager != nil {
             addChildViewController(pinPadViewController, layout: {
                 pinPadBottom = pinPadViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)
