@@ -1,14 +1,16 @@
 ---
-name: Bug report - Litewallet iOS 
-about: Create a report to help us improve Litewallet
-title: 'Bug - Litewallet iOS'
+name: 🦟[Bug Report] 
+about: An issue for when Litewallet:iOS is not operating as expected.
+title: '🦟[Bug Report]'
 labels: 'bug'
 assignees: 'kcw-grunt'
 
 ---
 
+<!--Reporter: Please read! When the app is not operating as you want it but still performs as expected, that is a **feature request**-->  
+
 **Describe the bug**
-A clear and concise description of what the bug is.
+<!--A clear and concise description of what the bug is.-->
 
 **To Reproduce**
 Steps to reproduce the behavior:
@@ -17,19 +19,13 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+<!--If applicable, add screenshots to help explain your problem.-->
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Litewallet Version [e.g. 22]
+**Observed Environment**
+ - OS version [e.g. _iOS 13.0_]:
+ - Litewallet Version [e.g. _v3.4.0_]:
+ - Device model:[e.g. _iPhone 11_]:
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1] 
- 
-**Additional context**
-Add any other context about the problem here.
+**Additional context or information**
+<!--Add any other context about the problem here.-->
