@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORIA";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Aktuellt LTC-värde i";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "Kontrollerar privat nyckelsaldo...";
 

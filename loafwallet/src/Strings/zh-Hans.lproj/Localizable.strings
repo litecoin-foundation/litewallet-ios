@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "历史";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "当前的LTC值";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "正在查看私人密钥余额...";
 

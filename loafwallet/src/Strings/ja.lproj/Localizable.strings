@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "歴史";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "現在のLTC値";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "秘密鍵の残高確認中...";
 
