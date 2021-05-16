@@ -33,7 +33,7 @@ struct LockScreenHeaderView: View {
                     
                     Text("\(S.History.currentLitecoinValue) \(viewModel.currencyCode)")
                         .font(Font(UIFont.barlowRegular(size: 14.0)))
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundColor(Color.white.opacity(0.5))
                         .padding(.bottom, 10)
                 })
     }

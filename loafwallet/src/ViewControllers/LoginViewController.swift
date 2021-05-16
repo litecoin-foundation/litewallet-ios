@@ -294,7 +294,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
                 wipeBannerButton.heightAnchor.constraint(equalToConstant: 60)])
             
             wipeBannerButton.setTitle(S.WipeWallet.emptyWallet, for: .normal)
-            wipeBannerButton.setTitleColor(.white.withAlphaComponent(0.7), for: .normal)
+            wipeBannerButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
             wipeBannerButton.titleLabel?.font = .barlowSemiBold(size: 17)
             wipeBannerButton.addTarget(self, action: #selector(wipeTapped), for: .touchUpInside)
             
