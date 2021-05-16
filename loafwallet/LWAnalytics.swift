@@ -20,7 +20,6 @@ class LWAnalytics {
         properties?.forEach { key, value in
             parameters[key] = value
         }
-        print("XXX\(Analytics.appInstanceID())")
 
         Analytics.logEvent(itemName.rawValue, parameters: parameters)
     }

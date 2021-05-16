@@ -10,11 +10,9 @@ import SwiftUI
 
 struct LockScreenHeaderView: View {
     
-    
     //MARK: - Combine Variables
     @ObservedObject
     var viewModel: LockScreenHeaderViewModel
-     
     
     init(viewModel: LockScreenHeaderViewModel) {
         self.viewModel = viewModel
@@ -29,17 +27,14 @@ struct LockScreenHeaderView: View {
             .overlay(
                 VStack() {
                     Spacer()
-                    Text(" 1 LTC = $258.00")
-                        .font(Font(UIFont.barlowSemiBold(size: 18.0)))
-                        .tracking(1.1)
+                    Text(" 1 LTC = \(viewModel.currentValueInFiat)")
+                        .font(Font(UIFont.barlowSemiBold(size: 16.0)))
                         .foregroundColor(.white)
-                        .padding(.bottom, 0)
                     
-                    Text("Current Litecoin (LTC) value in USD")
-                        .font(Font(UIFont.barlowRegular(size: 15.0)))
-                        //.tracking(1.05)
-                        .foregroundColor(.white)
-                        .padding(.bottom, 15)
+                    Text("\(S.History.currentLitecoinValue) \(viewModel.currencyCode)")
+                        .font(Font(UIFont.barlowRegular(size: 14.0)))
+                        .foregroundColor(.white.opacity(0.5))
+                        .padding(.bottom, 10)
                 })
     }
 }
@@ -47,7 +42,8 @@ struct LockScreenHeaderView: View {
 
 struct LockScreenHeaderView_Previews: PreviewProvider {
  
-    static let viewModel = LockScreenHeaderViewModel()
+    static let store = Store()
+    static let viewModel = LockScreenHeaderViewModel(store: store)
     
     static var previews: some View {
         
