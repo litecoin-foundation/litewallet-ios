@@ -315,6 +315,9 @@
 		C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */; };
 		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
 		C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */; };
+		C3EFA9A12650807B005C59B5 /* LockScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */; };
+		C3EFA9A3265080FF005C59B5 /* LockScreenHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */; };
+		C3EFA9A62651A808005C59B5 /* LockScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */; };
 		C3F55645255A193D005F786F /* SupportLitecoinFoundationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F55644255A193D005F786F /* SupportLitecoinFoundationView.swift */; };
 		C3F55655255A195B005F786F /* SupportLitecoinFoundationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F55654255A195B005F786F /* SupportLitecoinFoundationViewModel.swift */; };
 		C3F7BCDC25FEC6AD00694C28 /* FailedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */; };
@@ -1498,6 +1501,9 @@
 		C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainView.swift; sourceTree = "<group>"; };
 		C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModel.swift; sourceTree = "<group>"; };
 		C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModelTests.swift; sourceTree = "<group>"; };
+		C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenHeaderView.swift; sourceTree = "<group>"; };
+		C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenHeaderViewModel.swift; sourceTree = "<group>"; };
+		C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenTests.swift; sourceTree = "<group>"; };
 		C3F55644255A193D005F786F /* SupportLitecoinFoundationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportLitecoinFoundationView.swift; sourceTree = "<group>"; };
 		C3F55654255A195B005F786F /* SupportLitecoinFoundationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportLitecoinFoundationViewModel.swift; sourceTree = "<group>"; };
 		C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedAlertView.swift; sourceTree = "<group>"; };
@@ -2184,6 +2190,7 @@
 		2465873723A5AAD100A32E9E /* loafwalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */,
 				C32DB42B264847D500017D26 /* Card Tests */,
 				C3188E3126445E5E0008ADD1 /* File Tests */,
 				C3B7C3EC255FF56100E98A64 /* Constants Tests */,
@@ -3165,6 +3172,8 @@
 				C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */,
 				C30029E125D0185500F08C2B /* StandardDividerView.swift */,
 				C30029EA25D019BC00F08C2B /* CopyButtonView.swift */,
+				C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */,
+				C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */,
 			);
 			name = "SwiftUI+UIKit";
 			sourceTree = "<group>";
@@ -3200,6 +3209,14 @@
 				C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */,
 			);
 			name = Unstoppable;
+			sourceTree = "<group>";
+		};
+		C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */,
+			);
+			path = "Lock Screen Tests";
 			sourceTree = "<group>";
 		};
 		C3F55643255A1916005F786F /* SupportLitecoinFoundation */ = {
@@ -4066,6 +4083,7 @@
 				2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */,
 				24470E3223A5F5B100ADDA27 /* NSDataExtensionTests.swift in Sources */,
 				24470E2C23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift in Sources */,
+				C3EFA9A62651A808005C59B5 /* LockScreenTests.swift in Sources */,
 				24470E4023A6004800ADDA27 /* WalletCreationTests.swift in Sources */,
 				24470E3823A5FEF200ADDA27 /* SpendingLimitTests.swift in Sources */,
 				24470E3E23A6000900ADDA27 /* WalletAuthenticationTests.swift in Sources */,
@@ -4391,6 +4409,7 @@
 				C30899792616426800EE6A40 /* ForgotAlertViewModel.swift in Sources */,
 				CEBF33041DDE17A600348FC6 /* Transaction.swift in Sources */,
 				CEAA9E911DC0FDFE0066731D /* UIViewPropertyAnimator+BRWAdditions.swift in Sources */,
+				C3EFA9A12650807B005C59B5 /* LockScreenHeaderView.swift in Sources */,
 				C3BD4A4A2597542700D97079 /* LoginCardAlertView.swift in Sources */,
 				CEAA9EA01DC2F9F50066731D /* UIFont+BRWAdditions.swift in Sources */,
 				C32DB42F26488CAA00017D26 /* NonUSTabBarViewController.swift in Sources */,
@@ -4431,6 +4450,7 @@
 				CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */,
 				22A9A94F1DF61945000F0016 /* BRHTTPRouter.swift in Sources */,
 				CE6DCC271E6108D50044257B /* EnterPhraseCell.swift in Sources */,
+				C3EFA9A3265080FF005C59B5 /* LockScreenHeaderViewModel.swift in Sources */,
 				CE760EDD1E561DF900EFAC2B /* UpdatePinViewController.swift in Sources */,
 				22A9A9481DF61945000F0016 /* BRBitID.swift in Sources */,
 				24BA90C62410129E001E3825 /* FeeSelectorView.swift in Sources */,

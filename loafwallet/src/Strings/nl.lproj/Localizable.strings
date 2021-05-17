@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "GESCHIEDENIS";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Huidige LTC-waarde in";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "Persoonlijke sleutel balans checken...";
 

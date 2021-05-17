@@ -1395,3 +1395,6 @@
 
 /* Current Locale */
 "Settings.currentLocale" = "Current Locale:";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Current LTC value in";

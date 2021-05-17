@@ -178,6 +178,7 @@ enum S {
     
     enum History {
         static let barItemTitle = NSLocalizedString("History.barItemTitle", value: "**History**", comment: "History Bar Item Title")
+        static let currentLitecoinValue = NSLocalizedString("History.currentLitecoinValue", value: "**History CurrentLitecoinValue**", comment: "History Current Litecoin Value")
     }
 
     enum JailbreakWarnings {
