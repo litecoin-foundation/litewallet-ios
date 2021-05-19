@@ -839,6 +839,9 @@
 		24D91D0A2166923E0077A619 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		24D91D0D2166A5480077A619 /* TestnetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetData.swift; sourceTree = "<group>"; };
 		24DFCE6723B89CDE001F17F8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		37198C1426549D6000F6F36C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		37198C1526549D6000F6F36C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		37198C1626549D6600F6F36C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		506E082C7E9B4A6A0631020E /* Pods-loafwallet.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwallet.testnet.xcconfig"; path = "Target Support Files/Pods-loafwallet/Pods-loafwallet.testnet.xcconfig"; sourceTree = "<group>"; };
 		5793A89C7CBE76D3E0A430A6 /* Pods-loafwallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwallet.release.xcconfig"; path = "Target Support Files/Pods-loafwallet/Pods-loafwallet.release.xcconfig"; sourceTree = "<group>"; };
 		6C074BF32D12CB995B58959F /* Pods-loafwalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwalletTests.release.xcconfig"; path = "Target Support Files/Pods-loafwalletTests/Pods-loafwalletTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -3865,6 +3868,7 @@
 				sv,
 				id,
 				Base,
+				tr,
 			);
 			mainGroup = 75A2A7871DA5934300A983D8;
 			packageReferences = (
@@ -4595,6 +4599,7 @@
 			children = (
 				75A2A79D1DA5934300A983D8 /* Base */,
 				249F976D236F86240045087A /* id */,
+				37198C1426549D6000F6F36C /* tr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -4618,6 +4623,7 @@
 				24B9621723BA66CC00ECD938 /* pt */,
 				24B9621923BA66CE00ECD938 /* zh-Hant */,
 				24B9621B23BA66CF00ECD938 /* en */,
+				37198C1526549D6000F6F36C /* tr */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -4641,6 +4647,7 @@
 				CE0FC0F91F72417500E7C626 /* sv */,
 				24306799238F479500EBEA99 /* id */,
 				2430679B238F5A2900EBEA99 /* en */,
+				37198C1626549D6600F6F36C /* tr */,
 			);
 			name = Localizable.strings;
 			path = src/Strings;
