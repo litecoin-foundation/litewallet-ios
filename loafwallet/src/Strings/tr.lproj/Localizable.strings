@@ -32,133 +32,133 @@
 "AccountHeader.manageButtonName" = "YÖNET";
 
 /* Error alert title */
-"Alert.error" = "Error";
+"Alert.error" = "Hata";
 
 /* No internet alert message */
-"Alert.noInternet" = "No internet connection found. Check your connection and try again.";
+"Alert.noInternet" = "İnternet bağlantısı bulunamadı. Bağlantınızı kontrol edin ve tekrar deneyin.";
 
 /* Warning alert title */
-"Alert.warning" = "Warning";
+"Alert.warning" = "Uyarı";
 
 /* 'the addresses were copied'' Alert title */
-"Alerts.copiedAddressesHeader" = "Addresses Copied";
+"Alerts.copiedAddressesHeader" = "Kopyalanan Adresler";
 
 /* Addresses Copied Alert sub header */
-"Alerts.copiedAddressesSubheader" = "All wallet addresses successfully copied.";
+"Alerts.copiedAddressesSubheader" = "Tüm cüzdan adresleri başarıyla kopyalandı.";
 
 /* Alert Header Label (the paper key was set) */
-"Alerts.paperKeySet" = "Paper Key Set";
+"Alerts.paperKeySet" = "Kağıt Anahtar Takımı";
 
 /* Alert Subheader label (playfully positive) */
-"Alerts.paperKeySetSubheader" = "Awesome!";
+"Alerts.paperKeySetSubheader" = "Müthiş!";
 
 /* Alert Header label (the PIN was set) */
-"Alerts.pinSet" = "PIN Set";
+"Alerts.pinSet" = "PIN Ayarı";
 
 /* Send failure alert header label (the send failed to happen) */
-"Alerts.sendFailure" = "Send failed";
+"Alerts.sendFailure" = "Gönderilemedi";
 
 /* Send success alert header label (confirmation that the send happened) */
-"Alerts.sendSuccess" = "Send Confirmation";
+"Alerts.sendSuccess" = "Onay Gönder";
 
 /* Send success alert subheader label (e.g. the money was sent) */
-"Alerts.sendSuccessSubheader" = "Money Sent!";
+"Alerts.sendSuccessSubheader" = "Para gönderildi!";
 
 /* JSON Serialization error message */
-"ApiClient.jsonError" = "JSON Serialization Error";
+"ApiClient.jsonError" = "JSON Serileştirme Hatası";
 
 /* Wallet not ready error message */
-"ApiClient.notReady" = "Wallet not ready";
+"ApiClient.notReady" = "Cüzdan hazır değil";
 
 /* API Token error message */
-"ApiClient.tokenError" = "Unable to retrieve API token";
+"ApiClient.tokenError" = "API jetonu alınamıyor";
 
 /* buy button */
-"Button.buy" = "buy";
+"Button.buy" = "satın almak";
 
 /* Cancel button label */
-"Button.cancel" = "Cancel";
+"Button.cancel" = "İptal etmek";
 
 /* Ignore button label */
-"Button.ignore" = "Ignore";
+"Button.ignore" = "Göz ardı etmek";
 
 /* menu button */
-"Button.menu" = "menu";
+"Button.menu" = "Menü";
 
 /* No button */
-"Button.no" = "No";
+"Button.no" = "Hayır";
 
 /* OK button label */
-"Button.ok" = "OK";
+"Button.ok" = "TAMAM MI";
 
 /* receive button */
-"Button.receive" = "receive";
+"Button.receive" = "teslim almak";
 
 /* send button */
-"Button.send" = "send";
+"Button.send" = "göndermek";
 
 /* Settings button label */
-"Button.settings" = "Settings";
+"Button.settings" = "Ayarlar";
 
 /* Settings button label */
-"Button.submit" = "Submit";
+"Button.submit" = "Sunmak";
 
 /* Yes button */
-"Button.yes" = "Yes";
+"Button.yes" = "Evet";
 
 /* Bitrefill buy financial details */
-"BuyCenter.bitrefillFinancialDetails" = "• Buy gift cards\n• Refill prepaid phones\n• Steam, Amazon, Hotels.com\n• Works in 170 countries";
+"BuyCenter.bitrefillFinancialDetails" = "• Hediye kartları satın alın\n• Ön ödemeli telefonları yeniden doldurun\n• Steam, Amazon, Hotels.com\n• 170 ülkede çalışıyor";
 
 /* Bitrefill Title */
 "BuyCenter.BitrefillTitle" = "Bitrefill";
 
 /* Changelly buy financial details */
-"BuyCenter.changellyFinancialDetails" = "• Change Litecoin for other cryptos\n• No ID Required\n• Buy via credit card\n• Global coverage";
+"BuyCenter.changellyFinancialDetails" = "• Litecoin'i diğer kriptolar için değiştirin\n• Kimlik Gerekmiyor\n• Kredi kartıyla satın al\n• Küresel kapsam";
 
 /* Changelly Title */
 "BuyCenter.changellyTitle" = "Changelly";
 
 /* Buy Modal Title */
-"BuyCenter.ModalTitle" = "Buy Łitecoin";
+"BuyCenter.ModalTitle" = "Łitecoin satın alın";
 
 /* Simplex buy financial details */
-"BuyCenter.simplexFinancialDetails" = "• Get Litecoin in 5 mins!\n• Buy Litecoin via credit card\n• Passport or State ID";
+"BuyCenter.simplexFinancialDetails" = "• 5 dakikada Litecoin edinin!\n• Kredi kartıyla Litecoin satın alın\n• Pasaport veya Eyalet Kimliği";
 
 /* Simplex Title */
 "BuyCenter.simplexTitle" = "Simplex";
 
 /* Buy Center Title */
-"BuyCenter.title" = "Buy Litecoin";
+"BuyCenter.title" = "Litecoin satın alın";
 
 /* Camera plugin instruction */
-"CameraPlugin.centerInstruction" = "Center your ID in the box";
+"CameraPlugin.centerInstruction" = "Kimliğinizi kutuda ortalayın";
 
 /* Amount to Send: ($1.00) */
-"Confirmation.amountLabel" = "Amount to Send:";
+"Confirmation.amountLabel" = "Gönderilecek tutar:";
 
 /* Amount to Donate: ($1.00) */
-"Confirmation.donateLabel" = "Amount to Donate:";
+"Confirmation.donateLabel" = "Bağışlanacak Miktar:";
 
 /* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Network Fee:";
+"Confirmation.feeLabel" = "Ağ Ücreti:";
 
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
-"Confirmation.processingAndDonationTime" = "Processing time: These transactions will take %1$@ minutes to process.";
+"Confirmation.processingAndDonationTime" = "İşlem süresi: Bu işlemlerin işlenmesi %1$@ dakika sürecektir.";
 
 /* eg. Processing time: This transaction will take 10-30 minutes to process. */
-"Confirmation.processingTime" = "Processing time: This transaction will take %1$@ minutes to process.";
+"Confirmation.processingTime" = "İşlem süresi: Bu işlemin işlenmesi %1$@ dakika sürecektir.";
 
 /* Send: (amount) */
-"Confirmation.send" = "Send";
+"Confirmation.send" = "Gönder";
 
 /* Confirmation Screen title */
-"Confirmation.title" = "Confirmation";
+"Confirmation.title" = "Onayla";
 
 /* To: (address) */
-"Confirmation.to" = "To";
+"Confirmation.to" = "İçin";
 
 /* Total Cost: ($5.00) */
-"Confirmation.totalLabel" = "Total Cost:";
+"Confirmation.totalLabel" = "Toplam tutar:";
 
 /* Confirm paper phrase error message */
 "ConfirmPaperPhrase.error" = "The words entered do not match your paper key. Please try again.";
