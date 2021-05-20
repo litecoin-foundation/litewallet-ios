@@ -1,35 +1,35 @@
 /* About screen website label */
-"About.blog" = "Website";
+"About.blog" = "İnternet sitesi";
 
 /* About screen footer */
-"About.footer" = "Made by the LiteWallet Team\nof the\nLitecoin Foundation\n%1$@";
+"About.footer" = "Litecoin Vakfı'nın LiteWallet\nEkibi tarafından yapılmıştır\n%1$@";
 
 /* Privay Policy button label */
-"About.privacy" = "Privacy Policy";
+"About.privacy" = "Gizlilik Politikası";
 
 /* About screen reddit label */
 "About.reddit" = "Reddit";
 
 /* About screen title */
-"About.title" = "About";
+"About.title" = "Hakkında";
 
 /* About screen twitter label */
 "About.twitter" = "Twitter";
 
 /* Close modal button accessibility label */
-"AccessibilityLabels.close" = "Close";
+"AccessibilityLabels.close" = "Kapat";
 
 /* Support center accessibiliy label */
-"AccessibilityLabels.faq" = "Support Center";
+"AccessibilityLabels.faq" = "Destek Merkezi";
 
 /* Loading Wallet Message */
-"Account.loadingMessage" = "Loading Wallet";
+"Account.loadingMessage" = "Cüzdan yükleniyor";
 
 /* Default wallet name */
-"AccountHeader.defaultWalletName" = "My Litewallet";
+"AccountHeader.defaultWalletName" = "Litewallet'ım";
 
 /* Manage wallet button title */
-"AccountHeader.manageButtonName" = "MANAGE";
+"AccountHeader.manageButtonName" = "YÖNET";
 
 /* Error alert title */
 "Alert.error" = "Error";
