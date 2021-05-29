@@ -161,76 +161,76 @@
 "Confirmation.totalLabel" = "Toplam tutar:";
 
 /* Confirm paper phrase error message */
-"ConfirmPaperPhrase.error" = "The words entered do not match your paper key. Please try again.";
+"ConfirmPaperPhrase.error" = "Girilen sözcükler kağıt anahtarınızla eşleşmiyor. Lütfen tekrar deneyin.";
 
 /* Confirm paper phrase view label. */
-"ConfirmPaperPhrase.label" = "To make sure everything was written down correctly, please enter the following words from your paper key.";
+"ConfirmPaperPhrase.label" = "Her şeyin doğru yazıldığından emin olmak için lütfen kağıt anahtarınızdan aşağıdaki kelimeleri girin.";
 
 /* Word label eg. Word #1, Word #2 */
-"ConfirmPaperPhrase.word" = "Word #%1$@";
+"ConfirmPaperPhrase.word" = "Kelime #%1$@";
 
 /* Litecoin denomination picker label */
-"DefaultCurrency.bitcoinLabel" = "Litecoin Display Unit";
+"DefaultCurrency.bitcoinLabel" = "Litecoin Görüntü Birimi";
 
 /* Exchange rate label */
-"DefaultCurrency.rateLabel" = "Exchange Rate";
+"DefaultCurrency.rateLabel" = "Döviz kuru";
 
 /* Donate Memo */
-"Donate.memo" = "Donation to the Litecoin Foundation";
+"Donate.memo" = "Litecoin Vakfı'na bağış";
 
 /* Donate to the Litecoin Foundation */
-"Donate.title" = "Donate to the Litecoin Foundation (%@)";
+"Donate.title" = "Litecoin Vakfı'na bağış yapın (% @)";
 
 /* Donate Confirmation */
-"Donate.title.confirmation" = "Confirm Donation";
+"Donate.title.confirmation" = "Bağışı Onaylayın";
 
 /* Email unavailable alert title */
-"ErrorMessages.emailUnavailableMessage" = "This device isn't configured to send email with the iOS mail app.";
+"ErrorMessages.emailUnavailableMessage" = "Bu cihaz, iOS posta uygulamasıyla e-posta gönderecek şekilde yapılandırılmamış.";
 
 /* Email unavailable alert title */
-"ErrorMessages.emailUnavailableTitle" = "Email Unavailable";
+"ErrorMessages.emailUnavailableTitle" = "E-posta Kullanılamıyor";
 
 /* Messaging unavailable alert title */
-"ErrorMessages.messagingUnavailableMessage" = "This device isn't configured to send messages.";
+"ErrorMessages.messagingUnavailableMessage" = "Bu cihaz mesaj gönderecek şekilde yapılandırılmamış.";
 
 /* Messaging unavailable alert title */
-"ErrorMessages.messagingUnavailableTitle" = "Messaging Unavailable";
+"ErrorMessages.messagingUnavailableTitle" = "Mesajlaşma Kullanılamıyor";
 
 /* You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
-"FaceIDSettings.customizeText" = "You can customize your Face ID spending limit from the %1$@.";
+"FaceIDSettings.customizeText" = "Face ID harcama limitinizi şuradan özelleştirebilirsiniz: %1$@.";
 
 /* Face ID screen label */
-"FaceIDSettings.label" = "Use your face to unlock your Litewallet and send money up to a set limit.";
+"FaceIDSettings.label" = "Litewallet'ınızın kilidini açmak ve belirli bir limite kadar para göndermek için yüzünüzü kullanın.";
 
 /* Link Text (see TouchIdSettings.customizeText) */
-"FaceIDSettings.linkText" = "Face ID Spending Limit Screen";
+"FaceIDSettings.linkText" = "Face ID Harcama Sınırı Ekranı";
 
 /* Face id switch label. */
-"FaceIDSettings.switchLabel" = "Enable Face ID for Litewallet";
+"FaceIDSettings.switchLabel" = "Litewallet için Face ID'yi etkinleştirin";
 
 /* Face ID settings view title */
 "FaceIDSettings.title" = "Face ID";
 
 /* Face ID unavailable alert message */
-"FaceIDSettings.unavailableAlertMessage" = "You have not set up Face ID on this device. Go to Settings->Face ID & Passcode to set it up now.";
+"FaceIDSettings.unavailableAlertMessage" = "Bu cihazda Face ID kurmadınız. Şimdi kurmak için Ayarlar-> Face ID ve Parola'ya gidin.";
 
 /* Face ID unavailable alert title */
-"FaceIDSettings.unavailableAlertTitle" = "Face ID Not Set Up";
+"FaceIDSettings.unavailableAlertTitle" = "Yüz Kimliği Ayarlanmadı";
 
 /* Face Id spending limit screen title */
-"FaceIDSpendingLimit.title" = "Face ID Spending Limit";
+"FaceIDSpendingLimit.title" = "Face ID Harcama Sınırı";
 
 /* Economy fee */
-"FeeSelector.economy" = "Economy";
+"FeeSelector.economy" = "Ekonomi";
 
 /* Fee Selector economy fee description */
-"FeeSelector.economyLabel" = "Estimated Delivery: 10+ minutes";
+"FeeSelector.economyLabel" = "Tahmini Teslimat: 10+ dakika";
 
 /* Warning message for economy fee */
-"FeeSelector.economyWarning" = "This option is not recommended for time-sensitive transactions.";
+"FeeSelector.economyWarning" = "Bu seçenek, zamana duyarlı işlemler için önerilmez.";
 
 /* Regular fee */
-"FeeSelector.regular" = "Regular";
+"FeeSelector.regular" = "Düzenli";
 
 /* Fee Selector regular fee description */
 "FeeSelector.regularLabel" = "Estimated Delivery: 2.5 - 5+ minutes";
