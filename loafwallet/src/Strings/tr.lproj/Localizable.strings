@@ -232,27 +232,35 @@
 /* Regular fee */
 "FeeSelector.regular" = "Düzenli";
 
+/* Fee Selector regular fee description */
 /* Ücret Seçici normal ücret açıklaması */
 "FeeSelector.regularLabel" = "Tahmini Teslimat: 2,5 - 5+ dakika";
 
+/* Fee Selector title */
 /* Ücret Seçici başlığı */
 "FeeSelector.title" = "İşleme Hızı";
 
+/* Checking private key balance progress view text */
 /* Gizli anahtar dengesi ilerleme görüntüleme metni kontrol ediliyor */
 "Import.checking" = "Özel anahtar bakiyesi kontrol ediliyor ...";
 
+/* Sweep private key confirmation message */
 /* Özel anahtarı süpür onay mesajı */
 "Import.confirm" = "Bu özel anahtardan cüzdanınıza%1$@ gönderilsin mi? Litecoin ağı%2$@ ücret alacak.";
 
+/* Duplicate key error message */
 /* Yinelenen anahtar hata mesajı */
 "Import.Error.duplicate" = "Bu özel anahtar zaten cüzdanınızda bulunuyor.";
 
+/* empty private key error message */
 /* boş özel anahtar hata mesajı */
 "Import.Error.empty" = "Bu özel anahtar boş.";
 
+/* High fees error message */
 /* Yüksek ücret hata mesajı */
 "Import.Error.highFees" = "İşlem ücretleri, bu özel anahtarda bulunan paradan daha pahalı olacaktır.";
 
+/* Not a valid private key error message */
 /* Geçerli bir özel anahtar değil hata mesajı */
 "Import.Error.notValid" = "Geçerli bir özel anahtar değil";
 
