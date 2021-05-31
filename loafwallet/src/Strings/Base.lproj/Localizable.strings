@@ -364,7 +364,7 @@
 /* button label */
 "MenuViewController.recoverButton" = "Recover Wallet";
 
-/* No comment provided by engineer. */
+/* No wallet. */
 "No wallet" = "No wallet";
 
 /* Switch to automatic mode button label */

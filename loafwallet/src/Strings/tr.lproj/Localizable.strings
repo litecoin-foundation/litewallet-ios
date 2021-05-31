@@ -233,1049 +233,1041 @@
 "FeeSelector.regular" = "Düzenli";
 
 /* Fee Selector regular fee description */
-/* Ücret Seçici normal ücret açıklaması */
 "FeeSelector.regularLabel" = "Tahmini Teslimat: 2,5 - 5+ dakika";
 
 /* Fee Selector title */
-/* Ücret Seçici başlığı */
 "FeeSelector.title" = "İşleme Hızı";
 
 /* Checking private key balance progress view text */
-/* Gizli anahtar dengesi ilerleme görüntüleme metni kontrol ediliyor */
 "Import.checking" = "Özel anahtar bakiyesi kontrol ediliyor ...";
 
 /* Sweep private key confirmation message */
-/* Özel anahtarı süpür onay mesajı */
 "Import.confirm" = "Bu özel anahtardan cüzdanınıza%1$@ gönderilsin mi? Litecoin ağı%2$@ ücret alacak.";
 
 /* Duplicate key error message */
-/* Yinelenen anahtar hata mesajı */
 "Import.Error.duplicate" = "Bu özel anahtar zaten cüzdanınızda bulunuyor.";
 
 /* empty private key error message */
-/* boş özel anahtar hata mesajı */
 "Import.Error.empty" = "Bu özel anahtar boş.";
 
 /* High fees error message */
-/* Yüksek ücret hata mesajı */
 "Import.Error.highFees" = "İşlem ücretleri, bu özel anahtarda bulunan paradan daha pahalı olacaktır.";
 
 /* Not a valid private key error message */
-/* Geçerli bir özel anahtar değil hata mesajı */
 "Import.Error.notValid" = "Geçerli bir özel anahtar değil";
 
-/* İmzalama hata mesajını içe aktar */
+/* Import signing error message */
 "Import.Error.signing" = "İşlem imzalanırken hata oluştu";
 
-/* Düğme etiketini içe aktar */
+/* Import button label */
 "Import.importButton" = "İçe Aktar";
 
-/* Cüzdan ilerleme görünümü etiketi içe aktarılıyor */
+/* Importing wallet progress view label */
 "Import.importing" = "Cüzdan İçe Aktarılıyor";
 
-/* Grafikler için başlık */
+/* Caption for graphics */
 "Import.leftCaption" = "İçe aktarılacak Cüzdan";
 
-/* Cüzdan giriş ekran mesajını içe aktar */
+/* Import wallet intro screen message */
 "Import.message" = "Bir cüzdanı içe aktarmak, diğer cüzdanınızdaki tüm parayı tek bir işlem kullanarak Litewallet cüzdanınıza aktarır.";
 
-/* Parola uyarı görünümü başlığını girin */
+/* Enter password alert view title */
 "Import.password" = "Bu özel anahtar şifre korumalıdır.";
 
-/* şifre metin alanı yer tutucusu */
+/* password textfield placeholder */
 "Import.passwordPlaceholder" = "şifre";
 
-/* Grafikler için başlık */
+/* Caption for graphics */
 "Import.rightCaption" = "Litewallet Cüzdanınız";
 
-/* Özel anahtar düğme etiketini tara */
+/* Scan Private key button label */
 "Import.scan" = "Özel Anahtarı Tara";
 
-/* Cüzdan başarı uyarısı başlığını içe aktar */
+/* Import wallet success alert title */
 "Import.success" = "Başarılı";
 
-/* Başarıyla içe aktarılmış cüzdan mesaj gövdesi */
+/* Successfully imported wallet message body */
 "Import.SuccessBody" = "Cüzdan başarıyla içe aktarıldı.";
 
-/* Cüzdan ekran başlığını İçe Aktar */
+/* Import Wallet screen title */
 "Import.title" = "Cüzdanı İçe Aktar";
 
-/* Özel anahtar etkinlik görüntüleme mesajının kilidi açılıyor. */
+/* Unlocking Private key activity view message. */
 "Import.unlockingActivity" = "Kilit Açma Anahtarı";
 
-/* Cüzdan giriş uyarı mesajını içe aktar */
+/* Import wallet intro warning message */
 "Import.warning" = "Bir cüzdanı içe aktarmak işlem geçmişini veya diğer ayrıntıları içermez.";
 
-/* Yanlış şifre uyarı mesajı */
+/* Wrong password alert message */
 "Import.wrongPassword" = "Yanlış şifre, lütfen tekrar deneyin.";
 
-/* Uygulamayı kapat düğmesi */
+/* Close app button */
 "JailbreakWarnings.close" = "Kapat";
 
-/* Jailbreak uyarısını göz ardı et düğmesi */
+/* Ignore jailbreak warning button */
 "JailbreakWarnings.ignore" = "Yoksay";
 
-/* Jailbreak uyarı mesajı */
+/* Jailbreak warning message */
 "JailbreakWarnings.messageWithBalance" = "CİHAZ GÜVENLİĞİ İHLAL EDİLDİ \n Herhangi bir 'jailbreak' uygulaması Litewallet'in anahtar zinciri verilerine erişebilir ve Litecoin'inizi çalabilir! Bu cüzdanı hemen silin ve güvenli bir cihazda geri yükleyin.";
 
-/* Jailbreak uyarı mesajı */
+/* Jailbreak warning message */
 "JailbreakWarnings.messageWithoutBalance" = "CİHAZ GÜVENLİĞİ İHLAL EDİLDİ \n Herhangi bir 'jailbreak' uygulaması Litewallet'in anahtar zinciri verilerine erişebilir ve Litecoin'inizi çalabilir. Lütfen Litewallet'i yalnızca jailbreak yapılmamış bir cihazda kullanın.";
 
-/* Jailbreak uyarı başlığı */
+/* Jailbreak warning title */
 "JailbreakWarnings.title" = "UYARI";
 
-/* Cüzdanı sil düğmesi */
+/* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Sil";
 
-/* Konum hizmetleri devre dışı bırakıldı hatası */
+/* Location services disabled error */
 "LocationPlugin.disabled" = "Konum hizmetleri devre dışı bırakıldı.";
 
-/* Konum hizmetleri için izin yok */
+/* No permissions for location services */
 "LocationPlugin.notAuthorized" = "Litewallet'in konum hizmetlerine erişim izni yok.";
 
-/* Mühendis tarafından yorum yapılmadı. */
-"Hatalı URI" = "Hatalı URI";
+/* No comment provided by engineer. */
+"Malformed URI" = "Hatalı URI";
 
-/* Cüzdan oluşturma tarihi öneki */
+/* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Cüzdanınızı%1$@ üzerinde oluşturdunuz";
 
-/* Cüzdan açıklama metnini yönetin */
+/* Manage wallet description text */
 "ManageWallet.description" = "Cüzdan adınız yalnızca hesap işlem geçmişinizde görünür ve başkaları tarafından görülemez.";
 
-/* Cüzdan adı metin alanı etiketini değiştir */
+/* Change Wallet name textfield label */
 "ManageWallet.textFeildLabel" = "Cüzdan Adı";
 
-/* Cüzdan kalıcı başlığını yönet */
+/* Manage wallet modal title */
 "ManageWallet.title" = "Cüzdanı Yönetin";
 
-/* Litecoin başlığı satın alın */
+/* Buy Litecoin title */
 "MenuButton.buy" = "Litecoin Satın Al";
 
-/* Menü düğmesi başlığı */
+/* Menu button title */
 "MenuButton.lock" = "Cüzdanı Kilitle";
 
-/* Menü düğmesi başlığı */
+/* Menu button title */
 "MenuButton.security" = "Güvenlik Merkezi";
 
-/* Menü düğmesi başlığı */
+/* Menu button title */
 "MenuButton.settings" = "Ayarlar";
 
-/* Menü düğmesi başlığı */
+/* Menu button title */
 "MenuButton.support" = "Destek";
 
-/* düğme etiketi */
+/* button label */
 "MenuViewController.createButton" = "Yeni Cüzdan Oluştur";
 
-/* Menü modal başlığı */
+/* Menu modal title */
 "MenuViewController.modalTitle" = "Menü";
 
-/* düğme etiketi */
+/* button label */
 "MenuViewController.recoverButton" = "Cüzdanı Kurtar";
 
-/* Mühendis tarafından yorum yapılmadı. */
-"Cüzdan yok" = "Cüzdan yok";
+/* No wallet. */
+"No wallet" = "Cüzdan yok";
 
-/* Otomatik moda geç düğmesi etiketi */
+/* Switch to automatic mode button label */
 "NodeSelector.automaticButton" = "Otomatik Moda Geç";
 
-/* Düğüm etikete bağlı */
+/* Node is connected label */
 "NodeSelector.connected" = "Bağlandı";
 
-/* Düğüm ip adresi görünüm gövdesini girin */
+/* Enter node ip address view body */
 "NodeSelector.enterBody" = "Düğüm IP adresini ve bağlantı noktasını girin (isteğe bağlı)";
 
-/* Düğüm ip adresi görünüm başlığını girin */
+/* Enter Node ip address view title */
 "NodeSelector.enterTitle" = "Düğüm Girin";
 
-/* Manuel moda geç düğmesi etiketi */
+/* Switch to manual mode button label */
 "NodeSelector.manualButton" = "Manuel Moda Geç";
 
-/* Düğüm adres etiketi */
+/* Node address label */
 "NodeSelector.nodeLabel" = "Geçerli Birincil Düğüm";
 
-/* Düğüm etikete bağlı değil */
+/* Node is not connected label */
 "NodeSelector.notConnected" = "Bağlı Değil";
 
-/* Düğüm durum etiketi */
+/* Node status label */
 "NodeSelector.statusLabel" = "Düğüm Bağlantı Durumu";
 
-/* Düğüm Seçici görünüm başlığı */
+/* Node Selector view title */
 "NodeSelector.title" = "Litecoin Düğümleri";
 
-/* Hatalı Ödeme isteği uyarı başlığı */
+/* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Kötü Ödeme İsteği";
 
-/* Ödeme protokolü dosyası mesajı açılırken hata oluştu */
+/* Error opening payment protocol file message */
 "PaymentProtocol.Errors.corruptedDocument" = "Desteklenmeyen veya bozuk belge";
 
-/* Eksik sertifika ödeme protokolü hata mesajı */
+/* Missing certificate payment protocol error message */
 "PaymentProtocol.Errors.missingCertificate" = "eksik sertifika";
 
-/* Süresi dolan ödeme protokolü hata mesajı iste */
+/* Request expired payment protocol error message */
 "PaymentProtocol.Errors.requestExpired" = "isteğin süresi doldu";
 
-/* Ödeme çok küçük uyarı başlığı */
+/* Payment too small alert title */
 "PaymentProtocol.Errors.smallOutputError" = "Ödeme yapılamadı";
 
-/* Miktar çok küçük hata mesajı */
+/* Amount too small error message */
 "PaymentProtocol.Errors.smallPayment" = "Litecoin ödemeleri%1$@ 'den az olamaz.";
 
-/* Çok küçük hata mesajı çıktı. */
+/* Output too small error message. */
 "PaymentProtocol.Errors.smallTransaction" = "Litecoin işlem çıktıları $@ 'dan küçük olamaz.";
 
-/* Desteklenmeyen imza tipi ödeme protokolü hata mesajı */
+/* Unsupported signature type payment protocol error message */
 "PaymentProtocol.Errors.unsupportedSignatureType" = "desteklenmeyen imza tipi";
 
-/* Güvenilmeyen sertifika ödeme protokolü hata mesajı */
+/* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "güvenilmeyen sertifika";
 
-/* Yüz kimliği bilgi istemi gövdesini etkinleştir */
+/* Enable face ID prompt body */
 "Prompts.FaceId.body" = "Face ID'yi etkinleştirmek için buraya dokunun";
 
-/* Yüz kimliği bilgi istemi başlığını etkinleştir */
+/* Enable face ID prompt title */
 "Prompts.FaceId.title" = "Yüz Kimliğini Etkinleştir";
 
-/* Şifre ayarlanmamış uyarı gövdesi */
+/* No passcode set warning body */
 "Prompts.NoPasscode.body" = "Cüzdanınızı korumak için bir cihaz şifresi gerekli.";
 
-/* Parola ayarlanmadı uyarı başlığı */
+/* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Cihaz şifresini aç";
 
-/* Kağıt anahtarı hakkında uyarı. */
+/* Warning about paper key. */
 "Prompts.PaperKey.body" = "Kağıt Anahtarınız güvenli bir yerde tutulmalıdır. Litewallet'ınızı değiştirmenin veya geri yüklemenin veya Litecoin'inizi aktarmanın tek yolu budur. Lütfen not edin.";
 
-/* Bir eylem gerekli (Bu eylemi yapmalısınız). */
+/* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "İşlem Gerekli";
 
-/* İşlem reddedildi bilgi istemi gövdesi */
+/* Transaction rejected prompt body */
 "Prompts.RecommendRescan.body" = "Cüzdanınız senkronize olmayabilir. Bu genellikle blok zinciri yeniden taranarak giderilebilir.";
 
-/* İşlem reddedildi bilgi istemi başlığı */
+/* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "İşlem Reddedildi";
 
-/* Veri bilgi istemi gövdesini paylaş */
+/* Share data prompt body */
 "Prompts.ShareData.body" = "Anonim verilerinizi bizimle paylaşarak Litewallet'in geliştirilmesine yardımcı olun";
 
-/* Veri istemi başlığını paylaş */
+/* Share data prompt title */
 "Prompts.ShareData.title" = "Anonim Verileri Paylaşın";
 
-/* Touch ID bilgi istemi gövdesini etkinleştir */
+/* Enable touch ID prompt body */
 "Prompts.TouchId.body" = "Touch ID'yi etkinleştirmek için buraya dokunun";
 
-/* Touch ID istemi başlığını etkinleştir */
+/* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID'yi Etkinleştir";
 
-/* PIN bilgi istem gövdesini yükseltin. */
+/* Upgrade PIN prompt body. */
 "Prompts.SetPin.body" = "Litewallet 6 haneli bir PIN gerektirir. Lütfen PIN kodunuzu güvenli bir yerde ayarlayın ve saklayın.";
 
-/* PIN istemi başlığını yükseltin. */
+/* Upgrade PIN prompt title. */
 "Prompts.SetPin.title" = "PIN Ayarla";
 
-/* Push bildirim ayarları görünümü gövdesi */
+/* Push notifications settings view body */
 "PushNotifications.body" = "İleride Litewallet'ten özel mesajlar almak için bildirimleri açın.";
 
-/* Push bildirimleri geçiş anahtarı etiketi */
+/* Push notifications toggle switch label */
 "PushNotifications.label" = "Push Bildirimleri";
 
-/* Push bildirimleri etiket dışı */
+/* Push notifications are off label */
 "PushNotifications.off" = "Kapalı";
 
-/* Push bildirimleri etikette */
+/* Push notifications are on label */
 "PushNotifications.on" = "Açık";
 
-/* Push bildirim ayarları başlık etiketini görüntüle */
+/* Push notifications settings view title label */
 "PushNotifications.title" = "Bildirimler";
 
-/* Adres kopyalanmış mesaj. */
+/* Address copied message. */
 "Receive.copied" = "Panoya kopyalandı.";
 
-/* E-posta düğmesi etiketi ile paylaş */
+/* Share via email button label */
 "Receive.emailButton" = "E-posta";
 
-/* Düğme etiketi iste */
+/* Request button label */
 "Receive.request" = "Tutar İste";
 
-/* Düğme etiketini paylaş */
+/* Share button label */
 "Receive.share" = "Paylaş";
 
-/* Kısa mesajla (SMS) paylaşın */
+/* Share via text message (SMS) */
 "Receive.textButton" = "Kısa Mesaj";
 
-/* Kalıcı başlığı al */
+/* Receive modal title */
 "Receive.title" = "Al";
 
-/* Bitti düğme metni */
+/* Done button text */
 "RecoverWallet.done" = "Bitti";
 
-/* Cüzdan başlığını kurtar */
+/* Recover wallet header */
 "RecoverWallet.header" = "Cüzdanı Kurtar";
 
-/* Kağıt tuşuyla PIN'i sıfırlayın: başlık */
+/* Reset PIN with paper key: header */
 "RecoverWallet.header_reset_pin" = "PIN'i Sıfırla";
 
-/* Kağıt anahtarı talimatını girin */
+/* Enter paper key instruction */
 "RecoverWallet.instruction" = "Kağıt Anahtarını Girin";
 
-/* Cüzdan girişini kurtar */
+/* Recover wallet intro */
 "RecoverWallet.intro" = "Kağıt anahtarınızla Litewallet'inizi kurtarın.";
 
-/* Geçersiz kağıt anahtarı mesajı */
+/* Invalid paper key message */
 "RecoverWallet.invalid" = "Girdiğiniz kağıt anahtarı geçersiz. Lütfen her kelimeyi iki kez kontrol edin ve tekrar deneyin.";
 
-/* Önceki düğme erişilebilirlik etiketi */
+/* Previous button accessibility label */
 "RecoverWallet.leftArrow" = "Sol Ok";
 
-/* Sonraki düğme etiketi */
+/* Next button label */
 "RecoverWallet.next" = "Sonraki";
 
-/* Kağıt tuşuyla PIN'i sıfırlayın: daha fazla bilgi düğmesi. */
+/* Reset PIN with paper key: more information button. */
 "RecoverWallet.reset_pin_more_info" = "Daha fazla bilgi için buraya dokunun.";
 
-/* Sonraki düğme erişilebilirlik etiketi */
+/* Next button accessibility label */
 "RecoverWallet.rightArrow" = "Sağ Ok";
 
-/* Cüzdan alt başlığını kurtar */
+/* Recover wallet sub-header */
 "RecoverWallet.subheader" = "Kurtarmak istediğiniz cüzdanın kağıt anahtarını girin.";
 
-/* Kağıt tuşuyla PIN'i sıfırlayın: alt başlık */
+/* Reset PIN with paper key: sub-header */
 "RecoverWallet.subheader_reset_pin" = "PIN kodunuzu sıfırlamak için kağıt anahtarınızdaki kelimeleri aşağıdaki kutulara girin.";
 
-/* Miktar girilmedi hata mesajı. */
+/* No amount entered error message. */
 "RequestAnAmount.noAmount" = "Lütfen önce bir miktar girin.";
 
-/* Belirli miktarda Litecoin talep edin */
+/* Request a specific amount of Litecoin */
 "RequestAnAmount.title" = "Miktar İste";
 
-/* Uyarı eylemi düğmesi etiketi */
+/* Alert action button label */
 "ReScan.alertAction" = "Eşitle";
 
-/* Uyarı mesajı gövdesi */
+/* Alert message body */
 "ReScan.alertMessage" = "Eşitleme sırasında para gönderemeyeceksiniz.";
 
-/* Uyarı mesajı başlığı */
+/* Alert message title */
 "ReScan.alertTitle" = "Blockchain ile eşitlensin mi?";
 
-/* uzatılmış zaman */
+/* extimated time */
 "ReScan.body1" = "20-45 dakika";
 
-/* Senkronizasyon açıklaması */
+/* Syncing explanation */
 "ReScan.body2" = "Bir işlem Litecoin ağında tamamlandı olarak gösteriliyor, ancak Litewallet'ınızda gösterilmiyorsa.";
 
-/* Senkronizasyon açıklaması */
+/* Syncing explanation */
 "ReScan.body3" = "Sürekli olarak işleminizin reddedildiğini söyleyen bir hata alıyorsunuz.";
 
-/* Eşitlemeyi Başlat düğme etiketi */
+/* Start Sync button label */
 "ReScan.buttonTitle" = "Eşitlemeyi Başlat";
 
-/* Blok zinciri görünüm alt bilgisini senkronize et */
+/* Sync blockchain view footer */
 "ReScan.footer" = "Blok zinciri ile eşzamanlarken para gönderemeyeceksiniz.";
 
-/* Blockchain görünüm başlığını senkronize et */
+/* Sync Blockchain view header */
 "ReScan.header" = "Blok Zincirini Eşitle";
 
-/* Alt başlık etiketi */
+/* Subheader label */
 "ReScan.subheader1" = "Tahmini süre";
 
-/* Alt başlık etiketi */
+/* Subheader label */
 "ReScan.subheader2" = "Ne Zaman Eşitlenmeli?";
 
-/* Walet düğmesi başlığını sıfırla */
+/* Reset walet button  title */
 "resetButton" = "Evet, cüzdanı sıfırla";
 
-/* Uyarı Boş Silme başlığı */
+/* Warning Empty Wipe title */
 "resetTitle" = "Cüzdan Sıfırlamayı Boşalt";
 
-/* Litecoin adres kamera flaş geçişini tara */
+/* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Kamera Flaşı";
 
-/* Tam filtre etiketi */
+/* Complete filter label */
 "Search.complete" = "tamamlandı";
 
-/* Bekleyen filtre etiketi */
+/* Pending filter label */
 "Search.pending" = "beklemede";
 
-/* Alınan filtre etiketi */
+/* Received filter label */
 "Search.received" = "alındı";
 
-/* Gönderilen filtre etiketi */
+/* Sent filter label */
 "Search.sent" = "gönderildi";
 
-/* Face ID düğme başlığı */
+/* Face ID button title */
 "SecurityCenter.faceIdTitle" = "Yüz Kimliği";
 
-/* Güvenlik Merkezi Bilgisi */
+/* Security Center Info */
 "SecurityCenter.info" = "Maksimum koruma için tüm güvenlik özelliklerini etkinleştirin.";
 
-/* Kağıt Anahtarı düğme açıklaması */
+/* Paper Key button description */
 "SecurityCenter.paperKeyDescription" = "Telefonunuzu kaybederseniz veya yükseltirseniz Litecoin'inize erişmenin tek yolu.";
 
-/* Kağıt Anahtarı düğme başlığı */
+/* Paper Key button title */
 "SecurityCenter.paperKeyTitle" = "Kağıt Anahtarı";
 
-/* PIN düğmesi açıklaması */
+/* PIN button description */
 "SecurityCenter.pinDescription" = "Litewallet'ınızı yetkisiz kullanıcılardan korur.";
 
-/* PIN düğmesi başlığı */
+/* PIN button title */
 "SecurityCenter.pinTitle" = "6 Haneli PIN";
 
-/* Güvenlik Merkezi Başlığı */
+/* Security Center Title */
 "SecurityCenter.title" = "Güvenlik Merkezi";
 
-/* Touch ID / FaceID düğmesi açıklaması */
+/* Touch ID/FaceID button description */
 "SecurityCenter.touchIdDescription" = "Litewallet'ınızın kilidini rahatça açın ve belirlenen limite kadar para gönderin.";
 
-/* Touch ID düğme başlığı */
+/* Touch ID button title */
 "SecurityCenter.touchIdTitle" = "Dokunma Kimliği";
 
-/* Para miktarı etiketi gönder */
+/* Send money amount label */
 "Send.amountLabel" = "Miktar";
 
-/* Bakiye: 4,00 $ */
+/* Balance: $4.00 */
 "Send.balance" = "Bakiye:%1$@";
 
-/* Kameraya izin verilmiyor mesajı */
+/* Camera not allowed message */
 "Send.cameraunavailableMessage" = "Kamera erişimine izin vermek için Ayarlar'a gidin.";
 
-/* Kameraya uyarı başlığına izin verilmiyor */
+/* Camera not allowed alert title */
 "Send.cameraUnavailableTitle" = "Litewallet'in kameraya erişmesine izin verilmiyor";
 
-/* Kendime gönderirken uyarı. */
+/* Warning when sending to self. */
 "Send.containsAddress" = "Hedef, kendi adresinizdir. Kendinize gönderemezsiniz.";
 
-/* İşlem uyarısı başlığı oluşturulamadı */
+/* Could not create transaction alert title */
 "Send.creatTransactionError" = "İşlem oluşturulamadı.";
 
-/* Para göndermek için açıklama etiketi */
+/* Description for sending money label */
 "Send.descriptionLabel" = "Not";
 
-/* Boş çalışma alanı hata mesajı */
+/* Empty pasteboard error message */
 "Send.emptyPasteboard" = "Çalışma alanı boş";
 
-/* Ağ Ücreti: 0,01 ABD doları */
+/* Network Fee: $0.01 */
 "Send.fee" = "Ağ Ücreti:%1$@";
 
-/* Alacaklı kimliği onaylanmadı uyarı başlığı. */
+/* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Alacaklı kimliği onaylı değil.";
 
-/* Yetersiz bakiye hatası */
+/* Insufficient funds error */
 "Send.insufficientFunds" = "Yetersiz Para";
 
-/* Geçersiz adres uyarı mesajı */
+/* Invalid address alert message */
 "Send.invalidAddressMessage" = "Hedef adresi geçerli bir Litecoin adresi değil.";
 
-/* Çalışma alanı mesajında ​​geçersiz adres */
+/* Invalid address on pasteboard message */
 "Send.invalidAddressOnPasteboard" = "Çalışma alanı geçerli bir Litecoin adresi içermiyor.";
 
-/* Geçersiz adres uyarı başlığı */
+/* Invalid address alert title */
 "Send.invalidAddressTitle" = "Geçersiz Adres";
 
-/* Hata mesajı yeniden taranıyor */
+/* Is rescanning error message */
 "Send.isRescanning" = "Tam yeniden tarama sırasında gönderme devre dışı bırakılır.";
 
-/* İstek etkinlik görüntüleme mesajı yükleniyor */
+/* Loading request activity view message */
 "Send.loadingRequest" = "Yükleme İsteği";
 
-/* Boş adres uyarı mesajı */
+/* Empty address alert message */
 "Send.noAddress" = "Lütfen alıcının adresini girin.";
 
-/* Emtpy miktarı uyarı mesajı */
+/* Emtpy amount alert message */
 "Send.noAmount" = "Lütfen gönderilecek bir miktar girin.";
 
-/* Düğme etiketini yapıştır */
+/* Paste button label */
 "Send.pasteLabel" = "Yapıştır";
 
-/* İşlem uyarısı başlığı yayınlanamadı */
+/* Could not publish transaction alert title */
 "Send.publishTransactionError" = "İşlem yayınlanamadı.";
 
-/* Uzaktan istek hata mesajı yüklenemedi */
+/* Could not load remote request error message */
 "Send.remoteRequestError" = "Ödeme isteği yüklenemedi";
 
-/* Tara düğmesi etiketi */
+/* Scan button label */
 "Send.scanLabel" = "Tara";
 
-/* Düğme etiketini gönder */
+/* Send button label */
 "Send.sendLabel" = "Gönder";
 
-/* Kalıcı başlığı gönder */
+/* Send modal title */
 "Send.title" = "Gönder";
 
-/* Etikete para gönderin */
+/* Send money to label */
 "Send.toLabel" = "Kime";
 
-/* Adres zaten kullanılmış uyarı mesajı - ilk bölüm */
+/* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin adresleri tek kullanımlıktır.";
 
-/* Adres zaten kullanılmış uyarı mesajı - ikinci kısım */
+/* Adress already used alert message - second part */
 "Send.UsedAddress.secondLIne" = "Yeniden kullanım, hem sizin hem de alıcı için gizliliği azaltır ve alıcının adresi doğrudan kontrol etmemesi durumunda kayba neden olabilir.";
 
-/* Adres zaten kullanılan uyarı başlığı */
+/* Adress already used alert title */
 "Send.UsedAddress.title" = "Adres Zaten Kullanılıyor";
 
-/* Etiket hakkında */
+/* About label */
 "Settings.about" = "Hakkında";
 
-/* Gelişmiş Ayarlar başlığı */
+/* Advanced Settings title */
 "Settings.advancedTitle" = "Gelişmiş Ayarlar";
 
-/* Blockchain ayarları bölüm başlığı */
+/* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
 
-/* Varsayılan para birimi etiketi */
+/* Default currency label */
 "Settings.currency" = "Para Birimi Görüntüle";
 
-/* Erken erişim etiketine katılın */
+/* Join Early access label */
 "Settings.earlyAccess" = "Erken Erişime Katılın";
 
-/* Litewallet uyarı mesajı gövdesi hoşunuza gidiyor mu */
+/* Are you enjoying Litewallet alert message body */
 "Settings.enjoying" = "Litewallet'ten hoşlanıyor musunuz?";
 
-/* Face ID harcama sınırı etiketi */
+/* Face ID spending limit label */
 "Settings.faceIdLimit" = "Yüz Kimliği Harcama Sınırı";
 
-/* Cüzdan etiketini içe aktar */
+/* Import wallet label */
 "Settings.importTitle" = "Cüzdanı İçe Aktar";
 
-/* Ayarları yönet bölüm başlığı */
+/* Manage settings section header */
 "Settings.manage" = "Yönet";
 
-/* Bildirimler etiketi */
+/* Notifications label */
 "Settings.notifications" = "Bildirimler";
 
-/* İnceleme düğmesi etiketi bırak */
+/* Leave review button label */
 "Settings.review" = "Bize Bir İnceleme Bırakın";
 
-/* Anonim veri etiketini paylaşın */
+/* Share anonymous data label */
 "Settings.shareData" = "Anonim Verileri Paylaşın";
 
-/* Destek ayarları bölüm başlığı */
+/* Support settings section header */
 "Settings.support" = "Destek";
 
-/* Blok zinciri etiketini senkronize et */
+/* Sync blockchain label */
 "Settings.sync" = "Blok Zincirini Eşitle";
 
-/* Ayarlar başlığı */
+/* Settings title */
 "Settings.title" = "Ayarlar";
 
-/* Dokunma kimliği harcama sınırı etiketi */
+/* Touch ID spending limit label */
 "Settings.touchIdLimit" = "Dokunma Kimliği Harcama Sınırı";
 
-/* Cüzdan Ayarları bölüm başlığı */
+/* Wallet Settings section header */
 "Settings.wallet" = "Cüzdan";
 
-/* Başka bir cüzdan menü etiketini başlatın veya kurtarın. */
+/* Start or recover another wallet menu label. */
 "Settings.wipe" = "Başka Cüzdanı Başlat / Kurtar";
 
-/* Veri görünümü gövdesini paylaş */
+/* Share data view body */
 "ShareData.body" = "Anonim verilerinizi bizimle paylaşarak Litewallet'i geliştirmeye yardımcı olun. Bu herhangi bir finansal bilgi içermez. Finansal gizliliğinize saygı duyuyoruz.";
 
-/* Veri başlığını paylaş */
+/* Share data header */
 "ShareData.header" = "Veriler Paylaşılsın mı?";
 
-/* Veri değiştirme etiketini paylaşın. */
+/* Share data switch label. */
 "ShareData.toggleLabel" = "Anonim Veriler Paylaşılsın mı?";
 
-/* Mevcut harcama limiti: */
+/* Current spending limit: */
 "SpendingLimit.title" = "Mevcut Harcama Sınırı:";
 
-/* düğme etiketi */
+/* button label */
 "StartPaperPhrase.againButtonTitle" = "Kağıt Anahtarını Yeniden Yazın";
 
-/* Kağıt anahtarı açıklama metni. */
+/* Paper key explanation text. */
 "StartPaperPhrase.body" = "Telefonunuz kaybolursa, çalınırsa, bozulursa veya yükseltilirse, Litewallet'inizi geri yüklemenin tek yolu kağıt anahtarınızdır. \n \n Size bir kağıt parçasına yazabileceğiniz bir kelime listesi göstereceğiz ve güvende tutun. ";
 
-/* düğme etiketi */
+/* button label */
 "StartPaperPhrase.buttonTitle" = "Kağıt Anahtarını Yaz";
 
-/* Bağımsız değişken tarih */
+/* Argument is date */
 "StartPaperPhrase.date" = "Kağıt anahtarınızı en son%1$@ üzerine yazdınız";
 
-/* Mesajı görüntülemeye başla */
+/* Start view message */
 "StartViewController.message" = "Litecoin'i kullanmanın en güvenli ve en güvenli yolu.";
 
-/* Görünüm bağlantısıg durum başlık metni senkronize ediliyor */
+/* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Bağlanıyor";
 
-/* Görünüm eşitleme durumu başlık metni eşitleniyor */
+/* Syncing view syncing state header text */
 "SyncingView.syncing" = "Eşitleme";
 
-/* 6 gün (6 gün) */
+/* 6 d (6 days) */
 "TimeSince.days" = "%1$@ d";
 
-/* 6 sa (6 saat) */
+/* 6 h (6 hours) */
 "TimeSince.hours" = "%1$@ h";
 
-/* 6 m (6 dakika) */
+/* 6 m (6 minutes) */
 "TimeSince.minutes" = "%1$@ m";
 
-/* 6 s (6 saniye) */
+/* 6 s (6 seconds) */
 "TimeSince.seconds" = "%1$@ s";
 
-/* Dokunma Kimliği Harcama Limitinizi [TouchIdSettings.linkText buraya düğme olarak eklenir] seçeneğinden özelleştirebilirsiniz */
+/* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
 "TouchIdSettings.customizeText" = "Dokunma Kimliği harcama sınırınızı%1$@ üzerinden özelleştirebilirsiniz.";
 
-/* Kimlik ekranı etiketine dokunun */
+/* Touch Id screen label */
 "TouchIdSettings.label" = "Litewallet'ınızın kilidini açmak ve belirli bir limite kadar para göndermek için parmak izinizi kullanın.";
 
-/* 100.000 ł (100 $) */
+/*  ł100,000 ($100) */
 "TouchIdSettings.limitValue" = "%1$@ (%2$@)";
 
-/* Bağlantı Metni (bkz. TouchIdSettings.customizeText) */
+/* Link Text (see TouchIdSettings.customizeText) */
 "TouchIdSettings.linkText" = "Dokunmatik Kimlik Harcama Sınırı Ekranı";
 
-/* Harcama Sınırı: 100.000 (100 $) */
+/* Spending Limit: b100,000 ($100) */
 "TouchIdSettings.spendingLimit" = "Harcama sınırı:%1$@ (%2$@)";
 
-/* Dokunmatik kimlik anahtarı etiketi. */
+/* Touch id switch label. */
 "TouchIdSettings.switchLabel" = "Litewallet için Dokunmatik Kimliğini Etkinleştir";
 
-/* Touch ID ayarları başlığı görüntüle */
+/* Touch ID settings view title */
 "TouchIdSettings.title" = "Dokunmatik Kimlik";
 
-/* Touch ID kullanılamıyor uyarı mesajı */
+/* Touch ID unavailable alert message */
 "TouchIdSettings.unavailableAlertMessage" = "Bu cihazda Touch ID kurmadınız. Şimdi kurmak için Ayarlar-> Touch ID ve Parola'ya gidin.";
 
-/* Touch ID kullanılamayan uyarı başlığı */
+/* Touch ID unavailable alert title */
 "TouchIdSettings.unavailableAlertTitle" = "Touch ID Ayarlanmadı";
 
-/* Her zaman şifre seçeneği gerektir */
+/* Always require passcode option */
 "TouchIdSpendingLimit" = "Her zaman parola gerektir";
 
-/* Dokunma kimliği harcama sınırı ekran gövdesi */
+/* Touch ID spending limit screen body */
 "TouchIdSpendingLimit.body" = "Harcama limitinizi aşan herhangi bir işlemi göndermek için 6 haneli PIN kodunuzu girmeniz ve 6 haneli PIN kodunuzu en son girdiğinizden bu yana her 48 saatte bir girmeniz istenecektir.";
 
-/* Kimlik harcama sınırı ekran başlığına dokunun */
+/* Touch Id spending limit screen title */
 "TouchIdSpendingLimit.title" = "Dokunma Kimliği Harcama Sınırı";
 
-/* Kullanılabilirlik durum metni */
+/* Availability status text */
 "Transaction.available" = "Harcanabilir";
 
-/* İşlem tamamlandı etiketi */
+/* Transaction complete label */
 "Transaction.complete" = "Tamamlandı";
 
-/* Örneğin. Kapanış bakiyesi: 50,00 $ */
+/* eg. Ending balance: $50.00 */
 "Transaction.ending" = "Kapanış bakiyesi:%1$@";
 
-/* Tarih başlığındaki döviz kuru */
+/* Exchange rate on date header */
 "Transaction.exchangeOnDayReceived" = "Alındığında döviz kuru:";
 
-/* Tarih başlığındaki döviz kuru */
+/* Exchange rate on date header */
 "Transaction.exchangeOnDaySent" = "Gönderildiğinde döviz kuru:";
 
-/* (b600 ücreti) */
+/* (b600 fee) */
 "Transaction.fee" = "(%1$@ ücret)";
 
-/* Geçersiz işlem */
+/* Invalid transaction */
 "Transaction.invalid" = "GEÇERSİZ";
 
-/* Az önce gerçekleşen etkinliğin zaman damgası etiketi */
+/* Timestamp label for event that just happened */
 "Transaction.justNow" = "hemen şimdi";
 
-/* Durum metni alın: 'Devam ediyor:% 20' */
+/* Receive status text: 'In progress: 20%' */
 "Transaction.receivedStatus" = "Devam ediyor:%1$@";
 
-/* Durum metni gönder: 'Devam ediyor:% 20' */
+/* Send status text: 'In progress: 20%' */
 "Transaction.sendingStatus" = "Devam ediyor:%1$@";
 
-/* Örneğin. Başlangıç ​​bakiyesi: 50,00 $ */
+/* eg. Starting balance: $50.00 */
 "Transaction.starting" = "Başlangıç ​​bakiyesi:%1$@";
 
-/* Onaylanmayı bekliyor string */
+/* Waiting to be confirmed string */
 "Transaction.waiting" = "Onaylanmayı bekliyor. Bazı satıcılar bir işlemi tamamlamak için onay gerektirir. Tahmini süre: 1-2 saat.";
 
-/* Örneğin. Bir hesaptan para aldım. */
+/* e.g. I received money from an account. */
 "TransactionDetails.account" = "hesap";
 
-/* Miktar bölümü başlığı */
+/* Amount section header */
 "TransactionDetails.amountHeader" = "Miktar";
 
-/* Blok yüksekliği etiketi */
+/* Block height label */
 "TransactionDetails.blockHeightLabel" = "Blokta Onaylandı";
 
-/* Not bölümü başlığı */
+/* Memo section header */
 "TransactionDetails.commentsHeader" = "Not";
 
-/* İşlem listesi mesajı boş. */
+/* Empty transaction list message. */
 "TransactionDetails.emptyMessage" = "İşlemleriniz burada görünecektir.";
 
-/* <address> adresinde [alındı] (2/2 başlık alındı) */
+/* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "%1$@ adresinde";
 
-/* 5,00 $ taşındı */
+/* Moved $5.00 */
 "TransactionDetails.moved" = "%1$@ taşındı";
 
-/* 5,00 $ taşındı */
+/* Moved $5.00 */
 "TransactionDetails.movedAmountDescription" = "<b>%1@</b> taşındı";
 
-/* Örneğin. Blokta Onaylandı: Onaylanmadı */
+/* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "Onaylanmadı";
 
-/* 5,00 $ alındı ​​(1/2 başlık alındı) */
+/* Received $5.00 (received title 1/2) */
 "TransactionDetails.received" = "%1$@ Alındı";
 
-/* 5.00 $ alındı ​​*/
+/* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "<b>%1@</b> alındı";
 
-/* 5,00 $ gönderildi (gönderilen başlık 1/2) */
+/* Sent $5.00 (sent title 1/2) */
 "TransactionDetails.sent" = "%1$@ gönderildi";
 
-/* 5.00 $ gönderildi */
+/* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "Gönderildi <b>%1@</b>";
 
-/* Durum bölümü başlığı */
+/* Status section header */
 "TransactionDetails.statusHeader" = "Durum";
 
-/* İşlem Ayrıntıları Başlığı */
+/* Transaction Details Title */
 "TransactionDetails.title" = "İşlem Ayrıntıları";
 
-/* <adres> adresine [gönderildi] (gönderilen başlık 2/2) */
+/* [sent] to <address> (sent title 2/2) */
 "TransactionDetails.to" = "%1$@'e";
 
-/* İşlem kimliği başlığı */
+/* Transaction ID header */
 "TransactionDetails.txHashHeader" = "Litecoin İşlem Kimliği";
 
-/* (bu işlem yapıldı) Bu adresten alındı: */
+/* (this transaction was) Received at this address: */
 "TransactionDirection.address" = "Bu Adreste Alındı";
 
-/* (bu işlem yapıldı) Bu adrese gönderildi: */
+/* (this transaction was) Sent to this address: */
 "TransactionDirection.to" = "Bu Adrese Gönderildi";
 
-/* Tarihe kadar devre dışı bırakıldı */
+/* Disabled until date */
 "UnlockScreen.disabled" = "Şu tarihe kadar devre dışı bırakıldı:%1$@";
 
-/* FaceID erişilebilirlik etiketiyle kilidi aç */
+/* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "FaceID ile Kilidi Aç";
 
-/* Adresim düğme başlığı */
+/* My Address button title */
 "UnlockScreen.myAddress" = "Adresim";
 
-/* Paper Key düğme etiketiyle PIN'i sıfırlayın. */
+/* Reset PIN with Paper Key button label. */
 "UnlockScreen.resetPin" = "PIN'i Sıfırla";
 
-/* Tara düğmesi başlığı */
+/* Scan button title */
 "UnlockScreen.scan" = "Tara";
 
-/* TouchID / FaceID bilgi istemi metni */
+/* TouchID/FaceID prompt text */
 "UnlockScreen.touchIdPrompt" = "Litewallet'ınızın kilidini açın.";
 
-/* TouchID erişilebilirlik etiketiyle kilidi aç */
+/* Unlock with TouchID accessibility label */
 "UnlockScreen.touchIdText" = "TouchID ile Kilidi Aç";
 
-/* Cüzdan kilidi açıldı mesajı */
+/* Wallet unlocked message */
 "UnlockScreen.unlocked" = "Cüzdan Kilidi Açıldı";
 
-/* PIN başlık metnini güncelle */
+/* Update PIN caption text */
 "UpdatePin.caption" = "Bu PIN kodunu hatırlayın. Unutursanız, Litecoin'inize erişemezsiniz.";
 
-/* PIN oluşturma bilgisi. */
+/* PIN creation info. */
 "UpdatePin.createInstruction" = "PIN kodunuz Litewallet'inizin kilidini açmak ve para göndermek için kullanılacaktır.";
 
-/* PIN başlığını güncelle */
+/* Update PIN title */
 "UpdatePin.createTitle" = "PIN Ayarla";
 
-/* PIN başlığını güncelle */
+/* Update PIN title */
 "UpdatePin.createTitleConfirm" = "PIN'i Yeniden Girin";
 
-/* Mevcut PIN talimatını girin */
+/* Enter current PIN instruction */
 "UpdatePin.enterCurrent" = "Mevcut PIN kodunuzu girin.";
 
-/* Yeni PIN talimatını girin */
+/* Enter new PIN instruction */
 "UpdatePin.enterNew" = "Yeni PIN kodunuzu girin.";
 
-/* Yeni PIN talimatını tekrar girin */
+/* Re-Enter new PIN instruction */
 "UpdatePin.reEnterNew" = "Yeni PIN kodunuzu yeniden girin.";
 
-/* PIN hatası güncelleme hata mesajı. */
+/* Update PIN failure error message. */
 "UpdatePin.setPinError" = "Üzgünüm, PIN güncellenemedi.";
 
-/* PIN hatası uyarısı görüntüleme başlığını güncelle */
+/* Update PIN failure alert view title */
 "UpdatePin.setPinErrorTitle" = "PIN Hatasını Güncelle";
 
-/* PIN başlığını güncelle */
+/* Update PIN title */
 "UpdatePin.updateTitle" = "PIN Güncelle";
 
-/* Cüzdan adreslerini kopyalamak için yetkilendirin uyarı mesajı */
+/* Authorize to copy wallet addresses alert message */
 "URLHandling.addressaddressListAlertMessage" = "Cüzdan adresleri panoya kopyalansın mı?";
 
-/* M-cüzdan adresi PIN görüntüleme istemini kopyalamak için yetkilendir. */
+/* Authorize to copy wallet address PIN view prompt. */
 "URLHandling.addressList" = "Cüzdan adresini panoya kopyalama yetkisi ver";
 
-/* Cüzdan adresi uyarı başlığını kopyalama yetkisi ver */
+/* Authorize to copy wallet address alert title */
 "URLHandling.addressListAlertTitle" = "Cüzdan Adreslerini Kopyala";
 
-/* Cüzdan adreslerini kopyala uyarı düğmesi etiketi */
+/* Copy wallet addresses alert button label */
 "URLHandling.copy" = "Kopyala";
 
-/* İşlem görünümü gövdesi için PIN'i doğrula */
+/* Verify PIN for transaction view body */
 "VerifyPin.authorize" = "Bu işlemi yetkilendirmek için lütfen PIN kodunuzu girin.";
 
-/* PIN görünümü gövdesini doğrula */
+/* Verify PIN view body */
 "VerifyPin.continueBody" = "Devam etmek için lütfen PIN kodunuzu girin.";
 
-/* PIN görünümü başlığını doğrula */
+/* Verify PIN view title */
 "VerifyPin.title" = "PIN Gerekli";
 
-/* İşlemi dokunma kimliği mesajıyla yetkilendir */
+/* Authorize transaction with touch id message */
 "VerifyPin.touchIdMessage" = "Bu işlemi yetkilendirin";
 
-/* Saat uygulaması için 'cüzdan yok' uyarısı */
+/* 'No wallet' warning for watch app */
 "Watch.noWalletWarning" = "Cüzdanınızı ayarlamak için Litewallet iPhone uygulamasını açın.";
 
-/* Düğme etiketini kapat */
+/* Dismiss button label */
 "Webview.dismiss" = "Kapat";
 
-/* Web görünümü yükleme hata mesajı */
+/* Webview loading error message */
 "Webview.errorMessage" = "İçerik yüklenirken bir hata oluştu. Lütfen tekrar deneyin.";
 
-/* Web görünümü mesajı güncelleniyor */
+/* Updating webview message */
 "Webview.updating" = "Güncelleniyor ...";
 
-/* Karşılama görünümü gövde metni */
+/* Welcome view body text */
 "Welcome.body" = "Litewallet artık yepyeni bir görünüme ve bazı yeni özelliklere sahip. \n \nTüm paralar lite (ł) olarak gösteriliyor. 1 Litecoin (Ł) = 1000 lite (ł).";
 
-/* Karşılama görünümü başlığı */
+/* Welcome view title */
 "Welcome.title" = "Litewallet'e Hoş Geldiniz!";
 
-/* Cüzdan uyarı mesajını sil */
+/* Wipe wallet alert message */
 "WipeWallet.alertMessage" = "Bu cüzdanı silmek istediğinizden emin misiniz?";
 
-/* Cüzdan uyarı başlığını sil */
+/* Wipe wallet alert title */
 "WipeWallet.alertTitle" = "Cüzdan Silinsin mi?";
 
-/* Kullanıcı ifadeyi kaybederse uyarı */
+/* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "Başlangıç ​​öbeğinizi veya PIN kodunuzu unuttunuz mu?";
 
-/* Cüzdan silinemedi uyarı mesajı */
+/* Failed wipe wallet alert message */
 "WipeWallet.failedMessage" = "Cüzdan silinemedi.";
 
-/* Cüzdan silinemedi uyarı başlığı */
+/* Failed wipe wallet alert title */
 "WipeWallet.failedTitle" = "Başarısız";
 
-/* Cüzdan talimatını silmek için anahtarı girin. */
+/* Enter key to wipe wallet instruction. */
 "WipeWallet.instruction" = "Yeni bir cüzdan başlatmak veya mevcut bir cüzdanı geri yüklemek için, önce şu anda kurulu olan cüzdanı silmelisiniz. Devam etmek için, mevcut cüzdanın Kağıt Anahtarını girin.";
 
-/* Cüzdanı silmeye başla mesajı görüntüleme */
+/* Start wipe wallet view message */
 "WipeWallet.startMessage" = "Başka bir cüzdanın başlatılması veya kurtarılması, bu cihazdaki farklı bir Litewallet cüzdanına erişmenize ve onu yönetmenize olanak sağlar.";
 
-/* Cüzdan görünümünü silme uyarısını başlat */
+/* Start wipe wallet view warning */
 "WipeWallet.startWarning" = "Mevcut cüzdanınız bu cihazdan kaldırılacaktır. İleride onu geri yüklemek isterseniz, Kağıt Anahtarınızı girmeniz gerekecektir.";
 
-/* Cüzdan gezinme öğesi başlığını silin. */
+/* Wipe wallet navigation item title. */
 "WipeWallet.title" = "Başka Bir Cüzdanı Başlatın veya Kurtarın";
 
-/* Uyarı Uyarısı */
+/* Warning Alert */
 "WipeWallet.warningAlert" = "KAYBETMEYİN!";
 
-/* Uyarı açıklaması */
+/* Warning description */
 "WipeWallet.warningDescription" = "LiteWallet'ınız boş. Sıfırlama işlemi, eski özel anahtarı silecek ve uygulama verilerini silecektir. \n \nSıfırlamadan sonra, yeni 12 kelimeyi kaydetmeye ve çok güvenli bir yerde saklamaya hazır olun. \n \nHiçbir LiteWallet geliştiricisi bu çekirdeği sizin için alamaz. ";
 
-/* Uyarı başlığı */
+/* Warning title */
 "WipeWallet.warningTitle" = "LÜTFEN OKUYUN!";
 
-/* Cüzdan düğmesini sil düğmesi başlığı */
+/* Wipe wallet button title */
 "WipeWallet.wipe" = "Sil";
 
-/* Etkinlik mesajı siliniyor */
+/* Wiping activity message */
 "WipeWallet.wiping" = "Siliniyor ...";
 
-/* Kağıt anahtarı talimatları. */
+/* Paper key instructions. */
 "WritePaperPhrase.instruction" = "Her kelimeyi sırayla not edin ve güvenli bir yerde saklayın.";
 
-/* düğme etiketi */
+/* button label */
 "WritePaperPhrase.next" = "Sonraki";
 
-/* düğme etiketi */
+/* button label */
 "WritePaperPhrase.previous" = "Önceki";
 
-/* 1/3 */
+/* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
 
-/* bir saat veya tarih itibariyle */
+/* as of a time or date */
 "Conjunction.asOf" = "itibariyle";
 
-/* Mühendis tarafından yorum yapılmadı. */
-"Kopyala" = "Kopyala";
+/* Copy. */
+"Copy" = "Kopyala";
 
-/* Çubuk Öğesi Başlığını Satın Al */
+/* Buy Bar Item Title */
 "BuyCenter.barItemTitle" = "SATIN AL";
 
-/* 53,09 ABD doları / L +% 1,07 */
+/* $53.09/L + 1.07% */
 "Confirmation.amountDetailLabel" = "Değişim ayrıntıları:";
 
-/* Kısa Ağ Ücreti: (1,00 $) */
+/* Short Network Fee: ($1.00) */
 "Confirmation.shortFeeLabel" = "ÜCRET:";
 
-/* Adres etiketi */
+/* Address label */
 "Confirmation.staticAddressLabel" = "ADDRESS:";
 
-/* Geçmiş Çubuğu Öğe Başlığı */
+/* History Bar Item Title */
 "History.barItemTitle" = "GEÇMİŞ";
 
-/* Çubuk Öğesi Başlığını Al */
+/* Receive Bar Item Title */
 "Receive.barItemTitle" = "AL";
 
-/* Çubuk Öğesi Başlığını Gönder */
+/* Send Bar Item Title */
 "Send.barItemTitle" = "GÖNDER";
 
-/* Daha az düğme başlığı */
+/* Less button title */
 "TransactionDetails.less" = "Daha Az ...";
 
-/* Fiyat ön eki */
+/* Prefix for price */
 "TransactionDetails.priceTimeStampPrefix" = "itibarıyla";
 
-/* LTCTitle AL */
+/* RECEIVE LTCTitle */
 "TransactionDetails.receivedModalTitle" = "ADRES AL";
 
-/* TXID için etiket */
+/* Label for TXID */
 "TransactionDetails.staticTXLabel" = "TXID:";
 
-/* Ekran alt başlığının kilidini aç */
+/* Unlock Screen sub-header */
 "UnlockScreen.enterPin" = "PIN'i Girin";
 
-/* Statik miktar Etiketi */
+/* Static amount Label */
 "Transaction.amountDetailLabel" = "Miktar Ayrıntısı:";
 
-/* Statik blok Yükseklik Etiketi */
+/* Static blockHeight Label */
 "Transaction.blockHeightLabel" = "Blok:";
 
-/* Statik açıklama Etiketi */
+/* Static comment Label */
 "Transaction.commentLabel" = "Not:";
 
-/* Statik TX iD Etiketi */
+/* Static TX iD Label */
 "Transaction.txIDLabel" = "Tx Kimliği:";
 
-/* Statik bitiş tutarı Etiket */
+/* Static end amount Label */
 "Transaction.endAmountDetailLabel" = "İşlem bitiş tutarı ayrıntısı";
 
-/* Statik başlangıç ​​miktarı Etiket */
+/* Static starting amount Label */
 "Transaction.startingAmountDetailLabel" = "İşlem başlangıç ​​tutarı ayrıntısı";
 
-/* Görünüm bağlantı durumu başlık metni senkronize ediliyor */
+/* Syncing view connection state header text */
 "SyncingHeader.connecting" = "Bağlanıyor ...";
 
-/* Üstbilgi başarı durumu başlık metni eşitleniyor */
+/* Syncing header success state header text */
 "SyncingHeader.success" = "Başarılı!";
 
-/* Görünüm eşitleme durumu başlık metni eşitleniyor */
+/* Syncing view syncing state header text */
 "SyncingHeader.syncing" = "Eşitleniyor ...";
 
-/* Başlık başarı durumu başlık metni yeniden taranıyor */
+/* Rescanning header success state header text */
 "SyncingHeader.rescan" = "Yeniden taranıyor ...";
 
-/* Düğme başlığını onaylayın. */
+/* Affirm button title. */
 "Prompts.PaperKey.affirm" = "Devam Et";
 
-/* İptal düğmesi. */
+/* Cancel button. */
 "Prompts.PaperKey.cancel" = "İptal";
 
-/* Etkinleştir düğmesi. */
+/* Enable button. */
 "Prompts.PaperKey.enable" = "Etkinleştir";
 
-/* Kapat düğmesi. */
+/* Dismiss button. */
 "Prompts.dismiss" = "DEVRE DIŞI BIRAK";
 
-/* Diller etiketi */
+/* Languages label */
 "Settings.languages" = "Diller";
 
-/* Fiat seçilecek etiket */
+/* Label to pick fiat */
 "DefaultCurrency.chooseFiatLabel" = "Seçin:";
 
-/* Litewallet ortamı */
+/* Litewallet environment */
 "Settings.litewallet.environment" = "Çevre:";
 
-/* Litewallet sürümü */
+/* Litewallet version */
 "Settings.litewallet.version" = "Litewallet sürümü:";
 
-/* Litewallet Sosyal bağlantıları */
+/* Litewallet Social links */
 "Settings.socialLinks" = "Sosyal";
 
-/* DB'yi sil */
+/* Delete db */
 "WipeWallet.deleteDatabase" = "Veritabanını Sil";
 
-/* Veritabanı başlığını sil */
+/* Delete database title */
 "WipeWallet.alertDeleteTitle" = "Veritabanını Sil";
 
-/* Veritabanı mesajını sil */
+/* Delete database message */
 "WipeWallet.deleteMessageTitle" = "Bu, veritabanını siler, ancak PIN'i ve tümceciği korur. Mevcut PIN kodunuzu onaylayın, tohumlayın ve yeni veritabanına eşitlemeyi tamamlamak için bekleyin";
 
-/* Sil ve senkronize et */
+/* Delete and sync */
 "WipeWallet.deleteSync" = "Sil ve Senkronize Et";
 
-/* Yolsuzluk Hatası uyarı başlığı */
+/* Corruption Error alert title */
 "Alert.corruptionError" = "Yerel Bozulma Hatası";
 
-/* Yolsuzluk Hatası uyarı başlığı */
+/* Corruption Error alert title */
 "Alert.corruptionMessage" = "Yerel veritabanınız bozuk. Yenilemek için Ayarlar> Blok Zinciri: Ayarlar> Veritabanını Sil'e gidin";
 
-/* Makaleleri şuraya bağışlayın */
+/* Donate articles to the */
 "Donate.toThe" = "Bağış Yapın";
 
-/* Bağış yap */
-"Bağış.word" = "Bağış Yap";
+/* Donate */
+"Donate.word" = "Bağış Yap";
 
-/* Lüks ücreti */
+/* Luxury fee */
 "FeeSelector.luxury" = "Lüks";
 
-/* Ücret Seçici ekonomi ücreti açıklaması */
+/* Fee Selector economy fee description */
 "FeeSelector.luxuryLabel" = "Tahmini Teslimat: 2,5 - 5+ dakika";
 
-/* Lüks ücret için mesaj */
+/* Message for luxury fee */
 "FeeSelector.luxuryMessage" = "Bu seçenek, bir prim ödüyor olsanız bile işleminizin kabul edilmesini neredeyse garanti eder.";
 
-/* Litecoin Vakfı'nı destekleyin */
+/* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Litecoin Foundation'ı Destekleyin";
 
-/* Menü düğmesi başlığı */
+/* Menu button title */
 "MenuButton.customer.support" = "Müşteri desteği";
 
-/* Alan adını LTC Adresiyle eşleştirmek için girin */
+/* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Bir .crypto veya .zil alanı girin";
 
-/* Veya */
+/* Or */
 "Fragment.or" = "veya";
 
-/* LTC Adresini Girin */
+/* Enter LTC Address */
 "Send.enterLTCAddress" = "Bir Litecoin adresi girin";
 
-/* Litewallet Ortakları */
+/* Litewallet Partners */
 "Settings.litewallet.partners" = "Litewallet ortakları";
 
-/* Kart Çubuğu Öğe Başlığı */
+/* Card Bar Item Title */
 "LitecoinCard.barItemTitle" = "Kart";
 
-/* Yukarı Bak */
+/* Lookup */
 "Send.UnstoppableDomains.lookup" = "Arama";
 
-/* Parolanızı mı unuttunuz? */
+/* Forgot password? */
 "LitecoinCard.forgotPassword" = "Parolanızı mı unuttunuz?";
 
-/* Oturum aç */
+/* Login */
 "LitecoinCard.login" = "Giriş Yap";
 
-/* Kayıt ol */
+/* Register */
 "LitecoinCard.registerCard" = "Kayıt Ol";
 
-/* Litecoin kartı */
+/* Litecoin card */
 "LitecoinCard.registerCardPhrase" = "Litecoin Kartı için Kaydol";
 
-/* Litecoin kart şifresini sıfırlayın */
+/* Reset Litecoin card password */
 "LitecoinCard.resetPassword" = "Parolayı sıfırla";
 
-/* Litecoin kart ziyareti */
+/* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Parolanızı sıfırlamak için https://litecoin.dashboard.getblockcard.com/password/forgot\n adresini ziyaret edin.";
 
-/* adres */
+/* address */
 "LitecoinCard.Registration.address" = "Adres";
 
-/* Kent */
+/* city */
 "LitecoinCard.Registration.city" = "Şehir";
 
-/* Şifreyi Onayla */
+/* confirm password */
 "LitecoinCard.Registration.confirmPassword" = "Parolayı onayla";
 
-/* ülke */
+/* country */
 "LitecoinCard.Registration.country" = "Ülke";
 
-/* İsim */
+/* First name */
 "LitecoinCard.Registration.firstName" = "Adı";
 
 /* kycIDNumber */
@@ -1284,28 +1276,28 @@
 /* SSN */
 "LitecoinCard.Registration.kycSSN" = "SSN";
 
-/* Soyadı */
+/* Last name */
 "LitecoinCard.Registration.lastName" = "Soyadı";
 
-/* cep numarası */
+/* mobile number */
 "LitecoinCard.Registration.mobileNumber" = "Cep telefonu numarası";
 
-/* parola */
+/* password */
 "LitecoinCard.Registration.password" = "Parola";
 
-/* eyalet ili */
+/* state province */
 "LitecoinCard.Registration.stateProvince" = "Eyalet / İl";
 
-/* kayıt kullanıcı adı / e-posta */
+/* registraition username / email */
 "LitecoinCard.Registration.usernameEmail" = "E-posta (Kullanıcı Adı)";
 
-/* posta kodu */
+/* zip post Code */
 "LitecoinCard.Registration.zipPostCode" = "Posta Kodu / Posta Kodu";
 
-/* kimlik */
+/* identification */
 "LitecoinCard.Registration.identification" = "Kimlik";
 
-/* Litecoin Kartına Kaydolun */
+/* Register for Litecoin Card */
 "LitecoinCard.registerCard.phrase" = "Litecoin Kartına Kaydolun";
 
 /* kycIDType */
@@ -1314,70 +1306,70 @@
 /* resetFields */
 "Button.resetFields" = "Alanları sıfırla";
 
-/* Kullanıcı kaydediliyor ... */
+/* Registering user... */
 "LitecoinCard.registering.user" = "Kullanıcı kaydediliyor ...";
 
-/* Kart bakiyesi */
+/* Card balance */
 "LitecoinCard.cardBalance" = "Kart bakiyesi";
 
-/* Çıkış Yap */
+/* Logout */
 "LitecoinCard.logout" = "Oturumu Kapat";
 
-/* Kayıt hatası */
+/* Registration failure */
 "LitecoinCard.registrationFailure" = "Kaydınız ile ilgili bir sorun oluştu. \nLütfen verilerinizi kontrol edin ve tekrar deneyin.";
 
-/* Başarılı Kayıt */
+/* Registration success */
 "LitecoinCard.registrationSuccess" = "Kayıt oldunuz! \nLütfen e-postanızı kontrol edin ve onaylayın. Sonra tekrar giriş yapın.";
 
-/* Çözümlenen Başarı */
+/* Resolved Success */
 "Alerts.resolvedSuccess" = "Etki Alanı Çözünürlüğü";
 
-/* Mühendis tarafından yorum yapılmadı. */
+/* No comment provided by engineer. */
 "Alerts.resolvedSuccessSubheader" = "Adres çözüldü!";
 
-/* boş olmamalıdır */
+/* must not be empty */
 "LitecoinCard.Registration.ValidationError.empty" = "Boş olmamalıdır";
 
-/* Geçersiz e-posta adresi */
+/* Invalid email address */
 "LitecoinCard.Registration.ValidationError.invalidEmail" = "Geçersiz E-posta Adresi";
 
-/* Cep telefonu numarası 10 hane gerekli */
+/* Mobile number 10 digits required */
 "LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Cep telefonu numarası en az 10 basamaklı olmalıdır";
 
-/* Cep telefonu numarası gerekli */
+/* Mobile number required */
 "LitecoinCard.Registration.ValidationError.numberRequired" = "Cep telefonu numarası gerekli";
 
-/* 6 Parola karakteri gerekli */
+/* 6 Password characters required */
 "LitecoinCard.Registration.ValidationError.passwordCharacters" = "Parola en az 6 karakter içermelidir";
 
-/* Büyük ve sayısal parola karakterleri gerekli */
+/* Captial and numeric password characters required */
 "LitecoinCard.Registration.ValidationError.passwordComposition" = "Parola, en az bir karakter ve bir sayısal karakter içeren 6 karakterden fazla olmalıdır";
 
-/* Şifre gerekli */
+/* Password required */
 "LitecoinCard.Registration.ValidationError.passwordRequired" = "Parola Gerekli";
 
-/* Gerekli alan */
+/* Required field */
 "LitecoinCard.Registration.ValidationError.requiredField" = "Gerekli alan";
 
-/* Başarısız oturum açma */
+/* Failed Login */
 "LitecoinCard.failed.login" = "Giriş başarısız oldu";
 
-/* Kopyalandı */
+/* Copied */
 "TransactionDetails.copiedAll" = "Kopyalandı";
 
-/* Tüm ayrıntıları kopyala */
+/* Copy all details */
 "TransactionDetails.copyAllDetails" = "Tüm ayrıntıları kopyala";
 
-/* Özellikler ve sınırlamalar */
+/* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Kayıt ve Giriş \n- Kullanılabilir kart bakiyesi \n- Parolayı sıfırla \n- Litewallet'e aktarım yok \n- Yalnızca ABD";
 
-/* Durumun açıklaması */
+/* Description of the status */
 "LitecoinCard.Disclaimer.description" = "Litecoin Kartı şu anda Litewallet'te sınırlı işlevselliğe sahiptir.";
 
-/* Web sitesine yönlendirme */
+/* Referral to the website */
 "LitecoinCard.Disclaimer.referral" = "Tam erişim için litecoin.getblockcard.com adresini ziyaret edin";
 
-/* Litecoin Kartı Beta Testi */
+/* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Litecoin Kartı Beta";
 
 /* lookupFailureHeader */
@@ -1389,20 +1381,20 @@
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
 
-/* Denge */
+/* Balance */
 "ManageWallet.balance" = "Bakiye";
 
-/* Moonpay finansal bilgileri satın al */
+/* Moonpay buy financial details */
 "BuyCenter.moonpayFinancialDetails" = "• Birçok fiat çiftiyle LTC satın alın \n • Birden çok yöntemle ödeme yapın \n • Global ödeme sağlayıcısı";
 
-/* Moonpay Başlığı */
+/* Moonpay Title */
 "BuyCenter.moonpayTitle" = "Moonpay";
 
-/* Parola ayrıntısını sıfırla */
+/* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Litecoin Kart hesabınızla ilişkili e-posta adresini girin ve sıfırlama talimatlarını içeren bir e-posta arayın.";
 
-/* Mevcut Yerel Ayar */
+/* Current Locale */
 "Settings.currentLocale" = "Mevcut Yerel Ayar:";
 
-/* Geçmiş Mevcut Litecoin Değeri */
+/* History Current Litecoin Value */
 "History.currentLitecoinValue" = "Geçerli LTC değeri";
