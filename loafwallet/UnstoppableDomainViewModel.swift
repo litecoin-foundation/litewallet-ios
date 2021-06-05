@@ -25,6 +25,10 @@ class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Public Variables
     var didResolveUDAddress: ((String) -> Void)?
+     
+    var shouldClearAddressField: (() -> Void)?
+        
+    var didFailToResolve: ((String) -> Void)?
     
     var shouldClearAddressField: (() -> Void)?
     
@@ -32,7 +36,6 @@ class UnstoppableDomainViewModel: ObservableObject {
     
     //MARK: - Private Variables
     private var ltcAddress = ""
-    
     private var dateFormatter: DateFormatter? {
         
         didSet {
@@ -99,7 +102,7 @@ class UnstoppableDomainViewModel: ObservableObject {
                         self.didResolveUDAddress?(self.ltcAddress)
                         self.isDomainResolving = false
                     }
-                    
+					
                 case .failure(let error):
                     print(error)
                     let errorMessage = DomainResolutionFailure().messageWith(error: error)
@@ -117,7 +120,6 @@ class UnstoppableDomainViewModel: ObservableObject {
                                                   execute: {
                                                     
                                                     self.didFailToResolve?(error.localizedDescription)
-                                                    
                                                     self.didFailToResolve?(errorMessage)
                                                     self.isDomainResolving = false
                                                     
@@ -127,7 +129,4 @@ class UnstoppableDomainViewModel: ObservableObject {
         }
         group.wait()
     }
-    
 }
-
-

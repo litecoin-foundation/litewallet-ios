@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import UIKit
-
+import UIKit 
 
 enum PartnerName {
     case infura
     case changeNow
 }
-
+ 
 struct Partner {
     
     let logo: UIImage

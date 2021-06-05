@@ -64,6 +64,7 @@
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
                                     <constraint firstItem="BXb-8k-gBM" firstAttribute="top" secondItem="81g-U6-NOG" secondAttribute="top" constant="4" id="FgY-7a-fho"/>
+
                                     <constraint firstAttribute="height" constant="60" id="iBk-qu-OG6"/>
                                     <constraint firstItem="zmH-Ee-H6k" firstAttribute="centerY" secondItem="ZHZ-G5-6k8" secondAttribute="centerY" id="ksC-fB-keg"/>
                                     <constraint firstAttribute="trailing" secondItem="zmH-Ee-H6k" secondAttribute="trailing" constant="10" id="vY4-OJ-KBs"/>

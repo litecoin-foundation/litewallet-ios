@@ -14,9 +14,8 @@ extension Color {
     static var liteWalletBlue: Color { //345D9D
         return Color(UIColor.liteWalletBlue)
     }
-    
+     
     static var liteWalletDarkBlue: Color { //163e7f
         return Color(UIColor.liteWalletDarkBlue)
-    } 
-    
+    }  
 }
