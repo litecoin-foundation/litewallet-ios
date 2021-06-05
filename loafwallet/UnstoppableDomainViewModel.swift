@@ -30,10 +30,6 @@ class UnstoppableDomainViewModel: ObservableObject {
         
     var didFailToResolve: ((String) -> Void)?
     
-    var shouldClearAddressField: (() -> Void)?
-    
-    var didFailToResolve: ((String) -> Void)?
-    
     //MARK: - Private Variables
     private var ltcAddress = ""
     private var dateFormatter: DateFormatter? {
