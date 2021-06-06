@@ -26,7 +26,7 @@ jobs:
       # Required recipients' addresses:
       to: kerry.washington@gmail.com # oritabak@gmail.com, 
       # Required sender full name (address can be skipped):
-      from:  <litecoin.foundation.ios.agent@gmail.com> # <user@example.com> Litewallet iOS Github Repo 
+      from:  <litecoin.foundation.mobile.agent@gmail.com> # <user@example.com> Litewallet iOS Github Repo 
       # Optional whether this connection use TLS (default is true if server_port is 465)
       secure: true
       # Optional plain body:
