@@ -56,15 +56,15 @@ jobs:
     # Required mail server port:
     server_port: 465
     # Required mail server username:
-    username: ${{secrets.MAIL_USERNAME}}
+    username: ${{secrets.MAIL_AGENT_USERNAME}}
     # Required mail server password:
-    password: ${{secrets.MAIL_PASSWORD}}
+    password: ${{secrets.MAIL_AGENT_PASSWORD}}
     # Required mail subject:
-    subject: Litewallet iOS Release is it's way
+    subject: Litewallet iOS Release almost ready
     # Required recipients' addresses:
     to: kerry.washington@gmail.com # oritabak@gmail.com, 
     # Required sender full name (address can be skipped):
-    from: Litewallet iOS Github Repo # <user@example.com>
+    from:  <litecoin.foundation.ios.agent@gmail.com> # <user@example.com> Litewallet iOS Github Repo 
     # Optional whether this connection use TLS (default is true if server_port is 465)
     secure: true
     # Optional plain body:
