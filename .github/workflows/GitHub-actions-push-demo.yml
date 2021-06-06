@@ -2,7 +2,7 @@ name: Notfication for upcoming release
 on:
   push:
     branches:
-    - release/*
+    - release
 jobs:
   send_email:
     runs-on: ubuntu-latest
