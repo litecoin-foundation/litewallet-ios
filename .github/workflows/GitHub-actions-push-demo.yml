@@ -1,17 +1,51 @@
-name: GitHub Actions Demo: Push
-on: [push]
+name: Notfication for upcoming release
+on:
+  push:
+    branches:
+    - release/*
 jobs:
-  Explore-GitHub-Actions:
+  send_email:
     runs-on: ubuntu-latest
+    name: send_email
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    - name: Send email
+      # You may pin to the exact commit or the version.
+      # uses: dawidd6/action-send-mail@98b61f505d216dafd844f3bfca5b2972df822dab
+      uses: dawidd6/action-send-mail@v3.1.0
+      with:
+        # SMTP server address
+        server_address: 
+        # SMTP server port
+        server_port: 
+        # Authenticate as this user to SMTP server
+        username: 
+        # Authenticate with this password to SMTP server
+        password: 
+        # Subject of mail message
+        subject: 
+        "Release on it's way";
+        # Recipients mail addresses (separated with comma)
+        to: 
+        kerry.washington@gmail.com # oritabak@gmail.com, 
+        # Full name of mail sender (might be with an email address specified in <>)
+        from: 
+        # Whether this connection use TLS (default is true if server_port is 465)
+        secure: # optional
+        # Body of mail message (might be a filename prefixed with file:// to read from)
+        body: # optional
+        # HTML body of mail message (might be a filename prefixed with file:// to read from)
+        html_body: # optional
+        # Carbon copy recipients (separated with comma)
+        cc: # optional
+        # Blind carbon copy recipients (separated with comma)
+        bcc: # optional
+        # An email address that will appear on the Reply-To field
+        reply_to: # optional
+        # Allow unsigned/invalid certificates
+        ignore_cert: # optional
+        # Convert body from Markdown to HTML (set content_type input as text/html too)
+        convert_markdown: # optional
+        # Files that will be added to mail message attachments (separated with comma)
+        attachments: # optional
+
+
