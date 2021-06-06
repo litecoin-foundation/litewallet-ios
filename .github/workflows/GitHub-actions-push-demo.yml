@@ -13,76 +13,35 @@ jobs:
       # uses: dawidd6/action-send-mail@98b61f505d216dafd844f3bfca5b2972df822dab
       uses: dawidd6/action-send-mail@v3.1.0
       with:
-        # SMTP server address
-        server_address: 
-        # SMTP server port
-        server_port: 
-        # Authenticate as this user to SMTP server
-        username: 
-        # Authenticate with this password to SMTP server
-        password: 
-        # Subject of mail message
-        subject: 
-        "Release on it's way";
-        # Recipients mail addresses (separated with comma)
-        to: 
-        kerry.washington@gmail.com # oritabak@gmail.com, 
-        # Full name of mail sender (might be with an email address specified in <>)
-        from: 
-        # Whether this connection use TLS (default is true if server_port is 465)
-        secure: # optional
-        # Body of mail message (might be a filename prefixed with file:// to read from)
-        body: # optional
-        # HTML body of mail message (might be a filename prefixed with file:// to read from)
-        html_body: # optional
-        # Carbon copy recipients (separated with comma)
-        cc: # optional
-        # Blind carbon copy recipients (separated with comma)
-        bcc: # optional
-        # An email address that will appear on the Reply-To field
-        reply_to: # optional
-        # Allow unsigned/invalid certificates
-        ignore_cert: # optional
-        # Convert body from Markdown to HTML (set content_type input as text/html too)
-        convert_markdown: # optional
-        # Files that will be added to mail message attachments (separated with comma)
-        attachments: # optional
-        
-        - name: Send mail
-  uses: dawidd6/action-send-mail@v3
-  with:
-    # Required mail server address:
-    server_address: smtp.gmail.com
-    # Required mail server port:
-    server_port: 465
-    # Required mail server username:
-    username: ${{secrets.MAIL_AGENT_USERNAME}}
-    # Required mail server password:
-    password: ${{secrets.MAIL_AGENT_PASSWORD}}
-    # Required mail subject:
-    subject: Litewallet iOS Release almost ready
-    # Required recipients' addresses:
-    to: kerry.washington@gmail.com # oritabak@gmail.com, 
-    # Required sender full name (address can be skipped):
-    from:  <litecoin.foundation.ios.agent@gmail.com> # <user@example.com> Litewallet iOS Github Repo 
-    # Optional whether this connection use TLS (default is true if server_port is 465)
-    secure: true
-    # Optional plain body:
-    body: Build job of ${{github.repository}} completed successfully!
-    # Optional HTML body read from file:
-    html_body: 
-    # Optional carbon copy recipients:
-    cc: kerry.washington.uk@gmail.com
-    # Optional blind carbon copy recipients:
-    bcc: #r2d2@example.com,hansolo@example.com
-    # Optional recipient of the email response:
-    reply_to: #luke@example.com
-    # Optional unsigned/invalid certificates allowance:
-    ignore_cert: true
-    # Optional converting Markdown to HTML (set content_type to text/html too):
-    convert_markdown: true
-    # Optional attachments:
-    attachments: #attachments.zip,git.diff,./dist/static/main.js
-
-
-
+      # Required mail server address:
+      server_address: smtp.gmail.com
+      # Required mail server port:
+      server_port: 465
+      # Required mail server username:
+      username: ${{secrets.MAIL_AGENT_USERNAME}}
+      # Required mail server password:
+      password: ${{secrets.MAIL_AGENT_PASSWORD}}
+      # Required mail subject:
+      subject: Litewallet iOS Release almost ready
+      # Required recipients' addresses:
+      to: kerry.washington@gmail.com # oritabak@gmail.com, 
+      # Required sender full name (address can be skipped):
+      from:  <litecoin.foundation.ios.agent@gmail.com> # <user@example.com> Litewallet iOS Github Repo 
+      # Optional whether this connection use TLS (default is true if server_port is 465)
+      secure: true
+      # Optional plain body:
+      body: Build job of ${{github.repository}} completed successfully!
+      # Optional HTML body read from file:
+      html_body: 
+      # Optional carbon copy recipients:
+      cc: kerry.washington.uk@gmail.com
+      # Optional blind carbon copy recipients:
+      bcc: #r2d2@example.com,hansolo@example.com
+      # Optional recipient of the email response:
+      reply_to: #luke@example.com
+      # Optional unsigned/invalid certificates allowance:
+      ignore_cert: true
+      # Optional converting Markdown to HTML (set content_type to text/html too):
+      convert_markdown: true
+      # Optional attachments:
+      attachments: #attachments.zip,git.diff,./dist/static/main.js
