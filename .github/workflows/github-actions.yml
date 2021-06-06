@@ -1,4 +1,4 @@
-name: Github Action: Send release email
+name: Send release email
 on:
   push:
     branches:
