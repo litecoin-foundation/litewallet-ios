@@ -8,24 +8,13 @@
 import UIKit
 import Foundation 
 
-enum TabViewControllerIndex: Int {
-    case transactions = 0
-    case send = 1
-    case buy = 2
-    case receive = 3
-}
-
 class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
     
     let kInitialChildViewControllerIndex = 0 // TransactionsViewController
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var currentLTCPriceLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var timeStampLabel: UILabel!
-    @IBOutlet weak var timeStampStackView: UIStackView!
-    @IBOutlet weak var timeStampStackViewHeight: NSLayoutConstraint!
     @IBOutlet weak var walletBalanceLabel: UILabel!
 	
     var primaryBalanceLabel: UpdatingLabel?
@@ -68,6 +57,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupModels()
         setupViews()
         configurePriceLabels()
         addSubscriptions()
@@ -91,6 +81,23 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     deinit {
         self.updateTimer = nil
+    }
+    
+    private func setupModels() {
+        
+        guard let store = self.store else { return }
+ 
+         isLtcSwapped = store.state.isLtcSwapped
+        
+        if let rate = store.state.currentRate {
+            exchangeRate = rate
+            let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
+            secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
+            primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
+        } else {
+            secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+            primaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
+        } 
     }
     
     private func setupViews() {
@@ -163,7 +170,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         
         currencyTapView.constrain([
                                     currencyTapView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 0),
-                                    currencyTapView.trailingAnchor.constraint(equalTo: self.timeStampStackView.leadingAnchor, constant: 0),
+                                    currencyTapView.trailingAnchor.constraint(equalTo: self.settingsButton.leadingAnchor, constant: -C.padding[5]),
                                     currencyTapView.topAnchor.constraint(equalTo: primaryLabel.topAnchor, constant: 0),
                                     currencyTapView.bottomAnchor.constraint(equalTo: primaryLabel.bottomAnchor, constant: C.padding[1]) ])
         
@@ -268,24 +275,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         } else {
             secondaryLabel.transform = .identity
             primaryLabel.transform = transform(forView: primaryLabel)
-        }
-        
-        // Time and Price Label
-        let timeText = S.TransactionDetails.priceTimeStampLabel + " " + dateFormatter.string(from: Date())
-        let fiatRate = Double(round(100*rate.rate)/100)
-        let formattedFiatString = String(format: "%.02f", fiatRate)
-        let newPrice = Currency.getSymbolForCurrencyCode(code: rate.code)! + formattedFiatString
-        
-        self.currentLTCPriceLabel.text =  " "
-        self.timeStampLabel.text = timeText
-
-        // Transitions when the data changes
-        UIView.transition(with: self.currentLTCPriceLabel,
-                          duration: 2.0,
-                          options: .transitionFlipFromLeft,
-                          animations: { [weak self] in
-                            self?.currentLTCPriceLabel.text =  newPrice
-                          }, completion: nil)
+        } 
     }
     
     /// Transform LTC and Fiat  Balances
@@ -312,14 +302,14 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         array.forEach { item in
             
             switch item.tag {
-                case 0: item.title = S.History.barItemTitle
-                case 1: item.title = S.Send.barItemTitle
-                case 2: item.title = S.LitecoinCard.barItemTitle
-                case 3: item.title = S.Receive.barItemTitle
-                case 4: item.title = S.BuyCenter.barItemTitle
-                default:
-                    item.title = "NO-TITLE"
-                    NSLog("ERROR: UITabbar item count is wrong")
+            case 0: item.title = S.History.barItemTitle
+            case 1: item.title = S.Send.barItemTitle
+            case 2: item.title = S.LitecoinCard.barItemTitle
+            case 3: item.title = S.Receive.barItemTitle
+            case 4: item.title = S.BuyCenter.barItemTitle
+            default:
+                item.title = "NO-TITLE"
+                NSLog("ERROR: UITabbar item count is wrong")
             }
         }
     }

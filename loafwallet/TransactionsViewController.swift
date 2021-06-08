@@ -220,8 +220,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                         
                     self.present(hostingController, animated: true) {
                         
-                        
-                        // Notes of bugfix: https://github.com/litecoin-foundation/loafwallet-ios/pull/247
+                        // Notes of bugfix: 
                         // Refactored the class to have two section and make sure the row never extends outside the transaction count.
                         
                         if indexPath.row < self.transactions.count {

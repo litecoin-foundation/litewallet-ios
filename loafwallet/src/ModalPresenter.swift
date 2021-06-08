@@ -11,7 +11,6 @@ import LocalAuthentication
 import SwiftUI
 import SafariServices
 
-
 class ModalPresenter : Subscriber, Trackable {
     
     //MARK: - Public
@@ -200,7 +199,11 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func presentAlert(_ type: AlertType, completion: @escaping ()->Void) {
         let alertView = AlertView(type: type)
-        let window = UIApplication.shared.keyWindow!
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
+            saveEvent("ERROR: Window not found in the UIApplication window stack")
+            return
+        }
+        
         let size = window.bounds.size
         window.addSubview(alertView)
         
@@ -242,11 +245,10 @@ class ModalPresenter : Subscriber, Trackable {
                                      completion: @escaping ()->Void) {
         
         let hostingViewController = UIHostingController(rootView: AlertFailureView(alertFailureType:.failedResolution,
-                                                                             errorMessage: errorMessage))
-            
+                                                                                   errorMessage: errorMessage))
+        
         guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first,
               let failureAlertView = hostingViewController.view else { return }
-                
         let size = window.bounds.size
         window.addSubview(failureAlertView)
         
@@ -254,15 +256,14 @@ class ModalPresenter : Subscriber, Trackable {
         failureAlertView.constrain([
                                     failureAlertView.constraint(.width, constant: size.width),
                                     failureAlertView.constraint(.height, constant: alertHeight + 50.0),
-                                     failureAlertView.constraint(.leading, toView: window, constant: nil),
-                                topConstraint ])
+                                    failureAlertView.constraint(.leading, toView: window, constant: nil),
+                                    topConstraint ])
         window.layoutIfNeeded()
         
         UIView.spring(0.6, animations: {
             topConstraint?.constant = size.height - self.alertHeight
             window.layoutIfNeeded()
         }, completion: { _ in
-          
             UIView.spring(0.6, delay: 5.0, animations: {
                 topConstraint?.constant = size.height
                 window.layoutIfNeeded()
@@ -357,7 +358,6 @@ class ModalPresenter : Subscriber, Trackable {
         sendVC.onResolutionFailure = { [weak self] failureMessage in
             self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
         }
-		
         return root
     }
     
@@ -394,13 +394,12 @@ class ModalPresenter : Subscriber, Trackable {
                 let urlString = "https://litecoinfoundation.zendesk.com/hc/en-us"
                 
                 guard let url = URL(string: urlString) else { return }
-                 
+                
                 let vc = SFSafariViewController(url: url)
                 self?.topViewController?.present(vc, animated: true, completion: nil)
             })
-
+            
         }
-
         menu.didTapGiveSupportLF = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
                 self?.presentSupportLF()
@@ -437,10 +436,10 @@ class ModalPresenter : Subscriber, Trackable {
         let settingsNav = UINavigationController()
         let sections = ["About", "Wallet", "Manage", "Support", "Blockchain"]
         let rows = [
-            "About": [Setting(title: S.Settings.litewalletVersion, accessoryText: { [weak self] in
+            "About": [Setting(title: S.Settings.litewalletVersion, accessoryText: {
                 return AppVersion.string
             }, callback: {}),
-            Setting(title: S.Settings.litewalletEnvironment, accessoryText: { [weak self] in
+            Setting(title: S.Settings.litewalletEnvironment, accessoryText: {
                 var envName = "Release"
                 #if Debug || Testflight
                 envName = "Debug"
@@ -512,6 +511,22 @@ class ModalPresenter : Subscriber, Trackable {
                     guard let wm = self.walletManager else { print("NO WALLET MANAGER!"); return }
                     settingsNav.pushViewController(DefaultCurrencyViewController(walletManager: wm, store: self.store), animated: true)
                 }),
+                Setting(title: S.Settings.currentLocale, accessoryText: {
+                    
+                    // Get the current locale
+                    let currentLocale = Locale.current
+                    
+                    if let regionCode = currentLocale.regionCode,
+                       let displayName = currentLocale.localizedString(forRegionCode: regionCode) {
+                        return displayName
+                    } else {
+                        return ""
+                    }
+                    
+                }, callback: {
+                    let localeView = UIHostingController(rootView: LocaleChangeView(viewModel: LocaleChangeViewModel()))
+                    settingsNav.pushViewController(localeView, animated: true)
+                }),
                 Setting(title: S.Settings.sync, callback: {
                     settingsNav.pushViewController(ReScanViewController(store: self.store), animated: true)
                 }),
@@ -559,8 +574,7 @@ class ModalPresenter : Subscriber, Trackable {
         view.backgroundColor = .whiteTint
         settingsNav.navigationBar.setBackgroundImage(view.imageRepresentation, for: .default)
         settingsNav.navigationBar.shadowImage = UIImage()
-        settingsNav.navigationBar.isTranslucent = false
-        settingsNav.setBlackBackArrow()
+        settingsNav.navigationBar.isTranslucent = false 
         top.present(settingsNav, animated: true, completion: nil)
     }
     
@@ -793,7 +807,9 @@ class ModalPresenter : Subscriber, Trackable {
         if topViewController is MainViewController {
             presentModal(.send)
         } else {
-            if let presented = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController {
+            
+            LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
+            if let presented = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController?.presentedViewController {
                 presented.dismiss(animated: true, completion: {
                     self.presentModal(.send)
                 })
@@ -807,7 +823,9 @@ class ModalPresenter : Subscriber, Trackable {
         if topViewController is MainViewController || topViewController is LoginViewController {
             presentLoginScan()
         } else {
-            if let presented = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController {
+            
+            LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
+            if let presented = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController?.presentedViewController {
                 presented.dismiss(animated: true, completion: {
                     self.presentLoginScan()
                 })
@@ -899,7 +917,10 @@ class ModalPresenter : Subscriber, Trackable {
         guard notReachableAlert == nil else { return }
         let alert = InAppAlert(message: S.LitewalletAlert.noInternet, image: #imageLiteral(resourceName: "BrokenCloud"))
         notReachableAlert = alert
-        let window = UIApplication.shared.keyWindow!
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
+            saveEvent("ERROR: Window not found in the UIApplication window stack")
+            return
+        }
         let size = window.bounds.size
         window.addSubview(alert)
         let bottomConstraint = alert.bottomAnchor.constraint(equalTo: window.topAnchor, constant: 0.0)
@@ -931,7 +952,12 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func showLightWeightAlert(message: String) {
         let alert = LightWeightAlert(message: message)
-        let view = UIApplication.shared.keyWindow!
+        
+        guard let view = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
+            saveEvent("ERROR: Window not found in the UIApplication window stack")
+            return
+        }
+        
         view.addSubview(alert)
         alert.constrain([
                             alert.centerXAnchor.constraint(equalTo: view.centerXAnchor),

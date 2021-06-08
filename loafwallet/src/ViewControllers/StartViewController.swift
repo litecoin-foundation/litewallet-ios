@@ -25,7 +25,11 @@ class StartViewController : UIViewController {
     private let store: Store
     private let didTapRecover: () -> Void
     private let didTapCreate: () -> Void
-    private let background = LoginBackgroundView()
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .liteWalletBlue
+        return view
+    }()
     private var logo: UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))
         image.contentMode = .scaleAspectFit
@@ -63,7 +67,7 @@ class StartViewController : UIViewController {
     }
 
     private func addSubviews() {
-        view.addSubview(background)
+        view.addSubview(backgroundView)
         view.addSubview(logo)
         view.addSubview(message)
         view.addSubview(create)
@@ -72,7 +76,7 @@ class StartViewController : UIViewController {
     }
 
     private func addConstraints() {
-        background.constrain(toSuperviewEdges: nil)
+        backgroundView.constrain(toSuperviewEdges: nil)
         let yConstraint = NSLayoutConstraint(item: logo, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.5, constant: 0.0)
         logo.constrain([
             logo.constraint(.centerX, toView: view, constant: nil),

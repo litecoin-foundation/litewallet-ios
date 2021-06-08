@@ -20,7 +20,7 @@ class LWAnalytics {
         properties?.forEach { key, value in
             parameters[key] = value
         }
-        
+
         Analytics.logEvent(itemName.rawValue, parameters: parameters)
     }
     

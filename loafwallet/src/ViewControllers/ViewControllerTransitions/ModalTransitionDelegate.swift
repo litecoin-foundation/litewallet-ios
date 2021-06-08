@@ -14,23 +14,24 @@ enum ModalType {
 }
 
 class ModalTransitionDelegate : NSObject, Subscriber {
-
+    
     //MARK: - Public
     init(type: ModalType, store: Store) {
         self.type = type
         self.store = store
         super.init()
     }
-
+    
     func reset() {
         isInteractive = false
         presentedViewController = nil
         if let panGr = panGestureRecognizer {
-            UIApplication.shared.keyWindow?.removeGestureRecognizer(panGr)
+            LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
+            UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.removeGestureRecognizer(panGr)
         }
         store.trigger(name: .showStatusBar)
     }
-
+    
     var shouldDismissInteractively = true
     //MARK: - Private
     fileprivate let type: ModalType
@@ -39,43 +40,43 @@ class ModalTransitionDelegate : NSObject, Subscriber {
     fileprivate let interactiveTransition = UIPercentDrivenInteractiveTransition()
     fileprivate var presentedViewController: UIViewController?
     fileprivate var panGestureRecognizer: UIPanGestureRecognizer?
-
+    
     private var yVelocity: CGFloat = 0.0
     private var progress: CGFloat = 0.0
     private let velocityThreshold: CGFloat = 50.0
     private let progressThreshold: CGFloat = 0.5
-
+    
     @objc fileprivate func didUpdate(gr: UIPanGestureRecognizer) {
         guard shouldDismissInteractively else { return }
         switch gr.state {
-        case .began:
-            isInteractive = true
-            presentedViewController?.dismiss(animated: true, completion: nil)
-        case .changed:
-            guard let vc = presentedViewController else { break }
-            let yOffset = gr.translation(in: vc.view).y
-            let progress = yOffset/vc.view.bounds.height
-            yVelocity = gr.velocity(in: vc.view).y
-            self.progress = progress
-            interactiveTransition.update(progress)
-        case .cancelled:
-            reset()
-            interactiveTransition.cancel()
-        case .ended:
-            if transitionShouldFinish {
+            case .began:
+                isInteractive = true
+                presentedViewController?.dismiss(animated: true, completion: nil)
+            case .changed:
+                guard let vc = presentedViewController else { break }
+                let yOffset = gr.translation(in: vc.view).y
+                let progress = yOffset/vc.view.bounds.height
+                yVelocity = gr.velocity(in: vc.view).y
+                self.progress = progress
+                interactiveTransition.update(progress)
+            case .cancelled:
                 reset()
-                interactiveTransition.finish()
-            } else {
-                isInteractive = false
                 interactiveTransition.cancel()
-            }
-        case .failed:
-            break
-        case .possible:
-            break
+            case .ended:
+                if transitionShouldFinish {
+                    reset()
+                    interactiveTransition.finish()
+                } else {
+                    isInteractive = false
+                    interactiveTransition.cancel()
+                }
+            case .failed:
+                break
+            case .possible:
+                break
         }
     }
-
+    
     private var transitionShouldFinish: Bool {
         if progress > progressThreshold || yVelocity > velocityThreshold {
             return true
@@ -90,16 +91,19 @@ extension ModalTransitionDelegate : UIViewControllerTransitioningDelegate {
         presentedViewController = presented
         return PresentModalAnimator(shouldCoverBottomGap: type == .regular, completion: {
             let panGr = UIPanGestureRecognizer(target: self, action: #selector(ModalTransitionDelegate.didUpdate(gr:)))
-            UIApplication.shared.keyWindow?.addGestureRecognizer(panGr)
+            
+            LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
+            UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.removeGestureRecognizer(panGr)
             self.panGestureRecognizer = panGr
         })
     }
-
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissModalAnimator()
     }
-
+    
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return isInteractive ? interactiveTransition : nil
     }
 }
+

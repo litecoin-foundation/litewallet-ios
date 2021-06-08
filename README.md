@@ -1,12 +1,16 @@
 [![Litewallet](/images/header-ios.png)](https://itunes.apple.com/us/app/loafwallet/id1119332592)
 ======================================= 
 
-[![Release](https://img.shields.io/github/v/release/litecoin-foundation/loafwallet-ios?style=plastic)](https://img.shields.io/github/v/release/litecoin-foundation/loafwallet-ios) 
-[![MIT License](https://img.shields.io/github/license/litecoin-foundation/loafwallet-ios?style=plastic)](https://img.shields.io/github/license/litecoin-foundation/loafwallet-ios?style=plastic)
+[![Release](https://img.shields.io/github/v/release/litecoin-foundation/litewallet-ios?style=flat)](https://img.shields.io/github/v/release/litecoin-foundation/litewallet-ios) 
 
-![screenshots](/images/screenshots.jpg)
-=======================================
 
+[![Build Status](https://app.bitrise.io/app/3c3c3f9830a3bac7/status.svg?token=zisOsG_I-9nSfT3c1FML7w)](https://app.bitrise.io/app/3c3c3f9830a3bac7)
+[![GitHub issues](https://img.shields.io/github/issues/litecoin-foundation/litewallet-ios?style=flat)](https://github.com/litecoin-foundation/litewallet-ios/re-frame/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/litecoin-foundation/litewallet-ios?color=00ff00&style=flat)](https://github.com/litecoin-foundation/litewallet-ios/pulls)
+ 
+[![MIT License](https://img.shields.io/github/license/litecoin-foundation/litewallet-ios?style=flat)](https://img.shields.io/github/license/litecoin-foundation/litewallet-ios?style=flat)
+
+-------------------------------------
 ## Easy and secure
 Litewallet is the best way to get started with Litecoin. Our simple, streamlined design is easy for beginners, yet powerful enough for experienced users. This is a free app produced by the Litecoin Foundation.
 
@@ -58,9 +62,6 @@ Simplicity and ease-of-use is **Litewallet**'s core design principle. A simple r
  
 ---
 ## Litewallet Development:
-[Status](https://app.bitrise.io/app/ba01fd2f1582d2df/status.svg?token=E0SYYWy-g0Fn4kEkqUo6kA)
-[![GitHub issues](https://img.shields.io/github/issues/litecoin-foundation/loafwallet-ios?style=plastic)](https://github.com/litecoin-foundation/loafwallet-ios/re-frame/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/litecoin-foundation/loafwallet-ios?color=00ff00&style=plastic)](https://github.com/litecoin-foundation/loafwallet-ios/pulls)
 
 ### Building & Developing Litewallet for iOS:
 ***Installation on jailbroken devices is strongly discouraged.***
@@ -71,7 +72,7 @@ Any jailbreak app can grant itself access to every other app's keychain data. Th
 2. Download and install the latest version of [Xcode](https://developer.apple.com/xcode/)
 3. Clone this repo & init submodules
 ```bash
-$ git clone https://github.com/litecoin-foundation/loafwallet-ios
+$ git clone https://github.com/litecoin-foundation/litewallet-ios
 $ git submodule init
 $ git submodule update
 ```

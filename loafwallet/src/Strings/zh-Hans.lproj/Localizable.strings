@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "历史";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "当前的LTC值";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "正在查看私人密钥余额...";
 
@@ -927,6 +930,9 @@
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "显示币种";
+
+/* Current Locale */
+"Settings.currentLocale" = "当前语言环境：";
 
 /* Join Early access label */
 "Settings.earlyAccess" = "加入早期访问";

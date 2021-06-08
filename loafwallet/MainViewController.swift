@@ -9,16 +9,12 @@
 import UIKit
 import BRCore
 import MachO
-import SwiftUI
-
-private let transactionsLoadingViewHeightConstant: CGFloat = 48.0
+import SwiftUI 
 
 class MainViewController : UIViewController, Subscriber, LoginViewControllerDelegate {
 
     //MARK: - Private
     private let store: Store
-    private let transactionsLoadingView = LoadingProgressView()
-    private var transactionsLoadingViewTop: NSLayoutConstraint?
     private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     private var isLoginRequired = false
     private let loginView: LoginViewController
@@ -95,40 +91,61 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     }
    
     func didUnlockLogin() {
-     
-        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
-
-            vc.store = self.store
-            vc.isLtcSwapped = store.state.isLtcSwapped
-            vc.walletManager = self.walletManager
-
-            if let rate = store.state.currentRate {
-                vc.exchangeRate = rate
-                let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
-                vc.secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
-                vc.primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
-            } else {
-                vc.secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
-                vc.primaryBalanceLabel
-                    = UpdatingLabel(formatter: NumberFormatter())
+          
+        if UserDefaults.userIsInUSA {
+            guard let usaVC = UIStoryboard.init(name: "Main", bundle: nil)
+                        .instantiateViewController(withIdentifier: "TabBarViewController")
+                        as? TabBarViewController else {
+                
+                NSLog("TabBarViewController not intialized")
+                return
             }
-
-            addChildViewController(vc, layout:{
-                vc.view.constrain(toSuperviewEdges: nil)
-                vc.view.alpha = 0
-                vc.view.layoutIfNeeded()
+            
+            usaVC.store = self.store
+            usaVC.walletManager = walletManager
+            
+            addChildViewController(usaVC, layout:{
+                usaVC.view.constrain(toSuperviewEdges: nil)
+                usaVC.view.alpha = 0
+                usaVC.view.layoutIfNeeded()
+            })
+            
+            UIView.animate(withDuration: 0.3,
+                           delay: 0.1,
+                           options: .transitionCrossDissolve,
+                           animations: {
+                            
+                usaVC.view.alpha = 1
+                            
+            }) { (finished) in
+                NSLog(" Ex US MainView Controller presented")
+            }
+             
+        } else {
+            
+            guard let exUSAVC = UIStoryboard.init(name: "Main", bundle: nil)
+                        .instantiateViewController(withIdentifier: "NonUSTabBarViewController")
+                        as? NonUSTabBarViewController else {
+                
+                NSLog("NonUSTabBarViewController not intialized")
+                return
+            }
+            
+            exUSAVC.store = self.store
+            exUSAVC.walletManager = walletManager
+            
+            addChildViewController(exUSAVC, layout:{
+                exUSAVC.view.constrain(toSuperviewEdges: nil)
+                exUSAVC.view.alpha = 0
+                exUSAVC.view.layoutIfNeeded()
             })
 
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
-                vc.view.alpha = 1
+                exUSAVC.view.alpha = 1
             }) { (finished) in
-                NSLog("MainView Controller presented")
+                NSLog("US MainView Controller presented")
             }
-
-        } else {
-               NSLog("ERROR: MainView Controller Not presented")
-        }
-        
+        } 
     }
 
     private func addTemporaryStartupViews() {

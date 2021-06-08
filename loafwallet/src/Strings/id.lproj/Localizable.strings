@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "SEJARAH";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Nilai LTC saat ini dalam";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "Memeriksa saldo kunci pribadi...";
 
@@ -927,6 +930,9 @@
 
 /* Default currency label */
 "Settings.currency" = "Mata uang tampilan";
+
+/* Current Locale */
+"Settings.currentLocale" = "Lokal Saat Ini:";
 
 /* Join Early access label */
 "Settings.earlyAccess" = "Bergabunglah dengan Akses Dini";
