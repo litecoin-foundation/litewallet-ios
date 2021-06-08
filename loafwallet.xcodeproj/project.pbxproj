@@ -813,8 +813,6 @@
 		2494037D23AE0C7100369261 /* SyncProgressHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncProgressHeaderView.xib; sourceTree = "<group>"; };
 		2494038023AF208F00369261 /* PromptModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptModalViewController.swift; sourceTree = "<group>"; };
 		249C570423B51F9B009CB5A9 /* TransactionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewControllerTests.swift; sourceTree = "<group>"; };
-		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		249F9770236F862C0045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WipeEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WarningConfirmation.storyboard; sourceTree = "<group>"; };
 		24AF00FF221B349100FF636F /* WarningConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -825,9 +823,6 @@
 		24B8FAD62162B6FB00A155B1 /* bitrefill_index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = bitrefill_index.html; sourceTree = "<group>"; };
 		24B8FADB2162D29100A155B1 /* general.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = general.css; sourceTree = "<group>"; };
 		24B8FADE2163C4D400A155B1 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		24B9621723BA66CC00ECD938 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		24B9621923BA66CE00ECD938 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
-		24B9621B23BA66CF00ECD938 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		24BA90C52410129E001E3825 /* FeeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeSelectorView.swift; sourceTree = "<group>"; };
 		24D5F22522599C0900225462 /* BarlowSemiCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Italic.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Italic.ttf"; sourceTree = SOURCE_ROOT; };
 		24D5F22622599C0A00225462 /* BarlowSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BarlowSemiCondensed-Bold.ttf"; path = "loafwallet/Fonts/BarlowSemiCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
@@ -839,8 +834,6 @@
 		24D91D0A2166923E0077A619 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		24D91D0D2166A5480077A619 /* TestnetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetData.swift; sourceTree = "<group>"; };
 		24DFCE6723B89CDE001F17F8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		37198C1426549D6000F6F36C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		37198C1526549D6000F6F36C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		37198C1626549D6600F6F36C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		506E082C7E9B4A6A0631020E /* Pods-loafwallet.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwallet.testnet.xcconfig"; path = "Target Support Files/Pods-loafwallet/Pods-loafwallet.testnet.xcconfig"; sourceTree = "<group>"; };
 		5793A89C7CBE76D3E0A430A6 /* Pods-loafwallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwallet.release.xcconfig"; path = "Target Support Files/Pods-loafwallet/Pods-loafwallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -1430,17 +1423,6 @@
 		75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		75A2A80F1DA5936F00A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		75A2A8111DA5936F00A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A82B1DA59B2A00A983D8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8301DA59B2F00A983D8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8351DA59B3600A983D8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
-		75A2A83A1DA59B3C00A983D8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A83F1DA59B4500A983D8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8441DA59B4B00A983D8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8491DA59B5100A983D8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A84E1DA59B5700A983D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8581DA59B6A00A983D8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8621DA59BF500A983D8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		75A2A8671DA59BFB00A983D8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		75A2A87C1DA59E4E00A983D8 /* loafwallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = loafwallet.entitlements; sourceTree = "<group>"; };
 		75C735AF1DAA1C9F00251ECF /* libnettle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnettle.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -4598,8 +4580,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				75A2A79D1DA5934300A983D8 /* Base */,
-				249F976D236F86240045087A /* id */,
-				37198C1426549D6000F6F36C /* tr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -4608,22 +4588,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				75A2A80F1DA5936F00A983D8 /* Base */,
-				75A2A82B1DA59B2A00A983D8 /* fr */,
-				75A2A8301DA59B2F00A983D8 /* de */,
-				75A2A8351DA59B3600A983D8 /* zh-Hans */,
-				75A2A83A1DA59B3C00A983D8 /* ja */,
-				75A2A83F1DA59B4500A983D8 /* es */,
-				75A2A8441DA59B4B00A983D8 /* it */,
-				75A2A8491DA59B5100A983D8 /* nl */,
-				75A2A84E1DA59B5700A983D8 /* ko */,
-				75A2A8581DA59B6A00A983D8 /* da */,
-				75A2A8621DA59BF500A983D8 /* sv */,
-				75A2A8671DA59BFB00A983D8 /* ru */,
-				249F9770236F862C0045087A /* id */,
-				24B9621723BA66CC00ECD938 /* pt */,
-				24B9621923BA66CE00ECD938 /* zh-Hant */,
-				24B9621B23BA66CF00ECD938 /* en */,
-				37198C1526549D6000F6F36C /* tr */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
