@@ -28,10 +28,8 @@ class CardViewController: UIViewController {
     var notificationToken: NSObjectProtocol?
     
     private func updateLoginStatusFromViewModel() {
-         
-        // Bugfix: 
+     
         // Verifies the stack has only one VC and it is the UIHostingController
-        
         DispatchQueue.main.async {
             if self.childViewControllers.count == 1,
                ((self.childViewControllers.first?.isKind(of: UIHostingController<AnyView>.self)) != nil) {
