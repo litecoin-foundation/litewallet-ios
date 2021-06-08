@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "歴史";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "現在のLTC値";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "秘密鍵の残高確認中...";
 
@@ -927,6 +930,9 @@
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "表示される通貨";
+
+/* Current Locale */
+"Settings.currentLocale" = "現在のロケール：";
 
 /* Join Early access label */
 "Settings.earlyAccess" = "早期アクセスに参加";

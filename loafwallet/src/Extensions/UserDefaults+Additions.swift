@@ -24,6 +24,9 @@ private let customNodePortKey = "customNodePortKey"
 private let hasPromptedShareDataKey = "hasPromptedShareDataKey"
 private let hasShownWelcomeKey = "hasShownWelcomeKey"
 private let didSeeTransactionCorruption = "DidSeeTransactionCorruption"
+private let userIsInUSAKey = "userIsInUSAKey"
+
+
 
 extension UserDefaults {
 
@@ -72,7 +75,13 @@ extension UserDefaults {
         }
         set { defaults.set(newValue, forKey: isLtcSwappedKey) }
     }
-
+ 
+    static var userIsInUSA: Bool {
+        get { return defaults.bool(forKey: userIsInUSAKey)
+        }
+        set { defaults.set(newValue, forKey: userIsInUSAKey) }
+    }
+    
     //
     // 2 - photons
     // 5 - lites

@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "역사";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "현재 LTC 값";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "개인 열쇠 잔고 확인 중...";
 
@@ -927,6 +930,9 @@
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "통화 보기";
+
+/* Current Locale */
+"Settings.currentLocale" = "현재 로케일 :";
 
 /* Join Early access label */
 "Settings.earlyAccess" = "초기 버전을 사용해 보세요";

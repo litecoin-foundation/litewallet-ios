@@ -286,6 +286,9 @@
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORIE";
 
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Aktuel LTC-værdi i";
+
 /* Checking private key balance progress view text */
 "Import.checking" = "Tjekker beløb på privat nøgle...";
 
@@ -927,6 +930,9 @@
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Vis valuta";
+
+/* Current Locale */
+"Settings.currentLocale" = "Nuværende landestandard:";
 
 /* Join Early access label */
 "Settings.earlyAccess" = "Tilmeld dig Early Access";

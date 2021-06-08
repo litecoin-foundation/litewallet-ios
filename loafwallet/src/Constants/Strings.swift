@@ -178,6 +178,7 @@ enum S {
     
     enum History {
         static let barItemTitle = NSLocalizedString("History.barItemTitle", value: "**History**", comment: "History Bar Item Title")
+        static let currentLitecoinValue = NSLocalizedString("History.currentLitecoinValue", value: "**History CurrentLitecoinValue**", comment: "History Current Litecoin Value")
     }
 
     enum JailbreakWarnings {
@@ -397,6 +398,7 @@ enum S {
         static let litewalletEnvironment = NSLocalizedString("Settings.litewallet.environment", value: "**Litewallet Environment:**", comment: "Litewallet environment")
         static let socialLinks = NSLocalizedString("Settings.socialLinks", value: "**Social Links:**", comment: "Litewallet Social links")
         static let litewalletPartners = NSLocalizedString("Settings.litewallet.partners", value: "**Litewallet Partners:**", comment: "Litewallet Partners")
+        static let currentLocale = NSLocalizedString("Settings.currentLocale", value: "**Current Locale:**", comment: "Current Locale") 
     }
 
     enum About {

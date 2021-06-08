@@ -34,9 +34,6 @@ extension AlertFailureType : Equatable {}
 
 func ==(lhs: AlertFailureType, rhs: AlertFailureType) -> Bool {
     switch (lhs, rhs) {
-        case (.failedResolution, .failedResolution):
-            return true
-        default:
-            return false
+         case (.failedResolution, .failedResolution): return true 
     }
 }

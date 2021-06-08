@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwiftUI
 import LocalAuthentication
 import FirebaseCrashlytics
 
-private let biometricsSize: CGFloat = 32.0
-private let topControlHeight: CGFloat = 32.0
+private let squareButtonSize: CGFloat = 32.0
+private let headerHeight: CGFloat = 110
 
 protocol LoginViewControllerDelegate {
     func didUnlockLogin()
@@ -36,6 +37,10 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         if walletManager != nil {
             self.pinView = PinView(style: .login, length: store.state.pinLength)
         }
+        
+        let viewModel = LockScreenHeaderViewModel(store: self.store)
+        self.headerView = UIHostingController(rootView: LockScreenHeaderView(viewModel: viewModel))
+    
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -45,13 +50,21 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
 
     //MARK: - Private
     private let store: Store
-    private let backgroundView = LoginBackgroundView()
+    
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .liteWalletBlue
+        return view
+    }()
+    
+    private let headerView: UIHostingController<LockScreenHeaderView>
+
     private let pinPadViewController = PinPadViewController(style: .clear, keyboardType: .pinPad, maxDigits: 0)
     private let pinViewContainer = UIView()
     private var pinView: PinView?
     private let isPresentedForLock: Bool
     private let disabledView: WalletDisabledView
-    private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .large)
     private let wipeBannerButton = UIButton()
     var delegate: LoginViewControllerDelegate?
     
@@ -61,17 +74,27 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         return image
     }()
 
-    private let biometrics: UIButton = {
+    private let biometricsButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.setImage(LAContext.biometricType() == .face ? #imageLiteral(resourceName: "FaceId") : #imageLiteral(resourceName: "TouchId"), for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1.0
-        button.layer.cornerRadius = biometricsSize/2.0
+        button.layer.cornerRadius = squareButtonSize/2.0
         button.layer.masksToBounds = true
         button.accessibilityLabel = LAContext.biometricType() == .face ? S.UnlockScreen.faceIdText : S.UnlockScreen.touchIdText
         return button
     }()
+    
+    private let showLTCAddressButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.setImage(#imageLiteral(resourceName: "genericqricon"), for: .normal)
+        button.layer.masksToBounds = true
+        return button
+    }()
+    
+    
     private let enterPINLabel = UILabel(font: .barlowBold(size: 17), color: .white)
     private var pinPadBottom: NSLayoutConstraint?
     private var topControlTop: NSLayoutConstraint?
@@ -80,7 +103,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     private var hasAttemptedToShowBiometrics = false
     private let lockedOverlay = UIVisualEffectView()
     private var isResetting = false
-    private let versionLabel = UILabel(font: .barlowLight(size: 14), color: .transparentWhite)
+    private let versionLabel = UILabel(font: .barlowLight(size: 10), color: .white)
     private var isWalletEmpty = false
   
     override func viewDidLoad() {
@@ -88,6 +111,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         addSubviews()
         addConstraints()
         addBiometricsButton()
+        
         addPinPadCallback()
         if pinView != nil {
             addPinView()
@@ -106,7 +130,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
                 }
                 updatePin.resetFromDisabledSuccess = {
                     self?.authenticationSucceded()
-                    LWAnalytics.logEventWithParameters(itemName: ._20200217_DLWP)
+                    LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWP)
                 }
             }))
             recover.addCloseNavigationItem()
@@ -148,6 +172,9 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             hasAttemptedToShowBiometrics = true
             biometricsTapped()
         }
+        
+        addShowAddressButton()
+        
         if !isResetting {
             lockIfNeeded()
         }
@@ -163,17 +190,17 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         pinViewContainer.addSubview(pinView)
         
         pinView.constrain([
-            pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -90),
-        pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
-        pinView.widthAnchor.constraint(equalToConstant: pinView.width),
-        pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
+                            pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -40),
+                            pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
+                            pinView.widthAnchor.constraint(equalToConstant: pinView.width),
+                            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
         
         enterPINLabel.constrain([
-            enterPINLabel.topAnchor.constraint(equalTo: pinView.topAnchor, constant: -60),
+            enterPINLabel.topAnchor.constraint(equalTo: pinView.topAnchor, constant: -40),
             enterPINLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor) ])
        
         logo.constrain([
-            logo.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.constraint(.height, constant: 70),
             logo.constraint(.width, constant: 70) ])
@@ -182,6 +209,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
 
     private func addSubviews() {
         view.addSubview(backgroundView)
+        view.addSubview(headerView.view)
         view.addSubview(pinViewContainer)
         view.addSubview(logo)
         view.addSubview(versionLabel)
@@ -197,6 +225,12 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
 
     private func addConstraints() {
         backgroundView.constrain(toSuperviewEdges: nil)
+        headerView.view.constrain([
+                                    headerView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                    headerView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                    headerView.view.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+                                    headerView.view.heightAnchor.constraint(equalToConstant: headerHeight)])
+
         if walletManager != nil {
             addChildViewController(pinPadViewController, layout: {
                 pinPadBottom = pinPadViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)
@@ -254,14 +288,16 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             wipeBannerButton.adjustsImageWhenHighlighted = true
             
             wipeBannerButton.constrain([
-               wipeBannerButton.bottomAnchor.constraint(equalTo:pinPadViewController.view.topAnchor, constant: -20),
+               wipeBannerButton.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant: 0),
                 wipeBannerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 wipeBannerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                wipeBannerButton.heightAnchor.constraint(equalToConstant: 40)])
+                wipeBannerButton.heightAnchor.constraint(equalToConstant: 60)])
             
             wipeBannerButton.setTitle(S.WipeWallet.emptyWallet, for: .normal)
-            wipeBannerButton.titleLabel?.font = .barlowBold(size: 17)
+            wipeBannerButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
+            wipeBannerButton.titleLabel?.font = .barlowSemiBold(size: 17)
             wipeBannerButton.addTarget(self, action: #selector(wipeTapped), for: .touchUpInside)
+            
         } else {
             wipeBannerButton.removeFromSuperview()
         }
@@ -269,14 +305,26 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     }
     private func addBiometricsButton() {
         guard shouldUseBiometrics else { return }
-        view.addSubview(biometrics)
-        biometrics.addTarget(self, action: #selector(biometricsTapped), for: .touchUpInside)
-        biometrics.constrain([
-            biometrics.widthAnchor.constraint(equalToConstant: biometricsSize),
-            biometrics.heightAnchor.constraint(equalToConstant: biometricsSize),
-            biometrics.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
-            biometrics.bottomAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -C.padding[2]) ])
+        view.addSubview(biometricsButton)
+        biometricsButton.addTarget(self, action: #selector(biometricsTapped), for: .touchUpInside)
+        biometricsButton.constrain([
+                                    biometricsButton.widthAnchor.constraint(equalToConstant: squareButtonSize),
+                                    biometricsButton.heightAnchor.constraint(equalToConstant: squareButtonSize),
+                                    biometricsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
+                                    biometricsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: headerHeight + C.padding[2]) ])
     }
+    
+    private func addShowAddressButton() {
+        view.addSubview(showLTCAddressButton)
+        showLTCAddressButton.addTarget(self, action: #selector(showLTCAddress), for: .touchUpInside)
+        showLTCAddressButton.constrain([
+                                        showLTCAddressButton.widthAnchor.constraint(equalToConstant: squareButtonSize),
+                                        showLTCAddressButton.heightAnchor.constraint(equalToConstant: squareButtonSize),
+                                        showLTCAddressButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
+                                        showLTCAddressButton.topAnchor.constraint(equalTo: view.topAnchor, constant: headerHeight + C.padding[2]) ])
+    }
+    
+    
   
     private func addPinPadCallback() {
         pinPadViewController.ouputDidUpdate = { [weak self] pin in
@@ -306,7 +354,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         guard !E.isScreenshots else { return authenticationSucceded() }
         guard walletManager.authenticate(pin: pin) else { return authenticationFailed() }
         authenticationSucceded()
-        LWAnalytics.logEventWithParameters(itemName: ._20200217_DLWP)
+        LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWP)
     }
 
     private func authenticationSucceded() {
@@ -381,10 +429,16 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         walletManager?.authenticate(biometricsPrompt: S.UnlockScreen.touchIdPrompt, completion: { result in
             if result == .success {
                 self.authenticationSucceded()
-                LWAnalytics.logEventWithParameters(itemName: ._20200217_DLWB)
+                LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWB)
             }
         })
     }
+    
+    @objc func showLTCAddress() {
+        guard !isWalletDisabled else { return }
+        store.perform(action: RootModalActions.Present(modal: .loginAddress))
+    }
+    
  
     @objc func wipeTapped() {
       store.perform(action: RootModalActions.Present(modal: .wipeEmptyWallet))
