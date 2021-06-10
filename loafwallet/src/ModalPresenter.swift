@@ -249,7 +249,6 @@ class ModalPresenter : Subscriber, Trackable {
         
         guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first,
               let failureAlertView = hostingViewController.view else { return }
-        
         let size = window.bounds.size
         window.addSubview(failureAlertView)
         
@@ -265,7 +264,6 @@ class ModalPresenter : Subscriber, Trackable {
             topConstraint?.constant = size.height - self.alertHeight
             window.layoutIfNeeded()
         }, completion: { _ in
-            
             UIView.spring(0.6, delay: 5.0, animations: {
                 topConstraint?.constant = size.height
                 window.layoutIfNeeded()
@@ -360,7 +358,6 @@ class ModalPresenter : Subscriber, Trackable {
         sendVC.onResolutionFailure = { [weak self] failureMessage in
             self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
         }
-        
         return root
     }
     
@@ -403,7 +400,6 @@ class ModalPresenter : Subscriber, Trackable {
             })
             
         }
-        
         menu.didTapGiveSupportLF = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
                 self?.presentSupportLF()
@@ -606,7 +602,7 @@ class ModalPresenter : Subscriber, Trackable {
     private func presentSupportLF() {
         
         let supportLFView = UIHostingController(rootView: SupportLitecoinFoundationView(viewModel: SupportLitecoinFoundationViewModel()))
-        
+
         supportLFView.rootView.viewModel.didTapToDismiss = {
             supportLFView.dismiss(animated: true) {
                 //TODO: Track in Analytics
@@ -615,7 +611,7 @@ class ModalPresenter : Subscriber, Trackable {
         window.rootViewController?.present(supportLFView, animated: true, completion: nil)
         
     }
-    
+	
     private func presentSecurityCenter() {
         guard let walletManager = walletManager else { return }
         let securityCenter = SecurityCenterViewController(store: store, walletManager: walletManager)
@@ -731,7 +727,7 @@ class ModalPresenter : Subscriber, Trackable {
         paperPhraseNavigationController.viewControllers = [start]
         vc.present(paperPhraseNavigationController, animated: true, completion: nil)
     }
-    
+
     private func wipeWallet() {
         let group = DispatchGroup()
         let alert = UIAlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
@@ -1012,4 +1008,3 @@ class SecurityCenterNavigationDelegate : NSObject, UINavigationControllerDelegat
         }
     }
 }
-

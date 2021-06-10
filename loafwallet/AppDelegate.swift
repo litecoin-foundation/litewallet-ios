@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         applicationController.launch(application: application, window: thisWindow, options: launchOptions)
         
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
-        
+		
         return true
     }
     
@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Load a Firebase debug config file.
             let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
             guard let fileOpts = FirebaseOptions(contentsOfFile: filePath!)
-            else { assert(false, "Couldn't load Firebase config file") }
+            else { return assert(false, "Couldn't load Firebase config file") }
             FirebaseApp.configure(options: fileOpts)
         #endif
     }
@@ -116,6 +116,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-
-
-

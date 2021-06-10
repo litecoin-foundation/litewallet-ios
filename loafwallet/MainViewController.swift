@@ -9,7 +9,7 @@
 import UIKit
 import BRCore
 import MachO
-import SwiftUI
+import SwiftUI 
 
 class MainViewController : UIViewController, Subscriber, LoginViewControllerDelegate {
 
@@ -139,13 +139,13 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
                 exUSAVC.view.alpha = 0
                 exUSAVC.view.layoutIfNeeded()
             })
-            
+
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
                 exUSAVC.view.alpha = 1
             }) { (finished) in
                 NSLog("US MainView Controller presented")
             }
-        }
+        } 
     }
 
     private func addTemporaryStartupViews() {
