@@ -8,6 +8,7 @@ DerivedData/
 
 ## Xcode Related //https://stackoverflow.com/questions/15646107/gitignore-for-everything-inside-the-xcuserdata-folder-does-not-ignore-an-xcuser/32899573. This method of ignoring will ignore ALL xcuserdata folders in the repo.
 */xcuserdata/*
+*xcuserdata*
 
 ## Other
 *.moved-aside
