@@ -220,7 +220,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                         
                     self.present(hostingController, animated: true) {
                         
-                        
                         // Notes of bugfix: 
                         // Refactored the class to have two section and make sure the row never extends outside the transaction count.
                         
