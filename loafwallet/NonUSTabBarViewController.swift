@@ -305,8 +305,8 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
             switch item.tag {
             case 0: item.title = S.History.barItemTitle
             case 1: item.title = S.Send.barItemTitle
-            case 3: item.title = S.Receive.barItemTitle
-            case 4: item.title = S.BuyCenter.barItemTitle
+            case 2: item.title = S.Receive.barItemTitle
+            case 3: item.title = S.BuyCenter.barItemTitle
             default:
                 item.title = "NO-TITLE"
                 NSLog("ERROR: UITabbar item count is wrong")
