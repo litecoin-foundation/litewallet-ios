@@ -54,7 +54,7 @@ class CardWalletTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        viewModel = CardViewModel()
+        viewModel = CardViewModel(litewalletAmount: MockSeeds.amount100)
     }
     
     func testDecodeWalletDetails() throws {

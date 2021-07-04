@@ -13,6 +13,13 @@ import KeychainAccess
 
 class CardViewModel: ObservableObject {
     
+    enum WalletBalanceStatus: Int {
+        case litewalletAndCardEmpty
+        case cardWalletEmpty
+        case litewalletEmpty
+        case litewalletAndCardNonZero
+    }
+    
     //MARK: - Login Status
     @Published
     var isLoggedIn: Bool = false
@@ -24,7 +31,43 @@ class CardViewModel: ObservableObject {
     @Published
     var walletDetails: CardWalletDetails?
      
-    init() { }
+    @Published
+    var walletBalanceStatus: WalletBalanceStatus?
+    
+    //MARK: - Public Variables
+    
+    /// Amount class contains LTC,  fiat rate, etc.
+    var litewalletAmount: Amount
+     
+    init(litewalletAmount: Amount) {
+        
+        self.litewalletAmount = litewalletAmount
+    }
+    
+    
+    /// Fetcht Balance Status (litewallet balance injected)
+    /// - Parameter cardBalance: Fetched users Litecoin Card balance
+    /// - Returns: enum of the status WalletBalanceStatus
+    private func fetchBalanceStatus(cardBalance: Float) -> WalletBalanceStatus {
+          
+        switch (cardBalance, litewalletAmount) {
+            case _ where cardBalance == 0.0 &&
+                    litewalletAmount.amountForLtcFormat == 0.0:
+                return .litewalletAndCardEmpty
+            case _ where cardBalance > 0.0 &&
+                    litewalletAmount.amountForLtcFormat == 0.0:
+                return .litewalletEmpty
+            case _ where cardBalance == 0.0 &&
+                    litewalletAmount.amountForLtcFormat > 0.0:
+                return .cardWalletEmpty
+            case _ where cardBalance > 0.0 &&
+                    litewalletAmount.amountForLtcFormat > 0.0:
+                return .litewalletAndCardNonZero
+            default:
+                return .cardWalletEmpty
+        }
+
+    }
     
     func fetchCardWalletDetails(completion: @escaping () -> Void) {
         
@@ -58,8 +101,15 @@ class CardViewModel: ObservableObject {
                 let walletDetails = try? decoder.decode(CardWalletDetails.self, from: jsonData)
                 
                 DispatchQueue.main.async {
+                    
                     self.walletDetails = walletDetails
+                    
+                    let availableCardBalance: Float = self.walletDetails?.availableBalance ?? 0.0
+                    
+                    self.walletBalanceStatus = self.fetchBalanceStatus(cardBalance: availableCardBalance)
+                    
                 }
+                
             } catch {
                 print("Error: Incomplete dictionary data from partner API")
                 LWAnalytics.logEventWithParameters(itemName:._20210405_TAWDF) 

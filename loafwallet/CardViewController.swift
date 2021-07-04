@@ -15,11 +15,13 @@ import SwiftUI
 /// A container for a CardView - SwiftUI
 class CardViewController: UIViewController {
     
-    var viewModel = CardViewModel()
+    var viewModel: CardViewModel?
     
     var cardLoggedInView: CardLoggedInView?
     
     var cardView: CardView?
+    
+    var litewalletBalance: Amount?
  
     var parentFrame: CGRect?
     
@@ -28,6 +30,11 @@ class CardViewController: UIViewController {
     var notificationToken: NSObjectProtocol?
     
     private func updateLoginStatusFromViewModel() {
+        
+        guard let viewModel = self.viewModel else {
+            NSLog("ERROR: CardViewModel not loaded")
+            return
+        }
      
         // Verifies the stack has only one VC and it is the UIHostingController
         DispatchQueue.main.async {
@@ -38,11 +45,11 @@ class CardViewController: UIViewController {
                 self.swiftUIContainerView.view.removeFromSuperview()
             }
             
-            if self.viewModel.isLoggedIn {
-                self.cardLoggedInView = CardLoggedInView(viewModel: self.viewModel)
+            if viewModel.isLoggedIn {
+                self.cardLoggedInView = CardLoggedInView(viewModel: viewModel)
                 self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardLoggedInView))
             } else {
-                self.cardView = CardView(viewModel: self.viewModel)
+                self.cardView = CardView(viewModel: viewModel)
                 self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardView))
             }
             
@@ -58,6 +65,12 @@ class CardViewController: UIViewController {
     }
          
      override func viewDidLoad() {
+        
+        guard let balance = self.litewalletBalance else {
+            return
+        }
+        
+        self.viewModel = CardViewModel(litewalletAmount: balance)
          
         self.updateLoginStatusFromViewModel()
  
@@ -67,7 +80,7 @@ class CardViewController: UIViewController {
                      object: nil,
                      queue: nil) { _ in
             
-            self.viewModel.fetchCardWalletDetails {
+            self.viewModel?.fetchCardWalletDetails {
                 print("Logged in updated wallet values")
             }
 			
