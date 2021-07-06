@@ -310,6 +310,8 @@
 		C3BF74D926114969001CE2BB /* CardWalletDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF74D826114969001CE2BB /* CardWalletDetails.swift */; };
 		C3BFD349259E31C100136837 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BFD348259E31C100136837 /* LoginViewModel.swift */; };
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
+		C3C8E1892694F204006522B7 /* PreTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E1882694F204006522B7 /* PreTransferView.swift */; };
+		C3C8E18B2694F3B9006522B7 /* PreTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18A2694F3B9006522B7 /* PreTransferViewModel.swift */; };
 		C3D4379F2566EA3E00F423E1 /* LWActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */; };
 		C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */; };
 		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
@@ -1502,6 +1504,8 @@
 		C3BF74D826114969001CE2BB /* CardWalletDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWalletDetails.swift; sourceTree = "<group>"; };
 		C3BFD348259E31C100136837 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
+		C3C8E1882694F204006522B7 /* PreTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTransferView.swift; sourceTree = "<group>"; };
+		C3C8E18A2694F3B9006522B7 /* PreTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTransferViewModel.swift; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
 		C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainView.swift; sourceTree = "<group>"; };
 		C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModel.swift; sourceTree = "<group>"; };
@@ -3367,6 +3371,7 @@
 			isa = PBXGroup;
 			children = (
 				24BA90C52410129E001E3825 /* FeeSelectorView.swift */,
+				C3C8E1882694F204006522B7 /* PreTransferView.swift */,
 				C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */,
 				CE6BCF5C1EE9E89A0029849C /* CustomTitleView.swift */,
 				CED341321EF5A5C00014912A /* InAppAlert.swift */,
@@ -3525,6 +3530,7 @@
 				C354C4622590059500675E0E /* TransactionsViewModel.swift */,
 				C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */,
 				C3BFD348259E31C100136837 /* LoginViewModel.swift */,
+				C3C8E18A2694F3B9006522B7 /* PreTransferViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -4261,6 +4267,7 @@
 				C3543A29264AFE720005D17A /* LocaleChangeViewModel.swift in Sources */,
 				CEF3E82B1DE51612007C0A9E /* GradientCircle.swift in Sources */,
 				CE124CFE1E68F57700DFA146 /* Async.swift in Sources */,
+				C3C8E1892694F204006522B7 /* PreTransferView.swift in Sources */,
 				2218BD771E8F55430091D5E8 /* BRAPIClient+Assets.swift in Sources */,
 				2228734D1E916F7C0044BA15 /* BRAPIClient+Features.swift in Sources */,
 				22A9A94D1DF61945000F0016 /* BRHTTPFileMiddleware.swift in Sources */,
@@ -4325,6 +4332,7 @@
 				CEE6282A1EA98B6D001035AA /* DispatchQueue+Additions.swift in Sources */,
 				CEC6AA3D1DEE687000EE5AFD /* RadialGradientView.swift in Sources */,
 				2494038123AF208F00369261 /* PromptModalViewController.swift in Sources */,
+				C3C8E18B2694F3B9006522B7 /* PreTransferViewModel.swift in Sources */,
 				C3B7C3C2255EAF1200E98A64 /* SupportSafariView.swift in Sources */,
 				CEEC70921E95DA4400EF788E /* GradientSwitch.swift in Sources */,
 				CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */,
