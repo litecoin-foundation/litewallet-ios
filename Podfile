@@ -8,10 +8,8 @@ platform :ios, '13.0'
 def shared_pods
   pod 'UnstoppableDomainsResolution', '~> 0.3.6'
   pod 'KeychainAccess', '~> 4.2'
-  ## Workaround: Usign older version of firebase to allow SwiftUI canvases to work
-  ## https://github.com/firebase/firebase-ios-sdk/issues/6552
-  pod 'Firebase/Analytics', '~> 6.30.0'
-  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics', '~> 6.0'
+  pod 'Firebase/Crashlytics', '~> 6.0'
   # add pod 'SwiftLint'
 end
 
