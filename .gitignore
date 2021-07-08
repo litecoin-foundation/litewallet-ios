@@ -1,17 +1,20 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+## Litewallet related
+loafwallet/partner-keys.plist
+loafwallet/GoogleService-Info.plist
 
 ## Build generated
 build/
 DerivedData/
 
-## Xcode Related //https://stackoverflow.com/questions/15646107/gitignore-for-everything-inside-the-xcuserdata-folder-does-not-ignore-an-xcuser/32899573. This method of ignoring will ignore ALL xcuserdata folders in the repo.
-*/xcuserdata/*
-*xcuserdata*
+## OS Related
+.DS_Store
 
-## Other
+## Various settings
 *.moved-aside
+
+## Xcode related
+*.xcuserstate
+xcuserdata/
 
 ## Obj-C/Swift specific
 *.hmap
@@ -19,18 +22,15 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace 
-
 # Swift Package Manager
 #
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
-.build/
-.DS_Store
 
-# Manage Partner Keys
-loafwallet/partner-keys.plist
-loafwallet/GoogleService-Info.plist
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 
+Pods/
