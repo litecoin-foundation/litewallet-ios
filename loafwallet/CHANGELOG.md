@@ -1,9 +1,5 @@
 #  Changelog
 
-## JasperHeist trivial change 3
-## kcw-grunt trivial change 2
-## kcw-grunt change
-
 ## Draft Release v3.5.0 
 
 The list of changes are below:
