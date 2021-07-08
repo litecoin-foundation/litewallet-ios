@@ -817,7 +817,6 @@
 		2494037D23AE0C7100369261 /* SyncProgressHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncProgressHeaderView.xib; sourceTree = "<group>"; };
 		2494038023AF208F00369261 /* PromptModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptModalViewController.swift; sourceTree = "<group>"; };
 		249C570423B51F9B009CB5A9 /* TransactionsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewControllerTests.swift; sourceTree = "<group>"; };
-		249F976D236F86240045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		249F9770236F862C0045087A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		24A6DCFA2230BD9000505F44 /* WipeEmptyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WipeEmptyWalletViewController.swift; sourceTree = "<group>"; };
 		24AF00FC221B331D00FF636F /* WarningConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WarningConfirmation.storyboard; sourceTree = "<group>"; };
@@ -4605,7 +4604,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				75A2A79D1DA5934300A983D8 /* Base */,
-				249F976D236F86240045087A /* id */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

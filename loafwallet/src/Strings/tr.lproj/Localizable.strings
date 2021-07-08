@@ -31,6 +31,12 @@
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "YÖNET";
 
+/* Corruption Error alert title */
+"Alert.corruptionError" = "Yerel Bozulma Hatası";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "Yerel veritabanınız bozuk. Yenilemek için Ayarlar> Blok Zinciri: Ayarlar> Veritabanını Sil'e gidin";
+
 /* Error alert title */
 "Alert.error" = "Hata";
 
@@ -54,6 +60,12 @@
 
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "PIN Ayarı";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Etki Alanı Çözünürlüğü";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Adres çözüldü!";
 
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "Gönderilemedi";
@@ -94,6 +106,9 @@
 /* receive button */
 "Button.receive" = "teslim almak";
 
+/* resetFields */
+"Button.resetFields" = "Alanları sıfırla";
+
 /* send button */
 "Button.send" = "göndermek";
 
@@ -105,6 +120,9 @@
 
 /* Yes button */
 "Button.yes" = "Evet";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "SATIN AL";
 
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "• Hediye kartları satın alın\n• Ön ödemeli telefonları yeniden doldurun\n• Steam, Amazon, Hotels.com\n• 170 ülkede çalışıyor";
@@ -121,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "Łitecoin satın alın";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Birçok fiat çiftiyle LTC satın alın \n • Birden çok yöntemle ödeme yapın \n • Global ödeme sağlayıcısı";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• 5 dakikada Litecoin edinin!\n• Kredi kartıyla Litecoin satın alın\n• Pasaport veya Eyalet Kimliği";
 
@@ -132,6 +156,9 @@
 
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "Kimliğinizi kutuda ortalayın";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Değişim ayrıntıları:";
 
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "Gönderilecek tutar:";
@@ -151,6 +178,12 @@
 /* Send: (amount) */
 "Confirmation.send" = "Gönder";
 
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "ÜCRET:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "ADDRESS:";
+
 /* Confirmation Screen title */
 "Confirmation.title" = "Onayla";
 
@@ -169,20 +202,20 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Kelime #%1$@";
 
+/* as of a time or date */
+"Conjunction.asOf" = "itibariyle";
+
+/* Copy. */
+"Copy" = "Kopyala";
+
 /* Litecoin denomination picker label */
 "DefaultCurrency.bitcoinLabel" = "Litecoin Görüntü Birimi";
 
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "Seçin:";
+
 /* Exchange rate label */
 "DefaultCurrency.rateLabel" = "Döviz kuru";
-
-/* Donate Memo */
-"Donate.memo" = "Litecoin Vakfı'na bağış";
-
-/* Donate to the Litecoin Foundation */
-"Donate.title" = "Litecoin Vakfı'na bağış yapın (%@)";
-
-/* Donate Confirmation */
-"Donate.title.confirmation" = "Bağışı Onaylayın";
 
 /* Email unavailable alert title */
 "ErrorMessages.emailUnavailableMessage" = "Bu cihaz, iOS posta uygulamasıyla e-posta gönderecek şekilde yapılandırılmamış.";
@@ -229,6 +262,15 @@
 /* Warning message for economy fee */
 "FeeSelector.economyWarning" = "Bu seçenek, zamana duyarlı işlemler için önerilmez.";
 
+/* Luxury fee */
+"FeeSelector.luxury" = "Lüks";
+
+/* Fee Selector economy fee description */
+"FeeSelector.luxuryLabel" = "Tahmini Teslimat: 2,5 - 5+ dakika";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "Bu seçenek, bir prim ödüyor olsanız bile işleminizin kabul edilmesini neredeyse garanti eder.";
+
 /* Regular fee */
 "FeeSelector.regular" = "Düzenli";
 
@@ -237,6 +279,15 @@
 
 /* Fee Selector title */
 "FeeSelector.title" = "İşleme Hızı";
+
+/* Or */
+"Fragment.or" = "veya";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "GEÇMİŞ";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Geçerli LTC değeri";
 
 /* Checking private key balance progress view text */
 "Import.checking" = "Özel anahtar bakiyesi kontrol ediliyor ...";
@@ -319,6 +370,129 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Sil";
 
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "Kart";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Kart bakiyesi";
+
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Kayıt ve Giriş \n- Kullanılabilir kart bakiyesi \n- Parolayı sıfırla \n- Litewallet'e aktarım yok \n- Yalnızca ABD";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Kartı şu anda Litewallet'te sınırlı işlevselliğe sahiptir.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Tam erişim için litecoin.getblockcard.com adresini ziyaret edin";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin Kartı Beta";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Giriş başarısız oldu";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Parolanızı mı unuttunuz?";
+
+/* Login */
+"LitecoinCard.login" = "Giriş Yap";
+
+/* Logout */
+"LitecoinCard.logout" = "Oturumu Kapat";
+
+/* Register */
+"LitecoinCard.registerCard" = "Kayıt Ol";
+
+/* Litecoin card */
+"LitecoinCard.registerCardPhrase" = "Litecoin Kartı için Kaydol";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Kullanıcı kaydediliyor ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Adres";
+
+/* city */
+"LitecoinCard.Registration.city" = "Şehir";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Parolayı onayla";
+
+/* country */
+"LitecoinCard.Registration.country" = "Ülke";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "Adı";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Kimlik";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Kimlik Numarası";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "Kimlik Türü";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "Soyadı";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Cep telefonu numarası";
+
+/* password */
+"LitecoinCard.Registration.password" = "Parola";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Eyalet / İl";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "E-posta (Kullanıcı Adı)";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Boş olmamalıdır";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Geçersiz E-posta Adresi";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Cep telefonu numarası en az 10 basamaklı olmalıdır";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Cep telefonu numarası gerekli";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Parola en az 6 karakter içermelidir";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Parola, en az bir karakter ve bir sayısal karakter içeren 6 karakterden fazla olmalıdır";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Parola Gerekli";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Gerekli alan";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Posta Kodu / Posta Kodu";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Kaydınız ile ilgili bir sorun oluştu. \nLütfen verilerinizi kontrol edin ve tekrar deneyin.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Kayıt oldunuz! \nLütfen e-postanızı kontrol edin ve onaylayın. Sonra tekrar giriş yapın.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Parolayı sıfırla";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Litecoin Kart hesabınızla ilişkili e-posta adresini girin ve sıfırlama talimatlarını içeren bir e-posta arayın.";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Parolanızı sıfırlamak için https://litecoin.dashboard.getblockcard.com/password/forgot\n adresini ziyaret edin.";
+
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Konum hizmetleri devre dışı bırakıldı.";
 
@@ -327,6 +501,9 @@
 
 /* No comment provided by engineer. */
 "Malformed URI" = "Hatalı URI";
+
+/* Balance */
+"ManageWallet.balance" = "Bakiye";
 
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "Cüzdanınızı%1$@ üzerinde oluşturdunuz";
@@ -342,6 +519,9 @@
 
 /* Buy Litecoin title */
 "MenuButton.buy" = "Litecoin Satın Al";
+
+/* Menu button title */
+"MenuButton.customer.support" = "Müşteri desteği";
 
 /* Menu button title */
 "MenuButton.lock" = "Cüzdanı Kilitle";
@@ -421,6 +601,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "güvenilmeyen sertifika";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "DEVRE DIŞI BIRAK";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "Face ID'yi etkinleştirmek için buraya dokunun";
 
@@ -433,8 +616,17 @@
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "Cihaz şifresini aç";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Devam Et";
+
 /* Warning about paper key. */
 "Prompts.PaperKey.body" = "Kağıt Anahtarınız güvenli bir yerde tutulmalıdır. Litewallet'ınızı değiştirmenin veya geri yüklemenin veya Litecoin'inizi aktarmanın tek yolu budur. Lütfen not edin.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "İptal";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Etkinleştir";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "İşlem Gerekli";
@@ -444,6 +636,12 @@
 
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "İşlem Reddedildi";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet 6 haneli bir PIN gerektirir. Lütfen PIN kodunuzu güvenli bir yerde ayarlayın ve saklayın.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "PIN Ayarla";
 
 /* Share data prompt body */
 "Prompts.ShareData.body" = "Anonim verilerinizi bizimle paylaşarak Litewallet'in geliştirilmesine yardımcı olun";
@@ -456,12 +654,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID'yi Etkinleştir";
-
-/* Upgrade PIN prompt body. */
-"Prompts.SetPin.body" = "Litewallet 6 haneli bir PIN gerektirir. Lütfen PIN kodunuzu güvenli bir yerde ayarlayın ve saklayın.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.SetPin.title" = "PIN Ayarla";
 
 /* Push notifications settings view body */
 "PushNotifications.body" = "İleride Litewallet'ten özel mesajlar almak için bildirimleri açın.";
@@ -477,6 +669,9 @@
 
 /* Push notifications settings view title label */
 "PushNotifications.title" = "Bildirimler";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "AL";
 
 /* Address copied message. */
 "Receive.copied" = "Panoya kopyalandı.";
@@ -625,6 +820,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Bakiye:%1$@";
 
+/* Send Bar Item Title */
+"Send.barItemTitle" = "GÖNDER";
+
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "Kamera erişimine izin vermek için Ayarlar'a gidin.";
 
@@ -642,6 +840,9 @@
 
 /* Empty pasteboard error message */
 "Send.emptyPasteboard" = "Çalışma alanı boş";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Bir Litecoin adresi girin";
 
 /* Network Fee: $0.01 */
 "Send.fee" = "Ağ Ücreti:%1$@";
@@ -694,6 +895,21 @@
 /* Send money to label */
 "Send.toLabel" = "Kime";
 
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Arama";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Üzgünüm, etki alanı bulunamadı. [Hata:%2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Arama başarısız oldu";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Bir .crypto veya .zil alanı girin";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin adresleri tek kullanımlıktır.";
 
@@ -715,6 +931,9 @@
 /* Default currency label */
 "Settings.currency" = "Para Birimi Görüntüle";
 
+/* Current Locale */
+"Settings.currentLocale" = "Mevcut Yerel Ayar:";
+
 /* Join Early access label */
 "Settings.earlyAccess" = "Erken Erişime Katılın";
 
@@ -727,6 +946,18 @@
 /* Import wallet label */
 "Settings.importTitle" = "Cüzdanı İçe Aktar";
 
+/* Languages label */
+"Settings.languages" = "Diller";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "Çevre:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewallet ortakları";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Litewallet sürümü:";
+
 /* Manage settings section header */
 "Settings.manage" = "Yönet";
 
@@ -738,6 +969,9 @@
 
 /* Share anonymous data label */
 "Settings.shareData" = "Anonim Verileri Paylaşın";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "Sosyal";
 
 /* Support settings section header */
 "Settings.support" = "Destek";
@@ -783,6 +1017,21 @@
 
 /* Start view message */
 "StartViewController.message" = "Litecoin'i kullanmanın en güvenli ve en güvenli yolu.";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "Litecoin Foundation'ı Destekleyin";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Bağlanıyor ...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Yeniden taranıyor ...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Başarılı!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Eşitleniyor ...";
 
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Bağlanıyor";
@@ -838,11 +1087,23 @@
 /* Touch Id spending limit screen title */
 "TouchIdSpendingLimit.title" = "Dokunma Kimliği Harcama Sınırı";
 
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Miktar Ayrıntısı:";
+
 /* Availability status text */
 "Transaction.available" = "Harcanabilir";
 
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Blok:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Not:";
+
 /* Transaction complete label */
 "Transaction.complete" = "Tamamlandı";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "İşlem bitiş tutarı ayrıntısı";
 
 /* eg. Ending balance: $50.00 */
 "Transaction.ending" = "Kapanış bakiyesi:%1$@";
@@ -871,6 +1132,12 @@
 /* eg. Starting balance: $50.00 */
 "Transaction.starting" = "Başlangıç ​​bakiyesi:%1$@";
 
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "İşlem başlangıç ​​tutarı ayrıntısı";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx Kimliği:";
+
 /* Waiting to be confirmed string */
 "Transaction.waiting" = "Onaylanmayı bekliyor. Bazı satıcılar bir işlemi tamamlamak için onay gerektirir. Tahmini süre: 1-2 saat.";
 
@@ -886,11 +1153,20 @@
 /* Memo section header */
 "TransactionDetails.commentsHeader" = "Not";
 
+/* Copied */
+"TransactionDetails.copiedAll" = "Kopyalandı";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "Tüm ayrıntıları kopyala";
+
 /* Empty transaction list message. */
 "TransactionDetails.emptyMessage" = "İşlemleriniz burada görünecektir.";
 
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "%1$@ adresinde";
+
+/* Less button title */
+"TransactionDetails.less" = "Daha Az ...";
 
 /* Moved $5.00 */
 "TransactionDetails.moved" = "%1$@ taşındı";
@@ -901,17 +1177,26 @@
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "Onaylanmadı";
 
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "itibarıyla";
+
 /* Received $5.00 (received title 1/2) */
 "TransactionDetails.received" = "%1$@ Alındı";
 
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "<b>%1@</b> alındı";
 
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "ADRES AL";
+
 /* Sent $5.00 (sent title 1/2) */
 "TransactionDetails.sent" = "%1$@ gönderildi";
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "Gönderildi <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "Durum";
@@ -933,6 +1218,9 @@
 
 /* Disabled until date */
 "UnlockScreen.disabled" = "Şu tarihe kadar devre dışı bırakıldı:%1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "PIN'i Girin";
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "FaceID ile Kilidi Aç";
@@ -1027,11 +1315,23 @@
 /* Welcome view title */
 "Welcome.title" = "Litewallet'e Hoş Geldiniz!";
 
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "Veritabanını Sil";
+
 /* Wipe wallet alert message */
 "WipeWallet.alertMessage" = "Bu cüzdanı silmek istediğinizden emin misiniz?";
 
 /* Wipe wallet alert title */
 "WipeWallet.alertTitle" = "Cüzdan Silinsin mi?";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "Veritabanını Sil";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "Bu, veritabanını siler, ancak PIN'i ve tümceciği korur. Mevcut PIN kodunuzu onaylayın, tohumlayın ve yeni veritabanına eşitlemeyi tamamlamak için bekleyin";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "Sil ve Senkronize Et";
 
 /* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "Başlangıç ​​öbeğinizi veya PIN kodunuzu unuttunuz mu?";
@@ -1080,321 +1380,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
-
-/* as of a time or date */
-"Conjunction.asOf" = "itibariyle";
-
-/* Copy. */
-"Copy" = "Kopyala";
-
-/* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "SATIN AL";
-
-/* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "Değişim ayrıntıları:";
-
-/* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "ÜCRET:";
-
-/* Address label */
-"Confirmation.staticAddressLabel" = "ADDRESS:";
-
-/* History Bar Item Title */
-"History.barItemTitle" = "GEÇMİŞ";
-
-/* Receive Bar Item Title */
-"Receive.barItemTitle" = "AL";
-
-/* Send Bar Item Title */
-"Send.barItemTitle" = "GÖNDER";
-
-/* Less button title */
-"TransactionDetails.less" = "Daha Az ...";
-
-/* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "itibarıyla";
-
-/* RECEIVE LTCTitle */
-"TransactionDetails.receivedModalTitle" = "ADRES AL";
-
-/* Label for TXID */
-"TransactionDetails.staticTXLabel" = "TXID:";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "PIN'i Girin";
-
-/* Static amount Label */
-"Transaction.amountDetailLabel" = "Miktar Ayrıntısı:";
-
-/* Static blockHeight Label */
-"Transaction.blockHeightLabel" = "Blok:";
-
-/* Static comment Label */
-"Transaction.commentLabel" = "Not:";
-
-/* Static TX iD Label */
-"Transaction.txIDLabel" = "Tx Kimliği:";
-
-/* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "İşlem bitiş tutarı ayrıntısı";
-
-/* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "İşlem başlangıç ​​tutarı ayrıntısı";
-
-/* Syncing view connection state header text */
-"SyncingHeader.connecting" = "Bağlanıyor ...";
-
-/* Syncing header success state header text */
-"SyncingHeader.success" = "Başarılı!";
-
-/* Syncing view syncing state header text */
-"SyncingHeader.syncing" = "Eşitleniyor ...";
-
-/* Rescanning header success state header text */
-"SyncingHeader.rescan" = "Yeniden taranıyor ...";
-
-/* Affirm button title. */
-"Prompts.PaperKey.affirm" = "Devam Et";
-
-/* Cancel button. */
-"Prompts.PaperKey.cancel" = "İptal";
-
-/* Enable button. */
-"Prompts.PaperKey.enable" = "Etkinleştir";
-
-/* Dismiss button. */
-"Prompts.dismiss" = "DEVRE DIŞI BIRAK";
-
-/* Languages label */
-"Settings.languages" = "Diller";
-
-/* Label to pick fiat */
-"DefaultCurrency.chooseFiatLabel" = "Seçin:";
-
-/* Litewallet environment */
-"Settings.litewallet.environment" = "Çevre:";
-
-/* Litewallet version */
-"Settings.litewallet.version" = "Litewallet sürümü:";
-
-/* Litewallet Social links */
-"Settings.socialLinks" = "Sosyal";
-
-/* Delete db */
-"WipeWallet.deleteDatabase" = "Veritabanını Sil";
-
-/* Delete database title */
-"WipeWallet.alertDeleteTitle" = "Veritabanını Sil";
-
-/* Delete database message */
-"WipeWallet.deleteMessageTitle" = "Bu, veritabanını siler, ancak PIN'i ve tümceciği korur. Mevcut PIN kodunuzu onaylayın, tohumlayın ve yeni veritabanına eşitlemeyi tamamlamak için bekleyin";
-
-/* Delete and sync */
-"WipeWallet.deleteSync" = "Sil ve Senkronize Et";
-
-/* Corruption Error alert title */
-"Alert.corruptionError" = "Yerel Bozulma Hatası";
-
-/* Corruption Error alert title */
-"Alert.corruptionMessage" = "Yerel veritabanınız bozuk. Yenilemek için Ayarlar> Blok Zinciri: Ayarlar> Veritabanını Sil'e gidin";
-
-/* Donate articles to the */
-"Donate.toThe" = "Bağış Yapın";
-
-/* Donate */
-"Donate.word" = "Bağış Yap";
-
-/* Luxury fee */
-"FeeSelector.luxury" = "Lüks";
-
-/* Fee Selector economy fee description */
-"FeeSelector.luxuryLabel" = "Tahmini Teslimat: 2,5 - 5+ dakika";
-
-/* Message for luxury fee */
-"FeeSelector.luxuryMessage" = "Bu seçenek, bir prim ödüyor olsanız bile işleminizin kabul edilmesini neredeyse garanti eder.";
-
-/* Support the Litecoin Foundation */
-"SupportTheFoundation.title" = "Litecoin Foundation'ı Destekleyin";
-
-/* Menu button title */
-"MenuButton.customer.support" = "Müşteri desteği";
-
-/* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Bir .crypto veya .zil alanı girin";
-
-/* Or */
-"Fragment.or" = "veya";
-
-/* Enter LTC Address */
-"Send.enterLTCAddress" = "Bir Litecoin adresi girin";
-
-/* Litewallet Partners */
-"Settings.litewallet.partners" = "Litewallet ortakları";
-
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "Kart";
-
-/* Lookup */
-"Send.UnstoppableDomains.lookup" = "Arama";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Parolanızı mı unuttunuz?";
-
-/* Login */
-"LitecoinCard.login" = "Giriş Yap";
-
-/* Register */
-"LitecoinCard.registerCard" = "Kayıt Ol";
-
-/* Litecoin card */
-"LitecoinCard.registerCardPhrase" = "Litecoin Kartı için Kaydol";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Parolayı sıfırla";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Parolanızı sıfırlamak için https://litecoin.dashboard.getblockcard.com/password/forgot\n adresini ziyaret edin.";
-
-/* address */
-"LitecoinCard.Registration.address" = "Adres";
-
-/* city */
-"LitecoinCard.Registration.city" = "Şehir";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "Parolayı onayla";
-
-/* country */
-"LitecoinCard.Registration.country" = "Ülke";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "Adı";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Kimlik Numarası";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "Soyadı";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Cep telefonu numarası";
-
-/* password */
-"LitecoinCard.Registration.password" = "Parola";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Eyalet / İl";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "E-posta (Kullanıcı Adı)";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Posta Kodu / Posta Kodu";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Kimlik";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCard.phrase" = "Litecoin Kartına Kaydolun";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "Kimlik Türü";
-
-/* resetFields */
-"Button.resetFields" = "Alanları sıfırla";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Kullanıcı kaydediliyor ...";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Kart bakiyesi";
-
-/* Logout */
-"LitecoinCard.logout" = "Oturumu Kapat";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Kaydınız ile ilgili bir sorun oluştu. \nLütfen verilerinizi kontrol edin ve tekrar deneyin.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Kayıt oldunuz! \nLütfen e-postanızı kontrol edin ve onaylayın. Sonra tekrar giriş yapın.";
-
-/* Resolved Success */
-"Alerts.resolvedSuccess" = "Etki Alanı Çözünürlüğü";
-
-/* No comment provided by engineer. */
-"Alerts.resolvedSuccessSubheader" = "Adres çözüldü!";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Boş olmamalıdır";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Geçersiz E-posta Adresi";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Cep telefonu numarası en az 10 basamaklı olmalıdır";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Cep telefonu numarası gerekli";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Parola en az 6 karakter içermelidir";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Parola, en az bir karakter ve bir sayısal karakter içeren 6 karakterden fazla olmalıdır";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Parola Gerekli";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "Gerekli alan";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Giriş başarısız oldu";
-
-/* Copied */
-"TransactionDetails.copiedAll" = "Kopyalandı";
-
-/* Copy all details */
-"TransactionDetails.copyAllDetails" = "Tüm ayrıntıları kopyala";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Kayıt ve Giriş \n- Kullanılabilir kart bakiyesi \n- Parolayı sıfırla \n- Litewallet'e aktarım yok \n- Yalnızca ABD";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin Kartı şu anda Litewallet'te sınırlı işlevselliğe sahiptir.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Tam erişim için litecoin.getblockcard.com adresini ziyaret edin";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin Kartı Beta";
-
-/* lookupFailureHeader */
-"Send.UnstoppableDomains.lookupFailureHeader" = "Arama başarısız oldu";
-
-/* LookupDomainError */
-"Send.UnstoppableDomains.lookupDomainError" = "Üzgünüm, etki alanı bulunamadı. [Hata:%2$d]";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
-
-/* Balance */
-"ManageWallet.balance" = "Bakiye";
-
-/* Moonpay buy financial details */
-"BuyCenter.moonpayFinancialDetails" = "• Birçok fiat çiftiyle LTC satın alın \n • Birden çok yöntemle ödeme yapın \n • Global ödeme sağlayıcısı";
-
-/* Moonpay Title */
-"BuyCenter.moonpayTitle" = "Moonpay";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Litecoin Kart hesabınızla ilişkili e-posta adresini girin ve sıfırlama talimatlarını içeren bir e-posta arayın.";
-
-/* Current Locale */
-"Settings.currentLocale" = "Mevcut Yerel Ayar:";
-
-/* History Current Litecoin Value */
-"History.currentLitecoinValue" = "Geçerli LTC değeri";
