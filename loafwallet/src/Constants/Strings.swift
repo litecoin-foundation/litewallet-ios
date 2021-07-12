@@ -147,6 +147,13 @@ enum S {
             static let referral = NSLocalizedString("LitecoinCard.Disclaimer.referral", value: "referral", comment: "Referral to the website")
         }
         
+        //MARK: - Transfer
+        enum Transfer {
+            static let title = NSLocalizedString("LitecoinCard.Transfer.title", value: "Transfer", comment: "Transfer title")
+            static let description = NSLocalizedString("LitecoinCard.Transfer.description", value: "Choose transferring wallet", comment: "Description of action")
+            static let litewalletBalance = NSLocalizedString("LitecoinCard.Transfer.litewalletBalance", value: "Litewallet balance", comment: "Litewallet balance label")
+        }
+        
         //MARK: - Registration
         enum Registration {
             static let registerCardPhrase = NSLocalizedString("LitecoinCard.registerCardPhrase", value: "**Register for Litecoin Card**", comment: "Register for Litecoin Card")

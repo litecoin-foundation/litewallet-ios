@@ -1413,3 +1413,12 @@
 
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA Not Enabled";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Transfer";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Choose transferring wallet"; 

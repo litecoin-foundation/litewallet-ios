@@ -498,12 +498,21 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Enter the email address associated with your Litecoin Card account & look for an email with reset instructions.";
-
+ 
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA Not Enabled";
 
 /* Message when 2FA is on */
 "LitecoinCard.twoFAOn" = "2FA Enabled";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Choose transferring wallet";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Transfer"; 
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visit https://litecoin.dashboard.getblockcard.com/password/forgot\nto reset your password.";

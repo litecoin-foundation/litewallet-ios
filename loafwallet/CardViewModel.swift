@@ -10,16 +10,15 @@ import Foundation
 import SwiftUI
 import KeychainAccess
  
+enum WalletBalanceStatus: Int {
+    case litewalletAndCardEmpty
+    case cardWalletEmpty
+    case litewalletEmpty
+    case litewalletAndCardNonZero
+}
 
 class CardViewModel: ObservableObject {
-    
-    enum WalletBalanceStatus: Int {
-        case litewalletAndCardEmpty
-        case cardWalletEmpty
-        case litewalletEmpty
-        case litewalletAndCardNonZero
-    }
-    
+        
     //MARK: - Login Status
     @Published
     var isLoggedIn: Bool = false
@@ -28,8 +27,9 @@ class CardViewModel: ObservableObject {
     var isNotRegistered: Bool = true
       
     //MARK: - Combine Variables
+    
     @Published
-    var walletDetails: CardWalletDetails?
+    var cardWalletDetails: CardWalletDetails?
      
     @Published
     var walletBalanceStatus: WalletBalanceStatus?
@@ -48,7 +48,7 @@ class CardViewModel: ObservableObject {
     /// Fetcht Balance Status (litewallet balance injected)
     /// - Parameter cardBalance: Fetched users Litecoin Card balance
     /// - Returns: enum of the status WalletBalanceStatus
-    private func fetchBalanceStatus(cardBalance: Float) -> WalletBalanceStatus {
+    private func fetchBalanceStatus(cardBalance: Double) -> WalletBalanceStatus {
           
         switch (cardBalance, litewalletAmount) {
             case _ where cardBalance == 0.0 &&
@@ -102,9 +102,9 @@ class CardViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     
-                    self.walletDetails = walletDetails
+                    self.cardWalletDetails = walletDetails
                     
-                    let availableCardBalance: Float = self.walletDetails?.availableBalance ?? 0.0
+                    let availableCardBalance: Double = self.cardWalletDetails?.availableBalance ?? 0.0
                     
                     self.walletBalanceStatus = self.fetchBalanceStatus(cardBalance: availableCardBalance)
                     

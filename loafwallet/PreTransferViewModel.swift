@@ -11,7 +11,9 @@ import SwiftUI
 
 class PreTransferViewModel: ObservableObject {
     
+    /// Sets tthe wallet type, the image and the label
     enum WalletType: String {
+        
         case litecoinCard
         case litewallet
         
@@ -27,21 +29,22 @@ class PreTransferViewModel: ObservableObject {
         var balanceLabel: String {
             switch self {
                 case .litecoinCard:
-                    return "Litecoin Card Balance:"
+                    return S.LitecoinCard.cardBalance
                 case .litewallet:
-                    return "Litewallet Balance:"
+                    return S.LitecoinCard.Transfer.litewalletBalance
             }
         }
-            
     }
         
     //MARK: - Public Parameters
     
     var walletType: WalletType
     
-    var balance: Float
+    var balance: Double
     
-    init(walletType: WalletType, balance: Float) {
+    var wasTapped: Bool = false
+    
+    init(walletType: WalletType, balance: Double) {
         
         self.walletType = walletType
         

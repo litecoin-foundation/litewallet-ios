@@ -1395,3 +1395,12 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "";
