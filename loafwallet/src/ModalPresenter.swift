@@ -96,12 +96,6 @@ class ModalPresenter : Subscriber, Trackable {
                 self.handleCopyAddresses(success: success, error: error)
             }
         })
-        store.subscribe(self, name: .authenticateForBitId("", {_ in}), callback: {
-            guard let trigger = $0 else { return }
-            if case .authenticateForBitId(let prompt, let callback) = trigger {
-                self.authenticateForBitId(prompt: prompt, callback: callback)
-            }
-        })
         reachability.didChange = { isReachable in
             if isReachable {
                 self.hideNotReachable()
@@ -861,43 +855,6 @@ class ModalPresenter : Subscriber, Trackable {
         topViewController?.present(alert, animated: true, completion: nil)
     }
     
-    private func authenticateForBitId(prompt: String, callback: @escaping (BitIdAuthResult) -> Void) {
-        if UserDefaults.isBiometricsEnabled {
-            walletManager?.authenticate(biometricsPrompt: prompt, completion: { result in
-                switch result {
-                    case .success:
-                        return callback(.success)
-                    case .cancel:
-                        return callback(.cancelled)
-                    case .failure:
-                        self.verifyPinForBitId(prompt: prompt, callback: callback)
-                    case .fallback:
-                        self.verifyPinForBitId(prompt: prompt, callback: callback)
-                }
-            })
-        } else {
-            self.verifyPinForBitId(prompt: prompt, callback: callback)
-        }
-    }
-    
-    private func verifyPinForBitId(prompt: String, callback: @escaping (BitIdAuthResult) -> Void) {
-        guard let walletManager = walletManager else { return }
-        let verify = VerifyPinViewController(bodyText: prompt, pinLength: store.state.pinLength, callback: { pin, view in
-            if walletManager.authenticate(pin: pin) {
-                view.dismiss(animated: true, completion: {
-                    callback(.success)
-                })
-                return true
-            } else {
-                return false
-            }
-        })
-        verify.didCancel = { callback(.cancelled) }
-        verify.transitioningDelegate = verifyPinTransitionDelegate
-        verify.modalPresentationStyle = .overFullScreen
-        verify.modalPresentationCapturesStatusBarAppearance = true
-        topViewController?.present(verify, animated: true, completion: nil)
-    }
     
     private func copyAllAddressesToClipboard() {
         guard let wallet = walletManager?.wallet else { return }
