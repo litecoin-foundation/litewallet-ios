@@ -298,22 +298,6 @@ extension WalletManager : WalletAuthenticator {
         }
     }
 
-    func buildBitIdKey(url: String, index: Int) -> BRKey? {
-        return autoreleasepool {
-            do {
-                guard let phrase: String = try keychainItem(key: KeychainKey.mnemonic) else { return nil }
-                var key = BRKey()
-                var seed = UInt512()
-                BRBIP39DeriveKey(&seed, phrase, nil)
-                BRBIP32BitIDKey(&key, &seed, MemoryLayout<UInt512>.size, UInt32(index), url)
-                seed = UInt512()
-                return key
-            } catch {
-                return nil
-            }
-        }
-    }
-
     // the 12 word wallet recovery phrase
     func seedPhrase(pin: String) -> String? {
         guard authenticate(pin: pin) else { return nil }
