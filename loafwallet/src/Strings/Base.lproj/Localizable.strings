@@ -1421,4 +1421,19 @@
 "LitecoinCard.Transfer.title" = "Transfer";
 
 /* Description of action */
-"LitecoinCard.Transfer.description" = "Choose transferring wallet"; 
+"LitecoinCard.Transfer.description" = "Choose the transferring wallet:";
+
+/* Amount label */
+"LitecoinCard.Transfer.amount" = "Transfer amount";
+
+/* New Card balance label */
+"LitecoinCard.Transfer.newCardBalance" = "New Card balance";
+
+/* New Litewallet balance label */
+"LitecoinCard.Transfer.newLitewalletBalance" = "New Litewallet balance";
+
+/* Enter amount label */
+"LitecoinCard.Transfer.enterAmount" = "Enter amount";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Start transfer";

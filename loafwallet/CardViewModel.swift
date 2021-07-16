@@ -33,7 +33,7 @@ class CardViewModel: ObservableObject {
      
     @Published
     var walletBalanceStatus: WalletBalanceStatus?
-    
+      
     //MARK: - Public Variables
     
     /// Amount class contains LTC,  fiat rate, etc.

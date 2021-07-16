@@ -22,6 +22,6 @@ struct MockData {
     static let cardImage: Image = Image("litecoin-card-front")
     static let cardImageString: String = "litecoin-card-front"
     static let logoImageString: String = "coinBlueWhite"
-    static let smallBalance: Double = 0.055
-    static let largeBalance: Double = 485.05934938
+    static let smallBalance: Double = 0.055122
+    static let largeBalance: Double = 48235.059349
 }

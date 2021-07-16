@@ -1396,11 +1396,26 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
 
+/* Amount label */
+"LitecoinCard.Transfer.amount" = "";
+
 /* Description of action */
 "LitecoinCard.Transfer.description" = "";
 
+/* Enter amount label */
+"LitecoinCard.Transfer.enterAmount" = "";
+
 /* Litewallet balance label */
 "LitecoinCard.Transfer.litewalletBalance" = "";
+
+/* New Card balance label */
+"LitecoinCard.Transfer.newCardBalance" = "";
+
+/* New Litewallet balance label */
+"LitecoinCard.Transfer.newLitewalletBalance" = "";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "";
 
 /* Transfer title */
 "LitecoinCard.Transfer.title" = "";

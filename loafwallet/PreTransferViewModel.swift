@@ -11,6 +11,8 @@ import SwiftUI
 
 class PreTransferViewModel: ObservableObject {
     
+    //MARK: - Combine Variables
+    
     /// Sets tthe wallet type, the image and the label
     enum WalletType: String {
         
@@ -41,15 +43,13 @@ class PreTransferViewModel: ObservableObject {
     var walletType: WalletType
     
     var balance: Double
-    
-    var wasTapped: Bool = false
-    
+      
     init(walletType: WalletType, balance: Double) {
         
         self.walletType = walletType
         
         self.balance = balance
-    }
+    } 
 }
 
 
