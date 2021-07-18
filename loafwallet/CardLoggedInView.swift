@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CardLoggedInView: View {
+struct CardLoggedInView: View { 
     
     //MARK: - Combine Variables
     @ObservedObject
@@ -16,9 +16,6 @@ struct CardLoggedInView: View {
     
     @ObservedObject
     var animatedViewModel = AnimatedCardViewModel()
-    
-    @ObservedObject
-    var transferViewModel = TransferAmountSelectionViewModel()
     
     @State
     private var shouldLogout: Bool = false
@@ -44,6 +41,21 @@ struct CardLoggedInView: View {
         self.viewModel = viewModel
     }
     
+    private func pagingIndicatorView() -> AnyView {
+        
+        return AnyView (
+            HStack {
+                Ellipse()
+                    .fill(didStartTransfer ? Color.litecoinGray : .liteWalletBlue)
+                    .frame(width: 10, height: 10)
+                Ellipse()
+                    .fill(didStartTransfer ? Color.liteWalletBlue : .litecoinGray)
+                    .frame(width: 10, height: 10)
+            }
+            .padding(.all, 10.0)
+        )
+    }
+    
     var body: some View {
         
         GeometryReader { geometry in
@@ -65,19 +77,28 @@ struct CardLoggedInView: View {
                         .font(Font(UIFont.barlowSemiBold(size: 22.0)))
                         .foregroundColor(Color(UIColor.liteWalletBlue))
                         .cornerRadius(8.0)
-                        .padding(.all, 50.0)
+                        .padding(.all, 5.0)
                 }
                 
                 if didStartTransfer {
                     
                     Group {
                         
+                        Text(S.LitecoinCard.Transfer.setAmount + ": ")
+                            .frame(minWidth: 0,
+                                   maxWidth: .infinity,
+                                   alignment: .center)
+                            .font(Font(UIFont.barlowSemiBold(size: 20.0)))
+                            .foregroundColor(Color(UIColor.liteWalletBlue))
+                            .padding([.top,.leading,.trailing], 5.0)
+                            .padding(.bottom, 2.0)
+                        
                         VStack {
-                            TransferAmountSelectionView(viewModel: transferViewModel,
-                                                        litewalletBalance: litewalletBalance,
-                                                        litecoinCardBalance: cardBalance,
-                                                        transferWalletType: currentWalletType,
-                                                        walletStatus: walletStatus,
+                            TransferAmountView(viewModel:
+                                                TransferAmountViewModel(walletType: currentWalletType,
+                                                                                  walletStatus: walletStatus,
+                                                                                  litewalletBalance: litewalletBalance,
+                                                                                  cardBalance: cardBalance),
                                                         shouldShow: $didStartTransfer)
                             Spacer()
                         }
@@ -211,22 +232,7 @@ struct CardLoggedInView: View {
                 return AnyView(Spacer())
         }
     }
-    
-    func pagingIndicatorView() -> AnyView {
-        
-        return AnyView (
-            HStack {
-                Ellipse()
-                    .fill(didStartTransfer ? Color.litecoinGray : .liteWalletBlue)
-                    .frame(width: 10, height: 10)
-                Ellipse()
-                    .fill(didStartTransfer ? Color.liteWalletBlue : .litecoinGray)
-                    .frame(width: 10, height: 10)
-            }
-            .padding(.all, 40.0)
-        )
-    }
-    
+     
 } 
 
 struct CardLoggedInView_Previews: PreviewProvider {

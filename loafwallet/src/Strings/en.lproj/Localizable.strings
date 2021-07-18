@@ -505,11 +505,17 @@
 /* Message when 2FA is on */
 "LitecoinCard.twoFAOn" = "2FA Enabled";
 
-/* Amount label */
-"LitecoinCard.Transfer.amount" = "Transfer amount";
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Transfer to Card";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Transfer to Litewallet";
 
 /* Description of action */
 "LitecoinCard.Transfer.description" = "Choose the transferring wallet:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Address";
 
 /* Enter amount label */
 "LitecoinCard.Transfer.enterAmount" = "Enter amount";
@@ -517,11 +523,8 @@
 /* Litewallet balance label */
 "LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
 
-/* New Card balance label */
-"LitecoinCard.Transfer.newCardBalance" = "New Card balance";
-
-/* New Litewallet balance label */
-"LitecoinCard.Transfer.newLitewalletBalance" = "New Litewallet balance";
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Slide to set transfer amount";
 
 /* Start transfer label */
 "LitecoinCard.Transfer.startTransfer" = "Start transfer";

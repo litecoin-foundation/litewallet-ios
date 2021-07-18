@@ -12,7 +12,7 @@ struct PreTransferView: View {
     
     let mainPadding: CGFloat = 20.0
     let generalCornerRadius: CGFloat = 8.0
-    let largeHeight: CGFloat = 140.0
+    let largeHeight: CGFloat = 120.0
 
     
     //MARK: - Combine Variables
@@ -73,7 +73,7 @@ struct PreTransferView: View {
                                 }
                                 
                                 Text(viewModel.walletType == .litecoinCard ? "Litecoin Card" : "Litewallet")
-                                    .font(Font(UIFont.barlowSemiBold(size: 20.0)))
+                                    .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                                     .foregroundColor(Color.liteWalletDarkBlue)
                                 
                                 Spacer()

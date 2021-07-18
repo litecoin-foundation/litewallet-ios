@@ -9,35 +9,34 @@
 import Foundation
 import SwiftUI
 
-class PreTransferViewModel: ObservableObject {
+/// Sets tthe wallet type, the image and the label
+enum WalletType: String {
     
-    //MARK: - Combine Variables
+    case litecoinCard
+    case litewallet
     
-    /// Sets tthe wallet type, the image and the label
-    enum WalletType: String {
-        
-        case litecoinCard
-        case litewallet
-        
-        var description: String {
-            switch self {
-                case .litecoinCard:
-                    return "litecoin-card-front"
-                case .litewallet:
-                    return "coinBlueWhite"
-            }
-        }
- 
-        var balanceLabel: String {
-            switch self {
-                case .litecoinCard:
-                    return S.LitecoinCard.cardBalance
-                case .litewallet:
-                    return S.LitecoinCard.Transfer.litewalletBalance
-            }
+    var description: String {
+        switch self {
+            case .litecoinCard:
+                return "litecoin-front-card-border"
+            case .litewallet:
+                return "coinBlueWhite"
         }
     }
-        
+    
+    var balanceLabel: String {
+        switch self {
+            case .litecoinCard:
+                return S.LitecoinCard.cardBalance
+            case .litewallet:
+                return S.LitecoinCard.Transfer.litewalletBalance
+        }
+    }
+    
+}
+
+class PreTransferViewModel: ObservableObject {
+       
     //MARK: - Public Parameters
     
     var walletType: WalletType

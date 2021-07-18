@@ -152,11 +152,13 @@ enum S {
             static let title = NSLocalizedString("LitecoinCard.Transfer.title", value: "Transfer", comment: "Transfer title")
             static let description = NSLocalizedString("LitecoinCard.Transfer.description", value: "Choose the transferring wallet", comment: "Description of action")
             static let litewalletBalance = NSLocalizedString("LitecoinCard.Transfer.litewalletBalance", value: "Litewallet balance", comment: "Litewallet balance label")
-            static let amount = NSLocalizedString("LitecoinCard.Transfer.amount", value: "Transfer amount", comment: "Amount label")
-            static let enterAmount = NSLocalizedString("LitecoinCard.Transfer.enterAmount", value: "Enter amount", comment: "Enter amount label")
+            static let amountToCard = NSLocalizedString("LitecoinCard.Transfer.amountToCard", value: "Transfer to Card", comment: "Transfer to card label")
+            static let amountToLitewallet = NSLocalizedString("LitecoinCard.Transfer.amountToLitewallet", value: "Transfer to Litewallet", comment: "Transfer to Litewallet label")
+            static let setAmount = NSLocalizedString("LitecoinCard.Transfer.setAmount", value: "Slide to set transfer amount", comment: "Set transfer amount label")
             static let startTransfer = NSLocalizedString("LitecoinCard.Transfer.startTransfer", value: "Start transfer", comment: "Start transfer label")
-            static let newCardBalance = NSLocalizedString("LitecoinCard.Transfer.newCardBalance", value: "New Card balance", comment: "New Card balance label")
-            static let newLitewalletBalance = NSLocalizedString("LitecoinCard.Transfer.newLitewalletBalance", value: "New Litewallet balance", comment: "New Litewallet balance label")
+            static let destinationAddress = NSLocalizedString("LitecoinCard.Transfer.destinationAddress", value: "Destination address", comment: "Destination address label")
+
+             
         }
         
         //MARK: - Registration

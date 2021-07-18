@@ -104,6 +104,10 @@ class CardViewModel: ObservableObject {
                     
                     self.cardWalletDetails = walletDetails
                     
+                    
+                    ///XXXXXXXXXXX **MOCK
+                    self.cardWalletDetails?.availableBalance = 52.25
+                     
                     let availableCardBalance: Double = self.cardWalletDetails?.availableBalance ?? 0.0
                     
                     self.walletBalanceStatus = self.fetchBalanceStatus(cardBalance: availableCardBalance)

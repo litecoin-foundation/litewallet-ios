@@ -43,7 +43,7 @@ struct CardView: View {
     @State
     var shouldShowEnable2FAModal: Bool = false
     
-    @State
+    @State 
     private var shouldShowRegistrationView: Bool = false
     
     @State
