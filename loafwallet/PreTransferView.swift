@@ -10,11 +10,6 @@ import SwiftUI
 
 struct PreTransferView: View {
     
-    let mainPadding: CGFloat = 20.0
-    let generalCornerRadius: CGFloat = 8.0
-    let largeHeight: CGFloat = 120.0
-
-    
     //MARK: - Combine Variables
     @ObservedObject
     var viewModel: PreTransferViewModel
@@ -24,6 +19,13 @@ struct PreTransferView: View {
     
     @Binding
     var walletType: WalletType
+    
+    //MARK: - Private Variables
+    private let mainPadding: CGFloat = 20.0
+    
+    private let generalCornerRadius: CGFloat = 8.0
+    
+    private let largeHeight: CGFloat = 125.0
     
     init(viewModel: PreTransferViewModel,
          walletType: Binding<WalletType>,
@@ -37,104 +39,96 @@ struct PreTransferView: View {
     }
     
     var body: some View {
-        
-        GeometryReader { geometry in
-            
-            ZStack {
-                RoundedRectangle(cornerRadius: generalCornerRadius)
-                    .frame(height: largeHeight,
-                           alignment: .center)
-                    .frame(maxWidth: .infinity)
-                    .padding(mainPadding)
-                    .foregroundColor(Color.litecoinGray)
-                    .shadow(radius: 2.0, x: 3.0, y: 3.0)
-                    .overlay(
-                        HStack {
+            VStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: generalCornerRadius)
+                        .frame(height: largeHeight,
+                               alignment: .center)
+                        .frame(maxWidth: .infinity)
+                        .padding(mainPadding)
+                        .foregroundColor(Color.litecoinGray)
+                        .shadow(radius: 2.0, x: 3.0, y: 3.0)
+                        .overlay(
                             
-                            VStack(alignment: .center) {
-                                Spacer()
-                                if viewModel.walletType == .litecoinCard {
-                                    
-                                    Image(viewModel.walletType.description)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 110,
-                                               height: 72,
-                                               alignment:
-                                                .center)
-                                        .contrast(0.95)
-                                        .shadow(color: .gray, radius:2.0, x: 3.0, y: 3.0)
-                                        .padding([.top,.bottom], 2.0)
- 
-                                } else {
-                                    
-                                    LitewalletIconView()
-                                        .padding([.top,.bottom], 2.0)
-                                }
+                            HStack {
                                 
-                                Text(viewModel.walletType == .litecoinCard ? "Litecoin Card" : "Litewallet")
-                                    .font(Font(UIFont.barlowSemiBold(size: 18.0)))
-                                    .foregroundColor(Color.liteWalletDarkBlue)
-                                
-                                Spacer()
-                            }
-                            .padding(.leading, mainPadding + 12.0)
-                            
-                            VStack {
-                                
-                                Text("\(viewModel.balance) Ł")
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                                    .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .liteWalletDarkBlue)
-                                    .multilineTextAlignment(.trailing)
-                                    .font(Font(UIFont.barlowRegular(size: 20.0)))
-                                    .padding(.trailing, 5.0)
-                            }
-                            
-                            Spacer()
-                            VStack {
-                                Button(action: {
+                                //Wallet type image & title
+                                VStack(alignment: .center) {
                                     
-                                    self.wasTapped = true
+                                    Spacer()
                                     
-                                    self.walletType = viewModel.walletType
-                                    
-                                }) {
-                                    
-                                    ZStack {
+                                    if viewModel.walletType == .litecoinCard {
                                         
-                                        Rectangle()
-                                            .frame(minHeight: 0,
-                                                   maxHeight: .infinity,
-                                                   alignment: .center)
-                                            .frame(width: 50.0)
-                                            .foregroundColor(viewModel.balance == 0.0 ? Color.litewalletLightGray : Color.liteWalletBlue)
-                                            .shadow(radius: 2.0, x: 3.0, y: 3.0)
-                                        
-                                        Image(systemName: "chevron.right")
+                                        Image(viewModel.walletType.description)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: 20, height: 20, alignment: .center)
-                                            .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .white)
+                                            .frame(width: 110,
+                                                   height: 72,
+                                                   alignment:
+                                                    .center)
+                                            .contrast(0.95)
+                                            .shadow(color: .gray, radius:2.0, x: 3.0, y: 3.0)
+                                           
+     
+                                    } else {
+                                        LitewalletIconView()
                                     }
+                                    
+                                    Text(viewModel.walletType == .litecoinCard ? "Litecoin Card" : "Litewallet")
+                                        .font(Font(UIFont.barlowSemiBold(size: 18.0)))
+                                        .foregroundColor(Color.liteWalletDarkBlue)
+                                       
+                                    Spacer()
                                 }
-                                .cornerRadius(generalCornerRadius, corners: [.topRight, .bottomRight])
-                                .disabled(viewModel.balance == 0.0 ? true : false)
+                                .padding(.leading, mainPadding + 12.0)
+                                
+                                //Balance label
+                                VStack {
+                                    Text("\(viewModel.balance) Ł")
+                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                                        .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .liteWalletDarkBlue)
+                                        .multilineTextAlignment(.trailing)
+                                        .font(Font(UIFont.barlowRegular(size: 20.0)))
+                                        .padding(.trailing, 5.0)
+                                }
+                                
+                                //Selection button
+                                VStack {
+                                    Button(action: {
+                                        self.wasTapped = true
+                                        self.walletType = viewModel.walletType
+                                    }) {
+                                        
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(minHeight: 0,
+                                                       maxHeight: .infinity,
+                                                       alignment: .center)
+                                                .frame(width: 50.0)
+                                                .foregroundColor(viewModel.balance == 0.0 ? Color.litewalletLightGray : Color.liteWalletBlue)
+                                                .shadow(radius: 2.0, x: 3.0, y: 3.0)
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 20, height: 20, alignment: .center)
+                                                .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .white)
+                                        }
+                                    }
+                                    .cornerRadius(generalCornerRadius, corners: [.topRight, .bottomRight])
+                                    .disabled(viewModel.balance == 0.0 ? true : false)
+                                }
+                                .frame(height: largeHeight,
+                                       alignment: .center)
+                                .padding(.trailing, mainPadding)
                             }
-                            .frame(height: largeHeight,
-                                   alignment: .center)
-                            .padding(.trailing, mainPadding)
-
-                        }
-                        
-                    )
-                    .frame(height: largeHeight,
-                           alignment: .center)
-                    .frame(maxWidth: .infinity)
-                    .padding(mainPadding)
+                            
+                        )
+                        .frame(height: largeHeight,
+                               alignment: .center)
+                        .frame(maxWidth: .infinity)
+                }
             }
-            
-            
-        }
     }
 }
 
@@ -157,7 +151,6 @@ struct PreTransferView_Previews: PreviewProvider {
         
         Group {
             VStack {
-                
                 PreTransferView(viewModel: lcViewModel,
                                 walletType: .constant(.litecoinCard),
                                 wasTapped: .constant(false))

@@ -9,7 +9,8 @@
 import Foundation
 import SwiftUI
 import KeychainAccess
- 
+
+/// Enum displaying the states of the card and wallet balances
 enum WalletBalanceStatus: Int {
     case litewalletAndCardEmpty
     case cardWalletEmpty
@@ -27,7 +28,6 @@ class CardViewModel: ObservableObject {
     var isNotRegistered: Bool = true
       
     //MARK: - Combine Variables
-    
     @Published
     var cardWalletDetails: CardWalletDetails?
      
@@ -38,10 +38,14 @@ class CardViewModel: ObservableObject {
     
     /// Amount class contains LTC,  fiat rate, etc.
     var litewalletAmount: Amount
+    
+    var walletManager: WalletManager
      
-    init(litewalletAmount: Amount) {
+    init(litewalletAmount: Amount, walletManager: WalletManager) {
         
         self.litewalletAmount = litewalletAmount
+        
+        self.walletManager = walletManager
     }
     
     
@@ -69,6 +73,9 @@ class CardViewModel: ObservableObject {
 
     }
     
+    
+    /// Fetch Card Wallet details from the Ternio server
+    /// - Parameter completion: All is well
     func fetchCardWalletDetails(completion: @escaping () -> Void) {
         
         let cardService = "com.litecoincard.service"
@@ -86,7 +93,7 @@ class CardViewModel: ObservableObject {
         
         PartnerAPI.shared.getWalletDetails(userID: userID, token: token) { detailsDict in
             
-            //Only reteives the data element there is the metadata and the result as well
+            //Only receives the data element there is the metadata
             guard let data = detailsDict?["data"] as? [String: Any] else {
                 print("Error: Data dict not found")
                 return
@@ -104,12 +111,9 @@ class CardViewModel: ObservableObject {
                     
                     self.cardWalletDetails = walletDetails
                     
-                    
-                    ///XXXXXXXXXXX **MOCK
-                    self.cardWalletDetails?.availableBalance = 52.25
-                     
                     let availableCardBalance: Double = self.cardWalletDetails?.availableBalance ?? 0.0
                     
+                    // Set the wallet status for the view.
                     self.walletBalanceStatus = self.fetchBalanceStatus(cardBalance: availableCardBalance)
                     
                 }

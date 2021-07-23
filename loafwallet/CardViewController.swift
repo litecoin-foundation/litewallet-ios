@@ -22,6 +22,8 @@ class CardViewController: UIViewController {
     var cardView: CardView?
     
     var litewalletBalance: Amount?
+    
+    var walletManager: WalletManager?
  
     var parentFrame: CGRect?
     
@@ -70,7 +72,12 @@ class CardViewController: UIViewController {
             return
         }
         
-        self.viewModel = CardViewModel(litewalletAmount: balance)
+        guard let walletManager = self.walletManager else {
+            return
+        }
+         
+        self.viewModel = CardViewModel(litewalletAmount: balance,
+                                       walletManager: walletManager)
          
         self.updateLoginStatusFromViewModel()
  
