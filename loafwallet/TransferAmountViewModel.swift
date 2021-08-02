@@ -91,7 +91,6 @@ class TransferAmountViewModel: ObservableObject {
         print("XX Address: \(address)")
         print("XX Amount: \(amount) Ł")
         
-        
         guard let token = keychain["token"] ,
               let userID = keychain["userID"] else {
             return

@@ -37,12 +37,28 @@ struct TransferAmountView: View {
             S.LitecoinCard.Transfer.amountToLitewallet
     }
     
-    var remainingBalance: Double {
-        return (viewModel.currentBalance -
-                    (viewModel.currentBalance * sliderValue))
+    var remainingCardBalance: Double {
+          
+        if viewModel.walletType == .litewallet {
+            return abs(viewModel.cardBalance - (viewModel.currentBalance * sliderValue))
+        } else {
+            return abs(viewModel.cardBalance + (viewModel.currentBalance * sliderValue))
+        }
     }
-     
     
+    var remainingLitewalletBalance: Double {
+        
+        if viewModel.walletType == .litecoinCard {
+            return abs(viewModel.litewalletBalance - (viewModel.currentBalance * sliderValue))
+        } else {
+            return abs(viewModel.litewalletBalance + (viewModel.currentBalance * sliderValue))
+        }
+    }
+    
+    var transferringView: TransferringModalView?
+    
+    var transferringViewModel: TransferringViewModel?
+      
     init(viewModel: TransferAmountViewModel,
          sliderValue: Binding<Double>,
          shouldShow: Binding<Bool>) {
@@ -59,6 +75,7 @@ struct TransferAmountView: View {
         //Only take action when value is less than the current balance
         if (transferAmount < viewModel.currentBalance) {
             transferAmount = transferAmount + 0.001
+            viewModel.transferAmount = transferAmount 
             sliderValue = abs(transferAmount / viewModel.currentBalance)
         }
     }
@@ -67,6 +84,7 @@ struct TransferAmountView: View {
         //Only take action when value is more than 0.001
         if transferAmount > 0.001 {
             transferAmount = transferAmount - 0.001
+            viewModel.transferAmount = transferAmount
             sliderValue = abs(transferAmount / viewModel.currentBalance)
         }
     }
@@ -75,19 +93,37 @@ struct TransferAmountView: View {
         ZStack {
             VStack {
                   
-                    //Balance Amount
+                
+                
+                    //Litewallet Balance Amount
                     HStack {
-                        Text(viewModel.walletType.balanceLabel + ": ")
+                        Text(S.LitecoinCard.Transfer.litewalletBalance + ": ")
                             .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                         
                         Spacer()
                         
-                        Text(String(format:"%5.4f", remainingBalance) + " Ł")
+                        Text(String(format:"%5.4f", remainingLitewalletBalance) + " Ł")
                             .font(Font(UIFont.barlowLight(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                             .padding(.trailing, 5.0)
                     }
+                
+                    //Card Balance Amount
+                    HStack {
+                        Text(S.LitecoinCard.cardBalance + ": ")
+                            .font(Font(UIFont.barlowSemiBold(size: 18.0)))
+                            .foregroundColor(Color.liteWalletBlue)
+                        
+                        Spacer()
+                        
+                        Text(String(format:"%5.4f", remainingCardBalance) + " Ł")
+                            .font(Font(UIFont.barlowLight(size: 18.0)))
+                            .foregroundColor(Color.liteWalletBlue)
+                            .padding(.trailing, 5.0)
+                    }
+                    
+                    
                     
                     //Transfer Amount
                     HStack {
@@ -98,7 +134,7 @@ struct TransferAmountView: View {
                         Spacer()
                         
                         Text(String(format:"%5.4f", viewModel.currentBalance * sliderValue) + " Ł")
-                            .font(Font(UIFont.barlowLight(size: 18.0)))
+                            .font(Font(UIFont.barlowBold(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                             .padding(.trailing, 5.0)
 
@@ -174,18 +210,33 @@ struct TransferAmountView: View {
                         //Transfer to Litecoin Card
                         if viewModel.walletType == .litewallet {
                             
-    //                        viewModel.transferToCard(amount:
-    //                                                    viewModel.transferAmount,
-    //                                                 address: viewModel.destinationAddress) { didSend in
-    //                           // shouldShow = false
-    //                        }
+                            
+                            if didStartTransferringView {
+                                TransferringModalView(isShowingTransferring: $didStartTransferringView,
+                                                      shouldShowParent: $shouldShow)
+                                    .runTransferProcess { didShowModal in
+                                        if didShowModal {
+                                            viewModel.transferToCard(amount:
+                                                                        viewModel.transferAmount,
+                                                                     address: viewModel.destinationAddress) { didSend in
+                                                shouldShow = false
+                                            }
+                                        }
+                                }
+                            }
                         }
                         
                         //Transfer to Litewallet
                         if viewModel.walletType == .litecoinCard {
+                            
+                            
+                            if didStartTransferringView {
+                                TransferringModalView(isShowingTransferring: $didStartTransferringView, shouldShowParent: $shouldShow)
+                            }
+                            
                             viewModel.transferToLitewallet(amount: viewModel.transferAmount,
                                                            address: viewModel.destinationAddress) {
-                               // shouldShow = false
+                               shouldShow = false
                             }
                         }
                         
@@ -224,12 +275,9 @@ struct TransferAmountView: View {
                     }
                     Spacer()
                 
-                
             }
             .padding([.leading, .trailing], mainPadding)
-            if didStartTransferringView {
-                TransferringModalView(isShowingTransferring: $didStartTransferringView, shouldShowParent: $shouldShow)
-            }
+            
         }
     }
 }

@@ -1439,4 +1439,7 @@
 "LitecoinCard.Transfer.setAmount" = "Slide to set transfer amount";
 
 /* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Address"; 
+"LitecoinCard.Transfer.destinationAddress" = "Address";
+
+/* to */
+"Fragment.to" = "to"; 

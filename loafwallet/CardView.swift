@@ -70,9 +70,9 @@ struct CardView: View {
                 Group {
                     AnimatedCardView(viewModel: animatedViewModel, isLoggedIn: $didCompleteLogin)
                         .frame(minWidth:0,
-                               maxWidth:
-                                didCompleteLogin ? geometry.size.width * 0.4 :
-                                geometry.size.width * 0.6)
+                               maxWidth: 
+                                didCompleteLogin ? geometry.size.width * 0.6 :
+                                geometry.size.width * 0.7)
                         .padding(.all, didCompleteLogin ? 10 : 20)
                 }
                 

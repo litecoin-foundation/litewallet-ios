@@ -16,8 +16,8 @@ struct LitewalletIconView: View {
                    height: 72.0,
                    alignment: .center)
             .foregroundColor(.white)
-            .addBorder(Color.gray, width: 0.2, cornerRadius: 11.0)
-            .shadow(color: .gray, radius:2.0, x: 3.0, y: 3.0)
+            .addBorder(Color.gray, width: 0.2, cornerRadius: 11.0) 
+            .shadow(radius: 1.0, x: 2.0, y: 2.0)
             .overlay(
                 
                 //Litewallet Icon

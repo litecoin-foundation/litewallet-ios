@@ -133,7 +133,6 @@ enum S {
         static let cardBalance = NSLocalizedString("LitecoinCard.cardBalance", value: "", comment: "Card balance")
         static let registrationSuccess = NSLocalizedString("LitecoinCard.registrationSuccess", value: "", comment: "Registration success")
         static let registrationFailure = NSLocalizedString("LitecoinCard.registrationFailure", value: "", comment: "Registration failure")
-        
         static let enterCode = NSLocalizedString("LitecoinCard.enterCode", value: "", comment: "Enter code")
         static let enterCodeDetail = NSLocalizedString("LitecoinCard.enterCode.detail", value: "", comment: "Enter code details")
         static let twoFAOn = NSLocalizedString("LitecoinCard.twoFAOn", value: "", comment: "Message when 2FA is on")
@@ -145,8 +144,8 @@ enum S {
             static let description = NSLocalizedString("LitecoinCard.Disclaimer.description", value: "Description", comment: "Description of the status")
             static let bullets = NSLocalizedString("LitecoinCard.Disclaimer.bullets", value: "bullets", comment: "Features and limitations")
             static let referral = NSLocalizedString("LitecoinCard.Disclaimer.referral", value: "referral", comment: "Referral to the website")
-        }
-        
+        } 
+		
         //MARK: - Transfer
         enum Transfer {
             static let title = NSLocalizedString("LitecoinCard.Transfer.title", value: "Transfer", comment: "Transfer title")
@@ -738,8 +737,8 @@ enum S {
     }
     
     enum Fragments {
-        static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or")
-        static let confirm = NSLocalizedString("Fragment.confirm", value: "**confirm**", comment: "Confirm")
-
+        static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or") 
+        static let confirm = NSLocalizedString("Fragment.confirm", value: "**confirm**", comment: "Confirm") 
+        static let to = NSLocalizedString("Fragment.to", value: "**to**", comment: "to") 
     }
 }

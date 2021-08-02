@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CardLoggedInView: View { 
+struct CardLoggedInView: View {
     
     //MARK: - Combine Variables
     @ObservedObject
@@ -33,7 +33,7 @@ struct CardLoggedInView: View {
     var currentWalletType: WalletType = .litewallet
     
     //MARK: - Private Variables
-     
+    
     private var litewalletAddress: String {
         guard let address = viewModel
                 .walletManager
@@ -81,128 +81,115 @@ struct CardLoggedInView: View {
         )
     }
     
-    var body: some View { 
+    var body: some View {
+        
+        VStack {
             
-            VStack {
+            //Logout button
+            Button(action: {
+                shouldLogout = true
+                viewModel.isLoggedIn = false
+                NotificationCenter.default.post(name: .LitecoinCardLogoutNotification,
+                                                object: nil,
+                                                userInfo: nil)
+            }) {
+                Text(S.LitecoinCard.logout)
+                    .frame(minWidth: 0,
+                           maxWidth: .infinity,
+                           alignment: .center)
+                    .font(Font(UIFont.barlowLight(size: 18.0)))
+                    .foregroundColor(Color.liteWalletBlue)
+                    .padding(.all, 10.0)
+            }
+            
+            //Sets phase 1 or 2 of transfer
+            if didStartTransfer {
                 
-                //Logout button
-                Button(action: {
-                    shouldLogout = true
-                    viewModel.isLoggedIn = false
-                    NotificationCenter.default.post(name: .LitecoinCardLogoutNotification,
-                                                    object: nil,
-                                                    userInfo: nil)
-                }) {
-                    Text(S.LitecoinCard.logout)
+                // Transfer Amount Subview
+                Group {
+                    
+                    Text(S.LitecoinCard.Transfer.setAmount + ": ")
                         .frame(minWidth: 0,
                                maxWidth: .infinity,
                                alignment: .center)
-                        .font(Font(UIFont.barlowLight(size: 18.0)))
-                        .foregroundColor(Color.liteWalletBlue)
-                        .padding(.all, 10.0)
-                }
-                
-                //Sets phase 1 or 2 of transfer
-                if didStartTransfer {
+                        .font(Font(UIFont.barlowSemiBold(size: 20.0)))
+                        .foregroundColor(Color(UIColor.liteWalletBlue))
+                        .padding([.top,.leading,.trailing], 5.0)
+                        .padding(.bottom, 2.0)
                     
-                    // Transfer Amount Subview
-                    Group {
-                        
-                        Text(S.LitecoinCard.Transfer.setAmount + ": ")
-                            .frame(minWidth: 0,
-                                   maxWidth: .infinity,
-                                   alignment: .center)
-                            .font(Font(UIFont.barlowSemiBold(size: 20.0)))
-                            .foregroundColor(Color(UIColor.liteWalletBlue))
-                            .padding([.top,.leading,.trailing], 5.0)
-                            .padding(.bottom, 2.0)
-                        
-                        VStack {
-                            TransferAmountView(viewModel:
-                                                TransferAmountViewModel(walletType: currentWalletType,
-                                                                                  walletStatus: walletStatus,
-                                                                                  litewalletBalance: viewModel.litewalletBalance,
-                                                                                  litewalletAddress: litewalletAddress,
-                                                                                  cardBalance: cardBalance,
-                                                                                  cardAddress: cardAddress,
-                                                                                  walletManager: viewModel.walletManager,
-                                                                                  store: viewModel.store),
-                                                                                  sliderValue: $startingSliderValue,
-                                                                                  shouldShow: $didStartTransfer)
-                            Spacer()
-                        }
-                        .padding(.top, 10.0)
+                    VStack {
+                        TransferAmountView(viewModel:
+                                            TransferAmountViewModel(walletType: currentWalletType,
+                                                                    walletStatus: walletStatus,
+                                                                    litewalletBalance: viewModel.litewalletBalance,
+                                                                    litewalletAddress: litewalletAddress,
+                                                                    cardBalance: cardBalance,
+                                                                    cardAddress: cardAddress,
+                                                                    walletManager: viewModel.walletManager,
+                                                                    store: viewModel.store),
+                                           sliderValue: $startingSliderValue,
+                                           shouldShow: $didStartTransfer)
+                        Spacer()
                     }
-                    .transition(.move(edge: .trailing))
-                    .animation(.easeInOut(duration: 0.5))
-                      
-                } else {
-                    
-                    // PreTransfer Subview
-                    Group {
-                        
-                        Text(viewModel.walletBalanceStatus == .litewalletAndCardEmpty ? "" : S.LitecoinCard.Transfer.description)
-                            .frame(minWidth: 0,
-                                   maxWidth: .infinity,
-                                   alignment: .center)
-                            .font(Font(UIFont.barlowSemiBold(size: 20.0)))
-                            .foregroundColor(Color(UIColor.liteWalletBlue))
-                            .padding([.top,.leading,.trailing], 5.0)
-                            .padding(.bottom, 2.0)
-                        
-                        VStack {
-                            
-                            Spacer()
-                            
-                            // Reorders to the biggest wallet in the view to the top
-                            if viewModel.litewalletBalance >= cardBalance {
-                                PreTransferView(viewModel:
-                                                    PreTransferViewModel(walletType: .litewallet,
-                                                                         balance: viewModel.litewalletBalance),
-                                                walletType: $currentWalletType,
-                                                wasTapped: $didStartTransfer
-                                ).padding(.bottom, 10.0)
-                                
-                                PreTransferView(viewModel:
-                                                    PreTransferViewModel(walletType: .litecoinCard,
-                                                                         balance: cardBalance),
-                                                walletType: $currentWalletType,
-                                                wasTapped: $didStartTransfer
-                                ).padding(.top, 10.0)
-                                
-                            } else {
-                                
-                                PreTransferView(viewModel:
-                                                    PreTransferViewModel(walletType: .litecoinCard,
-                                                                         balance: cardBalance),
-                                                walletType: $currentWalletType,
-                                                wasTapped: $didStartTransfer
-                                ).padding(.bottom, 10.0)
-                                
-                                PreTransferView(viewModel:
-                                                    PreTransferViewModel(walletType: .litewallet,
-                                                                         balance: viewModel.litewalletBalance),
-                                                walletType: $currentWalletType,
-                                                wasTapped: $didStartTransfer
-                                ).padding(.top, 10.0)
-                            }
-                            
-                            Spacer()
-
-                        }
-                        .padding(.top, 10.0)
-                    }
-                    .transition(.move(edge: .leading))
-                    .animation(.easeInOut(duration: 0.5))
+                    .padding(.top, 10.0)
                 }
- 
-                Spacer()
+                .transition(.move(edge: .trailing))
+                .animation(.easeInOut(duration: 0.5))
                 
-                pagingIndicatorView()
-                    .padding()
+            } else {
+                
+                // PreTransfer Subview
+                Group {
+                    
+                    // Top description
+                    Text(viewModel.walletBalanceStatus == .litewalletAndCardEmpty ? "" : S.LitecoinCard.Transfer.description)
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               alignment: .center)
+                        .font(Font(UIFont.barlowSemiBold(size: 20.0)))
+                        .foregroundColor(Color(UIColor.liteWalletBlue))
+                        .padding([.top,.leading,.trailing], 5.0)
+                        .padding(.bottom, 2.0)
+                    
+                    VStack {
+                        
+                        Spacer()
+                        
+                        // Litewallet and Card Wallet balance views
+                        PreTransferView(viewModel:
+                                            PreTransferViewModel(walletType: .litewallet,
+                                                                 balance: viewModel.litewalletBalance),
+                                        observableWallet: ObservableWallet(store: self.viewModel.store,
+                                                                           walletManager: self.viewModel.walletManager),
+                                        walletType: $currentWalletType,
+                                        wasTapped: $didStartTransfer
+                        ).padding(.bottom, 10.0)
+                        
+                        PreTransferView(viewModel:
+                                            PreTransferViewModel(walletType: .litecoinCard,
+                                                                 balance: cardBalance),
+                                        observableWallet: ObservableWallet(store: self.viewModel.store,
+                                                                           walletManager: self.viewModel.walletManager),
+                                        walletType: $currentWalletType,
+                                        wasTapped: $didStartTransfer
+                        ).padding(.top, 10.0)
+                        
+                        Spacer()
+                        
+                    }
+                    .padding(.top, 10.0)
+                }
+                .transition(.move(edge: .leading))
+                .animation(.easeInOut(duration: 0.5))
             }
+            
+            Spacer()
+            
+            pagingIndicatorView()
+                .padding()
+        }
     }
-} 
+}
 
 struct CardLoggedInView_Previews: PreviewProvider {
     
@@ -231,12 +218,13 @@ struct CardLoggedInView_Previews: PreviewProvider {
         }
     }
 }
-    
-    
-    
-    
 
- 
+
+
+
+
+
+
 
 
 

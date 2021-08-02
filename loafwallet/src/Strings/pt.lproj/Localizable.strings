@@ -1397,6 +1397,9 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
 
+/* to */
+"Fragment.to" = "";
+
 /* Transfer to card label */
 "LitecoinCard.Transfer.amountToCard" = "";
 

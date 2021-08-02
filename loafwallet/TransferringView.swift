@@ -25,19 +25,17 @@ struct TransferringModalView: View {
     @State
     var detailMessage: String = S.LitecoinCard.resetPasswordDetail
     
-    private func runTransfer() {
-        isShowingTransferring = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            shouldShowParent = false
+    func runTransferProcess(completion: @escaping (Bool) -> Void) {
+         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
             
-            //         viewModel.shouldStartTransfer = true
+            shouldShowParent = false
+            viewModel.shouldStartTransfer = true
+            
+            completion(true)
         }
-        
-        
     }
-    
-    
+       
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             HStack{
@@ -60,11 +58,22 @@ struct TransferringModalView: View {
                         }
                         .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
                         
-                        Text("Transferring to Litecoin Card")
+                        
+                        //DEV: Add localization and polish the copy
+                        Text("Transferring:")
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
                             .padding(.bottom, 15)
                             .foregroundColor(Color.white)
-                        ActivityIndicator(isAnimating: $isShowingTransferring, style: .white)
+                        
+                        Text("343.00 Ł")
+                            .font(Font(UIFont.barlowSemiBold(size: 21.0)))
+                            .padding(.bottom, 15)
+                            .foregroundColor(Color.white)
+                        
+                        Text("to Litecoin Card")
+                            .font(Font(UIFont.barlowSemiBold(size: 21.0)))
+                            .padding(.bottom, 15)
+                            .foregroundColor(Color.white)
                         
                         //Dismiss button with text
                         Button(action: {
@@ -72,7 +81,7 @@ struct TransferringModalView: View {
                                 self.isShowingTransferring.toggle()
                             }
                         }) {
-                            Text("Cancel")
+                            Text("Confirm")
                                 .frame(minWidth:0, maxWidth: .infinity)
                                 .font(Font(UIFont.barlowBold(size: 20.0)))
                                 .foregroundColor(Color.white)
@@ -102,11 +111,7 @@ struct TransferringModalView: View {
                     
                 }
                 Spacer()
-            }.onAppear(perform: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-                    runTransfer()
-                }
-            })
+            }
         }
     }
 }
@@ -131,35 +136,3 @@ struct TransferringModalView_Previews: PreviewProvider {
         }
     }
 }
-
-//
-//struct CardLoggedInView_Previews: PreviewProvider {
-//
-//    static let amount100 = MockSeeds.amount100
-//
-//    static let walletManager = MockSeeds.walletManager
-//
-//    static let store = Store()
-//
-//    static let viewModel = CardViewModel(walletManager: walletManager,
-//                                         store: store)
-//
-//    static var previews: some View {
-//        Group {
-//            CardLoggedInView(viewModel: viewModel)
-//                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
-//                .previewDisplayName(DeviceType.Name.iPhoneSE2)
-//
-//            CardLoggedInView(viewModel: viewModel)
-//                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
-//                .previewDisplayName(DeviceType.Name.iPhone8)
-//
-//            CardLoggedInView(viewModel: viewModel)
-//                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
-//                .previewDisplayName(DeviceType.Name.iPhone12ProMax)
-//        }
-//    }
-//}
-//
-//
-//

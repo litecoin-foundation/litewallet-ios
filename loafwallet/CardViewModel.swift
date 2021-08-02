@@ -135,6 +135,11 @@ class CardViewModel: ObservableObject {
                     
                     self.cardWalletDetails = walletDetails
                     
+                    ///XXXXXXXXXXX **MOCK
+                    //DEV: Remove
+                    self.cardWalletDetails?.availableBalance = 52.25
+                    //DEV: Remove
+                    
                     let availableCardBalance: Double = self.cardWalletDetails?.availableBalance ?? 0.0
                     
                     // Set the wallet status for the view.

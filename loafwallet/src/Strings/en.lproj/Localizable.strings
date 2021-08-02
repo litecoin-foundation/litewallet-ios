@@ -286,6 +286,9 @@
 /* Or */
 "Fragment.or" = "or";
 
+/* to */
+"Fragment.to" = "to";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORY";
 
