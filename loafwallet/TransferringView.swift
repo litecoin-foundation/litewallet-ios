@@ -11,31 +11,49 @@ import Foundation
 import UIKit
 
 struct TransferringModalView: View {
-    
+     
     //MARK: - Combine Variables
     @ObservedObject
-    var viewModel = TransferringViewModel()
+    var viewModel: TransferringViewModel
     
     @Binding
     var isShowingTransferring: Bool
     
     @Binding
-    var shouldShowParent: Bool
-    
+    var shouldStartTransfer: Bool
+     
     @State
     var detailMessage: String = S.LitecoinCard.resetPasswordDetail
     
-    func runTransferProcess(completion: @escaping (Bool) -> Void) {
-         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-            
-            shouldShowParent = false
-            viewModel.shouldStartTransfer = true
-            
-            completion(true)
-        }
+    //MARK: - Private Variables
+    private var destinationAddress: String
+    
+    private var transferAmount: Double
+    
+    private var walletType: WalletType
+     
+    private let generalSidePadding: CGFloat = 40.0
+    
+    init(viewModel: TransferringViewModel,
+         isShowingTransferring: Binding<Bool>,
+         shouldStartTransfer: Binding<Bool>,
+         destinationAddress: String,
+         transferAmount: Double,
+         walletType: WalletType)  {
+        
+        _isShowingTransferring = isShowingTransferring
+        
+        _shouldStartTransfer = shouldStartTransfer
+          
+        self.viewModel = viewModel
+        
+        self.destinationAddress = destinationAddress
+        
+        self.transferAmount = transferAmount
+        
+        self.walletType = walletType
     }
-       
+    
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             HStack{
@@ -45,8 +63,10 @@ struct TransferringModalView: View {
                         
                         //Dismiss button
                         Button(action: {
+                            
                             viewModel.shouldDismissView {
                                 self.isShowingTransferring.toggle()
+                                viewModel.shouldStartTransfer = false
                             }
                             
                         }) {
@@ -57,31 +77,25 @@ struct TransferringModalView: View {
                                        height: 15)
                         }
                         .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
-                        
-                        
-                        //DEV: Add localization and polish the copy
-                        Text("Transferring:")
+                         
+                        Text(S.LitecoinCard.Transfer.title + ": " + String(format: "%6.6f Ł", self.transferAmount))
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
-                            .padding(.bottom, 15)
+                            .padding(.bottom, 10)
                             .foregroundColor(Color.white)
+                            .padding([.leading, .trailing], generalSidePadding)
                         
-                        Text("343.00 Ł")
+                        Text(S.Fragments.to + " " + (self.walletType == .litewallet ? "Litewallet"  : S.LitecoinCard.barItemTitle.localizedCapitalized))
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
-                            .padding(.bottom, 15)
+                            .padding(.bottom, 10)
                             .foregroundColor(Color.white)
-                        
-                        Text("to Litecoin Card")
-                            .font(Font(UIFont.barlowSemiBold(size: 21.0)))
-                            .padding(.bottom, 15)
-                            .foregroundColor(Color.white)
-                        
-                        //Dismiss button with text
+                            .padding([.leading, .trailing], generalSidePadding)
+
+                        //Confirm OK button
                         Button(action: {
-                            viewModel.shouldDismissView {
-                                self.isShowingTransferring.toggle()
-                            }
+                            viewModel.shouldStartTransfer = true
                         }) {
-                            Text("Confirm")
+                            
+                            Text(S.Button.ok)
                                 .frame(minWidth:0, maxWidth: .infinity)
                                 .font(Font(UIFont.barlowBold(size: 20.0)))
                                 .foregroundColor(Color.white)
@@ -90,7 +104,7 @@ struct TransferringModalView: View {
                                     RoundedRectangle(cornerRadius:4)
                                         .stroke(Color(UIColor.white), lineWidth: 1)
                                 )
-                                .padding([.leading, .trailing], 20)
+                                .padding([.leading, .trailing], generalSidePadding)
                                 .padding([.top,.bottom], 10)
                         }.padding(.top, 15)
                         
@@ -118,19 +132,40 @@ struct TransferringModalView: View {
 
 struct TransferringModalView_Previews: PreviewProvider {
     
+    static let viewModel = TransferringViewModel()
+    static let destinationAddres1: String = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
+    static let destinationAddres2: String = "MJ4W7NZya4SzE7R6xpEVdamGCimaQYPiWu"
+    static let bigTransferAmount: Double = 15274.00343
+    static let smallTransferAmount: Double = 0.0254521
+ 
     static var previews: some View {
         
         Group {
             
-            TransferringModalView(isShowingTransferring: .constant(true), shouldShowParent: .constant(true))
+            TransferringModalView(viewModel: viewModel,
+                                  isShowingTransferring: .constant(true),
+                                  shouldStartTransfer: .constant(true),
+                                  destinationAddress: destinationAddres1,
+                                  transferAmount: bigTransferAmount,
+                                  walletType: .litecoinCard)
                 .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
                 .previewDisplayName(DeviceType.Name.iPhoneSE2)
             
-            TransferringModalView(isShowingTransferring: .constant(true), shouldShowParent: .constant(true))
+            TransferringModalView(viewModel: viewModel,
+                                  isShowingTransferring: .constant(true),
+                                  shouldStartTransfer: .constant(true),
+                                  destinationAddress: destinationAddres2,
+                                  transferAmount: bigTransferAmount,
+                                  walletType: .litewallet)
                 .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
                 .previewDisplayName(DeviceType.Name.iPhone8)
             
-            TransferringModalView(isShowingTransferring: .constant(true), shouldShowParent: .constant(true))
+            TransferringModalView(viewModel: viewModel,
+                                  isShowingTransferring: .constant(true),
+                                  shouldStartTransfer: .constant(true), 
+                                  destinationAddress: destinationAddres1,
+                                  transferAmount: bigTransferAmount,
+                                  walletType: .litecoinCard)
                 .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
                 .previewDisplayName(DeviceType.Name.iPhone12ProMax)
         }

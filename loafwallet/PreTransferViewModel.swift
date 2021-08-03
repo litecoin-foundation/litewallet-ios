@@ -32,7 +32,6 @@ enum WalletType: String {
                 return S.LitecoinCard.Transfer.litewalletBalance
         }
     }
-    
 }
 
 class PreTransferViewModel: ObservableObject {

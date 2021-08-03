@@ -10,14 +10,6 @@ import Foundation
 import SwiftUI
 import KeychainAccess
 
-/// Enum displaying the states of the card and wallet balances
-enum WalletBalanceStatus: Int {
-    case litewalletAndCardEmpty
-    case cardWalletEmpty
-    case litewalletEmpty
-    case litewalletAndCardNonZero
-}
-
 class CardViewModel: ObservableObject {
         
     //MARK: - Login Status
@@ -30,9 +22,6 @@ class CardViewModel: ObservableObject {
     //MARK: - Combine Variables
     @Published
     var cardWalletDetails: CardWalletDetails?
-     
-    @Published
-    var walletBalanceStatus: WalletBalanceStatus?
     
     @Published
     var litewalletBalance: Double = 0.0
@@ -62,41 +51,6 @@ class CardViewModel: ObservableObject {
                                             maxDigits: store.state.maxDigits).amountForLtcFormat
         }
     }
-  
-    /// Fetcht Balance Status (litewallet balance injected)
-    /// - Parameter cardBalance: Fetched users Litecoin Card balance
-    /// - Returns: enum of the status WalletBalanceStatus
-    private func fetchBalanceStatus(cardBalance: Double) -> WalletBalanceStatus {
-        
-//        let amount = Amount(amount: balance, rate: rate, maxDigits: store.state.maxDigits)
-//
-//        let litoshis = UInt64(amount * 10_000_000)
-//        ///////MOCK VALUE/////// : MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o
-//        let payKerry = "MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o"
-//        transaction = walletManager.wallet?.createTransaction(forAmount: litoshis, toAddress: payKerry)
-//
-//        guard let rate = self.store.state.currentRate else { return }
-        print("balance: \(self.walletManager.wallet!.balance)")
-         
-//        switch (cardBalance, amount) {
-//            case _ where cardBalance == 0.0 &&
-//                    litewalletAmount.amountForLtcFormat == 0.0:
-//                return .litewalletAndCardEmpty
-//            case _ where cardBalance > 0.0 &&
-//                    litewalletAmount.amountForLtcFormat == 0.0:
-//                return .litewalletEmpty
-//            case _ where cardBalance == 0.0 &&
-//                    litewalletAmount.amountForLtcFormat > 0.0:
-//                return .cardWalletEmpty
-//            case _ where cardBalance > 0.0 &&
-//                    litewalletAmount.amountForLtcFormat > 0.0:
-//                return .litewalletAndCardNonZero
-//            default:
-//                return .cardWalletEmpty
-//        }
-        return .cardWalletEmpty
-    }
-    
     
     /// Fetch Card Wallet details from the Ternio server
     /// - Parameter completion: All is well
@@ -131,20 +85,8 @@ class CardViewModel: ObservableObject {
                 
                 let walletDetails = try? decoder.decode(CardWalletDetails.self, from: jsonData)
                 
-                DispatchQueue.main.async {
-                    
+                DispatchQueue.main.async { 
                     self.cardWalletDetails = walletDetails
-                    
-                    ///XXXXXXXXXXX **MOCK
-                    //DEV: Remove
-                    self.cardWalletDetails?.availableBalance = 52.25
-                    //DEV: Remove
-                    
-                    let availableCardBalance: Double = self.cardWalletDetails?.availableBalance ?? 0.0
-                    
-                    // Set the wallet status for the view.
-                    self.walletBalanceStatus = self.fetchBalanceStatus(cardBalance: availableCardBalance)
-                    
                 }
                 
             } catch {

@@ -16,13 +16,7 @@ class TransferAmountViewModel: ObservableObject {
     //MARK: - Combine Variables
     @Published
     var walletType: WalletType
-    
-    @Published
-    var walletStatus: WalletBalanceStatus
-     
-    //@Published
-    var transferAmount: Double = 0.0
-    
+       
     //MARK: - Private Variables
     private let keychain = Keychain(service: "com.litecoincard.service")
     
@@ -43,6 +37,8 @@ class TransferAmountViewModel: ObservableObject {
     
     var currentBalance: Double = 0.0
     
+    var transferAmount: Double = 0.0
+    
     /// This is the LTC address the wallet is sending LTC TO
     var destinationAddress: String {
         return walletType == .litewallet ? cardAddress : litewalletAddress
@@ -51,7 +47,6 @@ class TransferAmountViewModel: ObservableObject {
     var transaction: BRTxRef?
      
     init(walletType: WalletType,
-         walletStatus: WalletBalanceStatus,
          litewalletBalance: Double,
          litewalletAddress: String,
          cardBalance: Double,
@@ -63,9 +58,7 @@ class TransferAmountViewModel: ObservableObject {
         
         self.store = store
         
-        self.walletType = walletType
-        
-        self.walletStatus = walletStatus
+        self.walletType = walletType 
         
         self.litewalletBalance = litewalletBalance
         
@@ -102,6 +95,7 @@ class TransferAmountViewModel: ObservableObject {
                               withdrawal:
                                 ["amount": amount,
                                  "wallet_address": address]) { dict in
+                
                 //
             }
         

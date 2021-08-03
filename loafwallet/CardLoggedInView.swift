@@ -27,9 +27,6 @@ struct CardLoggedInView: View {
     private var startingSliderValue: Double = 0.0
     
     @State
-    var walletStatus: WalletBalanceStatus = .litewalletAndCardEmpty
-    
-    @State
     var currentWalletType: WalletType = .litewallet
     
     //MARK: - Private Variables
@@ -120,7 +117,6 @@ struct CardLoggedInView: View {
                     VStack {
                         TransferAmountView(viewModel:
                                             TransferAmountViewModel(walletType: currentWalletType,
-                                                                    walletStatus: walletStatus,
                                                                     litewalletBalance: viewModel.litewalletBalance,
                                                                     litewalletAddress: litewalletAddress,
                                                                     cardBalance: cardBalance,
@@ -142,7 +138,7 @@ struct CardLoggedInView: View {
                 Group {
                     
                     // Top description
-                    Text(viewModel.walletBalanceStatus == .litewalletAndCardEmpty ? "" : S.LitecoinCard.Transfer.description)
+                    Text(S.LitecoinCard.Transfer.description)
                         .frame(minWidth: 0,
                                maxWidth: .infinity,
                                alignment: .center)

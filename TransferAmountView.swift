@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct TransferAmountView: View {
-     
+    
     //MARK: - Combine Variables
     @ObservedObject
     var viewModel: TransferAmountViewModel
+    
+    @ObservedObject
+    var transferringviewModel = TransferringViewModel()
     
     @Binding
     var shouldShow: Bool
@@ -21,11 +24,14 @@ struct TransferAmountView: View {
     private var  didStartTransferringView = false
     
     @State
+    private var  shouldStartTransfer = false
+    
+    @State
     private var  transferAmount: Double = 0.0
-     
+    
     @Binding
     var sliderValue: Double
-     
+    
     //MARK: - Public Variables
     let mainPadding: CGFloat = 20.0
     
@@ -37,45 +43,41 @@ struct TransferAmountView: View {
             S.LitecoinCard.Transfer.amountToLitewallet
     }
     
-    var remainingCardBalance: Double {
-          
+    private var remainingCardBalance: Double {
+        
         if viewModel.walletType == .litewallet {
-            return abs(viewModel.cardBalance - (viewModel.currentBalance * sliderValue))
-        } else {
             return abs(viewModel.cardBalance + (viewModel.currentBalance * sliderValue))
+        } else {
+            return abs(viewModel.cardBalance - (viewModel.currentBalance * sliderValue))
         }
     }
     
-    var remainingLitewalletBalance: Double {
+    private var remainingLitewalletBalance: Double {
         
         if viewModel.walletType == .litecoinCard {
-            return abs(viewModel.litewalletBalance - (viewModel.currentBalance * sliderValue))
-        } else {
             return abs(viewModel.litewalletBalance + (viewModel.currentBalance * sliderValue))
+        } else {
+            return abs(viewModel.litewalletBalance - (viewModel.currentBalance * sliderValue))
         }
     }
     
-    var transferringView: TransferringModalView?
-    
-    var transferringViewModel: TransferringViewModel?
-      
     init(viewModel: TransferAmountViewModel,
          sliderValue: Binding<Double>,
          shouldShow: Binding<Bool>) {
-          
+        
         self.viewModel = viewModel
         
         _sliderValue = sliderValue
         
         _shouldShow = shouldShow
-          
+        
     }
     
     private func increaseValue() {
         //Only take action when value is less than the current balance
         if (transferAmount < viewModel.currentBalance) {
             transferAmount = transferAmount + 0.001
-            viewModel.transferAmount = transferAmount 
+            viewModel.transferAmount = transferAmount
             sliderValue = abs(transferAmount / viewModel.currentBalance)
         }
     }
@@ -91,10 +93,51 @@ struct TransferAmountView: View {
     
     var body: some View {
         ZStack {
+            
+            if didStartTransferringView {
+                
+                TransferringModalView(viewModel: transferringviewModel,
+                                      isShowingTransferring: $didStartTransferringView,
+                                      shouldStartTransfer: $shouldStartTransfer,
+                                      destinationAddress: viewModel.destinationAddress,
+                                      transferAmount: (viewModel.currentBalance * sliderValue),
+                                      walletType: viewModel.walletType)
+                    .zIndex(1)
+                    .onReceive(transferringviewModel.$shouldStartTransfer) { _ in
+                        
+                        if transferringviewModel.shouldStartTransfer {
+                            
+                            //Transfer to Litecoin Card
+                            if viewModel.walletType == .litewallet {
+                                
+                                viewModel.transferToCard(amount:
+                                                            viewModel.transferAmount,
+                                                         address: viewModel.destinationAddress) { didSend in
+                                    
+                                    didStartTransferringView = didSend
+                                }
+                                
+                                //Transfer to Litewallet
+                            } else if viewModel.walletType == .litecoinCard {
+                                
+                                viewModel.transferToLitewallet(amount: viewModel.transferAmount,
+                                                               address: viewModel.destinationAddress) {
+                                    
+                                    didStartTransferringView = false
+                                }
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                shouldShow = false
+                            }
+                        }
+                    }
+            }
+            
             VStack {
-                  
                 
-                
+                Group {
+                    
                     //Litewallet Balance Amount
                     HStack {
                         Text(S.LitecoinCard.Transfer.litewalletBalance + ": ")
@@ -108,7 +151,7 @@ struct TransferAmountView: View {
                             .foregroundColor(Color.liteWalletBlue)
                             .padding(.trailing, 5.0)
                     }
-                
+                    
                     //Card Balance Amount
                     HStack {
                         Text(S.LitecoinCard.cardBalance + ": ")
@@ -123,8 +166,6 @@ struct TransferAmountView: View {
                             .padding(.trailing, 5.0)
                     }
                     
-                    
-                    
                     //Transfer Amount
                     HStack {
                         Text(transferAmountTo + ": ")
@@ -137,7 +178,7 @@ struct TransferAmountView: View {
                             .font(Font(UIFont.barlowBold(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                             .padding(.trailing, 5.0)
-
+                        
                     }
                     
                     //Destination Address
@@ -149,134 +190,102 @@ struct TransferAmountView: View {
                         Spacer()
                         
                         Text(viewModel.destinationAddress)
-                            .font(Font(UIFont.barlowLight(size: 15.0)))
+                            .font(Font(UIFont.barlowLight(size: 14.0)))
                             .foregroundColor(Color.liteWalletBlue)
                             .padding(.trailing, 5.0)
                     }
-                    
-                    //Underline view
-                    Divider()
-                      
-                    //Amount Slider
-                    Group {
-                        
-                        HStack {
-                            // Decrease value
-                            Button(action: {
-                                decreaseValue()
-                            }) {
-                                Image(systemName: "minus.circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: smallButtonSize,
-                                           height: smallButtonSize,
-                                           alignment: .center)
-                                    .foregroundColor(.liteWalletBlue)
-                            }
-                            .shadow(radius: 2.0, x: 2.0, y: 2.0)
-                             
-                            // Slider factor
-                            Slider(value:  $sliderValue,
-                                   in: 0...1) { _ in
-                                transferAmount = sliderValue * viewModel.currentBalance
-                            }
-                            .accentColor(.liteWalletBlue)
-                            .padding()
-                            
-                            // Increase value
-                            Button(action: {
-                                increaseValue()
-                            }) {
-                                Image(systemName: "plus.circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: smallButtonSize,
-                                           height: smallButtonSize,
-                                           alignment: .center)
-                                    .foregroundColor(.liteWalletBlue)
-                            }
-                            .shadow(radius: 2.0, x: 2.0, y: 2.0)
-
-                        }
-                        .padding(.bottom, 20.0)
-                    }
-                    
-                    //Start transfer
-                    Button(action: {
-                        
-                        didStartTransferringView = true
-                        
-                        
-                        //Transfer to Litecoin Card
-                        if viewModel.walletType == .litewallet {
-                            
-                            
-                            if didStartTransferringView {
-                                TransferringModalView(isShowingTransferring: $didStartTransferringView,
-                                                      shouldShowParent: $shouldShow)
-                                    .runTransferProcess { didShowModal in
-                                        if didShowModal {
-                                            viewModel.transferToCard(amount:
-                                                                        viewModel.transferAmount,
-                                                                     address: viewModel.destinationAddress) { didSend in
-                                                shouldShow = false
-                                            }
-                                        }
-                                }
-                            }
-                        }
-                        
-                        //Transfer to Litewallet
-                        if viewModel.walletType == .litecoinCard {
-                            
-                            
-                            if didStartTransferringView {
-                                TransferringModalView(isShowingTransferring: $didStartTransferringView, shouldShowParent: $shouldShow)
-                            }
-                            
-                            viewModel.transferToLitewallet(amount: viewModel.transferAmount,
-                                                           address: viewModel.destinationAddress) {
-                               shouldShow = false
-                            }
-                        }
-                        
-                    }) {
-                        Text(S.LitecoinCard.Transfer.startTransfer.localizedUppercase)
-                            .font(Font(UIFont.barlowSemiBold(size: 18.0)))
-                            .frame(maxWidth: .infinity)
-                            .padding(.all, 10.0)
-                            .foregroundColor(.white)
-                            .background(sliderValue == 0.0 ? Color.litecoinGray : Color(UIColor.liteWalletBlue))
-                            .cornerRadius(4.0)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 4)
-                                    .stroke(Color.litecoinSilver)
-                            )
-                    }
-                    .padding(.bottom, 5.0)
-                    .disabled(sliderValue == 0.0 ? true : false)
+                }
                 
-                         
-                    // Cancel
-                    Button(action: {
-                        self.shouldShow = false
-                    }) {
-                        Text(S.Button.cancel.uppercased())
-                            .font(Font(UIFont.barlowSemiBold(size: 18.0)))
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(Color(UIColor.liteWalletBlue))
-                            .background(Color(UIColor.white))
-                            .cornerRadius(4.0)
-                            .padding(.all,  10.0)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 4)
-                                    .stroke(Color.litecoinSilver)
-                            )
+                //Underline view
+                Divider()
+                
+                //Amount Slider
+                Group {
+                    
+                    HStack {
+                        // Decrease value
+                        Button(action: {
+                            decreaseValue()
+                        }) {
+                            Image(systemName: "minus.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: smallButtonSize,
+                                       height: smallButtonSize,
+                                       alignment: .center)
+                                .foregroundColor(.liteWalletBlue)
+                        }
+                        .shadow(radius: 2.0, x: 2.0, y: 2.0)
+                        
+                        // Slider factor
+                        Slider(value:  $sliderValue,
+                               in: 0...1) { _ in
+                            transferAmount = sliderValue * viewModel.currentBalance
+                        }
+                        .accentColor(.liteWalletBlue)
+                        .padding()
+                        
+                        // Increase value
+                        Button(action: {
+                            increaseValue()
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: smallButtonSize,
+                                       height: smallButtonSize,
+                                       alignment: .center)
+                                .foregroundColor(.liteWalletBlue)
+                        }
+                        .shadow(radius: 2.0, x: 2.0, y: 2.0)
+                        
                     }
-                    Spacer()
+                    .padding(.bottom, 20.0)
+                }
+                
+                //Show transfer modal view
+                Button(action: {
+                    didStartTransferringView = true
+                }) {
+                    Text(S.LitecoinCard.Transfer.startTransfer.localizedUppercase)
+                        .font(Font(UIFont.barlowSemiBold(size: 18.0)))
+                        .frame(maxWidth: .infinity)
+                        .padding(.all, 10.0)
+                        .foregroundColor(.white)
+                        .background(sliderValue == 0.0 ? Color.litecoinGray : Color(UIColor.liteWalletBlue))
+                        .cornerRadius(4.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color.litecoinSilver)
+                        )
+                }
+                .padding(.bottom, 5.0)
+                .disabled(sliderValue == 0.0 ? true : false)
+                
+                
+                // Cancel: Resets the slider
+                Button(action: {
+                    self.shouldShow = false
+                    sliderValue = 0.0
+                }) {
+                    Text(S.Button.cancel.uppercased())
+                        .font(Font(UIFont.barlowSemiBold(size: 18.0)))
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color(UIColor.liteWalletBlue))
+                        .background(Color(UIColor.white))
+                        .cornerRadius(4.0)
+                        .padding(.all,  10.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color.litecoinSilver)
+                        )
+                }
+                Spacer()
                 
             }
             .padding([.leading, .trailing], mainPadding)
+            
+            
             
         }
     }
@@ -314,33 +323,35 @@ struct TransferAmountView_Previews: PreviewProvider {
                                                            store: Store())
     
     static var previews: some View {
-          
+        
         Group {
             
             TransferAmountView(viewModel: lwPlusviewModel,
                                sliderValue: .constant(0.5),
                                shouldShow: .constant(true))
-            .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
-            .previewDisplayName(DeviceType.Name.iPhoneSE2)
+                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
+                .previewDisplayName(DeviceType.Name.iPhoneSE2)
             
             TransferAmountView(viewModel: cardPlusviewModel,
                                sliderValue: .constant(0.0),
                                shouldShow: .constant(true))
-            .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
-            .previewDisplayName(DeviceType.Name.iPhone8)
+                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
+                .previewDisplayName(DeviceType.Name.iPhone8)
             
             TransferAmountView(viewModel: lwlcPlusviewModel,
                                sliderValue: .constant(0.5),
                                shouldShow: .constant(true))
                 .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
                 .previewDisplayName(DeviceType.Name.iPhoneSE2)
-
+            
             TransferAmountView(viewModel: lwlcPlusviewModel,
                                sliderValue: .constant(0.0),
                                shouldShow: .constant(true))
-            .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
-            .previewDisplayName(DeviceType.Name.iPhone12ProMax)
+                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
+                .previewDisplayName(DeviceType.Name.iPhone12ProMax)
         }
         
     }
 }
+
+
