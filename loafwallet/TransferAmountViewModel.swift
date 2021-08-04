@@ -18,8 +18,6 @@ class TransferAmountViewModel: ObservableObject {
     var walletType: WalletType
        
     //MARK: - Private Variables
-    private let keychain = Keychain(service: "com.litecoincard.service")
-    
     private let walletManager: WalletManager
     
     private let store: Store
@@ -80,14 +78,16 @@ class TransferAmountViewModel: ObservableObject {
     func transferToLitewallet(amount: Double,
                               address: String,
                               completion: @escaping () -> Void) {
-        print("XX Transfer to Litewallet:\n")
-        print("XX Address: \(address)")
-        print("XX Amount: \(amount) Ł")
         
+        let keychain = Keychain(service: "com.litecoincard.service")
+         
+        // Fetches the latest token and UserID
         guard let token = keychain["token"] ,
               let userID = keychain["userID"] else {
+            LWAnalytics.logEventWithParameters(itemName:._20210804_ERR_KLF)
             return
         }
+        
         
         PartnerAPI
             .shared
@@ -96,8 +96,33 @@ class TransferAmountViewModel: ObservableObject {
                                 ["amount": amount,
                                  "wallet_address": address]) { dict in
                 
-                //
+                
+                
+                 
             }
+        
+ 
+        // Successful Response from withdrawal
+        // /v1/user/:user_id/wallet/withdraw
+        //  {
+        //        "data": {
+        //            "available": 853.8918349,
+        //            "amount": 100,
+        //            "wallet_address": "GBX2NRTAWI674R6YB7URPAHB4VCEWB2ZZMOUOROW5XO256MY4ENGUP3M"
+        //        },
+        //        "meta": {
+        //            "version": "1.0.2",
+        //            "received": null,
+        //            "executed": 1549397120061
+        //        },
+        //        "response": {
+        //            "code": 200,
+        //            "errors": [
+        //
+        //            ],
+        //            "message": "OK"
+        //        }
+        //    }
         
     }
     
@@ -114,21 +139,18 @@ class TransferAmountViewModel: ObservableObject {
         /// Litewallet core calculates values in litoshis
         let litoshis = UInt64(amount * 100_000_000)
         
-        //////////// MOCK VALUE /////// : MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o
-        let payKerry = "MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o"
-        transaction = walletManager.wallet?.createTransaction(forAmount: litoshis, toAddress: payKerry)
+        transaction = walletManager.wallet?.createTransaction(forAmount: litoshis,
+                                                              toAddress: address)
         
         guard let kvStore = walletManager.apiClient?.kv else { return }
 
         self.sender = Sender(walletManager: self.walletManager, kvStore: kvStore, store: self.store)
         
         sender?.sendToCard(amount: litoshis,
-                           toAddress: payKerry) { didSend in
+                           toAddress: address) { didSend in
                  completion(didSend)
         }
-
     }
-    
 }
 
 

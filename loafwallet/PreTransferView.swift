@@ -15,7 +15,7 @@ struct PreTransferView: View {
     var viewModel: PreTransferViewModel
     
     @ObservedObject
-    var observableWallet: ObservableWallet
+    var observableWallets: ObservableWallets
     
     @Binding
     var wasTapped: Bool
@@ -31,7 +31,7 @@ struct PreTransferView: View {
     private let largeHeight: CGFloat = 125.0
     
     init(viewModel: PreTransferViewModel,
-         observableWallet: ObservableWallet,
+         observableWallets: ObservableWallets,
          walletType: Binding<WalletType>,
          wasTapped: Binding<Bool>) {
         
@@ -39,7 +39,7 @@ struct PreTransferView: View {
         
         _wasTapped = wasTapped
         
-        self.observableWallet = observableWallet
+        self.observableWallets = observableWallets
         
         self.viewModel = viewModel
     }
@@ -69,7 +69,7 @@ struct PreTransferView: View {
                                         LitewalletIconView()
                                     }
                                     
-                                    Text(viewModel.walletType == .litecoinCard ? "Litecoin Card" : "Litewallet")
+                                    Text(viewModel.walletType.nameLabel)
                                         .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                                         .foregroundColor(Color.liteWalletDarkBlue)
                                        
@@ -79,7 +79,10 @@ struct PreTransferView: View {
                                 
                                 //Balance label
                                 VStack {
-                                    Text("\(viewModel.balance) Ł")
+                                     
+                                    Text(viewModel.walletType == .litecoinCard ?
+                                            String(format:"%5.4f Ł", observableWallets.cardBalance) :
+                                            String(format:"%5.4f Ł", observableWallets.litewalletBalance))
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                                         .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .liteWalletDarkBlue)
                                         .multilineTextAlignment(.trailing)
@@ -90,8 +93,8 @@ struct PreTransferView: View {
                                 //Selection button
                                 VStack {
                                     Button(action: {
-                                        self.wasTapped = true
                                         self.walletType = viewModel.walletType
+                                        self.wasTapped = true
                                     }) {
                                         
                                         ZStack {
@@ -145,26 +148,26 @@ struct PreTransferView_Previews: PreviewProvider {
     
     static let walletManager = try! WalletManager(store: Store(), dbPath: nil)
     
-    static let observableWallet = ObservableWallet(store: Store(), walletManager: walletManager)
+    static let observableWallets = ObservableWallets(store: Store(), walletManager: walletManager, cardBalance: 85.0)
  
     static var previews: some View {
         
         Group {
             VStack {
                 PreTransferView(viewModel: lcViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: lwViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: zerolcViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: zerolwViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
                                 wasTapped: .constant(false))
                 Spacer()
@@ -175,19 +178,19 @@ struct PreTransferView_Previews: PreviewProvider {
             VStack {
                 
                 PreTransferView(viewModel: lcViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                  walletType: .constant(.litecoinCard),
                                  wasTapped: .constant(false))
                 PreTransferView(viewModel: lwViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: zerolcViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: zerolwViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
                                 wasTapped: .constant(false))
                 Spacer()
@@ -198,19 +201,19 @@ struct PreTransferView_Previews: PreviewProvider {
             VStack {
                 
                 PreTransferView(viewModel: lcViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: lwViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: zerolcViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
                                 wasTapped: .constant(false))
                 PreTransferView(viewModel: zerolwViewModel,
-                                observableWallet: observableWallet,
+                                observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
                                 wasTapped: .constant(false))
                 Spacer()

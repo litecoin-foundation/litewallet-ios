@@ -84,9 +84,8 @@ class RegistrationViewModel: ObservableObject {
                 guard let password = self.dataDictionary["password"] as? String else { return }
                 guard let email = self.dataDictionary["email"] as? String else { return }
                 
-                let cardService = "com.litecoincard.service"
-                let keychain = Keychain(service: cardService)
-                
+                let keychain = Keychain(service: "com.litecoincard.service")
+ 
                 keychain[email] = password
                 keychain["userID"] = userID
                 keychain["createdAt"] = createdAt

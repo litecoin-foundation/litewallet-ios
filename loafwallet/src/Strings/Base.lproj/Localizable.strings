@@ -1442,4 +1442,10 @@
 "LitecoinCard.Transfer.destinationAddress" = "Address";
 
 /* to */
-"Fragment.to" = "to"; 
+"Fragment.to" = "to";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin Card";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";

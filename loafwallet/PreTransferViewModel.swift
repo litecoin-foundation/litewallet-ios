@@ -32,6 +32,15 @@ enum WalletType: String {
                 return S.LitecoinCard.Transfer.litewalletBalance
         }
     }
+    
+    var nameLabel: String {
+        switch self {
+            case .litecoinCard:
+                return S.LitecoinCard.name
+            case .litewallet:
+                return S.Litewallet.name
+        }
+    }
 }
 
 class PreTransferViewModel: ObservableObject {

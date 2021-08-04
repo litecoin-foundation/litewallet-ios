@@ -155,8 +155,9 @@ struct CardLoggedInView: View {
                         PreTransferView(viewModel:
                                             PreTransferViewModel(walletType: .litewallet,
                                                                  balance: viewModel.litewalletBalance),
-                                        observableWallet: ObservableWallet(store: self.viewModel.store,
-                                                                           walletManager: self.viewModel.walletManager),
+                                        observableWallets: ObservableWallets(store: self.viewModel.store,
+                                                                             walletManager: self.viewModel.walletManager,
+                                                                             cardBalance: self.cardBalance),
                                         walletType: $currentWalletType,
                                         wasTapped: $didStartTransfer
                         ).padding(.bottom, 10.0)
@@ -164,8 +165,9 @@ struct CardLoggedInView: View {
                         PreTransferView(viewModel:
                                             PreTransferViewModel(walletType: .litecoinCard,
                                                                  balance: cardBalance),
-                                        observableWallet: ObservableWallet(store: self.viewModel.store,
-                                                                           walletManager: self.viewModel.walletManager),
+                                        observableWallets: ObservableWallets(store: self.viewModel.store,
+                                                                             walletManager: self.viewModel.walletManager,
+                                                                             cardBalance: self.cardBalance),
                                         walletType: $currentWalletType,
                                         wasTapped: $didStartTransfer
                         ).padding(.top, 10.0)

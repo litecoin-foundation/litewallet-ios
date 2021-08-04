@@ -57,6 +57,9 @@ enum CustomEvent: String {
     /// Generalized Error
     case _20200112_ERR = "ERROR"
     
+    /// Keychain Lookup
+    case _20210804_ERR_KLF = "ERROR_KEY_LOOKUP_FAILURE"
+    
     /// Started resync
     case _20200112_DSR = "DID_START_RESYNC"
     
@@ -98,7 +101,19 @@ enum CustomEvent: String {
       
     /// Ternio API Authenticate Enable 2FA change
     case _20210804_TAA2FAC = "TERNIO_API_AUTH_2FA_CHANGE"
+    
+    /// Ternio API Wallet details success
+    case _20210804_TAWDS = "TERNIO_API_WALLET_DETAILS_SUCCESS"
+    
+    /// Ternio API Login
+    case _20210804_TAULI = "TERNIO_API_USER_LOG_IN"
+    
+    /// Ternio API Logout
+    case _20210804_TAULO = "TERNIO_API_USER_LOG_OUT"
      
+    /// Ternio API withdrawal to Litewallet
+    case _20210804_TAWTL = "TERNIO_API_WITHDRAWAL_TO_LITEWALLET"
+    
     /// Heartbeat check If event even happens
     case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS" 
 }

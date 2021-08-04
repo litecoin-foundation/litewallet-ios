@@ -117,8 +117,14 @@ enum S {
         static let barItemTitle = NSLocalizedString("Receive.barItemTitle", value: "**Receive**", comment: "Receive Bar Item Title")
     }
     
+    //MARK: - Litewallet
+    enum Litewallet {
+        static let name = NSLocalizedString("Litewallet.name", value: "**Litewallet**", comment: "Litewallet name")
+    }
+    
    //MARK: - Litecoin Card
     enum LitecoinCard {
+        static let name = NSLocalizedString("LitecoinCard.name", value: "**Litecoin Card**", comment: "Card Bar Item Title")
         static let barItemTitle = NSLocalizedString("LitecoinCard.barItemTitle", value: "**Card**", comment: "Card Bar Item Title")
         static let login = NSLocalizedString("LitecoinCard.login", value: "**Login**", comment: "Login")
         static let failedlogin = NSLocalizedString("LitecoinCard.failed.login", value: "**Failed Login**", comment: "Failed Login") 

@@ -1399,6 +1399,9 @@
 /* to */
 "Fragment.to" = "";
 
+/* Card Bar Item Title */
+"LitecoinCard.name" = "";
+
 /* Transfer to card label */
 "LitecoinCard.Transfer.amountToCard" = "";
 
@@ -1425,3 +1428,6 @@
 
 /* Transfer title */
 "LitecoinCard.Transfer.title" = "";
+
+/* Litewallet name */
+"Litewallet.name" = "";

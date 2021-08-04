@@ -55,25 +55,21 @@ class CardViewModel: ObservableObject {
     /// Fetch Card Wallet details from the Ternio server
     /// - Parameter completion: All is well
     func fetchCardWalletDetails(completion: @escaping () -> Void) {
-        
-        let cardService = "com.litecoincard.service"
-        let keychain = Keychain(service: cardService)
-        
-        guard let token = (try? keychain.getString("token")) as? String else {
-            print("Error: Token not found")
+         
+        let keychain = Keychain(service: "com.litecoincard.service")
+          
+        // Fetches the latest token and UserID
+        guard let token = keychain["token"] ,
+              let userID = keychain["userID"] else {
+            LWAnalytics.logEventWithParameters(itemName:._20210804_ERR_KLF)
             return
         }
-        
-        guard let userID = (try? keychain.getString("userID")) as? String else {
-            print("Error: UserID not found")
-            return
-        }
-        
+         
         PartnerAPI.shared.getWalletDetails(userID: userID, token: token) { detailsDict in
             
             //Only receives the data element there is the metadata
             guard let data = detailsDict?["data"] as? [String: Any] else {
-                print("Error: Data dict not found")
+                LWAnalytics.logEventWithParameters(itemName:._20210405_TAWDF)
                 return
             }
             
@@ -87,6 +83,7 @@ class CardViewModel: ObservableObject {
                 
                 DispatchQueue.main.async { 
                     self.cardWalletDetails = walletDetails
+                    LWAnalytics.logEventWithParameters(itemName:._20210804_TAWDS)
                 }
                 
             } catch {

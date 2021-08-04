@@ -32,12 +32,12 @@ struct TransferAmountView: View {
     @Binding
     var sliderValue: Double
     
-    //MARK: - Public Variables
-    let mainPadding: CGFloat = 20.0
+    //MARK: - Private Variables
+    private let mainPadding: CGFloat = 20.0
     
-    let smallButtonSize: CGFloat = 25.0
+    private let smallButtonSize: CGFloat = 25.0
     
-    var transferAmountTo: String {
+    private var transferAmountTo: String {
         return viewModel.walletType == .litewallet ?
             S.LitecoinCard.Transfer.amountToCard :
             S.LitecoinCard.Transfer.amountToLitewallet
@@ -74,6 +74,7 @@ struct TransferAmountView: View {
     }
     
     private func increaseValue() {
+        
         //Only take action when value is less than the current balance
         if (transferAmount < viewModel.currentBalance) {
             transferAmount = transferAmount + 0.001
@@ -83,6 +84,7 @@ struct TransferAmountView: View {
     }
     
     private func decreaseValue() {
+        
         //Only take action when value is more than 0.001
         if transferAmount > 0.001 {
             transferAmount = transferAmount - 0.001
@@ -117,7 +119,7 @@ struct TransferAmountView: View {
                                     didStartTransferringView = didSend
                                 }
                                 
-                                //Transfer to Litewallet
+                            //Transfer to Litewallet
                             } else if viewModel.walletType == .litecoinCard {
                                 
                                 viewModel.transferToLitewallet(amount: viewModel.transferAmount,
@@ -296,7 +298,6 @@ struct TransferAmountView_Previews: PreviewProvider {
     static let walletManager = try! WalletManager(store: Store())
     
     static let lwPlusviewModel = TransferAmountViewModel(walletType: .litewallet,
-                                                         walletStatus: .cardWalletEmpty,
                                                          litewalletBalance: 520.0,
                                                          litewalletAddress: "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe",
                                                          cardBalance: 0.0,
@@ -304,20 +305,18 @@ struct TransferAmountView_Previews: PreviewProvider {
                                                          walletManager: walletManager,
                                                          store: Store())
     
-    static let cardPlusviewModel = TransferAmountViewModel(walletType: .litecoinCard,
-                                                           walletStatus: .litewalletEmpty,
-                                                           litewalletBalance: 0.0,
+    static let lwlcPlusviewModel = TransferAmountViewModel(walletType: .litewallet,
+                                                           litewalletBalance: 520.0,
                                                            litewalletAddress: "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe",
-                                                           cardBalance: 0.0555,
+                                                           cardBalance: 0.658,
                                                            cardAddress: "MJ4W7NZya4SzE7R6xpEVdamGCimaQYPiWu",
                                                            walletManager: walletManager,
                                                            store: Store())
     
-    static let lwlcPlusviewModel = TransferAmountViewModel(walletType: .litewallet,
-                                                           walletStatus: .cardWalletEmpty,
-                                                           litewalletBalance: 520.0,
+    static let cardPlusviewModel = TransferAmountViewModel(walletType: .litecoinCard,
+                                                           litewalletBalance: 0.0,
                                                            litewalletAddress: "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe",
-                                                           cardBalance: 0.658,
+                                                           cardBalance: 0.0555,
                                                            cardAddress: "MJ4W7NZya4SzE7R6xpEVdamGCimaQYPiWu",
                                                            walletManager: walletManager,
                                                            store: Store())
@@ -341,14 +340,9 @@ struct TransferAmountView_Previews: PreviewProvider {
             TransferAmountView(viewModel: lwlcPlusviewModel,
                                sliderValue: .constant(0.5),
                                shouldShow: .constant(true))
-                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
+                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneXSMax))
                 .previewDisplayName(DeviceType.Name.iPhoneSE2)
-            
-            TransferAmountView(viewModel: lwlcPlusviewModel,
-                               sliderValue: .constant(0.0),
-                               shouldShow: .constant(true))
-                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
-                .previewDisplayName(DeviceType.Name.iPhone12ProMax)
+        
         }
         
     }

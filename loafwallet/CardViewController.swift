@@ -35,6 +35,7 @@ class CardViewController: UIViewController {
         
         guard let viewModel = self.viewModel else {
             NSLog("ERROR: CardViewModel not loaded")
+            LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR) 
             return
         }
      
@@ -69,11 +70,11 @@ class CardViewController: UIViewController {
      override func viewDidLoad() {
         
         // Preparation values for the Card view model
-        guard let walletManager = self.walletManager else {
-            return
-        }
-        
-        guard let store = self.store else {
+        guard let walletManager = self.walletManager,
+              let store = self.store else {
+            
+            LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+            
             return
         }
           
@@ -88,8 +89,10 @@ class CardViewController: UIViewController {
                      object: nil,
                      queue: nil) { _ in
             
+            LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULI)
+
             self.viewModel?.fetchCardWalletDetails {
-                print("Logged in updated wallet values")
+                LWAnalytics.logEventWithParameters(itemName: ._20210804_TAWDS)
             }
 			
             self.updateLoginStatusFromViewModel()
@@ -100,6 +103,9 @@ class CardViewController: UIViewController {
         .addObserver(forName: NSNotification.Name.LitecoinCardLogoutNotification,
                      object: nil,
                      queue: nil) { _ in
+            
+            LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULO)
+            
             self.updateLoginStatusFromViewModel()
         }
         
