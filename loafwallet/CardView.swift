@@ -138,7 +138,7 @@ struct CardView: View {
                     
                     HStack {
                         
-                        Toggle("XXEnable 2FA for transfers",
+                        Toggle((loginModel.shouldEnable2FA ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff),
                                isOn: $loginModel.shouldEnable2FA)
                             .foregroundColor(.gray)
                             .font(Font(UIFont.barlowRegular(size: 16.0)))

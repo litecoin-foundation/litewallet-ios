@@ -280,6 +280,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "處理速度";
 
+/* Confirm */
+"Fragment.confirm" = "確認";
+
 /* Or */
 "Fragment.or" = "要么";
 
@@ -388,6 +391,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Litecoin卡測試版";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "輸入代碼";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "輸入最近發送到您的萊特幣卡帳戶電子郵件的代碼。";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "登錄失敗";
 
@@ -489,6 +498,12 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "輸入與您的Litecoin卡帳戶關聯的電子郵件地址，並查找包含重置說明的電子郵件。";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA 未啟用";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "啟用 2FA";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "訪問https://litecoin.dashboard.getblockcard.com/password/forgot重設密碼。";
@@ -1380,6 +1395,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
-
-/* Confirm */
-"Fragment.confirm" = "";

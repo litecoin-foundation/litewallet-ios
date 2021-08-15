@@ -391,6 +391,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Enter Code";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Enter the code that was recently sent to your Litecoin Card account email.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Login failed";
 
@@ -492,6 +498,12 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Enter the email address associated with your Litecoin Card account & look for an email with reset instructions.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Not Enabled";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA Enabled";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visit https://litecoin.dashboard.getblockcard.com/password/forgot\nto reset your password.";

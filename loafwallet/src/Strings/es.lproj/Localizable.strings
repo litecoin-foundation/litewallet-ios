@@ -281,6 +281,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Velocidad de procesamiento";
 
+/* Confirm */
+"Fragment.confirm" = "Confirmar";
+
 /* Or */
 "Fragment.or" = "o";
 
@@ -389,6 +392,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Tarjeta Litecoin Beta";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Introduzca el código";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Ingrese el código que se envió recientemente al correo electrónico de su cuenta de tarjeta Litecoin.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "error de inicio de sesion";
 
@@ -490,6 +499,12 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Ingrese la dirección de correo electrónico asociada con su cuenta de tarjeta Litecoin y busque un correo electrónico con instrucciones para restablecer.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA no habilitado";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA habilitado";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visita https://litecoin.dashboard.getblockcard.com/password/forgot para restablecer tu contraseña.";
@@ -1381,6 +1396,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* Confirm */
-"Fragment.confirm" = "";

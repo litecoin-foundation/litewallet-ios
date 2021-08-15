@@ -48,12 +48,12 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                         }
                         .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
                         
-                        Text("XXXEnter Code")
+                        Text(S.LitecoinCard.enterCode)
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
                             .padding(.bottom, 8)
                             .foregroundColor(Color.white)
                          
-                        Text("XXX Enter the code that was sent to your Litecoin Card account email.")
+                        Text(S.LitecoinCard.enterCodeDetail)
                             .font(Font(UIFont.barlowRegular(size: 19.0)))
                             .foregroundColor(Color.white)
                             .padding([.leading, .trailing], 20)

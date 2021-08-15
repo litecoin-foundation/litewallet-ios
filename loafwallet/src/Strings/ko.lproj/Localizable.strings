@@ -280,6 +280,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "처리 속도";
 
+/* Confirm */
+"Fragment.confirm" = "확인하다";
+
 /* Or */
 "Fragment.or" = "또는";
 
@@ -388,6 +391,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "라이트 코인 카드 베타";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "코드를 입력";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "최근에 Litecoin 카드 계정 이메일로 전송된 코드를 입력하십시오.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "로그인 실패";
 
@@ -489,6 +498,12 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "라이트 코인 카드 계정과 연결된 이메일 주소를 입력하고 재설정 지침이있는 이메일을 찾으십시오.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA 비활성화";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA 활성화";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "https://litecoin.dashboard.getblockcard.com/password/forgot을 방문하여 암호를 재설정하십시오.";
@@ -1380,6 +1395,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
-
-/* Confirm */
-"Fragment.confirm" = "";

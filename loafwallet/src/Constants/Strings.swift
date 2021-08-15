@@ -133,7 +133,12 @@ enum S {
         static let cardBalance = NSLocalizedString("LitecoinCard.cardBalance", value: "", comment: "Card balance")
         static let registrationSuccess = NSLocalizedString("LitecoinCard.registrationSuccess", value: "", comment: "Registration success")
         static let registrationFailure = NSLocalizedString("LitecoinCard.registrationFailure", value: "", comment: "Registration failure")
-    
+        
+        static let enterCode = NSLocalizedString("LitecoinCard.enterCode", value: "", comment: "Enter code")
+        static let enterCodeDetail = NSLocalizedString("LitecoinCard.enterCode.detail", value: "", comment: "Enter code details")
+        static let twoFAOn = NSLocalizedString("LitecoinCard.twoFAOn", value: "", comment: "Message when 2FA is on")
+        static let twoFAOff = NSLocalizedString("LitecoinCard.twoFAOff", value: "", comment: "Message when 2FA is off")
+
         //MARK: - Disclaimer
         enum Disclaimer {
             static let title = NSLocalizedString("LitecoinCard.Disclaimer.title", value: "Beta Testing Litecoin Card", comment: "Beta Testing Litecoin Card")
