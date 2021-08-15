@@ -720,5 +720,7 @@ enum S {
     
     enum Fragments {
         static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or")
+        static let confirm = NSLocalizedString("Fragment.confirm", value: "**confirm**", comment: "Confirm")
+
     }
 }

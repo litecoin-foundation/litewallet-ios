@@ -82,5 +82,3 @@ struct CardV1ToastView_Previews: PreviewProvider {
         }
     }
 }
-
-

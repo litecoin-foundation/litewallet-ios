@@ -280,6 +280,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Processing Speed";
 
+/* Confirm */
+"Fragment.confirm" = "confirm";
+
 /* Or */
 "Fragment.or" = "or";
 

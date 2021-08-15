@@ -1380,3 +1380,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
+
+/* Confirm */
+"Fragment.confirm" = "";
