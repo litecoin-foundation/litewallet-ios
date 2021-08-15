@@ -31,18 +31,43 @@ class LoginViewModel: ObservableObject {
     var didCompleteLogin: Bool = false
     
     @Published
+    var processMessage: String = S.LitecoinCard.login + " ..."
+    
+    @Published
     var shouldEnable2FA: Bool = false {
         
         didSet {
             
-            // DEV: Using the Bool > Int > String as a quick hack
-            // Since the Keychain Access framework doesnt have a bool value
+            // Using the Bool > Int > String as a quick hack
+            // since the Keychain Access framework doesnt have a bool value
             
             if shouldEnable2FA {
                 keychain["shouldEnable2FA"] = "1"
             }
             else {
                 keychain["shouldEnable2FA"] = "0"
+            }
+            
+            // Update users 2FA preference
+            if let userID = keychain["userID"],
+               let token = keychain["token"] {
+                
+                PartnerAPI.shared.enable2FA(userID: userID,
+                                            token: token,
+                                            shouldEnable: shouldEnable2FA) { responseDict in
+                      
+                    if let response = responseDict?["response"] as? [String: Any],
+                       let code = response["code"] as? Int,
+                       code == 200 {
+                        
+                        print("Enabled Changed")
+                        
+                        LWAnalytics.logEventWithParameters(itemName: ._20210804_TAA2FAC)
+                        
+                    } else {
+                        print("ERROR: Failed to Enabled FA Changed : This should never happen")
+                    }
+                }
             }
         }
     }
@@ -59,30 +84,6 @@ class LoginViewModel: ObservableObject {
         if let shouldEnable = (keychain["shouldEnable2FA"] as
                                 NSString?)?.boolValue {
             shouldEnable2FA = shouldEnable
-        }
-    }
-      
-    func startSecondLoginWithToken(completion: @escaping () -> ()) {
-        completion()
-    }
- 
-    func toggle2FA(completion: @escaping ([String: Any]) -> ()) {
-        
-        // Description: Path when user wants 2FA
-        // shouldEnable2FA = true -> 2FA Enabled
-        // shouldEnable2FA = false -> 2FA Disabled
-        // Only works when the token is valid
- 
-        if let userID = keychain["userID"],
-           let token = keychain["token"] {
-            
-            PartnerAPI.shared.enable2FA(userID: userID,
-                                        token: token,
-                                        shouldEnable: shouldEnable2FA) { responseDict in
-                if let response = responseDict {
-                    completion(response)
-                }
-            }
         }
     }
       
@@ -104,7 +105,9 @@ class LoginViewModel: ObservableObject {
             if let error = dataDictionary?["error"] as? String {
                 
                 DispatchQueue.main.async {
+                    
                     print("ERROR: Login failure: \(error.description)")
+        
                     self.isLoggedIn = false
                     self.didCompleteLogin = false
                     completion(self.didCompleteLogin)
@@ -120,7 +123,7 @@ class LoginViewModel: ObservableObject {
                 self.keychain[email] = password
                 self.keychain["userID"] = userID
                 self.keychain["token"] = token
-                 
+                                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     
                     self.isLoggedIn = true
