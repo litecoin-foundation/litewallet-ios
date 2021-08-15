@@ -15,18 +15,21 @@ struct LoginCardAlertView<Presenting>: View where Presenting: View {
     @Binding
     var didFail: Bool
     
-    let presenting: Presenting
-    
+    @Binding
     var mainMessage: String
     
+    let presenting: Presenting
+     
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             HStack{ Spacer()
                 ZStack {
+                    
                         self.presenting.disabled(isShowingLoginAlert)
                     
                     VStack {
-                        Text(didFail ? S.LitecoinCard.failedlogin : self.mainMessage)
+                        
+                        Text(self.mainMessage)
                             .padding()
                             .font(Font(UIFont.customMedium(size: 16.0)))
                             .foregroundColor(Color(UIColor.liteWalletBlue))
@@ -75,7 +78,7 @@ struct LoginCardAlertView_Previews: PreviewProvider {
             Text("").padding(.all, 10)
                 .loginAlertView(isShowingLoginAlert: .constant(true),
                                 didFail: .constant(true),
-                                message: "Login...")
+                                message: .constant("Login..."))
             Spacer()
         }
     }

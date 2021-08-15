@@ -20,11 +20,11 @@ extension View {
     /// - Returns: a constructed View
     func loginAlertView(isShowingLoginAlert: Binding<Bool>,
                         didFail: Binding<Bool>,
-                        message: String) -> some View {
+                        message: Binding<String>) -> some View {
         loafwallet.LoginCardAlertView(isShowingLoginAlert: isShowingLoginAlert,
                                       didFail: didFail,
-                                      presenting: self,
-                                      mainMessage: message)
+                                      mainMessage: message,
+                                      presenting: self)
     }
     
     func forgotPasswordView(isShowingForgot: Binding<Bool>,

@@ -15,9 +15,9 @@ class Enter2FACodeViewModel: ObservableObject {
     //Description:
     // The setter is used to make sure the field has only 6 digits
     let characterLimit: Int
-      
+    
     @Published var tokenString = "" {
-         
+        
         didSet {
             if tokenString.count > characterLimit &&
                 oldValue.count <= characterLimit {
@@ -38,8 +38,7 @@ class Enter2FACodeViewModel: ObservableObject {
     }
     
     func didConfirmToken(completion: @escaping (String) -> Void) {
-       print("XXX didConfirmToken \(tokenString)")
-
-           completion(tokenString)
+        completion(tokenString)
     }
-} 
+}
+

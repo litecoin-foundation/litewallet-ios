@@ -57,7 +57,7 @@ struct CardView: View {
     
     @State
     var isEmailValid: Bool = false
-      
+    
     init(viewModel: CardViewModel) {
         self.viewModel = viewModel
     }
@@ -140,10 +140,10 @@ struct CardView: View {
                         
                         Toggle("XXEnable 2FA for transfers",
                                isOn: $loginModel.shouldEnable2FA)
-                        .foregroundColor(.gray)
-                        .font(Font(UIFont.barlowRegular(size: 16.0)))
-                        .padding([.leading, .trailing], 20)
-                        .padding(.top, 10)
+                            .foregroundColor(.gray)
+                            .font(Font(UIFont.barlowRegular(size: 16.0)))
+                            .padding([.leading, .trailing], 20)
+                            .padding(.top, 10)
                         
                     }
                     
@@ -173,37 +173,40 @@ struct CardView: View {
                             // 2. Make discardable loginUser Call
                             // 3. Make loginUser again with the token
                             
-                            
                             if loginModel.shouldEnable2FA {
-                                
                                 
                                 //Discardable result API sends Code to email
                                 loginModel.login { _ in }
-                                 
+                                
+                                //Shows the 2FA Modal
                                 shouldShowEnable2FAModal = true
                             }
                             else {
                                 
+                                //Shows the Login Modal
                                 shouldShowLoginModal = true
-
+                                
+                                //Login without 2FA
                                 loginModel.login { didLogin in
-
+                                    
                                     if didLogin {
+                                        
                                         viewModel.isLoggedIn = true
                                         shouldShowLoginModal = false
-                                        NotificationCenter.default.post(name: .LitecoinCardLoginNotification, object: nil,
+                                        NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
+                                                                        object: nil,
                                                                         userInfo: nil)
                                     } else {
                                         viewModel.isLoggedIn = true
                                         didFailToLogin = true
-
+                                        
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                                             shouldShowLoginModal = false
                                         }
                                     }
                                 }
-                            } 
-                             
+                            }
+                            
                         }) {
                             
                             Text(S.LitecoinCard.login)
@@ -250,29 +253,32 @@ struct CardView: View {
                 animatedViewModel.dropOffset = 0
             }.onReceive(twoFAviewModel.$tokenString, perform: { confirmedToken in
                 
-                if twoFAviewModel.didSetToken && confirmedToken.count == 6 {
-                    print("XXX Confrimed Token \(confirmedToken)")
+                if twoFAviewModel.didSetToken &&
+                    confirmedToken.count == 6 {
                     
                     loginModel.tokenString = confirmedToken
                     shouldShowLoginModal = true
-                                                    loginModel.login { didLogin in
                     
-                                                        if didLogin {
-                                                            shouldShowLoginModal = false
-                                                            loginModel.toggle2FA { response in
-                                                                print("XXX\(response)")
-                                                            }
-                                                        } else {
-                                                            viewModel.isLoggedIn = true
-                                                            didFailToLogin = true
-                    
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                                                                shouldShowLoginModal = false
-                                                            }
-                                                        }
-                                                    }
-                    
-                    
+                    loginModel.login { didLogin in
+                        
+                        if didLogin {
+                            
+                            viewModel.isLoggedIn = true
+                            shouldShowLoginModal = false
+                            
+                            NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
+                                                            object: nil,
+                                                            userInfo: nil)
+                        } else {
+                            
+                            viewModel.isLoggedIn = true
+                            didFailToLogin = true
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                                shouldShowLoginModal = false
+                            }
+                        }
+                    }
                 }
             })
             .onAppear(){
@@ -286,7 +292,7 @@ struct CardView: View {
                                 message: S.LitecoinCard.forgotPassword)
             .loginAlertView(isShowingLoginAlert: $shouldShowLoginModal,
                             didFail: $didFailToLogin,
-                            message: S.LitecoinCard.login)
+                            message: $loginModel.processMessage)
             .registeredAlertView(shouldStartRegistering: $registrationModel.isRegistering,
                                  didRegister: $registrationModel.didRegister,
                                  data: registrationModel.dataDictionary,
@@ -323,4 +329,5 @@ struct CardView_Previews: PreviewProvider {
         }
     }
 }
+
 

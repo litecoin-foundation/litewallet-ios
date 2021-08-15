@@ -10,7 +10,6 @@ import SwiftUI
 
 struct Enter2FACodeView<Presenting>: View where Presenting: View {
     
-    
     //MARK: - Combine Variables
     @ObservedObject
     var twoFAViewModel: Enter2FACodeViewModel
@@ -84,15 +83,17 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                             
                             // Confirm button
                             Button(action: {
-                            
-                                
+                             
                                 twoFAViewModel.didConfirmToken { token in
+                                    
                                     twoFAViewModel.tokenString = token
+                                    
                                     if twoFAViewModel.tokenString.count == 6 {
+                                        
                                         twoFAViewModel.didSetToken = true
-
+                                        
+                                        shouldShowEnter2FAView = false
                                     }
-                                    shouldShowEnter2FAView = false
                                 }
                                 
                             }) {
