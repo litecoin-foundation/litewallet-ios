@@ -19,6 +19,8 @@ class CardViewController: UIViewController {
     
     var cardLoggedInView: CardLoggedInView?
     
+    var cardLoggedInNoTransferView: CardLoggedInNoTransferView?
+ 
     var cardView: CardView?
     
     var walletManager: WalletManager?

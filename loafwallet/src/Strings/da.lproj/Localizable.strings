@@ -286,6 +286,12 @@
 /* Or */
 "Fragment.or" = "eller";
 
+/* sorry */
+"Fragment.sorry" = "Undskyld";
+
+/* to */
+"Fragment.to" = "til";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORIE";
 
@@ -379,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Kortbalance";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Log ud og aktiver 2FA for at tillade overførsler";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registrering og login\n- Tilgængelig kortsaldo\n- Nulstil adgangskode\n- Ingen overførsel til Litewallet\n- Kun USA";
 
@@ -408,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Log ud";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin -kort";
 
 /* Register */
 "LitecoinCard.registerCard" = "Tilmeld";
@@ -499,6 +511,33 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Indtast den e-mail-adresse, der er knyttet til din Litecoin Card-konto, og se efter en e-mail med nulstillingsinstruktioner.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Overfør til kort";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Overførsel til Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Vælg den overførende tegnebog:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adresse";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Skub for at indstille overførselsbeløb";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Start overførsel";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Overførsel";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Der opstod en fejl. Skift venligst 2FA til *Aktiveret*, indtast den e -mailede kode, og prøv igen.";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA Ikke aktiveret";
 
@@ -507,6 +546,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Besøg https://litecoin.dashboard.getblockcard.com/password/forgot for at nulstille din adgangskode.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Placeringstjenester er deaktiveret.";
@@ -1395,39 +1437,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d af %2$d";
-
-/* to */
-"Fragment.to" = "";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "";
-
-/* Enter amount label */
-"LitecoinCard.Transfer.enterAmount" = "";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "";
-
-/* Litewallet name */
-"Litewallet.name" = "";

@@ -1423,9 +1423,6 @@
 /* Description of action */
 "LitecoinCard.Transfer.description" = "Choose the transferring wallet:";
 
-/* Enter amount label */
-"LitecoinCard.Transfer.enterAmount" = "Enter amount";
-
 /* Start transfer label */
 "LitecoinCard.Transfer.startTransfer" = "Start transfer";
 
@@ -1435,7 +1432,7 @@
 /* Transfer to Litewallet label */
 "LitecoinCard.Transfer.amountToLitewallet" = "Transfer to Litewallet";
 
-/* Set transfer amount label */ 
+/* Set transfer amount label */
 "LitecoinCard.Transfer.setAmount" = "Slide to set transfer amount";
 
 /* Destination address label */
@@ -1449,3 +1446,12 @@
 
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
+
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Logout & Enable 2FA to allow Transfers";
+
+/* sorry */
+"Fragment.sorry" = "sorry";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "There was an error. Please toggle 2FA to *Enabled*, enter the emailed code, and try again.";

@@ -283,7 +283,6 @@ struct CardView: View {
             .onAppear(){
                 didShowCardView = true
             }
-            .cardV1ToastView(isShowingCardToast: $didShowCardView)
             .animation(.easeOut)
             .transition(.scale)
             .forgotPasswordView(isShowingForgot: $didTapIForgot,
@@ -313,8 +312,7 @@ struct CardView_Previews: PreviewProvider {
 	
     static let walletManager = MockSeeds.walletManager
 
-    static let viewModel = CardViewModel(walletManager: walletManager,
-                                         store: Store())
+    static let viewModel = CardViewModel(walletManager: walletManager, store: Store())
       
     static var previews: some View {
         

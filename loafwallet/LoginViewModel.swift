@@ -35,7 +35,7 @@ class LoginViewModel: ObservableObject {
      
     @Published 
     var shouldEnable2FA: Bool = false {
-        
+         
         didSet {
             
             // Using the Bool > Int > String as a quick hack
@@ -48,27 +48,7 @@ class LoginViewModel: ObservableObject {
                 keychain["shouldEnable2FA"] = "0"
             }
             
-            // Update users 2FA preference
-            if let userID = keychain["userID"],
-               let token = keychain["token"] {
-                
-                PartnerAPI.shared.enable2FA(userID: userID,
-                                            token: token,
-                                            shouldEnable: shouldEnable2FA) { responseDict in
-                      
-                    if let response = responseDict?["response"] as? [String: Any],
-                       let code = response["code"] as? Int,
-                       code == 200 {
-                        
-                        print("Enabled Changed")
-                        
-                        LWAnalytics.logEventWithParameters(itemName: ._20210804_TAA2FAC)
-                        
-                    } else {
-                        print("ERROR: Failed to Enabled FA Changed : This should never happen")
-                    }
-                }
-            }
+            update2FAPreference()
         }
     }
 
@@ -83,7 +63,42 @@ class LoginViewModel: ObservableObject {
         
         if let shouldEnable = (keychain["shouldEnable2FA"] as
                                 NSString?)?.boolValue {
-            shouldEnable2FA = shouldEnable
+            
+            if shouldEnable != shouldEnable2FA {
+                
+                shouldEnable2FA = shouldEnable
+                
+                update2FAPreference()
+                
+                LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+                                                   properties: ["ERROR":"Mismatch from 2FA User default"])
+                 
+            }
+        }
+    }
+    
+    private func update2FAPreference() {
+        
+        // Update users 2FA preference
+        if let userID = keychain["userID"],
+           let token = keychain["token"] {
+            
+            PartnerAPI.shared.enable2FA(userID: userID,
+                                        token: token,
+                                        shouldEnable: shouldEnable2FA) { responseDict in
+                
+                if let response = responseDict?["response"] as? [String: Any],
+                   let code = response["code"] as? Int,
+                   code == 200 {
+                    
+                    print("Enabled Changed")
+                    
+                    LWAnalytics.logEventWithParameters(itemName: ._20210804_TAA2FAC)
+                    
+                } else {
+                    print("ERROR: Failed to Enabled FA Changed : This should never happen")
+                }
+            }
         }
     }
 	
@@ -96,10 +111,10 @@ class LoginViewModel: ObservableObject {
         //Turn on the modal
         self.doShowModal = false
         
-        let credentials: [String: Any] = ["email": emailString,
+        var credentials: [String: Any] = ["email": emailString,
                                           "password": passwordString,
                                           "token": tokenString]
-
+        
          PartnerAPI.shared.loginUser(credentials: credentials) { dataDictionary in
             
             if let error = dataDictionary?["error"] as? String {

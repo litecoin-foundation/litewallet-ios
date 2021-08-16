@@ -286,6 +286,12 @@
 /* Or */
 "Fragment.or" = "要么";
 
+/* sorry */
+"Fragment.sorry" = "對不起";
+
+/* to */
+"Fragment.to" = "到";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "歷史";
 
@@ -379,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "卡餘額";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "註銷並啟用 2FA 以允許傳輸";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "-註冊和登錄\n-可用卡餘額\n-重置密碼\n-不能轉移到Litewallet\n-僅限美國";
 
@@ -408,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "登出";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "萊特幣卡";
 
 /* Register */
 "LitecoinCard.registerCard" = "寄存器";
@@ -499,6 +511,33 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "輸入與您的Litecoin卡帳戶關聯的電子郵件地址，並查找包含重置說明的電子郵件。";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "轉入卡";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "轉移到Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "選擇轉賬錢包：";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "地址";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "輕錢包餘額";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "滑動設置轉賬金額";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "開始傳輸";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "轉移";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "有一個錯誤。 請將 2FA 切換為 *Enabled*，輸入電子郵件代碼，然後重試。";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA 未啟用";
 
@@ -507,6 +546,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "訪問https://litecoin.dashboard.getblockcard.com/password/forgot重設密碼。";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "定位服務已停用。";
@@ -1395,39 +1437,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
-
-/* to */
-"Fragment.to" = "";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "";
-
-/* Enter amount label */
-"LitecoinCard.Transfer.enterAmount" = "";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "";
-
-/* Litewallet name */
-"Litewallet.name" = "";

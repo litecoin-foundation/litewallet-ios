@@ -30,10 +30,13 @@ struct PreTransferView: View {
     
     private let largeHeight: CGFloat = 125.0
     
+    var twoFactorEnabled: Bool = false
+    
     init(viewModel: PreTransferViewModel,
          observableWallets: ObservableWallets,
          walletType: Binding<WalletType>,
-         wasTapped: Binding<Bool>) {
+         wasTapped: Binding<Bool>,
+         twoFactorEnabled: Bool) {
         
         _walletType = walletType
         
@@ -42,6 +45,8 @@ struct PreTransferView: View {
         self.observableWallets = observableWallets
         
         self.viewModel = viewModel
+        
+        self.twoFactorEnabled = twoFactorEnabled
     }
     
     var body: some View {
@@ -86,12 +91,16 @@ struct PreTransferView: View {
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                                         .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .liteWalletDarkBlue)
                                         .multilineTextAlignment(.trailing)
-                                        .font(Font(UIFont.barlowRegular(size: 20.0)))
-                                        .padding(.trailing, 5.0)
+                                        .font(Font(twoFactorEnabled ? UIFont.barlowRegular(size: 20.0) : UIFont.barlowBold(size: 20.0)))
+                                        .padding(.trailing, twoFactorEnabled ? 5.0 : 40.0)
+
                                 }
                                 
                                 //Selection button
+                                
+                                if twoFactorEnabled {
                                 VStack {
+                                    
                                     Button(action: {
                                         self.walletType = viewModel.walletType
                                         self.wasTapped = true
@@ -119,6 +128,8 @@ struct PreTransferView: View {
                                 .frame(height: largeHeight,
                                        alignment: .center)
                                 .padding(.trailing, mainPadding)
+                                
+                            }
                             }
                             
                         )
@@ -157,19 +168,23 @@ struct PreTransferView_Previews: PreviewProvider {
                 PreTransferView(viewModel: lcViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 PreTransferView(viewModel: lwViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: true)
                 PreTransferView(viewModel: zerolcViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: true)
                 PreTransferView(viewModel: zerolwViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 Spacer()
             }
             .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
@@ -180,19 +195,23 @@ struct PreTransferView_Previews: PreviewProvider {
                 PreTransferView(viewModel: lcViewModel,
                                 observableWallets: observableWallets,
                                  walletType: .constant(.litecoinCard),
-                                 wasTapped: .constant(false))
+                                 wasTapped: .constant(false),
+                                 twoFactorEnabled: false)
                 PreTransferView(viewModel: lwViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 PreTransferView(viewModel: zerolcViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 PreTransferView(viewModel: zerolwViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 Spacer()
             }
             .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
@@ -203,19 +222,23 @@ struct PreTransferView_Previews: PreviewProvider {
                 PreTransferView(viewModel: lcViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 PreTransferView(viewModel: lwViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 PreTransferView(viewModel: zerolcViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 PreTransferView(viewModel: zerolwViewModel,
                                 observableWallets: observableWallets,
                                 walletType: .constant(.litewallet),
-                                wasTapped: .constant(false))
+                                wasTapped: .constant(false),
+                                twoFactorEnabled: false)
                 Spacer()
             }
             .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))

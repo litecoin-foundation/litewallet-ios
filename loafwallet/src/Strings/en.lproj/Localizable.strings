@@ -286,6 +286,9 @@
 /* Or */
 "Fragment.or" = "or";
 
+/* sorry */
+"Fragment.sorry" = "sorry";
+
 /* to */
 "Fragment.to" = "to";
 
@@ -381,6 +384,9 @@
 
 /* Card balance */
 "LitecoinCard.cardBalance" = "Card balance";
+
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Logout & Enable 2FA to allow Transfers";
 
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registration & Login\n- Available card balance\n- Reset password\n- No transfer to Litewallet\n- US Only";
@@ -504,12 +510,6 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Enter the email address associated with your Litecoin Card account & look for an email with reset instructions.";
- 
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA Not Enabled";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA Enabled";
 
 /* Transfer to card label */
 "LitecoinCard.Transfer.amountToCard" = "Transfer to Card";
@@ -523,9 +523,6 @@
 /* Destination address label */
 "LitecoinCard.Transfer.destinationAddress" = "Address";
 
-/* Enter amount label */
-"LitecoinCard.Transfer.enterAmount" = "Enter amount";
-
 /* Litewallet balance label */
 "LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
 
@@ -536,7 +533,16 @@
 "LitecoinCard.Transfer.startTransfer" = "Start transfer";
 
 /* Transfer title */
-"LitecoinCard.Transfer.title" = "Transfer"; 
+"LitecoinCard.Transfer.title" = "Transfer";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "There was an error. Please toggle 2FA to *Enabled* , enter the emailed code, and try again.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Not Enabled";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA Enabled";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visit https://litecoin.dashboard.getblockcard.com/password/forgot\nto reset your password.";

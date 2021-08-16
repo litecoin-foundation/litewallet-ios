@@ -30,6 +30,8 @@ class CardViewModel: ObservableObject {
     var walletManager: WalletManager
     
     var store: Store
+    
+    var twoFactorEnabled: Bool?
      
     init(walletManager: WalletManager,
          store: Store) {

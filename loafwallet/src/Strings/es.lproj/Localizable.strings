@@ -287,6 +287,12 @@
 /* Or */
 "Fragment.or" = "o";
 
+/* sorry */
+"Fragment.sorry" = "Lo siento";
+
+/* to */
+"Fragment.to" = "para";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORIA";
 
@@ -380,6 +386,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Balance de tarjeta";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Cerrar sesión y habilitar 2FA para permitir transferencias";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registro e inicio de sesión\n- Saldo de tarjeta disponible\n- Restablecer contraseña\n- Sin transferencia a Litewallet\n- Estados Unidos solamente";
 
@@ -409,6 +418,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Cerrar sesión";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Tarjeta Litecoin";
 
 /* Register */
 "LitecoinCard.registerCard" = "Registrarse";
@@ -500,6 +512,34 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Ingrese la dirección de correo electrónico asociada con su cuenta de tarjeta Litecoin y busque un correo electrónico con instrucciones para restablecer.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Transferir a tarjeta";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Transferencia a Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Elija la billetera de transferencia:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Dirección";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Saldo de Litewallet
+";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Desliza para establecer el monto de la transferencia";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Iniciar transferencia";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Transferir";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Hubo un error. Cambie 2FA a * Habilitado *, ingrese el código enviado por correo electrónico y vuelva a intentarlo.";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA no habilitado";
 
@@ -508,6 +548,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Visita https://litecoin.dashboard.getblockcard.com/password/forgot para restablecer tu contraseña.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Los servicios de ubicación están desactivados.";
@@ -1396,39 +1439,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* to */
-"Fragment.to" = "";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "";
-
-/* Enter amount label */
-"LitecoinCard.Transfer.enterAmount" = "";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "";
-
-/* Litewallet name */
-"Litewallet.name" = "";

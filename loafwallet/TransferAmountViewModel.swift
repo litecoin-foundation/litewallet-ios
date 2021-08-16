@@ -88,42 +88,60 @@ class TransferAmountViewModel: ObservableObject {
             return
         }
         
-        
         PartnerAPI
             .shared
             .withdrawToWallet(userID: userID,
+                              token: token,
                               withdrawal:
                                 ["amount": amount,
                                  "wallet_address": address]) { dict in
+                // Successful
+                //{
+                //    "data": {
+                //        "available": 853.8918349,
+                //        "amount": 100,
+                //        "wallet_address": "GBX2NRTAWI674R6YB7URPAHB4VCEWB2ZZMOUOROW5XO256MY4ENGUP3M"
+                //    },
+                //    "meta": {
+                //        "version": "1.0.2",
+                //        "received": null,
+                //        "executed": 1549397120061
+                //    },
+                //    "response": {
+                //        "code": 200,
+                //        "errors": [
+                //
+                //        ],
+                //        "message": "OK"
+                //    }
+                //}
+
+                //Fail
+                //{
+                //    "data": {
+                //
+                //    },
+                //    "meta": {
+                //        "version": "1.0.2",
+                //        "received": null,
+                //        "executed": 1549397120061
+                //    },
+                //    "response": {
+                //        "code": 422,
+                //        "errors": {
+                //            "amount": "A valid amount required."
+                //        },
+                //        "message": "Error"
+                //    }
+                //}
                 
-                
-                
+                if let response = dict?["response"] as? [String: Any],
+                   let code = response["code"] as? Int {
+                    print("XXX\(response)")
+                    print("XXX\(code)")
+                }
                  
             }
-        
- 
-        // Successful Response from withdrawal
-        // /v1/user/:user_id/wallet/withdraw
-        //  {
-        //        "data": {
-        //            "available": 853.8918349,
-        //            "amount": 100,
-        //            "wallet_address": "GBX2NRTAWI674R6YB7URPAHB4VCEWB2ZZMOUOROW5XO256MY4ENGUP3M"
-        //        },
-        //        "meta": {
-        //            "version": "1.0.2",
-        //            "received": null,
-        //            "executed": 1549397120061
-        //        },
-        //        "response": {
-        //            "code": 200,
-        //            "errors": [
-        //
-        //            ],
-        //            "message": "OK"
-        //        }
-        //    }
-        
     }
     
     /// Transfer Litecoin from **Litewallet to Litecoin Card**

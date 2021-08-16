@@ -143,6 +143,8 @@ enum S {
         static let enterCodeDetail = NSLocalizedString("LitecoinCard.enterCode.detail", value: "", comment: "Enter code details")
         static let twoFAOn = NSLocalizedString("LitecoinCard.twoFAOn", value: "", comment: "Message when 2FA is on")
         static let twoFAOff = NSLocalizedString("LitecoinCard.twoFAOff", value: "", comment: "Message when 2FA is off")
+        static let cardBalanceOnlyDescription = NSLocalizedString("LitecoinCard.cardBalanceOnlyDescription", value: "", comment: "Message when 2FA is off and user is viewing the Card Balance")
+        static let twoFAErrorMessage = NSLocalizedString("LitecoinCard.twoFAErrorMessage", value: "2FA Error message", comment: "2FA Error message")
 
         //MARK: - Disclaimer
         enum Disclaimer {
@@ -162,8 +164,6 @@ enum S {
             static let setAmount = NSLocalizedString("LitecoinCard.Transfer.setAmount", value: "Slide to set transfer amount", comment: "Set transfer amount label")
             static let startTransfer = NSLocalizedString("LitecoinCard.Transfer.startTransfer", value: "Start transfer", comment: "Start transfer label")
             static let destinationAddress = NSLocalizedString("LitecoinCard.Transfer.destinationAddress", value: "Destination address", comment: "Destination address label")
-
-             
         }
         
         //MARK: - Registration
@@ -745,6 +745,7 @@ enum S {
     enum Fragments {
         static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or") 
         static let confirm = NSLocalizedString("Fragment.confirm", value: "**confirm**", comment: "Confirm") 
-        static let to = NSLocalizedString("Fragment.to", value: "**to**", comment: "to") 
+        static let to = NSLocalizedString("Fragment.to", value: "**to**", comment: "to")
+        static let sorry = NSLocalizedString("Fragment.sorry", value: "**sorry**", comment: "sorry")
     }
 }

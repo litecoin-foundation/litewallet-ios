@@ -286,6 +286,12 @@
 /* Or */
 "Fragment.or" = "veya";
 
+/* sorry */
+"Fragment.sorry" = "Üzgünüm";
+
+/* to */
+"Fragment.to" = "ile";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "GEÇMİŞ";
 
@@ -379,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Kart bakiyesi";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Çıkış Yap ve Transferlere izin vermek için 2FA'yı Etkinleştir";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Kayıt ve Giriş \n- Kullanılabilir kart bakiyesi \n- Parolayı sıfırla \n- Litewallet'e aktarım yok \n- Yalnızca ABD";
 
@@ -408,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Oturumu Kapat";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin Card";
 
 /* Register */
 "LitecoinCard.registerCard" = "Kayıt Ol";
@@ -499,6 +511,33 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Litecoin Kart hesabınızla ilişkili e-posta adresini girin ve sıfırlama talimatlarını içeren bir e-posta arayın.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Karta Aktarma";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Litewallet'a aktarın";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Aktarılan cüzdanı seçin:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adres";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet bakiyesi";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Transfer miktarını ayarlamak için kaydırın";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Aktarımı başlat";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Aktar";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Bir hata oluştu. Lütfen 2FA'yı *Etkin* olarak değiştirin, e-postayla gönderilen kodu girin ve tekrar deneyin.";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA Not Enabled";
 
@@ -507,6 +546,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Parolanızı sıfırlamak için https://litecoin.dashboard.getblockcard.com/password/forgot\n adresini ziyaret edin.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Konum hizmetleri devre dışı bırakıldı.";
@@ -1395,39 +1437,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
-
-/* to */
-"Fragment.to" = "";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "";
-
-/* Enter amount label */
-"LitecoinCard.Transfer.enterAmount" = "";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "";
-
-/* Litewallet name */
-"Litewallet.name" = "";

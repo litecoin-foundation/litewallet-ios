@@ -14,9 +14,6 @@ struct CardLoggedInView: View {
     @ObservedObject
     var viewModel: CardViewModel
     
-    @ObservedObject
-    var animatedViewModel = AnimatedCardViewModel()
-    
     @State
     private var shouldLogout: Bool = false
     
@@ -30,7 +27,6 @@ struct CardLoggedInView: View {
     var currentWalletType: WalletType = .litewallet
     
     //MARK: - Private Variables
-    
     private var litewalletAddress: String {
         guard let address = viewModel
                 .walletManager
@@ -159,7 +155,8 @@ struct CardLoggedInView: View {
                                                                              walletManager: self.viewModel.walletManager,
                                                                              cardBalance: self.cardBalance),
                                         walletType: $currentWalletType,
-                                        wasTapped: $didStartTransfer
+                                        wasTapped: $didStartTransfer,
+                                        twoFactorEnabled: false
                         ).padding(.bottom, 10.0)
                         
                         PreTransferView(viewModel:
@@ -169,7 +166,8 @@ struct CardLoggedInView: View {
                                                                              walletManager: self.viewModel.walletManager,
                                                                              cardBalance: self.cardBalance),
                                         walletType: $currentWalletType,
-                                        wasTapped: $didStartTransfer
+                                        wasTapped: $didStartTransfer,
+                                        twoFactorEnabled: false
                         ).padding(.top, 10.0)
                         
                         Spacer()
