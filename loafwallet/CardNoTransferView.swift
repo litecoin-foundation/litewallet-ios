@@ -52,7 +52,7 @@ struct CardNoTransferView: View {
                                         observableWallets: ObservableWallets(store: self.viewModel.store,
                                                                              walletManager: self.viewModel.walletManager,
                                                                              cardBalance: self.cardBalance),
-                                        walletType: .constant(.litecoinCard),
+                                        walletType: .litecoinCard,
                                         wasTapped: .constant(false),
                                         twoFactorEnabled: false
                         )

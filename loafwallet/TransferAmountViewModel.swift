@@ -59,8 +59,14 @@ class TransferAmountViewModel: ObservableObject {
         self.walletType = walletType 
         
         self.litewalletBalance = litewalletBalance
-        
+         
         self.litewalletAddress = litewalletAddress
+        
+        //DEV: The Testnet is not implemented in Loafwallet Core.
+        // This would be used for the Card testing.
+        #if DEBUG
+        self.litewalletAddress = MockData.testLTCAddress
+        #endif
         
         self.cardBalance = cardBalance
         

@@ -95,7 +95,6 @@ extension View {
         return clipShape(roundedRect)
             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
     }
-    
 }
 
 /// Helper struct for the custom Rounded Rect corners

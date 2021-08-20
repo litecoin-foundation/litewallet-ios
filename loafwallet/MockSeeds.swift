@@ -23,4 +23,5 @@ struct MockData {
     static let logoImageString: String = "coinBlueWhite"
     static let smallBalance: Double = 0.055122
     static let largeBalance: Double = 48235.059349
+    static let testLTCAddress: String = "QieeWYTdgF7tJu6suEnpyoWry1YxJ3Egvs"
 }
