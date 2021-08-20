@@ -18,8 +18,6 @@ class CardViewController: UIViewController {
     var viewModel: CardViewModel?
     
     var cardLoggedInView: CardLoggedInView?
-    
-    var cardLoggedInNoTransferView: CardLoggedInNoTransferView?
  
     var cardView: CardView?
     
@@ -51,7 +49,8 @@ class CardViewController: UIViewController {
             }
             
             if viewModel.isLoggedIn {
-                self.cardLoggedInView = CardLoggedInView(viewModel: viewModel)
+                self.cardLoggedInView = CardLoggedInView(viewModel: viewModel,
+                                                         twoFactor: viewModel.cardTwoFactor)
                 self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardLoggedInView))
             } else {
                 self.cardView = CardView(viewModel: viewModel)
@@ -111,13 +110,6 @@ class CardViewController: UIViewController {
             self.updateLoginStatusFromViewModel()
         }
         
-        // Listens for 2FA Enrollment notification and updates the CardView
-        notificationToken = NotificationCenter.default
-            .addObserver(forName: NSNotification.Name.LitecoinCard2FANotification,
-                         object: nil,
-                         queue: nil) { _ in
-               
-            }
     }
      
 }
