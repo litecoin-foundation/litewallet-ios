@@ -292,6 +292,8 @@
 		C354C4632590059500675E0E /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354C4622590059500675E0E /* TransactionsViewModel.swift */; };
 		C35ABD232574070A002BB9BB /* PartnersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35ABD222574070A002BB9BB /* PartnersView.swift */; };
 		C35ABD332574073F002BB9BB /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35ABD322574073F002BB9BB /* PartnersViewModel.swift */; };
+		C377519926B09A3400E1FB12 /* TransferringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519826B09A3400E1FB12 /* TransferringView.swift */; };
+		C377519B26B0A3D900E1FB12 /* TransferringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */; };
 		C379F228259B9BF000B25883 /* RegistrationAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C379F227259B9BF000B25883 /* RegistrationAlertView.swift */; };
 		C39443F9269DDAD3002703E9 /* LitewalletIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39443F8269DDAD3002703E9 /* LitewalletIconView.swift */; };
 		C39A71472608CB4300E7B640 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A71462608CB4300E7B640 /* EmptyTableViewCell.swift */; };
@@ -1484,6 +1486,8 @@
 		C354C4622590059500675E0E /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		C35ABD222574070A002BB9BB /* PartnersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersView.swift; sourceTree = "<group>"; };
 		C35ABD322574073F002BB9BB /* PartnersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
+		C377519826B09A3400E1FB12 /* TransferringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringView.swift; sourceTree = "<group>"; };
+		C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringViewModel.swift; sourceTree = "<group>"; };
 		C379F227259B9BF000B25883 /* RegistrationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAlertView.swift; sourceTree = "<group>"; };
 		C39443F8269DDAD3002703E9 /* LitewalletIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitewalletIconView.swift; sourceTree = "<group>"; };
 		C39A71462608CB4300E7B640 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
@@ -3187,6 +3191,7 @@
 				C30029EA25D019BC00F08C2B /* CopyButtonView.swift */,
 				C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */,
 				C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */,
+				C377519826B09A3400E1FB12 /* TransferringView.swift */,
 			);
 			name = "SwiftUI+UIKit";
 			sourceTree = "<group>";
@@ -3538,6 +3543,7 @@
 				C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */,
 				C3BFD348259E31C100136837 /* LoginViewModel.swift */,
 				C3C8E18A2694F3B9006522B7 /* PreTransferViewModel.swift */,
+				C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -4368,6 +4374,7 @@
 				C32DAE9125929492003FC978 /* CardViewController.swift in Sources */,
 				7503773D1DF57428005EB8AE /* WalletManager+Auth.swift in Sources */,
 				CEC4CF091F0C84AB00E5C82E /* UIViewController+Alerts.swift in Sources */,
+				C377519B26B0A3D900E1FB12 /* TransferringViewModel.swift in Sources */,
 				CE27F9591E2C8EA300F7F7F2 /* Amount.swift in Sources */,
 				CE1280F61EEA855C00D27649 /* Date+Additions.swift in Sources */,
 				CEEC708E1E954AAB00EF788E /* AboutCell.swift in Sources */,
@@ -4382,6 +4389,7 @@
 				2494037E23AE0C7100369261 /* SyncProgressHeaderView.swift in Sources */,
 				C3F7BCDD25FEC6AD00694C28 /* DomainResolutionFailure.swift in Sources */,
 				CE5E6C941EB7964900A476DB /* WalletDisabledView.swift in Sources */,
+				C377519926B09A3400E1FB12 /* TransferringView.swift in Sources */,
 				CEF3E8341DE57166007C0A9E /* AnimatableIcon.swift in Sources */,
 				C3F55645255A193D005F786F /* SupportLitecoinFoundationView.swift in Sources */,
 				CEF61B161ED2056D00C7EA6A /* NumberFormatter+Additions.swift in Sources */,

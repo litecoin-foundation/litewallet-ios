@@ -338,20 +338,12 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
                     return
                 }
                 
-                guard let rate = self.store?.state.currentRate else {
-                    return
-                }
-               guard let maxDigits = self.store?.state.maxDigits else {
-                    return
-                }
-                
                 cardVC.parentFrame = self.containerView.frame
                 
-                let ltcBalance = Amount(amount: balance, rate: rate, maxDigits: maxDigits)
-                cardVC.litewalletBalance = ltcBalance
-                
+                cardVC.store = self.store
+
                 cardVC.walletManager = self.walletManager
-				
+                 
             case "loafwallet.BuyTableViewController":
                 guard let buyVC = contentController as? BuyTableViewController else  {
                     return

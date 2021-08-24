@@ -54,6 +54,13 @@ enum BiometricsResult {
     case failure
 }
 
+enum TransferCardResult {
+    case success
+    case cancel
+    case fallback
+    case failure
+}
+
 extension WalletManager : WalletAuthenticator {
     static private var failedPins = [String]()
     
@@ -297,7 +304,26 @@ extension WalletManager : WalletAuthenticator {
             completion(self.signTx(tx) == true ? .success : .failure)
         }
     }
-
+    
+    /// Sign Transaction to Card: sign the given transaction for Litecoin Card transfer
+    /// - Parameters:
+    ///   - tx: LItecoin Transaction
+    ///   - completion: TransferCardResult
+    /// - Returns: Void
+    func signCardTransaction(_ tx: BRTxRef, completion: @escaping (TransferCardResult) -> ()) {
+        do {
+            guard let wallet = wallet
+            else {
+                return completion(.failure)
+            }
+            
+            self.signTx(tx) == true ? completion(.success) : completion(.failure)
+            
+        } catch {
+            return completion(.failure)
+        }
+    }
+    
     // the 12 word wallet recovery phrase
     func seedPhrase(pin: String) -> String? {
         guard authenticate(pin: pin) else { return nil }

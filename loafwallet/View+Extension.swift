@@ -45,7 +45,7 @@ extension View {
                                          mainMessage: message,
                                          presenting: self)
     }
-    
+     
     func cardV1ToastView(isShowingCardToast: Binding<Bool>) -> some View {
         loafwallet.CardV1ToastView(isShowingCardToast: isShowingCardToast,
                                    presenting: self)

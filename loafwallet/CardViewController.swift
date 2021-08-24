@@ -21,9 +21,9 @@ class CardViewController: UIViewController {
     
     var cardView: CardView?
     
-    var litewalletBalance: Amount?
-    
     var walletManager: WalletManager?
+    
+    var store: Store?
  
     var parentFrame: CGRect?
     
@@ -68,20 +68,21 @@ class CardViewController: UIViewController {
          
      override func viewDidLoad() {
         
-        guard let balance = self.litewalletBalance else {
-            return
-        }
-        
+        // Preparation values for the Card view model
         guard let walletManager = self.walletManager else {
             return
         }
-         
-        self.viewModel = CardViewModel(litewalletAmount: balance,
-                                       walletManager: walletManager)
+        
+        guard let store = self.store else {
+            return
+        }
+          
+        self.viewModel = CardViewModel(walletManager: walletManager,
+                                       store: store)
          
         self.updateLoginStatusFromViewModel()
  
-       // Listens for Login notification and updates the CardView
+        // Listens for Login notification and updates the CardView
         notificationToken = NotificationCenter.default
         .addObserver(forName: NSNotification.Name.LitecoinCardLoginNotification,
                      object: nil,

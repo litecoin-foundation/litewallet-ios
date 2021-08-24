@@ -33,44 +33,68 @@ class CardViewModel: ObservableObject {
      
     @Published
     var walletBalanceStatus: WalletBalanceStatus?
+    
+    @Published
+    var litewalletBalance: Double = 0.0
       
     //MARK: - Public Variables
-    
-    /// Amount class contains LTC,  fiat rate, etc.
-    var litewalletAmount: Amount
-    
     var walletManager: WalletManager
+    
+    var store: Store
      
-    init(litewalletAmount: Amount, walletManager: WalletManager) {
-        
-        self.litewalletAmount = litewalletAmount
+    init(walletManager: WalletManager,
+         store: Store) {
         
         self.walletManager = walletManager
+        
+        self.store = store
+        
+        calculatedLitewalletBalance()
     }
     
-    
+    func calculatedLitewalletBalance() {
+        
+        if let balance = walletManager.wallet?.balance ,
+           let rate =  store.state.currentRate {
+            
+            self.litewalletBalance = Amount(amount: balance,
+                                            rate: rate,
+                                            maxDigits: store.state.maxDigits).amountForLtcFormat
+        }
+    }
+  
     /// Fetcht Balance Status (litewallet balance injected)
     /// - Parameter cardBalance: Fetched users Litecoin Card balance
     /// - Returns: enum of the status WalletBalanceStatus
     private func fetchBalanceStatus(cardBalance: Double) -> WalletBalanceStatus {
-          
-        switch (cardBalance, litewalletAmount) {
-            case _ where cardBalance == 0.0 &&
-                    litewalletAmount.amountForLtcFormat == 0.0:
-                return .litewalletAndCardEmpty
-            case _ where cardBalance > 0.0 &&
-                    litewalletAmount.amountForLtcFormat == 0.0:
-                return .litewalletEmpty
-            case _ where cardBalance == 0.0 &&
-                    litewalletAmount.amountForLtcFormat > 0.0:
-                return .cardWalletEmpty
-            case _ where cardBalance > 0.0 &&
-                    litewalletAmount.amountForLtcFormat > 0.0:
-                return .litewalletAndCardNonZero
-            default:
-                return .cardWalletEmpty
-        }
-
+        
+//        let amount = Amount(amount: balance, rate: rate, maxDigits: store.state.maxDigits)
+//
+//        let litoshis = UInt64(amount * 10_000_000)
+//        ///////MOCK VALUE/////// : MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o
+//        let payKerry = "MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o"
+//        transaction = walletManager.wallet?.createTransaction(forAmount: litoshis, toAddress: payKerry)
+//
+//        guard let rate = self.store.state.currentRate else { return }
+        print("balance: \(self.walletManager.wallet!.balance)")
+         
+//        switch (cardBalance, amount) {
+//            case _ where cardBalance == 0.0 &&
+//                    litewalletAmount.amountForLtcFormat == 0.0:
+//                return .litewalletAndCardEmpty
+//            case _ where cardBalance > 0.0 &&
+//                    litewalletAmount.amountForLtcFormat == 0.0:
+//                return .litewalletEmpty
+//            case _ where cardBalance == 0.0 &&
+//                    litewalletAmount.amountForLtcFormat > 0.0:
+//                return .cardWalletEmpty
+//            case _ where cardBalance > 0.0 &&
+//                    litewalletAmount.amountForLtcFormat > 0.0:
+//                return .litewalletAndCardNonZero
+//            default:
+//                return .cardWalletEmpty
+//        }
+        return .cardWalletEmpty
     }
     
     

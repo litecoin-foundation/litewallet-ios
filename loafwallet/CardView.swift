@@ -313,7 +313,8 @@ struct CardView_Previews: PreviewProvider {
 	
     static let walletManager = MockSeeds.walletManager
 
-    static let viewModel = CardViewModel(litewalletAmount: amount100, walletManager: walletManager)
+    static let viewModel = CardViewModel(walletManager: walletManager,
+                                         store: Store())
       
     static var previews: some View {
         

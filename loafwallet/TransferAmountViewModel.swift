@@ -8,26 +8,31 @@
 
 import Foundation
 import KeychainAccess
+import UIKit
+import BRCore
 
 class TransferAmountViewModel: ObservableObject {
-      
+    
     //MARK: - Combine Variables
     @Published
-    var transferAmountString: String = ""
-    
-    @Published
-    var newBalanceString: String = ""
-    
-    @Published
     var walletType: WalletType
-     
+    
     @Published
     var walletStatus: WalletBalanceStatus
+     
+    //@Published
+    var transferAmount: Double = 0.0
     
     //MARK: - Private Variables
     private let keychain = Keychain(service: "com.litecoincard.service")
-     
-    //MARK: - Public Variables 
+    
+    private let walletManager: WalletManager
+    
+    private let store: Store
+    
+    private var sender: Sender?
+    
+    //MARK: - Public Variables
     var litewalletBalance: Double =  0.0
     
     var litewalletAddress: String = ""
@@ -43,16 +48,20 @@ class TransferAmountViewModel: ObservableObject {
         return walletType == .litewallet ? cardAddress : litewalletAddress
     }
     
-    var transferAmount: Double {
-        return Double(transferAmountString) ?? 0.0
-    }
-
+    var transaction: BRTxRef?
+     
     init(walletType: WalletType,
          walletStatus: WalletBalanceStatus,
          litewalletBalance: Double,
          litewalletAddress: String,
          cardBalance: Double,
-         cardAddress: String) {
+         cardAddress: String,
+         walletManager: WalletManager,
+         store: Store) {
+        
+        self.walletManager = walletManager
+        
+        self.store = store
         
         self.walletType = walletType
         
@@ -67,36 +76,21 @@ class TransferAmountViewModel: ObservableObject {
         self.cardAddress = cardAddress
         
         currentBalance = walletType == .litewallet ? litewalletBalance : cardBalance
+        
     }
-     
+    
     /// Transfer Litecoin from **Litecoin Card to Litewallet**
     /// - Parameters:
     ///   - amount: Litecoin to 6 decimal places
     ///   - completion: To complete process
     ///   - address: Destination Litecoin address
     func transferToLitewallet(amount: Double,
-                                      address: String,
-                                      completion: @escaping () -> Void) {
+                              address: String,
+                              completion: @escaping () -> Void) {
         print("XX Transfer to Litewallet:\n")
         print("XX Address: \(address)")
         print("XX Amount: \(amount) Ł")
         
-    
-        
-    }
-    
-    /// Transfer Litecoin from **Litewallet to Litecoin Card**
-    /// - Parameters:
-    ///   - amount: Litecoin to 6 decimal places
-    ///   - completion: To complete process
-    ///   - address: Destination Litecoin address
-    func transferToCard(amount: Double,
-                        address: String,
-                        completion: @escaping () -> Void) {
-        
-        print("XX Transfer to Card:\n")
-        print("XX Address: \(address)")
-        print("XX Amount: \(amount) Ł")
         
         guard let token = keychain["token"] ,
               let userID = keychain["userID"] else {
@@ -113,6 +107,35 @@ class TransferAmountViewModel: ObservableObject {
             }
         
     }
-     
+    
+    /// Transfer Litecoin from **Litewallet to Litecoin Card**
+    /// - Parameters:
+    ///   - amount: Litecoin to 6 decimal places
+    ///   - completion: To complete process
+    ///   - address: Destination Litecoin address
+    func transferToCard(amount: Double,
+                        address: String,
+                        completion: @escaping (Bool) -> Void) {
+         
+        /// 1 Litecoin = 100 000 000 litoshis
+        /// Litewallet core calculates values in litoshis
+        let litoshis = UInt64(amount * 100_000_000)
+        
+        //////////// MOCK VALUE /////// : MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o
+        let payKerry = "MTiCxZ2MWWZqaCPMPXk9RcKkncXtaf1d6o"
+        transaction = walletManager.wallet?.createTransaction(forAmount: litoshis, toAddress: payKerry)
+        
+        guard let kvStore = walletManager.apiClient?.kv else { return }
+
+        self.sender = Sender(walletManager: self.walletManager, kvStore: kvStore, store: self.store)
+        
+        sender?.sendToCard(amount: litoshis,
+                           toAddress: payKerry) { didSend in
+                 completion(didSend)
+        }
+
+    }
+    
 }
- 
+
+

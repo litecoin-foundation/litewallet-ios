@@ -24,21 +24,22 @@ struct CardLoggedInView: View {
     private var didStartTransfer: Bool = false
     
     @State
+    private var startingSliderValue: Double = 0.0
+    
+    @State
     var walletStatus: WalletBalanceStatus = .litewalletAndCardEmpty
     
     @State
     var currentWalletType: WalletType = .litewallet
     
     //MARK: - Private Variables
-    private var litewalletBalance: Double {
-        return viewModel.litewalletAmount.amountForLtcFormat
-    }
-    
+     
     private var litewalletAddress: String {
         guard let address = viewModel
                 .walletManager
                 .wallet?
                 .receiveAddress else {
+            print("Card Logged In ViewModel ERROR: No address found")
             return ""
         }
         return address
@@ -91,7 +92,6 @@ struct CardLoggedInView: View {
                     NotificationCenter.default.post(name: .LitecoinCardLogoutNotification,
                                                     object: nil,
                                                     userInfo: nil)
-                    
                 }) {
                     Text(S.LitecoinCard.logout)
                         .frame(minWidth: 0,
@@ -121,11 +121,14 @@ struct CardLoggedInView: View {
                             TransferAmountView(viewModel:
                                                 TransferAmountViewModel(walletType: currentWalletType,
                                                                                   walletStatus: walletStatus,
-                                                                                  litewalletBalance: litewalletBalance,
+                                                                                  litewalletBalance: viewModel.litewalletBalance,
                                                                                   litewalletAddress: litewalletAddress,
                                                                                   cardBalance: cardBalance,
-                                                                                  cardAddress: cardAddress),
-                                                        shouldShow: $didStartTransfer)
+                                                                                  cardAddress: cardAddress,
+                                                                                  walletManager: viewModel.walletManager,
+                                                                                  store: viewModel.store),
+                                                                                  sliderValue: $startingSliderValue,
+                                                                                  shouldShow: $didStartTransfer)
                             Spacer()
                         }
                         .padding(.top, 10.0)
@@ -152,10 +155,10 @@ struct CardLoggedInView: View {
                             Spacer()
                             
                             // Reorders to the biggest wallet in the view to the top
-                            if litewalletBalance >= cardBalance {
+                            if viewModel.litewalletBalance >= cardBalance {
                                 PreTransferView(viewModel:
                                                     PreTransferViewModel(walletType: .litewallet,
-                                                                         balance: litewalletBalance),
+                                                                         balance: viewModel.litewalletBalance),
                                                 walletType: $currentWalletType,
                                                 wasTapped: $didStartTransfer
                                 ).padding(.bottom, 10.0)
@@ -178,7 +181,7 @@ struct CardLoggedInView: View {
                                 
                                 PreTransferView(viewModel:
                                                     PreTransferViewModel(walletType: .litewallet,
-                                                                         balance: litewalletBalance),
+                                                                         balance: viewModel.litewalletBalance),
                                                 walletType: $currentWalletType,
                                                 wasTapped: $didStartTransfer
                                 ).padding(.top, 10.0)
@@ -207,7 +210,10 @@ struct CardLoggedInView_Previews: PreviewProvider {
     
     static let walletManager = MockSeeds.walletManager
     
-    static let viewModel = CardViewModel(litewalletAmount: amount100, walletManager: walletManager)
+    static let store = Store()
+    
+    static let viewModel = CardViewModel(walletManager: walletManager,
+                                         store: store)
     
     static var previews: some View {
         Group {
