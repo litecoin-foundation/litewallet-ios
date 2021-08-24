@@ -47,10 +47,8 @@ enum TriggerName {
     case promptUpgradePin
     case loginFromSend
     case blockModalDismissal
-    case unblockModalDismissal
-    case openFile(Data)
+    case unblockModalDismissal 
     case recommendRescan
-    case receivedPaymentRequest(PaymentRequest?)
     case scanQr
     case copyWalletAddresses(String?, String?)
     case hideStatusBar
@@ -92,12 +90,8 @@ func ==(lhs: TriggerName, rhs: TriggerName) -> Bool {
         return true
     case (.unblockModalDismissal, .unblockModalDismissal):
         return true
-    case (.openFile(_), .openFile(_)):
-        return true
     case (.recommendRescan, .recommendRescan):
-        return true
-    case (.receivedPaymentRequest(_), .receivedPaymentRequest(_)):
-        return true
+        return true 
     case (.scanQr, .scanQr):
         return true
     case (.copyWalletAddresses(_,_), .copyWalletAddresses(_,_)):
