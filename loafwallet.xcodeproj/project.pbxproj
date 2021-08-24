@@ -1496,6 +1496,9 @@
 		C3BD4A492597542700D97079 /* LoginCardAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCardAlertView.swift; sourceTree = "<group>"; };
 		C3BD4A5225975C6000D97079 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		C3BD4A692597E1E900D97079 /* CardLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoggedInView.swift; sourceTree = "<group>"; };
+		C3BDB42626CC028F004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = tr; path = tr.lproj/BIP39Words.plist; sourceTree = "<group>"; };
+		C3BDB42726CC028F004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		C3BDB42826CC0338004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3BF74D826114969001CE2BB /* CardWalletDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWalletDetails.swift; sourceTree = "<group>"; };
 		C3BFD348259E31C100136837 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
@@ -3879,6 +3882,7 @@
 				sv,
 				id,
 				Base,
+				tr,
 			);
 			mainGroup = 75A2A7871DA5934300A983D8;
 			packageReferences = (
@@ -4604,6 +4608,7 @@
 				24375314238AE09700E1B2AE /* pt */,
 				24375315238AE09900E1B2AE /* ru */,
 				24375316238AE09D00E1B2AE /* sv */,
+				C3BDB42626CC028F004DAE77 /* tr */,
 			);
 			name = BIP39Words.plist;
 			sourceTree = "<group>";
@@ -4635,6 +4640,7 @@
 				24B9621723BA66CC00ECD938 /* pt */,
 				24B9621923BA66CE00ECD938 /* zh-Hant */,
 				24B9621B23BA66CF00ECD938 /* en */,
+				C3BDB42726CC028F004DAE77 /* tr */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -4658,6 +4664,7 @@
 				CE0FC0F91F72417500E7C626 /* sv */,
 				24306799238F479500EBEA99 /* id */,
 				2430679B238F5A2900EBEA99 /* en */,
+				C3BDB42826CC0338004DAE77 /* tr */,
 			);
 			name = Localizable.strings;
 			path = src/Strings;
