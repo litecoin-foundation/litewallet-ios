@@ -315,7 +315,6 @@
 		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
 		C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */; };
 		C3DAAE2D26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */; };
-		C3DAAE3026C9CB0A00D9E18C /* ViewExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAAE2F26C9CB0A00D9E18C /* ViewExtensionTests.swift */; };
 		C3E77C0926C2807200693E22 /* Enter2FACodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E77C0826C2807200693E22 /* Enter2FACodeViewModel.swift */; };
 		C3EB6C1B26C18DD500881841 /* Enter2FACodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB6C1A26C18DD500881841 /* Enter2FACodeView.swift */; };
 		C3EFA9A12650807B005C59B5 /* LockScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */; };
@@ -1505,7 +1504,6 @@
 		C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModel.swift; sourceTree = "<group>"; };
 		C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModelTests.swift; sourceTree = "<group>"; };
 		C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter2FACodeViewModelTests.swift; sourceTree = "<group>"; };
-		C3DAAE2F26C9CB0A00D9E18C /* ViewExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensionTests.swift; sourceTree = "<group>"; };
 		C3E77C0826C2807200693E22 /* Enter2FACodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter2FACodeViewModel.swift; sourceTree = "<group>"; };
 		C3EB6C1A26C18DD500881841 /* Enter2FACodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter2FACodeView.swift; sourceTree = "<group>"; };
 		C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenHeaderView.swift; sourceTree = "<group>"; };
@@ -2193,7 +2191,6 @@
 		2465873723A5AAD100A32E9E /* loafwalletTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3DAAE2E26C9CAE200D9E18C /* View Extension Tests */,
 				C3DAAE2B26C9C15A00D9E18C /* Two Factor Auth Tests */,
 				C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */,
 				C32DB42B264847D500017D26 /* Card Tests */,
@@ -3223,14 +3220,6 @@
 			path = "Two Factor Auth Tests";
 			sourceTree = "<group>";
 		};
-		C3DAAE2E26C9CAE200D9E18C /* View Extension Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C3DAAE2F26C9CB0A00D9E18C /* ViewExtensionTests.swift */,
-			);
-			path = "View Extension Tests";
-			sourceTree = "<group>";
-		};
 		C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -4120,7 +4109,6 @@
 				C3B7C43F25620D4400E98A64 /* SupportLitecoinFoundationViewModelTests.swift in Sources */,
 				C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */,
 				24470E3623A5FDE800ADDA27 /* PhraseTests.swift in Sources */,
-				C3DAAE3026C9CB0A00D9E18C /* ViewExtensionTests.swift in Sources */,
 				C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */,
 				C31891C1267338D300ECE25C /* NonUSTabBarViewControllerTests.swift in Sources */,
 				24470E4523A608A700ADDA27 /* AmountTests.swift in Sources */,
