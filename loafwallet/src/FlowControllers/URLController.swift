@@ -8,6 +8,8 @@
 
 import UIKit
 
+//DEV: This whole class should be removed.
+//Need more testing.
 class URLController : Trackable {
 
     init(store: Store, walletManager: WalletManager) {
@@ -58,24 +60,10 @@ class URLController : Trackable {
                 if let success = xSuccess {
                     copyAddress(callback: success)
                 }
-            } else if let uri = isBitcoinUri(url: url, uri: uri) {
-                return handleBitcoinUri(uri)
             }
             return true
-        case "litecoin":
-            return handleBitcoinUri(url)
         default:
             return false
-        }
-    }
-
-    private func isBitcoinUri(url: URL, uri: String?) -> URL? {
-        guard let uri = uri else { return nil }
-        guard let bitcoinUrl = URL(string: uri) else { return nil }
-        if (url.host == "litecoin-uri" || url.path == "/litecoin-uri") && bitcoinUrl.scheme == "litecoin" {
-            return url
-        } else {
-            return nil
         }
     }
 
@@ -88,16 +76,7 @@ class URLController : Trackable {
             }
         }
     }
-
-    private func handleBitcoinUri(_ uri: URL) -> Bool {
-        if let request = PaymentRequest(string: uri.absoluteString) {
-            store.trigger(name: .receivedPaymentRequest(request))
-            return true
-        } else {
-            return false
-        }
-    }
-
+    
     private func present(alert: UIAlertController) {
         store.trigger(name: .showAlert(alert))
     }

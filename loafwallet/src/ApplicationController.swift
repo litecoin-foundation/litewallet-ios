@@ -60,12 +60,11 @@ class ApplicationController : Subscriber, Trackable {
         }
     }
 
-    func launch(application: UIApplication, window: UIWindow?, options: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launch(application: UIApplication, window: UIWindow?) {
         self.application = application
         self.window = window
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         setup()
-        handleLaunchOptions(options)
         reachability.didChange = { isReachable in
             if !isReachable {
                 self.reachability.didChange = { isReachable in
@@ -292,20 +291,7 @@ class ApplicationController : Subscriber, Trackable {
             DispatchQueue.global(qos: .background).async {
                 let _ = Rate.symbolMap //Initialize currency symbol map
             }
-        }
-
-        private func handleLaunchOptions(_ options: [UIApplication.LaunchOptionsKey: Any]?) {
-            if let url = options?[.url] as? URL {
-                do {
-                    let file = try Data(contentsOf: url)
-                    if file.count > 0 {
-                        store.trigger(name: .openFile(file))
-                    }
-                } catch let error {
-                    print("Could not open file at: \(url), error: \(error)")
-                }
-            }
-        }
+        } 
 
         func performBackgroundFetch() {
             saveEvent("appController.performBackgroundFetch")
