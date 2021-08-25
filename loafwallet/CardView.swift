@@ -43,7 +43,7 @@ struct CardView: View {
     @State
     var shouldShowEnable2FAModal: Bool = false
     
-    @State 
+    @State
     private var shouldShowRegistrationView: Bool = false
     
     @State
@@ -70,7 +70,7 @@ struct CardView: View {
                 Group {
                     AnimatedCardView(viewModel: animatedViewModel, isLoggedIn: $didCompleteLogin)
                         .frame(minWidth:0,
-                               maxWidth: 
+                               maxWidth:
                                 didCompleteLogin ? geometry.size.width * 0.6 :
                                 geometry.size.width * 0.7)
                         .padding(.all, didCompleteLogin ? 10 : 20)
@@ -137,14 +137,24 @@ struct CardView: View {
                     Spacer()
                     
                     HStack {
-                        
-                        Toggle((loginModel.shouldEnable2FA ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff),
-                               isOn: $loginModel.shouldEnable2FA)
+                        Toggle((viewModel.cardTwoFactor.isEnabled ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff),
+                               isOn: $viewModel.cardTwoFactor.isEnabled)
                             .foregroundColor(.gray)
                             .font(Font(UIFont.barlowRegular(size: 16.0)))
                             .padding([.leading, .trailing], 20)
                             .padding(.top, 10)
-
+                            // DEV: 2FA Alert Work Around
+                            // This error could happen if the user toggles the 2FA without logging in.
+                            // The problem is they lose the token over time.
+                            // Toggling 2FA on and entering the code fixes the problem.
+                            // There are analytical events to see how prevalent this issue is.
+                            // It may need to be refactored if it is a growing concern
+                            .alert(isPresented: $viewModel.cardTwoFactor.errorOccured,
+                                   content: {
+                                    Alert(title: Text(S.Fragments.sorry.localizedCapitalized + "!"),
+                                      message: Text( S.LitecoinCard.twoFAErrorMessage),
+                                      dismissButton: .default(Text(S.Button.ok)))
+                            })
                     }
                     
                     //MARK: - Action Buttons
@@ -172,8 +182,8 @@ struct CardView: View {
                             // 1. Check if the user wants 2FA
                             // 2. Make discardable loginUser Call
                             // 3. Make loginUser again with the token
-                             
-                            if loginModel.shouldEnable2FA {
+                            
+                            if viewModel.cardTwoFactor.isEnabled {
                                 
                                 //Discardable result API sends Code to email
                                 loginModel.login { _ in }
@@ -307,13 +317,13 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-
+    
     static let amount100 = MockSeeds.amount100
-	
+    
     static let walletManager = MockSeeds.walletManager
-
+    
     static let viewModel = CardViewModel(walletManager: walletManager, store: Store())
-      
+    
     static var previews: some View {
         
         Group {

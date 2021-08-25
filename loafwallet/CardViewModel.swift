@@ -12,26 +12,26 @@ import KeychainAccess
 
 class CardViewModel: ObservableObject {
         
-    //MARK: - Login Status
+    //MARK: - Combine Variables
     @Published
     var isLoggedIn: Bool = false
     
     @Published
     var isNotRegistered: Bool = true
       
-    //MARK: - Combine Variables
     @Published
     var cardWalletDetails: CardWalletDetails?
     
     @Published
     var litewalletBalance: Double = 0.0
+     
+    @ObservedObject
+    var cardTwoFactor = CardTwoFactor()
       
     //MARK: - Public Variables
     var walletManager: WalletManager
     
-    var store: Store
-    
-    var twoFactorEnabled: Bool?
+    var store: Store 
      
     init(walletManager: WalletManager,
          store: Store) {
