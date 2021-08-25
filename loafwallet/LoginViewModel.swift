@@ -32,7 +32,8 @@ class LoginViewModel: ObservableObject {
     
     @Published
     var processMessage: String = S.LitecoinCard.login + " ..."
-    
+     
+    @Published 
     var shouldEnable2FA: Bool = false {
         
         didSet {
@@ -122,7 +123,7 @@ class LoginViewModel: ObservableObject {
                 self.keychain[email] = password
                 self.keychain["userID"] = userID
                 self.keychain["token"] = token
-
+				
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     
                     self.isLoggedIn = true
