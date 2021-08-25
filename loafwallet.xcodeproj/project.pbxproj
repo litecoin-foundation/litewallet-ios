@@ -3222,7 +3222,7 @@
 			);
 			path = "Two Factor Auth Tests";
 			sourceTree = "<group>";
-		};
+		}; 
 		C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -4113,6 +4113,7 @@
 				C3B7C43F25620D4400E98A64 /* SupportLitecoinFoundationViewModelTests.swift in Sources */,
 				C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */,
 				24470E3623A5FDE800ADDA27 /* PhraseTests.swift in Sources */,
+				C3DAAE3026C9CB0A00D9E18C /* ViewExtensionTests.swift in Sources */,
 				C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */,
 				C31891C1267338D300ECE25C /* NonUSTabBarViewControllerTests.swift in Sources */,
 				24470E4523A608A700ADDA27 /* AmountTests.swift in Sources */,
