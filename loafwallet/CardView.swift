@@ -57,7 +57,7 @@ struct CardView: View {
     
     @State
     var isEmailValid: Bool = false
-      
+    
     init(viewModel: CardViewModel) {
         self.viewModel = viewModel
     }
@@ -138,22 +138,13 @@ struct CardView: View {
                     
                     HStack {
                         
-<<<<<<< HEAD
                         Toggle((loginModel.shouldEnable2FA ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff),
                                isOn: $loginModel.shouldEnable2FA)
                             .foregroundColor(.gray)
                             .font(Font(UIFont.barlowRegular(size: 16.0)))
                             .padding([.leading, .trailing], 20)
                             .padding(.top, 10)
-=======
-                        Toggle("XXEnable 2FA for transfers",
-                               isOn: $loginModel.shouldEnable2FA)
-                        .foregroundColor(.gray)
-                        .font(Font(UIFont.barlowRegular(size: 16.0)))
-                        .padding([.leading, .trailing], 20)
-                        .padding(.top, 10)
->>>>>>> a2551679 (Updated the CardViewController)
-                        
+
                     }
                     
                     //MARK: - Action Buttons
@@ -181,8 +172,7 @@ struct CardView: View {
                             // 1. Check if the user wants 2FA
                             // 2. Make discardable loginUser Call
                             // 3. Make loginUser again with the token
-                            
-<<<<<<< HEAD
+                             
                             if loginModel.shouldEnable2FA {
                                 
                                 //Discardable result API sends Code to email
@@ -215,41 +205,7 @@ struct CardView: View {
                                         }
                                     }
                                 }
-                            }
-                            
-=======
-                            
-                            if loginModel.shouldEnable2FA {
-                                
-                                
-                                //Discardable result API sends Code to email
-                                loginModel.login { _ in }
-                                 
-                                shouldShowEnable2FAModal = true
-                            }
-                            else {
-                                
-                                shouldShowLoginModal = true
-
-                                loginModel.login { didLogin in
-
-                                    if didLogin {
-                                        viewModel.isLoggedIn = true
-                                        shouldShowLoginModal = false
-                                        NotificationCenter.default.post(name: .LitecoinCardLoginNotification, object: nil,
-                                                                        userInfo: nil)
-                                    } else {
-                                        viewModel.isLoggedIn = true
-                                        didFailToLogin = true
-
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                                            shouldShowLoginModal = false
-                                        }
-                                    }
-                                }
-                            } 
-                             
->>>>>>> a2551679 (Updated the CardViewController)
+                            }  
                         }) {
                             
                             Text(S.LitecoinCard.login)

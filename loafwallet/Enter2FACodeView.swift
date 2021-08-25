@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct Enter2FACodeView<Presenting>: View where Presenting: View {
-
+struct Enter2FACodeView<Presenting>: View where Presenting: View { 
+	
     //MARK: - Combine Variables
     @ObservedObject
     var twoFAViewModel: Enter2FACodeViewModel
@@ -81,7 +81,7 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                         HStack {
                             
                             // Confirm button
-                            Button(action: {
+                            Button(action: { 
 								
                                 twoFAViewModel.didConfirmToken { token in
                                     
