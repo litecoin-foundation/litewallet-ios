@@ -280,6 +280,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Bearbetningshastighet";
 
+/* Confirm */
+"Fragment.confirm" = "Bekräfta";
+
 /* Or */
 "Fragment.or" = "eller";
 
@@ -388,6 +391,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Litecoin-kort Beta";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Ange kod";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Ange koden som nyligen skickades till ditt Litecoin -kortkontots e -postadress.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Inloggningen misslyckades";
 
@@ -489,6 +498,12 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Ange e-postadressen som är kopplad till ditt Litecoin-kortkonto och leta efter ett e-postmeddelande med återställningsinstruktioner.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Ej aktiverat";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA aktiverat";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Besök https://litecoin.dashboard.getblockcard.com/password/forgot för att återställa ditt lösenord.";

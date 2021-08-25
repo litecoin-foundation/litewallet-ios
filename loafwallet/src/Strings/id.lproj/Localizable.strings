@@ -280,6 +280,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Kecepatan pemrosesan";
 
+/* Confirm */
+"Fragment.confirm" = "Mengonfirmasi";
+
 /* Or */
 "Fragment.or" = "atau";
 
@@ -388,6 +391,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Kartu Litecoin Beta";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Memasukkan kode";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Masukkan kode yang baru saja dikirim ke email akun Kartu Litecoin Anda.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Gagal masuk";
 
@@ -489,6 +498,12 @@
 
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Masukkan alamat email yang terkait dengan akun Kartu Litecoin Anda & cari email dengan instruksi reset.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Tidak Diaktifkan";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA Diaktifkan";
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Kunjungi https://litecoin.dashboard.getblockcard.com/password/forgot untuk mengatur ulang kata sandi Anda.";

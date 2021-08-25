@@ -95,6 +95,9 @@ enum CustomEvent: String {
     
     /// Ternio API Wallet details failure
     case _20210405_TAWDF = "TERNIO_API_WALLET_DETAILS_FAILURE"
+      
+    /// Ternio API Authenticate Enable 2FA change
+    case _20210804_TAA2FAC = "TERNIO_API_AUTH_2FA_CHANGE"
      
     /// Heartbeat check If event even happens
     case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS" 

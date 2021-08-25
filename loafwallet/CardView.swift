@@ -11,7 +11,7 @@ import UIKit
 
 
 struct CardView: View {
-      
+    
     //MARK: - Combine Variables
     @ObservedObject
     var viewModel: CardViewModel
@@ -25,6 +25,9 @@ struct CardView: View {
     @ObservedObject
     var animatedViewModel = AnimatedCardViewModel()
     
+    @ObservedObject
+    var twoFAviewModel = Enter2FACodeViewModel()
+    
     @State
     private var shouldShowLoginModal: Bool = false
     
@@ -36,6 +39,9 @@ struct CardView: View {
     
     @State
     var didShowCardView: Bool = false
+    
+    @State
+    var shouldShowEnable2FAModal: Bool = false
     
     @State
     private var shouldShowRegistrationView: Bool = false
@@ -53,7 +59,6 @@ struct CardView: View {
     var isEmailValid: Bool = false
     
     init(viewModel: CardViewModel) {
-         
         self.viewModel = viewModel
     }
     
@@ -68,7 +73,7 @@ struct CardView: View {
                                maxWidth:
                                 didCompleteLogin ? geometry.size.width * 0.4 :
                                 geometry.size.width * 0.6)
-                        .padding(.all, didCompleteLogin ? 20 : 30)
+                        .padding(.all, didCompleteLogin ? 10 : 20)
                 }
                 
                 //MARK: - Login Textfields
@@ -82,14 +87,14 @@ struct CardView: View {
                             } else {
                                 isEmailValid = true
                             }
-                    }
-                    .foregroundColor(isEmailValid ? .black : Color(UIColor.litecoinOrange))
-                    .font(Font(UIFont.barlowSemiBold(size:18.0)))
-                    .accentColor(Color(UIColor.liteWalletBlue))
-                    .padding([.leading, .trailing], 20)
-                    .padding(.top, 30)
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
+                        }
+                        .foregroundColor(isEmailValid ? .black : Color(UIColor.litecoinOrange))
+                        .font(Font(UIFont.barlowSemiBold(size: 17.0)))
+                        .accentColor(Color(UIColor.liteWalletBlue))
+                        .padding([.leading, .trailing], 20)
+                        .padding(.top, 18)
+                        .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
                     
                     Divider().padding([.leading, .trailing], 20)
                     
@@ -98,10 +103,10 @@ struct CardView: View {
                             
                             TextField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
                                 .foregroundColor(.black)
-                                .font(Font(UIFont.barlowSemiBold(size:18.0)))
+                                .font(Font(UIFont.barlowSemiBold(size: 17.0)))
                                 .accentColor(Color(UIColor.liteWalletBlue))
                                 .padding(.leading, 20)
-                                .padding(.top, 20)
+                                .padding(.top, 18)
                                 .autocapitalization(.none)
                                 .keyboardType(.asciiCapable)
                             
@@ -109,10 +114,10 @@ struct CardView: View {
                             
                             SecureField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
                                 .foregroundColor(.black)
-                                .font(Font(UIFont.barlowSemiBold(size:18.0)))
+                                .font(Font(UIFont.barlowSemiBold(size: 17.0)))
                                 .accentColor(Color(UIColor.liteWalletBlue))
                                 .padding(.leading, 20)
-                                .padding(.top, 20)
+                                .padding(.top, 15)
                                 .autocapitalization(.none)
                                 .keyboardType(.asciiCapable)
                         }
@@ -122,7 +127,7 @@ struct CardView: View {
                             shouldShowPassword.toggle()
                         }) {
                             Image(systemName: shouldShowPassword ? "eye.fill" : "eye.slash.fill")
-                                .padding(.top, 20)
+                                .padding(.top, 15)
                                 .padding(.trailing, 20)
                                 .foregroundColor(.gray)
                         }
@@ -130,116 +135,183 @@ struct CardView: View {
                     
                     Divider().padding([.leading, .trailing], 20)
                     Spacer()
-                }
-                
-                //MARK: - Action Buttons
-                Group {
                     
-                    // Forgot password button
-                    Button(action: {
-                        didTapIForgot = true
-                    }) {
+                    HStack {
                         
-                        Text(S.LitecoinCard.forgotPassword)
-                            .frame(minWidth:0, maxWidth: .infinity)
-                            .font(Font(UIFont.barlowLight(size: 15)))
-                            .foregroundColor(Color(UIColor.liteWalletBlue))
-                            .padding(.all, 30)
+                        Toggle((loginModel.shouldEnable2FA ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff),
+                               isOn: $loginModel.shouldEnable2FA)
+                            .foregroundColor(.gray)
+                            .font(Font(UIFont.barlowRegular(size: 16.0)))
+                            .padding([.leading, .trailing], 20)
+                            .padding(.top, 10)
+                        
                     }
                     
-                    Spacer(minLength: 5)
-                    
-                    // Login button
-                    Button(action: {
-                        shouldShowLoginModal = true
-                         loginModel.login { didLogin in
+                    //MARK: - Action Buttons
+                    Group {
+                        
+                        // Forgot password button
+                        Button(action: {
+                            didTapIForgot = true
+                        }) {
                             
-                            if didLogin {
-                                viewModel.isLoggedIn = true
-                                shouldShowLoginModal = false
-                                 NotificationCenter.default.post(name: .LitecoinCardLoginNotification, object: nil,
-                                                                userInfo: nil)
-                            } else {
-                                viewModel.isLoggedIn = true
-                                didFailToLogin = true
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                                    shouldShowLoginModal = false
-                                } 
-                            }
+                            Text(S.LitecoinCard.forgotPassword)
+                                .frame(minWidth:0, maxWidth: .infinity)
+                                .font(Font(UIFont.barlowLight(size: 15)))
+                                .foregroundColor(Color(UIColor.liteWalletBlue))
+                                .padding(.all, 15)
                         }
                         
-                    }) {
+                        Spacer(minLength: 5)
                         
-                        Text(S.LitecoinCard.login)
-                            .frame(minWidth:0, maxWidth: .infinity)
-                            .padding()
-                            .font(Font(UIFont.barlowMedium(size: 16.0)))
-                            .padding([.leading, .trailing], 16)
-                            .foregroundColor(.white)
-                            .background(Color(UIColor.liteWalletBlue))
-                            .cornerRadius(4.0)
-                            .overlay(
-                                RoundedRectangle(cornerRadius:4)
-                                    .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
-                            )
+                        // Login button
+                        Button(action: {
+                            
+                            // Description
+                            // There is a two step process here:
+                            // 1. Check if the user wants 2FA
+                            // 2. Make discardable loginUser Call
+                            // 3. Make loginUser again with the token
+                            
+                            if loginModel.shouldEnable2FA {
+                                
+                                //Discardable result API sends Code to email
+                                loginModel.login { _ in }
+                                
+                                //Shows the 2FA Modal
+                                shouldShowEnable2FAModal = true
+                            }
+                            else {
+                                
+                                //Shows the Login Modal
+                                shouldShowLoginModal = true
+                                
+                                //Login without 2FA
+                                loginModel.login { didLogin in
+                                    
+                                    if didLogin {
+                                        
+                                        viewModel.isLoggedIn = true
+                                        shouldShowLoginModal = false
+                                        NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
+                                                                        object: nil,
+                                                                        userInfo: nil)
+                                    } else {
+                                        viewModel.isLoggedIn = true
+                                        didFailToLogin = true
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                                            shouldShowLoginModal = false
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }) {
+                            
+                            Text(S.LitecoinCard.login)
+                                .frame(minWidth:0, maxWidth: .infinity)
+                                .padding()
+                                .font(Font(UIFont.barlowMedium(size: 16.0)))
+                                .padding([.leading, .trailing], 16)
+                                .foregroundColor(.white)
+                                .background(Color(UIColor.liteWalletBlue))
+                                .cornerRadius(4.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius:4)
+                                        .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
+                                )
+                        }
+                        .padding([.leading, .trailing], 16)
+                        .disabled(loginModel.simpleCredentialsCheck())
+                        
+                        // Registration button
+                        Button(action: {
+                            shouldShowRegistrationView = true
+                        }) {
+                            Text(S.LitecoinCard.registerCard)
+                                .frame(minWidth:0, maxWidth: .infinity)
+                                .padding()
+                                .font(Font(UIFont.barlowMedium(size: 15.0)))
+                                .foregroundColor(Color(UIColor.liteWalletBlue))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius:4)
+                                        .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
+                                )
+                                .padding([.leading, .trailing], 16)
+                                .padding([.top,.bottom], 10)
+                        }
+                        .sheet(isPresented: $shouldShowRegistrationView) {
+                            RegistrationView(viewModel: registrationModel)
+                        }
                     }
-                    .padding([.leading, .trailing], 16)
+                    Spacer()
+                }
+            }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillShow)) { _ in
+                animatedViewModel.dropOffset = -200
+            }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillHide)) { _ in
+                animatedViewModel.dropOffset = 0
+            }.onReceive(twoFAviewModel.$tokenString, perform: { confirmedToken in
+                
+                if twoFAviewModel.didSetToken &&
+                    confirmedToken.count == 6 {
                     
-                    // Registration button
-                    Button(action: {
-                        shouldShowRegistrationView = true
-                    }) {
-                        Text(S.LitecoinCard.registerCard)
-                            .frame(minWidth:0, maxWidth: .infinity)
-                            .padding()
-                            .font(Font(UIFont.barlowMedium(size: 15.0)))
-                            .foregroundColor(Color(UIColor.liteWalletBlue))
-                            .overlay(
-                                RoundedRectangle(cornerRadius:4)
-                                    .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
-                            )
-                            .padding([.leading, .trailing], 16)
-                            .padding([.top,.bottom], 15)
-                    }
-                    .sheet(isPresented: $shouldShowRegistrationView) {
-                        RegistrationView(viewModel: registrationModel)
+                    loginModel.tokenString = confirmedToken
+                    shouldShowLoginModal = true
+                    
+                    loginModel.login { didLogin in
+                        
+                        if didLogin {
+                            
+                            viewModel.isLoggedIn = true
+                            shouldShowLoginModal = false
+                            
+                            NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
+                                                            object: nil,
+                                                            userInfo: nil)
+                        } else {
+                            
+                            viewModel.isLoggedIn = true
+                            didFailToLogin = true
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                                shouldShowLoginModal = false
+                            }
+                        }
                     }
                 }
-                Spacer()
+            })
+            .onAppear(){
+                didShowCardView = true
             }
-        }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillShow)) { _ in
-            animatedViewModel.dropOffset = -200
-        }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillHide)) { _ in
-            animatedViewModel.dropOffset = 0
-        }.onAppear(){
-            didShowCardView = true
+            .cardV1ToastView(isShowingCardToast: $didShowCardView)
+            .animation(.easeOut)
+            .transition(.scale)
+            .forgotPasswordView(isShowingForgot: $didTapIForgot,
+                                emailString: $forgotEmailAddressInput,
+                                message: S.LitecoinCard.forgotPassword)
+            .loginAlertView(isShowingLoginAlert: $shouldShowLoginModal,
+                            didFail: $didFailToLogin,
+                            message: $loginModel.processMessage)
+            .registeredAlertView(shouldStartRegistering: $registrationModel.isRegistering,
+                                 didRegister: $registrationModel.didRegister,
+                                 data: registrationModel.dataDictionary,
+                                 message: $registrationModel.message)
+            .enter2FACodeView(shouldShowEnter2FAView: $shouldShowEnable2FAModal,
+                              twoFAModel: twoFAviewModel)
+            .frame(minWidth: 0,
+                   maxWidth: .infinity,
+                   minHeight: 0,
+                   maxHeight: .infinity,
+                   alignment: .center)
         }
-        .cardV1ToastView(isShowingCardToast: $didShowCardView)
-        .animation(.easeOut)
-        .transition(.scale)       
-        .forgotPasswordView(isShowingForgot: $didTapIForgot,
-                            emailString: $forgotEmailAddressInput,
-                            message: S.LitecoinCard.forgotPassword)
-        .loginAlertView(isShowingLoginAlert: $shouldShowLoginModal,
-                        didFail: $didFailToLogin,
-                        message: S.LitecoinCard.login)
-        .registeredAlertView(shouldStartRegistering: $registrationModel.isRegistering,
-                             didRegister: $registrationModel.didRegister,
-                             data: registrationModel.dataDictionary,
-                             message: $registrationModel.message)
-        .frame(minWidth: 0,
-               maxWidth: .infinity,
-               minHeight: 0,
-               maxHeight: .infinity,
-               alignment: .center)
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     
     static let viewModel = CardViewModel()
-      
+    
     static var previews: some View {
         
         Group {
@@ -257,6 +329,5 @@ struct CardView_Previews: PreviewProvider {
         }
     }
 }
-
 
 

@@ -81,6 +81,14 @@ class CardViewController: UIViewController {
                      queue: nil) { _ in
             self.updateLoginStatusFromViewModel()
         }
+        
+        // Listens for 2FA Enrollment notification and updates the CardView
+        notificationToken = NotificationCenter.default
+            .addObserver(forName: NSNotification.Name.LitecoinCard2FANotification,
+                         object: nil,
+                         queue: nil) { _ in
+               
+            }
     }
      
 }

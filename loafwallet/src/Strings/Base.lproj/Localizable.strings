@@ -1398,3 +1398,18 @@
 
 /* History Current Litecoin Value */
 "History.currentLitecoinValue" = "Current LTC value in";
+
+/* Confirm */
+"Fragment.confirm" = "confirm";
+
+/* Enter code */
+"LitecoinCard.enterCode" = "Enter Code";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Enter the code that was recently sent to your Litecoin Card account email.";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA Enabled";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Not Enabled";
