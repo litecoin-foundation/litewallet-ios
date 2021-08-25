@@ -1400,7 +1400,7 @@
 "History.currentLitecoinValue" = "Current LTC value in";
 
 /* Confirm */
-"Fragment.confirm" = "confirm";  
+"Fragment.confirm" = "confirm";
 
 /* Enter code */
 "LitecoinCard.enterCode" = "Enter Code";

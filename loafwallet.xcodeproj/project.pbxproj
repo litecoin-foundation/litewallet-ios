@@ -272,7 +272,6 @@
 		C3188E3326445EA20008ADD1 /* FileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3188E3226445EA20008ADD1 /* FileTests.swift */; };
 		C31891C1267338D300ECE25C /* NonUSTabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C0267338D300ECE25C /* NonUSTabBarViewControllerTests.swift */; };
 		C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */; };
-		C31FC39226B815C500798B2E /* ObservableWallets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FC39126B815C500798B2E /* ObservableWallets.swift */; };
 		C31FEECE26CA7F8C00DF4999 /* PreTransferViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FEECD26CA7F8C00DF4999 /* PreTransferViewModelTests.swift */; };
 		C31FEED026CB06B500DF4999 /* TransferAmountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FEECF26CB06B500DF4999 /* TransferAmountViewModelTests.swift */; };
 		C31FEED226CB06CB00DF4999 /* TransferringViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FEED126CB06CB00DF4999 /* TransferringViewModelTests.swift */; };
@@ -1473,7 +1472,6 @@
 		C3188E3226445EA20008ADD1 /* FileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTests.swift; sourceTree = "<group>"; };
 		C31891C0267338D300ECE25C /* NonUSTabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonUSTabBarViewControllerTests.swift; sourceTree = "<group>"; };
 		C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerTests.swift; sourceTree = "<group>"; };
-		C31FC39126B815C500798B2E /* ObservableWallets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableWallets.swift; sourceTree = "<group>"; };
 		C31FEECD26CA7F8C00DF4999 /* PreTransferViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTransferViewModelTests.swift; sourceTree = "<group>"; };
 		C31FEECF26CB06B500DF4999 /* TransferAmountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAmountViewModelTests.swift; sourceTree = "<group>"; };
 		C31FEED126CB06CB00DF4999 /* TransferringViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringViewModelTests.swift; sourceTree = "<group>"; };
@@ -3200,7 +3198,6 @@
 				C3B7C3C1255EAF1200E98A64 /* SupportSafariView.swift */,
 				C3BD4A692597E1E900D97079 /* CardLoggedInView.swift */,
 				C3BDB42926CDA74B004DAE77 /* CardNoTransferView.swift */,
-				C31FC39126B815C500798B2E /* ObservableWallets.swift */,
 				C3F55643255A1916005F786F /* SupportLitecoinFoundation */,
 				C35ABD08257404D2002BB9BB /* Partners */,
 				C35ABD0925740518002BB9BB /* About */,
@@ -4454,7 +4451,6 @@
 				CEF3E82F1DE534C5007C0A9E /* GradientView.swift in Sources */,
 				C3BD49B72595420A00D97079 /* RegistrationViewModel.swift in Sources */,
 				CE6D0F991DE8B75900BD4BCF /* DismissModalAnimator.swift in Sources */,
-				C31FC39226B815C500798B2E /* ObservableWallets.swift in Sources */,
 				C39443F9269DDAD3002703E9 /* LitewalletIconView.swift in Sources */,
 				CE4C1CC61ED65D830063E184 /* DrawableCircle.swift in Sources */,
 				CE8CD8E31E31978100785E02 /* LoginBackgroundTriangle.swift in Sources */,

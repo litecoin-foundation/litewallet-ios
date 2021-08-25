@@ -27,7 +27,7 @@ class CardViewModel: ObservableObject {
      
     @ObservedObject
     var cardTwoFactor = CardTwoFactor()
-      
+     
     //MARK: - Public Variables
     var walletManager: WalletManager
     
@@ -45,7 +45,7 @@ class CardViewModel: ObservableObject {
     
     func calculatedLitewalletBalance() {
         
-        if let balance = walletManager.wallet?.balance ,
+        if let balance = walletManager.wallet?.balance,
            let rate =  store.state.currentRate {
             
             self.litewalletBalance = Amount(amount: balance,

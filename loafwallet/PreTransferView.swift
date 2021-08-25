@@ -11,18 +11,12 @@ import SwiftUI
 struct PreTransferView: View {
     
     //MARK: - Combine Variables
-    @ObservedObject
-    var viewModel: PreTransferViewModel
-    
-    @ObservedObject
-    var observableWallets: ObservableWallets
-    
     @Binding
     var wasTapped: Bool
     
     @Binding
-    var walletType: WalletType
-    
+    var parentWalletType: WalletType
+      
     //MARK: - Private Variables
     private let mainPadding: CGFloat = 20.0
     
@@ -32,21 +26,25 @@ struct PreTransferView: View {
     
     var twoFactorEnabled: Bool = false
     
-    init(viewModel: PreTransferViewModel,
-         observableWallets: ObservableWallets,
-         walletType: Binding<WalletType>,
+    var walletBalance: Double
+    
+    var localWalletType: WalletType
+
+    init(walletBalance: Double,
+         parentWalletType: Binding<WalletType>,
+         localWalletType: WalletType,
          wasTapped: Binding<Bool>,
          twoFactorEnabled: Bool) {
         
-        _walletType = walletType
-        
         _wasTapped = wasTapped
         
-        self.observableWallets = observableWallets
+        _parentWalletType = parentWalletType
         
-        self.viewModel = viewModel
-        
+        self.walletBalance = walletBalance
+          
         self.twoFactorEnabled = twoFactorEnabled
+        
+        self.localWalletType = localWalletType
     }
     
     var body: some View {
@@ -68,13 +66,13 @@ struct PreTransferView: View {
                                     
                                     Spacer()
                                     
-                                    if viewModel.walletType == .litecoinCard {
+                                    if localWalletType == .litecoinCard {
                                         CardIconView()
                                     } else {
                                         LitewalletIconView()
                                     }
                                     
-                                    Text(viewModel.walletType.nameLabel)
+                                    Text(localWalletType.nameLabel)
                                         .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                                         .foregroundColor(Color.liteWalletDarkBlue)
                                        
@@ -85,25 +83,24 @@ struct PreTransferView: View {
                                 //Balance label
                                 VStack {
                                      
-                                    Text(viewModel.walletType == .litecoinCard ?
-                                            String(format:"%5.4f Ł", observableWallets.cardBalance) :
-                                            String(format:"%5.4f Ł", observableWallets.litewalletBalance))
+                                    Text(String(format:"%5.4f Ł", walletBalance))
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                                        .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .liteWalletDarkBlue)
+                                        .foregroundColor(walletBalance == 0.0 ? .litecoinSilver : .liteWalletDarkBlue)
                                         .multilineTextAlignment(.trailing)
                                         .font(Font(twoFactorEnabled ? UIFont.barlowRegular(size: 20.0) : UIFont.barlowBold(size: 20.0)))
                                         .padding(.trailing, twoFactorEnabled ? 5.0 : 40.0)
-
                                 }
                                 
                                 //Selection button
-                                
                                 if twoFactorEnabled {
                                 VStack {
                                     
                                     Button(action: {
-                                        self.walletType = viewModel.walletType
+                                        
                                         self.wasTapped = true
+                                    
+                                        parentWalletType = localWalletType
+                                        
                                     }) {
                                         
                                         ZStack {
@@ -112,18 +109,18 @@ struct PreTransferView: View {
                                                        maxHeight: .infinity,
                                                        alignment: .center)
                                                 .frame(width: 50.0)
-                                                .foregroundColor(viewModel.balance == 0.0 ? Color.litewalletLightGray : Color.liteWalletBlue)
+                                                .foregroundColor(walletBalance == 0.0 ? Color.litewalletLightGray : Color.liteWalletBlue)
                                                 .shadow(radius: 1.0, x: 2.0, y: 2.0)
                                             
                                             Image(systemName: "chevron.right")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 20, height: 20, alignment: .center)
-                                                .foregroundColor(viewModel.balance == 0.0 ? .litecoinSilver : .white)
+                                                .foregroundColor(walletBalance == 0.0 ? .litecoinSilver : .white)
                                         }
                                     }
                                     .cornerRadius(generalCornerRadius, corners: [.topRight, .bottomRight])
-                                    .disabled(viewModel.balance == 0.0 ? true : false)
+                                    .disabled(walletBalance == 0.0 ? true : false)
                                 }
                                 .frame(height: largeHeight,
                                        alignment: .center)
@@ -148,101 +145,21 @@ struct PreTransferView_Previews: PreviewProvider {
     static let small = MockData.smallBalance
     static let large = MockData.largeBalance
     
-    
-    static let lcViewModel = PreTransferViewModel(walletType: .litecoinCard, balance: small)
-    
-    static let lwViewModel = PreTransferViewModel(walletType: .litewallet, balance: large)
-    
-    static let zerolcViewModel = PreTransferViewModel(walletType: .litecoinCard, balance: 0.0)
-    
-    static let zerolwViewModel = PreTransferViewModel(walletType: .litewallet, balance: 0.0)
-    
     static let walletManager = try! WalletManager(store: Store(), dbPath: nil)
-    
-    static let observableWallets = ObservableWallets(store: Store(), walletManager: walletManager, cardBalance: 85.0)
- 
+     
     static var previews: some View {
         
         Group {
             VStack {
-                PreTransferView(viewModel: lcViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                PreTransferView(viewModel: lwViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litewallet),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: true)
-                PreTransferView(viewModel: zerolcViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: true)
-                PreTransferView(viewModel: zerolwViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litewallet),
+                PreTransferView(walletBalance: 0.0,
+                                parentWalletType: .constant(.litecoinCard),
+                                localWalletType: .litewallet,
                                 wasTapped: .constant(false),
                                 twoFactorEnabled: false)
                 Spacer()
             }
             .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
             .previewDisplayName(DeviceType.Name.iPhoneSE2)
-            
-            VStack {
-                
-                PreTransferView(viewModel: lcViewModel,
-                                observableWallets: observableWallets,
-                                 walletType: .constant(.litecoinCard),
-                                 wasTapped: .constant(false),
-                                 twoFactorEnabled: false)
-                PreTransferView(viewModel: lwViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litewallet),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                PreTransferView(viewModel: zerolcViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                PreTransferView(viewModel: zerolwViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litewallet),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                Spacer()
-            }
-            .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
-            .previewDisplayName(DeviceType.Name.iPhone8)
-            
-            VStack {
-                
-                PreTransferView(viewModel: lcViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                PreTransferView(viewModel: lwViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litewallet),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                PreTransferView(viewModel: zerolcViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litecoinCard),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                PreTransferView(viewModel: zerolwViewModel,
-                                observableWallets: observableWallets,
-                                walletType: .constant(.litewallet),
-                                wasTapped: .constant(false),
-                                twoFactorEnabled: false)
-                Spacer()
-            }
-            .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
-            .previewDisplayName(DeviceType.Name.iPhone12ProMax)
         }
     }
 }

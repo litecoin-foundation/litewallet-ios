@@ -51,7 +51,18 @@ struct TransferringModalView: View {
         
         self.transferAmount = transferAmount
         
+        print("XXX Transferring View transfer Amount\(self.transferAmount)")
+        
         self.walletType = walletType
+        
+        //Flip for the transfer destination
+        if self.walletType == .litewallet {
+            self.walletType = .litecoinCard
+        }
+        else {
+            self.walletType = .litewallet
+        }
+        
     }
     
     var body: some View {

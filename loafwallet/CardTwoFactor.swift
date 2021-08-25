@@ -13,22 +13,33 @@ class CardTwoFactor: ObservableObject {
      
     //MARK: - Combine Variables
     @Published
-    var isEnabled: Bool = false {
+    var isEnabled: Bool = true {
         
         didSet {
             
             // Using the Bool > Int > String as a quick hack
             // since the Keychain Access framework doesnt have a bool value
             
+            let keychainStatus = keychain["shouldEnable2FA"]
+            
             if isEnabled {
-                keychain["shouldEnable2FA"] = "1"
+                
+                if keychainStatus == "0" {
+                    
+                    keychain["shouldEnable2FA"] = "1"
+                     
+                    self.update2FAPreference()
+                }
             }
             else {
-                keychain["shouldEnable2FA"] = "0"
+                
+                if keychainStatus == "1" {
+                    
+                    keychain["shouldEnable2FA"] = "0"
+                      
+                    self.update2FAPreference()
+                }
             }
-            print("XXX isEnabled: \(isEnabled)")
-            
-            update2FAPreference()
         }
     }
     
@@ -42,31 +53,22 @@ class CardTwoFactor: ObservableObject {
     private let keychain = Keychain(service: "com.litecoincard.service")
     
     init() {
-        update2FAPreference()
         fetchUsers2FAStatus()
     }
 
+    // Fetches the status from the keychain
     private func fetchUsers2FAStatus() {
         
         if let shouldEnable = (keychain["shouldEnable2FA"] as
                                 NSString?)?.boolValue {
-            
-            if shouldEnable != isEnabled {
-                
-                isEnabled = shouldEnable
-                
-                update2FAPreference()
-                
-                LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-                                                   properties: ["ERROR":"Mismatch from 2FA User default"])
-                
-            }
+        
+            isEnabled = shouldEnable
         }
     }
-         
+     
+    // Update users 2FA preference to backend
     private func update2FAPreference() {
         
-        // Update users 2FA preference
         if let userID = keychain["userID"],
            let token = keychain["token"] {
             
@@ -84,8 +86,6 @@ class CardTwoFactor: ObservableObject {
                           let status = responseDict?["status"] as? Int,
                           code == "invalid_token",
                           status == 401 {
-                     
-                            DispatchQueue.main.async {
                                 
                                 self.errorMessage = S.Fragments.sorry + "" + S.LitecoinCard.twoFAErrorMessage
                                 
@@ -93,7 +93,6 @@ class CardTwoFactor: ObservableObject {
                                 
                                 LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
                                                                    properties: ["error":"ERROR: Unauthorized Error - jwt expired, invalid_token"])
-                            }
                 }
             }
         }

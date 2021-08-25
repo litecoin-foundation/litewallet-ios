@@ -46,13 +46,9 @@ struct CardNoTransferView: View {
                     VStack {
                         
                         // Litecoin Card Wallet balance
-                        PreTransferView(viewModel:
-                                            PreTransferViewModel(walletType: .litecoinCard,
-                                                                 balance: cardBalance),
-                                        observableWallets: ObservableWallets(store: self.viewModel.store,
-                                                                             walletManager: self.viewModel.walletManager,
-                                                                             cardBalance: self.cardBalance),
-                                        walletType: .litecoinCard,
+                        PreTransferView(walletBalance: viewModel.cardWalletDetails?.availableBalance ?? 0.0,
+                                        parentWalletType: .constant(.litecoinCard),
+                                        localWalletType: .litecoinCard,
                                         wasTapped: .constant(false),
                                         twoFactorEnabled: false
                         )

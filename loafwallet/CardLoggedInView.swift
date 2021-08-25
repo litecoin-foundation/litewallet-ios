@@ -28,7 +28,7 @@ struct CardLoggedInView: View {
     
     @State
     var currentWalletType: WalletType = .litewallet
-    
+      
     //MARK: - Private Variables
     private var litewalletAddress: String {
         guard let address = viewModel
@@ -50,11 +50,13 @@ struct CardLoggedInView: View {
     }
     
     init(viewModel: CardViewModel,
-         twoFactor: CardTwoFactor) {
+         twoFactor: CardTwoFactor
+        ) {
+          
         self.viewModel = viewModel
+        
         self.twoFactor = twoFactor
     }
-    
     
     /// RYO Paging Indicator: Listens to a state and updates the dots accordingly
     /// - Returns: The dots view
@@ -157,29 +159,26 @@ struct CardLoggedInView: View {
                                 
                                 Spacer()
                                 
-                                // Litewallet and Card Wallet balance views
-                                PreTransferView(viewModel:
-                                                    PreTransferViewModel(walletType: .litewallet,
-                                                                         balance: viewModel.litewalletBalance),
-                                                observableWallets: ObservableWallets(store: self.viewModel.store,
-                                                                                     walletManager: self.viewModel.walletManager,
-                                                                                     cardBalance: self.cardBalance),
-                                                walletType: $currentWalletType,
+                                // Litewallet balance view
+                                PreTransferView(walletBalance: viewModel.litewalletBalance,
+                                                parentWalletType: $currentWalletType,
+                                                localWalletType: .litewallet,
                                                 wasTapped: $didStartTransfer,
-                                                twoFactorEnabled: false
+                                                twoFactorEnabled: twoFactor.isEnabled
                                 ).padding(.bottom, 10.0)
                                 
-                                PreTransferView(viewModel:
-                                                    PreTransferViewModel(walletType: .litecoinCard,
-                                                                         balance: cardBalance),
-                                                observableWallets: ObservableWallets(store: self.viewModel.store,
-                                                                                     walletManager: self.viewModel.walletManager,
-                                                                                     cardBalance: self.cardBalance),
-                                                walletType: $currentWalletType,
+                                // Litecoin Card balance view
+                                //DEV: Need to get information back from Ternio
+                                // Currently, to withdraw call requires 2FA *again* after logging in
+                                // This currently causes an 403
+                                // When Ternio provide a good process, we will add it.
+                                PreTransferView(walletBalance: cardBalance,
+                                                parentWalletType: $currentWalletType,
+                                                localWalletType: .litecoinCard,
                                                 wasTapped: $didStartTransfer,
-                                                twoFactorEnabled: false
+                                                twoFactorEnabled: false //twoFactor.isEnabled - See DEV Note.
                                 ).padding(.top, 10.0)
-                                
+                                 
                                 Spacer()
                                 
                             }

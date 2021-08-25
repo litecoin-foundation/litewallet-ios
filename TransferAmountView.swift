@@ -247,7 +247,11 @@ struct TransferAmountView: View {
                 
                 //Show transfer modal view
                 Button(action: {
+                    
+                    viewModel.transferAmount = transferAmount
+                    
                     didStartTransferringView = true
+                    
                 }) {
                     Text(S.LitecoinCard.Transfer.startTransfer.localizedUppercase)
                         .font(Font(UIFont.barlowSemiBold(size: 18.0)))

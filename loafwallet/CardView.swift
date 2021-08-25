@@ -149,12 +149,14 @@ struct CardView: View {
                             // Toggling 2FA on and entering the code fixes the problem.
                             // There are analytical events to see how prevalent this issue is.
                             // It may need to be refactored if it is a growing concern
-                            .alert(isPresented: $viewModel.cardTwoFactor.errorOccured,
-                                   content: {
-                                    Alert(title: Text(S.Fragments.sorry.localizedCapitalized + "!"),
-                                      message: Text( S.LitecoinCard.twoFAErrorMessage),
-                                      dismissButton: .default(Text(S.Button.ok)))
-                            })
+                            .alert(isPresented:$viewModel.cardTwoFactor.errorOccured) {
+                                Alert(
+                                    title: Text(S.Fragments.sorry.localizedCapitalized + "!"),
+                                    message: Text( S.LitecoinCard.twoFAErrorMessage),
+                                    dismissButton: .default(Text(S.Button.ok)){
+                                        viewModel.cardTwoFactor.errorOccured = false
+                                    })
+                            }
                     }
                     
                     //MARK: - Action Buttons

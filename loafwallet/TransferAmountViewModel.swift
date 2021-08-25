@@ -76,6 +76,8 @@ class TransferAmountViewModel: ObservableObject {
         
     }
     
+    
+    //DEV: Need to get information back from Ternio 2FA
     /// Transfer Litecoin from **Litecoin Card to Litewallet**
     /// - Parameters:
     ///   - amount: Litecoin to 6 decimal places
@@ -94,6 +96,11 @@ class TransferAmountViewModel: ObservableObject {
             return
         }
         
+        print("XXX Amount\(amount)")
+        print("XXX Address \(address)")
+        print("XXX userID\(userID)")
+        print("XXX token \(token)")
+        
         PartnerAPI
             .shared
             .withdrawToWallet(userID: userID,
@@ -101,6 +108,9 @@ class TransferAmountViewModel: ObservableObject {
                               withdrawal:
                                 ["amount": amount,
                                  "wallet_address": address]) { dict in
+                
+               // self.keychain["2fatoken"] = self.tokenString
+
                 // Successful
                 //{
                 //    "data": {
@@ -140,6 +150,7 @@ class TransferAmountViewModel: ObservableObject {
                 //        "message": "Error"
                 //    }
                 //}
+                print("XXX\(dict?.debugDescription)")
                 
                 if let response = dict?["response"] as? [String: Any],
                    let code = response["code"] as? Int {
