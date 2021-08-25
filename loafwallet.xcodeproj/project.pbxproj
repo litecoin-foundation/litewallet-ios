@@ -314,7 +314,7 @@
 		C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */; };
 		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
 		C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */; };
- 		C3DAAE2D26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */; }; 
+ 		C3DAAE2D26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */; };
 		C3E77C0926C2807200693E22 /* Enter2FACodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E77C0826C2807200693E22 /* Enter2FACodeViewModel.swift */; };
 		C3EB6C1B26C18DD500881841 /* Enter2FACodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB6C1A26C18DD500881841 /* Enter2FACodeView.swift */; };
 		C3EFA9A12650807B005C59B5 /* LockScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */; };
@@ -4113,7 +4113,6 @@
 				C3B7C43F25620D4400E98A64 /* SupportLitecoinFoundationViewModelTests.swift in Sources */,
 				C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */,
 				24470E3623A5FDE800ADDA27 /* PhraseTests.swift in Sources */,
-				C3DAAE3026C9CB0A00D9E18C /* ViewExtensionTests.swift in Sources */,
 				C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */,
 				C31891C1267338D300ECE25C /* NonUSTabBarViewControllerTests.swift in Sources */,
 				24470E4523A608A700ADDA27 /* AmountTests.swift in Sources */,
