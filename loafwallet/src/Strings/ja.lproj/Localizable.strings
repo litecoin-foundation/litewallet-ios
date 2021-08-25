@@ -1395,6 +1395,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
-
-/* Confirm */
-"Fragment.confirm" = "";

@@ -1400,7 +1400,7 @@
 "History.currentLitecoinValue" = "Current LTC value in";
 
 /* Confirm */
-"Fragment.confirm" = "confirm"; 
+"Fragment.confirm" = "confirm";  
 
 /* Enter code */
 "LitecoinCard.enterCode" = "Enter Code";
@@ -1412,4 +1412,4 @@
 "LitecoinCard.twoFAOn" = "2FA Enabled";
 
 /* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA Not Enabled"; 
+"LitecoinCard.twoFAOff" = "2FA Not Enabled";
