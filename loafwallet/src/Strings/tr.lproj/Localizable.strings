@@ -1395,3 +1395,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
+
+/* Confirm */
+"Fragment.confirm" = "";
