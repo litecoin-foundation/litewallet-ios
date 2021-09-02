@@ -51,12 +51,7 @@ class CardWalletTests: XCTestCase {
                     "ach_account_status": null
                 }
         """.data(using: .utf8)
-    
-    override func setUp() {
-        super.setUp()
-        viewModel = CardViewModel()
-    }
-    
+      
     func testDecodeWalletDetails() throws {
          
         do {

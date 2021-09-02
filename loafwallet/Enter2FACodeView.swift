@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct Enter2FACodeView<Presenting>: View where Presenting: View {
-    
+struct Enter2FACodeView<Presenting>: View where Presenting: View { 
+	
     //MARK: - Combine Variables
     @ObservedObject
     var twoFAViewModel: Enter2FACodeViewModel
@@ -47,7 +47,7 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                                        height: 15)
                         }
                         .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
-                        
+
                         Text(S.LitecoinCard.enterCode)
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
                             .padding(.bottom, 8)
@@ -58,7 +58,6 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                             .foregroundColor(Color.white)
                             .padding([.leading, .trailing], 20)
 
-                        
                         TextField("", text: $twoFAViewModel.tokenString)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .font(Font(UIFont.barlowLight(size: 25.0)))
@@ -82,8 +81,8 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                         HStack {
                             
                             // Confirm button
-                            Button(action: {
-                             
+                            Button(action: { 
+								
                                 twoFAViewModel.didConfirmToken { token in
                                     
                                     twoFAViewModel.tokenString = token

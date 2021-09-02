@@ -286,6 +286,12 @@
 /* Or */
 "Fragment.or" = "eller";
 
+/* sorry */
+"Fragment.sorry" = "Förlåt";
+
+/* to */
+"Fragment.to" = "till";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "HISTORIA";
 
@@ -379,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Kortbalans";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Logga ut och aktivera 2FA för att tillåta överföringar";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registrering & inloggning\n- Tillgängligt kortsaldo\n- Återställ lösenord\n- Ingen överföring till Litewallet\n- Endast USA";
 
@@ -408,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Logga ut";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin -kort";
 
 /* Register */
 "LitecoinCard.registerCard" = "Registrera";
@@ -499,6 +511,33 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Ange e-postadressen som är kopplad till ditt Litecoin-kortkonto och leta efter ett e-postmeddelande med återställningsinstruktioner.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Överför till kort";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Överför till Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Välj den överförande plånboken:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adress";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet -balans";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Skjut för att ställa in överföringsbelopp";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Starta överföringen";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Överföra";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Det var ett problem. Växla 2FA till *Enabled *, ange den mejlade koden och försök igen.";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA Ej aktiverat";
 
@@ -507,6 +546,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Besök https://litecoin.dashboard.getblockcard.com/password/forgot för att återställa ditt lösenord.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Platstjänster är inaktiverade.";

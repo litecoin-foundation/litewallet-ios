@@ -286,6 +286,12 @@
 /* Or */
 "Fragment.or" = "oder";
 
+/* sorry */
+"Fragment.sorry" = "Verzeihung";
+
+/* to */
+"Fragment.to" = "zu";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "GESCHICHTE";
 
@@ -379,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Kartenguthaben";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Melden Sie sich ab und aktivieren Sie 2FA, um Übertragungen zuzulassen";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registratie en inlogge\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instelle\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
 
@@ -408,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Ausloggen";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin-Karte";
 
 /* Register */
 "LitecoinCard.registerCard" = "Registrieren";
@@ -499,6 +511,33 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Geben Sie die E-Mail-Adresse ein, die Ihrem Litecoin Card-Konto zugeordnet ist, und suchen Sie nach einer E-Mail mit Anweisungen zum Zurücksetzen.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Auf Karte übertragen";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Auf Litewallet übertragen";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Wählen Sie die übertragende Brieftasche:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adresse";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet-Guthaben";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Schieben, um den Überweisungsbetrag festzulegen";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Übertragung starten";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Überweisen";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Es gab einen Fehler. Bitte schalten Sie 2FA auf *Aktiviert* um, geben Sie den per E-Mail gesendeten Code ein und versuchen Sie es erneut.";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FA nicht aktiviert";
 
@@ -507,6 +546,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Besuchen Sie https://litecoin.dashboard.getblockcard.com/password/forgot, um Ihr Passwort zurückzusetzen.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Standortdienste sind deaktiviert";

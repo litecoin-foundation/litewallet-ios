@@ -28,6 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       enableASanStackUseAfterReturn = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES"
       localizableStringsDataGatheringEnabled = "YES">
       <AdditionalOptions>
          <AdditionalOption
@@ -36,6 +37,15 @@
             isEnabled = "YES">
          </AdditionalOption>
       </AdditionalOptions>
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
+            BuildableName = "Litewallet.app"
+            BlueprintName = "loafwallet"
+            ReferencedContainer = "container:loafwallet.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO"

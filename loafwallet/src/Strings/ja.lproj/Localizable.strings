@@ -286,6 +286,12 @@
 /* Or */
 "Fragment.or" = "或いは";
 
+/* sorry */
+"Fragment.sorry" = "ごめん";
+
+/* to */
+"Fragment.to" = "に";
+
 /* History Bar Item Title */
 "History.barItemTitle" = "歴史";
 
@@ -379,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "カード残高";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "ログアウトして2FAを有効にし、転送を許可します";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "-登録とログイン\n-利用可能なカード残高\n- パスワードを再設定する\n-Litewalletへの転送なし\n-米国のみ";
 
@@ -408,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "ログアウト";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "ライトコインカード";
 
 /* Register */
 "LitecoinCard.registerCard" = "登録";
@@ -499,6 +511,33 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "ライトコインカードアカウントに関連付けられているメールアドレスを入力し、リセット手順が記載されたメールを探します。";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "カードに転送";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Litewalletに転送";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "転送ウォレットを選択します。";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "住所";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewalletバランス";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "スライドして転送量を設定";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "転送を開始します";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "移行";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "エラーが発生しました。 2FAを「有効」に切り替え、電子メールで送信されたコードを入力して、再試行してください。";
+
 /* Message when 2FA is off */
 "LitecoinCard.twoFAOff" = "2FAが有効になっていません";
 
@@ -507,6 +546,9 @@
 
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "https://litecoin.dashboard.getblockcard.com/password/forgot にアクセスしてパスワードをリセットしてください。";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "位置情報サービスが無効化されています。";

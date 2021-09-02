@@ -101,54 +101,87 @@ class Sender {
             self.verifyPin(tx: tx, withFunction: verifyPinFunction, completion: completion)
         }
     }
-    
+
+    func sendToCard(amount: UInt64, toAddress: String, completion: @escaping (Bool) -> Void) {
+        if self.createTransaction(amount: amount, to: toAddress) {
+        
+            if let tx = transaction {
+                
+                DispatchQueue.walletQueue.async { [weak self] in
+                    
+                    guard let myself = self else { return }
+                    myself.walletManager.signCardTransaction(tx) { result in
+                        switch result {
+                            case .success:
+                                
+                                self?.publish(completion: { result in
+                                    print("XXX \(result)")
+                                })
+                                
+                                completion(true)
+                            
+                            case .failure:
+                                print("XXX Failure")
+                            
+                            case .fallback:
+                                print("XXX Fallback")
+                            
+                            case .cancel :
+                                print("XXX Cancel")
+                        }
+                                 
+                    }
+                }
+            }
+        }
+    }
+	 
     /// Verify Pin
     /// - Parameters:
     ///   - tx: TX package
     ///   - withFunction: completion mid-range
     ///   - completion: completion
-    
+
     //DEV: Important Note
     // This func needs to be REFACTORED as it violates OOP and intertangles TX and Pin authentication
     // This means it should be 2 functions.
     // VerifyPIN and VerifyTX
     private func verifyPin(tx: BRTxRef,
                            withFunction: (@escaping(String) -> Bool) -> Void,
-                           completion:@escaping (SendResult) -> Void) {
+                           completion:@escaping (SendResult) -> Void) { 
+    withFunction({ pin in
+        var success = false
+        let group = DispatchGroup()
+        group.enter()
+         DispatchQueue.walletQueue.async {
+            if self.walletManager.signTransaction(tx, pin: pin) {
+                self.publish(completion: completion)
+                success = true
+            }
+            group.leave()
+        }
+        let result = group.wait(timeout: .now() + 30.0)
+        if result == .timedOut {
+            let properties: [String: String] =
+                ["ERROR_TX": "\(tx.txHash)",
+                 "ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
         
-        withFunction({ pin in
-            var success = false
-            let group = DispatchGroup()
-            group.enter()
-             DispatchQueue.walletQueue.async {
-                if self.walletManager.signTransaction(tx, pin: pin) {
-                    self.publish(completion: completion)
-                    success = true
-                }
-                group.leave()
-            }
-            let result = group.wait(timeout: .now() + 30.0)
-            if result == .timedOut {
-                let properties: [String: String] =
-                    ["ERROR_TX": "\(tx.txHash)",
-                     "ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
-                
-                LWAnalytics.logEventWithParameters(itemName:
-                                                    ._20200112_ERR,
-                                                   properties: properties)
+            LWAnalytics.logEventWithParameters(itemName:
+                                                ._20200112_ERR,
+                                               properties: properties)
 
-                let alert = UIAlertController(title: S.LitewalletAlert.corruptionError,
-                                              message: S.LitewalletAlert.corruptionMessage,
-                                              preferredStyle: .alert)
-          
-                UserDefaults.didSeeCorruption = true
-                alert.addAction(UIAlertAction(title: "OK",
-                                              style: .default,
-                                              handler: nil))
-                 return false
-            }
-            return success
-        })
+            let alert = UIAlertController(title: S.LitewalletAlert.corruptionError,
+                                          message: S.LitewalletAlert.corruptionMessage,
+                                          preferredStyle: .alert)
+  
+            UserDefaults.didSeeCorruption = true
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default,
+                                          handler: nil))
+             return false
+        }
+        return success
+    })
     }
     
     /// Publish TX
