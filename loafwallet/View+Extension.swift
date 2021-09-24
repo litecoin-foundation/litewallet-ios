@@ -32,6 +32,7 @@ extension View {
     ///   - emailString: Users email
     ///   - message: Message detail
     /// - Returns: ForgotPasswordView
+
     func forgotPasswordView(isShowingForgot: Binding<Bool>,
                             emailString: Binding<String>,
                             message: String) -> some View {

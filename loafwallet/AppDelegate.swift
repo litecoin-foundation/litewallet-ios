@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIView.swizzleSetFrame()
         
         applicationController.launch(application: application, window: thisWindow)
-        
+ 
         LWAnalytics.logEventWithParameters(itemName:._20191105_AL)
 		
         return true

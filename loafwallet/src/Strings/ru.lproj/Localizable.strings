@@ -387,7 +387,7 @@
 
 /* Message when 2FA is off and user is viewing the Card Balance */
 "LitecoinCard.cardBalanceOnlyDescription" = "Выйдите из системы и включите 2FA, чтобы разрешить переводы";
-
+ 
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Регистрация и вход\n- Доступный баланс карты\n- Сброс пароля\n- Без перевода на Litewallet\n- Только США";
 
@@ -405,7 +405,7 @@
 
 /* Enter code details */
 "LitecoinCard.enterCode.detail" = "Введите код, который недавно был отправлен на электронную почту вашей учетной записи Litecoin Card.";
-
+ 
 /* Failed Login */
 "LitecoinCard.failed.login" = "Ошибка входа";
 
@@ -420,7 +420,7 @@
 
 /* Card Bar Item Title */
 "LitecoinCard.name" = "Карта Litecoin";
-
+ 
 /* Register */
 "LitecoinCard.registerCard" = "регистр";
 

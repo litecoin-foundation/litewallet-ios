@@ -388,7 +388,7 @@
 
 /* Message when 2FA is off and user is viewing the Card Balance */
 "LitecoinCard.cardBalanceOnlyDescription" = "Sair e habilitar 2FA para permitir transferências";
-
+ 
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registro e login\n- Saldo do cartão disponível\n- Redefinir senha\n- Sem transferência para Litewallet\n- Somente nos EUA";
 

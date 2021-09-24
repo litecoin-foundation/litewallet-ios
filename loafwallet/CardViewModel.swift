@@ -9,16 +9,25 @@
 import Foundation
 import SwiftUI
 import KeychainAccess
+<<<<<<< HEAD
 
 class CardViewModel: ObservableObject {
         
     //MARK: - Combine Variables
+=======
+ 
+
+class CardViewModel: ObservableObject {
+    
+    //MARK: - Login Status
+>>>>>>> main
     @Published
     var isLoggedIn: Bool = false
     
     @Published
     var isNotRegistered: Bool = true
       
+<<<<<<< HEAD
     @Published
     var cardWalletDetails: CardWalletDetails?
     
@@ -72,6 +81,34 @@ class CardViewModel: ObservableObject {
             //Only receives the data element there is the metadata
             guard let data = detailsDict?["data"] as? [String: Any] else {
                 LWAnalytics.logEventWithParameters(itemName:._20210405_TAWDF)
+=======
+    //MARK: - Combine Variables
+    @Published
+    var walletDetails: CardWalletDetails?
+     
+    init() { }
+    
+    func fetchCardWalletDetails(completion: @escaping () -> Void) {
+        
+        let cardService = "com.litecoincard.service"
+        let keychain = Keychain(service: cardService)
+        
+        guard let token = (try? keychain.getString("token")) as? String else {
+            print("Error: Token not found")
+            return
+        }
+        
+        guard let userID = (try? keychain.getString("userID")) as? String else {
+            print("Error: UserID not found")
+            return
+        }
+        
+        PartnerAPI.shared.getWalletDetails(userID: userID, token: token) { detailsDict in
+            
+            //Only reteives the data element there is the metadata and the result as well
+            guard let data = detailsDict?["data"] as? [String: Any] else {
+                print("Error: Data dict not found")
+>>>>>>> main
                 return
             }
             
@@ -83,11 +120,17 @@ class CardViewModel: ObservableObject {
                 
                 let walletDetails = try? decoder.decode(CardWalletDetails.self, from: jsonData)
                 
+<<<<<<< HEAD
                 DispatchQueue.main.async { 
                     self.cardWalletDetails = walletDetails
                     LWAnalytics.logEventWithParameters(itemName:._20210804_TAWDS)
                 }
                 
+=======
+                DispatchQueue.main.async {
+                    self.walletDetails = walletDetails
+                }
+>>>>>>> main
             } catch {
                 print("Error: Incomplete dictionary data from partner API")
                 LWAnalytics.logEventWithParameters(itemName:._20210405_TAWDF) 

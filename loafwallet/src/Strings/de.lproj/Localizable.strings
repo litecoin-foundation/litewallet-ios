@@ -387,7 +387,7 @@
 
 /* Message when 2FA is off and user is viewing the Card Balance */
 "LitecoinCard.cardBalanceOnlyDescription" = "Melden Sie sich ab und aktivieren Sie 2FA, um Übertragungen zuzulassen";
-
+ 
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registratie en inlogge\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instelle\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
 

@@ -1398,6 +1398,7 @@
 
 /* History Current Litecoin Value */
 "History.currentLitecoinValue" = "Current LTC value in";
+<<<<<<< HEAD
 
 /* Confirm */
 "Fragment.confirm" = "confirm";
@@ -1455,3 +1456,5 @@
 
 /* 2FA Error message */
 "LitecoinCard.twoFAErrorMessage" = "There was an error. Please toggle 2FA to *Enabled*, enter the emailed code, and try again.";
+=======
+>>>>>>> main

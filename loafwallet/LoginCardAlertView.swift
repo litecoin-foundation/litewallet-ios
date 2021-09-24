@@ -19,7 +19,7 @@ struct LoginCardAlertView<Presenting>: View where Presenting: View {
     var mainMessage: String
     
     let presenting: Presenting
-     
+    
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             HStack{ Spacer()
