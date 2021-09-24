@@ -387,7 +387,7 @@
 
 /* Message when 2FA is off and user is viewing the Card Balance */
 "LitecoinCard.cardBalanceOnlyDescription" = "Logga ut och aktivera 2FA för att tillåta överföringar";
- 
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registrering & inloggning\n- Tillgängligt kortsaldo\n- Återställ lösenord\n- Ingen överföring till Litewallet\n- Endast USA";
 
@@ -405,7 +405,7 @@
 
 /* Enter code details */
 "LitecoinCard.enterCode.detail" = "Ange koden som nyligen skickades till ditt Litecoin -kortkontots e -postadress.";
- 
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Inloggningen misslyckades";
 

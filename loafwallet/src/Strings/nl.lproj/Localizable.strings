@@ -387,7 +387,7 @@
 
 /* Message when 2FA is off and user is viewing the Card Balance */
 "LitecoinCard.cardBalanceOnlyDescription" = "Uitloggen en 2FA inschakelen om overdrachten toe te staan";
- 
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registratie en inloggen\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instellen\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
 

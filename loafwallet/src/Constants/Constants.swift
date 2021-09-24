@@ -9,7 +9,6 @@
 import UIKit
 
 let π: CGFloat = .pi
-<<<<<<< HEAD
 
 /// Sets tthe wallet type, the image and the label
 enum WalletType: String {
@@ -44,8 +43,6 @@ enum WalletType: String {
         }
     }
 }
-=======
->>>>>>> main
   
 /// Custom Event Enum: Events related to different user based actions
 enum CustomEvent: String {
@@ -94,12 +91,9 @@ enum CustomEvent: String {
     /// Generalized Error
     case _20200112_ERR = "ERROR"
     
-<<<<<<< HEAD
     /// Keychain Lookup
     case _20210804_ERR_KLF = "ERROR_KEY_LOOKUP_FAILURE"
     
-=======
->>>>>>> main
     /// Started resync
     case _20200112_DSR = "DID_START_RESYNC"
     
@@ -138,7 +132,6 @@ enum CustomEvent: String {
     
     /// Ternio API Wallet details failure
     case _20210405_TAWDF = "TERNIO_API_WALLET_DETAILS_FAILURE"
-<<<<<<< HEAD
       
     /// Ternio API Authenticate Enable 2FA change
     case _20210804_TAA2FAC = "TERNIO_API_AUTH_2FA_CHANGE"
@@ -154,10 +147,7 @@ enum CustomEvent: String {
      
     /// Ternio API withdrawal to Litewallet
     case _20210804_TAWTL = "TERNIO_API_WITHDRAWAL_TO_LITEWALLET"
-    
-=======
-     
->>>>>>> main
+
     /// Heartbeat check If event even happens
     case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS" 
 }

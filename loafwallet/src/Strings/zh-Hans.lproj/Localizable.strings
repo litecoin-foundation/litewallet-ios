@@ -387,7 +387,7 @@
 
 /* Message when 2FA is off and user is viewing the Card Balance */
 "LitecoinCard.cardBalanceOnlyDescription" = "注销并启用 2FA 以允许传输";
- 
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "-注册和登录\n-可用卡余额\n-重置密码\n-不能转移到Litewallet\n-仅限美国";
 
@@ -405,7 +405,7 @@
 
 /* Enter code details */
 "LitecoinCard.enterCode.detail" = "输入最近发送到您的莱特币卡帐户电子邮件的代码。";
- 
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "登录失败";
 
@@ -420,7 +420,7 @@
 
 /* Card Bar Item Title */
 "LitecoinCard.name" = "莱特币卡";
- 
+
 /* Register */
 "LitecoinCard.registerCard" = "寄存器";
 
@@ -549,7 +549,7 @@
 
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
- 
+
 /* Location services disabled error */
 "LocationPlugin.disabled" = "位置服务被禁用。";
 

@@ -738,43 +738,6 @@ class ModalPresenter : Subscriber, Trackable {
         topViewController?.present(alert, animated: true, completion: nil)
     }
     
-<<<<<<< HEAD
-=======
-    private func handleFile(_ file: Data) {
-        if let request = PaymentProtocolRequest(data: file) {
-            if let topVC = topViewController as? ModalViewController {
-                let attemptConfirmRequest: () -> Bool = {
-                    if let send = topVC.childViewController as? SendViewController {
-                        send.confirmProtocolRequest(protoReq: request)
-                        return true
-                    }
-                    return false
-                }
-                if !attemptConfirmRequest() {
-                    modalTransitionDelegate.reset()
-                    topVC.dismiss(animated: true, completion: {
-                        self.store.perform(action: RootModalActions.Present(modal: .send))
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { //This is a hack because present has no callback
-                            let _ = attemptConfirmRequest()
-                        })
-                    })
-                }
-            }
-        } else if let ack = PaymentProtocolACK(data: file) {
-            if let memo = ack.memo {
-                let alert = UIAlertController(title: "", message: memo, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
-                topViewController?.present(alert, animated: true, completion: nil)
-            }
-            //TODO - handle payment type
-        } else {
-            let alert = UIAlertController(title: S.LitewalletAlert.error, message: S.PaymentProtocol.Errors.corruptedDocument, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
-            topViewController?.present(alert, animated: true, completion: nil)
-        }
-    }
-    
->>>>>>> main
     private func handlePaymentRequest(request: PaymentRequest) {
         self.currentRequest = request
         guard !store.state.isLoginRequired else { presentModal(.send); return }
