@@ -331,6 +331,11 @@
 		C3EFA9A62651A808005C59B5 /* LockScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */; };
 		C3F4A4A326A2FA1D0008B1B2 /* TransferAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4A4A226A2FA1D0008B1B2 /* TransferAmountView.swift */; };
 		C3F4A4A526A2FB1E0008B1B2 /* TransferAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F4A4A426A2FB1E0008B1B2 /* TransferAmountViewModel.swift */; };
+<<<<<<< HEAD
+=======
+		C3F55645255A193D005F786F /* SupportLitecoinFoundationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F55644255A193D005F786F /* SupportLitecoinFoundationView.swift */; };
+		C3F55655255A195B005F786F /* SupportLitecoinFoundationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F55654255A195B005F786F /* SupportLitecoinFoundationViewModel.swift */; };
+>>>>>>> main
 		C3F7BCDC25FEC6AD00694C28 /* FailedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */; };
 		C3F7BCDD25FEC6AD00694C28 /* DomainResolutionFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */; };
 		C3F7BCDE25FEC6AD00694C28 /* AlertFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */; };
@@ -1526,6 +1531,11 @@
 		C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenTests.swift; sourceTree = "<group>"; };
 		C3F4A4A226A2FA1D0008B1B2 /* TransferAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAmountView.swift; sourceTree = SOURCE_ROOT; };
 		C3F4A4A426A2FB1E0008B1B2 /* TransferAmountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAmountViewModel.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		C3F55644255A193D005F786F /* SupportLitecoinFoundationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportLitecoinFoundationView.swift; sourceTree = "<group>"; };
+		C3F55654255A195B005F786F /* SupportLitecoinFoundationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportLitecoinFoundationViewModel.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedAlertView.swift; sourceTree = "<group>"; };
 		C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainResolutionFailure.swift; sourceTree = "<group>"; };
 		C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFailureView.swift; sourceTree = "<group>"; };
@@ -2198,6 +2208,10 @@
 				C345D81325A8D50600657E30 /* LitecoinCardTests */,
 				24470E4423A608A700ADDA27 /* AmountTests.swift */,
 				2494037523AD35C000369261 /* BuyWKWebVCTests.swift */,
+<<<<<<< HEAD
+=======
+				C3B7C43E25620D4400E98A64 /* SupportLitecoinFoundationViewModelTests.swift */,
+>>>>>>> main
 				C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */,
 				C31891C0267338D300ECE25C /* NonUSTabBarViewControllerTests.swift */,
 				C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */,
@@ -3188,6 +3202,10 @@
 				C3B7C3C1255EAF1200E98A64 /* SupportSafariView.swift */,
 				C3BD4A692597E1E900D97079 /* CardLoggedInView.swift */,
 				C3BDB42926CDA74B004DAE77 /* CardNoTransferView.swift */,
+<<<<<<< HEAD
+=======
+				C3F55643255A1916005F786F /* SupportLitecoinFoundation */,
+>>>>>>> main
 				C35ABD08257404D2002BB9BB /* Partners */,
 				C35ABD0925740518002BB9BB /* About */,
 				C3D783A52565EA1E0004FF70 /* Unstoppable */,
@@ -3236,6 +3254,17 @@
 			sourceTree = "<group>";
 		};
 		C3DAAE2B26C9C15A00D9E18C /* Two Factor Auth Tests */ = {
+<<<<<<< HEAD
+=======
+			isa = PBXGroup;
+			children = (
+				C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */,
+			);
+			path = "Two Factor Auth Tests";
+			sourceTree = "<group>";
+		};
+		C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */ = {
+>>>>>>> main
 			isa = PBXGroup;
 			children = (
 				C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */,
@@ -4798,7 +4827,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 5;
+=======
+				CURRENT_PROJECT_VERSION = 4;
+>>>>>>> main
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -4906,7 +4939,11 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 5;
+=======
+				CURRENT_PROJECT_VERSION = 4;
+>>>>>>> main
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -5217,7 +5254,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 5;
+=======
+				CURRENT_PROJECT_VERSION = 4;
+>>>>>>> main
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5248,7 +5289,11 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 5;
+=======
+				CURRENT_PROJECT_VERSION = 4;
+>>>>>>> main
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -5348,7 +5393,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 5;
+=======
+				CURRENT_PROJECT_VERSION = 4;
+>>>>>>> main
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5380,7 +5429,11 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 5;
+=======
+				CURRENT_PROJECT_VERSION = 4;
+>>>>>>> main
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
