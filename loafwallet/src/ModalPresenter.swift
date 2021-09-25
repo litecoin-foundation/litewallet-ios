@@ -363,7 +363,7 @@ class ModalPresenter : Subscriber, Trackable {
         menu.didTapSupport = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
                 
-                let urlString = "https://litecoinfoundation.zendesk.com/hc/en-us"
+                let urlString = "https://support.litewallet.io"
                 
                 guard let url = URL(string: urlString) else { return }
                 
@@ -372,12 +372,6 @@ class ModalPresenter : Subscriber, Trackable {
             })
             
         }
-        menu.didTapGiveSupportLF = { [weak self, weak menu] in
-            menu?.dismiss(animated: true, completion: {
-                self?.presentSupportLF()
-            })
-        }
-        
         menu.didTapLock = { [weak self, weak menu] in
             menu?.dismiss(animated: true) {
                 self?.store.trigger(name: .lock)
@@ -568,20 +562,6 @@ class ModalPresenter : Subscriber, Trackable {
             parent?.view.isFrameChangeBlocked = true
             parent?.present(vc, animated: true, completion: {})
         }
-    }
-    
-    // MARK: - Present Support LF View
-    private func presentSupportLF() {
-        
-        let supportLFView = UIHostingController(rootView: SupportLitecoinFoundationView(viewModel: SupportLitecoinFoundationViewModel()))
-
-        supportLFView.rootView.viewModel.didTapToDismiss = {
-            supportLFView.dismiss(animated: true) {
-                //TODO: Track in Analytics
-            }
-        }
-        window.rootViewController?.present(supportLFView, animated: true, completion: nil)
-        
     }
 	
     private func presentSecurityCenter() {

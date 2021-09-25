@@ -13,14 +13,13 @@ class MenuViewController : UIViewController, Trackable {
     //MARK: - Public
     var didTapSecurity: (() -> Void)?
     var didTapSupport: (() -> Void)?
-    var didTapGiveSupportLF: (() -> Void)?
     var didTapSettings: (() -> Void)?
     var didTapLock: (() -> Void)?
 
     //MARK: - Private
     fileprivate let buttonHeight: CGFloat = 72.0
     fileprivate let buttons: [MenuButton] = {
-        let types: [MenuButtonType] = [.security, .customerSupport, .supportGiveToLF, .settings, .lock]
+        let types: [MenuButtonType] = [.security, .customerSupport, .settings, .lock]
         return types.compactMap {
             return MenuButton(type: $0)
         }
@@ -64,8 +63,6 @@ class MenuViewController : UIViewController, Trackable {
             didTapSecurity?()
         case .customerSupport:
             didTapSupport?()
-        case .supportGiveToLF: 
-                didTapGiveSupportLF?()
         case .settings:
             didTapSettings?()
         case .lock:
