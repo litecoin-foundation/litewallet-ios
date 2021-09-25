@@ -15,11 +15,15 @@ import SwiftUI
 /// A container for a CardView - SwiftUI
 class CardViewController: UIViewController {
     
-    var viewModel = CardViewModel()
+    var viewModel: CardViewModel?
     
     var cardLoggedInView: CardLoggedInView?
-    
+ 
     var cardView: CardView?
+    
+    var walletManager: WalletManager?
+    
+    var store: Store?
  
     var parentFrame: CGRect?
     
@@ -28,6 +32,12 @@ class CardViewController: UIViewController {
     var notificationToken: NSObjectProtocol?
     
     private func updateLoginStatusFromViewModel() {
+        
+        guard let viewModel = self.viewModel else {
+            NSLog("ERROR: CardViewModel not loaded")
+            LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR) 
+            return
+        }
      
         // Verifies the stack has only one VC and it is the UIHostingController
         DispatchQueue.main.async {
@@ -38,11 +48,12 @@ class CardViewController: UIViewController {
                 self.swiftUIContainerView.view.removeFromSuperview()
             }
             
-            if self.viewModel.isLoggedIn {
-                self.cardLoggedInView = CardLoggedInView(viewModel: self.viewModel)
+            if viewModel.isLoggedIn {
+                self.cardLoggedInView = CardLoggedInView(viewModel: viewModel,
+                                                         twoFactor: viewModel.cardTwoFactor)
                 self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardLoggedInView))
             } else {
-                self.cardView = CardView(viewModel: self.viewModel)
+                self.cardView = CardView(viewModel: viewModel)
                 self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardView))
             }
             
@@ -58,17 +69,31 @@ class CardViewController: UIViewController {
     }
          
      override func viewDidLoad() {
+        
+        // Preparation values for the Card view model
+        guard let walletManager = self.walletManager,
+              let store = self.store else {
+            
+            LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+            
+            return
+        }
+          
+        self.viewModel = CardViewModel(walletManager: walletManager,
+                                       store: store)
          
         self.updateLoginStatusFromViewModel()
  
-       // Listens for Login notification and updates the CardView
+        // Listens for Login notification and updates the CardView
         notificationToken = NotificationCenter.default
         .addObserver(forName: NSNotification.Name.LitecoinCardLoginNotification,
                      object: nil,
                      queue: nil) { _ in
             
-            self.viewModel.fetchCardWalletDetails {
-                print("Logged in updated wallet values")
+            LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULI)
+
+            self.viewModel?.fetchCardWalletDetails {
+                LWAnalytics.logEventWithParameters(itemName: ._20210804_TAWDS)
             }
 			
             self.updateLoginStatusFromViewModel()
@@ -79,6 +104,9 @@ class CardViewController: UIViewController {
         .addObserver(forName: NSNotification.Name.LitecoinCardLogoutNotification,
                      object: nil,
                      queue: nil) { _ in
+            
+            LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULO)
+            
             self.updateLoginStatusFromViewModel()
         }
     }

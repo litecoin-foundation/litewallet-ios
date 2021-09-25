@@ -73,7 +73,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                            .padding(.all, 8)
+                            .padding(.all, 20)
                         
                         HStack {
                             
@@ -111,10 +111,6 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
                     )
                     .background(Color(UIColor.liteWalletBlue))
                     .cornerRadius(8)
-                    .frame(
-                        width: deviceSize.size.width * 0.85,
-                        height: deviceSize.size.height * 0.9
-                    )
                     .shadow(color: .black, radius: 10, x: 5, y: 5)
                     .opacity(self.isShowingForgot ? 1 : 0)
                 }

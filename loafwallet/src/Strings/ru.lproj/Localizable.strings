@@ -280,8 +280,17 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Скорость обработки";
 
+/* Confirm */
+"Fragment.confirm" = "Подтверждать";
+
 /* Or */
 "Fragment.or" = "или";
+
+/* sorry */
+"Fragment.sorry" = "сожалею";
+
+/* to */
+"Fragment.to" = "к";
 
 /* History Bar Item Title */
 "History.barItemTitle" = "ИСТОРИЯ";
@@ -376,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Баланс карты";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Выйдите из системы и включите 2FA, чтобы разрешить переводы";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Регистрация и вход\n- Доступный баланс карты\n- Сброс пароля\n- Без перевода на Litewallet\n- Только США";
 
@@ -388,6 +400,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Бета-версия карты Litecoin";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Введите код";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Введите код, который недавно был отправлен на электронную почту вашей учетной записи Litecoin Card.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Ошибка входа";
 
@@ -399,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Выйти";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Карта Litecoin";
 
 /* Register */
 "LitecoinCard.registerCard" = "регистр";
@@ -490,8 +511,44 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Введите адрес электронной почты, связанный с вашей учетной записью Litecoin Card, и найдите письмо с инструкциями по сбросу.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Перевод на карту";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Перевод в Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Выберите кошелек для перевода:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Адрес";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Баланс Litewallet";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Сдвиньте, чтобы установить сумму перевода";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Начать перевод";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Передача";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Это была ошибка. Переведите переключатель 2FA в положение *Включено*, введите полученный по электронной почте код и повторите попытку.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA не включена";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA включен";
+
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Посетите https://litecoin.dashboard.getblockcard.com/password/forgot, чтобы сбросить пароль.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Сервисы определения местоположения отключены.";

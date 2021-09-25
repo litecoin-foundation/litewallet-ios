@@ -1,11 +1,3 @@
-//
-//  Sender.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2017-01-16.
-//  Copyright © 2017 breadwallet LLC. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import BRCore 
@@ -16,34 +8,23 @@ enum SendResult {
     case publishFailure(BRPeerManagerError)
 }
 
-private let protocolPaymentTimeout: TimeInterval = 20.0
-
 class Sender {
-
-    init(walletManager: WalletManager, kvStore: BRReplicatedKVStore, store: Store) {
-        self.walletManager = walletManager
-        self.kvStore = kvStore
-        self.store = store
-    }
-
+    
+    //MARK: - Private Variables
     private let walletManager: WalletManager
+    
     private let kvStore: BRReplicatedKVStore
+    
     private let store: Store
+     
+    //MARK: - Public Variables
     var transaction: BRTxRef?
-    var protocolRequest: PaymentProtocolRequest?
+    
     var rate: Rate?
+    
     var comment: String?
+    
     var feePerKb: UInt64?
-
-    func createTransaction(amount: UInt64, to: String) -> Bool {
-        transaction = walletManager.wallet?.createTransaction(forAmount: amount, toAddress: to)
-        return transaction != nil
-    }
-
-    func createTransaction(forPaymentProtocol: PaymentProtocolRequest) {
-        protocolRequest = forPaymentProtocol
-        transaction = walletManager.wallet?.createTxForOutputs(forPaymentProtocol.details.outputs)
-    }
     
     var fee: UInt64 {
         guard let tx = transaction else { return 0 }
@@ -54,13 +35,38 @@ class Sender {
         guard let tx = transaction else  { return false }
         return walletManager.canUseBiometrics(forTx: tx)
     }
-
+    
+    init(walletManager: WalletManager, kvStore: BRReplicatedKVStore, store: Store) {
+        self.walletManager = walletManager
+        self.kvStore = kvStore
+        self.store = store
+    }
+    
+    func createTransaction(amount: UInt64, to: String) -> Bool {
+        transaction = walletManager.wallet?.createTransaction(forAmount: amount, toAddress: to)
+        return transaction != nil
+    }
+    
     func feeForTx(amount: UInt64) -> UInt64 {
         return walletManager.wallet?.feeForTx(amount:amount) ?? 0
     }
-
-    //Amount in bits
-    func send(biometricsMessage: String, rate: Rate?, comment: String?, feePerKb: UInt64, verifyPinFunction: @escaping (@escaping(String) -> Bool) -> Void, completion:@escaping (SendResult) -> Void) {
+      
+    /// Send
+    /// - Parameters:
+    ///   - biometricsMessage: Response from decoding the biometrics
+    ///   - rate: LTC - Fiat rate
+    ///   - comment: Users note to themselves
+    ///   - feePerKb: comment rate  of fee per kb
+    ///   - verifyPinFunction: verification
+    ///   - completion: completion
+    func send(biometricsMessage: String,
+              rate: Rate?,
+              comment: String?,
+              feePerKb: UInt64,
+              verifyPinFunction:
+                @escaping (@escaping(String) -> Bool) -> Void,
+              completion:@escaping (SendResult) -> Void) {
+        
         guard let tx = transaction else {
             return completion(.creationError(S.Send.createTransactionError))
         }
@@ -69,15 +75,24 @@ class Sender {
         self.comment = comment
         self.feePerKb = feePerKb
 
-        if UserDefaults.isBiometricsEnabled && walletManager.canUseBiometrics(forTx:tx) {
+        if UserDefaults.isBiometricsEnabled &&
+            walletManager.canUseBiometrics(forTx:tx) {
+            
             DispatchQueue.walletQueue.async { [weak self] in
                 guard let myself = self else { return }
-                myself.walletManager.signTransaction(tx, biometricsPrompt: biometricsMessage, completion: { result in
+                myself
+                    .walletManager
+                    .signTransaction(tx,
+                                     biometricsPrompt:
+                                        biometricsMessage,
+                                     completion: { result in
                     if result == .success {
                         myself.publish(completion: completion)
                     } else {
                         if result == .failure || result == .fallback {
-                            myself.verifyPin(tx: tx, withFunction: verifyPinFunction, completion: completion)
+                            myself.verifyPin(tx: tx,
+                                             withFunction: verifyPinFunction,
+                                             completion: completion)
                         }
                     }
                 })
@@ -87,45 +102,90 @@ class Sender {
         }
     }
 
-    private func verifyPin(tx: BRTxRef, withFunction: (@escaping(String) -> Bool) -> Void, completion:@escaping (SendResult) -> Void) {
-        withFunction({ pin in
-            var success = false
-            let group = DispatchGroup()
-            group.enter()
-             DispatchQueue.walletQueue.async {
-                if self.walletManager.signTransaction(tx, pin: pin) {
-                    self.publish(completion: completion)
-                    success = true
-                }
-                group.leave()
-            }
-            let result = group.wait(timeout: .now() + 30.0)
-            if result == .timedOut {
-                let properties: [String: String] = ["ERROR_TX":"\(tx.txHash)","ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
-                LWAnalytics.logEventWithParameters(itemName:._20200112_ERR, properties: properties)
-
-                let alert = UIAlertController(title: S.LitewalletAlert.corruptionError, message: S.LitewalletAlert.corruptionMessage, preferredStyle: .alert)
-          
-                UserDefaults.didSeeCorruption = true
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.topViewController?.present(alert, animated: true, completion: nil)
-                return false
-            }
-            return success
-        })
-    }
-
-    //TODO - remove this -- only temporary for testing
-    private var topViewController: UIViewController? {
+    func sendToCard(amount: UInt64, toAddress: String, completion: @escaping (Bool) -> Void) {
+        if self.createTransaction(amount: amount, to: toAddress) {
         
-        LWAnalytics.logEventWithParameters(itemName:._20210427_HCIEEH)
-        var viewController = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController
-        while viewController?.presentedViewController != nil {
-            viewController = viewController?.presentedViewController
+            if let tx = transaction {
+                
+                DispatchQueue.walletQueue.async { [weak self] in
+                    
+                    guard let myself = self else { return }
+                    myself.walletManager.signCardTransaction(tx) { result in
+                        switch result {
+                            case .success:
+                                
+                                self?.publish(completion: { result in
+                                    print("XXX \(result)")
+                                })
+                                
+                                completion(true)
+                            
+                            case .failure:
+                                print("XXX Failure")
+                            
+                            case .fallback:
+                                print("XXX Fallback")
+                            
+                            case .cancel :
+                                print("XXX Cancel")
+                        }
+                                 
+                    }
+                }
+            }
         }
-        return viewController
     }
+ 
+    /// Verify Pin
+    /// - Parameters:
+    ///   - tx: TX package
+    ///   - withFunction: completion mid-range
+    ///   - completion: completion
 
+    //DEV: Important Note
+    // This func needs to be REFACTORED as it violates OOP and intertangles TX and Pin authentication
+    // This means it should be 2 functions.
+    // VerifyPIN and VerifyTX
+    private func verifyPin(tx: BRTxRef,
+                           withFunction: (@escaping(String) -> Bool) -> Void,
+                           completion:@escaping (SendResult) -> Void) { 
+    withFunction({ pin in
+        var success = false
+        let group = DispatchGroup()
+        group.enter()
+         DispatchQueue.walletQueue.async {
+            if self.walletManager.signTransaction(tx, pin: pin) {
+                self.publish(completion: completion)
+                success = true
+            }
+            group.leave()
+        }
+        let result = group.wait(timeout: .now() + 30.0)
+        if result == .timedOut {
+            let properties: [String: String] =
+                ["ERROR_TX": "\(tx.txHash)",
+                 "ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
+        
+            LWAnalytics.logEventWithParameters(itemName:
+                                                ._20200112_ERR,
+                                               properties: properties)
+
+            let alert = UIAlertController(title: S.LitewalletAlert.corruptionError,
+                                          message: S.LitewalletAlert.corruptionMessage,
+                                          preferredStyle: .alert)
+  
+            UserDefaults.didSeeCorruption = true
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default,
+                                          handler: nil))
+             return false
+        }
+        return success
+    })
+    }
+    
+    /// Publish TX
+    /// - Parameter completion: completion
     private func publish(completion: @escaping (SendResult) -> Void) {
         guard let tx = transaction else { assert(false, "publish failure"); return }
         DispatchQueue.walletQueue.async { [weak self] in
@@ -137,23 +197,28 @@ class Sender {
                     } else {
                         myself.setMetaData()
                         completion(.success)
-                        myself.postProtocolPaymentIfNeeded()
                     }
                 }
             })
         }
     }
-
+    
+    /// Set transaction metadata
     private func setMetaData() {
         
+        // Fires an event if the rate is not set
         guard let rate = rate else {
             LWAnalytics.logEventWithParameters(itemName:._20200111_RNI)
             return
         }
+        
+        // Fires an event if the transaction is not set
         guard let tx = transaction else {
             LWAnalytics.logEventWithParameters(itemName:._20200111_TNI)
             return
         }
+        
+        // Fires an event if the feePerKb is not set
         guard let feePerKb = feePerKb else {
             LWAnalytics.logEventWithParameters(itemName:._20200111_FNI)
             return
@@ -168,43 +233,10 @@ class Sender {
         do {
             let _ = try kvStore.set(metaData)
         } catch let error {
-            LWAnalytics.logEventWithParameters(itemName:._20200112_ERR, properties: ["error": String(describing: error)])
+            LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+                                               properties: ["error":
+                                                                String(describing: error)])
         }
         store.trigger(name: .txMemoUpdated(tx.pointee.txHash.description))
-    }
-
-    private func postProtocolPaymentIfNeeded() {
-        guard let protoReq = protocolRequest else { return }
-        guard let wallet = walletManager.wallet else { return }
-        let amount = protoReq.details.outputs.map { $0.amount }.reduce(0, +)
-        let payment = PaymentProtocolPayment(merchantData: protoReq.details.merchantData,
-                                             transactions: [transaction],
-                                             refundTo: [(address: wallet.receiveAddress, amount: amount)])
-        guard let urlString = protoReq.details.paymentURL else { return }
-        guard let url = URL(string: urlString) else { return }
-
-        let request = NSMutableURLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: protocolPaymentTimeout)
-
-        request.setValue("application/litecoin-payment", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/litecoin-paymentack", forHTTPHeaderField: "Accept")
-        request.httpMethod = "POST"
-        request.httpBody = Data(bytes: payment!.bytes)
-
-        URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            guard error == nil else { print("payment error: \(error!)"); return }
-            guard let response = response, let data = data else { print("no response or data"); return }
-            if response.mimeType == "application/litecoin-paymentack" && data.count <= 50000 {
-                if let ack = PaymentProtocolACK(data: data) {
-                    print("received ack: \(ack)") //TODO - show memo to user
-                } else {
-                    print("ack failed to deserialize")
-                }
-            } else {
-                print("invalid data")
-            }
-
-            print("finished!!")
-        }.resume()
-
     }
 }

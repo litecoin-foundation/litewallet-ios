@@ -280,8 +280,17 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Kecepatan pemrosesan";
 
+/* Confirm */
+"Fragment.confirm" = "Mengonfirmasi";
+
 /* Or */
 "Fragment.or" = "atau";
+
+/* sorry */
+"Fragment.sorry" = "Maaf";
+
+/* to */
+"Fragment.to" = "ke";
 
 /* History Bar Item Title */
 "History.barItemTitle" = "SEJARAH";
@@ -376,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Saldo kartu";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Logout & Aktifkan 2FA untuk mengizinkan Transfer";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Pendaftaran & Login\n- Saldo kartu yang tersedia\n- Reset kata sandi\n- Tidak ada transfer ke Litewallet\n- AS Sudah";
 
@@ -388,6 +400,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Kartu Litecoin Beta";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Memasukkan kode";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Masukkan kode yang baru saja dikirim ke email akun Kartu Litecoin Anda.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Gagal masuk";
 
@@ -399,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Keluar";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Kartu Litecoin";
 
 /* Register */
 "LitecoinCard.registerCard" = "Daftar";
@@ -490,8 +511,44 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Masukkan alamat email yang terkait dengan akun Kartu Litecoin Anda & cari email dengan instruksi reset.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Transfer ke Kartu";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Transfer ke Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Pilih dompet transfer:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Alamat";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet saldo";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Geser untuk mengatur jumlah transfer";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Mulai transfer";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Transfer";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Ada kesalahan. Harap alihkan 2FA ke *Diaktifkan*, masukkan kode yang dikirim melalui email, dan coba lagi.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Tidak Diaktifkan";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA Diaktifkan";
+
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Kunjungi https://litecoin.dashboard.getblockcard.com/password/forgot untuk mengatur ulang kata sandi Anda.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Layanan lokasi dinonaktifkan.";

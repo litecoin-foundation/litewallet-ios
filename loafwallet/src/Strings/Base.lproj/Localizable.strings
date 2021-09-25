@@ -364,7 +364,7 @@
 /* button label */
 "MenuViewController.recoverButton" = "Recover Wallet";
 
-/* No comment provided by engineer. */
+/* No wallet. */
 "No wallet" = "No wallet";
 
 /* Switch to automatic mode button label */
@@ -1398,3 +1398,60 @@
 
 /* History Current Litecoin Value */
 "History.currentLitecoinValue" = "Current LTC value in";
+
+/* Confirm */
+"Fragment.confirm" = "confirm";
+
+/* Enter code */
+"LitecoinCard.enterCode" = "Enter Code";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Enter the code that was recently sent to your Litecoin Card account email.";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA Enabled";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Not Enabled";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Transfer";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Choose the transferring wallet:";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Start transfer";
+
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Transfer to Card";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Transfer to Litewallet";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Slide to set transfer amount";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Address";
+
+/* to */
+"Fragment.to" = "to";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin Card";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Logout & Enable 2FA to allow Transfers";
+
+/* sorry */
+"Fragment.sorry" = "sorry";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "There was an error. Please toggle 2FA to *Enabled*, enter the emailed code, and try again.";

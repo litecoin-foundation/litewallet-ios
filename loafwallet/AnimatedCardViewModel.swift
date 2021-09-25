@@ -18,7 +18,7 @@ class AnimatedCardViewModel: ObservableObject {
     var isLoggedIn = false
     
     @Published
-    var imageFront = "litecoin-card-front"
+    var imageFront = "litecoin-front-card-border"
     
     var dropOffset: CGFloat = -200.0
      
