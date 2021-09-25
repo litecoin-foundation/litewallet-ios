@@ -109,7 +109,6 @@ class CardViewController: UIViewController {
             
             self.updateLoginStatusFromViewModel()
         }
-        
     }
      
 }

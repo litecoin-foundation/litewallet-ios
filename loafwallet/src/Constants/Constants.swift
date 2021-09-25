@@ -147,7 +147,7 @@ enum CustomEvent: String {
      
     /// Ternio API withdrawal to Litewallet
     case _20210804_TAWTL = "TERNIO_API_WITHDRAWAL_TO_LITEWALLET"
-    
+
     /// Heartbeat check If event even happens
     case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS" 
 }

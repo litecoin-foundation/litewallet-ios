@@ -27,7 +27,7 @@ struct CardView: View {
     
     @ObservedObject
     var twoFAviewModel = Enter2FACodeViewModel()
-    
+     
     @State
     private var shouldShowLoginModal: Bool = false
     
@@ -315,6 +315,7 @@ struct CardView: View {
                    maxHeight: .infinity,
                    alignment: .center)
         }
+
     }
 }
 
@@ -325,7 +326,7 @@ struct CardView_Previews: PreviewProvider {
     static let walletManager = MockSeeds.walletManager
     
     static let viewModel = CardViewModel(walletManager: walletManager, store: Store())
-    
+     
     static var previews: some View {
         
         Group {

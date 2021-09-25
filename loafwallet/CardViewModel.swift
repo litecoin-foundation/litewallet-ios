@@ -87,7 +87,7 @@ class CardViewModel: ObservableObject {
                     self.cardWalletDetails = walletDetails
                     LWAnalytics.logEventWithParameters(itemName:._20210804_TAWDS)
                 }
-                
+
             } catch {
                 print("Error: Incomplete dictionary data from partner API")
                 LWAnalytics.logEventWithParameters(itemName:._20210405_TAWDF) 
