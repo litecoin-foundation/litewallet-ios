@@ -23,7 +23,11 @@ extension UIColor {
     static var litecoinGray: UIColor { //F1F1F1
       return #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
     }
-      
+    
+    static var litewalletLightGray: UIColor { //F8F8F8
+        return #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
+    }
+        
     static var litecoinSilver: UIColor { //A6A9AA
       return #colorLiteral(red: 0.6509803922, green: 0.662745098, blue: 0.6666666667, alpha: 1)
     }

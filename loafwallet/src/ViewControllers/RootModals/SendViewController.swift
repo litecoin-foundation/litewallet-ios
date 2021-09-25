@@ -450,8 +450,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                 }
             }
         } else {
-            addressCell.isEditable = false
-            sender.createTransaction(forPaymentProtocol: protoReq)
+            addressCell.isEditable = false 
         }
     }
     

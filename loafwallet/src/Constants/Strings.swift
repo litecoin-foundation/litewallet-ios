@@ -117,8 +117,14 @@ enum S {
         static let barItemTitle = NSLocalizedString("Receive.barItemTitle", value: "**Receive**", comment: "Receive Bar Item Title")
     }
     
+    //MARK: - Litewallet
+    enum Litewallet {
+        static let name = NSLocalizedString("Litewallet.name", value: "**Litewallet**", comment: "Litewallet name")
+    }
+    
    //MARK: - Litecoin Card
     enum LitecoinCard {
+        static let name = NSLocalizedString("LitecoinCard.name", value: "**Litecoin Card**", comment: "Card Bar Item Title")
         static let barItemTitle = NSLocalizedString("LitecoinCard.barItemTitle", value: "**Card**", comment: "Card Bar Item Title")
         static let login = NSLocalizedString("LitecoinCard.login", value: "**Login**", comment: "Login")
         static let failedlogin = NSLocalizedString("LitecoinCard.failed.login", value: "**Failed Login**", comment: "Failed Login") 
@@ -133,13 +139,31 @@ enum S {
         static let cardBalance = NSLocalizedString("LitecoinCard.cardBalance", value: "", comment: "Card balance")
         static let registrationSuccess = NSLocalizedString("LitecoinCard.registrationSuccess", value: "", comment: "Registration success")
         static let registrationFailure = NSLocalizedString("LitecoinCard.registrationFailure", value: "", comment: "Registration failure")
-    
+        static let enterCode = NSLocalizedString("LitecoinCard.enterCode", value: "", comment: "Enter code")
+        static let enterCodeDetail = NSLocalizedString("LitecoinCard.enterCode.detail", value: "", comment: "Enter code details")
+        static let twoFAOn = NSLocalizedString("LitecoinCard.twoFAOn", value: "", comment: "Message when 2FA is on")
+        static let twoFAOff = NSLocalizedString("LitecoinCard.twoFAOff", value: "", comment: "Message when 2FA is off")
+        static let cardBalanceOnlyDescription = NSLocalizedString("LitecoinCard.cardBalanceOnlyDescription", value: "", comment: "Message when 2FA is off and user is viewing the Card Balance")
+        static let twoFAErrorMessage = NSLocalizedString("LitecoinCard.twoFAErrorMessage", value: "2FA Error message", comment: "2FA Error message")
+
         //MARK: - Disclaimer
         enum Disclaimer {
             static let title = NSLocalizedString("LitecoinCard.Disclaimer.title", value: "Beta Testing Litecoin Card", comment: "Beta Testing Litecoin Card")
             static let description = NSLocalizedString("LitecoinCard.Disclaimer.description", value: "Description", comment: "Description of the status")
             static let bullets = NSLocalizedString("LitecoinCard.Disclaimer.bullets", value: "bullets", comment: "Features and limitations")
             static let referral = NSLocalizedString("LitecoinCard.Disclaimer.referral", value: "referral", comment: "Referral to the website")
+        } 
+		
+        //MARK: - Transfer
+        enum Transfer {
+            static let title = NSLocalizedString("LitecoinCard.Transfer.title", value: "Transfer", comment: "Transfer title")
+            static let description = NSLocalizedString("LitecoinCard.Transfer.description", value: "Choose the transferring wallet", comment: "Description of action")
+            static let litewalletBalance = NSLocalizedString("LitecoinCard.Transfer.litewalletBalance", value: "Litewallet balance", comment: "Litewallet balance label")
+            static let amountToCard = NSLocalizedString("LitecoinCard.Transfer.amountToCard", value: "Transfer to Card", comment: "Transfer to card label")
+            static let amountToLitewallet = NSLocalizedString("LitecoinCard.Transfer.amountToLitewallet", value: "Transfer to Litewallet", comment: "Transfer to Litewallet label")
+            static let setAmount = NSLocalizedString("LitecoinCard.Transfer.setAmount", value: "Slide to set transfer amount", comment: "Set transfer amount label")
+            static let startTransfer = NSLocalizedString("LitecoinCard.Transfer.startTransfer", value: "Start transfer", comment: "Start transfer label")
+            static let destinationAddress = NSLocalizedString("LitecoinCard.Transfer.destinationAddress", value: "Destination address", comment: "Destination address label")
         }
         
         //MARK: - Registration
@@ -719,6 +743,9 @@ enum S {
     }
     
     enum Fragments {
-        static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or")
+        static let or = NSLocalizedString("Fragment.or", value: "**or**", comment: "Or") 
+        static let confirm = NSLocalizedString("Fragment.confirm", value: "**confirm**", comment: "Confirm") 
+        static let to = NSLocalizedString("Fragment.to", value: "**to**", comment: "to")
+        static let sorry = NSLocalizedString("Fragment.sorry", value: "**sorry**", comment: "sorry")
     }
 }

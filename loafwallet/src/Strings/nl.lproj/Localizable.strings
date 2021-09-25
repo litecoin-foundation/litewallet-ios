@@ -280,8 +280,17 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Verwerkingssnelheid";
 
+/* Confirm */
+"Fragment.confirm" = "Bevestigen";
+
 /* Or */
 "Fragment.or" = "of";
+
+/* sorry */
+"Fragment.sorry" = "Sorry";
+
+/* to */
+"Fragment.to" = "tot";
 
 /* History Bar Item Title */
 "History.barItemTitle" = "GESCHIEDENIS";
@@ -376,6 +385,9 @@
 /* Card balance */
 "LitecoinCard.cardBalance" = "Kaartsaldo";
 
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Uitloggen en 2FA inschakelen om overdrachten toe te staan";
+
 /* Features and limitations */
 "LitecoinCard.Disclaimer.bullets" = "- Registratie en inloggen\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instellen\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
 
@@ -388,6 +400,12 @@
 /* Beta Testing Litecoin Card */
 "LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";
 
+/* Enter code */
+"LitecoinCard.enterCode" = "Voer code in";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Voer de code in die onlangs naar uw Litecoin Card-account is verzonden.";
+
 /* Failed Login */
 "LitecoinCard.failed.login" = "Inloggen mislukt";
 
@@ -399,6 +417,9 @@
 
 /* Logout */
 "LitecoinCard.logout" = "Uitloggen";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin-kaart";
 
 /* Register */
 "LitecoinCard.registerCard" = "Registreren";
@@ -490,8 +511,44 @@
 /* Reset password detail */
 "LitecoinCard.resetPasswordDetail" = "Voer het e-mailadres in dat is gekoppeld aan uw Litecoin Card-account en zoek een e-mail met resetinstructies.";
 
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Overboeken naar kaart";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Overzetten naar Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Kies de overmakende portemonnee:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adres";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet-saldo";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Schuif om het overboekingsbedrag in te stellen";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Overdracht starten";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Overdracht";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Er is een fout opgetreden. Zet a.u.b. 2FA op *Enabled*, voer de code per e-mail in en probeer het opnieuw.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA niet ingeschakeld";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA ingeschakeld";
+
 /* Litecoin card visit */
 "LitecoinCard.visit.toReset" = "Ga naar https://litecoin.dashboard.getblockcard.com/password/forgot om uw wachtwoord te resetten.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
 
 /* Location services disabled error */
 "LocationPlugin.disabled" = "Locatievoorzieningen zijn uitgeschakeld.";
