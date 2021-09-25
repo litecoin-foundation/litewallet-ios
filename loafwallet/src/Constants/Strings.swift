@@ -666,6 +666,10 @@ enum S {
             static let signing = NSLocalizedString("Import.Error.signing", value: "**Error signing transaction**", comment: "Import signing error message")
         }
      }
+	 
+    enum SupportLitecoinFoundation {
+        static let title = NSLocalizedString("SupportTheFoundation.title", value: "**Support the Litecoin Foundation**", comment: "Support the Litecoin Foundation")
+    }
 
     enum WipeWallet {
         static let title = NSLocalizedString("WipeWallet.title", value: "**Start or Recover Another Wallet**", comment: "Wipe wallet navigation item title.")
