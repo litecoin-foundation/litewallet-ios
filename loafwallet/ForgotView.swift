@@ -15,9 +15,9 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
     @Binding
     var isShowingForgot: Bool
     
-    @Binding
-    var emailString: String
-    
+    @State
+    var email: String = ""
+
     let presenting: Presenting
     
     var mainMessage: String
@@ -67,7 +67,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
                                 detailMessage = updatedMessage
                             })
                         
-                        TextField(emailString, text: didCheckEmailAddress ? .constant("") : $viewModel.emailString)
+                        TextField(S.Receive.emailButton, text: $email)
                             .font(Font(UIFont.barlowMedium(size: 16.0)))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.emailAddress)
@@ -80,6 +80,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
                             // Reset password button
                             Button(action: {
                                 withAnimation {
+                                    viewModel.emailString = email
                                     viewModel.resetPassword {
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
                                             self.isShowingForgot.toggle()

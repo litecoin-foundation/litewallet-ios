@@ -36,9 +36,7 @@ extension View {
     func forgotPasswordView(isShowingForgot: Binding<Bool>,
                             emailString: Binding<String>,
                             message: String) -> some View {
-        loafwallet.ForgotAlertView(isShowingForgot: isShowingForgot,
-                                   emailString: emailString,
-                                   presenting: self,
+        loafwallet.ForgotAlertView(isShowingForgot: isShowingForgot,                                   presenting: self,
                                    mainMessage: message)
     }
     
