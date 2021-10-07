@@ -12,9 +12,7 @@ import SwiftUI
 @testable import loafwallet
 
 class CardWalletTests: XCTestCase {
-    
-    var viewModel: CardViewModel!
-    
+        
     let mockWalletDetailsResponseData =
         """
             {
@@ -51,7 +49,7 @@ class CardWalletTests: XCTestCase {
                     "ach_account_status": null
                 }
         """.data(using: .utf8)
-      
+
     func testDecodeWalletDetails() throws {
          
         do {

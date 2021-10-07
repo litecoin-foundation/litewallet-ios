@@ -44,7 +44,7 @@ extension NSNotification.Name {
     public static let WalletDidWipeNotification = NSNotification.Name("WalletDidWipe")
     public static let DidDeleteWalletDBNotification = NSNotification.Name("DidDeleteDatabase")
     public static let LitecoinCardLoginNotification = NSNotification.Name("LitecoinCardLogin")
-    public static let LitecoinCardLogoutNotification = NSNotification.Name("LitecoinCardLogout") 
+    public static let LitecoinCardLogoutNotification = NSNotification.Name("LitecoinCardLogout")
 }
 
 private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> UnsafePointer<T>? {

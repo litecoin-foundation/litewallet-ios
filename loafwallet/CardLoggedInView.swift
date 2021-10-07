@@ -16,7 +16,7 @@ struct CardLoggedInView: View {
     
     @ObservedObject
     var twoFactor: CardTwoFactor
-    
+     
     @State
     private var shouldLogout: Bool = false
     
@@ -218,7 +218,7 @@ struct CardLoggedInView: View {
 }
 
 struct CardLoggedInView_Previews: PreviewProvider {
-    
+     
     static let amount100 = MockSeeds.amount100
     
     static let walletManager = MockSeeds.walletManager
@@ -246,16 +246,3 @@ struct CardLoggedInView_Previews: PreviewProvider {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -59,13 +59,14 @@ class LoginViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     
                     print("ERROR: Login failure: \(error.description)")
-        
+    
                     self.isLoggedIn = false
                     self.didCompleteLogin = false
                     completion(self.didCompleteLogin)
                 }
             }
             
+
             if let responeDict = dataDictionary,
                let token = responeDict["token"] as? String,
                let userID = responeDict["uuid"] as? String,
@@ -75,7 +76,7 @@ class LoginViewModel: ObservableObject {
                 self.keychain[email] = password
                 self.keychain["userID"] = userID
                 self.keychain["token"] = token
-				
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     
                     self.isLoggedIn = true

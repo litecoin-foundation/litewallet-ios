@@ -60,8 +60,9 @@ class URLController : Trackable {
                 if let success = xSuccess {
                     copyAddress(callback: success)
                 }
-            }
+             }
             return true
+ 
         default:
             return false
         }
@@ -76,7 +77,7 @@ class URLController : Trackable {
             }
         }
     }
-    
+ 
     private func present(alert: UIAlertController) {
         store.trigger(name: .showAlert(alert))
     }
