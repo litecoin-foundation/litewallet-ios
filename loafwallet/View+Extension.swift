@@ -37,7 +37,7 @@ extension View {
                             emailString: Binding<String>,
                             message: String) -> some View {
         loafwallet.ForgotAlertView(isShowingForgot: isShowingForgot,                                   presenting: self,
-                                   mainMessage: message)
+                    mainMessage: message)
     }
     
     /// Registration View Modal

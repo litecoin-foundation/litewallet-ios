@@ -31,7 +31,7 @@ class StartViewController : UIViewController {
         view.backgroundColor = .liteWalletBlue
         return view
     }()
-    
+
     private var logo: UIImageView = {
         let image = UIImageView(image:UIImage(named:"newLogotyoe-white"))
         image.contentMode = .scaleAspectFit
