@@ -67,10 +67,11 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .large)
     private let wipeBannerButton = UIButton()
     var delegate: LoginViewControllerDelegate?
-    
+     
     private var logo: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))
+        let image = UIImageView(image:UIImage(named:"newLogotyoe-white"))
         image.contentMode = .scaleAspectFit
+        image.alpha = 0.8
         return image
     }()
 
@@ -95,7 +96,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     }()
     
     
-    private let enterPINLabel = UILabel(font: .barlowBold(size: 17), color: .white)
+    private let enterPINLabel = UILabel(font: .barlowSemiBold(size: 18), color: .white)
     private var pinPadBottom: NSLayoutConstraint?
     private var topControlTop: NSLayoutConstraint?
     private var unlockTimer: Timer?
@@ -103,7 +104,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     private var hasAttemptedToShowBiometrics = false
     private let lockedOverlay = UIVisualEffectView()
     private var isResetting = false
-    private let versionLabel = UILabel(font: .barlowLight(size: 10), color: .white)
+    private let versionLabel = UILabel(font: .barlowLight(size: 11), color: .white)
     private var isWalletEmpty = false
   
     override func viewDidLoad() {
@@ -189,22 +190,22 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         guard let pinView = pinView else { return }
         pinViewContainer.addSubview(pinView)
         
-        pinView.constrain([
-                            pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -40),
-                            pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
-                            pinView.widthAnchor.constraint(equalToConstant: pinView.width),
-                            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
+        
+        logo.constrain([
+            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logo.constraint(.height, constant: 45),
+            logo.constraint(.width, constant: 201) ])
         
         enterPINLabel.constrain([
             enterPINLabel.topAnchor.constraint(equalTo: pinView.topAnchor, constant: -40),
             enterPINLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor) ])
-       
-        logo.constrain([
-            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
-            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.constraint(.height, constant: 70),
-            logo.constraint(.width, constant: 70) ])
         
+        pinView.constrain([
+                            pinView.centerYAnchor.constraint(equalTo: pinPadViewController.view.topAnchor, constant: -60),
+                            pinView.centerXAnchor.constraint(equalTo: pinViewContainer.centerXAnchor),
+                            pinView.widthAnchor.constraint(equalToConstant: pinView.width),
+                            pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize) ])
     }
 
     private func addSubviews() {
