@@ -82,13 +82,9 @@ struct CardView: View {
                     TextField(S.Receive.emailButton,
                               text: $loginModel.emailString)
                         .onReceive(loginModel.$emailString) { currentEmail in
-                            if currentEmail.count < 4 ||  !registrationModel.isEmailValid(emailString: currentEmail) {
-                                isEmailValid = false
-                            } else {
-                                isEmailValid = true
-                            }
+                            isEmailValid = EmailValidation.isEmailValid(emailString: currentEmail)
                         }
-                        .foregroundColor(isEmailValid ? .black : Color(UIColor.litecoinOrange))
+                        .foregroundColor(EmailValidation.isEmailValid(emailString: loginModel.emailString) ? .black : Color(UIColor.litecoinOrange))
                         .font(Font(UIFont.barlowSemiBold(size: 17.0)))
                         .accentColor(Color(UIColor.liteWalletBlue))
                         .padding([.leading, .trailing], 20)

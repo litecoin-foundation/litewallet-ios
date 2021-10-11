@@ -119,7 +119,7 @@ class RegistrationViewModel: ObservableObject {
             case .genericString:
                 return isGenericStringValid(genericString: dataString)
             case .email:
-                return isEmailValid(emailString: dataString)
+                return EmailValidation.isEmailValid(emailString: dataString)
             case .country:
                 return  dataString == "US" ?  true : false
             case .mobileNumber:
