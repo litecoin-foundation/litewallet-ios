@@ -1415,7 +1415,7 @@
 "WipeWallet.warningAlert" = "This action will wipe your Litewallet!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Deleting your wallet means the private key and wipe the app data will be gone. You may lose Litecoin forever! \n\n\nNo one on the Litewallet team can retrieve this seed for you. We are not responisble if you fail to heed this warning.";
+"WipeWallet.warningDescription" = "Deleting your wallet means the private key and wipe the app data will be gone. You may lose Litecoin forever! \n\n\nNo one on the Litewallet team can retrieve this seed for you. We are not responsible if you fail to heed this warning.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "PLEASE READ!";
