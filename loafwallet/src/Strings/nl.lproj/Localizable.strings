@@ -827,7 +827,7 @@
 "resetButton" = "Ja, portemonnee opnieuw instellen";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Lege portemonnee resetten";
+"resetTitle" = "Mijn Litewallet verwijderen";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Camera Flits";

@@ -827,7 +827,7 @@
 "resetButton" = "Yes, reset wallet";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Empty Wallet Reset";
+"resetTitle" = "Delete my Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Camera Flash";

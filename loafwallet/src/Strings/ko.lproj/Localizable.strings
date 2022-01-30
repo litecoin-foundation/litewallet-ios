@@ -827,7 +827,7 @@
 "resetButton" = "예, 지갑 재설정";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "빈 지갑 재설정";
+"resetTitle" = "내 라이트월렛 삭제";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "카메라 플래시";

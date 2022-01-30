@@ -827,7 +827,7 @@
 "resetButton" = "Evet, cüzdanı sıfırla";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Cüzdan Sıfırlamayı Boşalt";
+"resetTitle" = "Litewallet'ımı sil";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Kamera Flaşı";

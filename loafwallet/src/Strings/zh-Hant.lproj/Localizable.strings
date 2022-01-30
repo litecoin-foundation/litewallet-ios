@@ -827,7 +827,7 @@
 "resetButton" = "是的，重置錢包";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "空錢包重置";
+"resetTitle" = "刪除我的 Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "相機閃光";

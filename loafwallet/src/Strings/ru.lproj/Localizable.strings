@@ -827,7 +827,7 @@
 "resetButton" = "Да, сбросить кошелек";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Сбросить пустой кошелек";
+"resetTitle" = "Удалить мой Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Вспышка камеры";

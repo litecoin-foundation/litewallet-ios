@@ -827,7 +827,7 @@
 "resetButton" = "Ja, nulstil tegnebogen";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Nulstilling af tom tegnebog";
+"resetTitle" = "Slet min Litewallet";
 
 /* Scan bitcoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Kamerablitz";

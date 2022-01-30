@@ -827,7 +827,7 @@
 "resetButton" = "はい、ウォレットをリセットします";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "空のウォレットのリセット";
+"resetTitle" = "Litewalletを削除します";
 
 /* Scan bitcoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "カメラのフラッシュ";

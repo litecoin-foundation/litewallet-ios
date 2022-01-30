@@ -828,7 +828,7 @@
 "resetButton" = "Sim, redefinir carteira";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Redefinição de carteira vazia";
+"resetTitle" = "Excluir minha carteira Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Flash da Câmara";

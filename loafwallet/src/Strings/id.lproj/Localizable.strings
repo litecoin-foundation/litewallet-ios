@@ -827,7 +827,7 @@
 "resetButton" = "Ya, atur ulang dompet";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Reset Dompet Kosong";
+"resetTitle" = "Hapus dompet Lite saya";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Flash Kamera";
