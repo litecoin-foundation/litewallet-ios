@@ -97,7 +97,7 @@ class WipeEmptyWalletViewController : UIViewController, Subscriber, Trackable {
     warningDetailTextView.font = UIFont.customBody(size: 16)
     warningDetailTextView.textAlignment = .left
     warningDetailTextView.isUserInteractionEnabled = false
-    warningAlertLabel.font = UIFont.customBold(size: 24)
+    warningAlertLabel.font = UIFont.customBold(size: 20)
     warningAlertLabel.textAlignment = .center
     warningAlertLabel.textColor = UIColor.pink 
     

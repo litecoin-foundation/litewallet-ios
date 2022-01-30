@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "開啟或復原其他錢包";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "不要失去它！";
+"WipeWallet.warningAlert" = "此操作將擦除您的 Litewallet！";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "您的LiteWallet是空的。重置將刪除舊的私鑰並擦除應用程序數據。\n \n 重置後，請準備好記錄新的12個單詞並將其保存在非常安全的位置。\n \n 沒有LiteWallet開發人員可以為您獲取此種子。";
+"WipeWallet.warningDescription" = "刪除你的錢包意味著私鑰和擦除應用程序數據將消失。你可能永遠失去萊特幣！\n\n\nLitewallet 團隊中的任何人都無法為您檢索此種子。如果您不注意此警告，我們概不負責。";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "請閱讀！";

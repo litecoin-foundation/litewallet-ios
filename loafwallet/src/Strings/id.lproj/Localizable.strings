@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "Mulai atau Pulihkan Dompet Lainnya";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "JANGAN HILANG";
+"WipeWallet.warningAlert" = "Tindakan ini akan menghapus Litewallet Anda!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "LiteWallet Anda kosong. Mengatur slang akan menghapus kunci pribadi lama dan menghapus data aplikasi.\n\nSetelah atur ulang, bersiaplah untuk merekam 12 kata baru dan simpan di tempat yang sangat aman. \n\nTidak ada pengembang LiteWallet yang dapat mengambil benih ini untuk Anda.";
+"WipeWallet.warningDescription" = "Menghapus dompet Anda berarti kunci pribadi dan menghapus data aplikasi akan hilang. Anda mungkin kehilangan Litecoin selamanya!\n\n\nTak seorang pun di tim Litewallet dapat mengambil benih ini untuk Anda. Kami tidak bertanggung jawab jika Anda tidak mengindahkan peringatan ini.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "HARAP BACA!";

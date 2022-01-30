@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "Başka Bir Cüzdanı Başlatın veya Kurtarın";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "KAYBETMEYİN!";
+"WipeWallet.warningAlert" = "Bu eylem Litewallet'ınızı silecek!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "LiteWallet'ınız boş. Sıfırlama işlemi, eski özel anahtarı silecek ve uygulama verilerini silecektir. \n \nSıfırlamadan sonra, yeni 12 kelimeyi kaydetmeye ve çok güvenli bir yerde saklamaya hazır olun. \n \nHiçbir LiteWallet geliştiricisi bu çekirdeği sizin için alamaz. ";
+"WipeWallet.warningDescription" = "Cüzdanınızı silmek, özel anahtarın ve uygulama verilerinin silinmesinin ortadan kalkacağı anlamına gelir. Litecoin'i sonsuza kadar kaybedebilirsiniz!\n\n\nLitewallet ekibindeki hiç kimse bu tohumu sizin için alamaz. Bu uyarıyı dikkate almazsanız sorumlu değiliz.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "LÜTFEN OKUYUN!";

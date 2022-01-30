@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "Start eller gendan en anden wallet.";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "Mister IKKE DET!";
+"WipeWallet.warningAlert" = "Denne handling vil slette din Litewallet!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Din LiteWallet er tom. Nulstilling nulstiller den gamle private nøgle og sletter appdataene. \n\n Efter nulstillingen, skal du være parat til at registrere de nye 12 ord og holde dem på et meget sikkert sted. \n\n Ingen LiteWallet-udviklere kan hente dette frø til dig.";
+"WipeWallet.warningDescription" = "Sletning af din tegnebog betyder, at den private nøgle og sletning af appdata vil være væk. Du kan miste Litecoin for altid!\n\n\nIngen på Litewallet-teamet kan hente dette frø for dig. Vi er ikke ansvarlige, hvis du undlader at følge denne advarsel.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "LÆS VENLIGST!";
