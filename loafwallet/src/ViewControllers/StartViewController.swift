@@ -19,7 +19,8 @@ class StartViewController : UIViewController {
     }
 
     //MARK: - Private
-    private let message = UILabel(font: .customMedium(size: 20.0), color: .whiteTint)
+    private let message = UILabel(font: .barlowLight(size: 22),color: .whiteTint)
+    
     private let create = ShadowButton(title: S.StartViewController.createButton, type: .flatWhite) 
     private let recover = ShadowButton(title: S.StartViewController.recoverButton, type: .flatLitecoinBlue)
     private let store: Store
@@ -30,11 +31,13 @@ class StartViewController : UIViewController {
         view.backgroundColor = .liteWalletBlue
         return view
     }()
+
     private var logo: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))
+        let image = UIImageView(image:UIImage(named:"newLogotyoe-white"))
         image.contentMode = .scaleAspectFit
         return image
     }()
+    
     private let versionLabel = UILabel(font: .barlowMedium(size: 14), color: .transparentWhite)
 
     override func viewDidLoad() {
@@ -81,8 +84,8 @@ class StartViewController : UIViewController {
         logo.constrain([
             logo.constraint(.centerX, toView: view, constant: nil),
             yConstraint,
-            logo.constraint(.width, constant: 70),
-            logo.constraint(.height, constant: 70)])
+            logo.constraint(.width, constant: 224),
+            logo.constraint(.height, constant: 50)])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             message.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: C.padding[3]),
