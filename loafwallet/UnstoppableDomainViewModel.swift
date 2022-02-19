@@ -67,16 +67,48 @@ class UnstoppableDomainViewModel: ObservableObject {
         let group = DispatchGroup()
         
         let keyPath = Partner.partnerKeyPath(name: .infura)
+ //       print("::: \(keyPath)")
         
-        guard let resolution = try? Resolution(configs: Configurations(
-            cns: NamingServiceConfig(
-                providerUrl: keyPath,
-                network: "mainnet")
+//        guard let resolution = try? Resolution(configs: Configurations(
+//            uns: NamingServiceConfig(
+//                providerUrl: keyPath,
+//                network: "mainnet")
+//        )
+//        ) else {
+//            print ("Error: Resolution library not initialized")
+//            return
+//        };
+        
+        guard let resolution = try? Resolution(
+            configs: Configurations(
+                uns: UnsLocations(
+                    layer1: NamingServiceConfig(
+                        providerUrl: "https://rinkeby.infura.io/v3/" + keyPath,
+                        network: "rinkeby"),
+                    layer2: NamingServiceConfig(
+                        providerUrl: "https://polygon-mumbai.infura.io/v3/" + keyPath,
+                        network: "polygon-mumbai")
+                ),
+                zns: NamingServiceConfig(
+                    providerUrl: "https://dev-api.zilliqa.com",
+                    network: "testnet")
             )
         ) else {
-            print ("Error: Resolution library not initialized")
+            print ("Init of Resolution instance with custom parameters failed...")
             return
-        };
+        }
+       
+        
+        
+//        guard let resolution = try? Resolution(configs: Configurations(
+//            cns: NamingServiceConfig(
+//                providerUrl: keyPath,
+//                network: "mainnet")
+//            )
+//        ) else {
+//            print ("Error: Resolution library not initialized")
+//            return
+//        };
         
         group.enter()
         
