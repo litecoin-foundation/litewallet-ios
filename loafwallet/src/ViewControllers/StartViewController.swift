@@ -33,7 +33,7 @@ class StartViewController : UIViewController {
     }()
 
     private var logo: UIImageView = {
-        let image = UIImageView(image:UIImage(named:"newLogotyoe-white"))
+        let image = UIImageView(image: UIImage(named: "new-logotype-white"))
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -84,8 +84,8 @@ class StartViewController : UIViewController {
         logo.constrain([
             logo.constraint(.centerX, toView: view, constant: nil),
             yConstraint,
-            logo.constraint(.width, constant: 224),
-            logo.constraint(.height, constant: 50)])
+            logo.constraint(.width, constant: 55),
+            logo.constraint(.height, constant: 55)])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             message.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: C.padding[3]),
