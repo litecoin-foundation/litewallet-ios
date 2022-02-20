@@ -71,7 +71,6 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     private var logo: UIImageView = {
         let image = UIImageView(image:UIImage(named: "new-logotype-white"))
         image.contentMode = .scaleAspectFit
-        image.alpha = 0.8
         return image
     }()
 
@@ -150,20 +149,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         store.subscribe(self, name: .loginFromSend, callback: {_ in
             self.authenticationSucceded()
         })
-      
-//        NotificationCenter.default.addObserver(forName: .WalletBalanceChangedNotification,
-//                                               object: nil, queue: nil, using: { (note) in
-//
-//            if let balance = note.userInfo?["balance"] as? Int {
-//
-//              if balance == 0 {
-//                self.isWalletEmpty = true
-//              } else {
-//                self.isWalletEmpty = false
-//              }
-//              self.addWipeWalletView()
-//            }
-//        })
+       
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -192,7 +178,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         
         
         logo.constrain([
-            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.constraint(.height, constant: 45),
             logo.constraint(.width, constant: 201) ])

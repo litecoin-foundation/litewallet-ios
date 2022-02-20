@@ -4817,11 +4817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-<<<<<<< HEAD
-				MARKETING_VERSION = 3.6.1;
-=======
 				MARKETING_VERSION = 3.7.0;
->>>>>>> cf705e44 (Incorpated the new logo)
 				OTHER_SWIFT_FLAGS = "-DDebug $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
 				PRODUCT_MODULE_NAME = loafwallet;
@@ -5239,11 +5235,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-<<<<<<< HEAD
-				MARKETING_VERSION = 3.6.1;
-=======
 				MARKETING_VERSION = 3.7.0;
->>>>>>> cf705e44 (Incorpated the new logo)
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
 				PRODUCT_MODULE_NAME = loafwallet;
@@ -5374,11 +5366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-<<<<<<< HEAD
-				MARKETING_VERSION = 3.6.1;
-=======
 				MARKETING_VERSION = 3.7.0;
->>>>>>> cf705e44 (Incorpated the new logo)
 				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet;
 				PRODUCT_MODULE_NAME = loafwallet;
