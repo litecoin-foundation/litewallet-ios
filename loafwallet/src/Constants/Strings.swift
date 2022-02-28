@@ -99,7 +99,7 @@ enum S {
         static let barItemTitle = NSLocalizedString("Send.barItemTitle", value: "**Send**", comment: "Send Bar Item Title")
         
         enum UnstoppableDomains {
-            static let placeholder = NSLocalizedString("Send.UnstoppableDomains.placeholder", value: "**Enter a .crypto or .zil domain**", comment: "Enter a .crypto or .zil domain")
+            static let placeholder = NSLocalizedString("Send.UnstoppableDomains.placeholder", value: "**Enter a .crypto or .zil domain**", comment: "Enter a .crypto,.zil domain")
             static let lookup = NSLocalizedString("Send.UnstoppableDomains.lookup", value: "**Lookup**", comment: "Lookup")
             static let lookupFailureHeader = NSLocalizedString("Send.UnstoppableDomains.lookupFailureHeader", value: "**LookupFailureHeader**", comment: "lookupFailureHeader")
             static let lookupDomainError = NSLocalizedString("Send.UnstoppableDomains.lookupDomainError", value: "**LookupDomainError**", comment: "LookupDomainError")

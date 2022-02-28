@@ -962,7 +962,7 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "조회 실패";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = ".crypto 또는 .zil 도메인을 입력하세요.";
+"Send.UnstoppableDomains.placeholder" = ".crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao 또는 .x 도메인을 입력하세요.";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "시스템 조회 문제입니다. [오류 : %2$d]";

@@ -962,7 +962,7 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "Pencarian gagal";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Masukkan domain .crypto atau .zil";
+"Send.UnstoppableDomains.placeholder" = "Masukkan domain .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao, atau .x.";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Masalah pencarian sistem. [Kesalahan: %2$d]";

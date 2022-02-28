@@ -962,7 +962,7 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "查找失敗";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "輸入.crypto或.zil域";
+"Send.UnstoppableDomains.placeholder" = "輸入 .crypto、.wallet、.zil、.nft、.blockchain、.bitcoin、.coin、.888、.dao 或 .x 域。";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤: %2$d]";
