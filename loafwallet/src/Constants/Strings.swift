@@ -679,7 +679,7 @@ enum S {
         static let startMessage = NSLocalizedString("WipeWallet.startMessage", value: "**Starting or recovering another wallet allows you to access and manage a different Litewallet wallet on this device.**", comment: "Start wipe wallet view message")
         static let startWarning = NSLocalizedString("WipeWallet.startWarning", value: "**Your current wallet will be removed from this device. If you wish to restore it in the future, you will need to enter your Paper Key.**", comment: "Start wipe wallet view warning")
         static let emptyWallet = NSLocalizedString("WipeWallet.emptyWallet", value: "**Forget seed or PIN?**", comment: "Warning if user lost phrase")
-        static let resetTitle = NSLocalizedString("resetTitle", value: "**Empty Wallet Reset**", comment: "Warning Empty Wipe title")
+        static let resetTitle = NSLocalizedString("resetTitle", value: "** Delete my Litewallet **", comment: "Warning Empty Wipe title")
         static let resetButton = NSLocalizedString("resetButton", value: "**Yes, reset wallet**", comment: "Reset walet button  title")
         static let warningTitle = NSLocalizedString("WipeWallet.warningTitle", value: "**PLEASE READ!**", comment: "Warning title")
         static let warningDescription = NSLocalizedString("WipeWallet.warningDescription", value: "**Your LiteWallet is empty. Resetting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.**", comment: "Warning description")

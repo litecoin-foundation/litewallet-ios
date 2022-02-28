@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Litewallet_white_icon_355.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Litewallet-fin_white_icon711.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Litewallet-fin_white-65.png",
+      "filename" : "Litewallet_white_icon.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

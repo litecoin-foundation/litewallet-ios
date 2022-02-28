@@ -827,7 +827,7 @@
 "resetButton" = "Ja, portemonnee opnieuw instellen";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Lege portemonnee resetten";
+"resetTitle" = "Mijn Litewallet verwijderen";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Camera Flits";
@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "Start of herstel een anderen portomonnee";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "VERLIES HET NIET!";
+"WipeWallet.warningAlert" = "Deze actie zal je Litewallet wissen!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Uw LiteWallet is leeg. Door te resetten, wordt de oude privésleutel verwijderd en worden de app-gegevens gewist. \n\n Na de reset moet u de nieuwe 12 woorden opnemen en op een zeer veilige plaats bewaren.  \n\n Geen LiteWallet-ontwikkelaars kunnen deze seed voor u ophalen.";
+"WipeWallet.warningDescription" = "Als u uw portemonnee verwijdert, zijn de privésleutel en het wissen van de app-gegevens verdwenen. U kunt Litecoin voor altijd verliezen!\n\n\nNiemand in het Litewallet-team kan deze seed voor je ophalen. Wij zijn niet verantwoordelijk als u deze waarschuwing niet in acht neemt.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "GELIEVE TE LEZEN!";

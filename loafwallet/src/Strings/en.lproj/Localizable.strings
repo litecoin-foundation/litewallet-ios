@@ -827,7 +827,7 @@
 "resetButton" = "Yes, reset wallet";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Empty Wallet Reset";
+"resetTitle" = "Delete my Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Camera Flash";
@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "Start or Recover Another Wallet";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "DO NOT LOSE IT!";
+"WipeWallet.warningAlert" = "This action will wipe your Litewallet!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Your LiteWallet is empty. Resetting will delete the old private key and wipe the app data.\n\nAfter the reset, be prepared to record the new 12 words and keep them in a very secure place.\n\nNo LiteWallet developers can retrieve this seed for you.";
+"WipeWallet.warningDescription" = "Deleting your wallet means the private key and wipe the app data will be gone. You may lose your Litecoin forever! \n\n\nNo one on the Litewallet team can retrieve this seed for you. We are not responsible if you fail to heed this warning.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "PLEASE READ!";
