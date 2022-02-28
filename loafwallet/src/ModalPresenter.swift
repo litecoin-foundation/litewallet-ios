@@ -284,7 +284,7 @@ class ModalPresenter : Subscriber, Trackable {
         
         guard let walletManager = walletManager else { return nil }
         
-        let wipeEmptyvc = WipeEmptyWalletViewController(walletManager: walletManager, store: store, didTapNext: ({ [weak self] in
+        let wipeEmptyvc = WipeEmptyWalletViewController(walletManager: walletManager, store: store, didTapYesDelete: ({ [weak self] in
             guard let myself = self else { return }
             myself.wipeWallet()
         }))

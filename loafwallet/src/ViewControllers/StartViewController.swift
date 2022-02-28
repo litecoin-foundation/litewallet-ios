@@ -33,8 +33,9 @@ class StartViewController : UIViewController {
     }()
 
     private var logo: UIImageView = {
-        let image = UIImageView(image:UIImage(named:"newLogotyoe-white"))
+        let image = UIImageView(image: UIImage(named: "new-logotype-white"))
         image.contentMode = .scaleAspectFit
+        image.alpha = 0.8
         return image
     }()
     
@@ -80,12 +81,12 @@ class StartViewController : UIViewController {
 
     private func addConstraints() {
         backgroundView.constrain(toSuperviewEdges: nil)
-        let yConstraint = NSLayoutConstraint(item: logo, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.5, constant: 0.0)
+
         logo.constrain([
-            logo.constraint(.centerX, toView: view, constant: nil),
-            yConstraint,
-            logo.constraint(.width, constant: 224),
-            logo.constraint(.height, constant: 50)])
+            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
+            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logo.constraint(.height, constant: 45),
+            logo.constraint(.width, constant: 201) ])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             message.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: C.padding[3]),

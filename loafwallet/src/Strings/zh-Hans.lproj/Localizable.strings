@@ -827,7 +827,7 @@
 "resetButton" = "是的，重置钱包";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "空钱包重置";
+"resetTitle" = "删除我的 Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "相机闪光灯";
@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "启动或恢复另一钱包";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "不要失去它！";
+"WipeWallet.warningAlert" = "此操作将擦除您的 Litewallet！";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "您的LiteWallet是空的。重置将删除旧的私钥并擦除应用程序数据。\n\n 重置后，请准备好记录新的12个单词并将其保存在非常安全的位置。\n\n 没有LiteWallet开发人员可以为您获取此种子。";
+"WipeWallet.warningDescription" = "删除你的钱包意味着私钥和擦除应用程序数据将消失。你可能永远失去莱特币！\n\n\nLitewallet 团队中的任何人都无法为您检索此种子。如果您不注意此警告，我们概不负责。";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "请阅读！";

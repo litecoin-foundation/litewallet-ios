@@ -12,15 +12,15 @@ class WipeEmptyWalletViewController : UIViewController, Subscriber, Trackable {
   
   //MARK - Public
   
-  init(walletManager: WalletManager, store: Store, didTapNext: @escaping () -> Void) {
+  init(walletManager: WalletManager, store: Store, didTapYesDelete: @escaping () -> Void) {
     self.walletManager = walletManager
     self.store = store
-    self.didTapNext = didTapNext
+    self.didTapYesDelete = didTapYesDelete
     super.init(nibName: nil, bundle: nil)
   }
   
   //MARK - Private
-  private let didTapNext: () -> Void
+  private let didTapYesDelete: () -> Void
   private let titleLabel        = UILabel()
   private let warningDetailTextView = UITextView()
   private let warningAlertLabel = UILabel()
@@ -97,7 +97,7 @@ class WipeEmptyWalletViewController : UIViewController, Subscriber, Trackable {
     warningDetailTextView.font = UIFont.customBody(size: 16)
     warningDetailTextView.textAlignment = .left
     warningDetailTextView.isUserInteractionEnabled = false
-    warningAlertLabel.font = UIFont.customBold(size: 24)
+    warningAlertLabel.font = UIFont.customBold(size: 20)
     warningAlertLabel.textAlignment = .center
     warningAlertLabel.textColor = UIColor.pink 
     
@@ -106,7 +106,7 @@ class WipeEmptyWalletViewController : UIViewController, Subscriber, Trackable {
   private func addActions() {
  
     reset.tap = { [weak self] in
-      self?.didTapNext()
+      self?.didTapYesDelete()
     }
   }
   

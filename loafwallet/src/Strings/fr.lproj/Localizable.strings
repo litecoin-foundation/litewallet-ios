@@ -827,7 +827,7 @@
 "resetButton" = "Oui, réinitialiser le portefeuille";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Réinitialisation du portefeuille vide";
+"resetTitle" = "Supprimer mon Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Flash d'appareil photo";
@@ -1412,10 +1412,10 @@
 "WipeWallet.title" = "Commencer un nouveau portefeuille ou récupérer un autre portefeuille";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "NE LE PERDS PAS!";
+"WipeWallet.warningAlert" = "Cette action effacera votre Litewallet !";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Votre LiteWallet est vide. La réinitialisation supprimera l'ancienne clé privée et effacera les données de l'application. \n\nAprès la réinitialisation, préparez-vous à enregistrer les 12 nouveaux mots et à les conserver dans un endroit très sécurisé. \n\nAucun développeur LiteWallet ne peut récupérer cette graine pour vous.";
+"WipeWallet.warningDescription" = "La suppression de votre portefeuille signifie que la clé privée et l'effacement des données de l'application auront disparu. Vous risquez de perdre du Litecoin pour toujours !\n\n\nPersonne dans l'équipe Litewallet ne peut récupérer cette graine pour vous. Nous ne sommes pas responsables si vous ne tenez pas compte de cet avertissement.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "LISEZ S'IL VOUS PLAÎT!";
