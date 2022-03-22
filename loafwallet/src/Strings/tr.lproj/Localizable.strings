@@ -962,7 +962,7 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "Arama başarısız oldu";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Bir .crypto veya .zil alanı girin";
+"Send.UnstoppableDomains.placeholder" = "Bir .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao veya .x alan adı girin.";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";

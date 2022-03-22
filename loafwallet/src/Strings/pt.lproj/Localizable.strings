@@ -963,7 +963,7 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "Pesquisa falhou";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Insira um domínio .crypto ou .zil";
+"Send.UnstoppableDomains.placeholder" = "Insira um domínio .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao ou .x.";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Problema de pesquisa do sistema. [Erro: %2$d]";

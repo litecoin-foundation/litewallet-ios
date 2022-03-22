@@ -10,7 +10,7 @@ import Foundation
 import UIKit 
 
 enum PartnerName {
-    case infura
+    case unstop
     case changeNow
 }
  
@@ -28,10 +28,10 @@ struct Partner {
         return [moonpay, simplex]
     }
     
-    /// Returns Partner Key
+    /// Returns Partner Key + URL
     /// - Parameter name: Enum for the different partners
-    /// - Returns: Key string
-    static func partnerKeyPath(name: PartnerName) -> String {
+    /// - Returns: Key string url
+    static func partnerKeyPathURL(name: PartnerName) -> String {
         
         /// Switch the config file based on the environment
         var filePath: String
@@ -58,7 +58,7 @@ struct Partner {
         
         switch name {
             
-            case .infura:
+            case .unstop:
                 
                 if let dictionary = NSDictionary(contentsOfFile: filePath) as? Dictionary<String, AnyObject>,
                    let key = dictionary["infura-api"] as? String {
@@ -83,6 +83,62 @@ struct Partner {
                 }
         }
         
+    }
+    
+    /// Returns Partner Key
+    /// - Parameter name: Enum for the different partners
+    /// - Returns: Key string
+    static func partnerKey(name: PartnerName) -> String {
+        
+        /// Switch the config file based on the environment
+        var filePath: String
+#if Release
+        
+        // Loads the release Partner Keys config file.
+        guard let releasePath = Bundle.main.path(forResource: "partner-keys",
+                                                 ofType: "plist") else {
+            return  "ERROR: FILE-NOT-FOUND"
+        }
+        filePath = releasePath
+        
+#else
+        
+        // Loads the debug Partner Keys config file.
+        guard let debugPath = Bundle.main.path(forResource: "debug-partner-keys",
+                                               ofType: "plist") else {
+            return  "ERROR: FILE-NOT-FOUND"
+        }
+        
+        filePath = debugPath
+        
+#endif
+        
+        switch name {
+                
+            case .unstop:
+                
+                if let dictionary = NSDictionary(contentsOfFile: filePath) as? Dictionary<String, AnyObject>,
+                   let key = dictionary["infura-api"] as? String {
+                    return key
+                } else {
+                    
+                    let errorDescription = "ERROR-INFURA_KEY"
+                    LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+                    return errorDescription
+                }
+                
+            case .changeNow:
+                
+                if let dictionary = NSDictionary(contentsOfFile: filePath) as? Dictionary<String, AnyObject>,
+                   let key = dictionary["change-now-api"] as? String {
+                    return key
+                } else {
+                    
+                    let errorDescription = "ERROR-CHANGENOW_KEY"
+                    LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+                    return errorDescription
+                }
+        }
     }
     
     //TODO: Uncomment as integration progresses, kcw-grunt

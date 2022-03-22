@@ -962,7 +962,7 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "ルックアップに失敗しました";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = ".cryptoまたは.zilドメインを入力してください";
+"Send.UnstoppableDomains.placeholder" = ".crypto、.wallet、.zil、.nft、.blockchain、.bitcoin、.coin、.888、.dao、または.xドメインを入力します。";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
