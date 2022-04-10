@@ -967,6 +967,9 @@
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Problema di ricerca nel sistema. [Errore: %2$d]";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problema di ricerca nel sistema. [Errore: %2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Gli indirizzi Litecoin dovrebbero essere utilizzati una sola volta.";
 

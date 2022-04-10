@@ -967,6 +967,9 @@
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Masalah pencarian sistem. [Kesalahan: %2$d]";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Masalah pencarian sistem. [Kesalahan: %2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Alamat Litecoin hanya ditujukan untuk penggunaan tunggal.";
 
