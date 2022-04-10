@@ -84,7 +84,6 @@ class UnstoppableDomainViewModel: ObservableObject {
                                                         CustomEvent._20201121_DRIA,
                                                        properties:
                                                         ["success_time": timestamp])
-
                     ///Quicker resolution: When the resolution is done, the activity indicatior stops and the address is  updated
                     DispatchQueue.main.async {
                         self.ltcAddress = returnValue
