@@ -827,7 +827,7 @@
 "resetButton" = "Да, сбросить кошелек";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Сбросить пустой кошелек";
+"resetTitle" = "Удалить мой Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Вспышка камеры";
@@ -962,7 +962,10 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "Ошибка поиска";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Введите домен .crypto или .zil";
+"Send.UnstoppableDomains.placeholder" = "Введите домен .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao или .x.";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Проблема с поиском в системе. [Ошибка: %2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Проблема с поиском в системе. [Ошибка: %2$d]";
@@ -1412,10 +1415,10 @@
 "WipeWallet.title" = "Запуск или восстановление другого кошелька";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "НЕ ПОТЕРЯТЬ ЕГО!";
+"WipeWallet.warningAlert" = "Это действие сотрет ваш Litewallet!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Ваш LiteWallet пуст. Сброс приведет к удалению старого закрытого ключа и стиранию данных приложения. \ N \ nПосле сброса будьте готовы записать новые 12 слов и хранить их в очень безопасном месте. \ N \ nНет разработчиков LiteWallet вы можете получить это начальное значение для вас.";
+"WipeWallet.warningDescription" = "Удаление вашего кошелька означает, что закрытый ключ и данные приложения будут удалены. Вы можете потерять Litecoin навсегда!\n\n\nНикто из команды Litewallet не может получить для вас это семя. Мы не несем ответственности, если вы не прислушаетесь к этому предупреждению.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "ПОЖАЛУЙСТА, ПРОЧИТАЙТЕ!";

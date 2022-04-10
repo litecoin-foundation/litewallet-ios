@@ -827,7 +827,7 @@
 "resetButton" = "Sì, ripristina portafoglio";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Ripristina portafoglio vuoto";
+"resetTitle" = "Elimina il mio Litewallet";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Flash della Fotocamera";
@@ -962,7 +962,10 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "Ricerca non riuscita";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Inserisci un dominio .crypto o .zil";
+"Send.UnstoppableDomains.placeholder" = "Inserisci un dominio .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao o .x.";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problema di ricerca nel sistema. [Errore: %2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Problema di ricerca nel sistema. [Errore: %2$d]";
@@ -1412,10 +1415,10 @@
 "WipeWallet.title" = "Inizia o recupera un altro portafogli.";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "NON PERDERLO!";
+"WipeWallet.warningAlert" = "Questa azione cancellerà il tuo Litewallet!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "LiteWallet è vuoto. Il ripristino eliminerà la vecchia chiave privata e cancellerà i dati dell'app. \n\n Dopo il ripristino, preparati a registrare le nuove 12 parole e conservarle in un posto molto sicuro. \n\n Nessun programmatore LiteWallet può recuperare questo seme per te.";
+"WipeWallet.warningDescription" = "L'eliminazione del portafoglio significa che la chiave privata e la cancellazione dei dati dell'app saranno spariti. Potresti perdere Litecoin per sempre!\n\n\nNessuno nel team di Litewallet può recuperare questo seme per te. Non siamo responsabili se non ascolti questo avviso.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "SI PREGA DI LEGGERE!";

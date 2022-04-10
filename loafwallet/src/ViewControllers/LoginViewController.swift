@@ -69,7 +69,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     var delegate: LoginViewControllerDelegate?
      
     private var logo: UIImageView = {
-        let image = UIImageView(image:UIImage(named:"newLogotyoe-white"))
+        let image = UIImageView(image:UIImage(named: "new-logotype-white"))
         image.contentMode = .scaleAspectFit
         image.alpha = 0.8
         return image
@@ -150,20 +150,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         store.subscribe(self, name: .loginFromSend, callback: {_ in
             self.authenticationSucceded()
         })
-      
-        NotificationCenter.default.addObserver(forName: .WalletBalanceChangedNotification,
-                                               object: nil, queue: nil, using: { (note) in
-          
-            if let balance = note.userInfo?["balance"] as? Int {
-              
-              if balance == 0 {
-                self.isWalletEmpty = true
-              } else {
-                self.isWalletEmpty = false
-              }
-              self.addWipeWalletView()
-            }
-        })
+       
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -192,7 +179,7 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         
         
         logo.constrain([
-            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.constraint(.height, constant: 45),
             logo.constraint(.width, constant: 201) ])
@@ -282,7 +269,6 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
     }
     private func addWipeWalletView() {
         
-        if isWalletEmpty {
             view.addSubview(wipeBannerButton)
             wipeBannerButton.translatesAutoresizingMaskIntoConstraints = true
             wipeBannerButton.backgroundColor = .clear
@@ -298,11 +284,6 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
             wipeBannerButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
             wipeBannerButton.titleLabel?.font = .barlowSemiBold(size: 17)
             wipeBannerButton.addTarget(self, action: #selector(wipeTapped), for: .touchUpInside)
-            
-        } else {
-            wipeBannerButton.removeFromSuperview()
-        }
-        
     }
     private func addBiometricsButton() {
         guard shouldUseBiometrics else { return }

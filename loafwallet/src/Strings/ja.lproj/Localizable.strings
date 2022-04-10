@@ -827,7 +827,7 @@
 "resetButton" = "はい、ウォレットをリセットします";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "空のウォレットのリセット";
+"resetTitle" = "Litewalletを削除します";
 
 /* Scan bitcoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "カメラのフラッシュ";
@@ -962,7 +962,10 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "ルックアップに失敗しました";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = ".cryptoまたは.zilドメインを入力してください";
+"Send.UnstoppableDomains.placeholder" = ".crypto、.wallet、.zil、.nft、.blockchain、.bitcoin、.coin、.888、.dao、または.xドメインを入力します。";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
@@ -1412,10 +1415,10 @@
 "WipeWallet.title" = "別のウォレットを作成、または復元する";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "負けないでください！";
+"WipeWallet.warningAlert" = "このアクションにより、Litewalletがワイプされます。";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "LiteWalletは空です。リセットすると、古い秘密キーが削除され、アプリのデータが消去されます。\n\n リセット後、新しい12単語を記録して非常に安全な場所に保管する準備をしてください。\n \n LiteWallet開発者はこのシードを取得できません";
+"WipeWallet.warningDescription" = "ウォレットを削除すると、秘密鍵とアプリデータのワイプが失われます。 あなたはライトコインを永遠に失うかもしれません！ \ n \ n \ nLitewalletチームの誰もこのシードを取得できません。 この警告に注意を怠った場合、当社は責任を負いません";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "読んでください！";

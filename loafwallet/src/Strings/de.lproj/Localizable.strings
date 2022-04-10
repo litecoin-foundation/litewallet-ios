@@ -827,7 +827,7 @@
 "resetButton" = "Ja, Wallet zurücksetzen";
 
 /* Warning Empty Wipe title */
-"resetTitle" = "Leeres Wallet zurücksetzen";
+"resetTitle" = "Mein Litewallet löschen";
 
 /* Scan Litecoin address camera flash toggle */
 "Scanner.flashButtonLabel" = "Kamerablitz";
@@ -962,7 +962,10 @@
 "Send.UnstoppableDomains.lookupFailureHeader" = "Lookup failed";
 
 /* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "Geben Sie eine .crypto- oder .zil-Domain ein";
+"Send.UnstoppableDomains.placeholder" = "Geben Sie eine .crypto-, .wallet-, .zil-, .nft-, .blockchain-, .bitcoin-, .coin-, .888-, .dao- oder .x-Domäne ein.";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "System-Lookup-Problem. [Error: %2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "System-Lookup-Problem. [Error: %2$d]";
@@ -1412,10 +1415,10 @@
 "WipeWallet.title" = "Ein anderes Wallet beginnen oder wiederherstellen";
 
 /* Warning Alert */
-"WipeWallet.warningAlert" = "VERLIEREN SIE ES NICHT!";
+"WipeWallet.warningAlert" = "Diese Aktion löscht Ihr Litewallet!";
 
 /* Warning description */
-"WipeWallet.warningDescription" = "Dein LiteWallet ist leer. Beim Zurücksetzen wird der alte private Schlüssel gelöscht und die App-Daten gelöscht.  Bereiten Sie sich nach dem Zurücksetzen darauf vor, die neuen 12 Wörter aufzunehmen und an einem sehr sicheren Ort aufzubewahren.  Kein Entwickler von LiteWallet kann diesen Samen für Sie abrufen.";
+"WipeWallet.warningDescription" = "Das Löschen Ihrer Brieftasche bedeutet, dass der private Schlüssel und die App-Daten gelöscht werden. Sie können Litecoin für immer verlieren!\n\n\nNiemand im Litewallet-Team kann diesen Seed für Sie abrufen. Wir sind nicht verantwortlich, wenn Sie diese Warnung nicht beachten.";
 
 /* Warning title */
 "WipeWallet.warningTitle" = "BITTE LESEN!";
