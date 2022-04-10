@@ -20,6 +20,9 @@ struct UnstoppableDomainView: View {
     @State
     private var shouldDisableLookupButton: Bool = true
     
+    @State
+    private var didStartEditing: Bool = false
+    
     init(viewModel: UnstoppableDomainViewModel) {
         self.viewModel = viewModel
     }
@@ -43,14 +46,37 @@ struct UnstoppableDomainView: View {
                                 .padding(.trailing, 20)
                         }
                     } else {
-                        
-                        TextField(viewModel.placeholderString, text: $viewModel.searchString)
+                         
+
+                        VStack {
+                            ZStack{
+                            
+                        Text(viewModel.placeholderString)
                             .font(Font(UIFont.customBody(size: 16.0)))
-                            .keyboardType(.URL)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .padding(.leading, 18)
-                            .padding(.trailing, 5)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(nil)
+                            .minimumScaleFactor(0.5)
+                            .frame(minWidth: 0,  maxWidth: 245)
+                            .frame(height: 55.0, alignment: .leading)
+                            .foregroundColor(.gray)
+                            .opacity(didStartEditing ? 0 : 1)
+                               
+                        TextField(".", text: $viewModel.searchString)
+                                    .onTapGesture {
+                                        didStartEditing = true
+                                    }
+                                    .font(Font(UIFont.customBody(size: 14.0)))
+                                    .keyboardType(.URL)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .frame(height: 45.0, alignment: .leading)
+                            } 
+                        }
+                        .padding(.leading, 10)
+                        .padding(.trailing, 5)
+
+
+                        
                     }
                     
                     Spacer()
@@ -91,15 +117,16 @@ struct UnstoppableDomainView: View {
                 Rectangle()
                     .fill(Color(UIColor.secondaryBorder))
                     .frame(height: 1.0)
-            }
+            }.padding(.leading, 20)
             
             HStack {
                 Text(S.Fragments.or)
-                    .frame(width: 70, height: 12, alignment: .center)
+                    .frame(width: 70, height: 20, alignment: .center)
                     .font(Font(UIFont.customBody(size: 15.0)))
                     .foregroundColor(Color(UIColor.grayTextTint))
                     .background(Color.white)
-                    .padding(.top, -35)
+                    .frame(width: 160, height: 20.0, alignment: .center)
+                    .padding(.top, -50)
                     .padding(.leading, 60)
                 Spacer()
             }

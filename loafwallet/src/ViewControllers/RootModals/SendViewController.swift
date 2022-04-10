@@ -91,7 +91,6 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         
         addressCell.constrainTopCorners(height: SendCell.defaultHeight)
         
-        
         addChildViewController(amountView, layout: {
                                 amountView.view.constrain([
                                                             amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -101,7 +100,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         unstoppableCell.view.constrain([
                                         unstoppableCell.view.topAnchor.constraint(equalTo: addressCell.bottomAnchor),
                                         unstoppableCell.view.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
-                                        unstoppableCell.view.leadingAnchor.constraint(equalTo: amountView.view.leadingAnchor),
+                                        unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
                                         unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight) ])
         
         descriptionCell.constrain([
