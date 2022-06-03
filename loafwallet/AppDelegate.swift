@@ -91,17 +91,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// Sets the correct Google Services  plist file
     private func setFirebaseConfiguration() {
-        
-        #if Release
-            // Loads the release Firebase config file.
-            FirebaseApp.configure()
-        #else
-            // Load a Firebase debug config file.
-            let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
-            guard let fileOpts = FirebaseOptions(contentsOfFile: filePath!)
-            else { return assert(false, "Couldn't load Firebase config file") }
-            FirebaseApp.configure(options: fileOpts)
-        #endif
+         
+        // Load a Firebase debug config file.
+        //let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
+ 
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+ 
+        if let fboptions = FirebaseOptions(contentsOfFile: filePath!) {
+            FirebaseApp.configure(options: fboptions)
+        }
+        else {
+            assert(false, "Couldn't load Firebase config file")
+        }
     }
     
     /// Check Locale
