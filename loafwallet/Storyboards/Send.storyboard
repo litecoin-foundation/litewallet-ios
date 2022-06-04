@@ -1,27 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--SendLTC View Controller-->
         <scene sceneID="2uU-jb-OpB">
             <objects>
-                <viewController storyboardIdentifier="SendLTCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KIX-7n-xQg" customClass="SendLTCViewController" customModule="Litewallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendLTCViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KIX-7n-xQg" customClass="SendLTCViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rvw-Dp-7Qc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-4x-dQ5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.99550896879999995" green="0.37149715420000001" blue="0.33404567839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="ZZg-RO-h4i" kind="embed" id="2f8-6g-q8V"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gAO-ux-TSt"/>
+                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gAO-ux-TSt" firstAttribute="bottom" secondItem="QHa-4x-dQ5" secondAttribute="bottom" id="KnQ-C7-HDP"/>
+                            <constraint firstItem="QHa-4x-dQ5" firstAttribute="top" secondItem="gAO-ux-TSt" secondAttribute="top" id="MFv-fF-FXS"/>
+                            <constraint firstItem="QHa-4x-dQ5" firstAttribute="leading" secondItem="gAO-ux-TSt" secondAttribute="leading" id="Rng-ti-fH5"/>
+                            <constraint firstItem="QHa-4x-dQ5" firstAttribute="trailing" secondItem="gAO-ux-TSt" secondAttribute="trailing" id="jT4-7Y-X60"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRv-wn-N5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53.623188405797109" y="95.758928571428569"/>
         </scene>
+        <!--SendUI Hosting Controller-->
+        <scene sceneID="3Ej-15-hRS">
+            <objects>
+                <hostingController id="ZZg-RO-h4i" customClass="SendUIHostingController" customModule="loafwallet" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wna-ND-Cmd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="96"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BPs-dk-a8x">
+            <objects>
+                <viewController id="Cre-VR-nDb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xf6-sp-w58">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KaA-iD-7Hp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="56"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
