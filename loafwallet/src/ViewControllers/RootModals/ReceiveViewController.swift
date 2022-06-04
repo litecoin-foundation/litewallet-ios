@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 private let qrSize: CGFloat = 186.0
 private let smallButtonHeight: CGFloat = 32.0
@@ -264,12 +265,17 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     }
 }
 
-extension ReceiveViewController : ModalDisplayable {
-    var faqArticleId: String? {
-        return ArticleIds.receiveBitcoin
-    }
+extension ReceiveViewController : ModalDisplayable { 
 
     var modalTitle: String {
         return S.Receive.title
     }
 }
+
+extension UIHostingController : ModalDisplayable {
+    
+    var modalTitle: String {
+        return S.Send.title
+    }
+}
+

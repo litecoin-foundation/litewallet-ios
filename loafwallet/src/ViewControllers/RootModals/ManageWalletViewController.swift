@@ -138,11 +138,7 @@ extension ManageWalletViewController : UITextFieldDelegate {
     }
 }
 
-extension ManageWalletViewController : ModalDisplayable {
-    var faqArticleId: String? {
-        return ArticleIds.manageWallet
-    }
-
+extension ManageWalletViewController : ModalDisplayable { 
     var modalTitle: String {
         return S.ManageWallet.title
     }

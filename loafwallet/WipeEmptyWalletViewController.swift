@@ -120,10 +120,7 @@ class WipeEmptyWalletViewController : UIViewController, Subscriber, Trackable {
 }
 
 extension WipeEmptyWalletViewController : ModalDisplayable {
-  var faqArticleId: String? {
-    return nil
-  }
-  
+ 
   var modalTitle: String {
     return S.WipeWallet.resetTitle
   }

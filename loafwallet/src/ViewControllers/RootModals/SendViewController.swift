@@ -486,9 +486,6 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
 }
 
 extension SendViewController : ModalDisplayable {
-    var faqArticleId: String? {
-        return ArticleIds.sendBitcoin
-    }
     
     var modalTitle: String {
         return S.Send.title
