@@ -252,7 +252,7 @@ class ModalPresenter : Subscriber, Trackable {
             case .none:
                 return nil
             case .send:
-                return makeSendView()
+                return showSwiftUISendView()
             case .receive:
                 return receiveView(isRequestAmountVisible: true)
             case .menu:
@@ -262,7 +262,7 @@ class ModalPresenter : Subscriber, Trackable {
             case .loginAddress:
                 return receiveView(isRequestAmountVisible: false)
             case .manageWallet:
-                return ModalViewController(childViewController: ManageWalletViewController(store: store), store: store)
+                return ModalViewController(childViewController: ManageWalletViewController(store: store), store: store, isRootSwiftUI: false)
             case .wipeEmptyWallet:
                 return wipeEmptyView()
             case .requestAmount:
@@ -276,7 +276,7 @@ class ModalPresenter : Subscriber, Trackable {
                     self?.messagePresenter.presenter = self?.topViewController
                     self?.messagePresenter.presentMessageCompose(bitcoinURL: bitcoinURL, image: image)
                 }
-                return ModalViewController(childViewController: requestVc, store: store)
+                return ModalViewController(childViewController: requestVc, store: store, isRootSwiftUI: false)
         }
         
     }
@@ -288,10 +288,11 @@ class ModalPresenter : Subscriber, Trackable {
             guard let myself = self else { return }
             myself.wipeWallet()
         }))
-        return ModalViewController(childViewController: wipeEmptyvc, store: store)
+        return ModalViewController(childViewController: wipeEmptyvc, store: store, isRootSwiftUI: false)
     }
     
-    private func makeSendView() -> UIViewController? {
+    private func showSwiftUISendView() -> UIViewController? {
+         
         guard !store.state.walletState.isRescanning else {
             let alert = UIAlertController(title: S.LitewalletAlert.error, message: S.Send.isRescanning, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
@@ -300,43 +301,52 @@ class ModalPresenter : Subscriber, Trackable {
         }
         guard let walletManager = walletManager else { return nil }
         guard let kvStore = walletManager.apiClient?.kv else { return nil }
+
+
+        let sendSwiftUIVC = UIHostingController(rootView: SendSwiftUIView())
         
-        let sendVC = SendViewController(store: store, sender: Sender(walletManager: walletManager, kvStore: kvStore, store: store),  walletManager: walletManager, initialRequest: currentRequest)
-        currentRequest = nil
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+ 
+        let modalRoot = ModalViewController(childViewController: sendSwiftUIVC, store: store, isRootSwiftUI: true)
+        modalRoot.view.frame = CGRect(x: 0, y: 0, width: width, height: bounds.size.height)
         
-        if store.state.isLoginRequired {
-            sendVC.isPresentedFromLock = true
-        }
-        
-        let root = ModalViewController(childViewController: sendVC, store: store)
-        sendVC.presentScan = presentScan(parent: root)
-        sendVC.presentVerifyPin = { [weak self, weak root] bodyText, callback in
-            guard let myself = self else { return }
-            let vc = VerifyPinViewController(bodyText: bodyText, pinLength: myself.store.state.pinLength, callback: callback)
-            vc.transitioningDelegate = self?.verifyPinTransitionDelegate
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalPresentationCapturesStatusBarAppearance = true
-            root?.view.isFrameChangeBlocked = true
-            root?.present(vc, animated: true, completion: nil)
-        }
-        sendVC.onPublishSuccess = { [weak self] in
-            self?.presentAlert(.sendSuccess, completion: {})
-        }
-        
-        sendVC.onResolvedSuccess = { [weak self] in
-            self?.presentAlert(.resolvedSuccess, completion: {})
-        }
-        
-        sendVC.onResolutionFailure = { [weak self] failureMessage in
-            self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
-        }
-        return root
+//        let sendVC = SendViewController(store: store, sender: Sender(walletManager: walletManager, kvStore: kvStore, store: store),  walletManager: walletManager, initialRequest: currentRequest)
+//        currentRequest = nil
+//
+//        if store.state.isLoginRequired {
+//            sendVC.isPresentedFromLock = true
+//        }
+//
+//        let root = ModalViewController(childViewController: sendSwiftUIVC, store: store)
+//        sendVC.presentScan = presentScan(parent: root)
+//        sendVC.presentVerifyPin = { [weak self, weak root] bodyText, callback in
+//            guard let myself = self else { return }
+//            let vc = VerifyPinViewController(bodyText: bodyText, pinLength: myself.store.state.pinLength, callback: callback)
+//            vc.transitioningDelegate = self?.verifyPinTransitionDelegate
+//            vc.modalPresentationStyle = .overFullScreen
+//            vc.modalPresentationCapturesStatusBarAppearance = true
+//            root?.view.isFrameChangeBlocked = true
+//            root?.present(vc, animated: true, completion: nil)
+//        }
+//        sendVC.onPublishSuccess = { [weak self] in
+//            self?.presentAlert(.sendSuccess, completion: {})
+//        }
+//
+//        sendVC.onResolvedSuccess = { [weak self] in
+//            self?.presentAlert(.resolvedSuccess, completion: {})
+//        }
+//
+//        sendVC.onResolutionFailure = { [weak self] failureMessage in
+//            self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
+//        }
+    return modalRoot
     }
     
     private func receiveView(isRequestAmountVisible: Bool) -> UIViewController? {
         guard let wallet = walletManager?.wallet else { return nil }
         let receiveVC = ReceiveViewController(wallet: wallet, store: store, isRequestAmountVisible: isRequestAmountVisible)
-        let root = ModalViewController(childViewController: receiveVC, store: store)
+        let root = ModalViewController(childViewController: receiveVC, store: store, isRootSwiftUI: false)
         receiveVC.presentEmail = { [weak self, weak root] address, image in
             guard let root = root else { return }
             self?.messagePresenter.presenter = root
@@ -352,7 +362,7 @@ class ModalPresenter : Subscriber, Trackable {
     
     private func menuViewController() -> UIViewController? {
         let menu = MenuViewController()
-        let root = ModalViewController(childViewController: menu, store: store)
+        let root = ModalViewController(childViewController: menu, store: store, isRootSwiftUI: false)
         menu.didTapSecurity = { [weak self, weak menu] in
             self?.modalTransitionDelegate.reset()
             menu?.dismiss(animated: true) {

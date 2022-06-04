@@ -287,6 +287,7 @@
 		C32DC7AC2593B5C900A7FDB4 /* AnimatedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */; };
 		C32DC7B52593B61F00A7FDB4 /* AnimatedCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */; };
 		C339752127001BEC0071FED6 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C339752027001BEC0071FED6 /* EmailValidation.swift */; };
+		C33E2D2A284AC53300550BFA /* SendSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */; };
 		C345D81525A8D52600657E30 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D81425A8D52600657E30 /* LoginViewModelTests.swift */; };
 		C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */; };
 		C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */; };
@@ -1474,6 +1475,7 @@
 		C32DC7AB2593B5C900A7FDB4 /* AnimatedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardView.swift; sourceTree = "<group>"; };
 		C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModel.swift; sourceTree = "<group>"; };
 		C339752027001BEC0071FED6 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
+		C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSwiftUIView.swift; sourceTree = "<group>"; };
 		C345D81425A8D52600657E30 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModelTests.swift; sourceTree = "<group>"; };
@@ -3155,6 +3157,14 @@
 			path = "Card Tests";
 			sourceTree = "<group>";
 		};
+		C33E2D28284AC50A00550BFA /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */,
+			);
+			name = Send;
+			sourceTree = "<group>";
+		};
 		C345D81325A8D50600657E30 /* LitecoinCardTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -3181,6 +3191,7 @@
 		C35ABD07257404C6002BB9BB /* SwiftUI+UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C33E2D28284AC50A00550BFA /* Send */,
 				C3543A25264AFE190005D17A /* Settings */,
 				C3F7BCD825FEC69B00694C28 /* Alerts */,
 				C32142E825C97CB900BECCD0 /* Transactions */,
@@ -4454,6 +4465,7 @@
 				CEAA9EA01DC2F9F50066731D /* UIFont+BRWAdditions.swift in Sources */,
 				C32DB42F26488CAA00017D26 /* NonUSTabBarViewController.swift in Sources */,
 				CEC6AA491DEFD00100EE5AFD /* MenuButton.swift in Sources */,
+				C33E2D2A284AC53300550BFA /* SendSwiftUIView.swift in Sources */,
 				CEF61B121ECF52C700C7EA6A /* AmountViewController.swift in Sources */,
 				CECCE5B21E04B00D00D99448 /* SendCell.swift in Sources */,
 				24B8FAD22162B10200A155B1 /* BuyCenterWebViewController.swift in Sources */,
