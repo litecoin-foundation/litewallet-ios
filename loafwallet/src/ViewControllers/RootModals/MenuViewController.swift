@@ -71,11 +71,7 @@ class MenuViewController : UIViewController, Trackable {
     }
 }
 
-extension MenuViewController : ModalDisplayable {
-    var faqArticleId: String? {
-        return nil
-    }
-
+extension MenuViewController : ModalDisplayable { 
     var modalTitle: String {
         return S.MenuViewController.modalTitle
     }
