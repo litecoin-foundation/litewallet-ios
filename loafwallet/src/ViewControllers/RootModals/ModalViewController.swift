@@ -13,11 +13,12 @@ class ModalViewController : UIViewController, Subscriber {
     //MARK: - Public
     var childViewController: UIViewController
 
-    init<T: UIViewController>(childViewController: T, store: Store) where T: ModalDisplayable {
+    init<T: UIViewController>(childViewController: T, store: Store, isRootSwiftUI: Bool) where T: ModalDisplayable {
         self.childViewController = childViewController
         self.modalInfo = childViewController
         self.store = store
-        self.header = ModalHeaderView(title: modalInfo.modalTitle, style: .dark) 
+        self.header = ModalHeaderView(title: modalInfo.modalTitle, style: .dark)
+        self.isRootSwiftUI = isRootSwiftUI
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -29,6 +30,8 @@ class ModalViewController : UIViewController, Subscriber {
     private let store: Store
     private let scrollView = UIScrollView()
     private let scrollViewContent = UIView()
+    private let isRootSwiftUI: Bool
+
 
     deinit {
         store.unsubscribe(self)
