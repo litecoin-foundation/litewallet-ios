@@ -288,6 +288,8 @@
 		C32DC7B52593B61F00A7FDB4 /* AnimatedCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */; };
 		C339752127001BEC0071FED6 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C339752027001BEC0071FED6 /* EmailValidation.swift */; };
 		C33E2D2A284AC53300550BFA /* SendSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */; };
+		C33E2D2E284BDB5400550BFA /* SendUIHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2D2D284BDB5400550BFA /* SendUIHostingController.swift */; };
+		C33E2D30284BDBB500550BFA /* SendSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33E2D2F284BDBB500550BFA /* SendSwiftUIViewModel.swift */; };
 		C345D81525A8D52600657E30 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D81425A8D52600657E30 /* LoginViewModelTests.swift */; };
 		C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */; };
 		C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */; };
@@ -1476,6 +1478,8 @@
 		C32DC7B42593B61F00A7FDB4 /* AnimatedCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModel.swift; sourceTree = "<group>"; };
 		C339752027001BEC0071FED6 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSwiftUIView.swift; sourceTree = "<group>"; };
+		C33E2D2D284BDB5400550BFA /* SendUIHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUIHostingController.swift; sourceTree = "<group>"; };
+		C33E2D2F284BDBB500550BFA /* SendSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSwiftUIViewModel.swift; sourceTree = "<group>"; };
 		C345D81425A8D52600657E30 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModelTests.swift; sourceTree = "<group>"; };
@@ -3161,6 +3165,8 @@
 			isa = PBXGroup;
 			children = (
 				C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */,
+				C33E2D2D284BDB5400550BFA /* SendUIHostingController.swift */,
+				C33E2D2F284BDBB500550BFA /* SendSwiftUIViewModel.swift */,
 			);
 			name = Send;
 			sourceTree = "<group>";
@@ -4380,6 +4386,7 @@
 				CEAFC8611E5D5B0500E4FD06 /* SegmentedButton.swift in Sources */,
 				2427342D2381C21800E2D22F /* MainViewController.swift in Sources */,
 				C32DAE9125929492003FC978 /* CardViewController.swift in Sources */,
+				C33E2D2E284BDB5400550BFA /* SendUIHostingController.swift in Sources */,
 				7503773D1DF57428005EB8AE /* WalletManager+Auth.swift in Sources */,
 				CEC4CF091F0C84AB00E5C82E /* UIViewController+Alerts.swift in Sources */,
 				C377519B26B0A3D900E1FB12 /* TransferringViewModel.swift in Sources */,
@@ -4392,6 +4399,7 @@
 				CEAA9E9B1DC2B9320066731D /* ConfirmPhrase.swift in Sources */,
 				75A2A7941DA5934300A983D8 /* AppDelegate.swift in Sources */,
 				CEEC70901E95D5C100EF788E /* PushNotificationsViewController.swift in Sources */,
+				C33E2D30284BDBB500550BFA /* SendSwiftUIViewModel.swift in Sources */,
 				24B8FADF2163C4D400A155B1 /* Currency.swift in Sources */,
 				222C42501E90492800078EB5 /* BRAPIClient+KV.swift in Sources */,
 				C3F4A4A526A2FB1E0008B1B2 /* TransferAmountViewModel.swift in Sources */,

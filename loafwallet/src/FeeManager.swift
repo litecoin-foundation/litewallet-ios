@@ -28,11 +28,46 @@ struct Fees: Equatable {
     }
 }
  
-enum FeeType {
+enum FeeType: Int, CaseIterable {
     case regular
     case economy
     case luxury
+    
+    var description: String {
+        switch self {
+            case .regular:
+                return "Regular"
+            case .economy:
+                return "Economy"
+            case .luxury:
+                return "Luxury"
+        }
+    }
+    
+    var abbr: String {
+        switch self {
+            case .regular:
+                return "Reg."
+            case .economy:
+                return "Eco."
+            case .luxury:
+                return "Lux."
+        }
+    }
+    
+    var feeValue: UInt64 {
+        switch self {
+            case .regular:
+                return defaultRegularFeePerKB
+            case .economy:
+                return defaultEconomyFeePerKB
+            case .luxury:
+                return defaultLuxuryFeePerKB
+        }
+    }
 }
+
+
 
 class FeeUpdater : Trackable {
     
