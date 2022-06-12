@@ -27,6 +27,20 @@ struct SendSwiftUIView: View {
     @State
     private var didChangeCurrency: Bool = false
     
+    @State
+    private var isDragging: Bool = false
+    
+    @State
+    private var selectorOffset: CGFloat = 0.0
+    
+    @State
+    private var feeIndex = 1
+    
+    @State
+    private var currencyIndex = 0
+    
+    private var didTapNotes: Bool = false
+     
     private var feeString: String = ""
     
     //    @Published
@@ -38,13 +52,17 @@ struct SendSwiftUIView: View {
     //    @Published
     //    var isDomainResolving: Bool = false
     
-    private let buttonHeight: CGFloat = 35.0
+    private let buttonHeight: CGFloat = 30.0
     
-    private let buttonWidth: CGFloat = 65.0
+    private let buttonWidth: CGFloat = 60.0
     
     private let buttonFontSize: CGFloat = 16.0
    
     private let buttonFont: Font = Font(UIFont.barlowSemiBold(size: 16.0))
+    
+    private let fees: [String] = [FeeType.economy.description, FeeType.regular.description,FeeType.luxury.description]
+    
+    private let currencies: [String] = ["LTC","USD"]
     
     init(isReadyToSend: Binding<Bool>) {
         _isReadyToSend = isReadyToSend
@@ -54,6 +72,7 @@ struct SendSwiftUIView: View {
 //        print("\(feeString)")
     }
     
+     
     var body: some View {
         GeometryReader { geometry in
             
@@ -70,7 +89,7 @@ struct SendSwiftUIView: View {
                         
                             //MARK: Enter Address
                             HStack {
-                                TextField("Litecoin address", text: $viewModel.searchString)
+                                TextField("Litecoin address", text: $viewModel.sendAddress)
                                     .onTapGesture {
                                         /// didStartEditing = true
                                         /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
@@ -138,8 +157,8 @@ struct SendSwiftUIView: View {
                         .mask (
                             RoundedRectangle(cornerRadius: 10)
                         )
-                        .padding(.top, 10)
-                        .padding(.bottom, 10)
+                        .padding(.top, 14)
+                        .padding(.bottom, 8)
                         .padding([.trailing,.leading], 14)
                         
                     }
@@ -166,14 +185,13 @@ struct SendSwiftUIView: View {
                                 .foregroundColor(Color(UIColor.litecoinSilver))
                                 .padding(.leading, 8.0)
                         }
-                        .frame(height: 10)
+                        .frame(height: 2)
                     }
            
                     //MARK: UD Section
                     Group {
-                        
+                         
                         VStack {
-                            
                             HStack {
                                 TextField("Enter", text: $viewModel.searchString)
                                     .onTapGesture {
@@ -187,25 +205,15 @@ struct SendSwiftUIView: View {
                                     .disableAutocorrection(true)
                                     .frame(height: 24, alignment: .leading)
                                     .padding(.leading, 20)
-                                
-                                
+                                 
                                 Spacer()
                                 
                                 //MARK: UD Lookup
                                 Button(action: {
-                                    //Do UD Lookup
-                                    //.onReceive(viewModel.$searchString, perform: { currentString in
-                                    //
-                                    // Description: the minmum domain length is 4 e.g.; 'a.zil'
-                                    // Enabling the button when the domain string is at least 4 chars long
-                                    //
-                                    // shouldDisableLookupButton = currentString.count < 4
-                                    //                    })
-                                    // .disabled(shouldDisableLookupButton)
+                                    //Do UD Lookup zil, .crypto
                                 }) {
                                     HStack {
                                         ZStack {
-                                            
                                             Capsule()
                                                 .frame(width: buttonWidth + 10,
                                                        height: buttonHeight,
@@ -231,15 +239,7 @@ struct SendSwiftUIView: View {
                         
                         //MARK: UD Affliate Button
                         Button(action: {
-                            //Do UD Lookup
-                            //.onReceive(viewModel.$searchString, perform: { currentString in
-                            //
-                            // Description: the minmum domain length is 4 e.g.; 'a.zil'
-                            // Enabling the button when the domain string is at least 4 chars long
-                            //
-                            // shouldDisableLookupButton = currentString.count < 4
-                            //                    })
-                            // .disabled(shouldDisableLookupButton)
+                            //Link: https://unstoppabledomains.com/?ref=6897e86a35e34f1
                         }) {
                             HStack {
                                 Spacer()
@@ -258,140 +258,116 @@ struct SendSwiftUIView: View {
 
                         }
                     }
-                    ZStack {
-                        Divider()
-                            .foregroundColor(Color.white)
-                            .offset(y: 0.5)
-                        Divider()
-                    }
-                    //MARK: Amount
-                    Group {
-                    HStack {
-                        TextField(S.Send.amountLabel, text: $viewModel.searchString)
-                            .onTapGesture {
-                                /// didStartEditing = true
-                                /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
-                            }
-                            .font(buttonFont)
-                            .textFieldStyle(PlainTextFieldStyle.plain)
-                            .keyboardType(.asciiCapable)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .frame(height: 24, alignment: .leading)
-                            .padding(.leading, 20)
-                        
-                        
-                        Spacer()
-                         
-                            ZStack {
-                                 
-                                Capsule()
-                                    .frame(width: 2 * buttonWidth,
-                                           height: buttonHeight,
-                                           alignment: .center)
-                                    .foregroundColor(Color(UIColor.litecoinGray))
-                                    .padding(.all, 10)
-                                    .overlay(
-                                        HStack {
-                                        Text("LTC")
-                                            .font(Font(UIFont.barlowRegular(size: 16.0)))
-                                            .foregroundColor(Color(UIColor.litecoinDarkSilver))
-                                            .padding(.leading, 30)
-                                            
-                                            Spacer()
-                                        }
-                                    )
-                                 
-                                Capsule()
-                                    .frame(width: buttonWidth - 2,
-                                           height: buttonHeight - 4,
-                                           alignment: .center)
-                                    .foregroundColor(Color(UIColor.white))
-                                    .onTapGesture {
-                                        didChangeCurrency.toggle()
-                                    }
-                                    .offset(x: didChangeCurrency ? 32 : -32)
-                                    .overlay(
-                                        Text("USD")
-                                            .font(Font(UIFont.barlowRegular(size: 16.0)))
-                                            .foregroundColor(Color(didChangeCurrency ? UIColor.litecoinGray : UIColor.litecoinDarkSilver))
-                                            .offset(x: didChangeCurrency ? 32 : -32)
-                                    )
-                            }
-                         
-                    }
-                    .background(Color.white)
-                    .mask (
-                        RoundedRectangle(cornerRadius: 10)
-                    )
-                    .padding(.all, 10)
-                    }
                     
-                    //MARK: Fee Switch
-                    Group {
-                        HStack {
-                            Text("Get your domain from:")
-                                .font(Font(UIFont.barlowRegular(size: 16.0)))
-                                .lineSpacing(0.1)
-                                .foregroundColor(Color(UIColor.litecoinDarkSilver))
-                                .padding(.trailing, 5)
-                            
-                            Spacer()
-                            
-                            ZStack {
-                                
-                                Capsule()
-                                    .frame(width: 3 * buttonWidth,
-                                           height: buttonHeight,
-                                           alignment: .center)
-                                    .foregroundColor(Color(UIColor.litecoinGray))
-                                    .background(Color.white)
-                                    .padding(.all, 10)
-                                    .overlay(
-                                        HStack {
-                                            Text(viewModel.feeType.description)
-                                                .font(Font(UIFont.barlowRegular(size: 16.0)))
-                                                .foregroundColor(Color(UIColor.white))
-                                                .padding(.leading, 30)
-                                            
-                                            Spacer()
-                                        }
-                                    )
-                                
-                                Capsule()
-                                    .frame(width: buttonWidth - 2,
-                                           height: buttonHeight - 4,
-                                           alignment: .center)
-                                    .foregroundColor(Color(UIColor.liteWalletBlue))
-                                    .onDrag {
-                                        <#code#>
-                                    }
-                                    .offset(x: didChangeCurrency ? 32 : -32)
-                                    .overlay(
-                                        Text(viewModel.feeType.description)
-                                            .font(Font(UIFont.barlowRegular(size: 16.0)))
-                                            .foregroundColor(Color(didChangeCurrency ? UIColor.litecoinGray : UIColor.litecoinDarkSilver))
-                                            .offset(x: didChangeCurrency ? 32 : -32)
-                                    )
-                            }
-                            
+                    if !didTapNotes {
+                        ZStack {
+                            Divider()
+                                .foregroundColor(Color.white)
+                                .offset(y: 0.5)
+                            Divider()
                         }
                     }
                     
-                    ZStack {
-                        Divider()
-                            .foregroundColor(Color.white)
-                            .offset(y: 0.5)
-                        Divider()
-                    }
                     Spacer()
                     
+                    //MARK: Amount
+                    Group {
+                        VStack {
+                            HStack {
+                                TextField(S.Send.amountLabel, text: $viewModel.sendAmount)
+                                    .onTapGesture {
+                                        /// didStartEditing = true
+                                        /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
+                                    }
+                                    .font(buttonFont)
+                                    .textFieldStyle(PlainTextFieldStyle.plain)
+                                    .keyboardType(.decimalPad)
+                                    .disableAutocorrection(true)
+                                    .frame(height: 24, alignment: .leading)
+                                    .padding(.leading, 20)
+                                
+                                Spacer()
+                                
+                                CustomSegmentedPicker(preselectedIndex: $currencyIndex,
+                                                      options: currencies,
+                                                      selectedColor: Color.white,
+                                                      inactiveColor: Color(UIColor.litecoinGray),
+                                                      textColor: Color(UIColor.litecoinDarkSilver))
+                                .frame(width: geometry.size.width * 0.3)
+                                .padding(.trailing, 10)
+                                .padding(.bottom, 10)
+                                .padding(.top, 10)
+                            }
+                        }
+                        .background(Color.white)
+                        .mask (
+                            RoundedRectangle(cornerRadius: 10)
+                        )
+                        .padding([.top, .leading,.trailing], 10)
+
+                        //MARK: Fee Switch
+                        VStack {
+                            
+                            HStack {
+                                Spacer()
+                                
+                                CustomSegmentedPicker(preselectedIndex: $feeIndex,
+                                                      options: fees,
+                                                      selectedColor: Color(UIColor.liteWalletBlue),
+                                                      inactiveColor: Color.white,
+                                                      textColor: Color.white)
+                                    .padding(.leading, geometry.size.width * 0.4)
+                            }
+                            
+                            if !didTapNotes {
+                                HStack {
+                                    Spacer()
+                                    
+                                Text("Network Fee: $0.01")
+                                        .font(Font(UIFont.barlowLight(size: 12.0)))
+                                        .foregroundColor(Color(UIColor.litecoinDarkSilver))
+                                    .padding(.top, 1)
+                                    .padding(.trailing, 3)
+                                }
+                            }
+                        }
+                        .padding(.top, 1)
+                        .padding([.leading,.trailing], 10)
+  
+                        VStack {
+                            HStack {
+                                TextField("Notes: (optional)", text: $viewModel.noteString, onEditingChanged: { _ in
+                                }) { 
+                                }
+                                .onTapGesture {
+                                        /// didStartEditing = true
+                                        /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
+                                    }
+                                    .font(buttonFont)
+                                    .textFieldStyle(PlainTextFieldStyle.plain)
+                                    .keyboardType(.asciiCapable)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .padding(.leading, 20)
+                                
+                                Spacer()
+                            }
+                            .frame(height: 50)
+                                
+                        }
+                        .background(Color.white)
+                        .mask (
+                            RoundedRectangle(cornerRadius: 10)
+                        )
+                        .padding([.top, .leading,.trailing], 10)
+                    }
+                   
                     //MARK: Send button
                     Button(action: {
                         //Do Send
                     }) {
                         Text(S.Send.title)
-                            .frame(minWidth:0, maxWidth: .infinity)
+                            .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                             .font(Font(UIFont.barlowMedium(size: 16.0)))
                             .padding([.leading, .trailing], 16)
@@ -403,7 +379,8 @@ struct SendSwiftUIView: View {
                                     .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
                             )
                             .padding([.leading, .trailing], 16)
-                            .padding([.top,.bottom], 30)
+                            .padding(.top, 10)
+                            .padding(.bottom, 30)
                     }
                     .disabled(!isReadyToSend)
                     
@@ -434,58 +411,3 @@ struct SendSwiftUIView_Previews: PreviewProvider {
         }
     }
 }
-
-
-/////FOR MODEL/////
-///
-///
-///
-//guard !store.state.walletState.isRescanning else {
-//    let alert = UIAlertController(title: S.LitewalletAlert.error, message: S.Send.isRescanning, preferredStyle: .alert)
-//    alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
-//    topViewController?.present(alert, animated: true, completion: nil)
-//    return nil
-//}
-//guard let walletManager = walletManager else { return nil }
-//guard let kvStore = walletManager.apiClient?.kv else { return nil }
-//
-//
-//let sendSwiftUIVC = UIHostingController(rootView: SendSwiftUIView())
-//
-//let bounds = UIScreen.main.bounds
-//let width = bounds.size.width
-//
-//let modalRoot = ModalViewController(childViewController: sendSwiftUIVC, store: store, isRootSwiftUI: true)
-//modalRoot.view.frame = CGRect(x: 0, y: 0, width: width, height: bounds.size.height)
-//
-////        let sendVC = SendViewController(store: store, sender: Sender(walletManager: walletManager, kvStore: kvStore, store: store),  walletManager: walletManager, initialRequest: currentRequest)
-////        currentRequest = nil
-////
-////        if store.state.isLoginRequired {
-////            sendVC.isPresentedFromLock = true
-////        }
-////
-////        let root = ModalViewController(childViewController: sendSwiftUIVC, store: store)
-////        sendVC.presentScan = presentScan(parent: root)
-////        sendVC.presentVerifyPin = { [weak self, weak root] bodyText, callback in
-////            guard let myself = self else { return }
-////            let vc = VerifyPinViewController(bodyText: bodyText, pinLength: myself.store.state.pinLength, callback: callback)
-////            vc.transitioningDelegate = self?.verifyPinTransitionDelegate
-////            vc.modalPresentationStyle = .overFullScreen
-////            vc.modalPresentationCapturesStatusBarAppearance = true
-////            root?.view.isFrameChangeBlocked = true
-////            root?.present(vc, animated: true, completion: nil)
-////        }
-////        sendVC.onPublishSuccess = { [weak self] in
-////            self?.presentAlert(.sendSuccess, completion: {})
-////        }
-////
-////        sendVC.onResolvedSuccess = { [weak self] in
-////            self?.presentAlert(.resolvedSuccess, completion: {})
-////        }
-////
-////        sendVC.onResolutionFailure = { [weak self] failureMessage in
-////            self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
-////        }
-
-

@@ -181,8 +181,8 @@ class LoginViewController : UIViewController, Subscriber, Trackable {
         logo.constrain([
             logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.constraint(.height, constant: 45),
-            logo.constraint(.width, constant: 201) ])
+            logo.constraint(.height, constant: 40),
+            logo.constraint(.width, constant: 178.6) ])
         
         enterPINLabel.constrain([
             enterPINLabel.topAnchor.constraint(equalTo: pinView.topAnchor, constant: -40),

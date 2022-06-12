@@ -85,8 +85,8 @@ class StartViewController : UIViewController {
         logo.constrain([
             logo.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.constraint(.height, constant: 45),
-            logo.constraint(.width, constant: 201) ])
+            logo.constraint(.height, constant: 40),
+            logo.constraint(.width, constant: 178.6) ])
         message.constrain([
             message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             message.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: C.padding[3]),
