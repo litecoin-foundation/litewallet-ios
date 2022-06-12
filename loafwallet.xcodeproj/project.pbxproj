@@ -293,6 +293,7 @@
 		C345D81525A8D52600657E30 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D81425A8D52600657E30 /* LoginViewModelTests.swift */; };
 		C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */; };
 		C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */; };
+		C34770EF28562B03004DBCCD /* CustomSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34770EE28562B03004DBCCD /* CustomSegmentedPicker.swift */; };
 		C350788C27DCB10700A50819 /* TextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350788B27DCB10700A50819 /* TextView+Extension.swift */; };
 		C3543A27264AFE490005D17A /* LocaleChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A26264AFE490005D17A /* LocaleChangeView.swift */; };
 		C3543A29264AFE720005D17A /* LocaleChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A28264AFE720005D17A /* LocaleChangeViewModel.swift */; };
@@ -1483,6 +1484,7 @@
 		C345D81425A8D52600657E30 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModelTests.swift; sourceTree = "<group>"; };
+		C34770EE28562B03004DBCCD /* CustomSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPicker.swift; sourceTree = "<group>"; };
 		C350788727DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C350788827DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		C350788927DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -3215,6 +3217,7 @@
 				C377519826B09A3400E1FB12 /* TransferringView.swift */,
 				C3D8781D26CE602E009EF8CA /* CardTwoFactor.swift */,
 				C350788B27DCB10700A50819 /* TextView+Extension.swift */,
+				C34770EE28562B03004DBCCD /* CustomSegmentedPicker.swift */,
 			);
 			name = "SwiftUI+UIKit";
 			sourceTree = "<group>";
@@ -4329,6 +4332,7 @@
 				C3E77C0926C2807200693E22 /* Enter2FACodeViewModel.swift in Sources */,
 				C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */,
 				CE124CFC1E68932C00DFA146 /* FeeManager.swift in Sources */,
+				C34770EF28562B03004DBCCD /* CustomSegmentedPicker.swift in Sources */,
 				CEE20C381EA5B4680086F724 /* Strings.swift in Sources */,
 				24AF0101221B349100FF636F /* WarningConfirmationViewController.swift in Sources */,
 				CE25BF8D1DF3B8A500BC67B6 /* InViewAlert.swift in Sources */,
