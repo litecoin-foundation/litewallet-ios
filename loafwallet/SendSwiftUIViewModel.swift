@@ -14,13 +14,20 @@ import Combine
 class SendSwiftUIViewModel: ObservableObject {
     
     //MARK: - Combine Variables
-        @Published
-        var isDomainResolving: Bool = false
+    @Published
+    var isDomainResolving: Bool = false
+    
     @Published
     var searchString: String = ""
     
     @Published
     var memoString: String = ""
+    
+    @Published
+    var isOnFiat: Bool = false
+    
+    @Published
+    var feeType: FeeType = .regular
     
     
     

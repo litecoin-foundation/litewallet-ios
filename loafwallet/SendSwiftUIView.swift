@@ -10,19 +10,22 @@ import SwiftUI
 
 
 struct SendSwiftUIView: View {
-    
+     
     //MARK: - Combine Variables
     @ObservedObject
     var viewModel = SendSwiftUIViewModel()
     
     @Binding
     var isReadyToSend: Bool
-    
+     
     @State
     private var selectedFeeIndex: Int = 0
     
     @State
     private var shouldShowFeeSegment: Bool = false
+    
+    @State
+    private var didChangeCurrency: Bool = false
     
     private var feeString: String = ""
     
@@ -37,297 +40,350 @@ struct SendSwiftUIView: View {
     
     private let buttonHeight: CGFloat = 35.0
     
-    private let buttonWidth: CGFloat = 60.0
+    private let buttonWidth: CGFloat = 65.0
     
-    private let buttonFontSize: CGFloat = 14.0
+    private let buttonFontSize: CGFloat = 16.0
+   
+    private let buttonFont: Font = Font(UIFont.barlowSemiBold(size: 16.0))
     
     init(isReadyToSend: Binding<Bool>) {
         _isReadyToSend = isReadyToSend
         
-        feeString = FeeType.allCases[selectedFeeIndex]
-        
-        print("\(feeString)")
+//        feeString = FeeType.allCases[selectedFeeIndex]
+//
+//        print("\(feeString)")
     }
     
     var body: some View {
         GeometryReader { geometry in
             
-            VStack {
-                
-                Group {
-                    Spacer()
+                ZStack {
+                    Rectangle()
+                        .fill(Color(UIColor.litecoinGray))
+                        .edgesIgnoringSafeArea(.all)
+                VStack {
                     
-                    // Paste and Scan Buttons
+                    //MARK: Litecoin address section
+                    Group {
+                        
+                        VStack {
+                        
+                            //MARK: Enter Address
+                            HStack {
+                                TextField("Litecoin address", text: $viewModel.searchString)
+                                    .onTapGesture {
+                                        /// didStartEditing = true
+                                        /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
+                                    }
+                                    .font(buttonFont)
+                                    .textFieldStyle(PlainTextFieldStyle.plain)
+                                    .keyboardType(.asciiCapable)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .padding(.leading, 20)
+                                Spacer()
+                            }
+                            .padding(.top, 5)
+                            
+                            HStack {
+                                Spacer()
+                                //MARK: Paste Dest address
+                                Button(action: {
+                                    // Paste Dest address
+                                }) {
+                                    HStack {
+                                        ZStack {
+                                            Capsule()
+                                                .frame(width: buttonWidth,
+                                                       height: buttonHeight,
+                                                       alignment: .center)
+                                                .foregroundColor(Color(UIColor.litecoinGray))
+                                            
+                                            Text(S.Send.pasteLabel)
+                                                .frame(width: buttonWidth,
+                                                       height: buttonHeight,
+                                                       alignment: .center)
+                                                .font(buttonFont)
+                                                .foregroundColor(Color(UIColor.litecoinSilver))
+                                        }
+                                    }
+                                }
+                                
+                                //MARK: Scan Dest Address
+                                Button(action: {
+                                    // Scan Dest address
+                                }) {
+                                    HStack {
+                                        ZStack {
+                                            
+                                            Capsule()
+                                                .frame(width: buttonWidth,
+                                                       height: buttonHeight,
+                                                       alignment: .center)
+                                                .foregroundColor(Color(UIColor.litecoinGray))
+                                            
+                                            Text(S.Send.scanLabel)
+                                                .frame(width: buttonWidth,
+                                                       height: buttonHeight,
+                                                       alignment: .center)
+                                                .font(buttonFont)
+                                                .foregroundColor(Color(UIColor.litecoinSilver))
+                                        }
+                                    }.padding(.trailing, 10)
+                                }
+                            }
+                            .padding(.bottom, 10)
+                        }
+                        .background(Color.white)
+                        .mask (
+                            RoundedRectangle(cornerRadius: 10)
+                        )
+                        .padding(.top, 10)
+                        .padding(.bottom, 10)
+                        .padding([.trailing,.leading], 14)
+                        
+                    }
+                    
+                    //MARK: or Section
+                    Group {
+                        HStack {
+                            Rectangle()
+                                .frame(width: 45.0,
+                                       height: 1.0,
+                                       alignment: .center)
+                                .foregroundColor(Color(UIColor.litecoinSilver))
+                                .padding(.trailing, 8.0)
+
+                            Text(S.Fragments.or)
+                                .font(buttonFont)
+                                .foregroundColor(Color(UIColor.litecoinDarkSilver))
+
+                            
+                            Rectangle()
+                                .frame(width: 45.0,
+                                       height: 1.0,
+                                       alignment: .center)
+                                .foregroundColor(Color(UIColor.litecoinSilver))
+                                .padding(.leading, 8.0)
+                        }
+                        .frame(height: 10)
+                    }
+           
+                    //MARK: UD Section
+                    Group {
+                        
+                        VStack {
+                            
+                            HStack {
+                                TextField("Enter", text: $viewModel.searchString)
+                                    .onTapGesture {
+                                        /// didStartEditing = true
+                                        /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
+                                    }
+                                    .font(buttonFont)
+                                    .textFieldStyle(PlainTextFieldStyle.plain)
+                                    .keyboardType(.asciiCapable)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .frame(height: 24, alignment: .leading)
+                                    .padding(.leading, 20)
+                                
+                                
+                                Spacer()
+                                
+                                //MARK: UD Lookup
+                                Button(action: {
+                                    //Do UD Lookup
+                                    //.onReceive(viewModel.$searchString, perform: { currentString in
+                                    //
+                                    // Description: the minmum domain length is 4 e.g.; 'a.zil'
+                                    // Enabling the button when the domain string is at least 4 chars long
+                                    //
+                                    // shouldDisableLookupButton = currentString.count < 4
+                                    //                    })
+                                    // .disabled(shouldDisableLookupButton)
+                                }) {
+                                    HStack {
+                                        ZStack {
+                                            
+                                            Capsule()
+                                                .frame(width: buttonWidth + 10,
+                                                       height: buttonHeight,
+                                                       alignment: .center)
+                                                .foregroundColor(Color(UIColor.litecoinGray))
+                                            
+                                            Text(S.Send.UnstoppableDomains.lookup)
+                                                .frame(width: buttonWidth,
+                                                       height: buttonHeight,
+                                                       alignment: .center)
+                                                .font(buttonFont)
+                                                .foregroundColor(Color(UIColor.litecoinSilver))
+                                        }
+                                    }.padding(.all, 10)
+                                }
+                            }
+                        }
+                        .background(Color.white)
+                        .mask (
+                            RoundedRectangle(cornerRadius: 10)
+                        )
+                        .padding(.all, 10)
+                        
+                        //MARK: UD Affliate Button
+                        Button(action: {
+                            //Do UD Lookup
+                            //.onReceive(viewModel.$searchString, perform: { currentString in
+                            //
+                            // Description: the minmum domain length is 4 e.g.; 'a.zil'
+                            // Enabling the button when the domain string is at least 4 chars long
+                            //
+                            // shouldDisableLookupButton = currentString.count < 4
+                            //                    })
+                            // .disabled(shouldDisableLookupButton)
+                        }) {
+                            HStack {
+                                Spacer()
+                                 Text("Get your domain from:")
+                                    .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                    .lineSpacing(0.1)
+                                    .foregroundColor(Color(UIColor.litecoinDarkSilver))
+                                    .padding(.trailing, 5)
+                                Image("ud-color-logo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 23)
+                                    .padding(.trailing, 5)
+                            }
+                            .padding(.trailing, 10)
+
+                        }
+                    }
+                    ZStack {
+                        Divider()
+                            .foregroundColor(Color.white)
+                            .offset(y: 0.5)
+                        Divider()
+                    }
+                    //MARK: Amount
+                    Group {
                     HStack {
-                        TextField(".", text: $viewModel.searchString)
+                        TextField(S.Send.amountLabel, text: $viewModel.searchString)
                             .onTapGesture {
                                 /// didStartEditing = true
+                                /// //ltc1qvp0ukzwh7u98vwctkudau3equ3tfsajju82ufl
                             }
-                            .font(Font(UIFont.customBody(size: 14.0)))
-                            .textFieldStyle(RoundedBorderTextFieldStyle.roundedBorder)
+                            .font(buttonFont)
+                            .textFieldStyle(PlainTextFieldStyle.plain)
                             .keyboardType(.asciiCapable)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                            .frame(height: 45.0, alignment: .leading)
-                            .padding()
+                            .frame(height: 24, alignment: .leading)
+                            .padding(.leading, 20)
+                        
                         
                         Spacer()
-                        
-                        //MARK: Paste Dest address
-                        Button(action: {
-                            // Paste Dest address
-                        }) {
-                            HStack(spacing: 10) {
-                                ZStack {
-                                    
-                                    RoundedRectangle(cornerRadius: 4)
-                                        .frame(width: buttonWidth,
-                                               height: buttonHeight,
-                                               alignment: .center)
-                                        .foregroundColor(Color(UIColor.secondaryButton))
-                                        .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)                                     .padding(.trailing, 5)
-                                    
-                                    Text(S.Send.pasteLabel)
-                                        .frame(width: buttonWidth,
-                                               height: buttonHeight,
-                                               alignment: .center)
-                                        .font(Font(UIFont.customMedium(size: buttonFontSize)))
-                                        .foregroundColor(Color(UIColor.grayTextTint))
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 4)
-                                                .stroke(Color(UIColor.secondaryBorder))
-                                        )
-                                        .padding(.trailing, 5)
-                                }
+                         
+                            ZStack {
+                                 
+                                Capsule()
+                                    .frame(width: 2 * buttonWidth,
+                                           height: buttonHeight,
+                                           alignment: .center)
+                                    .foregroundColor(Color(UIColor.litecoinGray))
+                                    .padding(.all, 10)
+                                    .overlay(
+                                        HStack {
+                                        Text("LTC")
+                                            .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                            .foregroundColor(Color(UIColor.litecoinDarkSilver))
+                                            .padding(.leading, 30)
+                                            
+                                            Spacer()
+                                        }
+                                    )
+                                 
+                                Capsule()
+                                    .frame(width: buttonWidth - 2,
+                                           height: buttonHeight - 4,
+                                           alignment: .center)
+                                    .foregroundColor(Color(UIColor.white))
+                                    .onTapGesture {
+                                        didChangeCurrency.toggle()
+                                    }
+                                    .offset(x: didChangeCurrency ? 32 : -32)
+                                    .overlay(
+                                        Text("USD")
+                                            .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                            .foregroundColor(Color(didChangeCurrency ? UIColor.litecoinGray : UIColor.litecoinDarkSilver))
+                                            .offset(x: didChangeCurrency ? 32 : -32)
+                                    )
                             }
-                        }
-                        
-                        //MARK: Scan Dest Address
-                        Button(action: {
-                            // Scan Dest address
-                        }) {
-                            HStack(spacing: 10) {
-                                ZStack {
-                                    
-                                    RoundedRectangle(cornerRadius: 4)
-                                        .frame(width: buttonWidth,
-                                               height: buttonHeight,
-                                               alignment: .center)
-                                        .foregroundColor(Color(UIColor.secondaryButton))
-                                        .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)                                     .padding(.trailing, 18)
-                                    
-                                    Text(S.Send.scanLabel)
-                                        .frame(width: buttonWidth,
-                                               height: buttonHeight,
-                                               alignment: .center)
-                                        .font(Font(UIFont.customMedium(size: buttonFontSize)))
-                                        .foregroundColor(Color(UIColor.grayTextTint))
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius:4)
-                                                .stroke(Color(UIColor.secondaryBorder))
-                                        )
-                                        .padding(.trailing, 18)
-                                }
-                            }
-                        }
+                         
+                    }
+                    .background(Color.white)
+                    .mask (
+                        RoundedRectangle(cornerRadius: 10)
+                    )
+                    .padding(.all, 10)
                     }
                     
-                }
-                
-                Group {
-                    Rectangle()
-                        .frame(width: geometry.size.width * 0.9,
-                               height: 2.0,
-                               alignment: .center)
-                        .foregroundColor(Color(UIColor.litecoinGray))
-                        .padding()
-                    
-                    //MARK: UD Lookup
-                    VStack {
+                    //MARK: Fee Switch
+                    Group {
                         HStack {
-                            
-                            Spacer()
-                            Button(action: {
-                                //Do UD Lookup
-                                //.onReceive(viewModel.$searchString, perform: { currentString in
-                                //
-                                // Description: the minmum domain length is 4 e.g.; 'a.zil'
-                                // Enabling the button when the domain string is at least 4 chars long
-                                //
-                                // shouldDisableLookupButton = currentString.count < 4
-                                //                    })
-                                // .disabled(shouldDisableLookupButton)
-                                
-                            }) {
-                                HStack(spacing: 10) {
-                                    ZStack {
-                                        
-                                        RoundedRectangle(cornerRadius: 4)
-                                            .frame(width: buttonWidth,
-                                                   height: buttonHeight,
-                                                   alignment: .center)
-                                            .foregroundColor(Color(UIColor.secondaryButton))
-                                            .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)                                     .padding(.trailing, 18)
-                                        
-                                        Text(S.Send.UnstoppableDomains.lookup)
-                                            .frame(width: buttonWidth,
-                                                   height: buttonHeight,
-                                                   alignment: .center)
-                                            .font(Font(UIFont.customMedium(size: buttonFontSize)))
-                                            .foregroundColor(Color(UIColor.grayTextTint))
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius:4)
-                                                    .stroke(Color(UIColor.secondaryBorder))
-                                            )
-                                            .padding(.trailing, 18)
-                                    }
-                                }
-                            }
-                        }
-                        HStack {
-                            
-                            Spacer()
                             Text("Get your domain from:")
-                                .font(Font(UIFont.customMedium(size: 14)))
-                                .foregroundColor(Color(UIColor.grayTextTint))
-                                .onTapGesture {
-                                    UIApplication.shared.open(URL(string: "https://unstoppabledomains.com/?ref=6897e86a35e34f1")!)
-                                }
-                                .padding()
-                            
-                            //
-                            //                                .padding(.bottom, 5.0)
-                            //                                .padding(.top, 5.0)
-                            
-                            
-                            Image("ud-color-logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 102,
-                                       height: 22,
-                                       alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .onTapGesture {
-                                    UIApplication.shared.open(URL(string: "https://unstoppabledomains.com/?ref=6897e86a35e34f1")!)
-                                }
-                                .padding()
-                            
-                        }
-                    }
-                    
-                    Rectangle()
-                        .frame(width: geometry.size.width * 0.9,
-                               height: 2.0,
-                               alignment: .center)
-                        .foregroundColor(Color(UIColor.litecoinGray))
-                        .padding()
-                }
-                
-                Group {
-                    VStack {
-                        HStack {
-                            Text(S.Send.amountLabel)
-                                .font(Font(UIFont.barlowSemiBold(size: 17.0)))
+                                .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                .lineSpacing(0.1)
                                 .foregroundColor(Color(UIColor.litecoinDarkSilver))
-                                .padding(.leading, 18)
+                                .padding(.trailing, 5)
                             
                             Spacer()
                             
-                            //MARK: Amount currency
-                            Button(action: {
-                                //Amount
-                            }) {
-                                HStack(spacing: 10) {
-                                    ZStack {
-                                        
-                                        RoundedRectangle(cornerRadius: 4)
-                                            .frame(width: buttonWidth,
-                                                   height: buttonHeight,
-                                                   alignment: .center)
-                                            .foregroundColor(Color(UIColor.secondaryButton))
-                                            .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)                                     .padding(.trailing, 18)
-                                        
-                                        
-                                        // S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits)
-                                        Text(S.Symbols.currencyButtonTitle(maxDigits: 4))
-                                            .frame(width: buttonWidth,
-                                                   height: buttonHeight,
-                                                   alignment: .center)
-                                            .font(Font(UIFont.customMedium(size: buttonFontSize)))
-                                            .foregroundColor(Color(UIColor.grayTextTint))
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 4)
-                                                    .stroke(Color(UIColor.secondaryBorder))
-                                            )
-                                            .padding(.trailing, 18)
+                            ZStack {
+                                
+                                Capsule()
+                                    .frame(width: 3 * buttonWidth,
+                                           height: buttonHeight,
+                                           alignment: .center)
+                                    .foregroundColor(Color(UIColor.litecoinGray))
+                                    .background(Color.white)
+                                    .padding(.all, 10)
+                                    .overlay(
+                                        HStack {
+                                            Text(viewModel.feeType.description)
+                                                .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                                .foregroundColor(Color(UIColor.white))
+                                                .padding(.leading, 30)
+                                            
+                                            Spacer()
+                                        }
+                                    )
+                                
+                                Capsule()
+                                    .frame(width: buttonWidth - 2,
+                                           height: buttonHeight - 4,
+                                           alignment: .center)
+                                    .foregroundColor(Color(UIColor.liteWalletBlue))
+                                    .onDrag {
+                                        <#code#>
                                     }
-                                }
+                                    .offset(x: didChangeCurrency ? 32 : -32)
+                                    .overlay(
+                                        Text(viewModel.feeType.description)
+                                            .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                            .foregroundColor(Color(didChangeCurrency ? UIColor.litecoinGray : UIColor.litecoinDarkSilver))
+                                            .offset(x: didChangeCurrency ? 32 : -32)
+                                    )
                             }
-                        }
-                        HStack {
-                            Text("Fee rate: \(FeeType.allCases[selectedFeeIndex].description)")
-                                .font(Font(UIFont.customMedium(size: buttonFontSize)))
-                                .foregroundColor(Color(UIColor.grayTextTint))
-                                .padding()
-                            Spacer()
-                        }.onTapGesture {
-                            shouldShowFeeSegment.toggle()
-                        }
-                        
-                        if shouldShowFeeSegment {
-                        HStack {
-                            Picker("Fee Rate", selection: $selectedFeeIndex,
-                                   content: {
-                                Text(FeeType.regular.abbr)
-                                    .tag(FeeType.regular.hashValue)
-                                Text(FeeType.economy.abbr)
-                                    .tag(FeeType.economy.hashValue)
-                                Text(FeeType.luxury.abbr)
-                                    .tag(FeeType.luxury.hashValue)
-                            })
-                            .pickerStyle(SegmentedPickerStyle())
-                            .frame(width: geometry.size.width * 0.45)
-                            .padding()
-                            Spacer()
-                        }
+                            
                         }
                     }
                     
-                    // Custom Divider
-                    Rectangle()
-                        .frame(width: geometry.size.width * 0.9,
-                               height: 2.0,
-                               alignment: .center)
-                        .foregroundColor(Color(UIColor.litecoinGray))
-                        .padding()
-                    
-                    //MARK: Memo
-                    HStack {
-                        Text(S.Send.descriptionLabel)
-                            .font(Font(UIFont.barlowSemiBold(size: 17.0)))
-                            .foregroundColor(Color(UIColor.litecoinDarkSilver))
-                            .padding(.leading, 18)
-                        
-                        Spacer()
-                        
-                        TextField("---", text: $viewModel.memoString)
-                            .onTapGesture {
-                            }
-                            .font(Font(UIFont.customBody(size: 14.0)))
-                            .keyboardType(.asciiCapable)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .frame(height: 45.0, alignment: .leading)
-                            .padding()
+                    ZStack {
+                        Divider()
+                            .foregroundColor(Color.white)
+                            .offset(y: 0.5)
+                        Divider()
                     }
-                    
-                    // Custom Divider
-                    Rectangle()
-                        .frame(width: geometry.size.width * 0.9,
-                               height: 2.0,
-                               alignment: .center)
-                        .foregroundColor(Color(UIColor.litecoinGray))
-                        .padding()
-                    
                     Spacer()
                     
                     //MARK: Send button
@@ -347,13 +403,13 @@ struct SendSwiftUIView: View {
                                     .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
                             )
                             .padding([.leading, .trailing], 16)
-                            .padding([.top,.bottom], 44)
+                            .padding([.top,.bottom], 30)
                     }
                     .disabled(!isReadyToSend)
+                    
+                    }
                 }
             }
-            
-        }.background(Color(UIColor.litecoinWhite))
     }
 }
 
