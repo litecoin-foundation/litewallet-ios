@@ -294,6 +294,7 @@
 		C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */; };
 		C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */; };
 		C34770EF28562B03004DBCCD /* CustomSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34770EE28562B03004DBCCD /* CustomSegmentedPicker.swift */; };
+		C34770F328582964004DBCCD /* SendSwiftUIViewModel+Extension+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34770F228582964004DBCCD /* SendSwiftUIViewModel+Extension+Closures.swift */; };
 		C350788C27DCB10700A50819 /* TextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350788B27DCB10700A50819 /* TextView+Extension.swift */; };
 		C3543A27264AFE490005D17A /* LocaleChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A26264AFE490005D17A /* LocaleChangeView.swift */; };
 		C3543A29264AFE720005D17A /* LocaleChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A28264AFE720005D17A /* LocaleChangeViewModel.swift */; };
@@ -1485,6 +1486,7 @@
 		C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
 		C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModelTests.swift; sourceTree = "<group>"; };
 		C34770EE28562B03004DBCCD /* CustomSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedPicker.swift; sourceTree = "<group>"; };
+		C34770F228582964004DBCCD /* SendSwiftUIViewModel+Extension+Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SendSwiftUIViewModel+Extension+Closures.swift"; sourceTree = "<group>"; };
 		C350788727DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C350788827DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		C350788927DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -3169,6 +3171,7 @@
 				C33E2D29284AC53300550BFA /* SendSwiftUIView.swift */,
 				C33E2D2D284BDB5400550BFA /* SendUIHostingController.swift */,
 				C33E2D2F284BDBB500550BFA /* SendSwiftUIViewModel.swift */,
+				C34770F228582964004DBCCD /* SendSwiftUIViewModel+Extension+Closures.swift */,
 			);
 			name = Send;
 			sourceTree = "<group>";
@@ -4442,6 +4445,7 @@
 				223DB2151DF654940076A151 /* WalletManager.swift in Sources */,
 				22A9A94E1DF61945000F0016 /* BRHTTPIndexMiddleware.swift in Sources */,
 				CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */,
+				C34770F328582964004DBCCD /* SendSwiftUIViewModel+Extension+Closures.swift in Sources */,
 				CE8CD8DD1E2D9EF200785E02 /* Sender.swift in Sources */,
 				CE4DFB2C1E9BE5880014009E /* ReScanViewController.swift in Sources */,
 				CE8F0AE31EB91BB500AA7642 /* SearchHeaderView.swift in Sources */,

@@ -13,7 +13,7 @@ struct SendSwiftUIView: View {
      
     //MARK: - Combine Variables
     @ObservedObject
-    var viewModel = SendSwiftUIViewModel()
+    var viewModel: SendSwiftUIViewModel
     
     @Binding
     var isReadyToSend: Bool
@@ -48,9 +48,10 @@ struct SendSwiftUIView: View {
     private let buttonFontSize: CGFloat = 16.0
     
     private let tightPadding: CGFloat = 5.0
+    
     private let loosePadding: CGFloat = 10.0
+    
     private let bigPadding: CGFloat = 14.0
-
    
     private let buttonFont: Font = Font(UIFont.barlowSemiBold(size: 16.0))
     
@@ -58,7 +59,9 @@ struct SendSwiftUIView: View {
     
     private let currencies: [String] = ["LTC","USD"]
     
-    init(isReadyToSend: Binding<Bool>) {
+    init(isReadyToSend: Binding<Bool>,
+         viewModel: SendSwiftUIViewModel) {
+        self.viewModel = viewModel
         _isReadyToSend = isReadyToSend
     }
     
@@ -98,7 +101,7 @@ struct SendSwiftUIView: View {
                                 Spacer()
                                 //MARK: Paste Dest address
                                 Button(action: {
-                                    // Paste Dest address
+                                    viewModel.pasteTapped()
                                 }) {
                                     HStack {
                                         ZStack {
@@ -379,27 +382,27 @@ struct SendSwiftUIView: View {
     }
 }
 
-struct SendSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        
-        Group {
-            
-            SendSwiftUIView(isReadyToSend: .constant(false))
-                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
-                .previewDisplayName(DeviceType.Name.iPhoneSE2)
-            
-            SendSwiftUIView(isReadyToSend: .constant(false))
-                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
-                .previewDisplayName(DeviceType.Name.iPhone8)
-            
-            SendSwiftUIView(isReadyToSend: .constant(false))
-                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneXSMax))
-                .previewDisplayName(DeviceType.Name.iPhoneSE2)
-            
-        }
-    }
-}
+//struct SendSwiftUIView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        Group {
+//
+//            SendSwiftUIView(isReadyToSend: .constant(false),
+//                            viewModel: SendSwiftUIViewModel
+//                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
+//                .previewDisplayName(DeviceType.Name.iPhoneSE2)
+//
+//            SendSwiftUIView(isReadyToSend: .constant(false))
+//                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
+//                .previewDisplayName(DeviceType.Name.iPhone8)
+//
+//            SendSwiftUIView(isReadyToSend: .constant(false))
+//                .previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneXSMax))
+//                .previewDisplayName(DeviceType.Name.iPhoneSE2)
+//
+//        }
+//    }
+//}
 
 
 //    @Published

@@ -94,6 +94,26 @@ extension View {
         return clipShape(roundedRect)
             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
     }
+    
+    /// Paste address
+    /// - Returns: PasteView 
+    ///
+    ///
+    ///         guard let pasteboard = UIPasteboard.general.string, pasteboard.utf8.count > 0 else {
+    return showAlert(title: S.LitewalletAlert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
+}
+guard let request = PaymentRequest(string: pasteboard) else {
+    return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressOnPasteboard, buttonLabel: S.Button.ok)
+}
+handleRequest(request)
+    func enter2FACodeView(shouldShowEnter2FAView: Binding<Bool>,
+                          twoFAModel: Enter2FACodeViewModel) -> some View {
+        loafwallet.Enter2FACodeView(twoFAViewModel: twoFAModel,
+                                    shouldShowEnter2FAView: shouldShowEnter2FAView,
+                                    presenting: self)
+    }
+    
+    
 }
 
 /// Helper struct for the custom Rounded Rect corners

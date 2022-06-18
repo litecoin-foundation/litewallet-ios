@@ -19,4 +19,6 @@ class SendUIHostingController : UIHostingController<SendSwiftUIView> {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder, rootView: SendSwiftUIView(isReadyToSend: .constant(false)))
     }
+    
+
 }

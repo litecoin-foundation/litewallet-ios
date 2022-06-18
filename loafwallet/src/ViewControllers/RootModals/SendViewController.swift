@@ -43,11 +43,11 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
     }
     
-    //MARK - Private
-    deinit {
-        store.unsubscribe(self)
-        NotificationCenter.default.removeObserver(self)
-    }
+//    //MARK - Private
+//    deinit {
+//        store.unsubscribe(self)
+//        NotificationCenter.default.removeObserver(self)
+//    }
     
     private let store: Store
     private let sender: Sender
@@ -71,51 +71,51 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     
     override func viewDidLoad() {
         
-        if #available(iOS 11.0, *) {
-            guard let backgroundColor = UIColor(named: "lfBackgroundColor") else {
-                NSLog("ERROR: Main color")
-                return
-            }
-            view.backgroundColor = backgroundColor
-        } else {
-            view.backgroundColor = .white
-        }
+//        if #available(iOS 11.0, *) {
+//            guard let backgroundColor = UIColor(named: "lfBackgroundColor") else {
+//                NSLog("ERROR: Main color")
+//                return
+//            }
+//            view.backgroundColor = backgroundColor
+//        } else {
+//            view.backgroundColor = .white
+//        }
          
         // set as regular at didLoad
-        walletManager.wallet?.feePerKb = store.state.fees.regular
+//        walletManager.wallet?.feePerKb = store.state.fees.regular
         
-        view.addSubview(addressCell)
-        view.addSubview(unstoppableCell.view)
-        view.addSubview(descriptionCell)
-        view.addSubview(sendButton)
-        
-        addressCell.constrainTopCorners(height: SendCell.defaultHeight)
-        
-        addChildViewController(amountView, layout: {
-                                amountView.view.constrain([
-                                                            amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                                                            amountView.view.topAnchor.constraint(equalTo: unstoppableCell.view.bottomAnchor),
-                                                            amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor) ]) })
-        
-        unstoppableCell.view.constrain([
-                                        unstoppableCell.view.topAnchor.constraint(equalTo: addressCell.bottomAnchor),
-                                        unstoppableCell.view.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
-                                        unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
-                                        unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight) ])
-        
-        descriptionCell.constrain([
-                                    descriptionCell.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
-                                    descriptionCell.topAnchor.constraint(equalTo: amountView.view.bottomAnchor),
-                                    descriptionCell.leadingAnchor.constraint(equalTo: amountView.view.leadingAnchor),
-                                    descriptionCell.heightAnchor.constraint(equalTo: descriptionCell.textView.heightAnchor, constant: C.padding[3]) ])
-        descriptionCell.accessoryView.constrain([
-                                                    descriptionCell.accessoryView.constraint(.width, constant: 0.0) ])
-        sendButton.constrain([
-                                sendButton.constraint(.leading, toView: view, constant: C.padding[2]),
-                                sendButton.constraint(.trailing, toView: view, constant: -C.padding[2]),
-                                sendButton.constraint(toBottom: descriptionCell, constant: verticalButtonPadding),
-                                sendButton.constraint(.height, constant: C.Sizes.buttonHeight),
-                                sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2]) ])
+//        view.addSubview(addressCell)
+//        view.addSubview(unstoppableCell.view)
+//        view.addSubview(descriptionCell)
+//        view.addSubview(sendButton)
+//
+//        addressCell.constrainTopCorners(height: SendCell.defaultHeight)
+//
+//        addChildViewController(amountView, layout: {
+//                                amountView.view.constrain([
+//                                                            amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//                                                            amountView.view.topAnchor.constraint(equalTo: unstoppableCell.view.bottomAnchor),
+//                                                            amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor) ]) })
+//
+//        unstoppableCell.view.constrain([
+//                                        unstoppableCell.view.topAnchor.constraint(equalTo: addressCell.bottomAnchor),
+//                                        unstoppableCell.view.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
+//                                        unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
+//                                        unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight) ])
+//
+//        descriptionCell.constrain([
+//                                    descriptionCell.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
+//                                    descriptionCell.topAnchor.constraint(equalTo: amountView.view.bottomAnchor),
+//                                    descriptionCell.leadingAnchor.constraint(equalTo: amountView.view.leadingAnchor),
+//                                    descriptionCell.heightAnchor.constraint(equalTo: descriptionCell.textView.heightAnchor, constant: C.padding[3]) ])
+//        descriptionCell.accessoryView.constrain([
+//                                                    descriptionCell.accessoryView.constraint(.width, constant: 0.0) ])
+//        sendButton.constrain([
+//                                sendButton.constraint(.leading, toView: view, constant: C.padding[2]),
+//                                sendButton.constraint(.trailing, toView: view, constant: -C.padding[2]),
+//                                sendButton.constraint(toBottom: descriptionCell, constant: verticalButtonPadding),
+//                                sendButton.constraint(.height, constant: C.Sizes.buttonHeight),
+//                                sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2]) ])
         addButtonActions()
         store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
                         callback: {
@@ -392,15 +392,15 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     func confirmProtocolRequest(protoReq: PaymentProtocolRequest) {
         guard let firstOutput = protoReq.details.outputs.first else { return }
         guard let wallet = walletManager.wallet else { return }
-        
+
         let address = firstOutput.swiftAddress
         let isValid = protoReq.isValid()
         var isOutputTooSmall = false
-        
+
         if let errorMessage = protoReq.errorMessage, errorMessage == S.PaymentProtocol.Errors.requestExpired, !isValid {
             return showAlert(title: S.PaymentProtocol.Errors.badPaymentRequest, message: errorMessage, buttonLabel: S.Button.ok)
         }
-        
+
         //TODO: check for duplicates of already paid requests
         var requestAmount = Satoshis(0)
         protoReq.details.outputs.forEach { output in
@@ -409,7 +409,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             }
             requestAmount += output.amount
         }
-        
+
         if wallet.containsAddress(address) {
             return showAlert(title: S.LitewalletAlert.warning, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
         } else if wallet.addressIsUsed(address) && !didIgnoreUsedAddressWarning {
@@ -432,16 +432,16 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             let message = String(format: S.PaymentProtocol.Errors.smallTransaction, amount.bits)
             return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
         }
-        
+
         if let name = protoReq.commonName {
             addressCell.setContent(protoReq.pkiType != "none" ? "\(S.Symbols.lock) \(name.sanitized)" : name.sanitized)
         }
-        
+
         if requestAmount > 0 {
             amountView.forceUpdateAmount(amount: requestAmount)
         }
         descriptionCell.content = protoReq.details.memo
-        
+
         if requestAmount == 0 {
             if let amount = amount {
                 guard sender.createTransaction(amount: amount.rawValue, to: address) else {
@@ -449,7 +449,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                 }
             }
         } else {
-            addressCell.isEditable = false 
+            addressCell.isEditable = false
         }
     }
     
