@@ -54,6 +54,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private let walletManager: WalletManager
     private let amountView: AmountViewController
     private let addressCell = AddressCell()
+    private let sendAddressCell = UIHostingController(rootView: SendAddressCellView(viewModel: SendAddressCellViewModel()))
     private var orLabelView = UIView()
     private let unstoppableCell = UIHostingController(rootView: UnstoppableDomainView(viewModel: UnstoppableDomainViewModel()))
     private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
@@ -84,12 +85,16 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         // set as regular at didLoad
         walletManager.wallet?.feePerKb = store.state.fees.regular
         
-        view.addSubview(addressCell)
+      //OLD:  view.addSubview(addressCell)
+        view.addSubview(sendAddressCell.view)
         view.addSubview(unstoppableCell.view)
         view.addSubview(descriptionCell)
         view.addSubview(sendButton)
         
-        addressCell.constrainTopCorners(height: SendCell.defaultHeight)
+        //OLD:   addressCell.constrainTopCorners(height: SendCell.defaultHeight)
+        
+        sendAddressCell.view.invalidateIntrinsicContentSize()
+        sendAddressCell.view.constrainTopCorners(height: SendCell.defaultHeight)
         
         addChildViewController(amountView, layout: {
                                 amountView.view.constrain([
@@ -98,7 +103,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                                                             amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor) ]) })
         
         unstoppableCell.view.constrain([
-                                        unstoppableCell.view.topAnchor.constraint(equalTo: addressCell.bottomAnchor),
+            unstoppableCell.view.topAnchor.constraint(equalTo: sendAddressCell.view.bottomAnchor),
                                         unstoppableCell.view.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
                                         unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
                                         unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight) ])
@@ -128,7 +133,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if initialAddress != nil {
-            addressCell.setContent(initialAddress)
+            //OLD: addressCell.setContent(initialAddress)
             amountView.expandPinPad()
         } else if let initialRequest = initialRequest {
             handleRequest(initialRequest)
@@ -136,8 +141,8 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     }
     
     private func addButtonActions() {
-        addressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
-        addressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
+        //OLD: addressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
+        //OLD: addressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
 
         descriptionCell.didReturn = { textView in
@@ -146,12 +151,12 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         descriptionCell.didBeginEditing = { [weak self] in
             self?.amountView.closePinPad()
         }
-        addressCell.didBeginEditing = strongify(self) { myself in
-            myself.amountView.closePinPad()
-        }
-        addressCell.didReceivePaymentRequest = { [weak self] request in
-            self?.handleRequest(request)
-        }
+        //OLD:  addressCell.didBeginEditing = strongify(self) { myself in
+//            myself.amountView.closePinPad()
+//        }
+    //OLD:  addressCell.didReceivePaymentRequest = { [weak self] request in
+//            self?.handleRequest(request)
+//        }
         amountView.balanceTextForAmount = { [weak self] amount, rate in
             return self?.balanceTextForAmount(amount: amount, rate: rate)
         }

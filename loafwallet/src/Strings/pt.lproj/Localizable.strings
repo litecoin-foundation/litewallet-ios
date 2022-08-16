@@ -953,6 +953,12 @@
 /* Send money to label */
 "Send.toLabel" = "Para";
 
+/* domain */
+"Send.UnstoppableDomains.domain" = "domínio";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "Introduzir um";
+
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Pesquisa";
 
@@ -964,6 +970,9 @@
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Insira um domínio .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao ou .x.";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "Digite o domínio";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Problema de pesquisa do sistema. [Erro: %2$d]";

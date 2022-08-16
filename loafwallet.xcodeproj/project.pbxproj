@@ -337,6 +337,8 @@
 		C3F7BCDD25FEC6AD00694C28 /* DomainResolutionFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */; };
 		C3F7BCDE25FEC6AD00694C28 /* AlertFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */; };
 		C3F7BD0325FEC77100694C28 /* TransactionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BD0225FEC77100694C28 /* TransactionModalView.swift */; };
+		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
+		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
 		CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CF71E67A8E500DFA146 /* TransactionDirection.swift */; };
@@ -1532,6 +1534,8 @@
 		C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainResolutionFailure.swift; sourceTree = "<group>"; };
 		C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFailureView.swift; sourceTree = "<group>"; };
 		C3F7BD0225FEC77100694C28 /* TransactionModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModalView.swift; sourceTree = "<group>"; };
+		C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellView.swift; sourceTree = "<group>"; };
+		C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellViewModel.swift; sourceTree = "<group>"; };
 		C522A0EFFFE09BDEB17CE464 /* Pods-loafwallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwallet.debug.xcconfig"; path = "Target Support Files/Pods-loafwallet/Pods-loafwallet.debug.xcconfig"; sourceTree = "<group>"; };
 		CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUTXO.swift; path = src/Models/SimpleUTXO.swift; sourceTree = "<group>"; };
 		CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ModalPresenter.swift; path = src/ModalPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -3181,6 +3185,7 @@
 		C35ABD07257404C6002BB9BB /* SwiftUI+UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C3FF4D5D28AC5A2000713139 /* Send */,
 				C3543A25264AFE190005D17A /* Settings */,
 				C3F7BCD825FEC69B00694C28 /* Alerts */,
 				C32142E825C97CB900BECCD0 /* Transactions */,
@@ -3260,6 +3265,15 @@
 				C30899782616426800EE6A40 /* ForgotAlertViewModel.swift */,
 			);
 			name = Alerts;
+			sourceTree = "<group>";
+		};
+		C3FF4D5D28AC5A2000713139 /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */,
+				C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */,
+			);
+			name = Send;
 			sourceTree = "<group>";
 		};
 		CE1E5F241EF081F300BD0F72 /* Import */ = {
@@ -4265,6 +4279,7 @@
 				C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */,
 				CEC6AA3B1DEE4EB000EE5AFD /* CGRect+Additions.swift in Sources */,
 				CE45C1FB1E74F89C002C3847 /* WalletInfo.swift in Sources */,
+				C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */,
 				CEE659E71F65A936001FF29D /* RetryTimer.swift in Sources */,
 				248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */,
 				CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */,
@@ -4330,6 +4345,7 @@
 				CEAA9E8F1DC074410066731D /* StartPaperPhraseViewController.swift in Sources */,
 				1B3F74241FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift in Sources */,
 				CEC6F8451E886723000795B8 /* PaymentRequest.swift in Sources */,
+				C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */,
 				CE4C1CC81ED88B600063E184 /* URLController.swift in Sources */,
 				C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */,
 				24313C922382433700A83F69 /* LFModalReceiveQRViewController.swift in Sources */,
