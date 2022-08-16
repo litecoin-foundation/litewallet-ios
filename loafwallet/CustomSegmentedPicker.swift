@@ -39,8 +39,8 @@ struct CustomSegmentedPicker: View {
                     }
                     .overlay(
                         Text(options[index])
-                            .font(Font(UIFont.barlowSemiBold(size: 12.0)))
-                            .foregroundColor(preselectedIndex == index ? textColor :  Color(UIColor.litecoinSilver))
+                            .font(Font(UIFont.barlowSemiBold(size: 10.0)))
+                            .foregroundColor(preselectedIndex == index ? textColor : Color(UIColor.litecoinSilver))
                     )
                 }
             }

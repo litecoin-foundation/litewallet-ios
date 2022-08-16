@@ -51,6 +51,7 @@ struct SendSwiftUIView: View {
     private let loosePadding: CGFloat = 10.0
     private let bigPadding: CGFloat = 14.0
 
+    private let sectionCornersRadius: CGFloat = 20.0
    
     private let buttonFont: Font = Font(UIFont.barlowSemiBold(size: 16.0))
     
@@ -144,7 +145,7 @@ struct SendSwiftUIView: View {
                         }
                         .background(Color.white)
                         .mask (
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: sectionCornersRadius)
                         )
                         .padding(.top, tightPadding)
                         .padding(.bottom, tightPadding)
@@ -223,7 +224,7 @@ struct SendSwiftUIView: View {
                         }
                         .background(Color.white)
                         .mask (
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: sectionCornersRadius)
                         )
                         .padding([.leading,.trailing], bigPadding)
                         
@@ -234,7 +235,7 @@ struct SendSwiftUIView: View {
                             HStack {
                                 Spacer()
                                  Text("Get your domain from:")
-                                    .font(Font(UIFont.barlowRegular(size: 16.0)))
+                                    .font(Font(UIFont.barlowRegular(size: 12.0)))
                                     .lineSpacing(0.1)
                                     .foregroundColor(Color(UIColor.litecoinDarkSilver))
                                     .padding(.trailing, tightPadding)
@@ -288,7 +289,7 @@ struct SendSwiftUIView: View {
                         }
                         .background(Color.white)
                         .mask (
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: sectionCornersRadius)
                         )
                         .padding([.leading,.trailing], bigPadding)
                         .padding(.top, loosePadding)
@@ -311,7 +312,7 @@ struct SendSwiftUIView: View {
                                     Spacer()
                                     
                                 Text("Network Fee: $0.01")
-                                        .font(Font(UIFont.barlowLight(size: 12.0)))
+                                        .font(Font(UIFont.barlowLight(size: 10.0)))
                                         .foregroundColor(Color(UIColor.litecoinDarkSilver))
                                         .padding(.trailing, 3)
                                 }
@@ -344,7 +345,7 @@ struct SendSwiftUIView: View {
                         }
                         .background(Color.white)
                         .mask (
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: sectionCornersRadius)
                         )
                         .padding([.leading,.trailing], bigPadding)
                     }
@@ -358,13 +359,13 @@ struct SendSwiftUIView: View {
                         Text(S.Send.title)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
-                            .font(Font(UIFont.barlowMedium(size: 16.0)))
+                            .font(Font(UIFont.barlowMedium(size: 13.0)))
                             .padding([.leading, .trailing], 16)
                             .foregroundColor(.white)
                             .background(Color(UIColor.liteWalletBlue))
                             .cornerRadius(4.0)
                             .overlay(
-                                RoundedRectangle(cornerRadius:4)
+                                RoundedRectangle(cornerRadius: sectionCornersRadius)
                                     .stroke(Color(UIColor.liteWalletBlue), lineWidth: 1)
                             )
                             .padding([.leading, .trailing], bigPadding)
