@@ -100,12 +100,14 @@ class AmountViewController : UIViewController, Trackable {
             placeholder.textColor = .grayTextTint
             amountLabel.textColor = .darkText
         }
+        
         addSubviews()
         addConstraints()
         setInitialData()
     }
 
     private func addSubviews() {
+        
         view.addSubview(amountLabel)
         view.addSubview(placeholder)
         view.addSubview(currencyToggle)
@@ -114,14 +116,20 @@ class AmountViewController : UIViewController, Trackable {
         view.addSubview(cursor)
         view.addSubview(balanceLabel)
         view.addSubview(feeLabel)
-        view.addSubview(tapView)
+        view.addSubview(tapView) 
+        view.addSubview(amountLabel)
         view.addSubview(bottomBorder)
         view.addSubview(editFee)
+        
+        amountLabel.backgroundColor = UIColor.white
+        amountLabel.layer.cornerRadius = 8.0
+        amountLabel.layer.masksToBounds = true
+        
     }
 
     private func addConstraints() {
         amountLabel.constrain([
-            amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
+            amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
             amountLabel.centerYAnchor.constraint(equalTo: currencyToggle.centerYAnchor) ])
         placeholder.constrain([
             placeholder.leadingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: 2.0),

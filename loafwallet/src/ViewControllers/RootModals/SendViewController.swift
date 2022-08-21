@@ -58,6 +58,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private var orLabelView = UIView()
     private let unstoppableCell = UIHostingController(rootView: UnstoppableDomainView(viewModel: UnstoppableDomainViewModel()))
     private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
+    private let orView = UILabel(font: .barlowMedium(size: 15.0), color: .litecoinSilver)
     private var sendButton = ShadowButton(title: S.Send.sendLabel, type: .flatLitecoinBlue)
     private let currency: ShadowButton
     private let currencyBorder = UIView(color: .secondaryShadow)
@@ -79,20 +80,24 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             }
             view.backgroundColor = backgroundColor
         } else {
-            view.backgroundColor = .white
+            view.backgroundColor = UIColor(Color.red)
         }
          
         // set as regular at didLoad
         walletManager.wallet?.feePerKb = store.state.fees.regular
-        
-      //OLD:  view.addSubview(addressCell)
+         
         view.addSubview(sendAddressCell.view)
+        view.addSubview(orView)
         view.addSubview(unstoppableCell.view)
         view.addSubview(descriptionCell)
         view.addSubview(sendButton)
+        descriptionCell.backgroundColor = UIColor.litecoinGray
+        amountView.view.backgroundColor = UIColor.litecoinGray
+        view.backgroundColor = UIColor.litecoinGray
         
-        //OLD:   addressCell.constrainTopCorners(height: SendCell.defaultHeight)
-        
+        orView.backgroundColor = UIColor.litecoinGray
+        orView.text = S.Fragments.or
+        orView.textAlignment = .center
         sendAddressCell.view.invalidateIntrinsicContentSize()
         sendAddressCell.view.constrainTopCorners(height: SendCell.defaultHeight)
         
@@ -101,12 +106,17 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                                                             amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                                                             amountView.view.topAnchor.constraint(equalTo: unstoppableCell.view.bottomAnchor),
                                                             amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor) ]) })
+        orView.constrain([
+            orView.topAnchor.constraint(equalTo: sendAddressCell.view.bottomAnchor,constant: -5.0),
+            orView.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
+            orView.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
+            orView.heightAnchor.constraint(equalToConstant: 25.0) ])
         
         unstoppableCell.view.constrain([
-            unstoppableCell.view.topAnchor.constraint(equalTo: sendAddressCell.view.bottomAnchor),
+            unstoppableCell.view.topAnchor.constraint(equalTo: orView.bottomAnchor),
                                         unstoppableCell.view.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
                                         unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
-                                        unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight) ])
+            unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight + 15.0) ])
         
         descriptionCell.constrain([
                                     descriptionCell.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),

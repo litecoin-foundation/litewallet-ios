@@ -46,16 +46,23 @@ class DescriptionSendCell : SendCell {
     fileprivate var placeholder = UILabel(font: .customBody(size: 16.0), color: .grayTextTint)
     private func setupViews() {
         textView.isScrollEnabled = false
+        
+        textView.clipsToBounds = true
+        textView.layer.cornerRadius = 8.0
+        
+        
         addSubview(textView)
         textView.constrain([
             textView.constraint(.leading, toView: self, constant: 11.0),
             textView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]) ])
+            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0),
+            textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.0) ])
+
 
         textView.addSubview(placeholder)
         placeholder.constrain([
             placeholder.centerYAnchor.constraint(equalTo: textView.centerYAnchor),
-            placeholder.leadingAnchor.constraint(equalTo: textView.leadingAnchor, constant: 5.0) ])
+            placeholder.leadingAnchor.constraint(equalTo: textView.leadingAnchor, constant: 16.0) ])
     }
     
     func clearPlaceholder() {
