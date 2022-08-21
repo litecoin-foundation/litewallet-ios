@@ -149,7 +149,10 @@ enum CustomEvent: String {
     case _20210804_TAWTL = "TERNIO_API_WITHDRAWAL_TO_LITEWALLET"
 
     /// Heartbeat check If event even happens
-    case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS" 
+    case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS"
+    
+    /// User Tapped on  UD Image
+    case _20220822_UTOU = "USER_TAPPED_ON_UD"
 }
 
 struct FoundationSupport {
