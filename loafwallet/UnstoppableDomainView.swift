@@ -44,30 +44,27 @@ struct UnstoppableDomainView: View {
                     if viewModel.isDomainResolving {
                         if #available(iOS 14.0, *) {
                             ProgressView()
-                                .padding(.leading, 20)
-                                .padding(.trailing, 20)
+                                .padding(.all, swiftUICellPadding)
+
                         }
                         else {
                             ActivityIndicator(isAnimating: .constant(true), style: .large)
-                                .padding(.leading, 20)
-                                .padding(.trailing, 20)
+                                .padding(.all, swiftUICellPadding)
                         }
                     }
                     else {
                         
                         VStack {
                             ZStack {
+                                 
+                        AddressFieldView(viewModel.placeholderString,
+                                         text: $viewModel.searchString)
+                        .onTapGesture {
+                            didStartEditing = true
+                        }
+                        .frame(height: 45.0, alignment: .leading)
+                        .padding(.leading, swiftUICellPadding)
                                 
-                        TextField(viewModel.placeholderString, text: $viewModel.searchString)
-                                    .onTapGesture {
-                                        didStartEditing = true
-                                    }
-                                    .font(Font(UIFont.customBody(size: 14.0)))
-                                    .keyboardType(.URL)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .frame(height: 45.0, alignment: .leading)
-                                    .padding(.leading, 16.0)
                             } 
                         }
                     }
@@ -83,7 +80,7 @@ struct UnstoppableDomainView: View {
                                     .frame(width: 60, height: 30, alignment: .center)
                                     .foregroundColor(Color(UIColor.secondaryButton))
                                     .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)
-                                    .padding(.trailing, 18)
+                                    .padding(.trailing, 8.0)
                                 
                                 Text(S.Send.UnstoppableDomains.lookup)
                                     .frame(width: 60, height: 30, alignment: .center)
@@ -93,7 +90,7 @@ struct UnstoppableDomainView: View {
                                         RoundedRectangle(cornerRadius:4)
                                             .stroke(Color(UIColor.secondaryBorder))
                                     )
-                                    .padding(.trailing, 18)
+                                    .padding(.trailing, 8.0)
                             }
                         }
                     }
@@ -105,12 +102,10 @@ struct UnstoppableDomainView: View {
                     
                 } 
                 .background(
-                    RoundedCorner(radius: 8.0,
-                                  corners: .allCorners)
-                    .foregroundColor(Color.white)
-                    .frame(width: geometry.size.width * 0.9,
-                           height: geometry.size.height  * 0.5)
+                    Color.white.clipShape(RoundedRectangle(cornerRadius: 8.0))
                 )
+                .padding([.leading, .trailing], swiftUICellPadding)
+
                 Spacer()
                 
                 // Unstoppable Domains Image and URL
@@ -152,11 +147,10 @@ struct UnstoppableDomainView: View {
                                 LWAnalytics.logEventWithParameters(itemName: ._20220822_UTOU)
                             }
                     }
-                    .padding(.trailing, 16.0)
+                    .padding([.leading, .trailing], swiftUICellPadding)
                     .padding(.bottom, 4.0)
                 }
             }
-            .padding(.leading, 20)
         }
         .background(Color.litecoinGray)
         }

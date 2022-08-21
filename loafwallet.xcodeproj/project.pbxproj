@@ -297,6 +297,7 @@
 		C354C4632590059500675E0E /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354C4622590059500675E0E /* TransactionsViewModel.swift */; };
 		C35ABD232574070A002BB9BB /* PartnersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35ABD222574070A002BB9BB /* PartnersView.swift */; };
 		C35ABD332574073F002BB9BB /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35ABD322574073F002BB9BB /* PartnersViewModel.swift */; };
+		C361F48228B368BC00E9798F /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361F48128B368BC00E9798F /* AddressFieldView.swift */; };
 		C377519926B09A3400E1FB12 /* TransferringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519826B09A3400E1FB12 /* TransferringView.swift */; };
 		C377519B26B0A3D900E1FB12 /* TransferringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */; };
 		C379F228259B9BF000B25883 /* RegistrationAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C379F227259B9BF000B25883 /* RegistrationAlertView.swift */; };
@@ -337,6 +338,7 @@
 		C3F7BCDD25FEC6AD00694C28 /* DomainResolutionFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */; };
 		C3F7BCDE25FEC6AD00694C28 /* AlertFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */; };
 		C3F7BD0325FEC77100694C28 /* TransactionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BD0225FEC77100694C28 /* TransactionModalView.swift */; };
+		C3FDADED28B2DB090054FC80 /* SendAddressHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDADEC28B2DB090054FC80 /* SendAddressHostingController.swift */; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
@@ -1490,6 +1492,7 @@
 		C354C4622590059500675E0E /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		C35ABD222574070A002BB9BB /* PartnersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersView.swift; sourceTree = "<group>"; };
 		C35ABD322574073F002BB9BB /* PartnersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
+		C361F48128B368BC00E9798F /* AddressFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldView.swift; sourceTree = "<group>"; };
 		C377519826B09A3400E1FB12 /* TransferringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringView.swift; sourceTree = "<group>"; };
 		C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringViewModel.swift; sourceTree = "<group>"; };
 		C379F227259B9BF000B25883 /* RegistrationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAlertView.swift; sourceTree = "<group>"; };
@@ -1534,6 +1537,7 @@
 		C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainResolutionFailure.swift; sourceTree = "<group>"; };
 		C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFailureView.swift; sourceTree = "<group>"; };
 		C3F7BD0225FEC77100694C28 /* TransactionModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModalView.swift; sourceTree = "<group>"; };
+		C3FDADEC28B2DB090054FC80 /* SendAddressHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressHostingController.swift; sourceTree = "<group>"; };
 		C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellView.swift; sourceTree = "<group>"; };
 		C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellViewModel.swift; sourceTree = "<group>"; };
 		C522A0EFFFE09BDEB17CE464 /* Pods-loafwallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loafwallet.debug.xcconfig"; path = "Target Support Files/Pods-loafwallet/Pods-loafwallet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3272,6 +3276,8 @@
 			children = (
 				C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */,
 				C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */,
+				C3FDADEC28B2DB090054FC80 /* SendAddressHostingController.swift */,
+				C361F48128B368BC00E9798F /* AddressFieldView.swift */,
 			);
 			name = Send;
 			sourceTree = "<group>";
@@ -4381,6 +4387,7 @@
 				CE6BCF5D1EE9E89A0029849C /* CustomTitleView.swift in Sources */,
 				C3BFD349259E31C100136837 /* LoginViewModel.swift in Sources */,
 				CE83DE2A1E9EB7F600D07636 /* SendAmountCell.swift in Sources */,
+				C3FDADED28B2DB090054FC80 /* SendAddressHostingController.swift in Sources */,
 				22A9A9521DF61945000F0016 /* BRKVStorePlugin.swift in Sources */,
 				CEAFC8611E5D5B0500E4FD06 /* SegmentedButton.swift in Sources */,
 				2427342D2381C21800E2D22F /* MainViewController.swift in Sources */,
@@ -4502,6 +4509,7 @@
 				22A9A9541DF61945000F0016 /* BRReplicatedKVStore.swift in Sources */,
 				CE6B6B4A1E54C0CB00B31405 /* SecurityCenterCell.swift in Sources */,
 				CE36454C1E7B42850079D0CF /* PinPadCells.swift in Sources */,
+				C361F48228B368BC00E9798F /* AddressFieldView.swift in Sources */,
 				CE5F21D91E4A922700C47B8E /* DismissLoginAnimator.swift in Sources */,
 				CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */,
 				22A9A94F1DF61945000F0016 /* BRHTTPRouter.swift in Sources */,

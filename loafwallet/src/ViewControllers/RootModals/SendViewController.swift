@@ -17,9 +17,9 @@ typealias PresentScan = ((@escaping ScanCompletion) -> Void)
 private let verticalButtonPadding: CGFloat = 15.0
 private let buttonSize = CGSize(width: 52.0, height: 32.0)
 
+let swiftUICellPadding = 12.0
 class SendViewController : UIViewController, Subscriber, ModalPresentable, Trackable {
-    //TODO: Review dark mode color scheme
-    
+      
     //MARK - Public
     var presentScan: PresentScan?
     var presentVerifyPin: ((String, @escaping VerifyPinCallback)->Void)?
@@ -53,12 +53,10 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private let sender: Sender
     private let walletManager: WalletManager
     private let amountView: AmountViewController
-    private let addressCell = AddressCell()
-    private let sendAddressCell = UIHostingController(rootView: SendAddressCellView(viewModel: SendAddressCellViewModel()))
-    private var orLabelView = UIView()
+    private let sendAddressCell = SendAddressHostingController()
     private let unstoppableCell = UIHostingController(rootView: UnstoppableDomainView(viewModel: UnstoppableDomainViewModel()))
     private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
-    private let orView = UILabel(font: .barlowMedium(size: 15.0), color: .litecoinSilver)
+    private let orView = UILabel(font: .barlowMedium(size: 16.0), color: .litecoinSilver)
     private var sendButton = ShadowButton(title: S.Send.sendLabel, type: .flatLitecoinBlue)
     private let currency: ShadowButton
     private let currencyBorder = UIView(color: .secondaryShadow)
@@ -85,19 +83,22 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
          
         // set as regular at didLoad
         walletManager.wallet?.feePerKb = store.state.fees.regular
+        
+        //polish parameters
+        descriptionCell.backgroundColor = UIColor.litecoinGray
+        amountView.view.backgroundColor = UIColor.litecoinGray
+        view.backgroundColor = UIColor.litecoinGray
+        orView.backgroundColor = UIColor.litecoinGray
+        orView.text = "-- " + S.Fragments.or + " --"
+        orView.textAlignment = .center
+        sendButton.backgroundColor = UIColor.litecoinGray
          
         view.addSubview(sendAddressCell.view)
         view.addSubview(orView)
         view.addSubview(unstoppableCell.view)
         view.addSubview(descriptionCell)
         view.addSubview(sendButton)
-        descriptionCell.backgroundColor = UIColor.litecoinGray
-        amountView.view.backgroundColor = UIColor.litecoinGray
-        view.backgroundColor = UIColor.litecoinGray
-        
-        orView.backgroundColor = UIColor.litecoinGray
-        orView.text = S.Fragments.or
-        orView.textAlignment = .center
+       
         sendAddressCell.view.invalidateIntrinsicContentSize()
         sendAddressCell.view.constrainTopCorners(height: SendCell.defaultHeight)
         
@@ -109,13 +110,13 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         orView.constrain([
             orView.topAnchor.constraint(equalTo: sendAddressCell.view.bottomAnchor,constant: -5.0),
             orView.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
-            orView.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
-            orView.heightAnchor.constraint(equalToConstant: 25.0) ])
+            orView.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor),
+            orView.heightAnchor.constraint(equalToConstant: 18.0) ])
         
         unstoppableCell.view.constrain([
             unstoppableCell.view.topAnchor.constraint(equalTo: orView.bottomAnchor),
                                         unstoppableCell.view.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
-                                        unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor, constant: -5.0),
+                                        unstoppableCell.view.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor),
             unstoppableCell.view.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight + 15.0) ])
         
         descriptionCell.constrain([
@@ -130,7 +131,8 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                                 sendButton.constraint(.trailing, toView: view, constant: -C.padding[2]),
                                 sendButton.constraint(toBottom: descriptionCell, constant: verticalButtonPadding),
                                 sendButton.constraint(.height, constant: C.Sizes.buttonHeight),
-                                sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2]) ])
+                                sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: minTargetSize) ])
+
         addButtonActions()
         store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
                         callback: {
@@ -153,6 +155,10 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private func addButtonActions() {
         //OLD: addressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
         //OLD: addressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
+//        sendAddressCell.shouldPaste {
+//            pasteTapped()
+//        }
+        
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
 
         descriptionCell.didReturn = { textView in
@@ -161,12 +167,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         descriptionCell.didBeginEditing = { [weak self] in
             self?.amountView.closePinPad()
         }
-        //OLD:  addressCell.didBeginEditing = strongify(self) { myself in
-//            myself.amountView.closePinPad()
-//        }
-    //OLD:  addressCell.didReceivePaymentRequest = { [weak self] request in
-//            self?.handleRequest(request)
-//        }
+
         amountView.balanceTextForAmount = { [weak self] amount, rate in
             return self?.balanceTextForAmount(amount: amount, rate: rate)
         }
@@ -191,40 +192,38 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         amountView.didChangeFirstResponder = { [weak self] isFirstResponder in
             if isFirstResponder {
                 self?.descriptionCell.textView.resignFirstResponder()
-                self?.addressCell.textField.resignFirstResponder()
             }
         }
         
-        //MARK: - Unstopplable Domain Callbacks
-        unstoppableCell.rootView.viewModel.shouldClearAddressField = {
-            
-            ///clear the existing textfield
-            self.addressCell.textField.becomeFirstResponder()
-            self.addressCell.textField.text = ""
+        //MARK: - SendAddressView Model Callbacks
+        sendAddressCell.rootView.viewModel.shouldPasteAddress = {
+            self.pasteTapped()
         }
         
+        sendAddressCell.rootView.viewModel.shouldScanAddress = {
+            self.scanTapped()
+        }
+        
+        //MARK: - Unstopplable Domain Model Callbacks
         unstoppableCell.rootView.viewModel.didResolveUDAddress = { resolvedUDAddress in
             
             ///Paste in Unstoppable Domain resolved LTC address to textField
-            self.addressCell.textField.becomeFirstResponder()
-            self.addressCell.textField.isHidden = false
-            
             if !resolvedUDAddress.isEmpty {
                 
                 // Toast the successful resolution
                 self.onResolvedSuccess?()
-                self.addressCell.textField.text = resolvedUDAddress
+                self.sendAddressCell.rootView.viewModel.addressString = resolvedUDAddress
             }
-            
         }
         
         unstoppableCell.rootView.viewModel.didFailToResolve = { errorMessage in
             // Toast the failure
             self.onResolutionFailure?(errorMessage)
+            self.sendAddressCell.rootView.viewModel.addressString = ""
         }
          
-    }
-    
+    } 
+
     private func balanceTextForAmount(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?) {
         
         let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
@@ -259,18 +258,21 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     }
     
     @objc private func pasteTapped() {
+        
         guard let pasteboard = UIPasteboard.general.string, pasteboard.utf8.count > 0 else {
             return showAlert(title: S.LitewalletAlert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
         }
         guard let request = PaymentRequest(string: pasteboard) else {
             return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressOnPasteboard, buttonLabel: S.Button.ok)
         }
+        
+        sendAddressCell.rootView.viewModel.addressString = pasteboard
+
         handleRequest(request)
     }
     
     @objc private func scanTapped() {
         descriptionCell.textView.resignFirstResponder()
-        addressCell.textField.resignFirstResponder()
         presentScan? { [weak self] paymentRequest in
             guard let request = paymentRequest else { return }
             self?.handleRequest(request)
@@ -278,17 +280,11 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     }
     
     @objc private func sendTapped() {
-        if addressCell.textField.isFirstResponder {
-             addressCell.textField.resignFirstResponder()
-        }
         
+        let sendAddress = sendAddressCell.rootView.viewModel.addressString
+
         if sender.transaction == nil {
-            guard let address = addressCell.address else {
-                return showAlert(title: S.LitewalletAlert.error, message: S.Send.noAddress, buttonLabel: S.Button.ok)
-            }
-            guard address.isValidAddress else {
-                return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressMessage, buttonLabel: S.Button.ok)
-            }
+            
             guard let amount = amount else {
                 return showAlert(title: S.LitewalletAlert.error, message: S.Send.noAmount, buttonLabel: S.Button.ok)
             }
@@ -299,19 +295,20 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                     return showAlert(title: S.LitewalletAlert.error, message: message, buttonLabel: S.Button.ok)
                 }
             }
-            guard !(walletManager.wallet?.containsAddress(address) ?? false) else {
+            guard !(walletManager.wallet?.containsAddress(sendAddress) ?? false) else {
                 return showAlert(title: S.LitewalletAlert.error, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
             }
             guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0) else {
                 return showAlert(title: S.LitewalletAlert.error, message: S.Send.insufficientFunds, buttonLabel: S.Button.ok)
             }
-            guard sender.createTransaction(amount: amount.rawValue, to: address) else {
+            guard sender.createTransaction(amount: amount.rawValue, to: sendAddress) else {
                 return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
             }
         }
         
         guard let amount = amount else { return }
-        let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(sender.fee), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: addressCell.address ?? "", isUsingBiometrics: sender.canUseBiometrics)
+        
+        let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(sender.fee), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: sendAddress, isUsingBiometrics: sender.canUseBiometrics)
         
         confirm.successCallback = {
             confirm.dismiss(animated: true, completion: {
@@ -334,8 +331,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private func handleRequest(_ request: PaymentRequest) {
         switch request.type {
             case .local:
-                addressCell.setContent(request.toAddress)
-                addressCell.isEditable = true
+                
                 if let amount = request.amount {
                     amountView.forceUpdateAmount(amount: amount)
                 }
@@ -448,9 +444,9 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
         }
         
-        if let name = protoReq.commonName {
-            addressCell.setContent(protoReq.pkiType != "none" ? "\(S.Symbols.lock) \(name.sanitized)" : name.sanitized)
-        }
+//        if let name = protoReq.commonName {
+//            addressCell.setContent(protoReq.pkiType != "none" ? "\(S.Symbols.lock) \(name.sanitized)" : name.sanitized)
+//        }
         
         if requestAmount > 0 {
             amountView.forceUpdateAmount(amount: requestAmount)
@@ -463,8 +459,6 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                     return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
                 }
             }
-        } else {
-            addressCell.isEditable = false 
         }
     }
     
