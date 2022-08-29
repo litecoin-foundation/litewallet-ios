@@ -972,6 +972,12 @@
 
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "輸入域";
+<<<<<<< HEAD
+=======
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤: %2$d]";
+>>>>>>> 8f58eee3 (🥳[Techdebt] relayout address view controller (#120))
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "萊特幣位址專供一次性使用。";
