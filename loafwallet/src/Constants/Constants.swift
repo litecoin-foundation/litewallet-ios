@@ -149,7 +149,10 @@ enum CustomEvent: String {
     case _20210804_TAWTL = "TERNIO_API_WITHDRAWAL_TO_LITEWALLET"
 
     /// Heartbeat check If event even happens
-    case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS" 
+    case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS"
+    
+    /// User Tapped on  UD Image
+    case _20220822_UTOU = "USER_TAPPED_ON_UD"
 }
 
 struct FoundationSupport {
@@ -205,6 +208,7 @@ struct C {
     static let padding = Padding()
     struct Sizes {
         static let buttonHeight: CGFloat = 48.0
+        static let sendButtonHeight: CGFloat = 65.0
         static let headerHeight: CGFloat = 48.0
         static let largeHeaderHeight: CGFloat = 220.0
         static let logoAspectRatio: CGFloat = 125.0/417.0

@@ -952,6 +952,12 @@
 /* Send money to label */
 "Send.toLabel" = "Kime";
 
+/* domain */
+"Send.UnstoppableDomains.domain" = "alan adı";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "Gir";
+
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Arama";
 
@@ -963,6 +969,9 @@
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Bir .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao veya .x alan adı girin.";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "Alan adını girin";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
