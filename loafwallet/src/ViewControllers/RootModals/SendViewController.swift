@@ -56,8 +56,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private let sendAddressCell = SendAddressHostingController()
     private let unstoppableCell = UIHostingController(rootView: UnstoppableDomainView(viewModel: UnstoppableDomainViewModel()))
     private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
-    private let orView = UILabel(font: .barlowMedium(size: 16.0), color: .litecoinSilver)
-    //private var sendButton = ShadowButton(title: S.Send.sendLabel, type: .flatLitecoinBlue)
+    private let orView = UILabel(font: .barlowMedium(size: 14.0), color: .litecoinSilver)
     private var sendButtonCell = SendButtonHostingController()
     private let currency: ShadowButton
     private let currencyBorder = UIView(color: .secondaryShadow)
@@ -90,17 +89,13 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         orView.backgroundColor = UIColor.litecoinGray
         orView.text = "-- " + S.Fragments.or + " --"
         orView.textAlignment = .center
-      //  sendButton.backgroundColor = UIColor.litecoinGray
          
         view.addSubview(sendAddressCell.view)
         view.addSubview(orView)
         view.addSubview(unstoppableCell.view)
         view.addSubview(descriptionCell)
-        
         view.addSubview(sendButtonCell.view)
-
-       // view.addSubview(sendButton)
-       
+ 
         sendAddressCell.view.invalidateIntrinsicContentSize()
         sendAddressCell.view.constrainTopCorners(height: SendCell.defaultHeight)
         
@@ -113,7 +108,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             orView.topAnchor.constraint(equalTo: sendAddressCell.view.bottomAnchor,constant: -5.0),
             orView.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
             orView.leadingAnchor.constraint(equalTo:  amountView.view.leadingAnchor),
-            orView.heightAnchor.constraint(equalToConstant: 18.0) ])
+            orView.heightAnchor.constraint(equalToConstant: 16.0) ])
         
         unstoppableCell.view.constrain([
             unstoppableCell.view.topAnchor.constraint(equalTo: orView.bottomAnchor),
@@ -307,7 +302,6 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         }
         else {
             NSLog("Error: transaction  is nil")
-            assertionFailure()
         }
         
         guard let amount = amount else {
@@ -450,11 +444,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             let message = String(format: S.PaymentProtocol.Errors.smallTransaction, amount.bits)
             return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
         }
-        
-//        if let name = protoReq.commonName {
-//            addressCell.setContent(protoReq.pkiType != "none" ? "\(S.Symbols.lock) \(name.sanitized)" : name.sanitized)
-//        }
-        
+         
         if requestAmount > 0 {
             amountView.forceUpdateAmount(amount: requestAmount)
         }
