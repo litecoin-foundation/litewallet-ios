@@ -70,14 +70,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     private var feeType: FeeType?
     
     override func viewDidLoad() {
-        
-        if #available(iOS 11.0, *) {
-            guard let backgroundColor = UIColor(named: "lfBackgroundColor") else {
-                NSLog("ERROR: Main color")
-                return
-            }
-            view.backgroundColor = backgroundColor
-        }
+         
         
         // set as regular at didLoad
         walletManager.wallet?.feePerKb = store.state.fees.regular
@@ -85,7 +78,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         //polish parameters
         descriptionCell.backgroundColor = UIColor.litecoinGray
         amountView.view.backgroundColor = UIColor.litecoinGray
-        view.backgroundColor = UIColor.litecoinGray
+     
         orView.backgroundColor = UIColor.litecoinGray
         orView.text = "-- " + S.Fragments.or + " --"
         orView.textAlignment = .center
@@ -130,7 +123,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
             sendButtonCell.view.constraint(.height, constant: C.Sizes.sendButtonHeight),
              sendButtonCell.view
                 .bottomAnchor
-                .constraint(equalTo: view.bottomAnchor, constant: C.Sizes.sendButtonHeight - C.Sizes.buttonHeight) ])
+                .constraint(equalTo: view.bottomAnchor, constant:  C.Sizes.sendButtonHeight - C.Sizes.buttonHeight) ])
          
         addButtonActions()
         store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
