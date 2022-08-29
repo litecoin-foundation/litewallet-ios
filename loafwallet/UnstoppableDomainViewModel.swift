@@ -18,18 +18,24 @@ class UnstoppableDomainViewModel: ObservableObject {
     var searchString: String = ""
     
     @Published
-    var placeholderString: String = S.Send.UnstoppableDomains.placeholder 
+    var placeholderString: String = S.Send.UnstoppableDomains.simplePlaceholder
     
     @Published
     var isDomainResolving: Bool = false
     
     //MARK: - Public Variables
     var didResolveUDAddress: ((String) -> Void)?
-     
-    var shouldClearAddressField: (() -> Void)?
-        
+    
     var didFailToResolve: ((String) -> Void)?
     
+    var domains: [String] = [".bitcoin",".blockchain", ".crypto", ".coin", ".dao", ".nft", ".wallet", ".x", ".zil", ".888"]
+    
+
+    private var domainIndex: Int = 0
+    
+    @Published
+    var currentDomain: String = ""
+     
     //MARK: - Private Variables
     private var ltcAddress = ""
     private var dateFormatter: DateFormatter? {
@@ -40,14 +46,31 @@ class UnstoppableDomainViewModel: ObservableObject {
         }
     }
     
-    init() { }
+    init() {
+         
+        currentDomain = "\(domains[domainIndex])"
+        animateDomain()
+    }
+    
+    private func animateDomain() {
+       
+            delay(2.0) {
+                
+                if self.domainIndex < self.domains.count {
+                    self.currentDomain = "\(self.domains[self.domainIndex])"
+                    self.domainIndex += 1
+                }
+                else {
+                    self.domainIndex = 0
+                }
+                self.animateDomain()
+            }
+        
+    }
     
     func resolveDomain() {
         
         isDomainResolving = true
-        
-        //Clear existing LTC Address to avoid confusion
-        self.shouldClearAddressField?()
         
         // Added timing peroformance probes to see what the average time is
         let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""

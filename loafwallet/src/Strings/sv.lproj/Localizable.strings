@@ -1437,3 +1437,12 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d av %2$d";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "";

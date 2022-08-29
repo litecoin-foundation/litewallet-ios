@@ -952,6 +952,12 @@
 /* Send money to label */
 "Send.toLabel" = "На";
 
+/* domain */
+"Send.UnstoppableDomains.domain" = "домен";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "Введите";
+
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "Искать";
 
@@ -963,6 +969,9 @@
 
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "Введите домен .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao или .x.";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "Введите домен";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "Проблема с поиском в системе. [Ошибка: %2$d]";
