@@ -973,6 +973,9 @@
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "ドメインを入力";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "リテコインアドレスは、個人利用のみを想定しています。";
 
