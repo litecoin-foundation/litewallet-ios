@@ -70,35 +70,6 @@ struct UnstoppableDomainView: View {
                     }
                     
                     Spacer()
-                    Button(action: {
-                        viewModel.resolveDomain()
-                    }) {
-                        HStack {
-                            ZStack {
-                                 
-                                RoundedRectangle(cornerRadius: 4)
-                                    .frame(width: 60, height: 30, alignment: .center)
-                                    .foregroundColor(Color(UIColor.secondaryButton))
-                                    .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)
-                                    .padding(.trailing, 8.0)
-                                
-                                Text(S.Send.UnstoppableDomains.lookup)
-                                    .frame(width: 60, height: 30, alignment: .center)
-                                    .font(Font(UIFont.customMedium(size: 15.0)))
-                                    .foregroundColor(Color(UIColor.grayTextTint))
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius:4)
-                                            .stroke(Color(UIColor.secondaryBorder))
-                                    )
-                                    .padding(.trailing, 8.0)
-                            }
-                        }
-                    }
-                    .onReceive(viewModel.$searchString,
-                               perform: { currentString in
-                         shouldDisableLookupButton = currentString.count < 4
-                    })
-                    .disabled(shouldDisableLookupButton)
                     
                 } 
                 .background(

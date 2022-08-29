@@ -298,6 +298,8 @@
 		C35ABD232574070A002BB9BB /* PartnersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35ABD222574070A002BB9BB /* PartnersView.swift */; };
 		C35ABD332574073F002BB9BB /* PartnersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35ABD322574073F002BB9BB /* PartnersViewModel.swift */; };
 		C361F48228B368BC00E9798F /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361F48128B368BC00E9798F /* AddressFieldView.swift */; };
+		C36375A328BD38A500CFB3D8 /* SendButtonHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36375A228BD38A500CFB3D8 /* SendButtonHostingController.swift */; };
+		C36375A528BD390C00CFB3D8 /* SendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36375A428BD390C00CFB3D8 /* SendButtonView.swift */; };
 		C377519926B09A3400E1FB12 /* TransferringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519826B09A3400E1FB12 /* TransferringView.swift */; };
 		C377519B26B0A3D900E1FB12 /* TransferringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */; };
 		C379F228259B9BF000B25883 /* RegistrationAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C379F227259B9BF000B25883 /* RegistrationAlertView.swift */; };
@@ -1493,6 +1495,8 @@
 		C35ABD222574070A002BB9BB /* PartnersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersView.swift; sourceTree = "<group>"; };
 		C35ABD322574073F002BB9BB /* PartnersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersViewModel.swift; sourceTree = "<group>"; };
 		C361F48128B368BC00E9798F /* AddressFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldView.swift; sourceTree = "<group>"; };
+		C36375A228BD38A500CFB3D8 /* SendButtonHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonHostingController.swift; sourceTree = "<group>"; };
+		C36375A428BD390C00CFB3D8 /* SendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonView.swift; sourceTree = "<group>"; };
 		C377519826B09A3400E1FB12 /* TransferringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringView.swift; sourceTree = "<group>"; };
 		C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringViewModel.swift; sourceTree = "<group>"; };
 		C379F227259B9BF000B25883 /* RegistrationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAlertView.swift; sourceTree = "<group>"; };
@@ -3275,8 +3279,10 @@
 			isa = PBXGroup;
 			children = (
 				C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */,
+				C36375A228BD38A500CFB3D8 /* SendButtonHostingController.swift */,
 				C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */,
 				C3FDADEC28B2DB090054FC80 /* SendAddressHostingController.swift */,
+				C36375A428BD390C00CFB3D8 /* SendButtonView.swift */,
 				C361F48128B368BC00E9798F /* AddressFieldView.swift */,
 			);
 			name = Send;
@@ -4286,6 +4292,7 @@
 				CEC6AA3B1DEE4EB000EE5AFD /* CGRect+Additions.swift in Sources */,
 				CE45C1FB1E74F89C002C3847 /* WalletInfo.swift in Sources */,
 				C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */,
+				C36375A328BD38A500CFB3D8 /* SendButtonHostingController.swift in Sources */,
 				CEE659E71F65A936001FF29D /* RetryTimer.swift in Sources */,
 				248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */,
 				CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */,
@@ -4435,6 +4442,7 @@
 				CEC6AA461DEFCE9200EE5AFD /* MenuViewController.swift in Sources */,
 				CEEC707F1E8D6B4100EF788E /* SettingsViewController.swift in Sources */,
 				CEEE92F11EBA7CBA00B7AC9C /* RequestAmountViewController.swift in Sources */,
+				C36375A528BD390C00CFB3D8 /* SendButtonView.swift in Sources */,
 				CE8CD8DF1E2E825100785E02 /* VerifyPinViewController.swift in Sources */,
 				CE916E331EDA800E00D641D6 /* UserDefaultsUpdater.swift in Sources */,
 				CE20C9111DBE5B6F00C8397A /* Circle.swift in Sources */,
