@@ -142,4 +142,4 @@ struct ClearButton: ViewModifier {
             }
         }
     }
-}
+} 

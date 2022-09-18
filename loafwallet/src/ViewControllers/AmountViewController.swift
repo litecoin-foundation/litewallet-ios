@@ -100,13 +100,14 @@ class AmountViewController : UIViewController, Trackable {
             placeholder.textColor = .grayTextTint
             amountLabel.textColor = .darkText
         }
+        
         addSubviews()
         addConstraints()
         setInitialData()
     }
 
     private func addSubviews() {
-        view.addSubview(amountLabel)
+        
         view.addSubview(placeholder)
         view.addSubview(currencyToggle)
         view.addSubview(feeContainer)
@@ -114,17 +115,18 @@ class AmountViewController : UIViewController, Trackable {
         view.addSubview(cursor)
         view.addSubview(balanceLabel)
         view.addSubview(feeLabel)
-        view.addSubview(tapView)
+        view.addSubview(tapView) 
+        view.addSubview(amountLabel)
         view.addSubview(bottomBorder)
         view.addSubview(editFee)
     }
 
     private func addConstraints() {
         amountLabel.constrain([
-            amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
+            amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
             amountLabel.centerYAnchor.constraint(equalTo: currencyToggle.centerYAnchor) ])
         placeholder.constrain([
-            placeholder.leadingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: 2.0),
+            placeholder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
             placeholder.centerYAnchor.constraint(equalTo: amountLabel.centerYAnchor) ])
         cursor.constrain([
             cursor.leadingAnchor.constraint(equalTo: amountLabel.trailingAnchor, constant: 2.0),
@@ -188,7 +190,17 @@ class AmountViewController : UIViewController, Trackable {
     private func setInitialData() {
         cursor.isHidden = true
         cursor.startBlinking()
+        
         amountLabel.text = ""
+        
+        placeholder.backgroundColor = .white
+        placeholder.layer.cornerRadius = 8.0
+        placeholder.layer.masksToBounds = true
+        
+        amountLabel.backgroundColor = .white
+        amountLabel.layer.cornerRadius = 8.0
+        amountLabel.layer.masksToBounds = true
+        
         placeholder.text = S.Send.amountLabel
         bottomBorder.isHidden = true
         if store.state.isLtcSwapped {

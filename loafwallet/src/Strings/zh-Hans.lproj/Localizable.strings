@@ -952,6 +952,12 @@
 /* Send money to label */
 "Send.toLabel" = "至";
 
+/* domain */
+"Send.UnstoppableDomains.domain" = "领域";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "进入一个";
+
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "抬头";
 
@@ -964,8 +970,8 @@
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = "输入 .crypto、.wallet、.zil、.nft、.blockchain、.bitcoin、.coin、.888、.dao 或 .x 域。";
 
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "系统查找问题。 [错误: %2$d]";
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "输入域";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "系统查找问题。 [错误: %2$d]";

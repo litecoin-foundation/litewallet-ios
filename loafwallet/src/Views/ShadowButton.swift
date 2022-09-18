@@ -21,7 +21,7 @@ enum ButtonType {
     case flatLitecoinBlue
 }
 
-private let minTargetSize: CGFloat = 48.0
+let minTargetSize: CGFloat = 48.0
 
 class ShadowButton: UIControl {
 

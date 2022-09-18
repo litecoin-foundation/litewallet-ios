@@ -1455,3 +1455,12 @@
 
 /* 2FA Error message */
 "LitecoinCard.twoFAErrorMessage" = "There was an error. Please toggle 2FA to *Enabled*, enter the emailed code, and try again.";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "Enter domain";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "Enter a";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "domain";
