@@ -952,6 +952,12 @@
 /* Send money to label */
 "Send.toLabel" = "宛先";
 
+/* domain */
+"Send.UnstoppableDomains.domain" = "ドメイン";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "入力します";
+
 /* Lookup */
 "Send.UnstoppableDomains.lookup" = "調べる";
 
@@ -964,8 +970,8 @@
 /* Enter to match domain name to LTC Address */
 "Send.UnstoppableDomains.placeholder" = ".crypto、.wallet、.zil、.nft、.blockchain、.bitcoin、.coin、.888、.dao、または.xドメインを入力します。";
 
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "ドメインを入力";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "システムルックアップの問題。 [エラー: %2$d]";
