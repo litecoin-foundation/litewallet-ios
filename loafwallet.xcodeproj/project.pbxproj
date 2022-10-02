@@ -82,7 +82,6 @@
 		24470E2A23A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2923A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift */; };
 		24470E2C23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2B23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift */; };
 		24470E2E23A5F4FF00ADDA27 /* BRCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2D23A5F4FF00ADDA27 /* BRCoderTests.swift */; };
-		24470E3023A5F55700ADDA27 /* BRHTTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2F23A5F55700ADDA27 /* BRHTTPServerTests.swift */; };
 		24470E3223A5F5B100ADDA27 /* NSDataExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E3123A5F5B100ADDA27 /* NSDataExtensionTests.swift */; };
 		24470E3423A5F5E600ADDA27 /* PaymentRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E3323A5F5E600ADDA27 /* PaymentRequestTests.swift */; };
 		24470E3623A5FDE800ADDA27 /* PhraseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E3523A5FDE800ADDA27 /* PhraseTests.swift */; };
@@ -799,7 +798,6 @@
 		24470E2923A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRReplicatedKVStoreTests.swift; sourceTree = "<group>"; };
 		24470E2B23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFiatCurrencyTests.swift; sourceTree = "<group>"; };
 		24470E2D23A5F4FF00ADDA27 /* BRCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRCoderTests.swift; sourceTree = "<group>"; };
-		24470E2F23A5F55700ADDA27 /* BRHTTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRHTTPServerTests.swift; sourceTree = "<group>"; };
 		24470E3123A5F5B100ADDA27 /* NSDataExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDataExtensionTests.swift; sourceTree = "<group>"; };
 		24470E3323A5F5E600ADDA27 /* PaymentRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRequestTests.swift; sourceTree = "<group>"; };
 		24470E3523A5FDE800ADDA27 /* PhraseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseTests.swift; sourceTree = "<group>"; };
@@ -2190,7 +2188,6 @@
 				24470E2D23A5F4FF00ADDA27 /* BRCoderTests.swift */,
 				24470E2923A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift */,
 				24470E2B23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift */,
-				24470E2F23A5F55700ADDA27 /* BRHTTPServerTests.swift */,
 				24470E3123A5F5B100ADDA27 /* NSDataExtensionTests.swift */,
 				24470E3523A5FDE800ADDA27 /* PhraseTests.swift */,
 				24470E3323A5F5E600ADDA27 /* PaymentRequestTests.swift */,
@@ -4149,7 +4146,6 @@
 				24470E2523A5EF0D00ADDA27 /* BRAPIClientTests.swift in Sources */,
 				C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */,
 				24470E3C23A5FFD700ADDA27 /* TouchIdEnabledTests.swift in Sources */,
-				24470E3023A5F55700ADDA27 /* BRHTTPServerTests.swift in Sources */,
 				24470E3A23A5FF5700ADDA27 /* TestHelpers.swift in Sources */,
 				C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */,
 				C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */,
