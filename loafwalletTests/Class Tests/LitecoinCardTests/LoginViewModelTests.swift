@@ -4,8 +4,8 @@ import SwiftUI
 import XCTest
 
 class LoginViewModelTests: XCTestCase {
-	var viewModel: LoginViewModel!
-
+	
+	var viewModel: LoginViewModel!  
 	override func setUp() {
 		super.setUp()
 		viewModel = LoginViewModel()
