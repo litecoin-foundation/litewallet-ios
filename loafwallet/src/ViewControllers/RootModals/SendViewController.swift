@@ -261,8 +261,13 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     
     @objc private func scanTapped() {
         descriptionCell.textView.resignFirstResponder()
+        
         presentScan? { [weak self] paymentRequest in
+             
             guard let request = paymentRequest else { return }
+            guard let destinationAddress = paymentRequest?.toAddress else { return }
+            
+            self?.sendAddressCell.rootView.viewModel.addressString = destinationAddress
             self?.handleRequest(request)
         }
     }
@@ -332,6 +337,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
                 if request.label != nil {
                     descriptionCell.content = request.label
                 }
+                
             case .remote:
                 let loadingView = BRActivityViewController(message: S.Send.loadingRequest)
                 present(loadingView, animated: true, completion: nil)
