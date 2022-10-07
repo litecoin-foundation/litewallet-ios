@@ -10,15 +10,7 @@ import Firebase
 @testable import loafwallet
 
 class FileTests: XCTestCase {
-     
-    func testChangeNowKeyExists() throws {
-        XCTAssertTrue(!Partner.partnerKeyPath(name: .changeNow).isEmpty)
-    }
-    
-    func testInfuraKeyExists() throws {
-        XCTAssertTrue(!Partner.partnerKeyPath(name: .infura).isEmpty)
-    }
-    
+      
     func testGoogleServicesFileExists() throws {
 
         let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
