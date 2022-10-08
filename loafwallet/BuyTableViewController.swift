@@ -8,8 +8,27 @@
 
 import UIKit
 import SafariServices
+import WebKit
+import SwiftUI
 
 class BuyTableViewController: UITableViewController, SFSafariViewControllerDelegate {
+    
+    @IBOutlet weak var bitrefillLogoImageView: UIImageView!
+    @IBOutlet weak var bitrefillHeaderLabel: UILabel!
+    @IBOutlet weak var bitrefillDetailsLabel: UILabel!
+    @IBOutlet weak var bitrefillCellContainerView: UIView!
+
+    @IBAction func didTapBitrefill(_ sender: UIButton) {
+ 
+       guard let url = URL(string: "https://www.bitrefill.com/?ref=DkvP2hyt") else
+        {
+           return
+       }
+ 
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.delegate = self
+        present(sfSafariVC, animated: true)
+    }
     
     //MARK: Moonpay UI
     @IBOutlet weak var moonpayLogoImageView: UIImageView!
