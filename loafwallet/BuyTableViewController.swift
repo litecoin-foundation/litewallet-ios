@@ -113,9 +113,18 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
         setupWkVCData()
     }
     
-    private func setupWkVCData() {
+    private func setupWkVCData() { 
         
-        let moonpayData = Partner.partnerDataArray()[0]
+        let bitrefillData = Partner.partnerDataArray()[0]
+        bitrefillLogoImageView.image = bitrefillData.logo
+        bitrefillHeaderLabel.text = bitrefillData.headerTitle
+        bitrefillDetailsLabel.text = bitrefillData.details
+        bitrefillCellContainerView.layer.cornerRadius = 6.0
+        bitrefillCellContainerView.layer.borderColor = UIColor.white.cgColor
+        bitrefillCellContainerView.layer.borderWidth = 1.0
+        bitrefillCellContainerView.clipsToBounds = true
+        
+        let moonpayData = Partner.partnerDataArray()[1]
         moonpayLogoImageView.image = moonpayData.logo
         moonpayHeaderLabel.text = moonpayData.headerTitle
         moonpayDetailsLabel.text = moonpayData.details
@@ -124,7 +133,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
         moonpayCellContainerView.layer.borderWidth = 1.0
         moonpayCellContainerView.clipsToBounds = true
         
-        let simplexData = Partner.partnerDataArray()[1]
+        let simplexData = Partner.partnerDataArray()[2]
         simplexLogoImageView.image = simplexData.logo
         simplexHeaderLabel.text = simplexData.headerTitle
         simplexDetailsLabel.text = simplexData.details
