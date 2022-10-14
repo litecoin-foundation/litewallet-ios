@@ -20,7 +20,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 
     @IBAction func didTapBitrefill(_ sender: UIButton) {
  
-       guard let url = URL(string: "https://www.bitrefill.com/?ref=DkvP2hyt") else
+       guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935") else
         {
            return
        }
