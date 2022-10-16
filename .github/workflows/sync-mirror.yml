@@ -6,16 +6,19 @@ jobs:
       - name: git-sync-ci-cd
         uses: wei/git-sync@v3
         with:
+        
+          # Private Keys
+          ssh_private_key: ${{ secrets.KCW_PAT }} # optional
+          source_ssh_private_key: ${{ secrets.KCW_PAT }} # optional, will override `SSH_PRIVATE_KEY`
+          destination_ssh_private_key: ${{ secrets.KCW_PAT }} # optional, will override `SSH_PRIVATE_KEY`
+        
+
           
           source_repo: "https://kcw-grunt:810771dfc817e61cd9d218589983016d13ce64c2@github.com/litecoin-foundation/litewallet-ios.git"  
-          destination_repo: "https://kcw-grunt:810771dfc817e61cd9d218589983016d13ce64c2@github.com/kcw-grunt/ci-cd-litewallet-ios.git"
+          destination_repo: "https://kcw-grunt:ssh_private_key@github.com/litecoin-foundation/ci-cd-litewallet-ios.git"
           
           
           source_branch: "refs/remotes/source/*"
           destination_branch: "refs/heads/*"
           
-          # Private Keys
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # optional
-          source_ssh_private_key: ${{ secrets.SOURCE_SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
-          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
-        
+  
