@@ -297,6 +297,8 @@
 		C361F48228B368BC00E9798F /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361F48128B368BC00E9798F /* AddressFieldView.swift */; };
 		C36375A328BD38A500CFB3D8 /* SendButtonHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36375A228BD38A500CFB3D8 /* SendButtonHostingController.swift */; };
 		C36375A528BD390C00CFB3D8 /* SendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36375A428BD390C00CFB3D8 /* SendButtonView.swift */; };
+		C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF5E28F18D2C00FBCB24 /* LocalWebView.swift */; };
+		C36DBF6128F1988900FBCB24 /* LocalWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */; };
 		C377519926B09A3400E1FB12 /* TransferringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519826B09A3400E1FB12 /* TransferringView.swift */; };
 		C377519B26B0A3D900E1FB12 /* TransferringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */; };
 		C379F228259B9BF000B25883 /* RegistrationAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C379F227259B9BF000B25883 /* RegistrationAlertView.swift */; };
@@ -1491,6 +1493,8 @@
 		C361F48128B368BC00E9798F /* AddressFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldView.swift; sourceTree = "<group>"; };
 		C36375A228BD38A500CFB3D8 /* SendButtonHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonHostingController.swift; sourceTree = "<group>"; };
 		C36375A428BD390C00CFB3D8 /* SendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonView.swift; sourceTree = "<group>"; };
+		C36DBF5E28F18D2C00FBCB24 /* LocalWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebView.swift; sourceTree = "<group>"; };
+		C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebViewModel.swift; sourceTree = "<group>"; };
 		C377519826B09A3400E1FB12 /* TransferringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringView.swift; sourceTree = "<group>"; };
 		C377519A26B0A3D900E1FB12 /* TransferringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringViewModel.swift; sourceTree = "<group>"; };
 		C379F227259B9BF000B25883 /* RegistrationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationAlertView.swift; sourceTree = "<group>"; };
@@ -3442,6 +3446,8 @@
 				2494037C23AE0C7100369261 /* SyncProgressHeaderView.swift */,
 				C32DC79B2593971500A7FDB4 /* CardView.swift */,
 				C3EB6C1A26C18DD500881841 /* Enter2FACodeView.swift */,
+				C36DBF5E28F18D2C00FBCB24 /* LocalWebView.swift */,
+				C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -4319,6 +4325,7 @@
 				7528D2981ECF655500925DBC /* PaymentProtocol.swift in Sources */,
 				22A9A9491DF61945000F0016 /* BRBSPatch.swift in Sources */,
 				C3543A27264AFE490005D17A /* LocaleChangeView.swift in Sources */,
+				C36DBF6128F1988900FBCB24 /* LocalWebViewModel.swift in Sources */,
 				24A6DCFC2230BD9000505F44 /* WipeEmptyWalletViewController.swift in Sources */,
 				CE92F9F61DEDF6890046B516 /* UIViewControllerContextTransitioning+BRAdditions.swift in Sources */,
 				CEA362681E00EE320061FC0E /* CameraGuideView.swift in Sources */,
@@ -4415,6 +4422,7 @@
 				C354C4632590059500675E0E /* TransactionsViewModel.swift in Sources */,
 				CEF3D2DB1E8B55C80070178E /* UISlider+Gradient.swift in Sources */,
 				C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */,
+				C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */,
 				C3EB6C1B26C18DD500881841 /* Enter2FACodeView.swift in Sources */,
 				CEC6AA4B1DEFD24C00EE5AFD /* MenuButtonType.swift in Sources */,
 				C3BD4A6A2597E1E900D97079 /* CardLoggedInView.swift in Sources */,
@@ -4815,7 +4823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 321;
+				CURRENT_PROJECT_VERSION = 370;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -4923,7 +4931,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 370;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -4933,7 +4941,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = 3.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5235,7 +5243,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 321;
+				CURRENT_PROJECT_VERSION = 370;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5266,7 +5274,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 370;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5275,7 +5283,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = 3.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5367,7 +5375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = loafwallet/loafwallet.entitlements;
-				CURRENT_PROJECT_VERSION = 321;
+				CURRENT_PROJECT_VERSION = 370;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5399,7 +5407,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 370;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				INFOPLIST_FILE = TodayExtension/Info.plist;
@@ -5409,7 +5417,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.6.1;
+				MARKETING_VERSION = 3.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.litecoin.loafwallet.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
