@@ -3,7 +3,7 @@ import UIKit
 
 enum PartnerName {
 	case unstop
-    case changeNow
+    case changeNow 
 } 
 
 struct Partner {

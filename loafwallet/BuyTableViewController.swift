@@ -8,7 +8,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet var bitrefillHeaderLabel: UILabel!
 	@IBOutlet var bitrefillDetailsLabel: UILabel!
 	@IBOutlet var bitrefillCellContainerView: UIView!
-
 	@IBAction func didTapBitrefill(_: UIButton) {
 		guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935")
 		else {
