@@ -6,7 +6,7 @@ jobs:
       - name: git-sync-ci-cd
         uses: wei/git-sync@v3
         with:
-          source_repo: "git@github.com:litecoin-foundation/litewallet-ios.git"
+          source_repo: "https://github.com/litecoin-foundation/litewallet-ios.git"
           source_branch: "main"
-          destination_repo: "git@github.com:litecoin-foundation/ci-cd-litewallet-ios.git"
+          destination_repo: "https://github.com/litecoin-foundation/ci-cd-litewallet-ios.git"
           destination_branch: "main"
