@@ -4,8 +4,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: git-sync-ci-cd
+<<<<<<< HEAD
         uses: wei/git-sync@v3 
-        with: 
+        with:
           # Private Keys
           ssh_private_key: ${{ secrets.GITHUB_TOKEN }} # optional
           source_ssh_private_key: ${{ secrets.GITHUB_TOKEN }} # optional, will override `SSH_PRIVATE_KEY`
