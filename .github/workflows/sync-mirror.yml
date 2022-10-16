@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: git-sync-ci-cd
-        uses: wei/git-sync@v3
+        uses: wei/git-sync@v3 
         with: 
           # Private Keys
           ssh_private_key: ${{ secrets.GITHUB_TOKEN }} # optional
@@ -18,4 +18,4 @@ jobs:
           
           
           source_branch: "refs/remotes/source/*"
-          destination_branch: "refs/heads/*" 
+          destination_branch: "refs/heads/*"
