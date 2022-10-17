@@ -71,6 +71,7 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
     
     override func viewDidLoad() {
          
+        self.view.backgroundColor = UIColor.litecoinGray
         
         // set as regular at didLoad
         walletManager.wallet?.feePerKb = store.state.fees.regular
