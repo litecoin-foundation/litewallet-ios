@@ -973,9 +973,6 @@
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "도메인 입력";
 
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "시스템 조회 문제입니다. [오류 : %2$d]";
-
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin 주소는 일회용입니다.";
 
