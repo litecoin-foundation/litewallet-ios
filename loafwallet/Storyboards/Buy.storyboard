@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,8 +31,8 @@
                         <sections>
                             <tableViewSection id="EEG-fO-dA2">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="135" id="HC0-ji-SJP" userLabel="Moonpay Cell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="135"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="135" id="HC0-ji-SJP" userLabel="Bitrefill Cell">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HC0-ji-SJP" id="Hkz-G5-WCv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
@@ -41,13 +41,13 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saf-YY-CZV">
                                                     <rect key="frame" x="15" y="15" width="384" height="105"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJD-Jg-VQT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJD-Jg-VQT" userLabel="Bitrefill Header Label">
                                                             <rect key="frame" x="115" y="10" width="229" height="20"/>
                                                             <fontDescription key="fontDescription" name="BarlowSemiCondensed-Bold" family="Barlow Semi Condensed" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc4-Tf-eew">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc4-Tf-eew" userLabel="Bitrefill Details Label">
                                                             <rect key="frame" x="115" y="31" width="229" height="18"/>
                                                             <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,7 +60,7 @@
                                                                 <constraint firstAttribute="width" constant="105" id="Ufx-U7-g25"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonpay-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-PE-RZR">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitrefillLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-PE-RZR" userLabel="Bitrefill Logo Image View">
                                                             <rect key="frame" x="10" y="10" width="85" height="85"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteRightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="0kW-3S-b2M">
@@ -72,7 +72,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tn1-Ey-ZLQ">
                                                             <rect key="frame" x="105" y="0.0" width="279" height="105"/>
                                                             <connections>
-                                                                <action selector="didTapMoonpay:" destination="CPA-Q1-wsm" eventType="touchUpInside" id="UNQ-oi-6Hw"/>
+                                                                <action selector="didTapBitrefill:" destination="CPA-Q1-wsm" eventType="touchUpInside" id="8Xy-KG-2WA"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -112,8 +112,89 @@
                                         <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="135" id="mEh-b6-kU5" userLabel="Moonpay Cell">
+                                        <rect key="frame" x="0.0" y="185" width="414" height="135"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mEh-b6-kU5" id="7Uf-fW-Q9i">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aM4-Bk-h6o">
+                                                    <rect key="frame" x="15" y="15" width="384" height="105"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FS-ma-mms">
+                                                            <rect key="frame" x="115" y="10" width="229" height="20"/>
+                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Bold" family="Barlow Semi Condensed" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjQ-Bk-Uoa">
+                                                            <rect key="frame" x="115" y="31" width="229" height="18"/>
+                                                            <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf3-rG-mDN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="105" id="S1K-lw-qti"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonpay-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zuf-O8-1xc">
+                                                            <rect key="frame" x="10" y="10" width="85" height="85"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteRightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-YG-8TB">
+                                                            <rect key="frame" x="354" y="0.0" width="20" height="105"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="nEI-z6-pcd"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbZ-yA-DPX">
+                                                            <rect key="frame" x="105" y="0.0" width="279" height="105"/>
+                                                            <connections>
+                                                                <action selector="didTapMoonpay:" destination="CPA-Q1-wsm" eventType="touchUpInside" id="G4j-vF-ha9"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="IbZ-yA-DPX" secondAttribute="bottom" id="0jt-PU-Nlp"/>
+                                                        <constraint firstItem="Zuf-O8-1xc" firstAttribute="leading" secondItem="aM4-Bk-h6o" secondAttribute="leading" constant="10" id="1jN-7l-nZ3"/>
+                                                        <constraint firstItem="SjQ-Bk-Uoa" firstAttribute="top" secondItem="0FS-ma-mms" secondAttribute="bottom" constant="1" id="1tr-FA-WnU"/>
+                                                        <constraint firstItem="Zuf-O8-1xc" firstAttribute="trailing" secondItem="Hf3-rG-mDN" secondAttribute="trailing" constant="-10" id="2hd-yn-JiC"/>
+                                                        <constraint firstItem="0FS-ma-mms" firstAttribute="top" secondItem="Zuf-O8-1xc" secondAttribute="top" id="4Gn-2h-tZA"/>
+                                                        <constraint firstItem="IbZ-yA-DPX" firstAttribute="leading" secondItem="Hf3-rG-mDN" secondAttribute="trailing" id="7sc-o8-nUn"/>
+                                                        <constraint firstItem="tDL-YG-8TB" firstAttribute="leading" secondItem="SjQ-Bk-Uoa" secondAttribute="trailing" constant="10" id="8DD-PD-W1z"/>
+                                                        <constraint firstItem="Hf3-rG-mDN" firstAttribute="top" secondItem="aM4-Bk-h6o" secondAttribute="top" id="Fn3-BF-ro7"/>
+                                                        <constraint firstItem="Zuf-O8-1xc" firstAttribute="top" secondItem="aM4-Bk-h6o" secondAttribute="top" constant="10" id="Fse-gr-bYk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="tDL-YG-8TB" secondAttribute="bottom" id="HNV-hh-NDP"/>
+                                                        <constraint firstItem="tDL-YG-8TB" firstAttribute="top" secondItem="aM4-Bk-h6o" secondAttribute="top" id="NNe-GG-v9o"/>
+                                                        <constraint firstItem="IbZ-yA-DPX" firstAttribute="top" secondItem="aM4-Bk-h6o" secondAttribute="top" id="PL3-Sj-1Ad"/>
+                                                        <constraint firstItem="Hf3-rG-mDN" firstAttribute="leading" secondItem="aM4-Bk-h6o" secondAttribute="leading" id="WOL-NZ-ZGp"/>
+                                                        <constraint firstItem="0FS-ma-mms" firstAttribute="leading" secondItem="Hf3-rG-mDN" secondAttribute="trailing" constant="10" id="Xk9-Jp-hq1"/>
+                                                        <constraint firstItem="tDL-YG-8TB" firstAttribute="leading" secondItem="0FS-ma-mms" secondAttribute="trailing" constant="10" id="fLy-gr-fRR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Zuf-O8-1xc" secondAttribute="bottom" constant="10" id="fcE-33-his"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tDL-YG-8TB" secondAttribute="trailing" constant="10" id="n7x-Ya-Kpm"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Hf3-rG-mDN" secondAttribute="bottom" id="oee-xU-QRD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="IbZ-yA-DPX" secondAttribute="trailing" id="rw9-YT-oNA"/>
+                                                        <constraint firstItem="SjQ-Bk-Uoa" firstAttribute="leading" secondItem="Hf3-rG-mDN" secondAttribute="trailing" constant="10" id="zuG-6D-R4B"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstItem="aM4-Bk-h6o" firstAttribute="leading" secondItem="7Uf-fW-Q9i" secondAttribute="leading" constant="15" id="5cm-b1-Qkt"/>
+                                                <constraint firstItem="aM4-Bk-h6o" firstAttribute="top" secondItem="7Uf-fW-Q9i" secondAttribute="top" constant="15" id="NzU-Sd-mfj"/>
+                                                <constraint firstAttribute="trailing" secondItem="aM4-Bk-h6o" secondAttribute="trailing" constant="15" id="Pl4-kc-Be4"/>
+                                                <constraint firstAttribute="bottom" secondItem="aM4-Bk-h6o" secondAttribute="bottom" constant="15" id="hEX-0p-WR3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="44" id="6fX-UQ-xSQ" userLabel="Choose Currency Cell">
-                                        <rect key="frame" x="0.0" y="163" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="320" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6fX-UQ-xSQ" id="Vww-FT-Hyz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -157,7 +238,7 @@
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="135" id="O3u-IZ-dNY" userLabel="Simplex Cell">
-                                        <rect key="frame" x="0.0" y="207" width="414" height="135"/>
+                                        <rect key="frame" x="0.0" y="364" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O3u-IZ-dNY" id="hQj-Ef-aao">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
@@ -238,7 +319,7 @@
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="44" id="dx7-ld-3lB" userLabel="Choose Currency Cell">
-                                        <rect key="frame" x="0.0" y="342" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="499" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dx7-ld-3lB" id="DPo-16-Dlo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -290,10 +371,14 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="moonpayCellContainerView" destination="saf-YY-CZV" id="bDP-d0-Jht"/>
-                        <outlet property="moonpayDetailsLabel" destination="Sc4-Tf-eew" id="FB0-Yi-O5z"/>
-                        <outlet property="moonpayHeaderLabel" destination="qJD-Jg-VQT" id="TGp-RF-Qlb"/>
-                        <outlet property="moonpayLogoImageView" destination="bFh-PE-RZR" id="HoM-SG-6qN"/>
+                        <outlet property="bitrefillCellContainerView" destination="saf-YY-CZV" id="VRb-Vo-5Y9"/>
+                        <outlet property="bitrefillDetailsLabel" destination="Sc4-Tf-eew" id="2da-Va-509"/>
+                        <outlet property="bitrefillHeaderLabel" destination="qJD-Jg-VQT" id="SZ9-6O-hi3"/>
+                        <outlet property="bitrefillLogoImageView" destination="bFh-PE-RZR" id="o62-G3-Ez1"/>
+                        <outlet property="moonpayCellContainerView" destination="aM4-Bk-h6o" id="kaH-No-6D9"/>
+                        <outlet property="moonpayDetailsLabel" destination="SjQ-Bk-Uoa" id="jI8-AL-cHK"/>
+                        <outlet property="moonpayHeaderLabel" destination="0FS-ma-mms" id="wzc-IJ-g76"/>
+                        <outlet property="moonpayLogoImageView" destination="Zuf-O8-1xc" id="LUx-0s-wMx"/>
                         <outlet property="moonpaySegmentedControl" destination="3qp-zb-Xeb" id="BTq-2g-NqE"/>
                         <outlet property="simplexCellContainerView" destination="Krb-ZF-yM2" id="Mbq-CV-het"/>
                         <outlet property="simplexCurrencySegmentedControl" destination="dbv-v7-8b2" id="EmQ-vP-mF4"/>
@@ -315,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-DW-bzr">
-                                <rect key="frame" x="0.0" y="44" width="44" height="44"/>
+                                <rect key="frame" x="0.0" y="48" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="3Pz-dG-E2K"/>
                                     <constraint firstAttribute="height" constant="44" id="s2m-cd-QH3"/>
@@ -326,7 +411,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skG-jf-LeS">
-                                <rect key="frame" x="44" y="44" width="370" height="44"/>
+                                <rect key="frame" x="44" y="48" width="370" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ieq-lM-dBP">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -371,14 +456,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bl2-rg-gXU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="1"/>
                                 <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="8cO-OK-SEE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8i-BX-bac">
-                                <rect key="frame" x="0.0" y="89" width="414" height="773"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -415,6 +500,7 @@
     </scenes>
     <resources>
         <image name="LeftArrow" width="7" height="12"/>
+        <image name="bitrefillLogo" width="426" height="530"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="moonpay-logo" width="52.333332061767578" height="48.333332061767578"/>
         <image name="whiteRightArrow" width="40" height="46"/>
