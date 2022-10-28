@@ -10,9 +10,10 @@ private let verticalButtonPadding: CGFloat = 15.0
 private let buttonSize = CGSize(width: 52.0, height: 32.0)
 
 let swiftUICellPadding = 12.0
-class SendViewController: UIViewController, Subscriber, ModalPresentable, Trackable {
-	// MARK: - Public
 
+class SendViewController: UIViewController, Subscriber, ModalPresentable, Trackable {
+	// MARK: - Public 
+	
 	var presentScan: PresentScan?
 	var presentVerifyPin: ((String, @escaping VerifyPinCallback) -> Void)?
 	var onPublishSuccess: (() -> Void)?
