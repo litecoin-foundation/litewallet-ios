@@ -50,6 +50,8 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
           
         let urlString: String = APIServer.baseUrl + "?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
              
+        print("::: \(urlString)")
+
         guard let url = URL(string: urlString) else {
             NSLog("ERROR: URL not initialized")
             return
