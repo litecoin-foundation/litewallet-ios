@@ -42,7 +42,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
         let timestamp = Int(appInstallDate.timeIntervalSince1970)
         
         let urlString = APIServer.baseUrl + "moonpay/buy" + "?address=\(currentWalletAddress)&idate=\(timestamp)&uid=\(uuidString)&code=\(currencyCode)"
-        print("::: \(urlString)")
+        print("::: Moonpay \(urlString)")
         guard let url = URL(string: urlString) else { return }
         
         let sfSafariVC = SFSafariViewController(url: url)
