@@ -41,7 +41,12 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
         
         let timestamp = Int(appInstallDate.timeIntervalSince1970)
         
+        /// Production url request
         let urlString = APIServer.baseUrl + "moonpay/buy" + "?address=\(currentWalletAddress)&idate=\(timestamp)&uid=\(uuidString)&code=\(currencyCode)"
+        
+        //DEV: Local url request for API Server debugging
+        // let urlString = APIServer.localUrl + "moonpay/buy" + "?address=\(currentWalletAddress)&idate=\(timestamp)&uid=\(uuidString)&code=\(currencyCode)"
+        
         print("::: Moonpay \(urlString)")
         guard let url = URL(string: urlString) else { return }
         

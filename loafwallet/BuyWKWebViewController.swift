@@ -48,8 +48,12 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
     
     func loadSimplexRequest() {
           
+        /// Production url request
         let urlString: String = APIServer.baseUrl + "?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
-             
+        
+        //DEV: Local url request for API Server debugging
+        // let urlString = APIServer.localUrl + "moonpay/buy" + "?address=\(currentWalletAddress)&idate=\(timestamp)&uid=\(uuidString)&code=\(currencyCode)"
+        
         print("::: Simplex \(urlString)")
 
         guard let url = URL(string: urlString) else {
