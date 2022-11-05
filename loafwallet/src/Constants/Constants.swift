@@ -47,121 +47,113 @@ enum WalletType: String {
 /// Custom Event Enum: Events related to different user based actions
 enum CustomEvent: String {
     /// App Launched
-    case _20191105_AL = "APP_LAUNCHED"
-    
-    /// App Visit Send Controller
-    case _20191105_VSC = "VISIT_SEND_CONTROLLER"
-    
+    case _20191105_AL = "app_launched"
+     
     /// Visit Receive Controller
-    case _20202116_VRC = "VISIT_RECEIVE_CONTROLLER"
+    case _20202116_VRC = "visited_received_controller"
+    
+    /// Visit Send Controller
+    case _20191105_VSC = "visited_send_controller"
+    
+    /// Did Tap Buy Tab Controller
+    case _20191105_DTBT = "did_tap_buy_tab"
     
     /// Did Send LTC
-    case _20191105_DSL = "DID_SEND_LTC"
+    case _20191105_DSL = "did_send_ltc"
     
-    /// Updated LTC price
-    case _20191105_DULP = "DID_UPDATE_LTC_PRICE"
-    
-    /// User tapped Buy tab
-    case _20191105_DTBT = "DID_TAP_BUY_TAB"
+    /// Did Tap Support
+    case _20201118_DTS = "did_tap_support"
     
     /// Entered dispatch group
-    case _20200111_DEDG = "DID_ENTER_DISPATCH_GROUP"
-    
+    case _20200111_DEDG = "did_enter_dispatch_group"
+ 
     /// Left dispatch group
-    case _20200111_DLDG = "DID_LEAVE_DISPATCH_GROUP"
-    
+    case _20200111_DLDG = "did_leave_dispatch_group"
+
     /// Rate not initialized
-    case _20200111_RNI = "RATE_NOT_INITIALIZED"
+    case _20200111_RNI = "rate_not_initialized"
     
     /// Fee per kb not initialized
-    case _20200111_FNI = "FEEPERKB_NOT_INITIALIZED"
+    case _20200111_FNI = "feeperkb_not_initialized"
     
     /// Transaction not initialized
-    case _20200111_TNI = "TRANSACTION_NOT_INITIALIZED"
+    case _20200111_TNI = "transaction_not_initialized"
     
     /// Wallet not initialized
-    case _20200111_WNI = "WALLET_NOT_INITIALIZED"
+    case _20200111_WNI = "wallet_not_initialized"
     
     /// Phrase not initialized
-    case _20200111_PNI = "PHRASE_NOT_INITIALIZED"
+    case _20200111_PNI = "phrase_not_initialized"
     
     /// Unable to sign transaction
-    case _20200111_UTST = "UNABLE_TO_SIGN_TRANSACTION"
-    
+    case _20200111_UTST = "unable_to_sign_transaction"
+
     /// Generalized Error
-    case _20200112_ERR = "ERROR"
+    case _20200112_ERR = "error"
     
     /// Keychain Lookup
-    case _20210804_ERR_KLF = "ERROR_KEY_LOOKUP_FAILURE"
+    case _20210804_ERR_KLF = "error_key_lookup_failure"
     
     /// Started resync
-    case _20200112_DSR = "DID_START_RESYNC"
+    case _20200112_DSR = "did_start_resync"
     
     /// Showed review request
-    case _20200125_DSRR = "DID_SHOW_REVIEW_REQUEST"
-    
+    case _20200125_DSRR = "did_show_review_request"
+
     /// Unlocked in with PIN
-    case _20200217_DUWP = "DID_UNLOCK_WITH_PIN"
-    
+    case _20200217_DUWP = "did_unlock_with_pin"
+     
     /// App Launched
-    case _20200217_DUWB = "DID_UNLOCK_WITH_BIOMETRICS"
-    
-    /// Did donate
-    case _20200223_DD = "DID_DONATE"
-    
-    /// Did cancel donation
-    case _20200225_DCD = "DID_CANCEL_DONATE"
+    case _20200217_DUWB = "did_unlock_with_biometrics"
     
     /// Did use default fee per kb
-    case _20200301_DUDFPK = "DID_USE_DEFAULT_FEE_PER_KB"
-    
+    case _20200301_DUDFPK = "did_use_default_fee_per_kb"
+
     /// User tapped support LF
-    case _20201118_DTS = "DID_TAP_SUPPORT_LF"
+    case _20201118_DTGS = "did_tap_get_support"
     
     /// Started IFPS Lookup
-    case _20201121_SIL = "STARTED_IFPS_LOOKUP"
+    case _20201121_SIL = "started_IFPS_lookup"
     
     /// Resolved IPFS Address
-    case _20201121_DRIA = "DID_RESOLVE_IPFS_ADDRESS"
+    case _20201121_DRIA = "did_resolve_IPFS_address"
     
     /// Failed to resolve IPFS Address
-    case _20201121_FRIA = "FAILED_RESOLVE_IPFS_ADDRESS" 
-	
+    case _20201121_FRIA = "failed_resolve_IPFS_address"
+    
     /// User tapped balance
-    case _20200207_DTHB = "DID_TAP_HEADER_BALANCE"
+    case _20200207_DTHB = "did_tap_header_balance"
     
     /// Ternio API Wallet details failure
-    case _20210405_TAWDF = "TERNIO_API_WALLET_DETAILS_FAILURE"
-      
+    case _20210405_TAWDF = "ternio_api_wallet_details_failure"
+    
     /// Ternio API Authenticate Enable 2FA change
-    case _20210804_TAA2FAC = "TERNIO_API_AUTH_2FA_CHANGE"
+    case _20210804_TAA2FAC = "ternio_API_auth_2FA_change"
     
     /// Ternio API Wallet details success
-    case _20210804_TAWDS = "TERNIO_API_WALLET_DETAILS_SUCCESS"
+    case _20210804_TAWDS = "ternio_API_wallet_details_success"
     
     /// Ternio API Login
-    case _20210804_TAULI = "TERNIO_API_USER_LOG_IN"
+    case _20210804_TAULI = "ternio_API_user_log_in"
     
     /// Ternio API Logout
-    case _20210804_TAULO = "TERNIO_API_USER_LOG_OUT"
-     
-    /// Ternio API withdrawal to Litewallet
-    case _20210804_TAWTL = "TERNIO_API_WITHDRAWAL_TO_LITEWALLET"
-
+    case _20210804_TAULO = "ternio_API_user_log_out"
+    
     /// Heartbeat check If event even happens
-    case _20210427_HCIEEH = "HEARTBEAT_CHECK_IF_EVENT_EVEN_HAPPENS"
+    case _20210427_HCIEEH = "heartbeat_check_if_event_even_happens"
     
     /// User Tapped on  UD Image
-    case _20220822_UTOU = "USER_TAPPED_ON_UD"
+    case _20220822_UTOU = "user_tapped_on_ud"
+    
 }
 
 struct FoundationSupport {
 
-    static let url = URL(string: "https://lite-wallet.org/support_address.html")!
+    static let dashboard = "https://litecoinfoundation.zendesk.com/"
 
     /// Litecoin Foundation main donation address: MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe
     /// As of Nov 14th, 2020
-    static let supportLTCAddress = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
+    static let donationLTCAddress = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
 } 
 
 struct APIServer {

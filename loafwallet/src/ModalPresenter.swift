@@ -363,9 +363,11 @@ class ModalPresenter : Subscriber, Trackable {
         menu.didTapSupport = { [weak self, weak menu] in
             menu?.dismiss(animated: true, completion: {
                 
-                let urlString = "https://support.litewallet.io"
+                let urlString = FoundationSupport.dashboard
                 
                 guard let url = URL(string: urlString) else { return }
+                
+                LWAnalytics.logEventWithParameters(itemName: ._20201118_DTS)
                 
                 let vc = SFSafariViewController(url: url)
                 self?.topViewController?.present(vc, animated: true, completion: nil)

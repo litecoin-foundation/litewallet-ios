@@ -38,7 +38,11 @@ class SendViewController : UIViewController, Subscriber, ModalPresentable, Track
         self.initialRequest = initialRequest
         self.currency = ShadowButton(title: S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
         self.amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false)
+        
+        LWAnalytics.logEventWithParameters(itemName: ._20191105_VSC)
+        
         super.init(nibName: nil, bundle: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
     }

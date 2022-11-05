@@ -47,14 +47,7 @@
 @implementation BRTodayViewController
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-   //TODO: TO REFACTOR TO SWIFT to add Firebase event test points
-   // Mixpanel.mainInstance().track(event: K.MixpanelEvents._20191105_VSC.rawValue)
-   // Mixpanel *mixpanel = [Mixpanel sharedInstance];
-   // [mixpanel track:@"Plan selected"
-   // properties:@{ @"Plan": @"Premium" }];
-   // Mixpanel
-   //  _ = LWAnalytics.init(itemName: ._20191105_VSC, properties: nil)
+    [super viewDidLoad]; 
     
     if ([[self.extensionContext class] instancesRespondToSelector:@selector(widgetLargestAvailableDisplayMode)]) {
         self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
