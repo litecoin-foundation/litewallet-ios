@@ -101,7 +101,7 @@ class AboutViewController: UIViewController {
 		privacy.tap = strongify(self) { myself in
 			myself.presentURL(string: "https://litewallet.io/privacy/policy.html")
 		}
-	}
+	} 
 
 	private func presentURL(string: String) {
 		let vc = SFSafariViewController(url: URL(string: string)!)

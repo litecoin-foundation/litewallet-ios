@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 
 enum PartnerName {
-	case unstop
-    case changeNow 
-} 
+    case unstop
+    case changeNow
+}
 
 struct Partner {
 	let logo: UIImage
