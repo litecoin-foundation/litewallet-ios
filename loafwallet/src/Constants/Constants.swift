@@ -61,6 +61,9 @@ enum CustomEvent: String {
     /// Did Send LTC
     case _20191105_DSL = "did_send_ltc"
     
+    /// Did Tap Support
+    case _20201118_DTS = "did_tap_support"
+    
     /// Entered dispatch group
     case _20200111_DEDG = "did_enter_dispatch_group"
  
