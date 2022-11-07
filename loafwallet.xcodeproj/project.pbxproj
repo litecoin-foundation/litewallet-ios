@@ -3729,6 +3729,7 @@
 			buildPhases = (
 				825805FFD443BACDA18265D0 /* [CP] Check Pods Manifest.lock */,
 				2430679A238F538C00EBEA99 /* Update Localizable using BartyCrouch */,
+				58A9FE4829191E4700B75825 /* Check for unused code */,
 				75A2A78C1DA5934300A983D8 /* Sources */,
 				75A2A78D1DA5934300A983D8 /* Frameworks */,
 				75A2A78E1DA5934300A983D8 /* Resources */,
