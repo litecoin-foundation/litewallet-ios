@@ -157,12 +157,7 @@ struct FoundationSupport {
 } 
 
 struct APIServer {
-     
-    #if DEBUG
-    static let baseUrl = "https://api-stage.lite-wallet.org/"
-    #else
     static let baseUrl = "https://api-prod.lite-wallet.org/"
-    #endif
 } 
 
 struct Padding {
