@@ -3736,6 +3736,7 @@
 				22A9A9831DF63288000F0016 /* Embed Frameworks */,
 				C3A3FFB526FE46E8000FE955 /* Mark Dev Notes */,
 				58A9FE4829191E4700B75825 /* Check for unused code */,
+				58A9FE4C291BC37400B75825 /* Count number of swift lines */,
 				A8B781CCE67F374858723014 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -4002,6 +4003,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "file=\"unused.rb\"\nif [ -f \"$file\" ]\nthen\necho \"$file found.\"\nruby unused.rb xcode\nelse\necho \"unused.rb doesn't exist\"\nfi\n";
+		};
+		58A9FE4C291BC37400B75825 /* Count number of swift lines */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Count number of swift lines";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"Total number of swift lines\\n------------------\" && find . -path ./Pods -prune -o -name '*.swift' -print0 ! -name '/Pods' | xargs -0 wc -l | grep \"total\"\n";
 		};
 		825805FFD443BACDA18265D0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
