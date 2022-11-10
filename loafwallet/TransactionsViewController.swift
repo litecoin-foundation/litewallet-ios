@@ -57,6 +57,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
       setup()
       addSubscriptions()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            self.currentPromptType = .recommendRescan
+        })
     }
     
     private func setup() {
