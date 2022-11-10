@@ -19,7 +19,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	var selectedIndexes = [IndexPath: NSNumber]()
 	var shouldBeSyncing: Bool = false
 	var syncingHeaderView: SyncProgressHeaderView?
-	var shouldShowPrompt = true
+	var shouldShowPrompt = true 
 
 	private var transactions: [Transaction] = []
 	private var allTransactions: [Transaction] = [] {
@@ -368,7 +368,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		// MARK: - Wallet State:  Show Status Bar
 
 		store.subscribe(self, name: .showStatusBar) { _ in
-			// DEV: May fix where the action view persists after confirming pin
+			// DEV: May refactor where the action view persists after confirming pin
 			self.reload()
 		}
 
