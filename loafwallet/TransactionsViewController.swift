@@ -44,7 +44,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         didSet {
             if currentPromptType != nil && oldValue == nil {
                 tableView.beginUpdates()
-                tableView.insertSections(IndexSet(integer: 0), with: .automatic)
+                tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                 tableView.endUpdates()
             }
         }
