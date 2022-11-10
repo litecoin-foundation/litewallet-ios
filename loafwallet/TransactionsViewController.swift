@@ -44,7 +44,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         didSet {
             if currentPromptType != nil && oldValue == nil {
                 tableView.beginUpdates()
-                tableView.insertSections(IndexSet(integer: 0), with: .automatic)
+                tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                 tableView.endUpdates()
             }
         }
@@ -57,6 +57,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
       setup()
       addSubscriptions()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            self.currentPromptType = .recommendRescan
+        })
     }
     
     private func setup() {
