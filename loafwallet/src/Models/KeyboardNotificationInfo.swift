@@ -1,39 +1,38 @@
-//
-//  KeyboardNotificationInfo.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2016-12-28.
-//  Copyright © 2016 breadwallet LLC. All rights reserved.
-//
-
 import UIKit
 
-struct KeyboardNotificationInfo {
+struct KeyboardNotificationInfo
+{
+	var deltaY: CGFloat
+	{
+		return endFrame.minY - startFrame.minY
+	}
 
-    var deltaY: CGFloat {
-        return endFrame.minY - startFrame.minY
-    }
-    var animationOptions: UIViewAnimationOptions {
-        return UIViewAnimationOptions(rawValue: animationCurve << 16)
-    }
-    let animationDuration: Double
+	var animationOptions: UIViewAnimationOptions
+	{
+		return UIViewAnimationOptions(rawValue: animationCurve << 16)
+	}
 
-    init?(_ userInfo: [AnyHashable : Any]?) {
-        guard let userInfo = userInfo else { return nil }
-        guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
-            let startFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue,
-            let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
-            let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber else {
-            return nil
-        }
+	let animationDuration: Double
 
-        self.endFrame = endFrame.cgRectValue
-        self.startFrame = startFrame.cgRectValue
-        self.animationDuration = animationDuration.doubleValue
-        self.animationCurve = animationCurve.uintValue
-    }
+	init?(_ userInfo: [AnyHashable: Any]?)
+	{
+		guard let userInfo = userInfo else { return nil }
+		guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
+		      let startFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue,
+		      let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
+		      let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+		else
+		{
+			return nil
+		}
 
-    private let endFrame: CGRect
-    private let startFrame: CGRect
-    private let animationCurve: UInt
+		self.endFrame = endFrame.cgRectValue
+		self.startFrame = startFrame.cgRectValue
+		self.animationDuration = animationDuration.doubleValue
+		self.animationCurve = animationCurve.uintValue
+	}
+
+	private let endFrame: CGRect
+	private let startFrame: CGRect
+	private let animationCurve: UInt
 }

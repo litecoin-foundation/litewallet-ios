@@ -1,94 +1,111 @@
-//
-//  BRReplicatedKVStoreTests.swift
-//  breadwallet
-//
-//  Created by Samuel Sutch on 12/7/16.
-//  Copyright © 2016 breadwallet LLC. All rights reserved.
-//
-
-import XCTest
-@testable import loafwallet
 import BRCore
+@testable import loafwallet
+import XCTest
 
-class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
-    let testCase: XCTestCase
-    var db = [String: (UInt64, Date, [UInt8], Bool)]()
-    
-    init(testCase: XCTestCase) {
-        self.testCase = testCase
-    }
-    
-    func keys(_ completionFunc: @escaping ([(String, UInt64, Date, BRRemoteKVStoreError?)], BRRemoteKVStoreError?) -> ()) {
-        print("[TestRemoteKVStore] KEYS")
-        DispatchQueue.main.async {
-            let res = self.db.map { (t) -> (String, UInt64, Date, BRRemoteKVStoreError?) in
-                return (t.0, t.1.0, t.1.1, t.1.3 ? BRRemoteKVStoreError.tombstone : nil)
-            }
-            completionFunc(res, nil)
-        }
-    }
-    
-    func ver(key: String, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> ()) {
-        print("[TestRemoteKVStore] VER \(key)")
-        DispatchQueue.main.async {
-            guard let obj = self.db[key] else {
-                return completionFunc(0, Date(), .notFound)
-            }
-            completionFunc(obj.0, obj.1, obj.3 ? .tombstone : nil)
-        }
-    }
-    
-    func get(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, [UInt8], BRRemoteKVStoreError?) -> ()) {
-        print("[TestRemoteKVStore] GET \(key) \(version)")
-        DispatchQueue.main.async {
-            guard let obj = self.db[key] else {
-                return completionFunc(0, Date(), [], .notFound)
-            }
-            if version != obj.0 {
-                return completionFunc(0, Date(), [], .conflict)
-            }
-            completionFunc(obj.0, obj.1, obj.2, obj.3 ? .tombstone : nil)
-        }
-    }
-    
-    func put(_ key: String, value: [UInt8], version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> ()) {
-        print("[TestRemoteKVStore] PUT \(key) \(version)")
-        DispatchQueue.main.async {
-            guard let obj = self.db[key] else {
-                if version != 1 {
-                    return completionFunc(1, Date(), .notFound)
-                }
-                let newObj = (UInt64(1), Date(), value, false)
-                self.db[key] = newObj
-                return completionFunc(1, newObj.1, nil)
-            }
-            if version != obj.0 {
-                return completionFunc(0, Date(), .conflict)
-            }
-            let newObj = (obj.0 + 1, Date(), value, false)
-            self.db[key] = newObj
-            completionFunc(newObj.0, newObj.1, nil)
-        }
-    }
-    
-    func del(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> ()) {
-        print("[TestRemoteKVStore] DEL \(key) \(version)")
-        DispatchQueue.main.async {
-            guard let obj = self.db[key] else {
-                return completionFunc(0, Date(), .notFound)
-            }
-            if version != obj.0 {
-                return completionFunc(0, Date(), .conflict)
-            }
-            let newObj = (obj.0 + 1, Date(), obj.2, true)
-            self.db[key] = newObj
-            completionFunc(newObj.0, newObj.1, nil)
-        }
-    }
+class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor
+{
+	let testCase: XCTestCase
+	var db = [String: (UInt64, Date, [UInt8], Bool)]()
+
+	init(testCase: XCTestCase)
+	{
+		self.testCase = testCase
+	}
+
+	func keys(_ completionFunc: @escaping ([(String, UInt64, Date, BRRemoteKVStoreError?)], BRRemoteKVStoreError?) -> Void)
+	{
+		print("[TestRemoteKVStore] KEYS")
+		DispatchQueue.main.async
+		{
+			let res = self.db.map
+			{ t -> (String, UInt64, Date, BRRemoteKVStoreError?) in
+				(t.0, t.1.0, t.1.1, t.1.3 ? BRRemoteKVStoreError.tombstone : nil)
+			}
+			completionFunc(res, nil)
+		}
+	}
+
+	func ver(key: String, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void)
+	{
+		print("[TestRemoteKVStore] VER \(key)")
+		DispatchQueue.main.async
+		{
+			guard let obj = self.db[key]
+			else
+			{
+				return completionFunc(0, Date(), .notFound)
+			}
+			completionFunc(obj.0, obj.1, obj.3 ? .tombstone : nil)
+		}
+	}
+
+	func get(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, [UInt8], BRRemoteKVStoreError?) -> Void)
+	{
+		print("[TestRemoteKVStore] GET \(key) \(version)")
+		DispatchQueue.main.async
+		{
+			guard let obj = self.db[key]
+			else
+			{
+				return completionFunc(0, Date(), [], .notFound)
+			}
+			if version != obj.0
+			{
+				return completionFunc(0, Date(), [], .conflict)
+			}
+			completionFunc(obj.0, obj.1, obj.2, obj.3 ? .tombstone : nil)
+		}
+	}
+
+	func put(_ key: String, value: [UInt8], version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void)
+	{
+		print("[TestRemoteKVStore] PUT \(key) \(version)")
+		DispatchQueue.main.async
+		{
+			guard let obj = self.db[key]
+			else
+			{
+				if version != 1
+				{
+					return completionFunc(1, Date(), .notFound)
+				}
+				let newObj = (UInt64(1), Date(), value, false)
+				self.db[key] = newObj
+				return completionFunc(1, newObj.1, nil)
+			}
+			if version != obj.0
+			{
+				return completionFunc(0, Date(), .conflict)
+			}
+			let newObj = (obj.0 + 1, Date(), value, false)
+			self.db[key] = newObj
+			completionFunc(newObj.0, newObj.1, nil)
+		}
+	}
+
+	func del(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void)
+	{
+		print("[TestRemoteKVStore] DEL \(key) \(version)")
+		DispatchQueue.main.async
+		{
+			guard let obj = self.db[key]
+			else
+			{
+				return completionFunc(0, Date(), .notFound)
+			}
+			if version != obj.0
+			{
+				return completionFunc(0, Date(), .conflict)
+			}
+			let newObj = (obj.0 + 1, Date(), obj.2, true)
+			self.db[key] = newObj
+			completionFunc(newObj.0, newObj.1, nil)
+		}
+	}
 }
 
 // DEV: Retained for debugging.  This code is designed for BTC not LTC. It needs to be refactored.
-//class BRReplicatedKVStoreTest: XCTestCase {
+// class BRReplicatedKVStoreTest: XCTestCase {
 //    var store: BRReplicatedKVStore!
 //    var key: BRKey {
 //        var key = BRKey()
@@ -99,7 +116,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        return key
 //    }
 //    var adapter: BRReplicatedKVStoreTestAdapter!
-//    
+//
 //    override func setUp() {
 //        super.setUp()
 //        adapter = BRReplicatedKVStoreTestAdapter(testCase: self)
@@ -111,13 +128,13 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        store = try! BRReplicatedKVStore(encryptionKey: key, remoteAdaptor: adapter)
 //        store.encryptedReplication = false
 //    }
-//    
+//
 //    override func tearDown() {
 //        super.tearDown()
 //        try! store.rmdb()
 //        store = nil
 //    }
-//    
+//
 //    func XCTAssertDatabasesAreSynced() { // this only works for keys that are not marked deleted
 //        var remoteKV = [String: [UInt8]]()
 //        for (k, v) in adapter.db {
@@ -139,20 +156,20 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //            XCTAssertEqual(v, remoteKV[k] ?? [])
 //        }
 //    }
-//    
+//
 //    // MARK: - local db tests
-//    
+//
 //    func testSetLocalDoesntThrow() {
 //        let (v1, t1) = try! store.set("hello", value: [0, 0, 0], localVer: 0)
 //        XCTAssertEqual(1, v1)
 //        XCTAssertNotNil(t1)
 //    }
-//    
+//
 //    func testSetLocalIncrementsVersion() {
 //        _ = try! store.set("hello", value: [0, 1], localVer: 0)
 //        XCTAssertEqual(try! store.localVersion("hello").0, 1)
 //    }
-//    
+//
 ////    func testSetThenGet() {
 ////        let (v1, t1) = try! store.set("hello", value: [0, 1], localVer: 0)
 ////        let (v, t, d, val) = try! store.get("hello")
@@ -161,19 +178,19 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 ////        XCTAssertEqual(t1.timeIntervalSince1970, t.timeIntervalSince1970, accuracy: 0.001)
 ////        XCTAssertEqual(d, false)
 ////    }
-//    
+//
 //    func testSetThenSetIncrementsVersion() {
 //        let (v1, _) = try! store.set("hello", value: [0, 1], localVer: 0)
 //        let (v2, _) = try! store.set("hello", value: [0, 2], localVer: v1)
 //        XCTAssertEqual(v2, v1 + UInt64(1))
 //    }
-//    
+//
 //    func testSetThenDel() {
 //        let (v1, _) = try! store.set("hello", value: [0, 1], localVer: 0)
 //        let (v2, _) = try! store.del("hello", localVer: v1)
 //        XCTAssertEqual(v2, v1 + UInt64(1))
 //    }
-//    
+//
 //    func testSetThenDelThenGet() {
 //        let (v1, _) = try! store.set("hello", value: [0, 1], localVer: 0)
 //        _ = try! store.del("hello", localVer: v1)
@@ -181,24 +198,24 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        XCTAssert(d)
 //        XCTAssertEqual(v2, v1 + UInt64(1))
 //    }
-//    
+//
 //    func testSetWithIncorrectFirstVersionFails() {
 //        XCTAssertThrowsError(try store.set("hello", value: [0, 1], localVer: 1))
 //    }
-//    
+//
 //    func testSetWithStaleVersionFails() {
 //        _ = try! store.set("hello", value: [0, 1], localVer: 0)
 //        XCTAssertThrowsError(try store.set("hello", value: [0, 1], localVer: 0))
 //    }
-//    
+//
 //    func testGetNonExistentKeyFails() {
 //        XCTAssertThrowsError(try store.get("hello"))
 //    }
-//    
+//
 //    func testGetNonExistentKeyVersionFails() {
 //        XCTAssertThrowsError(try store.get("hello", version: 1))
 //    }
-//    
+//
 ////    func testGetAllKeys() {
 ////        let (v1, t1) = try! store.set("hello", value: [0, 1], localVer: 0)
 ////        let lst = try! store.localKeys()
@@ -209,7 +226,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 ////        XCTAssertEqual(0, lst[0].3)
 ////        XCTAssertEqual(false, lst[0].4)
 ////    }
-//    
+//
 //    func testSetRemoteVersion() {
 //        let (v1, _) = try! store.set("hello", value: [0, 1], localVer: 0)
 //        let (newV, _) = try! store.setRemoteVersion(key: "hello", localVer: v1, remoteVer: 1)
@@ -217,9 +234,9 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        let rmv = try! store.remoteVersion("hello")
 //        XCTAssertEqual(rmv, 1)
 //    }
-//    
+//
 //    // MARK: - syncing tests
-//    
+//
 //    func testBasicSyncGetAllObjects() {
 //        let exp = expectation(description: "sync")
 //        store.syncAllKeys { (err) in
@@ -231,7 +248,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        XCTAssertEqual(adapter.db.count - 1, allKeys.count) // minus 1: there is a deleted key that needent be synced
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testSyncTenTimes() {
 //        let exp = expectation(description: "sync")
 //        var n = 10
@@ -249,7 +266,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        waitForExpectations(timeout: 2, handler: nil)
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testSyncAddsLocalKeysToRemote() {
 //        store.syncImmediately = false
 //        _ = try! store.set("derp", value: [0, 1], localVer: 0)
@@ -262,7 +279,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        XCTAssertEqual(adapter.db["derp"]!.2, [0, 1])
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testSyncSavesRemoteVersion() {
 //        let exp = expectation(description: "sync")
 //        store.syncAllKeys { err in
@@ -275,7 +292,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        XCTAssertEqual(adapter.db["hello"]!.0, UInt64(rv)) // only saved the remote version
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testSyncPreventsAnotherConcurrentSync() {
 //        let exp1 = expectation(description: "sync")
 //        let exp2 = expectation(description: "sync2")
@@ -286,7 +303,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        }
 //        waitForExpectations(timeout: 1, handler: nil)
 //    }
-//    
+//
 //    func testLocalDeleteReplicates() {
 //        let exp1 = expectation(description: "sync1")
 //        store.syncImmediately = false
@@ -308,7 +325,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        XCTAssertDatabasesAreSynced()
 //        XCTAssertEqual(adapter.db["goodbye_cruel_world"]!.3, true)
 //    }
-//    
+//
 //    func testLocalUpdateReplicates() {
 //        let exp1 = expectation(description: "sync1")
 //        store.syncImmediately = false
@@ -329,7 +346,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        waitForExpectations(timeout: 1, handler: nil)
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testRemoteDeleteReplicates() {
 //        let exp1 = expectation(description: "sync1")
 //        store.syncAllKeys { (e) in
@@ -358,7 +375,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        waitForExpectations(timeout: 1, handler: nil)
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testRemoteUpdateReplicates() {
 //        let exp1 = expectation(description: "sync1")
 //        store.syncAllKeys { (e) in
@@ -387,11 +404,11 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        waitForExpectations(timeout: 1, handler: nil)
 //        XCTAssertDatabasesAreSynced()
 //    }
-//    
+//
 //    func testEnableEncryptedReplication() {
 //        adapter.db.removeAll()
 //        store.encryptedReplication = true
-//        
+//
 //        _ = try! store.set("derp", value: [0, 1], localVer: 0)
 //        let exp = expectation(description: "sync")
 //        store.syncAllKeys { (err) in
@@ -401,4 +418,4 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 //        waitForExpectations(timeout: 1, handler: nil)
 //        XCTAssertNotEqual(adapter.db["derp"]!.2, [0, 1])
 //    }
-//}
+// }

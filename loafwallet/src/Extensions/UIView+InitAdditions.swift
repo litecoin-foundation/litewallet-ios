@@ -1,26 +1,20 @@
-//
-//  UIView+InitAdditions.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2016-12-19.
-//  Copyright © 2016 breadwallet LLC. All rights reserved.
-//
-
-import UIKit
 import QuartzCore
+import UIKit
 
-extension UIView {
-    @objc convenience init(color: UIColor) {
-        self.init(frame: .zero)
-        backgroundColor = color
-    }
+extension UIView
+{
+	@objc convenience init(color: UIColor)
+	{
+		self.init(frame: .zero)
+		backgroundColor = color
+	}
 
-    var imageRepresentation: UIImage {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let tempImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return tempImage!
-    }
-
+	var imageRepresentation: UIImage
+	{
+		UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
+		layer.render(in: UIGraphicsGetCurrentContext()!)
+		let tempImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return tempImage!
+	}
 }
