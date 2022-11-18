@@ -1,0 +1,11 @@
+# format options
+--allman true
+--elseOnSameLine true
+--header strip
+--indent tab
+
+# file options
+--exclude Pods
+
+# rules
+--enable isEmpty
