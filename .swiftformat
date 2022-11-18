@@ -1,6 +1,5 @@
 # format options
 --allman true
---elseOnSameLine true
 --header strip
 --indent tab
 
