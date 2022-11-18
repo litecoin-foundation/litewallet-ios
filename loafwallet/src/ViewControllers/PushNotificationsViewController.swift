@@ -1,9 +1,7 @@
 import UIKit
 
-class PushNotificationsViewController: UIViewController
-{
-	init(store: Store)
-	{
+class PushNotificationsViewController: UIViewController {
+	init(store: Store) {
 		self.store = store
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -15,15 +13,13 @@ class PushNotificationsViewController: UIViewController
 	private let toggle = GradientSwitch()
 	private let separator = UIView(color: .secondaryShadow)
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(titleLabel)
 		view.addSubview(body)
 		view.addSubview(label)
@@ -31,8 +27,7 @@ class PushNotificationsViewController: UIViewController
 		view.addSubview(separator)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		titleLabel.constrain([
 			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
 			titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
@@ -58,8 +53,7 @@ class PushNotificationsViewController: UIViewController
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		view.backgroundColor = .whiteTint
 		titleLabel.text = S.PushNotifications.title
 		body.text = S.PushNotifications.body
@@ -71,16 +65,14 @@ class PushNotificationsViewController: UIViewController
 		toggle.valueChanged = { [weak self] in
 			guard let myself = self else { return }
 			myself.store.perform(action: PushNotifications.setIsEnabled(myself.toggle.isOn))
-			if myself.toggle.isOn
-			{
+			if myself.toggle.isOn {
 				myself.store.trigger(name: .registerForPushNotificationToken)
 			}
 		}
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

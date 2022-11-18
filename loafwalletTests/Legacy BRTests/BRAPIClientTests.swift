@@ -2,28 +2,23 @@ import BRCore
 @testable import loafwallet
 import XCTest
 
-class FakeAuthenticator: WalletAuthenticator
-{
+class FakeAuthenticator: WalletAuthenticator {
 	var secret: UInt256
 	let key: BRKey
 	var userAccount: [AnyHashable: Any]?
 
-	init()
-	{
+	init() {
 		let count = 32
 		var keyData = Data(count: count)
-		let result = keyData.withUnsafeMutableBytes
-		{
+		let result = keyData.withUnsafeMutableBytes {
 			SecRandomCopyBytes(kSecRandomDefault, count, $0)
 		}
-		if result != errSecSuccess
-		{
+		if result != errSecSuccess {
 			fatalError("couldnt generate random data for key")
 		}
 		print("base58 encoded secret key data \(keyData.base58)")
 		secret = keyData.uInt256
-		key = withUnsafePointer(to: &secret)
-		{ (secPtr: UnsafePointer<UInt256>) in
+		key = withUnsafePointer(to: &secret) { (secPtr: UnsafePointer<UInt256>) in
 			var k = BRKey()
 			k.compressed = 1
 			BRKeySetSecret(&k, secPtr, 0)
@@ -33,8 +28,7 @@ class FakeAuthenticator: WalletAuthenticator
 
 	var noWallet: Bool { return false }
 
-	var apiAuthKey: String?
-	{
+	var apiAuthKey: String? {
 		var k = key
 		k.compressed = 1
 		let pkLen = BRKeyPrivKey(&k, nil, 0)
@@ -45,33 +39,28 @@ class FakeAuthenticator: WalletAuthenticator
 }
 
 // This test will test against the live API at api.breadwallet.com
-class BRAPIClientTests: XCTestCase
-{
+class BRAPIClientTests: XCTestCase {
 	var authenticator: WalletAuthenticator!
 	var client: BRAPIClient!
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 		authenticator = FakeAuthenticator() // each test will get its own account
 		client = BRAPIClient(authenticator: authenticator)
 	}
 
-	override func tearDown()
-	{
+	override func tearDown() {
 		super.tearDown()
 		authenticator = nil
 		client = nil
 	}
 
-	func testPublicKeyEncoding()
-	{
+	func testPublicKeyEncoding() {
 		let pubKey1 = client.authKey!.publicKey.base58
 		let b = pubKey1.base58DecodedData()
 		let b2 = b.base58
 		XCTAssertEqual(pubKey1, b2) // sanity check on our base58 functions
-		let key = client.authKey!.publicKey.withUnsafeBytes
-		{ (ptr: UnsafePointer<UInt8>) -> BRKey in
+		let key = client.authKey!.publicKey.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) -> BRKey in
 			var k = BRKey()
 			BRKeySetPubKey(&k, ptr, client.authKey!.publicKey.count)
 			return k

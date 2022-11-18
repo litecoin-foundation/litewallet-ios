@@ -1,17 +1,13 @@
 import UIKit
 
-protocol GradientDrawable
-{
+protocol GradientDrawable {
 	func drawGradient(_ rect: CGRect)
 }
 
-extension UIView
-{
-	func drawGradient(_ rect: CGRect)
-	{
+extension UIView {
+	func drawGradient(_ rect: CGRect) {
 		guard !E.isIPhone4, !E.isIPhone5
-		else
-		{
+		else {
 			addFallbackImageBackground()
 			return
 		}
@@ -23,8 +19,7 @@ extension UIView
 		context.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: rect.width, y: 0.0), options: [])
 	}
 
-	private func addFallbackImageBackground()
-	{
+	private func addFallbackImageBackground() {
 		let image = UIImageView(image: #imageLiteral(resourceName: "HeaderGradient"))
 		image.contentMode = .scaleToFill
 		addSubview(image)
@@ -33,23 +28,18 @@ extension UIView
 	}
 }
 
-class GradientView: UIView
-{
-	override func draw(_ rect: CGRect)
-	{
+class GradientView: UIView {
+	override func draw(_ rect: CGRect) {
 		drawGradient(rect)
 	}
 }
 
-protocol SolidColorDrawable
-{
+protocol SolidColorDrawable {
 	func drawColor(color: UIColor, _ rect: CGRect)
 }
 
-extension UIView
-{
-	func drawColor(color _: UIColor = .liteWalletBlue, _: CGRect)
-	{
+extension UIView {
+	func drawColor(color _: UIColor = .liteWalletBlue, _: CGRect) {
 		let image = UIImageView(image: #imageLiteral(resourceName: "colorImageBlue"))
 		image.contentMode = .scaleToFill
 		addSubview(image)

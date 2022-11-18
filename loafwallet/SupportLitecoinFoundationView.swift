@@ -3,8 +3,7 @@ import SwiftUI
 import WebKit
 
 /// This cell is under the amount view and above the Memo view in the Send VC
-struct SupportLitecoinFoundationView: View
-{
+struct SupportLitecoinFoundationView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -18,15 +17,12 @@ struct SupportLitecoinFoundationView: View
 	var supportSafariView = SupportSafariView(url: FoundationSupport.url,
 	                                          viewModel: SupportSafariViewModel())
 
-	init(viewModel: SupportLitecoinFoundationViewModel)
-	{
+	init(viewModel: SupportLitecoinFoundationViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		VStack
-		{
+	var body: some View {
+		VStack {
 			Spacer(minLength: 40)
 
 			supportSafariView
@@ -38,8 +34,7 @@ struct SupportLitecoinFoundationView: View
 			Button(action: {
 				UIPasteboard.general.string = FoundationSupport.supportLTCAddress
 				self.viewModel.didTapToDismiss?()
-			})
-			{
+			}) {
 				Text(S.URLHandling.copy.uppercased())
 					.font(Font(UIFont.customMedium(size: 16.0)))
 					.padding()
@@ -54,8 +49,7 @@ struct SupportLitecoinFoundationView: View
 			// Cancel
 			Button(action: {
 				self.viewModel.didTapToDismiss?()
-			})
-			{
+			}) {
 				Text(S.Button.cancel.uppercased())
 					.font(Font(UIFont.customMedium(size: 16.0)))
 					.padding()
@@ -75,14 +69,11 @@ struct SupportLitecoinFoundationView: View
 	}
 }
 
-struct SupportLitecoinFoundationView_Previews: PreviewProvider
-{
+struct SupportLitecoinFoundationView_Previews: PreviewProvider {
 	static let viewModel = SupportLitecoinFoundationViewModel()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			SupportLitecoinFoundationView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
 				.previewDisplayName("iPhone 12 Pro Max")

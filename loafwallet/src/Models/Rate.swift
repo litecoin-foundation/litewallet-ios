@@ -1,21 +1,16 @@
 import Foundation
 import UIKit
 
-struct Rate
-{
+struct Rate {
 	let code: String
 	let name: String
 	let rate: Double
 	let lastTimestamp: Date
 
-	var currencySymbol: String
-	{
-		if let symbol = Rate.symbolMap[code]
-		{
+	var currencySymbol: String {
+		if let symbol = Rate.symbolMap[code] {
 			return symbol
-		}
-		else
-		{
+		} else {
 			let components: [String: String] = [NSLocale.Key.currencyCode.rawValue: code]
 			let identifier = Locale.identifier(fromComponents: components)
 			return Locale(identifier: identifier).currencySymbol ?? code
@@ -24,44 +19,35 @@ struct Rate
 
 	static var symbolMap: [String: String] = {
 		var map = [String: String]()
-		Locale.availableIdentifiers.forEach
-		{ identifier in
+		Locale.availableIdentifiers.forEach { identifier in
 			let locale = Locale(identifier: identifier)
 			guard let code = locale.currencyCode else { return }
 			guard let symbol = locale.currencySymbol else { return }
 
-			if let collision = map[code]
-			{
-				if collision.utf8.count > symbol.utf8.count
-				{
+			if let collision = map[code] {
+				if collision.utf8.count > symbol.utf8.count {
 					map[code] = symbol
 				}
-			}
-			else
-			{
+			} else {
 				map[code] = symbol
 			}
 		}
 		return map
 	}()
 
-	var locale: Locale
-	{
+	var locale: Locale {
 		let components: [String: String] = [NSLocale.Key.currencyCode.rawValue: code]
 		let identifier = Locale.identifier(fromComponents: components)
 		return Locale(identifier: identifier)
 	}
 
-	static var empty: Rate
-	{
+	static var empty: Rate {
 		return Rate(code: "", name: "", rate: 0.0, lastTimestamp: Date())
 	}
 }
 
-extension Rate
-{
-	init?(data: Any)
-	{
+extension Rate {
+	init?(data: Any) {
 		guard let dictionary = data as? [String: Any] else { return nil }
 		guard let code = dictionary["code"] as? String else { return nil }
 		guard let name = dictionary["name"] as? String else { return nil }
@@ -69,8 +55,7 @@ extension Rate
 		self.init(code: code, name: name, rate: rate, lastTimestamp: Date())
 	}
 
-	var dictionary: [String: Any]
-	{
+	var dictionary: [String: Any] {
 		return [
 			"code": code,
 			"name": name,
@@ -81,7 +66,6 @@ extension Rate
 
 extension Rate: Equatable {}
 
-func == (lhs: Rate, rhs: Rate) -> Bool
-{
+func == (lhs: Rate, rhs: Rate) -> Bool {
 	return lhs.code == rhs.code && lhs.name == rhs.name && lhs.rate == rhs.rate
 }

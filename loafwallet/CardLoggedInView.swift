@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct CardLoggedInView: View
-{
+struct CardLoggedInView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -24,27 +23,23 @@ struct CardLoggedInView: View
 
 	// MARK: - Private Variables
 
-	private var litewalletAddress: String
-	{
+	private var litewalletAddress: String {
 		guard let address = viewModel
 			.walletManager
 			.wallet?
 			.receiveAddress
-		else
-		{
+		else {
 			print("Card Logged In ViewModel ERROR: No address found")
 			return ""
 		}
 		return address
 	}
 
-	private var cardBalance: Double
-	{
+	private var cardBalance: Double {
 		return viewModel.cardWalletDetails?.availableBalance ?? 0.0
 	}
 
-	private var cardAddress: String
-	{
+	private var cardAddress: String {
 		return viewModel.cardWalletDetails?.ltcAddress ?? ""
 	}
 
@@ -58,11 +53,9 @@ struct CardLoggedInView: View
 
 	/// RYO Paging Indicator: Listens to a state and updates the dots accordingly
 	/// - Returns: The dots view
-	private func pagingIndicatorView() -> AnyView
-	{
+	private func pagingIndicatorView() -> AnyView {
 		return AnyView(
-			HStack
-			{
+			HStack {
 				Ellipse()
 					.fill(didStartTransfer ?
 						Color.litecoinGray :
@@ -80,10 +73,8 @@ struct CardLoggedInView: View
 		)
 	}
 
-	var body: some View
-	{
-		VStack
-		{
+	var body: some View {
+		VStack {
 			// Logout button
 			Button(action: {
 				shouldLogout = true
@@ -91,8 +82,7 @@ struct CardLoggedInView: View
 				NotificationCenter.default.post(name: .LitecoinCardLogoutNotification,
 				                                object: nil,
 				                                userInfo: nil)
-			})
-			{
+			}) {
 				Text(S.LitecoinCard.logout)
 					.frame(minWidth: 0,
 					       maxWidth: .infinity,
@@ -104,14 +94,11 @@ struct CardLoggedInView: View
 
 			Divider()
 
-			if twoFactor.isEnabled
-			{
+			if twoFactor.isEnabled {
 				// Sets phase 1 or 2 of transfer
-				if didStartTransfer
-				{
+				if didStartTransfer {
 					// Transfer Amount Subview
-					Group
-					{
+					Group {
 						Text(S.LitecoinCard.Transfer.setAmount + ": ")
 							.frame(minWidth: 0,
 							       maxWidth: .infinity,
@@ -121,8 +108,7 @@ struct CardLoggedInView: View
 							.padding([.top, .leading, .trailing], 5.0)
 							.padding(.bottom, 2.0)
 
-						VStack
-						{
+						VStack {
 							TransferAmountView(viewModel:
 								TransferAmountViewModel(walletType: currentWalletType,
 								                        litewalletBalance: viewModel.litewalletBalance,
@@ -139,12 +125,9 @@ struct CardLoggedInView: View
 					}
 					.transition(.move(edge: .trailing))
 					.animation(.easeInOut(duration: 0.5))
-				}
-				else
-				{
+				} else {
 					// PreTransfer Subview
-					Group
-					{
+					Group {
 						// Top description
 						Text(S.LitecoinCard.Transfer.description)
 							.frame(minWidth: 0,
@@ -155,8 +138,7 @@ struct CardLoggedInView: View
 							.padding([.top, .leading, .trailing], 5.0)
 							.padding(.bottom, 2.0)
 
-						VStack
-						{
+						VStack {
 							Spacer()
 
 							// Litewallet balance view
@@ -190,14 +172,10 @@ struct CardLoggedInView: View
 
 				pagingIndicatorView()
 					.padding()
-			}
-			else
-			{
+			} else {
 				// Shown when the user does not have 2FA Enabled
-				Group
-				{
-					VStack
-					{
+				Group {
+					VStack {
 						Spacer()
 
 						// Card No Transfer view
@@ -214,8 +192,7 @@ struct CardLoggedInView: View
 	}
 }
 
-struct CardLoggedInView_Previews: PreviewProvider
-{
+struct CardLoggedInView_Previews: PreviewProvider {
 	static let amount100 = MockSeeds.amount100
 
 	static let walletManager = MockSeeds.walletManager
@@ -227,10 +204,8 @@ struct CardLoggedInView_Previews: PreviewProvider
 
 	static let twoFactor = CardTwoFactor()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			CardLoggedInView(viewModel: viewModel, twoFactor: twoFactor)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

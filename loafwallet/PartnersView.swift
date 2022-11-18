@@ -1,21 +1,17 @@
 import SwiftUI
 
-struct PartnersView: View
-{
+struct PartnersView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
 	var viewModel: PartnerViewModel
 
-	init(viewModel: PartnerViewModel)
-	{
+	init(viewModel: PartnerViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		VStack
-		{
+	var body: some View {
+		VStack {
 			Image("ud-color-logo")
 				.resizable()
 				.aspectRatio(contentMode: .fit)
@@ -34,12 +30,10 @@ struct PartnersView: View
 	}
 }
 
-struct PartnersView_Previews: PreviewProvider
-{
+struct PartnersView_Previews: PreviewProvider {
 	static let viewModel = PartnerViewModel()
 
-	static var previews: some View
-	{
+	static var previews: some View {
 		PartnersView(viewModel: viewModel)
 	}
 }

@@ -8,15 +8,13 @@ private let largeSharePadding: CGFloat = 20.0
 
 typealias PresentShare = (String, UIImage) -> Void
 
-class ReceiveViewController: UIViewController, Subscriber, Trackable
-{
+class ReceiveViewController: UIViewController, Subscriber, Trackable {
 	// MARK: - Public
 
 	var presentEmail: PresentShare?
 	var presentText: PresentShare?
 
-	init(wallet: BRWallet, store: Store, isRequestAmountVisible: Bool)
-	{
+	init(wallet: BRWallet, store: Store, isRequestAmountVisible: Bool) {
 		self.wallet = wallet
 		self.isRequestAmountVisible = isRequestAmountVisible
 		self.store = store
@@ -37,14 +35,10 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 	private var topSharePopoutConstraint: NSLayoutConstraint?
 	private let wallet: BRWallet
 	private let store: Store
-	private var balance: UInt64?
-	{
-		didSet
-		{
-			if let newValue = balance, let oldValue = oldValue
-			{
-				if newValue > oldValue
-				{
+	private var balance: UInt64? {
+		didSet {
+			if let newValue = balance, let oldValue = oldValue {
+				if newValue > oldValue {
 					setReceiveAddress()
 				}
 			}
@@ -55,8 +49,7 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 	private var requestTop: NSLayoutConstraint?
 	private var requestBottom: NSLayoutConstraint?
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setStyle()
@@ -68,8 +61,7 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		})
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(qrCode)
 		view.addSubview(address)
 		view.addSubview(addressPopout)
@@ -80,8 +72,7 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		view.addSubview(addressButton)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		qrCode.constrain([
 			qrCode.constraint(.width, constant: qrSize),
 			qrCode.constraint(.height, constant: qrSize),
@@ -136,14 +127,12 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		])
 	}
 
-	private func setStyle()
-	{
+	private func setStyle() {
 		view.backgroundColor = .white
 		address.textColor = .grayTextTint
 		border.backgroundColor = .secondaryBorder
 		share.isToggleable = true
-		if !isRequestAmountVisible
-		{
+		if !isRequestAmountVisible {
 			border.isHidden = true
 			request.isHidden = true
 			request.constrain([
@@ -159,15 +148,13 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		setReceiveAddress()
 	}
 
-	private func setReceiveAddress()
-	{
+	private func setReceiveAddress() {
 		address.text = wallet.receiveAddress
 		qrCode.image = UIImage.qrCode(data: "\(address.text!)".data(using: .utf8)!, color: CIColor(color: .black))?
 			.resize(CGSize(width: qrSize, height: qrSize))!
 	}
 
-	private func addActions()
-	{
+	private func addActions() {
 		addressButton.tap = { [weak self] in
 			self?.addressTapped()
 		}
@@ -181,8 +168,7 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		share.addTarget(self, action: #selector(ReceiveViewController.shareTapped), for: .touchUpInside)
 	}
 
-	private func setupCopiedMessage()
-	{
+	private func setupCopiedMessage() {
 		let copiedMessage = UILabel(font: .customMedium(size: 14.0))
 		copiedMessage.textColor = .white
 		copiedMessage.text = S.Receive.copied
@@ -190,8 +176,7 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		addressPopout.contentView = copiedMessage
 	}
 
-	private func setupShareButtons()
-	{
+	private func setupShareButtons() {
 		let container = UIView()
 		container.translatesAutoresizingMaskIntoConstraints = false
 		let email = ShadowButton(title: S.Receive.emailButton, type: .tertiary)
@@ -215,34 +200,28 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		text.addTarget(self, action: #selector(ReceiveViewController.textTapped), for: .touchUpInside)
 	}
 
-	@objc private func shareTapped()
-	{
+	@objc private func shareTapped() {
 		toggle(alertView: sharePopout, shouldAdjustPadding: true)
-		if addressPopout.isExpanded
-		{
+		if addressPopout.isExpanded {
 			toggle(alertView: addressPopout, shouldAdjustPadding: false)
 		}
 	}
 
-	@objc private func addressTapped()
-	{
+	@objc private func addressTapped() {
 		guard let text = address.text else { return }
 		saveEvent("receive.copiedAddress")
 		UIPasteboard.general.string = text
 		toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
-		if sharePopout.isExpanded
-		{
+		if sharePopout.isExpanded {
 			toggle(alertView: sharePopout, shouldAdjustPadding: true)
 		}
 	}
 
-	@objc private func emailTapped()
-	{
+	@objc private func emailTapped() {
 		presentEmail?(address.text!, qrCode.image!)
 	}
 
-	@objc private func textTapped()
-	{
+	@objc private func textTapped() {
 		presentText?(address.text!, qrCode.image!)
 	}
 
@@ -252,26 +231,20 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 		address.isUserInteractionEnabled = false
 
 		var deltaY = alertView.isExpanded ? -alertView.height : alertView.height
-		if shouldAdjustPadding
-		{
-			if deltaY > 0
-			{
+		if shouldAdjustPadding {
+			if deltaY > 0 {
 				deltaY -= (largeSharePadding - smallSharePadding)
-			}
-			else
-			{
+			} else {
 				deltaY += (largeSharePadding - smallSharePadding)
 			}
 		}
 
-		if alertView.isExpanded
-		{
+		if alertView.isExpanded {
 			alertView.contentView?.isHidden = true
 		}
 
 		UIView.spring(C.animationDuration, animations: {
-			if shouldAdjustPadding
-			{
+			if shouldAdjustPadding {
 				let newPadding = self.sharePopout.isExpanded ? largeSharePadding : smallSharePadding
 				self.topSharePopoutConstraint?.constant = newPadding
 			}
@@ -282,12 +255,9 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 			self.share.isEnabled = true
 			self.address.isUserInteractionEnabled = true
 			alertView.contentView?.isHidden = false
-			if shouldShrinkAfter
-			{
-				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)
-				{
-					if alertView.isExpanded
-					{
+			if shouldShrinkAfter {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+					if alertView.isExpanded {
 						self.toggle(alertView: alertView, shouldAdjustPadding: shouldAdjustPadding)
 					}
 				}
@@ -296,21 +266,17 @@ class ReceiveViewController: UIViewController, Subscriber, Trackable
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension ReceiveViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension ReceiveViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return ArticleIds.receiveBitcoin
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return S.Receive.title
 	}
 }

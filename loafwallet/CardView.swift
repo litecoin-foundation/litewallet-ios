@@ -1,8 +1,7 @@
 import SwiftUI
 import UIKit
 
-struct CardView: View
-{
+struct CardView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -50,21 +49,16 @@ struct CardView: View
 	@State
 	var isEmailValid: Bool = false
 
-	init(viewModel: CardViewModel)
-	{
+	init(viewModel: CardViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		GeometryReader
-		{ geometry in
-			VStack
-			{
+	var body: some View {
+		GeometryReader { geometry in
+			VStack {
 				// MARK: - Animated Card View
 
-				Group
-				{
+				Group {
 					AnimatedCardView(viewModel: animatedViewModel, isLoggedIn: $didCompleteLogin)
 						.frame(minWidth: 0,
 						       maxWidth:
@@ -75,12 +69,10 @@ struct CardView: View
 
 				// MARK: - Login Textfields
 
-				Group
-				{
+				Group {
 					TextField(S.Receive.emailButton,
 					          text: $loginModel.emailString)
-						.onReceive(loginModel.$emailString)
-						{ currentEmail in
+						.onReceive(loginModel.$emailString) { currentEmail in
 							isEmailValid = EmailValidation.isEmailValid(emailString: currentEmail)
 						}
 						.foregroundColor(EmailValidation.isEmailValid(emailString: loginModel.emailString) ? .black : Color(UIColor.litecoinOrange))
@@ -93,10 +85,8 @@ struct CardView: View
 
 					Divider().padding([.leading, .trailing], 20)
 
-					HStack
-					{
-						if shouldShowPassword
-						{
+					HStack {
+						if shouldShowPassword {
 							TextField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
 								.foregroundColor(.black)
 								.font(Font(UIFont.barlowSemiBold(size: 17.0)))
@@ -105,9 +95,7 @@ struct CardView: View
 								.padding(.top, 18)
 								.autocapitalization(.none)
 								.keyboardType(.asciiCapable)
-						}
-						else
-						{
+						} else {
 							SecureField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
 								.foregroundColor(.black)
 								.font(Font(UIFont.barlowSemiBold(size: 17.0)))
@@ -121,8 +109,7 @@ struct CardView: View
 						Spacer()
 						Button(action: {
 							shouldShowPassword.toggle()
-						})
-						{
+						}) {
 							Image(systemName: shouldShowPassword ? "eye.fill" : "eye.slash.fill")
 								.padding(.top, 15)
 								.padding(.trailing, 20)
@@ -133,8 +120,7 @@ struct CardView: View
 					Divider().padding([.leading, .trailing], 20)
 					Spacer()
 
-					HStack
-					{
+					HStack {
 						Toggle(viewModel.cardTwoFactor.isEnabled ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff,
 						       isOn: $viewModel.cardTwoFactor.isEnabled)
 							.foregroundColor(.gray)
@@ -147,13 +133,11 @@ struct CardView: View
 							// Toggling 2FA on and entering the code fixes the problem.
 							// There are analytical events to see how prevalent this issue is.
 							// It may need to be refactored if it is a growing concern
-							.alert(isPresented: $viewModel.cardTwoFactor.errorOccured)
-							{
+							.alert(isPresented: $viewModel.cardTwoFactor.errorOccured) {
 								Alert(
 									title: Text(S.Fragments.sorry.localizedCapitalized + "!"),
 									message: Text(S.LitecoinCard.twoFAErrorMessage),
-									dismissButton: .default(Text(S.Button.ok))
-									{
+									dismissButton: .default(Text(S.Button.ok)) {
 										viewModel.cardTwoFactor.errorOccured = false
 									}
 								)
@@ -162,13 +146,11 @@ struct CardView: View
 
 					// MARK: - Action Buttons
 
-					Group
-					{
+					Group {
 						// Forgot password button
 						Button(action: {
 							didTapIForgot = true
-						})
-						{
+						}) {
 							Text(S.LitecoinCard.forgotPassword)
 								.frame(minWidth: 0, maxWidth: .infinity)
 								.font(Font(UIFont.barlowLight(size: 15)))
@@ -186,44 +168,35 @@ struct CardView: View
 							// 2. Make discardable loginUser Call
 							// 3. Make loginUser again with the token
 
-							if viewModel.cardTwoFactor.isEnabled
-							{
+							if viewModel.cardTwoFactor.isEnabled {
 								// Discardable result API sends Code to email
 								loginModel.login { _ in }
 
 								// Shows the 2FA Modal
 								shouldShowEnable2FAModal = true
-							}
-							else
-							{
+							} else {
 								// Shows the Login Modal
 								shouldShowLoginModal = true
 
 								// Login without 2FA
-								loginModel.login
-								{ didLogin in
-									if didLogin
-									{
+								loginModel.login { didLogin in
+									if didLogin {
 										viewModel.isLoggedIn = true
 										shouldShowLoginModal = false
 										NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
 										                                object: nil,
 										                                userInfo: nil)
-									}
-									else
-									{
+									} else {
 										viewModel.isLoggedIn = true
 										didFailToLogin = true
 
-										DispatchQueue.main.asyncAfter(deadline: .now() + 4.0)
-										{
+										DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
 											shouldShowLoginModal = false
 										}
 									}
 								}
 							}
-						})
-						{
+						}) {
 							Text(S.LitecoinCard.login)
 								.frame(minWidth: 0, maxWidth: .infinity)
 								.padding()
@@ -243,8 +216,7 @@ struct CardView: View
 						// Registration button
 						Button(action: {
 							shouldShowRegistrationView = true
-						})
-						{
+						}) {
 							Text(S.LitecoinCard.registerCard)
 								.frame(minWidth: 0, maxWidth: .infinity)
 								.padding()
@@ -257,90 +229,80 @@ struct CardView: View
 								.padding([.leading, .trailing], 16)
 								.padding([.top, .bottom], 10)
 						}
-						.sheet(isPresented: $shouldShowRegistrationView)
-						{
+						.sheet(isPresented: $shouldShowRegistrationView) {
 							RegistrationView(viewModel: registrationModel)
 						}
 					}
 					Spacer()
 				}
 			}.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillShow))
-			{ _ in
-				animatedViewModel.dropOffset = -200
-			}.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillHide))
-			{ _ in
-				animatedViewModel.dropOffset = 0
-			}.onReceive(twoFAviewModel.$tokenString, perform: { confirmedToken in
+				{ _ in
+					animatedViewModel.dropOffset = -200
+				}.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.UIKeyboardWillHide))
+				{ _ in
+					animatedViewModel.dropOffset = 0
+				}.onReceive(twoFAviewModel.$tokenString, perform: { confirmedToken in
 
-				if twoFAviewModel.didSetToken,
-				   confirmedToken.count == 6
-				{
-					loginModel.tokenString = confirmedToken
-					shouldShowLoginModal = true
+					if twoFAviewModel.didSetToken,
+					   confirmedToken.count == 6
+					{
+						loginModel.tokenString = confirmedToken
+						shouldShowLoginModal = true
 
-					loginModel.login
-					{ didLogin in
-						if didLogin
-						{
-							viewModel.isLoggedIn = true
-							shouldShowLoginModal = false
-
-							NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
-							                                object: nil,
-							                                userInfo: nil)
-						}
-						else
-						{
-							viewModel.isLoggedIn = true
-							didFailToLogin = true
-
-							DispatchQueue.main.asyncAfter(deadline: .now() + 4.0)
-							{
+						loginModel.login { didLogin in
+							if didLogin {
+								viewModel.isLoggedIn = true
 								shouldShowLoginModal = false
+
+								NotificationCenter.default.post(name: .LitecoinCardLoginNotification,
+								                                object: nil,
+								                                userInfo: nil)
+							} else {
+								viewModel.isLoggedIn = true
+								didFailToLogin = true
+
+								DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+									shouldShowLoginModal = false
+								}
 							}
 						}
 					}
+				})
+				.onAppear {
+					didShowCardView = true
 				}
-			})
-			.onAppear
-			{
-				didShowCardView = true
-			}
-			.animation(.easeOut)
-			.transition(.scale)
-			.forgotPasswordView(isShowingForgot: $didTapIForgot,
-			                    emailString: $forgotEmailAddressInput,
-			                    message: S.LitecoinCard.forgotPassword)
-			.loginAlertView(isShowingLoginAlert: $shouldShowLoginModal,
-			                didFail: $didFailToLogin,
-			                message: $loginModel.processMessage)
-			.registeredAlertView(shouldStartRegistering: $registrationModel.isRegistering,
-			                     didRegister: $registrationModel.didRegister,
-			                     data: registrationModel.dataDictionary,
-			                     message: $registrationModel.message)
-			.enter2FACodeView(shouldShowEnter2FAView: $shouldShowEnable2FAModal,
-			                  twoFAModel: twoFAviewModel)
-			.frame(minWidth: 0,
-			       maxWidth: .infinity,
-			       minHeight: 0,
-			       maxHeight: .infinity,
-			       alignment: .center)
+				.animation(.easeOut)
+				.transition(.scale)
+				.forgotPasswordView(isShowingForgot: $didTapIForgot,
+				                    emailString: $forgotEmailAddressInput,
+				                    message: S.LitecoinCard.forgotPassword)
+				.loginAlertView(isShowingLoginAlert: $shouldShowLoginModal,
+				                didFail: $didFailToLogin,
+				                message: $loginModel.processMessage)
+				.registeredAlertView(shouldStartRegistering: $registrationModel.isRegistering,
+				                     didRegister: $registrationModel.didRegister,
+				                     data: registrationModel.dataDictionary,
+				                     message: $registrationModel.message)
+				.enter2FACodeView(shouldShowEnter2FAView: $shouldShowEnable2FAModal,
+				                  twoFAModel: twoFAviewModel)
+				.frame(minWidth: 0,
+				       maxWidth: .infinity,
+				       minHeight: 0,
+				       maxHeight: .infinity,
+				       alignment: .center)
 		}
 	}
 }
 
-struct CardView_Previews: PreviewProvider
-{
+struct CardView_Previews: PreviewProvider {
 	static let amount100 = MockSeeds.amount100
 
 	static let walletManager = MockSeeds.walletManager
 
 	static let viewModel = CardViewModel(walletManager: walletManager, store: Store())
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			CardView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

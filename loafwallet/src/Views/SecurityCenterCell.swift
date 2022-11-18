@@ -2,30 +2,24 @@ import UIKit
 
 private let buttonSize: CGFloat = 16.0
 
-class SecurityCenterCell: UIControl
-{
+class SecurityCenterCell: UIControl {
 	// MARK: - Public
 
-	var isCheckHighlighted: Bool = false
-	{
-		didSet
-		{
+	var isCheckHighlighted: Bool = false {
+		didSet {
 			check.tintColor = isCheckHighlighted ? .primaryButton : .grayTextTint
 		}
 	}
 
-	init(title: String, descriptionText: String)
-	{
+	init(title: String, descriptionText: String) {
 		super.init(frame: .zero)
 		titleLabel.text = title
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			guard let headerTextColor = UIColor(named: "headerTextColor"),
 			      let labelTextColor = UIColor(named: "labelTextColor"),
 			      let backgroundColor = UIColor(named: "lfBackgroundColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Custom colors not set")
 				return
 			}
@@ -41,8 +35,7 @@ class SecurityCenterCell: UIControl
 
 	// MARK: - Private
 
-	private func setup()
-	{
+	private func setup() {
 		addSubview(titleLabel)
 		addSubview(descriptionLabel)
 		addSubview(separator)
@@ -77,16 +70,11 @@ class SecurityCenterCell: UIControl
 		isCheckHighlighted = false
 	}
 
-	override var isHighlighted: Bool
-	{
-		didSet
-		{
-			if isHighlighted
-			{
+	override var isHighlighted: Bool {
+		didSet {
+			if isHighlighted {
 				backgroundColor = .litecoinSilver
-			}
-			else
-			{
+			} else {
 				backgroundColor = .white
 			}
 		}
@@ -98,8 +86,7 @@ class SecurityCenterCell: UIControl
 	private var check = UIButton(type: .system)
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

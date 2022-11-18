@@ -22,25 +22,19 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	var shouldShowPrompt = true
 
 	private var transactions: [Transaction] = []
-	private var allTransactions: [Transaction] = []
-	{
-		didSet
-		{
+	private var allTransactions: [Transaction] = [] {
+		didSet {
 			transactions = allTransactions
 		}
 	}
 
-	private var rate: Rate?
-	{
+	private var rate: Rate? {
 		didSet { reload() }
 	}
 
-	private var currentPromptType: PromptType?
-	{
-		didSet
-		{
-			if currentPromptType != nil, oldValue == nil
-			{
+	private var currentPromptType: PromptType? {
+		didSet {
+			if currentPromptType != nil, oldValue == nil {
 				tableView.beginUpdates()
 				tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 				tableView.endUpdates()
@@ -48,30 +42,25 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		}
 	}
 
-	var isLtcSwapped: Bool?
-	{
+	var isLtcSwapped: Bool? {
 		didSet { reload() }
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		setup()
 		addSubscriptions()
 	}
 
-	private func setup()
-	{
+	private func setup() {
 		guard let _ = walletManager
-		else
-		{
+		else {
 			NSLog("ERROR - Wallet manager not initialized")
 			assertionFailure("PEER MANAGER Not initialized")
 			return
 		}
 
 		guard let reduxState = store?.state
-		else
-		{
+		else {
 			return
 		}
 
@@ -88,8 +77,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	/// - Parameters:
 	///   - reduxState: Current ReduxState
 	///   - completion: Signals the initialzation of the view
-	private func initSyncingHeaderView(reduxState: ReduxState, completion: @escaping () -> Void)
-	{
+	private func initSyncingHeaderView(reduxState: ReduxState, completion: @escaping () -> Void) {
 		syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
 		                                             owner: self,
 		                                             options: nil)?.first as? SyncProgressHeaderView
@@ -102,12 +90,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		completion()
 	}
 
-	private func attemptShowPrompt()
-	{
+	private func attemptShowPrompt() {
 		guard let walletManager = walletManager else { return }
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store not initialized")
 			return
 		}
@@ -117,31 +103,23 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		{
 			saveEvent("prompt.\(type.name).displayed")
 			currentPromptType = type
-			if type == .biometrics
-			{
+			if type == .biometrics {
 				UserDefaults.hasPromptedBiometrics = true
 			}
-			if type == .shareData
-			{
+			if type == .shareData {
 				UserDefaults.hasPromptedShareData = true
 			}
-		}
-		else
-		{
+		} else {
 			currentPromptType = nil
 		}
 	}
 
 	/// Update displayed transactions. Used mainly when the database needs an update
 	/// - Parameter txHash: String reprsentation of the TX
-	private func updateTransactions(txHash: String)
-	{
-		transactions.enumerated().forEach
-		{ i, tx in
-			if tx.hash == txHash
-			{
-				DispatchQueue.main.async
-				{
+	private func updateTransactions(txHash: String) {
+		transactions.enumerated().forEach { i, tx in
+			if tx.hash == txHash {
+				DispatchQueue.main.async {
 					self.tableView.beginUpdates()
 					self.tableView.reloadRows(at: [IndexPath(row: i, section: 1)], with: .automatic)
 					self.tableView.endUpdates()
@@ -152,8 +130,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 	/// Empty Message View as a placeholder
 	/// - Returns: a UILabel
-	private func emptyMessageView() -> UILabel
-	{
+	private func emptyMessageView() -> UILabel {
 		let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 		let messageLabel = UILabel(frame: rect)
 		messageLabel.text = S.TransactionDetails.emptyMessage
@@ -172,19 +149,15 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	///   - syncProgress: The state of the initial Sync Progress
 	///   - lastBlockTimestamp: Corresponding timestamp
 	/// - Returns: CGFloat value
-	private func updateProgressView(syncProgress: CGFloat, lastBlockTimestamp: Double) -> CGFloat
-	{
+	private func updateProgressView(syncProgress: CGFloat, lastBlockTimestamp: Double) -> CGFloat {
 		/// DEV:  HACK if the previous value is the same add a ration
 		/// The problem is the progress needs to go to o to 1 .
 		var progressValue: CGFloat = 0.0
 		let num = lastBlockTimestamp - kFiveYears
 		let den = kTodaysEpochTime - kFiveYears
-		if syncProgress == 0.05
-		{
+		if syncProgress == 0.05 {
 			progressValue = abs(CGFloat(num) / CGFloat(den))
-		}
-		else
-		{
+		} else {
 			progressValue = syncProgress
 		}
 
@@ -193,14 +166,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 	// MARK: - Table view data / delegate source
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-	{
-		switch indexPath.section
-		{
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		switch indexPath.section {
 		case 0:
 
-			if currentPromptType != nil
-			{
+			if currentPromptType != nil {
 				return configurePromptCell(promptType: currentPromptType, indexPath: indexPath)
 			}
 			return EmptyTableViewCell()
@@ -209,8 +179,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 			let transaction = transactions[indexPath.row]
 
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "HostingTransactionCell<TransactionCellView>", for: indexPath) as? HostingTransactionCell<TransactionCellView>
-			else
-			{
+			else {
 				NSLog("ERROR No cell found")
 				return UITableViewCell()
 			}
@@ -228,10 +197,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		}
 	}
 
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-	{
-		if indexPath.section == 1
-		{
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.section == 1 {
 			let transaction = transactions[indexPath.row]
 
 			if let rate = rate,
@@ -244,13 +211,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 				hostingController.modalPresentationStyle = .formSheet
 
-				present(hostingController, animated: true)
-				{
+				present(hostingController, animated: true) {
 					// Notes of bugfix:
 					// Refactored the class to have two section and make sure the row never extends outside the transaction count.
 
-					if indexPath.row < self.transactions.count
-					{
+					if indexPath.row < self.transactions.count {
 						tableView.cellForRow(at: indexPath)?.isSelected = false
 					}
 				}
@@ -258,32 +223,24 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		}
 	}
 
-	func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-	{
-		if indexPath.section == 0
-		{
+	func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.section == 0 {
 			return currentPromptType != nil ? kPromptCellHeight : kDormantHeaderHeight
-		}
-		else
-		{
+		} else {
 			return kNormalTransactionCellHeight
 		}
 	}
 
-	func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView?
-	{
-		if shouldBeSyncing, section == 0
-		{
+	func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		if shouldBeSyncing, section == 0 {
 			return syncingHeaderView
 		}
 		return nil
 	}
 
-	func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-	{
+	func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		var sectionHeight = 0.0
-		switch section
-		{
+		switch section {
 		case 0:
 			sectionHeight = Double(shouldBeSyncing ? kProgressHeaderHeight : kDormantHeaderHeight)
 			return CGFloat(sectionHeight)
@@ -291,26 +248,18 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		}
 	}
 
-	func numberOfSections(in _: UITableView) -> Int
-	{
+	func numberOfSections(in _: UITableView) -> Int {
 		return 2
 	}
 
-	func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int
-	{
-		if section == 0
-		{
+	func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if section == 0 {
 			return 1
-		}
-		else
-		{
-			if !transactions.isEmpty
-			{
+		} else {
+			if !transactions.isEmpty {
 				tableView.backgroundView = nil
 				return transactions.count
-			}
-			else
-			{
+			} else {
 				tableView.backgroundView = emptyMessageView()
 				tableView.separatorStyle = .none
 				return 0
@@ -323,8 +272,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	private func configurePromptCell(promptType: PromptType?, indexPath: IndexPath) -> PromptTableViewCell
 	{
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "PromptTVC2", for: indexPath) as? PromptTableViewCell
-		else
-		{
+		else {
 			NSLog("ERROR No cell found")
 			return PromptTableViewCell()
 		}
@@ -352,21 +300,17 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		return cell
 	}
 
-	private func reload()
-	{
-		DispatchQueue.main.async
-		{
+	private func reload() {
+		DispatchQueue.main.async {
 			self.tableView.reloadData()
 		}
 	}
 
 	// MARK: - Subscription Methods
 
-	private func addSubscriptions()
-	{
+	private func addSubscriptions() {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store not initialized")
 			return
 		}
@@ -403,8 +347,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		                	guard let syncView = self.syncingHeaderView else { return }
 
 		                	syncView.isRescanning = reduxState.walletState.isRescanning
-		                	if syncView.isRescanning || (reduxState.walletState.syncState == .syncing)
-		                	{
+		                	if syncView.isRescanning || (reduxState.walletState.syncState == .syncing) {
 		                		syncView.progress = CGFloat(self.updateProgressView(syncProgress:
 		                			CGFloat(reduxState.walletState.syncProgress), lastBlockTimestamp: Double(reduxState.walletState.lastBlockTimestamp)))
 		                		syncView.headerMessage = reduxState.walletState.syncState
@@ -413,8 +356,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		                		syncView.timestamp = reduxState.walletState.lastBlockTimestamp
 		                		self.shouldBeSyncing = true
 
-		                		if reduxState.walletState.syncProgress >= 0.99
-		                		{
+		                		if reduxState.walletState.syncProgress >= 0.99 {
 		                			self.shouldBeSyncing = false
 		                			self.syncingHeaderView = nil
 		                		}
@@ -425,8 +367,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 		// MARK: - Wallet State:  Show Status Bar
 
-		store.subscribe(self, name: .showStatusBar)
-		{ _ in
+		store.subscribe(self, name: .showStatusBar) { _ in
 			// DEV: May fix where the action view persists after confirming pin
 			self.reload()
 		}
@@ -437,14 +378,12 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		                callback: { reduxState in
 
 		                	guard let _ = self.walletManager?.peerManager
-		                	else
-		                	{
+		                	else {
 		                		assertionFailure("PEER MANAGER Not initialized")
 		                		return
 		                	}
 
-		                	if reduxState.walletState.syncState == .syncing
-		                	{
+		                	if reduxState.walletState.syncState == .syncing {
 		                		self.shouldBeSyncing = true
 		                		self.initSyncingHeaderView(reduxState: reduxState, completion: {
 		                			self.syncingHeaderView?.isRescanning = reduxState.walletState.isRescanning
@@ -455,8 +394,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		                		})
 		                	}
 
-		                	if reduxState.walletState.syncState == .success
-		                	{
+		                	if reduxState.walletState.syncState == .success {
 		                		self.shouldBeSyncing = false
 		                		self.syncingHeaderView = nil
 		                	}
@@ -472,8 +410,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		// MARK: - Subscription:  Did Upgrade PIN
 
 		store.subscribe(self, name: .didUpgradePin, callback: { _ in
-			if self.currentPromptType == .upgradePin
-			{
+			if self.currentPromptType == .upgradePin {
 				self.currentPromptType = nil
 			}
 		})
@@ -481,8 +418,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		// MARK: - Subscription:  Did Enable Share Data
 
 		store.subscribe(self, name: .didEnableShareData, callback: { _ in
-			if self.currentPromptType == .shareData
-			{
+			if self.currentPromptType == .shareData {
 				self.currentPromptType = nil
 			}
 		})
@@ -490,8 +426,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		// MARK: - Subscription:  Did Write Paper Key
 
 		store.subscribe(self, name: .didWritePaperKey, callback: { _ in
-			if self.currentPromptType == .paperKey
-			{
+			if self.currentPromptType == .paperKey {
 				self.currentPromptType = nil
 			}
 		})
@@ -500,8 +435,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 		store.subscribe(self, name: .txMemoUpdated(""), callback: {
 			guard let trigger = $0 else { return }
-			if case let .txMemoUpdated(txHash) = trigger
-			{
+			if case let .txMemoUpdated(txHash) = trigger {
 				self.updateTransactions(txHash: txHash)
 			}
 		})

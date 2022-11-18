@@ -1,12 +1,10 @@
 @testable import loafwallet
 import XCTest
 
-class TabBarViewControllerTests: XCTestCase
-{
+class TabBarViewControllerTests: XCTestCase {
 	var viewController: TabBarViewController!
 
-	override func setUpWithError() throws
-	{
+	override func setUpWithError() throws {
 		viewController = UIStoryboard(name: "Main",
 		                              bundle: nil)
 			.instantiateViewController(withIdentifier: "TabBarViewController") as?
@@ -15,20 +13,17 @@ class TabBarViewControllerTests: XCTestCase
 		viewController.loadViewIfNeeded()
 	}
 
-	override func tearDownWithError() throws
-	{
+	override func tearDownWithError() throws {
 		viewController = nil
 	}
 
-	func testTabBarItemCount() throws
-	{
+	func testTabBarItemCount() throws {
 		// There should be 5 tabs in this version for US users
 
 		XCTAssertTrue(viewController.tabBar.items?.count == 5)
 	}
 
-	func testTabBarItemRange() throws
-	{
+	func testTabBarItemRange() throws {
 		// Using a tag is risky and this tests that the tab has the correct tag
 
 		XCTAssertTrue(viewController.tabBar.items?[0].tag == 0)

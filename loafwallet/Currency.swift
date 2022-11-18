@@ -1,17 +1,14 @@
 import Foundation
 import UIKit
 
-class Currency
-{
-	class func getSymbolForCurrencyCode(code: String) -> String?
-	{
+class Currency {
+	class func getSymbolForCurrencyCode(code: String) -> String? {
 		let result = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == code }
 		return result?.currencySymbol
 	}
 }
 
-enum PartnerFiatOptions: Int, CustomStringConvertible
-{
+enum PartnerFiatOptions: Int, CustomStringConvertible {
 	case cad
 	case aud
 	case idr
@@ -21,15 +18,12 @@ enum PartnerFiatOptions: Int, CustomStringConvertible
 	case gbp
 	case usd
 
-	public var description: String
-	{
+	public var description: String {
 		return code
 	}
 
-	private var code: String
-	{
-		switch self
-		{
+	private var code: String {
+		switch self {
 		case .cad: return "CAD"
 		case .aud: return "AUD"
 		case .idr: return "IDR"
@@ -41,10 +35,8 @@ enum PartnerFiatOptions: Int, CustomStringConvertible
 		}
 	}
 
-	public var index: Int
-	{
-		switch self
-		{
+	public var index: Int {
+		switch self {
 		case .cad: return 0
 		case .aud: return 1
 		case .idr: return 2

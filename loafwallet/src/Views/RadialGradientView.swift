@@ -1,11 +1,9 @@
 import UIKit
 
-class RadialGradientView: UIView
-{
+class RadialGradientView: UIView {
 	// MARK: - Public
 
-	init(backgroundColor: UIColor, offset: CGFloat = 0.0)
-	{
+	init(backgroundColor: UIColor, offset: CGFloat = 0.0) {
 		self.offset = offset
 		super.init(frame: .zero)
 		self.backgroundColor = backgroundColor
@@ -15,8 +13,7 @@ class RadialGradientView: UIView
 
 	private let offset: CGFloat
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
 		let startColor = UIColor.transparentWhite.cgColor
 		let endColor = UIColor(white: 1.0, alpha: 0.0).cgColor
@@ -30,8 +27,7 @@ class RadialGradientView: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

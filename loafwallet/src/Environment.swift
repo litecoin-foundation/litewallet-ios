@@ -1,7 +1,6 @@
 import UIKit
 
-struct E
-{
+struct E {
 	static let isTestnet: Bool = {
 		#if Testnet
 			return true
@@ -50,33 +49,27 @@ struct E
 		#endif
 	}()
 
-	static var isIPhone4: Bool
-	{
+	static var isIPhone4: Bool {
 		return (UIScreen.main.bounds.size.height == 480.0)
 	}
 
-	static var isIPhone5: Bool
-	{
+	static var isIPhone5: Bool {
 		return (UIScreen.main.bounds.size.height == 568.0) && (E.is32Bit)
 	}
 
-	static var isIPhoneX: Bool
-	{
+	static var isIPhoneX: Bool {
 		return (UIScreen.main.bounds.size.height == 812.0)
 	}
 
-	static var isIPhone8Plus: Bool
-	{
+	static var isIPhone8Plus: Bool {
 		return (UIScreen.main.bounds.size.height == 736.0)
 	}
 
-	static var isIPhoneXsMax: Bool
-	{
+	static var isIPhoneXsMax: Bool {
 		return (UIScreen.main.bounds.size.height == 812.0)
 	}
 
-	static var isIPad: Bool
-	{
+	static var isIPad: Bool {
 		return (UIDevice.current.userInterfaceIdiom == .pad)
 	}
 
@@ -84,8 +77,7 @@ struct E
 		MemoryLayout<Int>.size == MemoryLayout<UInt32>.size
 	}()
 
-	static var screenHeight: CGFloat
-	{
+	static var screenHeight: CGFloat {
 		return UIScreen.main.bounds.size.height
 	}
 }

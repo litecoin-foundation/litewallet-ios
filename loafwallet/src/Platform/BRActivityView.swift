@@ -1,16 +1,13 @@
 import UIKit
 
-class BRActivityViewController: UIViewController
-{
+class BRActivityViewController: UIViewController {
 	let activityView = BRActivityView()
 
-	init(message: String)
-	{
+	init(message: String) {
 		super.init(nibName: nil, bundle: nil)
 		modalTransitionStyle = .crossDissolve
 
-		if #available(iOS 8.0, *)
-		{
+		if #available(iOS 8.0, *) {
 			modalPresentationStyle = .overFullScreen
 		}
 
@@ -19,20 +16,17 @@ class BRActivityViewController: UIViewController
 	}
 
 	@available(*, unavailable)
-	public required init(coder _: NSCoder)
-	{
+	public required init(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-@objc open class BRActivityView: UIView
-{
+@objc open class BRActivityView: UIView {
 	let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .large)
 	let boundingBoxView = UIView(frame: CGRect.zero)
 	let messageLabel = UILabel(frame: CGRect.zero)
 
-	init()
-	{
+	init() {
 		super.init(frame: CGRect.zero)
 
 		backgroundColor = UIColor(white: 0.0, alpha: 0.5)
@@ -55,13 +49,11 @@ class BRActivityViewController: UIViewController
 	}
 
 	@available(*, unavailable)
-	public required init(coder _: NSCoder)
-	{
+	public required init(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override open func layoutSubviews()
-	{
+	override open func layoutSubviews() {
 		super.layoutSubviews()
 
 		boundingBoxView.frame.size.width = 160.0

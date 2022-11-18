@@ -4,8 +4,7 @@ import SwiftUI
 import UIKit
 
 /// A container for a CardView - SwiftUI
-class CardViewController: UIViewController
-{
+class CardViewController: UIViewController {
 	var viewModel: CardViewModel?
 
 	var cardLoggedInView: CardLoggedInView?
@@ -22,19 +21,16 @@ class CardViewController: UIViewController
 
 	var notificationToken: NSObjectProtocol?
 
-	private func updateLoginStatusFromViewModel()
-	{
+	private func updateLoginStatusFromViewModel() {
 		guard let viewModel = viewModel
-		else
-		{
+		else {
 			NSLog("ERROR: CardViewModel not loaded")
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 			return
 		}
 
 		// Verifies the stack has only one VC and it is the UIHostingController
-		DispatchQueue.main.async
-		{
+		DispatchQueue.main.async {
 			if self.childViewControllers.count == 1,
 			   (self.childViewControllers.first?.isKind(of: UIHostingController<AnyView>.self)) != nil
 			{
@@ -43,21 +39,17 @@ class CardViewController: UIViewController
 				self.swiftUIContainerView.view.removeFromSuperview()
 			}
 
-			if viewModel.isLoggedIn
-			{
+			if viewModel.isLoggedIn {
 				self.cardLoggedInView = CardLoggedInView(viewModel: viewModel,
 				                                         twoFactor: viewModel.cardTwoFactor)
 				self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardLoggedInView))
-			}
-			else
-			{
+			} else {
 				self.cardView = CardView(viewModel: viewModel)
 				self.swiftUIContainerView = UIHostingController(rootView: AnyView(self.cardView))
 			}
 
 			// Constraint the view to Tab container
-			if let size = self.parentFrame?.size
-			{
+			if let size = self.parentFrame?.size {
 				self.swiftUIContainerView.view.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
 			}
 
@@ -67,13 +59,11 @@ class CardViewController: UIViewController
 		}
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		// Preparation values for the Card view model
 		guard let walletManager = walletManager,
 		      let store = store
-		else
-		{
+		else {
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 
 			return
@@ -88,27 +78,24 @@ class CardViewController: UIViewController
 		notificationToken = NotificationCenter.default
 			.addObserver(forName: NSNotification.Name.LitecoinCardLoginNotification,
 			             object: nil,
-			             queue: nil)
-		{ _ in
-			LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULI)
+			             queue: nil) { _ in
+				LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULI)
 
-			self.viewModel?.fetchCardWalletDetails
-			{
-				LWAnalytics.logEventWithParameters(itemName: ._20210804_TAWDS)
+				self.viewModel?.fetchCardWalletDetails {
+					LWAnalytics.logEventWithParameters(itemName: ._20210804_TAWDS)
+				}
+
+				self.updateLoginStatusFromViewModel()
 			}
-
-			self.updateLoginStatusFromViewModel()
-		}
 
 		// Listens for Logout notification and updates the CardView
 		notificationToken = NotificationCenter.default
 			.addObserver(forName: NSNotification.Name.LitecoinCardLogoutNotification,
 			             object: nil,
-			             queue: nil)
-		{ _ in
-			LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULO)
+			             queue: nil) { _ in
+				LWAnalytics.logEventWithParameters(itemName: ._20210804_TAULO)
 
-			self.updateLoginStatusFromViewModel()
-		}
+				self.updateLoginStatusFromViewModel()
+			}
 	}
 }

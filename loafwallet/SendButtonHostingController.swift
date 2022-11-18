@@ -1,18 +1,15 @@
 import Foundation
 import SwiftUI
 
-class SendButtonHostingController: UIHostingController<SendButtonView>
-{
+class SendButtonHostingController: UIHostingController<SendButtonView> {
 	let contentView = SendButtonView()
 
-	init()
-	{
+	init() {
 		super.init(rootView: contentView)
 	}
 
 	@available(*, unavailable)
-	@MainActor dynamic required init?(coder _: NSCoder)
-	{
+	@MainActor dynamic required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

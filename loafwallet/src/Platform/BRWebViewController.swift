@@ -23,16 +23,14 @@ import WebKit
 	var sockets = [String: BRWebSocket]()
 
 	// this is the data that occasionally gets sent to the above connected sockets
-	var webViewInfo: [String: Any]
-	{
+	var webViewInfo: [String: Any] {
 		return [
 			"visible": didAppear,
 			"loaded": didLoad,
 		]
 	}
 
-	var indexUrl: URL
-	{
+	var indexUrl: URL {
 		return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
 	}
 
@@ -51,18 +49,15 @@ import WebKit
 	}
 
 	@available(*, unavailable)
-	public required init?(coder _: NSCoder)
-	{
+	public required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override open var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override open var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
-	override open func loadView()
-	{
+	override open func loadView() {
 		didLoad = false
 
 		let contentController = WKUserContentController()
@@ -91,21 +86,19 @@ import WebKit
 
 		let center = NotificationCenter.default
 		center.addObserver(forName: .UIApplicationDidBecomeActive, object: nil, queue: .main)
-		{ [weak self] _ in
-			self?.didAppear = true
-			if let info = self?.webViewInfo
-			{
-				self?.sendToAllSockets(data: info)
+			{ [weak self] _ in
+				self?.didAppear = true
+				if let info = self?.webViewInfo {
+					self?.sendToAllSockets(data: info)
+				}
 			}
-		}
 		center.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: .main)
-		{ [weak self] _ in
-			self?.didAppear = false
-			if let info = self?.webViewInfo
-			{
-				self?.sendToAllSockets(data: info)
+			{ [weak self] _ in
+				self?.didAppear = false
+				if let info = self?.webViewInfo {
+					self?.sendToAllSockets(data: info)
+				}
 			}
-		}
 
 		activityIndicator.activityIndicatorViewStyle = .white
 		activityIndicator.color = .darkGray
@@ -116,38 +109,32 @@ import WebKit
 		view.addSubview(activityIndicator)
 	}
 
-	override open func viewDidAppear(_: Bool)
-	{
+	override open func viewDidAppear(_: Bool) {
 		didAppear = true
 		sendToAllSockets(data: webViewInfo)
 	}
 
-	override open func viewDidDisappear(_: Bool)
-	{
+	override open func viewDidDisappear(_: Bool) {
 		didAppear = false
 		sendToAllSockets(data: webViewInfo)
 	}
 
 	// signal to the presenter that the webview content successfully loaded
-	fileprivate func webviewDidLoad()
-	{
+	fileprivate func webviewDidLoad() {
 		didLoad = true
 		sendToAllSockets(data: webViewInfo)
 	}
 
-	fileprivate func closeNow()
-	{
+	fileprivate func closeNow() {
 		store.trigger(name: .showStatusBar)
 		dismiss(animated: true, completion: nil)
 	}
 
-	open func preload()
-	{
+	open func preload() {
 		_ = view // force webview loading
 	}
 
-	open func refresh()
-	{
+	open func refresh() {
 		let request = URLRequest(url: indexUrl)
 		_ = webView?.load(request)
 	}
@@ -157,13 +144,10 @@ import WebKit
 	open func webView(_: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
 	                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void)
 	{
-		if let url = navigationAction.request.url?.absoluteString
-		{
+		if let url = navigationAction.request.url?.absoluteString {
 			let mutableurl = url
-			if mutableurl.contains("/close")
-			{
-				DispatchQueue.main.async
-				{
+			if mutableurl.contains("/close") {
+				DispatchQueue.main.async {
 					self.closeNow()
 				}
 			}
@@ -171,8 +155,7 @@ import WebKit
 		return decisionHandler(.allow)
 	}
 
-	public func webView(_: WKWebView, didFinish _: WKNavigation!)
-	{
+	public func webView(_: WKWebView, didFinish _: WKNavigation!) {
 		activityIndicator.stopAnimating()
 		activityIndicator.isHidden = true
 	}
@@ -187,8 +170,7 @@ import WebKit
 		req.httpBody = Data(response.utf8)
 		req.httpMethod = "POST"
 
-		DispatchQueue.main.async
-		{
+		DispatchQueue.main.async {
 			let browser = BRBrowserViewController()
 			browser.load(req)
 			self.present(browser, animated: true, completion: nil)
@@ -197,53 +179,41 @@ import WebKit
 
 	// MARK: - socket delegate
 
-	func sendTo(socket: BRWebSocket, data: [String: Any])
-	{
-		do
-		{
+	func sendTo(socket: BRWebSocket, data: [String: Any]) {
+		do {
 			let j = try JSONSerialization.data(withJSONObject: data, options: [])
-			if let s = String(data: j, encoding: .utf8)
-			{
-				socket.request.queue.async
-				{
+			if let s = String(data: j, encoding: .utf8) {
+				socket.request.queue.async {
 					socket.send(s)
 				}
 			}
-		}
-		catch let e
-		{
+		} catch let e {
 			print("LOCATION SOCKET FAILED ENCODE JSON: \(e)")
 		}
 	}
 
-	func sendToAllSockets(data: [String: Any])
-	{
-		for (_, s) in sockets
-		{
+	func sendToAllSockets(data: [String: Any]) {
+		for (_, s) in sockets {
 			sendTo(socket: s, data: data)
 		}
 	}
 
-	public func socketDidConnect(_ socket: BRWebSocket)
-	{
+	public func socketDidConnect(_ socket: BRWebSocket) {
 		print("WEBVIEW SOCKET CONNECT \(socket.id)")
 		sockets[socket.id] = socket
 		sendTo(socket: socket, data: webViewInfo)
 	}
 
-	public func socketDidDisconnect(_ socket: BRWebSocket)
-	{
+	public func socketDidDisconnect(_ socket: BRWebSocket) {
 		print("WEBVIEW SOCKET DISCONNECT \(socket.id)")
 		sockets.removeValue(forKey: socket.id)
 	}
 
-	public func socket(_: BRWebSocket, didReceiveText text: String)
-	{
+	public func socket(_: BRWebSocket, didReceiveText text: String) {
 		print("WEBVIEW SOCKET RECV TEXT \(text)")
 	}
 
-	public func socket(_: BRWebSocket, didReceiveData data: Data)
-	{
+	public func socket(_: BRWebSocket, didReceiveData data: Data) {
 		print("WEBVIEW SOCKET RECV TEXT \(data.hexString)")
 	}
 }

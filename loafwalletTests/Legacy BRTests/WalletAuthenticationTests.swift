@@ -1,33 +1,28 @@
 @testable import loafwallet
 import XCTest
 
-class WalletAuthenticationTests: XCTestCase
-{
+class WalletAuthenticationTests: XCTestCase {
 	private let walletManager: WalletManager = try! WalletManager(store: Store(), dbPath: nil)
 	private let pin = "123456"
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 		clearKeychain()
 		guard walletManager.noWallet else { XCTFail("Wallet should not exist"); return }
 		guard walletManager.setRandomSeedPhrase() != nil else { XCTFail("Phrase should not be nil"); return }
 	}
 
-	override func tearDown()
-	{
+	override func tearDown() {
 		super.tearDown()
 		clearKeychain()
 	}
 
-	func testAuthentication()
-	{
+	func testAuthentication() {
 		XCTAssert(walletManager.forceSetPin(newPin: pin), "Setting PIN should succeed")
 		XCTAssert(walletManager.authenticate(pin: pin), "Authentication should succeed.")
 	}
 
-	func testWalletDisabledUntil()
-	{
+	func testWalletDisabledUntil() {
 		XCTAssert(walletManager.forceSetPin(newPin: pin), "Setting PIN should succeed")
 
 		// Perform 2 wrong pin attempts
@@ -41,8 +36,7 @@ class WalletAuthenticationTests: XCTestCase
 		XCTAssert(disabledUntil > Date().timeIntervalSince1970, "Wallet should be disabled until some time in the future. DisabledUntil: \(disabledUntil)")
 	}
 
-	func testWalletDisabledTwice()
-	{
+	func testWalletDisabledTwice() {
 		XCTAssert(walletManager.forceSetPin(newPin: pin), "Setting PIN should succeed")
 
 		// Lock wallet
@@ -54,8 +48,7 @@ class WalletAuthenticationTests: XCTestCase
 		XCTAssert(disabledUntil > Date().timeIntervalSince1970, "Wallet should be disabled until some time in the future. DisabledUntil: \(disabledUntil)")
 	}
 
-	func testWalletNotDisabled()
-	{
+	func testWalletNotDisabled() {
 		XCTAssert(walletManager.forceSetPin(newPin: pin), "Setting PIN should succeed")
 		XCTAssert(walletManager.walletDisabledUntil == 0, "Wallet should not be disabled after pin has been set")
 	}

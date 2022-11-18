@@ -2,15 +2,13 @@ import UIKit
 
 // MARK: - Startup Modals
 
-struct ShowStartFlow: Action
-{
+struct ShowStartFlow: Action {
 	let reduce: Reducer = {
 		$0.clone(isStartFlowVisible: true)
 	}
 }
 
-struct HideStartFlow: Action
-{
+struct HideStartFlow: Action {
 	let reduce: Reducer = { state in
 		ReduxState(isStartFlowVisible: false,
 		           isLoginRequired: state.isLoginRequired,
@@ -32,22 +30,19 @@ struct HideStartFlow: Action
 	}
 }
 
-struct Reset: Action
-{
+struct Reset: Action {
 	let reduce: Reducer = { _ in
 		ReduxState.initial.clone(isLoginRequired: false)
 	}
 }
 
-struct RequireLogin: Action
-{
+struct RequireLogin: Action {
 	let reduce: Reducer = {
 		$0.clone(isLoginRequired: true)
 	}
 }
 
-struct LoginSuccess: Action
-{
+struct LoginSuccess: Action {
 	let reduce: Reducer = {
 		$0.clone(isLoginRequired: false)
 	}
@@ -55,13 +50,10 @@ struct LoginSuccess: Action
 
 // MARK: - Root Modals
 
-struct RootModalActions
-{
-	struct Present: Action
-	{
+struct RootModalActions {
+	struct Present: Action {
 		let reduce: Reducer
-		init(modal: RootModal)
-		{
+		init(modal: RootModal) {
 			reduce = { $0.rootModal(modal) }
 		}
 	}
@@ -69,67 +61,52 @@ struct RootModalActions
 
 // MARK: - Wallet State
 
-enum WalletChange
-{
-	struct setProgress: Action
-	{
+enum WalletChange {
+	struct setProgress: Action {
 		let reduce: Reducer
-		init(progress: Double, timestamp: UInt32)
-		{
+		init(progress: Double, timestamp: UInt32) {
 			reduce = { $0.clone(walletSyncProgress: progress, timestamp: timestamp) }
 		}
 	}
 
-	struct setSyncingState: Action
-	{
+	struct setSyncingState: Action {
 		let reduce: Reducer
-		init(_ syncState: SyncState)
-		{
+		init(_ syncState: SyncState) {
 			reduce = { $0.clone(syncState: syncState) }
 		}
 	}
 
-	struct setBalance: Action
-	{
+	struct setBalance: Action {
 		let reduce: Reducer
-		init(_ balance: UInt64)
-		{
+		init(_ balance: UInt64) {
 			reduce = { $0.clone(balance: balance) }
 		}
 	}
 
-	struct setTransactions: Action
-	{
+	struct setTransactions: Action {
 		let reduce: Reducer
-		init(_ transactions: [Transaction])
-		{
+		init(_ transactions: [Transaction]) {
 			reduce = { $0.clone(transactions: transactions) }
 		}
 	}
 
-	struct setWalletName: Action
-	{
+	struct setWalletName: Action {
 		let reduce: Reducer
-		init(_ name: String)
-		{
+		init(_ name: String) {
 			reduce = { $0.clone(walletName: name) }
 		}
 	}
 
-	struct setWalletCreationDate: Action
-	{
+	struct setWalletCreationDate: Action {
 		let reduce: Reducer
-		init(_ date: Date)
-		{
+		init(_ date: Date) {
 			reduce = { $0.clone(walletCreationDate: date) }
 		}
 	}
 
-	struct setIsRescanning: Action
-	{
+	struct setIsRescanning: Action {
 		let reduce: Reducer
-		init(_ isRescanning: Bool)
-		{
+		init(_ isRescanning: Bool) {
 			reduce = { $0.clone(isRescanning: isRescanning) }
 		}
 	}
@@ -137,10 +114,8 @@ enum WalletChange
 
 // MARK: - Currency
 
-enum CurrencyChange
-{
-	struct toggle: Action
-	{
+enum CurrencyChange {
+	struct toggle: Action {
 		let reduce: Reducer = {
 			UserDefaults.isLtcSwapped = !$0.isLtcSwapped
 			return $0.clone(isLtcSwapped: !$0.isLtcSwapped)
@@ -150,23 +125,18 @@ enum CurrencyChange
 
 // MARK: - Exchange Rates
 
-enum ExchangeRates
-{
-	struct setRates: Action
-	{
+enum ExchangeRates {
+	struct setRates: Action {
 		let reduce: Reducer
-		init(currentRate: Rate, rates: [Rate])
-		{
+		init(currentRate: Rate, rates: [Rate]) {
 			UserDefaults.currentRateData = currentRate.dictionary
 			reduce = { $0.clone(currentRate: currentRate, rates: rates) }
 		}
 	}
 
-	struct setRate: Action
-	{
+	struct setRate: Action {
 		let reduce: Reducer
-		init(_ currentRate: Rate)
-		{
+		init(_ currentRate: Rate) {
 			reduce = { $0.clone(currentRate: currentRate) }
 		}
 	}
@@ -174,30 +144,23 @@ enum ExchangeRates
 
 // MARK: - Alerts
 
-enum SimpleReduxAlert
-{
-	struct Show: Action
-	{
+enum SimpleReduxAlert {
+	struct Show: Action {
 		let reduce: Reducer
-		init(_ type: AlertType)
-		{
+		init(_ type: AlertType) {
 			reduce = { $0.clone(alert: type) }
 		}
 	}
 
-	struct Hide: Action
-	{
+	struct Hide: Action {
 		let reduce: Reducer = { $0.clone(alert: nil) }
 	}
 }
 
-enum Biometrics
-{
-	struct setIsEnabled: Action, Trackable
-	{
+enum Biometrics {
+	struct setIsEnabled: Action, Trackable {
 		let reduce: Reducer
-		init(_ isBiometricsEnabled: Bool)
-		{
+		init(_ isBiometricsEnabled: Bool) {
 			UserDefaults.isBiometricsEnabled = isBiometricsEnabled
 			reduce = { $0.clone(isBiometricsEnabled: isBiometricsEnabled) }
 			saveEvent("event.enableBiometrics", attributes: ["isEnabled": "\(isBiometricsEnabled)"])
@@ -205,13 +168,10 @@ enum Biometrics
 	}
 }
 
-enum DefaultCurrency
-{
-	struct setDefault: Action, Trackable
-	{
+enum DefaultCurrency {
+	struct setDefault: Action, Trackable {
 		let reduce: Reducer
-		init(_ defaultCurrencyCode: String)
-		{
+		init(_ defaultCurrencyCode: String) {
 			UserDefaults.defaultCurrencyCode = defaultCurrencyCode
 			reduce = { $0.clone(defaultCurrencyCode: defaultCurrencyCode) }
 			saveEvent("event.setDefaultCurrency", attributes: ["code": defaultCurrencyCode])
@@ -219,38 +179,29 @@ enum DefaultCurrency
 	}
 }
 
-enum RecommendRescan
-{
-	struct set: Action, Trackable
-	{
+enum RecommendRescan {
+	struct set: Action, Trackable {
 		let reduce: Reducer
-		init(_ recommendRescan: Bool)
-		{
+		init(_ recommendRescan: Bool) {
 			reduce = { $0.clone(recommendRescan: recommendRescan) }
 			saveEvent("event.recommendRescan")
 		}
 	}
 }
 
-enum LoadTransactions
-{
-	struct set: Action
-	{
+enum LoadTransactions {
+	struct set: Action {
 		let reduce: Reducer
-		init(_ isLoadingTransactions: Bool)
-		{
+		init(_ isLoadingTransactions: Bool) {
 			reduce = { $0.clone(isLoadingTransactions: isLoadingTransactions) }
 		}
 	}
 }
 
-enum MaxDigits
-{
-	struct set: Action, Trackable
-	{
+enum MaxDigits {
+	struct set: Action, Trackable {
 		let reduce: Reducer
-		init(_ maxDigits: Int)
-		{
+		init(_ maxDigits: Int) {
 			UserDefaults.maxDigits = maxDigits
 			reduce = { $0.clone(maxDigits: maxDigits) }
 			saveEvent("maxDigits.set", attributes: ["maxDigits": "\(maxDigits)"])
@@ -258,49 +209,37 @@ enum MaxDigits
 	}
 }
 
-enum PushNotifications
-{
-	struct setIsEnabled: Action
-	{
+enum PushNotifications {
+	struct setIsEnabled: Action {
 		let reduce: Reducer
-		init(_ isEnabled: Bool)
-		{
+		init(_ isEnabled: Bool) {
 			reduce = { $0.clone(isPushNotificationsEnabled: isEnabled) }
 		}
 	}
 }
 
-enum biometricsActions
-{
-	struct setIsPrompting: Action
-	{
+enum biometricsActions {
+	struct setIsPrompting: Action {
 		let reduce: Reducer
-		init(_ isPrompting: Bool)
-		{
+		init(_ isPrompting: Bool) {
 			reduce = { $0.clone(isPromptingBiometrics: isPrompting) }
 		}
 	}
 }
 
-enum PinLength
-{
-	struct set: Action
-	{
+enum PinLength {
+	struct set: Action {
 		let reduce: Reducer
-		init(_ pinLength: Int)
-		{
+		init(_ pinLength: Int) {
 			reduce = { $0.clone(pinLength: pinLength) }
 		}
 	}
 }
 
-enum UpdateFees
-{
-	struct set: Action
-	{
+enum UpdateFees {
+	struct set: Action {
 		let reduce: Reducer
-		init(_ fees: Fees)
-		{
+		init(_ fees: Fees) {
 			reduce = { $0.clone(fees: fees) }
 		}
 	}
@@ -308,10 +247,8 @@ enum UpdateFees
 
 // MARK: - State Creation Helpers
 
-extension ReduxState
-{
-	func clone(isStartFlowVisible: Bool) -> ReduxState
-	{
+extension ReduxState {
+	func clone(isStartFlowVisible: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -331,8 +268,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func rootModal(_ type: RootModal) -> ReduxState
-	{
+	func rootModal(_ type: RootModal) -> ReduxState {
 		return ReduxState(isStartFlowVisible: false,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: type,
@@ -352,8 +288,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(pasteboard _: String?) -> ReduxState
-	{
+	func clone(pasteboard _: String?) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -373,8 +308,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(walletSyncProgress: Double, timestamp: UInt32) -> ReduxState
-	{
+	func clone(walletSyncProgress: Double, timestamp: UInt32) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -394,8 +328,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(syncState: SyncState) -> ReduxState
-	{
+	func clone(syncState: SyncState) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -415,8 +348,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(balance: UInt64) -> ReduxState
-	{
+	func clone(balance: UInt64) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -436,8 +368,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(transactions: [Transaction]) -> ReduxState
-	{
+	func clone(transactions: [Transaction]) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -457,8 +388,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(walletName: String) -> ReduxState
-	{
+	func clone(walletName: String) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -478,8 +408,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(walletSyncingErrorMessage _: String?) -> ReduxState
-	{
+	func clone(walletSyncingErrorMessage _: String?) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -499,8 +428,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(walletCreationDate: Date) -> ReduxState
-	{
+	func clone(walletCreationDate: Date) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -520,8 +448,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isRescanning: Bool) -> ReduxState
-	{
+	func clone(isRescanning: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -541,8 +468,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isLtcSwapped: Bool) -> ReduxState
-	{
+	func clone(isLtcSwapped: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -562,8 +488,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isLoginRequired: Bool) -> ReduxState
-	{
+	func clone(isLoginRequired: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -583,8 +508,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(currentRate: Rate, rates: [Rate]) -> ReduxState
-	{
+	func clone(currentRate: Rate, rates: [Rate]) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -604,8 +528,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(currentRate: Rate) -> ReduxState
-	{
+	func clone(currentRate: Rate) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -625,8 +548,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(alert: AlertType?) -> ReduxState
-	{
+	func clone(alert: AlertType?) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -646,8 +568,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isBiometricsEnabled: Bool) -> ReduxState
-	{
+	func clone(isBiometricsEnabled: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -667,8 +588,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(defaultCurrencyCode: String) -> ReduxState
-	{
+	func clone(defaultCurrencyCode: String) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -688,8 +608,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(recommendRescan: Bool) -> ReduxState
-	{
+	func clone(recommendRescan: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -709,8 +628,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isLoadingTransactions: Bool) -> ReduxState
-	{
+	func clone(isLoadingTransactions: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -730,8 +648,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(maxDigits: Int) -> ReduxState
-	{
+	func clone(maxDigits: Int) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -751,8 +668,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isPushNotificationsEnabled: Bool) -> ReduxState
-	{
+	func clone(isPushNotificationsEnabled: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -772,8 +688,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(isPromptingBiometrics: Bool) -> ReduxState
-	{
+	func clone(isPromptingBiometrics: Bool) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -793,8 +708,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(pinLength: Int) -> ReduxState
-	{
+	func clone(pinLength: Int) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,
@@ -814,8 +728,7 @@ extension ReduxState
 		                  fees: fees)
 	}
 
-	func clone(fees: Fees) -> ReduxState
-	{
+	func clone(fees: Fees) -> ReduxState {
 		return ReduxState(isStartFlowVisible: isStartFlowVisible,
 		                  isLoginRequired: isLoginRequired,
 		                  rootModal: rootModal,

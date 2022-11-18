@@ -1,9 +1,7 @@
 import UIKit
 
-class ShareDataViewController: UIViewController
-{
-	init(store: Store)
-	{
+class ShareDataViewController: UIViewController {
+	init(store: Store) {
 		self.store = store
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -15,15 +13,13 @@ class ShareDataViewController: UIViewController
 	private let toggle = GradientSwitch()
 	private let separator = UIView(color: .secondaryShadow)
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(titleLabel)
 		view.addSubview(body)
 		view.addSubview(label)
@@ -31,8 +27,7 @@ class ShareDataViewController: UIViewController
 		view.addSubview(separator)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		titleLabel.constrain([
 			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
 			titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
@@ -58,32 +53,27 @@ class ShareDataViewController: UIViewController
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .whiteTint
 		titleLabel.text = S.ShareData.header
 		body.text = S.ShareData.body
 		label.text = S.ShareData.toggleLabel
 
-		if UserDefaults.hasAquiredShareDataPermission
-		{
+		if UserDefaults.hasAquiredShareDataPermission {
 			toggle.isOn = true
 			toggle.sendActions(for: .valueChanged)
 		}
 
-		toggle.valueChanged = strongify(self)
-		{ myself in
+		toggle.valueChanged = strongify(self) { myself in
 			UserDefaults.hasAquiredShareDataPermission = myself.toggle.isOn
-			if myself.toggle.isOn
-			{
+			if myself.toggle.isOn {
 				myself.store.trigger(name: .didEnableShareData)
 			}
 		}
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

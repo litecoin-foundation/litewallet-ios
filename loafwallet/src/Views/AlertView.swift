@@ -1,7 +1,6 @@
 import UIKit
 
-enum AlertType
-{
+enum AlertType {
 	case pinSet(callback: () -> Void)
 	case paperKeySet(callback: () -> Void)
 	case sendSuccess
@@ -12,10 +11,8 @@ enum AlertType
 	// Failure(s)
 	case failedResolution
 
-	var header: String
-	{
-		switch self
-		{
+	var header: String {
+		switch self {
 		case .pinSet:
 			return S.SecurityAlerts.pinSet
 		case .paperKeySet:
@@ -35,10 +32,8 @@ enum AlertType
 		}
 	}
 
-	var subheader: String
-	{
-		switch self
-		{
+	var subheader: String {
+		switch self {
 		case .pinSet:
 			return ""
 		case .paperKeySet:
@@ -58,18 +53,15 @@ enum AlertType
 		}
 	}
 
-	var icon: UIView
-	{
+	var icon: UIView {
 		return CheckView()
 	}
 }
 
 extension AlertType: Equatable {}
 
-func == (lhs: AlertType, rhs: AlertType) -> Bool
-{
-	switch (lhs, rhs)
-	{
+func == (lhs: AlertType, rhs: AlertType) -> Bool {
+	switch (lhs, rhs) {
 	case (.pinSet(_), .pinSet(_)):
 		return true
 	case (.paperKeySet(_), .paperKeySet(_)):
@@ -92,8 +84,7 @@ func == (lhs: AlertType, rhs: AlertType) -> Bool
 	}
 }
 
-class AlertView: UIView, SolidColorDrawable
-{
+class AlertView: UIView, SolidColorDrawable {
 	private let type: AlertType
 	private let header = UILabel()
 	private let subheader = UILabel()
@@ -102,8 +93,7 @@ class AlertView: UIView, SolidColorDrawable
 	private let iconSize: CGFloat = 96.0
 	private let separatorYOffset: CGFloat = 48.0
 
-	init(type: AlertType)
-	{
+	init(type: AlertType) {
 		self.type = type
 		icon = type.icon
 		super.init(frame: .zero)
@@ -112,14 +102,12 @@ class AlertView: UIView, SolidColorDrawable
 		setupSubviews()
 	}
 
-	func animate()
-	{
+	func animate() {
 		guard let animatableIcon = icon as? AnimatableIcon else { return }
 		animatableIcon.animate()
 	}
 
-	private func setupSubviews()
-	{
+	private func setupSubviews() {
 		addSubview(header)
 		addSubview(subheader)
 		addSubview(icon)
@@ -129,8 +117,7 @@ class AlertView: UIView, SolidColorDrawable
 		addConstraints()
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		header.text = type.header
 		header.textAlignment = .center
 		header.font = UIFont.barlowBold(size: 18.0)
@@ -145,8 +132,7 @@ class AlertView: UIView, SolidColorDrawable
 		subheader.textColor = .white
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		// NB - In this alert view, constraints shouldn't be pinned to the bottom
 		// of the view because the bottom actually extends off the bottom of the screen a bit.
 		// It extends so that it still covers up the underlying view when it bounces on screen.
@@ -171,14 +157,12 @@ class AlertView: UIView, SolidColorDrawable
 		])
 	}
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		drawColor(color: .liteWalletBlue, rect)
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

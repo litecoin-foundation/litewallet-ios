@@ -1,9 +1,7 @@
 import UIKit
 
-class DefaultCurrencyViewController: UITableViewController, Subscriber
-{
-	init(walletManager: WalletManager, store: Store)
-	{
+class DefaultCurrencyViewController: UITableViewController, Subscriber {
+	init(walletManager: WalletManager, store: Store) {
 		self.walletManager = walletManager
 		self.store = store
 		rates = store.state.rates.filter { $0.code != C.btcCurrencyCode }
@@ -13,19 +11,15 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 	private let walletManager: WalletManager
 	private let store: Store
 	private let cellIdentifier = "CellIdentifier"
-	private var rates: [Rate] = []
-	{
-		didSet
-		{
+	private var rates: [Rate] = [] {
+		didSet {
 			tableView.reloadData()
 			setExchangeRateLabel()
 		}
 	}
 
-	private var defaultCurrencyCode: String?
-	{
-		didSet
-		{
+	private var defaultCurrencyCode: String? {
+		didSet {
 			// Grab index paths of new and old rows when the currency changes
 			let paths: [IndexPath] = rates.enumerated().filter { $0.1.code == defaultCurrencyCode || $0.1.code == oldValue }.map { IndexPath(row: $0.0, section: 0) }
 			tableView.beginUpdates()
@@ -41,13 +35,11 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 	private let rateLabel = UILabel(font: .customBody(size: 16.0), color: .darkText)
 	private var header: UIView?
 
-	deinit
-	{
+	deinit {
 		store.unsubscribe(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		tableView.register(SeparatorCell.self, forCellReuseIdentifier: cellIdentifier)
 		store.subscribe(self, selector: { $0.defaultCurrencyCode != $1.defaultCurrencyCode }, callback: {
 			self.defaultCurrencyCode = $0.defaultCurrencyCode
@@ -72,10 +64,8 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 		navigationItem.rightBarButtonItems = [UIBarButtonItem.negativePadding, UIBarButtonItem(customView: faqButton)]
 	}
 
-	private func setExchangeRateLabel()
-	{
-		if let currentRate = rates.filter({ $0.code == defaultCurrencyCode }).first
-		{
+	private func setExchangeRateLabel() {
+		if let currentRate = rates.filter({ $0.code == defaultCurrencyCode }).first {
 			let amount = Amount(amount: C.satoshis, rate: currentRate, maxDigits: store.state.maxDigits)
 			let bitsAmount = Amount(amount: C.satoshis, rate: currentRate, maxDigits: store.state.maxDigits)
 			rateLabel.textColor = .darkText
@@ -83,13 +73,11 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 		}
 	}
 
-	override func numberOfSections(in _: UITableView) -> Int
-	{
+	override func numberOfSections(in _: UITableView) -> Int {
 		return 1
 	}
 
-	override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int
-	{
+	override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
 		return rates.count
 	}
 
@@ -99,22 +87,18 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 		let rate = rates[indexPath.row]
 		cell.textLabel?.text = "\(rate.code) (\(rate.currencySymbol))"
 
-		if rate.code == defaultCurrencyCode
-		{
+		if rate.code == defaultCurrencyCode {
 			let check = UIImageView(image: #imageLiteral(resourceName: "CircleCheck").withRenderingMode(.alwaysTemplate))
 			check.tintColor = C.defaultTintColor
 			cell.accessoryView = check
-		}
-		else
-		{
+		} else {
 			cell.accessoryView = nil
 		}
 
 		return cell
 	}
 
-	override func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView?
-	{
+	override func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
 		if let header = self.header { return header }
 
 		let header = UIView(color: .whiteTint)
@@ -146,20 +130,17 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 		])
 
 		let settingSegment = store.state.maxDigits
-		switch settingSegment
-		{
+		switch settingSegment {
 		case 2: bitcoinSwitch.selectedSegmentIndex = 0
 		case 5: bitcoinSwitch.selectedSegmentIndex = 1
 		case 8: bitcoinSwitch.selectedSegmentIndex = 2
 		default: bitcoinSwitch.selectedSegmentIndex = 2
 		}
 
-		bitcoinSwitch.valueChanged = strongify(self)
-		{ myself in
+		bitcoinSwitch.valueChanged = strongify(self) { myself in
 			let newIndex = myself.bitcoinSwitch.selectedSegmentIndex
 
-			switch newIndex
-			{
+			switch newIndex {
 			case 0: // photons
 				myself.store.perform(action: MaxDigits.set(2))
 			case 1: // lites
@@ -178,15 +159,13 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber
 		return header
 	}
 
-	override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath)
-	{
+	override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let rate = rates[indexPath.row]
 		store.perform(action: DefaultCurrency.setDefault(rate.code))
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

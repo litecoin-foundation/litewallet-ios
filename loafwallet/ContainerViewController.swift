@@ -1,21 +1,17 @@
 import Foundation
 import UIKit
 
-class ContainerViewController: UIViewController
-{
+class ContainerViewController: UIViewController {
 	override func viewDidLoad()
 	{}
 }
 
-extension ContainerViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension ContainerViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return nil
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return ""
 	}
 }

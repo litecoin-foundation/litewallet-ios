@@ -3,18 +3,14 @@ import UIKit
 private let progressHeight: CGFloat = 4.0
 private let progressWidth: CGFloat = 150.0
 
-class LoadingProgressView: UIView, GradientDrawable
-{
-	var progress: Double = 0.0
-	{
-		didSet
-		{
+class LoadingProgressView: UIView, GradientDrawable {
+	var progress: Double = 0.0 {
+		didSet {
 			progressWidthConstraint?.constant = CGFloat(progress) * progressWidth
 		}
 	}
 
-	init()
-	{
+	init() {
 		super.init(frame: .zero)
 	}
 
@@ -23,8 +19,7 @@ class LoadingProgressView: UIView, GradientDrawable
 	private lazy var progressBackground: UIView = self.makeProgressView(backgroundColor: .transparentBlack)
 	private lazy var progressForeground: UIView = self.makeProgressView(backgroundColor: .white)
 
-	private func makeProgressView(backgroundColor: UIColor) -> UIView
-	{
+	private func makeProgressView(backgroundColor: UIColor) -> UIView {
 		let view = UIView()
 		view.layer.cornerRadius = progressHeight / 2.0
 		view.layer.masksToBounds = true
@@ -36,8 +31,7 @@ class LoadingProgressView: UIView, GradientDrawable
 	private let shadowView = UIView()
 	private var progressWidthConstraint: NSLayoutConstraint?
 
-	private func setupView()
-	{
+	private func setupView() {
 		label.textColor = .white
 		label.text = S.Account.loadingMessage
 		label.textAlignment = .center
@@ -68,32 +62,27 @@ class LoadingProgressView: UIView, GradientDrawable
 		shadowView.constrainTopCorners(height: 0.5)
 	}
 
-	override func layoutSubviews()
-	{
-		if !hasSetup
-		{
+	override func layoutSubviews() {
+		if !hasSetup {
 			setupView()
 			hasSetup = true
 		}
 		addBottomCorners()
 	}
 
-	private func addBottomCorners()
-	{
+	private func addBottomCorners() {
 		let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 6.0, height: 6.0)).cgPath
 		let maskLayer = CAShapeLayer()
 		maskLayer.path = path
 		layer.mask = maskLayer
 	}
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		drawGradient(rect)
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

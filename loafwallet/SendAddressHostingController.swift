@@ -1,26 +1,22 @@
 import Foundation
 import SwiftUI
 
-class SendAddressHostingController: UIHostingController<SendAddressCellView>
-{
+class SendAddressHostingController: UIHostingController<SendAddressCellView> {
 	var addressString: String = ""
 
 	let contentView = SendAddressCellView()
 
-	init()
-	{
+	init() {
 		addressString = contentView.viewModel.addressString
 		super.init(rootView: contentView)
 	}
 
 	@available(*, unavailable)
-	@MainActor dynamic required init?(coder _: NSCoder)
-	{
+	@MainActor dynamic required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func didUpdateAddressString()
-	{
+	func didUpdateAddressString() {
 		addressString = contentView.viewModel.addressString
 	}
 }

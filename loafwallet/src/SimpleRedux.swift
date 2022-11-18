@@ -3,38 +3,32 @@ import UIKit
 typealias Reducer = (ReduxState) -> ReduxState
 typealias Selector = (_ oldState: ReduxState, _ newState: ReduxState) -> Bool
 
-protocol Action
-{
+protocol Action {
 	var reduce: Reducer { get }
 }
 
 // We need reference semantics for Subscribers, so they are restricted to classes
 protocol Subscriber: class {}
 
-extension Subscriber
-{
-	var hashValue: Int
-	{
+extension Subscriber {
+	var hashValue: Int {
 		return ObjectIdentifier(self).hashValue
 	}
 }
 
 typealias StateUpdatedCallback = (ReduxState) -> Void
 
-struct Subscription
-{
+struct Subscription {
 	let selector: (_ oldState: ReduxState, _ newState: ReduxState) -> Bool
 	let callback: (ReduxState) -> Void
 }
 
-struct Trigger
-{
+struct Trigger {
 	let name: TriggerName
 	let callback: (TriggerName?) -> Void
 }
 
-enum TriggerName
-{
+enum TriggerName {
 	case presentFaq(String)
 	case registerForPushNotificationToken
 	case retrySync
@@ -64,10 +58,8 @@ enum TriggerName
 
 extension TriggerName: Equatable {}
 
-func == (lhs: TriggerName, rhs: TriggerName) -> Bool
-{
-	switch (lhs, rhs)
-	{
+func == (lhs: TriggerName, rhs: TriggerName) -> Bool {
+	switch (lhs, rhs) {
 	case (.presentFaq(_), .presentFaq(_)):
 		return true
 	case (.registerForPushNotificationToken, .registerForPushNotificationToken):
@@ -123,17 +115,14 @@ func == (lhs: TriggerName, rhs: TriggerName) -> Bool
 	}
 }
 
-class Store
-{
+class Store {
 	// MARK: - Public
 
-	func perform(action: Action)
-	{
+	func perform(action: Action) {
 		state = action.reduce(state)
 	}
 
-	func trigger(name: TriggerName)
-	{
+	func trigger(name: TriggerName) {
 		triggers
 			.flatMap { $0.value }
 			.filter { $0.name == name }
@@ -153,12 +142,9 @@ class Store
 	{
 		let key = subscriber.hashValue
 		let subscription = Subscription(selector: selector, callback: callback)
-		if subscriptions[key] != nil
-		{
+		if subscriptions[key] != nil {
 			subscriptions[key]?.append(subscription)
-		}
-		else
-		{
+		} else {
 			subscriptions[key] = [subscription]
 		}
 	}
@@ -167,28 +153,22 @@ class Store
 	{
 		let key = subscriber.hashValue
 		let trigger = Trigger(name: name, callback: callback)
-		if triggers[key] != nil
-		{
+		if triggers[key] != nil {
 			triggers[key]?.append(trigger)
-		}
-		else
-		{
+		} else {
 			triggers[key] = [trigger]
 		}
 	}
 
-	func unsubscribe(_ subscriber: Subscriber)
-	{
+	func unsubscribe(_ subscriber: Subscriber) {
 		subscriptions.removeValue(forKey: subscriber.hashValue)
 		triggers.removeValue(forKey: subscriber.hashValue)
 	}
 
 	// MARK: - Private
 
-	private(set) var state = ReduxState.initial
-	{
-		didSet
-		{
+	private(set) var state = ReduxState.initial {
+		didSet {
 			subscriptions
 				.flatMap { $0.value } // Retreive all subscriptions (subscriptions is a dictionary)
 				.filter { $0.selector(oldValue, state) }
@@ -196,8 +176,7 @@ class Store
 		}
 	}
 
-	func removeAllSubscriptions()
-	{
+	func removeAllSubscriptions() {
 		subscriptions.removeAll()
 		triggers.removeAll()
 	}

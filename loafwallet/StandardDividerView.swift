@@ -1,9 +1,7 @@
 import SwiftUI
 
-struct StandardDividerView: View
-{
-	var body: some View
-	{
+struct StandardDividerView: View {
+	var body: some View {
 		Divider()
 			.frame(height: 2.0)
 			.foregroundColor(.black)
@@ -11,10 +9,8 @@ struct StandardDividerView: View
 	}
 }
 
-struct StandardDividerView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
+struct StandardDividerView_Previews: PreviewProvider {
+	static var previews: some View {
 		StandardDividerView()
 	}
 }

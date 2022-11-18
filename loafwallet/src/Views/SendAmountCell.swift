@@ -1,9 +1,7 @@
 import UIKit
 
-class SendAmountCell: SendCell
-{
-	init(placeholder: String)
-	{
+class SendAmountCell: SendCell {
+	init(placeholder: String) {
 		super.init()
 		let attributes: [NSAttributedStringKey: Any] = [
 			NSAttributedStringKey.foregroundColor: UIColor.grayTextTint,
@@ -19,10 +17,8 @@ class SendAmountCell: SendCell
 	var textFieldDidBeginEditing: (() -> Void)?
 	var textFieldDidReturn: ((UITextField) -> Void)?
 	var textFieldDidChange: ((String) -> Void)?
-	var content: String?
-	{
-		didSet
-		{
+	var content: String? {
+		didSet {
 			textField.text = content
 			textField.sendActions(for: .editingChanged)
 			guard let count = content?.count else { return }
@@ -30,14 +26,12 @@ class SendAmountCell: SendCell
 		}
 	}
 
-	func setLabel(text: String, color: UIColor)
-	{
+	func setLabel(text: String, color: UIColor) {
 		label.text = text
 		label.textColor = color
 	}
 
-	func setAmountLabel(text: String)
-	{
+	func setAmountLabel(text: String) {
 		textField.isHidden = text.utf8.count > 0 // Textfield should be hidden if amount label has text
 		cursor.isHidden = !textField.isHidden
 		amountLabel.text = text
@@ -50,8 +44,7 @@ class SendAmountCell: SendCell
 	let amountLabel = UILabel(font: .customBody(size: 26.0), color: .darkText)
 	private let cursor = BlinkingView(blinkColor: C.defaultTintColor)
 
-	private func setupViews()
-	{
+	private func setupViews() {
 		addSubview(textField)
 		addSubview(label)
 		addSubview(amountLabel)
@@ -89,28 +82,23 @@ class SendAmountCell: SendCell
 		cursor.isHidden = true
 	}
 
-	@objc private func editingChanged(textField: UITextField)
-	{
+	@objc private func editingChanged(textField: UITextField) {
 		guard let text = textField.text else { return }
 		textFieldDidChange?(text)
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension SendAmountCell: UITextFieldDelegate
-{
-	func textFieldDidBeginEditing(_: UITextField)
-	{
+extension SendAmountCell: UITextFieldDelegate {
+	func textFieldDidBeginEditing(_: UITextField) {
 		textFieldDidBeginEditing?()
 	}
 
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool
-	{
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textFieldDidReturn?(textField)
 		return true
 	}

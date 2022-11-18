@@ -2,16 +2,13 @@ import Foundation
 import KeychainAccess
 import SwiftUI
 
-class Enter2FACodeViewModel: ObservableObject
-{
+class Enter2FACodeViewModel: ObservableObject {
 	// Description:
 	// The setter is used to make sure the field has only 6 digits
 	let characterLimit: Int
 
-	@Published var tokenString = ""
-	{
-		didSet
-		{
+	@Published var tokenString = "" {
+		didSet {
 			if tokenString.count > characterLimit,
 			   oldValue.count <= characterLimit
 			{
@@ -23,18 +20,15 @@ class Enter2FACodeViewModel: ObservableObject
 	@Published
 	var didSetToken: Bool = false
 
-	init(limit: Int = 6)
-	{
+	init(limit: Int = 6) {
 		characterLimit = limit
 	}
 
-	func shouldDismissView(completion: @escaping () -> Void)
-	{
+	func shouldDismissView(completion: @escaping () -> Void) {
 		completion()
 	}
 
-	func didConfirmToken(completion: @escaping (String) -> Void)
-	{
+	func didConfirmToken(completion: @escaping (String) -> Void) {
 		completion(tokenString)
 	}
 }

@@ -1,7 +1,6 @@
 import UIKit
 
-class PhraseView: UIView
-{
+class PhraseView: UIView {
 	private let phrase: String
 	private let label = UILabel()
 
@@ -9,15 +8,13 @@ class PhraseView: UIView
 
 	var xConstraint: NSLayoutConstraint?
 
-	init(phrase: String)
-	{
+	init(phrase: String) {
 		self.phrase = phrase
 		super.init(frame: CGRect())
 		setupSubviews()
 	}
 
-	private func setupSubviews()
-	{
+	private func setupSubviews() {
 		addSubview(label)
 		label.constrainToCenter()
 		label.textColor = .white
@@ -29,8 +26,7 @@ class PhraseView: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

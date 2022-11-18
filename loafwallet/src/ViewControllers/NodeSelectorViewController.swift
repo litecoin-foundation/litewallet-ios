@@ -1,8 +1,7 @@
 import BRCore
 import UIKit
 
-class NodeSelectorViewController: UIViewController, Trackable
-{
+class NodeSelectorViewController: UIViewController, Trackable {
 	let titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
 	private let nodeLabel = UILabel(font: .customBody(size: 14.0), color: .grayTextTint)
 	private let node = UILabel(font: .customBody(size: 14.0), color: .darkText)
@@ -13,29 +12,23 @@ class NodeSelectorViewController: UIViewController, Trackable
 	private var okAction: UIAlertAction?
 	private var timer: Timer?
 
-	init(walletManager: WalletManager)
-	{
+	init(walletManager: WalletManager) {
 		self.walletManager = walletManager
-		if UserDefaults.customNodeIP == nil
-		{
+		if UserDefaults.customNodeIP == nil {
 			button = ShadowButton(title: S.NodeSelector.manualButton, type: .primary)
-		}
-		else
-		{
+		} else {
 			button = ShadowButton(title: S.NodeSelector.automaticButton, type: .primary)
 		}
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(titleLabel)
 		view.addSubview(nodeLabel)
 		view.addSubview(node)
@@ -44,8 +37,7 @@ class NodeSelectorViewController: UIViewController, Trackable
 		view.addSubview(button)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		titleLabel.pinTopLeft(padding: C.padding[2])
 		nodeLabel.pinTopLeft(toView: titleLabel, topPadding: C.padding[2])
 		node.pinTopLeft(toView: nodeLabel, topPadding: 0)
@@ -59,20 +51,15 @@ class NodeSelectorViewController: UIViewController, Trackable
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .whiteTint
 		titleLabel.text = S.NodeSelector.title
 		nodeLabel.text = S.NodeSelector.nodeLabel
 		statusLabel.text = S.NodeSelector.statusLabel
-		button.tap = strongify(self)
-		{ myself in
-			if UserDefaults.customNodeIP == nil
-			{
+		button.tap = strongify(self) { myself in
+			if UserDefaults.customNodeIP == nil {
 				myself.switchToManual()
-			}
-			else
-			{
+			} else {
 				myself.switchToAuto()
 			}
 		}
@@ -80,47 +67,39 @@ class NodeSelectorViewController: UIViewController, Trackable
 		timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(setStatusText), userInfo: nil, repeats: true)
 	}
 
-	@objc private func setStatusText()
-	{
-		if let peerManager = walletManager.peerManager
-		{
+	@objc private func setStatusText() {
+		if let peerManager = walletManager.peerManager {
 			status.text = peerManager.isConnected ? S.NodeSelector.connected : S.NodeSelector.notConnected
 		}
 		node.text = walletManager.peerManager?.downloadPeerName
 	}
 
-	private func switchToAuto()
-	{
+	private func switchToAuto() {
 		guard UserDefaults.customNodeIP != nil else { return } // noop if custom node is already nil
 		saveEvent("nodeSelector.switchToAuto")
 		UserDefaults.customNodeIP = nil
 		UserDefaults.customNodePort = nil
 		button.title = S.NodeSelector.manualButton
-		DispatchQueue.walletQueue.async
-		{
+		DispatchQueue.walletQueue.async {
 			self.walletManager.peerManager?.setFixedPeer(address: 0, port: 0)
 			self.walletManager.peerManager?.connect()
 		}
 	}
 
-	private func switchToManual()
-	{
+	private func switchToManual() {
 		let alert = UIAlertController(title: S.NodeSelector.enterTitle, message: S.NodeSelector.enterBody, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
 		let okAction = UIAlertAction(title: S.Button.ok, style: .default, handler: { _ in
 			guard let ip = alert.textFields?.first, let port = alert.textFields?.last else { return }
-			if let addressText = ip.text
-			{
+			if let addressText = ip.text {
 				self.saveEvent("nodeSelector.switchToManual")
 				var address = in_addr()
 				ascii2addr(AF_INET, addressText, &address)
 				UserDefaults.customNodeIP = Int(address.s_addr)
-				if let portText = port.text
-				{
+				if let portText = port.text {
 					UserDefaults.customNodePort = Int(portText)
 				}
-				DispatchQueue.walletQueue.async
-				{
+				DispatchQueue.walletQueue.async {
 					self.walletManager.peerManager?.connect()
 				}
 				self.button.title = S.NodeSelector.automaticButton
@@ -129,37 +108,29 @@ class NodeSelectorViewController: UIViewController, Trackable
 		self.okAction = okAction
 		self.okAction?.isEnabled = false
 		alert.addAction(okAction)
-		alert.addTextField
-		{ textField in
+		alert.addTextField { textField in
 			textField.placeholder = "192.168.0.1"
 			textField.keyboardType = .decimalPad
 			textField.addTarget(self, action: #selector(self.ipAddressDidChange(textField:)), for: .editingChanged)
 		}
-		alert.addTextField
-		{ textField in
+		alert.addTextField { textField in
 			textField.placeholder = "9333"
 			textField.keyboardType = .decimalPad
 		}
 		present(alert, animated: true, completion: nil)
 	}
 
-	private func setCustomNodeText()
-	{
-		if var customNode = UserDefaults.customNodeIP
-		{
-			if let buf = addr2ascii(AF_INET, &customNode, Int32(MemoryLayout<in_addr_t>.size), nil)
-			{
+	private func setCustomNodeText() {
+		if var customNode = UserDefaults.customNodeIP {
+			if let buf = addr2ascii(AF_INET, &customNode, Int32(MemoryLayout<in_addr_t>.size), nil) {
 				node.text = String(cString: buf)
 			}
 		}
 	}
 
-	@objc private func ipAddressDidChange(textField: UITextField)
-	{
-		if let text = textField.text
-		{
-			if text.components(separatedBy: ".").count == 4, ascii2addr(AF_INET, text, nil) > 0
-			{
+	@objc private func ipAddressDidChange(textField: UITextField) {
+		if let text = textField.text {
+			if text.components(separatedBy: ".").count == 4, ascii2addr(AF_INET, text, nil) > 0 {
 				okAction?.isEnabled = true
 				return
 			}
@@ -168,8 +139,7 @@ class NodeSelectorViewController: UIViewController, Trackable
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

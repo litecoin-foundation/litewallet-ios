@@ -3,10 +3,8 @@ import UIKit
 
 private let inputImageKey = "inputImage"
 
-extension UIImage
-{
-	static func qrCode(data: Data, color: CIColor) -> UIImage?
-	{
+extension UIImage {
+	static func qrCode(data: Data, color: CIColor) -> UIImage? {
 		let qrFilter = CIFilter(name: "CIQRCodeGenerator")
 		let maskFilter = CIFilter(name: "CIMaskToAlpha")
 		let invertFilter = CIFilter(name: "CIColorInvert")
@@ -16,16 +14,13 @@ extension UIImage
 		qrFilter?.setValue(data, forKey: "inputMessage")
 		qrFilter?.setValue("L", forKey: "inputCorrectionLevel")
 
-		if Double(color.alpha) > .ulpOfOne
-		{
+		if Double(color.alpha) > .ulpOfOne {
 			invertFilter?.setValue(qrFilter?.outputImage, forKey: inputImageKey)
 			maskFilter?.setValue(invertFilter?.outputImage, forKey: inputImageKey)
 			invertFilter?.setValue(maskFilter?.outputImage, forKey: inputImageKey)
 			colorFilter?.setValue(invertFilter?.outputImage, forKey: inputImageKey)
 			colorFilter?.setValue(color, forKey: "inputColor0")
-		}
-		else
-		{
+		} else {
 			maskFilter?.setValue(qrFilter?.outputImage, forKey: inputImageKey)
 			filter = maskFilter
 		}
@@ -39,8 +34,7 @@ extension UIImage
 		return UIImage(cgImage: cgImage)
 	}
 
-	func resize(_ size: CGSize) -> UIImage?
-	{
+	func resize(_ size: CGSize) -> UIImage? {
 		UIGraphicsBeginImageContext(size)
 		defer { UIGraphicsEndImageContext() }
 		guard let context = UIGraphicsGetCurrentContext() else { assertionFailure("Could not create image context"); return nil }
@@ -53,8 +47,7 @@ extension UIImage
 		return UIGraphicsGetImageFromCurrentImageContext()
 	}
 
-	static func imageForColor(_ color: UIColor) -> UIImage
-	{
+	static func imageForColor(_ color: UIColor) -> UIImage {
 		let rect = CGRect(x: 0, y: 0, width: 1.0, height: 1.0)
 		UIGraphicsBeginImageContext(rect.size)
 		let context = UIGraphicsGetCurrentContext()

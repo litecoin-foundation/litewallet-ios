@@ -3,15 +3,12 @@ import UIKit
 let π: CGFloat = .pi
 
 /// Sets tthe wallet type, the image and the label
-enum WalletType: String
-{
+enum WalletType: String {
 	case litecoinCard
 	case litewallet
 
-	var description: String
-	{
-		switch self
-		{
+	var description: String {
+		switch self {
 		case .litecoinCard:
 			return "litecoin-front-card-border"
 		case .litewallet:
@@ -19,10 +16,8 @@ enum WalletType: String
 		}
 	}
 
-	var balanceLabel: String
-	{
-		switch self
-		{
+	var balanceLabel: String {
+		switch self {
 		case .litecoinCard:
 			return S.LitecoinCard.cardBalance
 		case .litewallet:
@@ -30,10 +25,8 @@ enum WalletType: String
 		}
 	}
 
-	var nameLabel: String
-	{
-		switch self
-		{
+	var nameLabel: String {
+		switch self {
 		case .litecoinCard:
 			return S.LitecoinCard.name
 		case .litewallet:
@@ -43,8 +36,7 @@ enum WalletType: String
 }
 
 /// Custom Event Enum: Events related to different user based actions
-enum CustomEvent: String
-{
+enum CustomEvent: String {
 	/// App Launched
 	case _20191105_AL = "app_launched"
 
@@ -145,8 +137,7 @@ enum CustomEvent: String
 	case _20220822_UTOU = "user_tapped_on_ud"
 }
 
-struct FoundationSupport
-{
+struct FoundationSupport {
 	static let dashboard = "https://litecoinfoundation.zendesk.com/"
 
 	/// Litecoin Foundation main donation address: MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe
@@ -154,28 +145,22 @@ struct FoundationSupport
 	static let donationLTCAddress = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
 }
 
-struct APIServer
-{
+struct APIServer {
 	static let baseUrl = "https://api-prod.lite-wallet.org/"
 }
 
-struct Padding
-{
-	subscript(multiplier: Int) -> CGFloat
-	{
+struct Padding {
+	subscript(multiplier: Int) -> CGFloat {
 		return CGFloat(multiplier) * 8.0
 	}
 
-	subscript(multiplier: Double) -> CGFloat
-	{
+	subscript(multiplier: Double) -> CGFloat {
 		return CGFloat(multiplier) * 8.0
 	}
 }
 
-struct DeviceType
-{
-	enum Name
-	{
+struct DeviceType {
+	enum Name {
 		static var iPhoneSE = "iPhone SE"
 		static var iPhoneSE2 = "iPhone SE2"
 		static var iPhone7 = "iPhone 7"
@@ -189,11 +174,9 @@ struct DeviceType
 	}
 }
 
-struct C
-{
+struct C {
 	static let padding = Padding()
-	struct Sizes
-	{
+	struct Sizes {
 		static let buttonHeight: CGFloat = 48.0
 		static let sendButtonHeight: CGFloat = 65.0
 		static let headerHeight: CGFloat = 48.0
@@ -215,8 +198,7 @@ struct C
 	static let supportEmail = "support@litecoinfoundation.zendesk.com"
 
 	static let reviewLink = "https://itunes.apple.com/app/loafwallet-litecoin-wallet/id1119332592?action=write-review"
-	static var standardPort: Int
-	{
+	static var standardPort: Int {
 		return E.isTestnet ? 19335 : 9333
 	}
 
@@ -274,8 +256,7 @@ struct C
 	"""
 }
 
-struct AppVersion
-{
+struct AppVersion {
 	static let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 	static let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	static let string = "v." + versionNumber! + " (\(buildNumber!))"

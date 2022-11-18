@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct SendAddressCellView: View
-{
+struct SendAddressCellView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -21,22 +20,15 @@ struct SendAddressCellView: View
 	let actionButtonA: CGFloat = 5.0
 	let actionButtonB: CGFloat = 18.0
 
-	var body: some View
-	{
-		GeometryReader
-		{ _ in
-			ZStack
-			{
-				VStack
-				{
+	var body: some View {
+		GeometryReader { _ in
+			ZStack {
+				VStack {
 					Spacer()
-					HStack
-					{
-						VStack
-						{
+					HStack {
+						VStack {
 							AddressFieldView(S.Send.enterLTCAddressLabel, text: $viewModel.addressString)
-								.onTapGesture
-								{
+								.onTapGesture {
 									didStartEditing = true
 								}
 								.frame(height: 45.0, alignment: .leading)
@@ -48,12 +40,9 @@ struct SendAddressCellView: View
 						// Paste Address
 						Button(action: {
 							viewModel.shouldPasteAddress?()
-						})
-						{
-							HStack
-							{
-								ZStack
-								{
+						}) {
+							HStack {
+								ZStack {
 									RoundedRectangle(cornerRadius: 4)
 										.frame(width: actionButtonWidth, height: 30, alignment: .center)
 										.foregroundColor(Color(UIColor.secondaryButton))
@@ -75,12 +64,9 @@ struct SendAddressCellView: View
 						// Scan Address
 						Button(action: {
 							viewModel.shouldScanAddress?()
-						})
-						{
-							HStack
-							{
-								ZStack
-								{
+						}) {
+							HStack {
+								ZStack {
 									RoundedRectangle(cornerRadius: 4)
 										.frame(width: actionButtonWidth, height: 30, alignment: .center)
 										.foregroundColor(Color(UIColor.secondaryButton))
@@ -111,14 +97,11 @@ struct SendAddressCellView: View
 	}
 }
 
-struct SendAddressCellView_Previews: PreviewProvider
-{
+struct SendAddressCellView_Previews: PreviewProvider {
 	static let viewModel = SendAddressCellViewModel()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			SendAddressCellView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

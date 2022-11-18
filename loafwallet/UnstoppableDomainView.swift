@@ -1,8 +1,7 @@
 import Combine
 import SwiftUI
 
-struct UnstoppableDomainView: View
-{
+struct UnstoppableDomainView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -20,46 +19,31 @@ struct UnstoppableDomainView: View
 	@State
 	private var shouldStartScroll: Bool = false
 
-	init(viewModel: UnstoppableDomainViewModel)
-	{
+	init(viewModel: UnstoppableDomainViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		GeometryReader
-		{ _ in
+	var body: some View {
+		GeometryReader { _ in
 
-			ZStack
-			{
-				VStack
-				{
+			ZStack {
+				VStack {
 					Spacer()
-					HStack
-					{
-						if viewModel.isDomainResolving
-						{
-							if #available(iOS 14.0, *)
-							{
+					HStack {
+						if viewModel.isDomainResolving {
+							if #available(iOS 14.0, *) {
 								ProgressView()
 									.padding(.all, swiftUICellPadding)
-							}
-							else
-							{
+							} else {
 								ActivityIndicator(isAnimating: .constant(true), style: .large)
 									.padding(.all, swiftUICellPadding)
 							}
-						}
-						else
-						{
-							VStack
-							{
-								ZStack
-								{
+						} else {
+							VStack {
+								ZStack {
 									AddressFieldView(viewModel.placeholderString,
 									                 text: $viewModel.searchString)
-										.onTapGesture
-										{
+										.onTapGesture {
 											didStartEditing = true
 										}
 										.frame(height: 45.0, alignment: .leading)
@@ -78,8 +62,7 @@ struct UnstoppableDomainView: View
 					Spacer()
 
 					// Unstoppable Domains Image and URL
-					HStack
-					{
+					HStack {
 						Spacer()
 						Text(S.Send.UnstoppableDomains.enterA + " " + S.Send.UnstoppableDomains.domain + ":")
 							.font(Font(UIFont.barlowMedium(size: 15.0)))
@@ -95,27 +78,21 @@ struct UnstoppableDomainView: View
 							.frame(height: 20)
 							.frame(width: 80)
 
-						ZStack
-						{
+						ZStack {
 							Image("ud-color-logo")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
 								.frame(height: 20, alignment: .center)
 								.padding(.all, 4.0)
-								.onTapGesture
-								{
+								.onTapGesture {
 									guard let url = URL(string: "https://unstoppabledomains.com/?ref=6897e86a35e34f1")
-									else
-									{
+									else {
 										return
 									}
 
-									if #available(iOS 10.0, *)
-									{
+									if #available(iOS 10.0, *) {
 										UIApplication.shared.open(url, options: [:], completionHandler: nil)
-									}
-									else
-									{
+									} else {
 										UIApplication.shared.openURL(url)
 									}
 
@@ -132,14 +109,11 @@ struct UnstoppableDomainView: View
 	}
 }
 
-struct UnstoppableDomainView_Previews: PreviewProvider
-{
+struct UnstoppableDomainView_Previews: PreviewProvider {
 	static let viewModel = UnstoppableDomainViewModel()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			UnstoppableDomainView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: "iPhone SE"))
 				.previewDisplayName("iPhone SE")

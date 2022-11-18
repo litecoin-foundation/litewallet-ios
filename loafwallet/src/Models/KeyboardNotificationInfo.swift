@@ -1,28 +1,23 @@
 import UIKit
 
-struct KeyboardNotificationInfo
-{
-	var deltaY: CGFloat
-	{
+struct KeyboardNotificationInfo {
+	var deltaY: CGFloat {
 		return endFrame.minY - startFrame.minY
 	}
 
-	var animationOptions: UIViewAnimationOptions
-	{
+	var animationOptions: UIViewAnimationOptions {
 		return UIViewAnimationOptions(rawValue: animationCurve << 16)
 	}
 
 	let animationDuration: Double
 
-	init?(_ userInfo: [AnyHashable: Any]?)
-	{
+	init?(_ userInfo: [AnyHashable: Any]?) {
 		guard let userInfo = userInfo else { return nil }
 		guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
 		      let startFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue,
 		      let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
 		      let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-		else
-		{
+		else {
 			return nil
 		}
 

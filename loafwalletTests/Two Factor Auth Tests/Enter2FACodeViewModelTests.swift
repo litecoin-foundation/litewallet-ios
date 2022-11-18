@@ -1,36 +1,30 @@
 @testable import loafwallet
 import XCTest
 
-class Enter2FACodeViewModelTests: XCTestCase
-{
+class Enter2FACodeViewModelTests: XCTestCase {
 	var viewModel: Enter2FACodeViewModel!
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 		viewModel = Enter2FACodeViewModel()
 	}
 
 	/// Checks the user taps on the closure
-	func testDidConfirmToken() throws
-	{
-		viewModel.didConfirmToken
-		{ _ in
+	func testDidConfirmToken() throws {
+		viewModel.didConfirmToken { _ in
 			XCTAssert(true, "Tap did work")
 		}
 	}
 
 	/// Checks limit can be changed
-	func testLimitCanChange() throws
-	{
+	func testLimitCanChange() throws {
 		let viewModelSeven = Enter2FACodeViewModel(limit: 7)
 
 		XCTAssert(viewModelSeven.characterLimit == 7)
 	}
 
 	/// Check too big token
-	func testTooBigToken() throws
-	{
+	func testTooBigToken() throws {
 		let tokenBig = "0123456"
 
 		viewModel.tokenString = tokenBig
@@ -39,8 +33,7 @@ class Enter2FACodeViewModelTests: XCTestCase
 	}
 
 	/// Check 6 digit token
-	func testSixDigitToken() throws
-	{
+	func testSixDigitToken() throws {
 		let tokenBig = "012345"
 
 		viewModel.tokenString = tokenBig
@@ -49,10 +42,8 @@ class Enter2FACodeViewModelTests: XCTestCase
 	}
 
 	/// Check dismissView
-	func testCheckDismissView() throws
-	{
-		viewModel.shouldDismissView
-		{
+	func testCheckDismissView() throws {
+		viewModel.shouldDismissView {
 			XCTAssert(true, "Dismiss worked")
 		}
 	}

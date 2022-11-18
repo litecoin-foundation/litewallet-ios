@@ -6,12 +6,9 @@ private let lastBlockHeightKey = "LastBlockHeightKey"
 private let progressUpdateInterval: TimeInterval = 0.5
 private let updateDebounceInterval: TimeInterval = 0.4
 
-class WalletCoordinator: Subscriber, Trackable
-{
-	var kvStore: BRReplicatedKVStore?
-	{
-		didSet
-		{
+class WalletCoordinator: Subscriber, Trackable {
+	var kvStore: BRReplicatedKVStore? {
+		didSet {
 			requestTxUpdate()
 		}
 	}
@@ -25,8 +22,7 @@ class WalletCoordinator: Subscriber, Trackable
 	private var reachability = ReachabilityMonitor()
 	private var retryTimer: RetryTimer?
 
-	init(walletManager: WalletManager, store: Store)
-	{
+	init(walletManager: WalletManager, store: Store) {
 		self.walletManager = walletManager
 		self.store = store
 		addWalletObservers()
@@ -37,33 +33,26 @@ class WalletCoordinator: Subscriber, Trackable
 		}
 	}
 
-	private var lastBlockHeight: UInt32
-	{
-		set
-		{
+	private var lastBlockHeight: UInt32 {
+		set {
 			defaults.set(newValue, forKey: lastBlockHeightKey)
 		}
-		get
-		{
+		get {
 			return UInt32(defaults.integer(forKey: lastBlockHeightKey))
 		}
 	}
 
-	@objc private func updateProgress()
-	{
-		DispatchQueue.walletQueue.async
-		{
+	@objc private func updateProgress() {
+		DispatchQueue.walletQueue.async {
 			guard let progress = self.walletManager.peerManager?.syncProgress(fromStartHeight: self.lastBlockHeight), let timestamp = self.walletManager.peerManager?.lastBlockTimestamp else { return }
-			DispatchQueue.main.async
-			{
+			DispatchQueue.main.async {
 				self.store.perform(action: WalletChange.setProgress(progress: progress, timestamp: timestamp))
 			}
 		}
 		updateBalance()
 	}
 
-	private func onSyncStart()
-	{
+	private func onSyncStart() {
 		endBackgroundTask()
 		startBackgroundTask()
 		progressTimer = Timer.scheduledTimer(timeInterval: progressUpdateInterval, target: self, selector: #selector(WalletCoordinator.updateProgress), userInfo: nil, repeats: true)
@@ -71,29 +60,23 @@ class WalletCoordinator: Subscriber, Trackable
 		startActivity()
 	}
 
-	private func onSyncStop(notification: Notification)
-	{
-		if UIApplication.shared.applicationState != .active
-		{
-			DispatchQueue.walletQueue.async
-			{
+	private func onSyncStop(notification: Notification) {
+		if UIApplication.shared.applicationState != .active {
+			DispatchQueue.walletQueue.async {
 				self.walletManager.peerManager?.disconnect()
 			}
 		}
 		endBackgroundTask()
-		if notification.userInfo != nil
-		{
+		if notification.userInfo != nil {
 			guard let code = notification.userInfo?["errorCode"] else { return }
 			guard let message = notification.userInfo?["errorDescription"] else { return }
 			store.perform(action: WalletChange.setSyncingState(.connecting))
 			saveEvent("event.syncErrorMessage", attributes: ["message": "\(message) (\(code))"])
 			endActivity()
 
-			if retryTimer == nil, reachability.isReachable
-			{
+			if retryTimer == nil, reachability.isReachable {
 				retryTimer = RetryTimer()
-				retryTimer?.callback = strongify(self)
-				{ myself in
+				retryTimer?.callback = strongify(self) { myself in
 					myself.store.trigger(name: .retrySync)
 				}
 				retryTimer?.start()
@@ -103,8 +86,7 @@ class WalletCoordinator: Subscriber, Trackable
 		}
 		retryTimer?.stop()
 		retryTimer = nil
-		if let height = walletManager.peerManager?.lastBlockHeight
-		{
+		if let height = walletManager.peerManager?.lastBlockHeight {
 			lastBlockHeight = height
 		}
 		progressTimer?.invalidate()
@@ -113,45 +95,35 @@ class WalletCoordinator: Subscriber, Trackable
 		endActivity()
 	}
 
-	private func endBackgroundTask()
-	{
-		if let taskId = backgroundTaskId
-		{
+	private func endBackgroundTask() {
+		if let taskId = backgroundTaskId {
 			UIApplication.shared.endBackgroundTask(taskId)
 			backgroundTaskId = nil
 		}
 	}
 
-	private func startBackgroundTask()
-	{
+	private func startBackgroundTask() {
 		backgroundTaskId = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-			DispatchQueue.walletQueue.async
-			{
+			DispatchQueue.walletQueue.async {
 				self.walletManager.peerManager?.disconnect()
 			}
 		})
 	}
 
-	private func requestTxUpdate()
-	{
-		if updateTimer == nil
-		{
+	private func requestTxUpdate() {
+		if updateTimer == nil {
 			updateTimer = Timer.scheduledTimer(timeInterval: updateDebounceInterval, target: self, selector: #selector(updateTransactions), userInfo: nil, repeats: false)
 		}
 	}
 
-	@objc private func updateTransactions()
-	{
+	@objc private func updateTransactions() {
 		updateTimer?.invalidate()
 		updateTimer = nil
-		DispatchQueue.walletQueue.async
-		{
+		DispatchQueue.walletQueue.async {
 			guard let txRefs = self.walletManager.wallet?.transactions else { return }
 			let transactions = self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
-			if !transactions.isEmpty
-			{
-				DispatchQueue.main.async
-				{
+			if !transactions.isEmpty {
+				DispatchQueue.main.async {
 					self.store.perform(action: WalletChange.setTransactions(transactions))
 				}
 			}
@@ -160,28 +132,20 @@ class WalletCoordinator: Subscriber, Trackable
 
 	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) -> [Transaction]
 	{
-		return transactions.compactMap { $0 }.sorted
-		{
-			if $0.pointee.timestamp == 0
-			{
+		return transactions.compactMap { $0 }.sorted {
+			if $0.pointee.timestamp == 0 {
 				return true
-			}
-			else if $1.pointee.timestamp == 0
-			{
+			} else if $1.pointee.timestamp == 0 {
 				return false
-			}
-			else
-			{
+			} else {
 				return $0.pointee.timestamp > $1.pointee.timestamp
 			}
-		}.compactMap
-		{
+		}.compactMap {
 			Transaction($0, walletManager: walletManager, kvStore: kvStore, rate: rate)
 		}
 	}
 
-	private func addWalletObservers()
-	{
+	private func addWalletObservers() {
 		NotificationCenter.default.addObserver(forName: .WalletBalanceChangedNotification, object: nil, queue: nil, using: { _ in
 			self.updateBalance()
 			self.requestTxUpdate()
@@ -194,8 +158,7 @@ class WalletCoordinator: Subscriber, Trackable
 		NotificationCenter.default.addObserver(forName: .WalletTxRejectedNotification, object: nil, queue: nil, using: { note in
 			guard let recommendRescan = note.userInfo?["recommendRescan"] as? Bool else { return }
 			self.requestTxUpdate()
-			if recommendRescan
-			{
+			if recommendRescan {
 				self.store.perform(action: RecommendRescan.set(recommendRescan))
 			}
 		})
@@ -209,37 +172,28 @@ class WalletCoordinator: Subscriber, Trackable
 		})
 	}
 
-	private func updateBalance()
-	{
-		DispatchQueue.walletQueue.async
-		{
+	private func updateBalance() {
+		DispatchQueue.walletQueue.async {
 			guard let newBalance = self.walletManager.wallet?.balance else { return }
-			DispatchQueue.main.async
-			{
+			DispatchQueue.main.async {
 				self.checkForReceived(newBalance: newBalance)
 				self.store.perform(action: WalletChange.setBalance(newBalance))
 			}
 		}
 	}
 
-	private func checkForReceived(newBalance: UInt64)
-	{
-		if let oldBalance = store.state.walletState.balance
-		{
-			if newBalance > oldBalance
-			{
-				if store.state.walletState.syncState == .success
-				{
+	private func checkForReceived(newBalance: UInt64) {
+		if let oldBalance = store.state.walletState.balance {
+			if newBalance > oldBalance {
+				if store.state.walletState.syncState == .success {
 					showReceived(amount: newBalance - oldBalance)
 				}
 			}
 		}
 	}
 
-	private func showReceived(amount: UInt64)
-	{
-		if let rate = store.state.currentRate
-		{
+	private func showReceived(amount: UInt64) {
+		if let rate = store.state.currentRate {
 			let amount = Amount(amount: amount, rate: rate, maxDigits: store.state.maxDigits)
 			let primary = store.state.isLtcSwapped ? amount.localCurrency : amount.bits
 			let secondary = store.state.isLtcSwapped ? amount.bits : amount.localCurrency
@@ -250,10 +204,8 @@ class WalletCoordinator: Subscriber, Trackable
 		}
 	}
 
-	private func ping()
-	{
-		if let url = Bundle.main.url(forResource: "coinflip", withExtension: "aiff")
-		{
+	private func ping() {
+		if let url = Bundle.main.url(forResource: "coinflip", withExtension: "aiff") {
 			var id: SystemSoundID = 0
 			AudioServicesCreateSystemSoundID(url as CFURL, &id)
 			AudioServicesAddSystemSoundCompletion(id, nil, nil, { soundId, _ in
@@ -263,8 +215,7 @@ class WalletCoordinator: Subscriber, Trackable
 		}
 	}
 
-	private func showLocalNotification(message: String)
-	{
+	private func showLocalNotification(message: String) {
 		guard UIApplication.shared.applicationState == .background || UIApplication.shared.applicationState == .inactive else { return }
 		guard store.state.isPushNotificationsEnabled else { return }
 		UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
@@ -275,26 +226,20 @@ class WalletCoordinator: Subscriber, Trackable
 		UIApplication.shared.presentLocalNotificationNow(notification)
 	}
 
-	private func reachabilityDidChange(isReachable: Bool)
-	{
-		if !isReachable
-		{
-			DispatchQueue.walletQueue.async
-			{
+	private func reachabilityDidChange(isReachable: Bool) {
+		if !isReachable {
+			DispatchQueue.walletQueue.async {
 				self.walletManager.peerManager?.disconnect()
-				DispatchQueue.main.async
-				{
+				DispatchQueue.main.async {
 					self.store.perform(action: WalletChange.setSyncingState(.connecting))
 				}
 			}
 		}
 	}
 
-	private func addSubscriptions()
-	{
+	private func addSubscriptions() {
 		store.subscribe(self, name: .retrySync, callback: { _ in
-			DispatchQueue.walletQueue.async
-			{
+			DispatchQueue.walletQueue.async {
 				self.walletManager.peerManager?.connect()
 			}
 		})
@@ -304,8 +249,7 @@ class WalletCoordinator: Subscriber, Trackable
 			// In case rescan is called while a sync is in progess
 			// we need to make sure it's false before a rescan starts
 			// self.store.perform(action: WalletChange.setIsSyncing(false))
-			DispatchQueue.walletQueue.async
-			{
+			DispatchQueue.walletQueue.async {
 				self.walletManager.peerManager?.rescan()
 			}
 		})
@@ -315,13 +259,11 @@ class WalletCoordinator: Subscriber, Trackable
 		})
 	}
 
-	private func startActivity()
-	{
+	private func startActivity() {
 		UIApplication.shared.isIdleTimerDisabled = true
 	}
 
-	private func endActivity()
-	{
+	private func endActivity() {
 		UIApplication.shared.isIdleTimerDisabled = false
 	}
 }

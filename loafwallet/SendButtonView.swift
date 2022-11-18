@@ -1,30 +1,22 @@
 import SwiftUI
 
-struct SendButtonView: View
-{
+struct SendButtonView: View {
 	// MARK: - Public Variables
 
 	var doSendTransaction: (() -> Void)?
 
-	var body: some View
-	{
-		GeometryReader
-		{ geometry in
-			ZStack
-			{
+	var body: some View {
+		GeometryReader { geometry in
+			ZStack {
 				Color.litecoinGray.edgesIgnoringSafeArea(.all)
 
-				VStack
-				{
+				VStack {
 					Spacer()
 					Button(action: {
 						doSendTransaction?()
-					})
-					{
-						HStack
-						{
-							ZStack
-							{
+					}) {
+						HStack {
+							ZStack {
 								RoundedRectangle(cornerRadius: 4)
 									.frame(width: geometry.size.width * 0.9, height: 45, alignment: .center)
 									.foregroundColor(Color(UIColor.liteWalletBlue))
@@ -49,10 +41,8 @@ struct SendButtonView: View
 	}
 }
 
-struct SendButtonView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
+struct SendButtonView_Previews: PreviewProvider {
+	static var previews: some View {
 		SendButtonView()
 	}
 }

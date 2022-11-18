@@ -3,8 +3,7 @@ import SwiftUI
 
 private let timestampRefreshRate: TimeInterval = 10.0
 
-class TransactionCellViewModel: ObservableObject
-{
+class TransactionCellViewModel: ObservableObject {
 	// MARK: - Public Variables
 
 	var transaction: Transaction
@@ -54,54 +53,43 @@ class TransactionCellViewModel: ObservableObject
 		loadVariables()
 	}
 
-	@objc private func timerDidFire()
-	{
+	@objc private func timerDidFire() {
 		updateTimestamp()
 	}
 
-	private func updateTimestamp()
-	{
+	private func updateTimestamp() {
 		let timestampInfo = transaction.timeSince
 
 		timedateText = timestampInfo.0
-		if !timestampInfo.1
-		{
+		if !timestampInfo.1 {
 			timer?.invalidate()
 		}
 	}
 
-	deinit
-	{
+	deinit {
 		timer?.invalidate()
 	}
 
-	private func loadVariables()
-	{
+	private func loadVariables() {
 		amountText = transaction.descriptionString(isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: maxDigits).string
 
 		feeText = transaction.amountDetails(isLtcSwapped: isLtcSwapped, rate: rate, rates: [rate], maxDigits: maxDigits)
 
 		addressText = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "")
 
-		if transaction.direction == .sent
-		{
+		if transaction.direction == .sent {
 			directionImageText = "arrowtriangle.up.circle.fill"
 			directionArrowColor = Color(UIColor.litecoinOrange)
-		}
-		else if transaction.direction == .received
-		{
+		} else if transaction.direction == .received {
 			directionImageText = "arrowtriangle.down.circle.fill"
 			directionArrowColor = Color(UIColor.litecoinGreen)
 		}
 
 		let timestampInfo = transaction.timeSince
 		timedateText = timestampInfo.0
-		if timestampInfo.1
-		{
+		if timestampInfo.1 {
 			timer = Timer.scheduledTimer(timeInterval: timestampRefreshRate, target: self, selector: #selector(TransactionCellViewModel.timerDidFire), userInfo: nil, repeats: true)
-		}
-		else
-		{
+		} else {
 			timer?.invalidate()
 		}
 
@@ -116,8 +104,7 @@ class TransactionCellViewModel: ObservableObject
 			qrImage = image
 		}
 
-		if let memo = transaction.comment
-		{
+		if let memo = transaction.comment {
 			memoString = memo
 		}
 	}

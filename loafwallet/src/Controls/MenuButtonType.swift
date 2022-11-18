@@ -1,16 +1,13 @@
 import UIKit
 
-enum MenuButtonType
-{
+enum MenuButtonType {
 	case security
 	case customerSupport
 	case settings
 	case lock
 
-	var title: String
-	{
-		switch self
-		{
+	var title: String {
+		switch self {
 		case .security:
 			return S.MenuButton.security
 		case .customerSupport:
@@ -22,10 +19,8 @@ enum MenuButtonType
 		}
 	}
 
-	var image: UIImage
-	{
-		switch self
-		{
+	var image: UIImage {
+		switch self {
 		case .security:
 			return #imageLiteral(resourceName: "Shield")
 		case .customerSupport:

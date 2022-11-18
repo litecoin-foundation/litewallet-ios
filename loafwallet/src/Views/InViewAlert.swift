@@ -1,7 +1,6 @@
 import UIKit
 
-enum InViewAlertType
-{
+enum InViewAlertType {
 	case primary
 	case secondary
 }
@@ -9,14 +8,11 @@ enum InViewAlertType
 private let arrowHeight: CGFloat = 8.0
 private let arrowWidth: CGFloat = 16.0
 
-class InViewAlert: UIView
-{
+class InViewAlert: UIView {
 	var heightConstraint: NSLayoutConstraint?
 	var isExpanded = false
-	var contentView: UIView?
-	{
-		didSet
-		{
+	var contentView: UIView? {
+		didSet {
 			guard let view = contentView else { return }
 			addSubview(view)
 			view.constrain(toSuperviewEdges: UIEdgeInsetsMake(arrowHeight, 0, 0, 0))
@@ -24,15 +20,12 @@ class InViewAlert: UIView
 	}
 
 	var arrowXLocation: CGFloat?
-	static var arrowSize: CGSize
-	{
+	static var arrowSize: CGSize {
 		return CGSize(width: arrowWidth, height: arrowHeight)
 	}
 
-	var height: CGFloat
-	{
-		switch type
-		{
+	var height: CGFloat {
+		switch type {
 		case .primary:
 			return 72.0
 		case .secondary:
@@ -40,28 +33,24 @@ class InViewAlert: UIView
 		}
 	}
 
-	init(type: InViewAlertType)
-	{
+	init(type: InViewAlertType) {
 		self.type = type
 		super.init(frame: .zero)
 		setupSubViews()
 	}
 
-	func toggle()
-	{
+	func toggle() {
 		heightConstraint?.constant = isExpanded ? 0.0 : height
 	}
 
 	private let type: InViewAlertType
 
-	private func setupSubViews()
-	{
+	private func setupSubViews() {
 		contentMode = .redraw
 		backgroundColor = .clear
 	}
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		let background = UIBezierPath(rect: rect.offsetBy(dx: 0, dy: arrowHeight))
 		fillColor.setFill()
 		background.fill()
@@ -80,8 +69,7 @@ class InViewAlert: UIView
 		context?.fillPath()
 
 		// Add Gray border for secondary style
-		if type == .secondary
-		{
+		if type == .secondary {
 			let topBorder = CGMutablePath()
 			topBorder.move(to: CGPoint(x: 0, y: arrowHeight))
 			topBorder.addLine(to: CGPoint(x: center - arrowWidth / 2.0 + 0.5, y: arrowHeight + 0.5))
@@ -95,10 +83,8 @@ class InViewAlert: UIView
 		}
 	}
 
-	private var fillColor: UIColor
-	{
-		switch type
-		{
+	private var fillColor: UIColor {
+		switch type {
 		case .primary:
 			return .primaryButton
 		case .secondary:
@@ -107,8 +93,7 @@ class InViewAlert: UIView
 	}
 
 	@available(*, unavailable)
-	required init(coder _: NSCoder)
-	{
+	required init(coder _: NSCoder) {
 		fatalError("This class does not support NSCoding")
 	}
 }

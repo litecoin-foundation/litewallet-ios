@@ -1,29 +1,23 @@
 import UIKit
 
-struct WalletAddressData
-{
+struct WalletAddressData {
 	var address: String
 	var qrCode: UIImage
 	var balance: Double
-	var balanceText: String
-	{
+	var balanceText: String {
 		String(balance) + " Ł"
 	}
 }
 
-class ReceiveLTCViewController: UIViewController
-{
+class ReceiveLTCViewController: UIViewController {
 	var store: Store?
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 
-	override func viewWillAppear(_: Bool)
-	{
+	override func viewWillAppear(_: Bool) {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store is not initialized")
 			return
 		}

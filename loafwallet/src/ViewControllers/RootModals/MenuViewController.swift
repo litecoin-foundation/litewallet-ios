@@ -1,7 +1,6 @@
 import UIKit
 
-class MenuViewController: UIViewController, Trackable
-{
+class MenuViewController: UIViewController, Trackable {
 	// MARK: - Public
 
 	var didTapSecurity: (() -> Void)?
@@ -14,28 +13,22 @@ class MenuViewController: UIViewController, Trackable
 	fileprivate let buttonHeight: CGFloat = 72.0
 	fileprivate let buttons: [MenuButton] = {
 		let types: [MenuButtonType] = [.security, .customerSupport, .settings, .lock]
-		return types.compactMap
-		{
+		return types.compactMap {
 			return MenuButton(type: $0)
 		}
 	}()
 
 	fileprivate let bottomPadding: CGFloat = 32.0
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		var previousButton: UIView?
-		buttons.forEach
-		{ button in
+		buttons.forEach { button in
 			button.addTarget(self, action: #selector(MenuViewController.didTapButton(button:)), for: .touchUpInside)
 			view.addSubview(button)
 			var topConstraint: NSLayoutConstraint?
-			if let viewAbove = previousButton
-			{
+			if let viewAbove = previousButton {
 				topConstraint = button.constraint(toBottom: viewAbove, constant: 0.0)
-			}
-			else
-			{
+			} else {
 				topConstraint = button.constraint(.top, toView: view, constant: 0.0)
 			}
 			button.constrain([
@@ -51,20 +44,15 @@ class MenuViewController: UIViewController, Trackable
 			previousButton?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -C.padding[2]),
 		])
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			view.backgroundColor = UIColor(named: "lfBackgroundColor")
-		}
-		else
-		{
+		} else {
 			view.backgroundColor = .white
 		}
 	}
 
-	@objc private func didTapButton(button: MenuButton)
-	{
-		switch button.type
-		{
+	@objc private func didTapButton(button: MenuButton) {
+		switch button.type {
 		case .security:
 			didTapSecurity?()
 		case .customerSupport:
@@ -77,15 +65,12 @@ class MenuViewController: UIViewController, Trackable
 	}
 }
 
-extension MenuViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension MenuViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return nil
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return S.MenuViewController.modalTitle
 	}
 }

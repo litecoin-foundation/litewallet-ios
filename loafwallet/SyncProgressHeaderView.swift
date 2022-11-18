@@ -1,28 +1,22 @@
 import UIKit
 
-class SyncProgressHeaderView: UITableViewCell, Subscriber
-{
+class SyncProgressHeaderView: UITableViewCell, Subscriber {
 	@IBOutlet var headerLabel: UILabel!
 	@IBOutlet var timestampLabel: UILabel!
 	@IBOutlet var progressView: UIProgressView!
 	@IBOutlet var noSendImageView: UIImageView!
 
-	var progress: CGFloat = 0.0
-	{
-		didSet
-		{
+	var progress: CGFloat = 0.0 {
+		didSet {
 			progressView.alpha = 1.0
 			progressView.progress = Float(progress)
 			progressView.setNeedsDisplay()
 		}
 	}
 
-	var headerMessage: SyncState = .success
-	{
-		didSet
-		{
-			switch headerMessage
-			{
+	var headerMessage: SyncState = .success {
+		didSet {
+			switch headerMessage {
 			case .connecting: headerLabel.text = S.SyncingHeader.connecting
 			case .syncing: headerLabel.text = S.SyncingHeader.syncing
 			case .success:
@@ -32,28 +26,21 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber
 		}
 	}
 
-	var timestamp: UInt32 = 0
-	{
-		didSet
-		{
+	var timestamp: UInt32 = 0 {
+		didSet {
 			timestampLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: Double(timestamp)))
 			timestampLabel.setNeedsDisplay()
 		}
 	}
 
-	var isRescanning: Bool = false
-	{
-		didSet
-		{
-			if isRescanning
-			{
+	var isRescanning: Bool = false {
+		didSet {
+			if isRescanning {
 				headerLabel.text = S.SyncingHeader.rescanning
 				timestampLabel.text = ""
 				progressView.alpha = 0.0
 				noSendImageView.alpha = 0.0
-			}
-			else
-			{
+			} else {
 				headerLabel.text = ""
 				timestampLabel.text = ""
 				progressView.alpha = 1.0
@@ -68,14 +55,12 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber
 		return df
 	}()
 
-	override func awakeFromNib()
-	{
+	override func awakeFromNib() {
 		super.awakeFromNib()
 		progressView.transform = progressView.transform.scaledBy(x: 1, y: 2)
 	}
 
-	override func setSelected(_ selected: Bool, animated: Bool)
-	{
+	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 	}
 }

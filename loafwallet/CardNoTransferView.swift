@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct CardNoTransferView: View
-{
+struct CardNoTransferView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -12,23 +11,18 @@ struct CardNoTransferView: View
 
 	// MARK: - Private Variables
 
-	private var cardBalance: Double
-	{
+	private var cardBalance: Double {
 		return viewModel.cardWalletDetails?.availableBalance ?? 0.0
 	}
 
-	init(viewModel: CardViewModel)
-	{
+	init(viewModel: CardViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		VStack
-		{
+	var body: some View {
+		VStack {
 			// CardNoTransfer Subview
-			Group
-			{
+			Group {
 				// Top description
 				Text(S.LitecoinCard.cardBalance.localizedUppercase)
 					.frame(minWidth: 0,
@@ -39,8 +33,7 @@ struct CardNoTransferView: View
 					.padding([.top, .leading, .trailing], 30.0)
 					.padding(.bottom, 20.0)
 
-				VStack
-				{
+				VStack {
 					// Litecoin Card Wallet balance
 					PreTransferView(walletBalance: viewModel.cardWalletDetails?.availableBalance ?? 0.0,
 					                parentWalletType: .constant(.litecoinCard),
@@ -69,8 +62,7 @@ struct CardNoTransferView: View
 	}
 }
 
-struct CardNoTransferView_Previews: PreviewProvider
-{
+struct CardNoTransferView_Previews: PreviewProvider {
 	static let amount100 = MockSeeds.amount100
 
 	static let walletManager = MockSeeds.walletManager
@@ -80,10 +72,8 @@ struct CardNoTransferView_Previews: PreviewProvider
 	static let viewModel = CardViewModel(walletManager: walletManager,
 	                                     store: store)
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			CardNoTransferView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

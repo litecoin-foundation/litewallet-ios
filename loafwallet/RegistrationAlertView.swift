@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct RegistrationAlertView<Presenting>: View where Presenting: View
-{
+struct RegistrationAlertView<Presenting>: View where Presenting: View {
 	@Binding
 	var shouldStartRegistering: Bool
 
@@ -13,18 +12,13 @@ struct RegistrationAlertView<Presenting>: View where Presenting: View
 
 	let presenting: Presenting
 
-	var body: some View
-	{
-		GeometryReader
-		{ (deviceSize: GeometryProxy) in
-			HStack
-			{ Spacer()
-				ZStack
-				{
+	var body: some View {
+		GeometryReader { (deviceSize: GeometryProxy) in
+			HStack { Spacer()
+				ZStack {
 					self.presenting
 						.disabled(shouldStartRegistering)
-					VStack
-					{
+					VStack {
 						Text(mainMessage)
 							.frame(minWidth: 0,
 							       maxWidth: .infinity,
@@ -39,15 +33,12 @@ struct RegistrationAlertView<Presenting>: View where Presenting: View
 						                  style: .medium)
 							.padding(.bottom, 15)
 						Divider()
-						HStack
-						{
+						HStack {
 							Button(action: {
-								withAnimation
-								{
+								withAnimation {
 									shouldStartRegistering.toggle()
 								}
-							})
-							{
+							}) {
 								Text(S.Prompts.dismiss.localizedCapitalized)
 									.font(Font(UIFont.barlowLight(size: 14.0)))
 									.foregroundColor(.gray)
@@ -74,12 +65,9 @@ struct RegistrationAlertView<Presenting>: View where Presenting: View
 	}
 }
 
-struct RegistrationAlertView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
-		VStack
-		{
+struct RegistrationAlertView_Previews: PreviewProvider {
+	static var previews: some View {
+		VStack {
 			Spacer()
 			Text("").padding(.all, 10)
 				.registeredAlertView(shouldStartRegistering: .constant(true),

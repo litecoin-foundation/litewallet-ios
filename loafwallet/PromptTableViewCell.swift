@@ -1,8 +1,7 @@
 import LocalAuthentication
 import UIKit
 
-class PromptTableViewCell: UITableViewCell
-{
+class PromptTableViewCell: UITableViewCell {
 	@IBOutlet var closeButton: UIButton!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var bodyLabel: UILabel!
@@ -12,19 +11,16 @@ class PromptTableViewCell: UITableViewCell
 	var didClose: (() -> Void)?
 	var didTap: (() -> Void)?
 
-	@IBAction func didTapAction(_: Any)
-	{
+	@IBAction func didTapAction(_: Any) {
 		didTap?()
 	}
 
-	@IBAction func closeAction(_: Any)
-	{
+	@IBAction func closeAction(_: Any) {
 		didClose?()
 	}
 }
 
-enum PromptType
-{
+enum PromptType {
 	case biometrics
 	case paperKey
 	case upgradePin
@@ -36,10 +32,8 @@ enum PromptType
 		[.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
 	}()
 
-	var title: String
-	{
-		switch self
-		{
+	var title: String {
+		switch self {
 		case .biometrics: return LAContext.biometricType() == .face ? S.Prompts.FaceId.title : S.Prompts.TouchId.title
 		case .paperKey: return S.Prompts.PaperKey.title
 		case .upgradePin: return S.Prompts.SetPin.title
@@ -49,10 +43,8 @@ enum PromptType
 		}
 	}
 
-	var name: String
-	{
-		switch self
-		{
+	var name: String {
+		switch self {
 		case .biometrics: return "biometricsPrompt"
 		case .paperKey: return "paperKeyPrompt"
 		case .upgradePin: return "upgradePinPrompt"
@@ -62,10 +54,8 @@ enum PromptType
 		}
 	}
 
-	var body: String
-	{
-		switch self
-		{
+	var body: String {
+		switch self {
 		case .biometrics: return LAContext.biometricType() == .face ? S.Prompts.FaceId.body : S.Prompts.TouchId.body
 		case .paperKey: return S.Prompts.PaperKey.body
 		case .upgradePin: return S.Prompts.SetPin.body
@@ -76,10 +66,8 @@ enum PromptType
 	}
 
 	// This is the trigger that happens when the prompt is tapped
-	var trigger: TriggerName?
-	{
-		switch self
-		{
+	var trigger: TriggerName? {
+		switch self {
 		case .biometrics: return .promptBiometrics
 		case .paperKey: return .promptPaperKey
 		case .upgradePin: return .promptUpgradePin
@@ -89,10 +77,8 @@ enum PromptType
 		}
 	}
 
-	func shouldPrompt(walletManager: WalletManager, state: ReduxState) -> Bool
-	{
-		switch self
-		{
+	func shouldPrompt(walletManager: WalletManager, state: ReduxState) -> Bool {
+		switch self {
 		case .biometrics:
 			return !UserDefaults.hasPromptedBiometrics && LAContext.canUseBiometrics && !UserDefaults.isBiometricsEnabled
 		case .paperKey:

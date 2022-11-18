@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct RegistrationView: View
-{
+struct RegistrationView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -52,20 +51,16 @@ struct RegistrationView: View
 	@State
 	private var didRegister: Bool = false
 
-	init(viewModel: RegistrationViewModel)
-	{
+	init(viewModel: RegistrationViewModel) {
 		self.viewModel = viewModel
 		UITableView.appearance().backgroundColor = .clear
 	}
 
 	// DEV: This layout needs to be polished after v1 so it looks nicer.
-	var body: some View
-	{
-		GeometryReader
-		{ _ in
+	var body: some View {
+		GeometryReader { _ in
 			// Litewallet Blue Background
-			VStack
-			{
+			VStack {
 				Text(S.LitecoinCard.Registration.registerCardPhrase)
 					.multilineTextAlignment(.leading)
 					.foregroundColor(.white)
@@ -74,16 +69,12 @@ struct RegistrationView: View
 					.padding(.bottom, 10)
 
 				// White Background
-				VStack
-				{
+				VStack {
 					// MARK: - User names
 
-					Group
-					{
-						HStack
-						{
-							VStack
-							{
+					Group {
+						HStack {
+							VStack {
 								TextField(S.LitecoinCard.Registration.firstName,
 								          text: $firstName)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -97,8 +88,7 @@ struct RegistrationView: View
 									.padding(.top, 1)
 							}
 
-							VStack
-							{
+							VStack {
 								TextField(S.LitecoinCard.Registration.lastName,
 								          text: $lastName)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -116,8 +106,7 @@ struct RegistrationView: View
 
 					// MARK: - Login credentials
 
-					Group
-					{
+					Group {
 						TextField(S.Receive.emailButton,
 						          text: $usernameEmail)
 							.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -129,10 +118,8 @@ struct RegistrationView: View
 							.padding([.leading, .bottom, .trailing], 4)
 							.padding(.top, 1)
 
-						HStack
-						{
-							VStack
-							{
+						HStack {
+							VStack {
 								TextField(S.LitecoinCard.Registration.password,
 								          text: $password)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -146,8 +133,7 @@ struct RegistrationView: View
 									.padding(.top, 1)
 							}
 
-							VStack
-							{
+							VStack {
 								TextField(S.LitecoinCard.Registration.confirmPassword,
 								          text: $confirmPassword)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -166,10 +152,8 @@ struct RegistrationView: View
 
 					// MARK: - Mobile number
 
-					Group
-					{
-						VStack
-						{
+					Group {
+						VStack {
 							TextField(S.LitecoinCard.Registration.mobileNumber, text: $mobileNumber)
 								.font(Font(UIFont.barlowRegular(size: 16.0)))
 								.keyboardType(.numberPad)
@@ -184,12 +168,9 @@ struct RegistrationView: View
 
 					// MARK: - Location
 
-					Group
-					{
-						HStack
-						{
-							VStack
-							{
+					Group {
+						HStack {
+							VStack {
 								TextField(S.LitecoinCard.Registration.address, text: $address)
 									.padding([.leading, .trailing, .top], 4)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -200,10 +181,8 @@ struct RegistrationView: View
 									.padding(.top, 1)
 							}
 						}
-						HStack
-						{
-							VStack
-							{
+						HStack {
+							VStack {
 								TextField(S.LitecoinCard.Registration.city, text: $city)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
 									.padding([.leading, .trailing, .top], 4)
@@ -213,8 +192,7 @@ struct RegistrationView: View
 									.padding([.leading, .bottom, .trailing], 4)
 									.padding(.top, 1)
 							}
-							VStack
-							{
+							VStack {
 								TextField(S.LitecoinCard.Registration.stateProvince, text: $state)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
 									.padding([.leading, .trailing, .top], 4)
@@ -226,10 +204,8 @@ struct RegistrationView: View
 							}
 						}
 
-						HStack
-						{
-							VStack
-							{
+						HStack {
+							VStack {
 								// DEV: Will change when Ex-US support comes
 								TextField("US", text: $country)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -241,8 +217,7 @@ struct RegistrationView: View
 									.padding(.top, 1)
 							}
 
-							VStack
-							{
+							VStack {
 								// DEV: Will change when EU support comes
 								TextField(S.LitecoinCard.Registration.zipPostCode, text: $zipCodePostCode)
 									.font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -263,13 +238,11 @@ struct RegistrationView: View
 
 				// MARK: - Action Buttons
 
-				HStack
-				{
+				HStack {
 					// Button to reset fields
 					Button(action: {
 						resetFields()
-					})
-					{
+					}) {
 						Text(S.Button.resetFields)
 							.frame(minWidth: 0, maxWidth: .infinity)
 							.padding()
@@ -283,8 +256,7 @@ struct RegistrationView: View
 
 					// Button to register user
 					Button(action: {
-						viewModel.verify(data: loadDataDictionary())
-						{ isAllRegisterDataValid in
+						viewModel.verify(data: loadDataDictionary()) { isAllRegisterDataValid in
 							// Pass state to trigger the modal view
 							shouldStartRegistering = isAllRegisterDataValid
 
@@ -295,8 +267,7 @@ struct RegistrationView: View
 							self.presentationMode.wrappedValue.dismiss()
 						}
 
-					})
-					{
+					}) {
 						Text(S.Button.submit)
 							.frame(minWidth: 0, maxWidth: .infinity)
 							.padding()
@@ -329,8 +300,7 @@ struct RegistrationView: View
 		}
 	}
 
-	private func resetFields()
-	{
+	private func resetFields() {
 		usernameEmail = ""
 		password = ""
 		confirmPassword = ""
@@ -343,8 +313,7 @@ struct RegistrationView: View
 		mobileNumber = ""
 	}
 
-	private func loadDataDictionary() -> [String: Any]
-	{
+	private func loadDataDictionary() -> [String: Any] {
 		viewModel.dataDictionary["firstname"] = firstName
 		viewModel.dataDictionary["lastname"] = lastName
 		viewModel.dataDictionary["email"] = usernameEmail.lowercased()
@@ -361,14 +330,11 @@ struct RegistrationView: View
 	}
 }
 
-struct RegistrationView_Previews: PreviewProvider
-{
+struct RegistrationView_Previews: PreviewProvider {
 	static let viewModel = RegistrationViewModel()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			RegistrationView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

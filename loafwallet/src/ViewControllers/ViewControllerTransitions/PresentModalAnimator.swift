@@ -1,11 +1,9 @@
 import UIKit
 
-class PresentModalAnimator: NSObject
-{
+class PresentModalAnimator: NSObject {
 	// MARK: - Public
 
-	init(shouldCoverBottomGap: Bool, completion: @escaping () -> Void)
-	{
+	init(shouldCoverBottomGap: Bool, completion: @escaping () -> Void) {
 		self.completion = completion
 		self.shouldCoverBottomGap = shouldCoverBottomGap
 	}
@@ -16,15 +14,12 @@ class PresentModalAnimator: NSObject
 	fileprivate let shouldCoverBottomGap: Bool
 }
 
-extension PresentModalAnimator: UIViewControllerAnimatedTransitioning
-{
-	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval
-	{
+extension PresentModalAnimator: UIViewControllerAnimatedTransitioning {
+	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return 0.4
 	}
 
-	func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
-	{
+	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 		guard transitionContext.isAnimated else { return }
 		let duration = transitionDuration(using: transitionContext)
 		guard let toView = transitionContext.view(forKey: .to) else { assertionFailure("Missing to view"); return }
@@ -40,8 +35,7 @@ extension PresentModalAnimator: UIViewControllerAnimatedTransitioning
 		// spring animation. It looks weird if it isn't there.
 		let fromFrame = container.frame
 		var maskView: UIView?
-		if shouldCoverBottomGap
-		{
+		if shouldCoverBottomGap {
 			maskView = UIView(frame: CGRect(x: 0, y: fromFrame.height, width: fromFrame.width, height: 40.0))
 			maskView?.backgroundColor = .white
 			container.addSubview(maskView!)

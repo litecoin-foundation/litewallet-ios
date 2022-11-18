@@ -3,18 +3,15 @@ import Foundation
 import SwiftUI
 import XCTest
 
-class AnimatedCardViewModelTests: XCTestCase
-{
+class AnimatedCardViewModelTests: XCTestCase {
 	var viewModel: AnimatedCardViewModel!
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 		viewModel = AnimatedCardViewModel()
 	}
 
-	func testCardImageFrontIsFound() throws
-	{
+	func testCardImageFrontIsFound() throws {
 		let image = Image(viewModel.imageFront)
 		XCTAssertNotNil(image)
 	}

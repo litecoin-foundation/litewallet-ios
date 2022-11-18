@@ -8,17 +8,12 @@
 import LocalAuthentication
 import UIKit
 
-class SettingsViewController: UITableViewController, CustomTitleView
-{
-	init(sections: [String], rows: [String: [Setting]], optionalTitle: String? = nil)
-	{
+class SettingsViewController: UITableViewController, CustomTitleView {
+	init(sections: [String], rows: [String: [Setting]], optionalTitle: String? = nil) {
 		self.sections = sections
-		if UserDefaults.isBiometricsEnabled
-		{
+		if UserDefaults.isBiometricsEnabled {
 			self.rows = rows
-		}
-		else
-		{
+		} else {
 			var tempRows = rows
 			let biometricsLimit = LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit
 			tempRows["Manage"] = tempRows["Manage"]?.filter { $0.title != biometricsLimit }
@@ -37,16 +32,13 @@ class SettingsViewController: UITableViewController, CustomTitleView
 	let customTitle: String
 	private var walletIsEmpty = true
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 48.0))
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			guard let textColor = UIColor(named: "labelTextColor"),
 			      let backGroundColor = UIColor(named: "lfBackgroundColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Custom color not found")
 				return
 			}
@@ -54,9 +46,7 @@ class SettingsViewController: UITableViewController, CustomTitleView
 			headerView.backgroundColor = backGroundColor
 			tableView.backgroundColor = backGroundColor
 			titleLabel = UILabel(font: .customBold(size: 26.0), color: textColor)
-		}
-		else
-		{
+		} else {
 			headerView.backgroundColor = .liteWalletBlue
 			tableView.backgroundColor = .clear
 			titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
@@ -72,18 +62,15 @@ class SettingsViewController: UITableViewController, CustomTitleView
 		addCustomTitle()
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 	}
 
-	override func numberOfSections(in _: UITableView) -> Int
-	{
+	override func numberOfSections(in _: UITableView) -> Int {
 		return sections.count
 	}
 
-	override func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int
-	{
+	override func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return rows[sections[section]]?.count ?? 0
 	}
 
@@ -91,8 +78,7 @@ class SettingsViewController: UITableViewController, CustomTitleView
 	{
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
-		if let setting = rows[sections[indexPath.section]]?[indexPath.row]
-		{
+		if let setting = rows[sections[indexPath.section]]?[indexPath.row] {
 			cell.textLabel?.text = setting.title
 			cell.textLabel?.font = .customBody(size: 16.0)
 
@@ -100,8 +86,7 @@ class SettingsViewController: UITableViewController, CustomTitleView
 			label.text = setting.accessoryText?()
 			label.sizeToFit()
 			cell.accessoryView = label
-			if sections[indexPath.section] == "About"
-			{
+			if sections[indexPath.section] == "About" {
 				cell.selectionStyle = .none
 			}
 
@@ -110,17 +95,14 @@ class SettingsViewController: UITableViewController, CustomTitleView
 			{
 				cell.textLabel?.textColor = textColor
 				label.textColor = textColor
-			}
-			else
-			{
+			} else {
 				cell.textLabel?.textColor = .darkText
 			}
 		}
 		return cell
 	}
 
-	override func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView?
-	{
+	override func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
 		let label = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
 		let separator = UIView()
@@ -131,15 +113,12 @@ class SettingsViewController: UITableViewController, CustomTitleView
 		{
 			view.backgroundColor = backgroundColor
 			label.textColor = labelTextColor
-		}
-		else
-		{
+		} else {
 			view.backgroundColor = .whiteTint
 		}
 
 		view.addSubview(label)
-		switch sections[section]
-		{
+		switch sections[section] {
 		case "About":
 			label.text = S.Settings.about
 		case "Wallet":
@@ -171,26 +150,21 @@ class SettingsViewController: UITableViewController, CustomTitleView
 		return view
 	}
 
-	override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath)
-	{
-		if let setting = rows[sections[indexPath.section]]?[indexPath.row]
-		{
+	override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if let setting = rows[sections[indexPath.section]]?[indexPath.row] {
 			setting.callback()
 		}
 	}
 
-	override func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat
-	{
+	override func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
 		return 47.0
 	}
 
-	override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat
-	{
+	override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
 		return 48.0
 	}
 
-	override func scrollViewDidScroll(_ scrollView: UIScrollView)
-	{
+	override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		didScrollForCustomTitle(yOffset: scrollView.contentOffset.y)
 	}
 
@@ -200,8 +174,7 @@ class SettingsViewController: UITableViewController, CustomTitleView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

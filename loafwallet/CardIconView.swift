@@ -1,9 +1,7 @@
 import SwiftUI
 
-struct CardIconView: View
-{
-	var body: some View
-	{
+struct CardIconView: View {
+	var body: some View {
 		Image("litecoin-front-card-border")
 			.resizable()
 			.aspectRatio(contentMode: .fit)
@@ -16,10 +14,8 @@ struct CardIconView: View
 	}
 }
 
-struct CardIconView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
+struct CardIconView_Previews: PreviewProvider {
+	static var previews: some View {
 		CardIconView()
 	}
 }

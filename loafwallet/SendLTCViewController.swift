@@ -1,18 +1,15 @@
 import Foundation
 import UIKit
 
-class SendLTCViewController: UIViewController
-{
+class SendLTCViewController: UIViewController {
 	var store: Store?
 
 	override func viewDidLoad()
 	{}
 
-	override func viewWillAppear(_: Bool)
-	{
+	override func viewWillAppear(_: Bool) {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store is not initialized")
 			return
 		}

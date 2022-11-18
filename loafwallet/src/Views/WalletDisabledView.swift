@@ -1,14 +1,11 @@
 import UIKit
 
-class WalletDisabledView: UIView
-{
-	func setTimeLabel(string: String)
-	{
+class WalletDisabledView: UIView {
+	func setTimeLabel(string: String) {
 		label.text = string
 	}
 
-	init(store: Store)
-	{
+	init(store: Store) {
 		self.store = store
 		faq = UIButton.buildFaqButton(store: store, articleId: ArticleIds.walletDisabled)
 		blur = UIVisualEffectView()
@@ -16,15 +13,13 @@ class WalletDisabledView: UIView
 		setup()
 	}
 
-	func show()
-	{
+	func show() {
 		UIView.animate(withDuration: C.animationDuration, animations: {
 			self.blur.effect = self.effect
 		})
 	}
 
-	func hide(completion: @escaping () -> Void)
-	{
+	func hide(completion: @escaping () -> Void) {
 		UIView.animate(withDuration: C.animationDuration, animations: {
 			self.blur.effect = nil
 		}, completion: { _ in
@@ -32,10 +27,8 @@ class WalletDisabledView: UIView
 		})
 	}
 
-	var didTapReset: (() -> Void)?
-	{
-		didSet
-		{
+	var didTapReset: (() -> Void)? {
+		didSet {
 			reset.tap = didTapReset
 		}
 	}
@@ -47,23 +40,20 @@ class WalletDisabledView: UIView
 	private let reset = ShadowButton(title: S.UnlockScreen.resetPin, type: .blackTransparent)
 	private let effect = UIBlurEffect(style: .light)
 
-	private func setup()
-	{
+	private func setup() {
 		addSubviews()
 		addConstraints()
 		setData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		addSubview(blur)
 		addSubview(label)
 		addSubview(faq)
 		addSubview(reset)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		blur.constrain(toSuperviewEdges: nil)
 		label.constrain([
 			label.centerYAnchor.constraint(equalTo: blur.centerYAnchor),
@@ -83,14 +73,12 @@ class WalletDisabledView: UIView
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		label.textAlignment = .center
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

@@ -1,6 +1,5 @@
 import UIKit
 
-protocol AnimatableIcon
-{
+protocol AnimatableIcon {
 	func animate()
 }

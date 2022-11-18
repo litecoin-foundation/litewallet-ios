@@ -1,10 +1,8 @@
 import Foundation
 import UIKit
 
-class FeeSelector: UIView
-{
-	init(store: Store)
-	{
+class FeeSelector: UIView {
+	init(store: Store) {
 		self.store = store
 		super.init(frame: .zero)
 		setupViews()
@@ -12,14 +10,12 @@ class FeeSelector: UIView
 
 	var didUpdateFee: ((FeeType) -> Void)?
 
-	func removeIntrinsicSize()
-	{
+	func removeIntrinsicSize() {
 		guard let bottomConstraint = bottomConstraint else { return }
 		NSLayoutConstraint.deactivate([bottomConstraint])
 	}
 
-	func addIntrinsicSize()
-	{
+	func addIntrinsicSize() {
 		guard let bottomConstraint = bottomConstraint else { return }
 		NSLayoutConstraint.activate([bottomConstraint])
 	}
@@ -31,8 +27,7 @@ class FeeSelector: UIView
 	private let control = UISegmentedControl(items: [S.FeeSelector.regular, S.FeeSelector.economy, S.FeeSelector.luxury])
 	private var bottomConstraint: NSLayoutConstraint?
 
-	private func setupViews()
-	{
+	private func setupViews() {
 		addSubview(control)
 		addSubview(header)
 		addSubview(subheader)
@@ -65,10 +60,8 @@ class FeeSelector: UIView
 			control.widthAnchor.constraint(equalTo: widthAnchor, constant: -C.padding[4]),
 		])
 
-		control.valueChanged = strongify(self)
-		{ myself in
-			switch myself.control.selectedSegmentIndex
-			{
+		control.valueChanged = strongify(self) { myself in
+			switch myself.control.selectedSegmentIndex {
 			case 0:
 				myself.didUpdateFee?(.regular)
 				myself.subheader.text = S.FeeSelector.regularLabel
@@ -96,8 +89,7 @@ class FeeSelector: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

@@ -1,28 +1,23 @@
 @testable import loafwallet
 import XCTest
 
-class PaymentRequestTests: XCTestCase
-{
-	func testEmptyString()
-	{
+class PaymentRequestTests: XCTestCase {
+	func testEmptyString() {
 		XCTAssertNil(PaymentRequest(string: ""))
 	}
 
-	func testInvalidAddress()
-	{
+	func testInvalidAddress() {
 		XCTAssertNil(PaymentRequest(string: "notandaddress"), "Payment request should be nil for invalid addresses")
 	}
 
-	func testBasicExample()
-	{
+	func testBasicExample() {
 		let uri = "litecoin:LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT"
 		let request = PaymentRequest(string: uri)
 		XCTAssertNotNil(request)
 		XCTAssertTrue(request?.toAddress == "LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT")
 	}
 
-	func testAmountInUri()
-	{
+	func testAmountInUri() {
 		let uri = "litecoin:LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT?amount=1.2"
 		let request = PaymentRequest(string: uri)
 		XCTAssertNotNil(request)
@@ -30,8 +25,7 @@ class PaymentRequestTests: XCTestCase
 		XCTAssertTrue(request?.amount?.rawValue == 120_000_000)
 	}
 
-	func testRequestMetaData()
-	{
+	func testRequestMetaData() {
 		let uri = "litecoin:LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT?amount=1.2&message=Payment&label=Satoshi"
 		let request = PaymentRequest(string: uri)
 		XCTAssertTrue(request?.toAddress == "LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT")
@@ -40,15 +34,13 @@ class PaymentRequestTests: XCTestCase
 		XCTAssertTrue(request?.label == "Satoshi")
 	}
 
-	func testExtraEqualSign()
-	{
+	func testExtraEqualSign() {
 		let uri = "litecoin:LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT?amount=1.2&message=Payment=true&label=Satoshi"
 		let request = PaymentRequest(string: uri)
 		XCTAssertTrue(request?.message == "Payment=true")
 	}
 
-	func testMessageWithSpace()
-	{
+	func testMessageWithSpace() {
 		let uri = "litecoin:LPnVRGLWT21mw5ZVkNL7o8BuyNuyTsGtdT?amount=1.2&message=Payment message test&label=Satoshi"
 		let request = PaymentRequest(string: uri)
 		XCTAssertTrue(request?.message == "Payment message test")

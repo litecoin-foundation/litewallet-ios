@@ -6,13 +6,11 @@ private let buttonPadding: CGFloat = 20.0
 private let smallSharePadding: CGFloat = 12.0
 private let largeSharePadding: CGFloat = 20.0
 
-class RequestAmountViewController: UIViewController
-{
+class RequestAmountViewController: UIViewController {
 	var presentEmail: PresentShare?
 	var presentText: PresentShare?
 
-	init(wallet: BRWallet, store: Store)
-	{
+	init(wallet: BRWallet, store: Store) {
 		self.wallet = wallet
 		amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: true, isRequesting: true)
 		super.init(nibName: nil, bundle: nil)
@@ -32,16 +30,13 @@ class RequestAmountViewController: UIViewController
 
 	// MARK: - PinPad State
 
-	private var amount: Satoshis?
-	{
-		didSet
-		{
+	private var amount: Satoshis? {
+		didSet {
 			setQrCode()
 		}
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setData()
@@ -50,8 +45,7 @@ class RequestAmountViewController: UIViewController
 		setupShareButtons()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(qrCode)
 		view.addSubview(address)
 		view.addSubview(addressPopout)
@@ -60,8 +54,7 @@ class RequestAmountViewController: UIViewController
 		view.addSubview(border)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		addChildViewController(amountView, layout: {
 			amountView.view.constrain([
 				amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -109,8 +102,7 @@ class RequestAmountViewController: UIViewController
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		view.backgroundColor = .white
 		address.text = wallet.receiveAddress
 		address.textColor = .grayTextTint
@@ -121,8 +113,7 @@ class RequestAmountViewController: UIViewController
 		sharePopout.clipsToBounds = true
 	}
 
-	private func addActions()
-	{
+	private func addActions() {
 		let gr = UITapGestureRecognizer(target: self, action: #selector(RequestAmountViewController.addressTapped))
 		address.addGestureRecognizer(gr)
 		address.isUserInteractionEnabled = true
@@ -132,16 +123,14 @@ class RequestAmountViewController: UIViewController
 		}
 	}
 
-	private func setQrCode()
-	{
+	private func setQrCode() {
 		guard let amount = amount else { return }
 		let request = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
 		qrCode.image = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?
 			.resize(qrSize)!
 	}
 
-	private func setupCopiedMessage()
-	{
+	private func setupCopiedMessage() {
 		let copiedMessage = UILabel(font: .customMedium(size: 14.0))
 		copiedMessage.textColor = .white
 		copiedMessage.text = S.Receive.copied
@@ -149,8 +138,7 @@ class RequestAmountViewController: UIViewController
 		addressPopout.contentView = copiedMessage
 	}
 
-	private func setupShareButtons()
-	{
+	private func setupShareButtons() {
 		let container = UIView()
 		container.translatesAutoresizingMaskIntoConstraints = false
 		let email = ShadowButton(title: S.Receive.emailButton, type: .tertiary)
@@ -174,35 +162,29 @@ class RequestAmountViewController: UIViewController
 		text.addTarget(self, action: #selector(RequestAmountViewController.textTapped), for: .touchUpInside)
 	}
 
-	@objc private func shareTapped()
-	{
+	@objc private func shareTapped() {
 		toggle(alertView: sharePopout, shouldAdjustPadding: true)
-		if addressPopout.isExpanded
-		{
+		if addressPopout.isExpanded {
 			toggle(alertView: addressPopout, shouldAdjustPadding: false)
 		}
 	}
 
-	@objc private func addressTapped()
-	{
+	@objc private func addressTapped() {
 		guard let text = address.text else { return }
 		UIPasteboard.general.string = text
 		toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
-		if sharePopout.isExpanded
-		{
+		if sharePopout.isExpanded {
 			toggle(alertView: sharePopout, shouldAdjustPadding: true)
 		}
 	}
 
-	@objc private func emailTapped()
-	{
+	@objc private func emailTapped() {
 		guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount) }
 		let text = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
 		presentEmail?(text, qrCode.image!)
 	}
 
-	@objc private func textTapped()
-	{
+	@objc private func textTapped() {
 		guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount) }
 		let text = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
 		presentText?(text, qrCode.image!)
@@ -214,26 +196,20 @@ class RequestAmountViewController: UIViewController
 		address.isUserInteractionEnabled = false
 
 		var deltaY = alertView.isExpanded ? -alertView.height : alertView.height
-		if shouldAdjustPadding
-		{
-			if deltaY > 0
-			{
+		if shouldAdjustPadding {
+			if deltaY > 0 {
 				deltaY -= (largeSharePadding - smallSharePadding)
-			}
-			else
-			{
+			} else {
 				deltaY += (largeSharePadding - smallSharePadding)
 			}
 		}
 
-		if alertView.isExpanded
-		{
+		if alertView.isExpanded {
 			alertView.contentView?.isHidden = true
 		}
 
 		UIView.spring(C.animationDuration, animations: {
-			if shouldAdjustPadding
-			{
+			if shouldAdjustPadding {
 				let newPadding = self.sharePopout.isExpanded ? largeSharePadding : smallSharePadding
 				self.topSharePopoutConstraint?.constant = newPadding
 			}
@@ -244,12 +220,9 @@ class RequestAmountViewController: UIViewController
 			self.share.isEnabled = true
 			self.address.isUserInteractionEnabled = true
 			alertView.contentView?.isHidden = false
-			if shouldShrinkAfter
-			{
-				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)
-				{
-					if alertView.isExpanded
-					{
+			if shouldShrinkAfter {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+					if alertView.isExpanded {
 						self.toggle(alertView: alertView, shouldAdjustPadding: shouldAdjustPadding)
 					}
 				}
@@ -258,21 +231,17 @@ class RequestAmountViewController: UIViewController
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension RequestAmountViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension RequestAmountViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return ArticleIds.requestAmount
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return S.Receive.request
 	}
 }

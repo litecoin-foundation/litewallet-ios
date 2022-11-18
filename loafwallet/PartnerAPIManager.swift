@@ -1,12 +1,10 @@
 import Foundation
 import LitewalletPartnerAPI
 
-class PartnerAPI: NSObject
-{
+class PartnerAPI: NSObject {
 	static let shared = PartnerAPIManager()
 
-	override init()
-	{
+	override init() {
 		super.init()
 	}
 }

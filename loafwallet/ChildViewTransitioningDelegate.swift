@@ -1,19 +1,16 @@
 import UIKit
 
-class ChildViewTransitioningDelegate: NSObject
-{
+class ChildViewTransitioningDelegate: NSObject {
 	// MARK: - Public
 
-	override init()
-	{
+	override init() {
 		super.init()
 	}
 
 	var shouldDismissInteractively = true
 }
 
-extension ChildViewTransitioningDelegate: UIViewControllerTransitioningDelegate
-{
+extension ChildViewTransitioningDelegate: UIViewControllerTransitioningDelegate {
 	func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning?
 	{
 		return nil

@@ -1,8 +1,7 @@
 import Foundation
 import KeychainAccess
 
-class LoginViewModel: ObservableObject
-{
+class LoginViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
 	@Published
@@ -33,13 +32,11 @@ class LoginViewModel: ObservableObject
 	init()
 	{}
 
-	func simpleCredentialsCheck() -> Bool
-	{
+	func simpleCredentialsCheck() -> Bool {
 		return (emailString.isEmpty && passwordString.isEmpty)
 	}
 
-	func login(completion: @escaping (Bool) -> Void)
-	{
+	func login(completion: @escaping (Bool) -> Void) {
 		// Turn on the modal
 		doShowModal = false
 
@@ -47,12 +44,9 @@ class LoginViewModel: ObservableObject
 		                                  "password": passwordString,
 		                                  "token": tokenString]
 
-		PartnerAPI.shared.loginUser(credentials: credentials)
-		{ dataDictionary in
-			if let error = dataDictionary?["error"] as? String
-			{
-				DispatchQueue.main.async
-				{
+		PartnerAPI.shared.loginUser(credentials: credentials) { dataDictionary in
+			if let error = dataDictionary?["error"] as? String {
+				DispatchQueue.main.async {
 					print("ERROR: Login failure: \(error.description)")
 
 					self.isLoggedIn = false
@@ -71,8 +65,7 @@ class LoginViewModel: ObservableObject
 				self.keychain["userID"] = userID
 				self.keychain["token"] = token
 
-				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)
-				{
+				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
 					self.isLoggedIn = true
 					self.didCompleteLogin = true
 

@@ -9,10 +9,8 @@ import Firebase
 @testable import loafwallet
 import XCTest
 
-class FileTests: XCTestCase
-{
-	func testGoogleServicesFileExists() throws
-	{
+class FileTests: XCTestCase {
+	func testGoogleServicesFileExists() throws {
 		let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
 
 		XCTAssertNotNil(FirebaseOptions(contentsOfFile: filePath!))

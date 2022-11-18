@@ -3,12 +3,10 @@ import Foundation
 import SwiftUI
 import XCTest
 
-class LoginViewModelTests: XCTestCase
-{
+class LoginViewModelTests: XCTestCase {
 	var viewModel: LoginViewModel!
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 		viewModel = LoginViewModel()
 	}

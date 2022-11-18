@@ -1,11 +1,9 @@
 import UIKit
 
-class LoginBackgroundTriangle: UIView
-{
+class LoginBackgroundTriangle: UIView {
 	// MARK: - Public
 
-	init(vertexLocation: CGFloat)
-	{
+	init(vertexLocation: CGFloat) {
 		self.vertexLocation = vertexLocation
 		super.init(frame: .zero)
 		backgroundColor = .clear
@@ -15,8 +13,7 @@ class LoginBackgroundTriangle: UIView
 
 	private let vertexLocation: CGFloat // A percentage value (0.0->1.0) of the right vertex's vertical location
 
-	override func layoutSubviews()
-	{
+	override func layoutSubviews() {
 		let bezierPath = UIBezierPath()
 		bezierPath.move(to: CGPoint(x: 0, y: 0))
 		bezierPath.addLine(to: CGPoint(x: bounds.maxX, y: bounds.height * vertexLocation))
@@ -30,8 +27,7 @@ class LoginBackgroundTriangle: UIView
 		layer.shadowOpacity = 1.0
 	}
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		guard let context = UIGraphicsGetCurrentContext() else { return }
 		context.move(to: CGPoint(x: 0, y: 0))
 		context.addLine(to: CGPoint(x: rect.maxX, y: bounds.height * vertexLocation))
@@ -46,8 +42,7 @@ class LoginBackgroundTriangle: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

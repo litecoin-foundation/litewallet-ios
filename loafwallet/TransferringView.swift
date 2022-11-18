@@ -2,8 +2,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-struct TransferringModalView: View
-{
+struct TransferringModalView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -50,37 +49,27 @@ struct TransferringModalView: View
 		self.walletType = walletType
 
 		// Flip for the transfer destination
-		if self.walletType == .litewallet
-		{
+		if self.walletType == .litewallet {
 			self.walletType = .litecoinCard
-		}
-		else
-		{
+		} else {
 			self.walletType = .litewallet
 		}
 	}
 
-	var body: some View
-	{
-		GeometryReader
-		{ (deviceSize: GeometryProxy) in
-			HStack
-			{
+	var body: some View {
+		GeometryReader { (deviceSize: GeometryProxy) in
+			HStack {
 				Spacer()
-				ZStack
-				{
-					VStack
-					{
+				ZStack {
+					VStack {
 						// Dismiss button
 						Button(action: {
-							viewModel.shouldDismissView
-							{
+							viewModel.shouldDismissView {
 								self.isShowingTransferring.toggle()
 								viewModel.shouldStartTransfer = false
 							}
 
-						})
-						{
+						}) {
 							Image("whiteCross")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
@@ -104,8 +93,7 @@ struct TransferringModalView: View
 						// Confirm OK button
 						Button(action: {
 							viewModel.shouldStartTransfer = true
-						})
-						{
+						}) {
 							Text(S.Button.ok)
 								.frame(minWidth: 0, maxWidth: .infinity)
 								.font(Font(UIFont.barlowBold(size: 20.0)))
@@ -139,18 +127,15 @@ struct TransferringModalView: View
 	}
 }
 
-struct TransferringModalView_Previews: PreviewProvider
-{
+struct TransferringModalView_Previews: PreviewProvider {
 	static let viewModel = TransferringViewModel()
 	static let destinationAddres1: String = "MVZj7gBRwcVpa9AAWdJm8A3HqTst112eJe"
 	static let destinationAddres2: String = "MJ4W7NZya4SzE7R6xpEVdamGCimaQYPiWu"
 	static let bigTransferAmount: Double = 15274.00343
 	static let smallTransferAmount: Double = 0.0254521
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			TransferringModalView(viewModel: viewModel,
 			                      isShowingTransferring: .constant(true),
 			                      shouldStartTransfer: .constant(true),

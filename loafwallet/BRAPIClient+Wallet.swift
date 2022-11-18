@@ -2,13 +2,10 @@ import Foundation
 
 private let fallbackRatesURL = "https://api.loshan.co.uk/api/v1/rates"
 
-extension BRAPIClient
-{
-	func feePerKb(_ handler: @escaping (_ fees: Fees, _ error: String?) -> Void)
-	{
+extension BRAPIClient {
+	func feePerKb(_ handler: @escaping (_ fees: Fees, _ error: String?) -> Void) {
 		let req = URLRequest(url: url("/fee-per-kb"))
-		let task = dataTaskWithRequest(req)
-		{ _, _, _ in
+		let task = dataTaskWithRequest(req) { _, _, _ in
 			// TODO: Refactor when mobile-api v0.4.0 is in prod
 			let staticFees = Fees.usingDefaultValues
 			handler(staticFees, nil)
@@ -20,38 +17,27 @@ extension BRAPIClient
 	{
 		let request = isFallback ? URLRequest(url: URL(string: fallbackRatesURL)!) : URLRequest(url: URL(string: APIServer.baseUrl + "v1/rates")!)
 		print("::: request: \(request.debugDescription)")
-		_ = dataTaskWithRequest(request)
-		{ data, _, error in
+		_ = dataTaskWithRequest(request) { data, _, error in
 			if error == nil, let data = data,
 			   let parsedData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
 			{
-				if isFallback
-				{
+				if isFallback {
 					guard let array = parsedData as? [Any]
-					else
-					{
+					else {
+						return handler([], "/rates didn't return an array")
+					}
+					handler(array.compactMap { Rate(data: $0) }, nil)
+				} else {
+					guard let array = parsedData as? [Any]
+					else {
 						return handler([], "/rates didn't return an array")
 					}
 					handler(array.compactMap { Rate(data: $0) }, nil)
 				}
-				else
-				{
-					guard let array = parsedData as? [Any]
-					else
-					{
-						return handler([], "/rates didn't return an array")
-					}
-					handler(array.compactMap { Rate(data: $0) }, nil)
-				}
-			}
-			else
-			{
-				if isFallback
-				{
+			} else {
+				if isFallback {
 					handler([], "Error fetching from fallback url")
-				}
-				else
-				{
+				} else {
 					self.exchangeRates(isFallback: true, handler)
 				}
 			}

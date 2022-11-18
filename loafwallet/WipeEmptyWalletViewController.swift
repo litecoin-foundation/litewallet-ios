@@ -1,11 +1,9 @@
 import UIKit
 
-class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
-{
+class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable {
 	// MARK: - Public
 
-	init(walletManager: WalletManager, store: Store, didTapYesDelete: @escaping () -> Void)
-	{
+	init(walletManager: WalletManager, store: Store, didTapYesDelete: @escaping () -> Void) {
 		self.walletManager = walletManager
 		self.store = store
 		self.didTapYesDelete = didTapYesDelete
@@ -28,8 +26,7 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
 	private var resetTop: NSLayoutConstraint?
 	private var resetBottom: NSLayoutConstraint?
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addContent()
 		addConstraints()
@@ -37,8 +34,7 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
 		addActions()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(titleLabel)
 		view.addSubview(warningDetailTextView)
 		view.addSubview(warningAlertLabel)
@@ -46,8 +42,7 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
 		view.addSubview(reset)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		titleLabel.constrain([
 			titleLabel.constraint(.width, constant: 210),
 			titleLabel.constraint(.height, constant: 40),
@@ -83,15 +78,13 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
 		])
 	}
 
-	private func addContent()
-	{
+	private func addContent() {
 		titleLabel.text = S.WipeWallet.warningTitle
 		warningDetailTextView.text = S.WipeWallet.warningDescription
 		warningAlertLabel.text = S.WipeWallet.warningAlert
 	}
 
-	private func setStyle()
-	{
+	private func setStyle() {
 		view.backgroundColor = .white
 		border.backgroundColor = .secondaryBorder
 
@@ -105,8 +98,7 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
 		warningAlertLabel.textColor = UIColor.pink
 	}
 
-	private func addActions()
-	{
+	private func addActions() {
 		reset.tap = { [weak self] in
 			self?.didTapYesDelete()
 		}
@@ -116,21 +108,17 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable
 	{}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension WipeEmptyWalletViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension WipeEmptyWalletViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return nil
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return S.WipeWallet.resetTitle
 	}
 }

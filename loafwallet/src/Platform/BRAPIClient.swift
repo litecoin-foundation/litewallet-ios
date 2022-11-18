@@ -5,21 +5,17 @@ let BRAPIClientErrorDomain = "BRApiClientErrorDomain"
 
 // these flags map to api feature flag name values
 // eg "buy-bitcoin-with-cash" is a persistent name in the /me/features list
-@objc public enum BRFeatureFlags: Int, CustomStringConvertible
-{
+@objc public enum BRFeatureFlags: Int, CustomStringConvertible {
 	case buyLitecoin
 
-	public var description: String
-	{
-		switch self
-		{
+	public var description: String {
+		switch self {
 		case .buyLitecoin: return "buy-litecoin"
 		}
 	}
 }
 
-public enum BRAPIClientError: Error
-{
+public enum BRAPIClientError: Error {
 	case malformedDataError
 	case unknownError
 }
@@ -28,8 +24,7 @@ public typealias URLSessionTaskHandler = (Data?, HTTPURLResponse?, NSError?) -> 
 public typealias URLSessionChallengeHandler = (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
 
 // an object which implements BRAPIAdaptor can execute API Requests on the current wallet's behalf
-public protocol BRAPIAdaptor
-{
+public protocol BRAPIAdaptor {
 	// execute an API request against the current wallet
 	func dataTaskWithRequest(
 		_ request: URLRequest, authenticated: Bool, retryCount: Int,
@@ -39,8 +34,7 @@ public protocol BRAPIAdaptor
 	func url(_ path: String, args: [String: String]?) -> URL
 }
 
-open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BRAPIAdaptor
-{
+open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BRAPIAdaptor {
 	private var authenticator: WalletAuthenticator
 
 	// whether or not to emit log messages from this instance of the client
@@ -67,39 +61,32 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 	private var queue = OperationQueue()
 
 	// convenience getter for the API endpoint
-	private var baseUrl: String
-	{
+	private var baseUrl: String {
 		return "\(proto)://\(host)"
 	}
 
-	init(authenticator: WalletAuthenticator)
-	{
+	init(authenticator: WalletAuthenticator) {
 		self.authenticator = authenticator
 	}
 
 	// prints whatever you give it if logEnabled is true
-	func log(_ s: String)
-	{
-		if !logEnabled
-		{
+	func log(_ s: String) {
+		if !logEnabled {
 			return
 		}
 		print("[BRAPIClient] \(s)")
 	}
 
-	var deviceId: String
-	{
+	var deviceId: String {
 		return UserDefaults.standard.deviceID
 	}
 
-	var authKey: BRKey?
-	{
+	var authKey: BRKey? {
 		if authenticator.noWallet { return nil }
 		guard let keyStr = authenticator.apiAuthKey else { return nil }
 		var key = BRKey()
 		key.compressed = 1
-		if BRKeySetPrivKey(&key, keyStr) == 0
-		{
+		if BRKeySetPrivKey(&key, keyStr) == 0 {
 			// DEV: Comment out to get tBTC
 			/// #if DEBUG
 			///    fatalError("Unable to decode private key")
@@ -111,32 +98,24 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 	// MARK: Networking functions
 
 	// Constructs a full NSURL for a given path and url parameters
-	public func url(_ path: String, args: [String: String]? = nil) -> URL
-	{
-		func joinPath(_ k: String...) -> URL
-		{
+	public func url(_ path: String, args: [String: String]? = nil) -> URL {
+		func joinPath(_ k: String...) -> URL {
 			return URL(string: ([baseUrl] + k).joined(separator: ""))!
 		}
 
-		if let args = args
-		{
-			return joinPath(path + "?" + args.map
-			{
+		if let args = args {
+			return joinPath(path + "?" + args.map {
 				"\($0.0.urlEscapedString)=\($0.1.urlEscapedString)"
 			}.joined(separator: "&"))
-		}
-		else
-		{
+		} else {
 			return joinPath(path)
 		}
 	}
 
-	private func signRequest(_ request: URLRequest) -> URLRequest
-	{
+	private func signRequest(_ request: URLRequest) -> URLRequest {
 		var mutableRequest = request
 		let dateHeader = mutableRequest.allHTTPHeaderFields?.get(lowercasedKey: "date")
-		if dateHeader == nil
-		{
+		if dateHeader == nil {
 			// add Date header if necessary
 			mutableRequest.setValue(Date().RFC1123String(), forHTTPHeaderField: "Date")
 		}
@@ -152,8 +131,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 		return mutableRequest
 	}
 
-	private func decorateRequest(_ request: URLRequest) -> URLRequest
-	{
+	private func decorateRequest(_ request: URLRequest) -> URLRequest {
 		var actualRequest = request
 		actualRequest.setValue("\(E.isTestnet ? 1 : 0)", forHTTPHeaderField: "X-Litecoin-Testnet")
 		actualRequest.setValue("\((E.isTestFlight || E.isDebug) ? 1 : 0)", forHTTPHeaderField: "X-Testflight")
@@ -166,78 +144,58 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 	{
 		let start = Date()
 		var logLine = ""
-		if let meth = request.httpMethod, let u = request.url
-		{
+		if let meth = request.httpMethod, let u = request.url {
 			logLine = "\(meth) \(u) auth=\(authenticated) retry=\(retryCount)"
 		}
 
 		// copy the request and authenticate it. retain the original request for retries
 		var actualRequest = decorateRequest(request)
-		if authenticated
-		{
+		if authenticated {
 			actualRequest = signRequest(actualRequest)
 		}
 		return session.dataTask(with: actualRequest, completionHandler: { data, resp, err in
-			DispatchQueue.main.async
-			{
+			DispatchQueue.main.async {
 				let end = Date()
 				let dur = Int(end.timeIntervalSince(start) * 1000)
-				if let httpResp = resp as? HTTPURLResponse
-				{
+				if let httpResp = resp as? HTTPURLResponse {
 					var errStr = ""
-					if httpResp.statusCode >= 400
-					{
-						if let data = data, let s = String(data: data, encoding: .utf8)
-						{
+					if httpResp.statusCode >= 400 {
+						if let data = data, let s = String(data: data, encoding: .utf8) {
 							errStr = s
 						}
 					}
 
 					self.log("\(logLine) -> status=\(httpResp.statusCode) duration=\(dur)ms errStr=\(errStr)")
 
-					if authenticated, httpResp.isBreadChallenge
-					{
+					if authenticated, httpResp.isBreadChallenge {
 						self.log("\(logLine) got authentication challenge from API - will attempt to get token")
-						self.getToken
-						{ err in
-							if err != nil, retryCount < 1
-							{ // retry once
+						self.getToken { err in
+							if err != nil, retryCount < 1 { // retry once
 								self.log("\(logLine) error retrieving token: \(String(describing: err)) - will retry")
-								DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1))
-								{
+								DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1)) {
 									self.dataTaskWithRequest(
 										request, authenticated: authenticated,
 										retryCount: retryCount + 1, handler: handler
 									).resume()
 								}
-							}
-							else if err != nil, retryCount > 0
-							{ // fail if we already retried
+							} else if err != nil, retryCount > 0 { // fail if we already retried
 								self.log("\(logLine) error retrieving token: \(String(describing: err)) - will no longer retry")
 								handler(nil, nil, err)
-							}
-							else if retryCount < 1
-							{ // no error, so attempt the request again
+							} else if retryCount < 1 { // no error, so attempt the request again
 								self.log("\(logLine) retrieved token, so retrying the original request")
 								self.dataTaskWithRequest(
 									request, authenticated: authenticated,
 									retryCount: retryCount + 1, handler: handler
 								).resume()
-							}
-							else
-							{
+							} else {
 								self.log("\(logLine) retried token multiple times, will not retry again")
 								handler(data, httpResp, err)
 							}
 						}
-					}
-					else
-					{
+					} else {
 						handler(data, httpResp, err as NSError?)
 					}
-				}
-				else
-				{
+				} else {
 					self.log("\(logLine) encountered connection error \(String(describing: err))")
 					handler(data, nil, err as NSError?)
 				}
@@ -246,20 +204,16 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 	}
 
 	// retrieve a token and save it in the keychain data for this account
-	private func getToken(_ handler: @escaping (NSError?) -> Void)
-	{
-		if isFetchingAuth
-		{
+	private func getToken(_ handler: @escaping (NSError?) -> Void) {
+		if isFetchingAuth {
 			log("already fetching auth, waiting...")
-			authFetchGroup.notify(queue: DispatchQueue.main)
-			{
+			authFetchGroup.notify(queue: DispatchQueue.main) {
 				handler(nil)
 			}
 			return
 		}
 		guard let authKey = authKey
-		else
-		{
+		else {
 			return handler(NSError(domain: BRAPIClientErrorDomain, code: 500, userInfo: [
 				NSLocalizedDescriptionKey: S.ApiClient.notReady,
 			]))
@@ -276,13 +230,10 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 			"pubKey": authPubKey.base58,
 			"deviceID": deviceId,
 		]
-		do
-		{
+		do {
 			let dat = try JSONSerialization.data(withJSONObject: reqJson, options: [])
 			req.httpBody = dat
-		}
-		catch let e
-		{
+		} catch let e {
 			log("JSON Serialization error \(e)")
 			isFetchingAuth = false
 			authFetchGroup.leave()
@@ -291,15 +242,11 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 			]))
 		}
 		session.dataTask(with: req, completionHandler: { data, resp, err in
-			DispatchQueue.main.async
-			{
-				if let httpResp = resp as? HTTPURLResponse
-				{
+			DispatchQueue.main.async {
+				if let httpResp = resp as? HTTPURLResponse {
 					// unsuccessful response from the server
-					if httpResp.statusCode != 200
-					{
-						if let data = data, let s = String(data: data, encoding: .utf8)
-						{
+					if httpResp.statusCode != 200 {
+						if let data = data, let s = String(data: data, encoding: .utf8) {
 							self.log("Token error: \(s)")
 						}
 						self.isFetchingAuth = false
@@ -309,10 +256,8 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 						]))
 					}
 				}
-				if let data = data
-				{
-					do
-					{
+				if let data = data {
+					do {
 						let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
 						self.log("POST /token json response: \(json)")
 						if let topObj = json as? [String: Any],
@@ -325,9 +270,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 							kcData["userID"] = uid
 							self.authenticator.userAccount = kcData
 						}
-					}
-					catch let e
-					{
+					} catch let e {
 						self.log("JSON Deserialization error \(e)")
 					}
 				}
@@ -342,16 +285,12 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 
 	public func urlSession(_: URLSession, task _: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
 	{
-		if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust
-		{
-			if challenge.protectionSpace.host == host, challenge.protectionSpace.serverTrust != nil
-			{
+		if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+			if challenge.protectionSpace.host == host, challenge.protectionSpace.serverTrust != nil {
 				log("URLSession challenge accepted!")
 				completionHandler(.useCredential,
 				                  URLCredential(trust: challenge.protectionSpace.serverTrust!))
-			}
-			else
-			{
+			} else {
 				log("URLSession challenge rejected")
 				completionHandler(.rejectProtectionSpace, nil)
 			}
@@ -363,12 +302,10 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 		var actualRequest = request
 		if let currentReq = task.currentRequest, var curHost = currentReq.url?.host, let curScheme = currentReq.url?.scheme
 		{
-			if let curPort = currentReq.url?.port, curPort != 443, curPort != 80
-			{
+			if let curPort = currentReq.url?.port, curPort != 443, curPort != 80 {
 				curHost = "\(curHost):\(curPort)"
 			}
-			if curHost == host, curScheme == proto
-			{
+			if curHost == host, curScheme == proto {
 				// follow the redirect if we're interacting with our API
 				actualRequest = decorateRequest(request)
 				log("redirecting \(String(describing: currentReq.url)) to \(String(describing: request.url))")
@@ -385,19 +322,14 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 	}
 }
 
-extension Dictionary where Key == String, Value == String
-{
-	func get(lowercasedKey k: String) -> String?
-	{
+extension Dictionary where Key == String, Value == String {
+	func get(lowercasedKey k: String) -> String? {
 		let lcKey = k.lowercased()
-		if let v = self[lcKey]
-		{
+		if let v = self[lcKey] {
 			return v
 		}
-		for (lk, v) in self
-		{
-			if lk.lowercased() == lcKey
-			{
+		for (lk, v) in self {
+			if lk.lowercased() == lcKey {
 				return v
 			}
 		}
@@ -405,10 +337,8 @@ extension Dictionary where Key == String, Value == String
 	}
 }
 
-private extension URLRequest
-{
-	var signingString: String
-	{
+private extension URLRequest {
+	var signingString: String {
 		var parts = [
 			httpMethod ?? "",
 			"",
@@ -416,13 +346,10 @@ private extension URLRequest
 			allHTTPHeaderFields?.get(lowercasedKey: "date") ?? "",
 			url?.resourceString ?? "",
 		]
-		if let meth = httpMethod
-		{
-			switch meth
-			{
+		if let meth = httpMethod {
+			switch meth {
 			case "POST", "PUT", "PATCH":
-				if let d = httpBody, !d.isEmpty
-				{
+				if let d = httpBody, !d.isEmpty {
 					parts[1] = d.sha256.base58
 				}
 			default: break
@@ -432,15 +359,12 @@ private extension URLRequest
 	}
 }
 
-private extension HTTPURLResponse
-{
-	var isBreadChallenge: Bool
-	{
+private extension HTTPURLResponse {
+	var isBreadChallenge: Bool {
 		if let headers = allHeaderFields as? [String: String],
 		   let challenge = headers.get(lowercasedKey: "www-authenticate")
 		{
-			if challenge.lowercased().hasPrefix("Litewallet")
-			{
+			if challenge.lowercased().hasPrefix("Litewallet") {
 				return true
 			}
 		}
@@ -448,15 +372,11 @@ private extension HTTPURLResponse
 	}
 }
 
-private extension URL
-{
-	var resourceString: String
-	{
+private extension URL {
+	var resourceString: String {
 		var urlStr = "\(path)"
-		if let query = query
-		{
-			if query.lengthOfBytes(using: String.Encoding.utf8) > 0
-			{
+		if let query = query {
+			if query.lengthOfBytes(using: String.Encoding.utf8) > 0 {
 				urlStr = "\(urlStr)?\(query)"
 			}
 		}

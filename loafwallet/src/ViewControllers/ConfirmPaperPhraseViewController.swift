@@ -1,7 +1,6 @@
 import UIKit
 
-class ConfirmPaperPhraseViewController: UITableViewController
-{
+class ConfirmPaperPhraseViewController: UITableViewController {
 	var didCompleteConfirmation: (() -> Void)?
 
 	@IBOutlet var headerView: UIView!
@@ -30,15 +29,13 @@ class ConfirmPaperPhraseViewController: UITableViewController
 	private lazy var words: [String] = {
 		guard let pin = self.pin,
 		      let phraseString = self.walletManager?.seedPhrase(pin: pin)
-		else
-		{
+		else {
 			NSLog("Error: Phrase string empty")
 			return []
 		}
 		var wordArray = phraseString.components(separatedBy: " ")
 		let lastWord = wordArray.last
-		if let trimmed = lastWord?.replacingOccurrences(of: "\0", with: "")
-		{
+		if let trimmed = lastWord?.replacingOccurrences(of: "\0", with: "") {
 			wordArray[11] = trimmed // This end line \0 is being read as an element...removing it
 		}
 		return wordArray
@@ -55,43 +52,37 @@ class ConfirmPaperPhraseViewController: UITableViewController
 	var walletManager: WalletManager?
 	var pin: String?
 
-	deinit
-	{
+	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
 
-	override func viewWillAppear(_: Bool)
-	{
+	override func viewWillAppear(_: Bool) {
 		firstWordCell.confirmPhraseView = confirmFirstPhrase
 		secondWordCell.confirmPhraseView = confirmSecondPhrase
 		thirdWordCell.confirmPhraseView = confirmThirdPhrase
 		fourthWordCell.confirmPhraseView = confirmFourthPhrase
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		view.backgroundColor = .white
 		navigationController?.navigationBar.isHidden = true
 		setupSubViews()
 		firstWordCell.confirmPhraseView?.textField.becomeFirstResponder()
 		NotificationCenter.default.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: nil)
-		{ [weak self] _ in
-			self?.dismiss(animated: true, completion: nil)
-		}
+			{ [weak self] _ in
+				self?.dismiss(animated: true, completion: nil)
+			}
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
-	override var prefersStatusBarHidden: Bool
-	{
+	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
-	private func setupSubViews()
-	{
+	private func setupSubViews() {
 		headerView.backgroundColor = .liteWalletBlue
 		headerTitleLabel.font = UIFont.barlowBold(size: 18.0)
 		headerDescriptionLabel.font = UIFont.barlowRegular(size: 14.0)
@@ -134,8 +125,7 @@ class ConfirmPaperPhraseViewController: UITableViewController
 		submitButton.addTarget(self, action: #selector(checkPhrases), for: .touchUpInside)
 
 		confirmFirstPhrase.callback = { [weak self] in
-			if self?.confirmFirstPhrase.textField.text == self?.confirmFirstPhrase.word
-			{
+			if self?.confirmFirstPhrase.textField.text == self?.confirmFirstPhrase.word {
 				self?.confirmSecondPhrase.textField.becomeFirstResponder()
 			}
 		}
@@ -143,8 +133,7 @@ class ConfirmPaperPhraseViewController: UITableViewController
 			self?.adjustScrollView(set: 1)
 		}
 		confirmSecondPhrase.callback = { [weak self] in
-			if self?.confirmSecondPhrase.textField.text == self?.confirmSecondPhrase.word
-			{
+			if self?.confirmSecondPhrase.textField.text == self?.confirmSecondPhrase.word {
 				self?.confirmThirdPhrase.textField.becomeFirstResponder()
 			}
 		}
@@ -152,8 +141,7 @@ class ConfirmPaperPhraseViewController: UITableViewController
 			self?.adjustScrollView(set: 2)
 		}
 		confirmThirdPhrase.callback = { [weak self] in
-			if self?.confirmThirdPhrase.textField.text == self?.confirmThirdPhrase.word
-			{
+			if self?.confirmThirdPhrase.textField.text == self?.confirmThirdPhrase.word {
 				self?.confirmFourthPhrase.textField.becomeFirstResponder()
 			}
 		}
@@ -165,23 +153,19 @@ class ConfirmPaperPhraseViewController: UITableViewController
 		}
 	}
 
-	private func adjustScrollView(set: Int)
-	{
+	private func adjustScrollView(set: Int) {
 		let constant = 20.0
 		let offset = CGFloat(constant) * CGFloat(set)
 		tableView.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
 	}
 
-	@objc private func dismissController()
-	{
+	@objc private func dismissController() {
 		dismiss(animated: true)
 	}
 
-	@objc private func checkPhrases()
-	{
+	@objc private func checkPhrases() {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store not initialized")
 			return
 		}
@@ -194,9 +178,7 @@ class ConfirmPaperPhraseViewController: UITableViewController
 			UserDefaults.writePaperPhraseDate = Date()
 			store.trigger(name: .didWritePaperKey)
 			didCompleteConfirmation?()
-		}
-		else
-		{
+		} else {
 			firstWordCell.confirmPhraseView?.validate()
 			secondWordCell.confirmPhraseView?.validate()
 			thirdWordCell.confirmPhraseView?.validate()
@@ -206,16 +188,13 @@ class ConfirmPaperPhraseViewController: UITableViewController
 	}
 }
 
-class ConfirmPhraseTableViewCell: UITableViewCell
-{
+class ConfirmPhraseTableViewCell: UITableViewCell {
 	var confirmPhraseView: ConfirmPhrase?
-	override func awakeFromNib()
-	{
+	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
 
-	override func setSelected(_ selected: Bool, animated: Bool)
-	{
+	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 	}
 }

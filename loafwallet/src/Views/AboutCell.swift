@@ -1,20 +1,16 @@
 import UIKit
 
-class AboutCell: UIView
-{
+class AboutCell: UIView {
 	let button: UIButton
 
-	init(text: String)
-	{
+	init(text: String) {
 		button = UIButton.icon(image: #imageLiteral(resourceName: "OpenBrowser"), accessibilityLabel: text)
 		label.text = text
 		super.init(frame: .zero)
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			guard let textColor = UIColor(named: "labelTextColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Main color")
 				return
 			}
@@ -26,8 +22,7 @@ class AboutCell: UIView
 	private var label = UILabel(font: .customBody(size: 16.0), color: .darkText)
 	private let separator = UIView(color: .secondaryShadow)
 
-	private func setup()
-	{
+	private func setup() {
 		addSubview(label)
 		addSubview(button)
 		addSubview(separator)
@@ -51,8 +46,7 @@ class AboutCell: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

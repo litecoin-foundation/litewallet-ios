@@ -3,8 +3,7 @@ import Foundation
 import SwiftUI
 import XCTest
 
-class CardWalletTests: XCTestCase
-{
+class CardWalletTests: XCTestCase {
 	let mockWalletDetailsResponseData =
 		"""
 		    {
@@ -42,24 +41,19 @@ class CardWalletTests: XCTestCase
 		        }
 		""".data(using: .utf8)
 
-	func testDecodeWalletDetails() throws
-	{
-		do
-		{
+	func testDecodeWalletDetails() throws {
+		do {
 			let decoder = JSONDecoder()
 
 			guard let data = mockWalletDetailsResponseData
-			else
-			{
+			else {
 				return
 			}
 
 			let walletDetails = try? decoder.decode(CardWalletDetails.self, from: data)
 
 			XCTAssertNotNil(walletDetails)
-		}
-		catch
-		{
+		} catch {
 			XCTFail("Decoding failed")
 		}
 	}

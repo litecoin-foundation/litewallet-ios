@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct Enter2FACodeView<Presenting>: View where Presenting: View
-{
+struct Enter2FACodeView<Presenting>: View where Presenting: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -17,28 +16,21 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View
 
 	let tokenWidth: CGFloat = 150
 
-	var body: some View
-	{
-		GeometryReader
-		{ (_: GeometryProxy) in
-			HStack
-			{
+	var body: some View {
+		GeometryReader { (_: GeometryProxy) in
+			HStack {
 				Spacer(minLength: 5)
-				ZStack
-				{
+				ZStack {
 					self.presenting.disabled(shouldShowEnter2FAView)
-					VStack
-					{
+					VStack {
 						// Dismiss button
 						Button(action: {
-							twoFAViewModel.shouldDismissView
-							{
+							twoFAViewModel.shouldDismissView {
 								self.shouldShowEnter2FAView.toggle()
 								UIApplication.shared.endEditing()
 							}
 
-						})
-						{
+						}) {
 							Image("whiteCross")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
@@ -67,12 +59,9 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View
 							.keyboardType(.numberPad)
 							.modifier(ClearButton(text: $twoFAViewModel.tokenString))
 							.onReceive(twoFAViewModel.$tokenString, perform: { token in
-								if token.count == 6
-								{
+								if token.count == 6 {
 									disableConfirmButton = false
-								}
-								else
-								{
+								} else {
 									disableConfirmButton = true
 								}
 							})
@@ -80,24 +69,20 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View
 						Divider()
 							.background(Color.white)
 
-						HStack
-						{
+						HStack {
 							// Confirm button
 							Button(action: {
-								twoFAViewModel.didConfirmToken
-								{ token in
+								twoFAViewModel.didConfirmToken { token in
 									twoFAViewModel.tokenString = token
 
-									if twoFAViewModel.tokenString.count == 6
-									{
+									if twoFAViewModel.tokenString.count == 6 {
 										twoFAViewModel.didSetToken = true
 
 										shouldShowEnter2FAView = false
 									}
 								}
 
-							})
-							{
+							}) {
 								Text(S.Fragments.confirm.localizedUppercase)
 									.frame(minWidth: 0, maxWidth: .infinity)
 									.padding()
@@ -123,14 +108,11 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View
 	}
 }
 
-struct Enter2FACodeView_Previews: PreviewProvider
-{
+struct Enter2FACodeView_Previews: PreviewProvider {
 	static let twoFAModel = Enter2FACodeViewModel()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			Text("")
 				.padding(.all, 10)
 				.enter2FACodeView(shouldShowEnter2FAView: .constant(true),

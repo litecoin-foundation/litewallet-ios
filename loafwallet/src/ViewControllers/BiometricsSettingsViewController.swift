@@ -1,13 +1,11 @@
 import LocalAuthentication
 import UIKit
 
-class BiometricsSettingsViewController: UIViewController, Subscriber
-{
+class BiometricsSettingsViewController: UIViewController, Subscriber {
 	var presentSpendingLimit: (() -> Void)?
 	var didDismiss: (() -> Void)?
 
-	init(walletManager: WalletManager, store: Store)
-	{
+	init(walletManager: WalletManager, store: Store) {
 		self.walletManager = walletManager
 		self.store = store
 		super.init(nibName: nil, bundle: nil)
@@ -28,13 +26,11 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 	private var rate: Rate?
 	fileprivate var didTapSpendingLimit = false
 
-	deinit
-	{
+	deinit {
 		store.unsubscribe(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		store.subscribe(self, selector: { $0.currentRate != $1.currentRate }, callback: {
 			self.rate = $0.currentRate
 		})
@@ -44,15 +40,13 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 		setData()
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		didTapSpendingLimit = false
 		spendingButton.title = spendingButtonText
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		header.addSubview(illustration)
 		view.addSubview(label)
@@ -64,8 +58,7 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 		view.addSubview(dismissButton)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrainTopCorners(sidePadding: 0.0, topPadding: 0.0)
 		header.constrain([header.heightAnchor.constraint(equalToConstant: C.Sizes.largeHeaderHeight)])
 		illustration.constrain([
@@ -105,8 +98,7 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		spendingButton.addTarget(self, action: #selector(didTapSpendingButton), for: .touchUpInside)
 		if #available(iOS 11.0, *), let backGroundColor = UIColor(named: "lfBackgroundColor"),
 		   let textColor = UIColor(named: "labelTextColor")
@@ -115,9 +107,7 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 			switchLabel.textColor = textColor
 			spendingLimitLabel.textColor = textColor
 			view.backgroundColor = backGroundColor
-		}
-		else
-		{
+		} else {
 			label.textColor = .darkText
 			switchLabel.textColor = .darkText
 			view.backgroundColor = .white
@@ -131,21 +121,17 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 		let hasSetToggleInitialValue = false
 		store.subscribe(self, selector: { $0.isBiometricsEnabled != $1.isBiometricsEnabled }, callback: {
 			self.toggle.isOn = $0.isBiometricsEnabled
-			if !hasSetToggleInitialValue
-			{
+			if !hasSetToggleInitialValue {
 				self.toggle.sendActions(for: .valueChanged) // This event is needed because the gradient background gets set on valueChanged events
 			}
 		})
 		toggle.valueChanged = { [weak self] in
 			guard let myself = self else { return }
 
-			if LAContext.canUseBiometrics
-			{
+			if LAContext.canUseBiometrics {
 				myself.store.perform(action: Biometrics.setIsEnabled(myself.toggle.isOn))
 				myself.spendingButton.title = myself.spendingButtonText
-			}
-			else
-			{
+			} else {
 				myself.presentCantUseBiometricsAlert()
 				myself.toggle.isOn = false
 			}
@@ -155,16 +141,14 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 		dismissButton.addTarget(self, action: #selector(didTapDismissButton), for: .touchUpInside)
 	}
 
-	private var spendingButtonText: String
-	{
+	private var spendingButtonText: String {
 		guard let rate = rate else { return "" }
 		let amount = Amount(amount: walletManager.spendingLimit, rate: rate, maxDigits: store.state.maxDigits)
 		let string = "\(String(format: S.TouchIdSettings.limitValue, amount.bits, amount.localCurrency))"
 		return string
 	}
 
-	fileprivate func presentCantUseBiometricsAlert()
-	{
+	fileprivate func presentCantUseBiometricsAlert() {
 		let unavailableAlertTitle = LAContext.biometricType() == .face ? S.FaceIDSettings.unavailableAlertTitle : S.TouchIdSettings.unavailableAlertTitle
 		let unavailableAlertMessage = LAContext.biometricType() == .face ? S.FaceIDSettings.unavailableAlertMessage : S.TouchIdSettings.unavailableAlertMessage
 		let alert = UIAlertController(title: unavailableAlertTitle, message: unavailableAlertMessage, preferredStyle: .alert)
@@ -172,32 +156,25 @@ class BiometricsSettingsViewController: UIViewController, Subscriber
 		present(alert, animated: true, completion: nil)
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
-	@objc func didTapSpendingButton()
-	{
-		if LAContext.canUseBiometrics
-		{
+	@objc func didTapSpendingButton() {
+		if LAContext.canUseBiometrics {
 			didTapSpendingLimit = true
 			presentSpendingLimit?()
-		}
-		else
-		{
+		} else {
 			presentCantUseBiometricsAlert()
 		}
 	}
 
-	@objc func didTapDismissButton()
-	{
+	@objc func didTapDismissButton() {
 		didDismiss?()
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

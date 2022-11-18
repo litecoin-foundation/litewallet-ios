@@ -1,26 +1,22 @@
 import SwiftUI
 
-struct LockScreenHeaderView: View
-{
+struct LockScreenHeaderView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
 	var viewModel: LockScreenHeaderViewModel
 
-	init(viewModel: LockScreenHeaderViewModel)
-	{
+	init(viewModel: LockScreenHeaderViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
+	var body: some View {
 		Color
 			.liteWalletDarkBlue
 			.opacity(0.9)
 			.edgesIgnoringSafeArea(.all)
 			.overlay(
-				VStack
-				{
+				VStack {
 					Spacer()
 					Text(" 1 LTC = \(viewModel.currentValueInFiat)")
 						.font(Font(UIFont.barlowSemiBold(size: 16.0)))
@@ -34,15 +30,12 @@ struct LockScreenHeaderView: View
 	}
 }
 
-struct LockScreenHeaderView_Previews: PreviewProvider
-{
+struct LockScreenHeaderView_Previews: PreviewProvider {
 	static let store = Store()
 	static let viewModel = LockScreenHeaderViewModel(store: store)
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			LockScreenHeaderView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

@@ -3,17 +3,14 @@ import UIKit
 
 typealias VerifyPinCallback = (String, UIViewController) -> Bool
 
-protocol ContentBoxPresenter
-{
+protocol ContentBoxPresenter {
 	var contentBox: UIView { get }
 	var blurView: UIVisualEffectView { get }
 	var effect: UIBlurEffect { get }
 }
 
-class VerifyPinViewController: UIViewController, ContentBoxPresenter
-{
-	init(bodyText: String, pinLength: Int, callback: @escaping VerifyPinCallback)
-	{
+class VerifyPinViewController: UIViewController, ContentBoxPresenter {
+	init(bodyText: String, pinLength: Int, callback: @escaping VerifyPinCallback) {
 		self.bodyText = bodyText
 		self.callback = callback
 		self.pinLength = pinLength
@@ -36,15 +33,13 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter
 	private let bodyText: String
 	private let pinLength: Int
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setupSubviews()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(contentBox)
 		view.addSubview(toolbarBorder)
 		view.addSubview(toolbar)
@@ -63,8 +58,7 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter
 		})
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		contentBox.constrain([
 			contentBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			contentBox.bottomAnchor.constraint(equalTo: pinPad.view.topAnchor, constant: -C.padding[12]),
@@ -101,8 +95,7 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter
 		])
 	}
 
-	private func setupSubviews()
-	{
+	private func setupSubviews() {
 		contentBox.backgroundColor = .liteWalletBlue
 		contentBox.layer.cornerRadius = 8.0
 		contentBox.layer.borderWidth = 1.0
@@ -125,19 +118,13 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter
 			myself.pinView.fill(attemptLength)
 			myself.pinPad.isAppendingDisabled = attemptLength < myself.pinLength ? false : true
 
-			if attemptLength == myself.pinLength
-			{
-				if !myself.callback(output, myself)
-				{
+			if attemptLength == myself.pinLength {
+				if !myself.callback(output, myself) {
 					myself.authenticationFailed()
-				}
-				else
-				{
+				} else {
 					NSLog("FAILED")
 				}
-			}
-			else
-			{
+			} else {
 				NSLog("FAILED")
 			}
 		}
@@ -150,25 +137,21 @@ class VerifyPinViewController: UIViewController, ContentBoxPresenter
 		view.backgroundColor = .clear
 	}
 
-	private func authenticationFailed()
-	{
+	private func authenticationFailed() {
 		pinPad.view.isUserInteractionEnabled = false
-		pinView.shake
-		{ [weak self] in
+		pinView.shake { [weak self] in
 			self?.pinPad.view.isUserInteractionEnabled = true
 			self?.pinView.fill(0)
 		}
 		pinPad.clear()
 	}
 
-	override var prefersStatusBarHidden: Bool
-	{
+	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

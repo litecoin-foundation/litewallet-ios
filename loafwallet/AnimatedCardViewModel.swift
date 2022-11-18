@@ -1,8 +1,7 @@
 import Foundation
 import UIKit
 
-class AnimatedCardViewModel: ObservableObject
-{
+class AnimatedCardViewModel: ObservableObject {
 	@Published
 	var rotateIn3D = false
 

@@ -1,46 +1,33 @@
 import Foundation
 import LocalAuthentication
 
-extension LAContext
-{
-	static var canUseBiometrics: Bool
-	{
+extension LAContext {
+	static var canUseBiometrics: Bool {
 		return LAContext().canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: nil)
 	}
 
-	static var isBiometricsAvailable: Bool
-	{
+	static var isBiometricsAvailable: Bool {
 		var error: NSError?
-		if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
-		{
+		if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
 			return true
-		}
-		else
-		{
-			if error?.code == LAError.biometryNotAvailable.rawValue
-			{
+		} else {
+			if error?.code == LAError.biometryNotAvailable.rawValue {
 				return false
-			}
-			else
-			{
+			} else {
 				return true
 			}
 		}
 	}
 
-	static var isPasscodeEnabled: Bool
-	{
+	static var isPasscodeEnabled: Bool {
 		return LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
 	}
 
-	static func biometricType() -> BiometricType
-	{
+	static func biometricType() -> BiometricType {
 		let context = LAContext()
-		if #available(iOS 11, *)
-		{
+		if #available(iOS 11, *) {
 			_ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-			switch context.biometryType
-			{
+			switch context.biometryType {
 			case .none:
 				return .none
 			case .touchID:
@@ -48,15 +35,12 @@ extension LAContext
 			case .faceID:
 				return .face
 			}
-		}
-		else
-		{
+		} else {
 			return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) ? .touch : .none
 		}
 	}
 
-	enum BiometricType
-	{
+	enum BiometricType {
 		case none
 		case touch
 		case face

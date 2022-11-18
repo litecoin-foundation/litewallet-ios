@@ -1,20 +1,16 @@
 import SwiftUI
 
-struct CopyButtonView: View
-{
+struct CopyButtonView: View {
 	var idString: String
 
-	init(idString: String)
-	{
+	init(idString: String) {
 		self.idString = idString
 	}
 
-	var body: some View
-	{
+	var body: some View {
 		Button(action: {
 			UIPasteboard.general.string = idString
-		})
-		{
+		}) {
 			Image(systemName: "doc.on.doc")
 				.resizable()
 				.aspectRatio(contentMode: .fit)
@@ -26,10 +22,8 @@ struct CopyButtonView: View
 	}
 }
 
-struct CopyButtonView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
+struct CopyButtonView_Previews: PreviewProvider {
+	static var previews: some View {
 		CopyButtonView(idString: "TEST")
 	}
 }

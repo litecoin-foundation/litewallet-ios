@@ -1,24 +1,20 @@
 import Foundation
 
-class RetryTimer
-{
+class RetryTimer {
 	var callback: (() -> Void)?
 	private var timer: Timer?
 	private var fibA: TimeInterval = 0.0
 	private var fibB: TimeInterval = 1.0
 
-	func start()
-	{
+	func start() {
 		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(retry), userInfo: nil, repeats: false)
 	}
 
-	func stop()
-	{
+	func stop() {
 		timer?.invalidate()
 	}
 
-	@objc private func retry()
-	{
+	@objc private func retry() {
 		callback?()
 		timer?.invalidate()
 		let newInterval = fibA + fibB

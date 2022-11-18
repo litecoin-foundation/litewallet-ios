@@ -1,39 +1,29 @@
 import Foundation
 
-class KVStoreCoordinator: Subscriber
-{
-	init(store: Store, kvStore: BRReplicatedKVStore)
-	{
+class KVStoreCoordinator: Subscriber {
+	init(store: Store, kvStore: BRReplicatedKVStore) {
 		self.store = store
 		self.kvStore = kvStore
 	}
 
-	func retreiveStoredWalletInfo()
-	{
+	func retreiveStoredWalletInfo() {
 		guard !hasRetreivedInitialWalletInfo else { return }
-		if let walletInfo = WalletInfo(kvStore: kvStore)
-		{
+		if let walletInfo = WalletInfo(kvStore: kvStore) {
 			store.perform(action: WalletChange.setWalletName(walletInfo.name))
 			store.perform(action: WalletChange.setWalletCreationDate(walletInfo.creationDate))
-		}
-		else
-		{
+		} else {
 			print("no wallet info found")
 		}
 		hasRetreivedInitialWalletInfo = true
 	}
 
-	func listenForWalletChanges()
-	{
+	func listenForWalletChanges() {
 		store.subscribe(self,
 		                selector: { $0.walletState.creationDate != $1.walletState.creationDate },
 		                callback: {
-		                	if let existingInfo = WalletInfo(kvStore: self.kvStore)
-		                	{
+		                	if let existingInfo = WalletInfo(kvStore: self.kvStore) {
 		                		self.store.perform(action: WalletChange.setWalletCreationDate(existingInfo.creationDate))
-		                	}
-		                	else
-		                	{
+		                	} else {
 		                		let newInfo = WalletInfo(name: $0.walletState.name)
 		                		newInfo.creationDate = $0.walletState.creationDate
 		                		self.set(newInfo)
@@ -41,14 +31,10 @@ class KVStoreCoordinator: Subscriber
 		                })
 	}
 
-	private func set(_ info: BRKVStoreObject)
-	{
-		do
-		{
+	private func set(_ info: BRKVStoreObject) {
+		do {
 			_ = try kvStore.set(info)
-		}
-		catch
-		{
+		} catch {
 			print("error setting wallet info: \(error)")
 		}
 	}

@@ -1,28 +1,23 @@
 import UIKit
 
-enum ModalType
-{
+enum ModalType {
 	case regular
 	case transactionDetail
 }
 
-class ModalTransitionDelegate: NSObject, Subscriber
-{
+class ModalTransitionDelegate: NSObject, Subscriber {
 	// MARK: - Public
 
-	init(type: ModalType, store: Store)
-	{
+	init(type: ModalType, store: Store) {
 		self.type = type
 		self.store = store
 		super.init()
 	}
 
-	func reset()
-	{
+	func reset() {
 		isInteractive = false
 		presentedViewController = nil
-		if let panGr = panGestureRecognizer
-		{
+		if let panGr = panGestureRecognizer {
 			LWAnalytics.logEventWithParameters(itemName: ._20210427_HCIEEH)
 			UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.removeGestureRecognizer(panGr)
 		}
@@ -45,11 +40,9 @@ class ModalTransitionDelegate: NSObject, Subscriber
 	private let velocityThreshold: CGFloat = 50.0
 	private let progressThreshold: CGFloat = 0.5
 
-	@objc fileprivate func didUpdate(gr: UIPanGestureRecognizer)
-	{
+	@objc fileprivate func didUpdate(gr: UIPanGestureRecognizer) {
 		guard shouldDismissInteractively else { return }
-		switch gr.state
-		{
+		switch gr.state {
 		case .began:
 			isInteractive = true
 			presentedViewController?.dismiss(animated: true, completion: nil)
@@ -64,13 +57,10 @@ class ModalTransitionDelegate: NSObject, Subscriber
 			reset()
 			interactiveTransition.cancel()
 		case .ended:
-			if transitionShouldFinish
-			{
+			if transitionShouldFinish {
 				reset()
 				interactiveTransition.finish()
-			}
-			else
-			{
+			} else {
 				isInteractive = false
 				interactiveTransition.cancel()
 			}
@@ -81,21 +71,16 @@ class ModalTransitionDelegate: NSObject, Subscriber
 		}
 	}
 
-	private var transitionShouldFinish: Bool
-	{
-		if progress > progressThreshold || yVelocity > velocityThreshold
-		{
+	private var transitionShouldFinish: Bool {
+		if progress > progressThreshold || yVelocity > velocityThreshold {
 			return true
-		}
-		else
-		{
+		} else {
 			return false
 		}
 	}
 }
 
-extension ModalTransitionDelegate: UIViewControllerTransitioningDelegate
-{
+extension ModalTransitionDelegate: UIViewControllerTransitioningDelegate {
 	func animationController(forPresented presented: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning?
 	{
 		presentedViewController = presented

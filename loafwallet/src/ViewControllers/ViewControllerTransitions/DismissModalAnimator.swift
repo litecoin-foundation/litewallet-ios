@@ -3,15 +3,12 @@ import UIKit
 // TODO: - figure out who should own this
 let blurView = UIVisualEffectView()
 
-class DismissModalAnimator: NSObject, UIViewControllerAnimatedTransitioning
-{
-	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval
-	{
+class DismissModalAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return 0.4
 	}
 
-	func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
-	{
+	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 		guard transitionContext.isAnimated else { return }
 		let duration = transitionDuration(using: transitionContext)
 		guard let fromView = transitionContext.view(forKey: .from) else { assertionFailure("Missing from view"); return }

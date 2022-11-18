@@ -1,5 +1,4 @@
 import Foundation
-class MainTabBarViewModel: ObservableObject
-{
+class MainTabBarViewModel: ObservableObject {
 	init() {}
 }

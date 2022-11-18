@@ -1,15 +1,12 @@
 @testable import loafwallet
 import XCTest
 
-class TouchIdEnabledTests: XCTestCase
-{
-	override func setUp()
-	{
+class TouchIdEnabledTests: XCTestCase {
+	override func setUp() {
 		UserDefaults.standard.removeObject(forKey: "isbiometricsenabled")
 	}
 
-	func testUserDefaultsStorage()
-	{
+	func testUserDefaultsStorage() {
 		XCTAssertFalse(UserDefaults.isBiometricsEnabled, "Default value is false")
 		UserDefaults.isBiometricsEnabled = true
 		XCTAssertTrue(UserDefaults.isBiometricsEnabled, "Should be true after being set to true")
@@ -17,8 +14,7 @@ class TouchIdEnabledTests: XCTestCase
 		XCTAssertFalse(UserDefaults.isBiometricsEnabled, "Should be false after being set to false")
 	}
 
-	func testInitialState()
-	{
+	func testInitialState() {
 		UserDefaults.isBiometricsEnabled = true
 		let state = ReduxState.initial
 		XCTAssertTrue(state.isBiometricsEnabled, "Initial state should be same as stored value")
@@ -28,8 +24,7 @@ class TouchIdEnabledTests: XCTestCase
 		XCTAssertFalse(state2.isBiometricsEnabled, "Initial state should be same as stored value")
 	}
 
-	func testTouchIdAction()
-	{
+	func testTouchIdAction() {
 		UserDefaults.isBiometricsEnabled = true
 		let store = Store()
 		store.perform(action: Biometrics.setIsEnabled(false))

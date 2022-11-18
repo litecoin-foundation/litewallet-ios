@@ -1,9 +1,7 @@
 import UIKit
 
-extension UIButton
-{
-	static func vertical(title: String, image: UIImage) -> UIButton
-	{
+extension UIButton {
+	static func vertical(title: String, image: UIImage) -> UIButton {
 		let button = UIButton(type: .system)
 		button.setTitle(title, for: .normal)
 		button.setImage(image, for: .normal)
@@ -21,14 +19,12 @@ extension UIButton
 		return button
 	}
 
-	static var close: UIButton
-	{
+	static var close: UIButton {
 		let accessibilityLabel = E.isScreenshots ? "Close" : S.AccessibilityLabels.close
 		return UIButton.icon(image: #imageLiteral(resourceName: "Close"), accessibilityLabel: accessibilityLabel)
 	}
 
-	static func buildFaqButton(store: Store, articleId: String) -> UIButton
-	{
+	static func buildFaqButton(store: Store, articleId: String) -> UIButton {
 		let button = UIButton.icon(image: #imageLiteral(resourceName: "Faq"), accessibilityLabel: S.AccessibilityLabels.faq)
 		button.tap = {
 			store.trigger(name: .presentFaq(articleId))
@@ -36,18 +32,14 @@ extension UIButton
 		return button
 	}
 
-	static func icon(image: UIImage, accessibilityLabel: String) -> UIButton
-	{
+	static func icon(image: UIImage, accessibilityLabel: String) -> UIButton {
 		let button = UIButton(type: .system)
 		button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
 		button.setImage(image, for: .normal)
 
-		if image == #imageLiteral(resourceName: "Close")
-		{
+		if image == #imageLiteral(resourceName: "Close") {
 			button.imageEdgeInsets = UIEdgeInsetsMake(14.0, 14.0, 14.0, 14.0)
-		}
-		else
-		{
+		} else {
 			button.imageEdgeInsets = UIEdgeInsetsMake(12.0, 12.0, 12.0, 12.0)
 		}
 
@@ -56,17 +48,14 @@ extension UIButton
 		return button
 	}
 
-	func tempDisable()
-	{
+	func tempDisable() {
 		isEnabled = false
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5)
-		{ [weak self] in
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
 			self?.isEnabled = true
 		}
 	}
 
-	static func stylizeLitewalletBlueButton(title: String, frame: CGRect) -> UIButton
-	{
+	static func stylizeLitewalletBlueButton(title: String, frame: CGRect) -> UIButton {
 		let button = UIButton()
 		button.frame = frame
 		button.setTitle(title, for: .normal)

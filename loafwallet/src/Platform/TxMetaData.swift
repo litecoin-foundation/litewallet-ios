@@ -4,8 +4,7 @@ import Foundation
 // MARK: - Txn Metadata
 
 // Txn metadata stores additional information about a given transaction
-open class TxMetaData: BRKVStoreObject, BRCoding
-{
+open class TxMetaData: BRKVStoreObject, BRCoding {
 	var classVersion: Int = 2
 
 	var blockHeight: Int = 0
@@ -17,11 +16,9 @@ open class TxMetaData: BRKVStoreObject, BRCoding
 	var deviceId: String = ""
 	var comment = ""
 
-	public required init?(coder decoder: BRCoder)
-	{
+	public required init?(coder decoder: BRCoder) {
 		classVersion = decoder.decode("classVersion")
-		if classVersion == Int.zeroValue()
-		{
+		if classVersion == Int.zeroValue() {
 			print("[BRTxMetadataObject] Unable to unarchive _TXMetadata: no version")
 			return nil
 		}
@@ -36,8 +33,7 @@ open class TxMetaData: BRKVStoreObject, BRCoding
 		super.init(key: "", version: 0, lastModified: Date(), deleted: true, data: Data())
 	}
 
-	func encode(_ coder: BRCoder)
-	{
+	func encode(_ coder: BRCoder) {
 		coder.encode(classVersion, key: "classVersion")
 		coder.encode(blockHeight, key: "bh")
 		coder.encode(exchangeRate, key: "er")
@@ -50,23 +46,19 @@ open class TxMetaData: BRKVStoreObject, BRCoding
 	}
 
 	// Find metadata object based on the txHash
-	public init?(txHash: UInt256, store: BRReplicatedKVStore)
-	{
+	public init?(txHash: UInt256, store: BRReplicatedKVStore) {
 		var ver: UInt64
 		var date: Date
 		var del: Bool
 		var bytes: [UInt8]
 
 		print("[BRTxMetadataObject] find \(txHash.txKey)")
-		do
-		{
+		do {
 			(ver, date, del, bytes) = try store.get(txHash.txKey)
 			let bytesDat = Data(bytes: &bytes, count: bytes.count)
 			super.init(key: txHash.txKey, version: ver, lastModified: date, deleted: del, data: bytesDat)
 			return
-		}
-		catch let e
-		{
+		} catch let e {
 			print("[BRTxMetadataObject] Unable to initialize BRTxMetadataObject: \(String(describing: e))")
 		}
 
@@ -74,23 +66,19 @@ open class TxMetaData: BRKVStoreObject, BRCoding
 	}
 
 	// Find metadata object based on the txKey
-	public init?(txKey: String, store: BRReplicatedKVStore)
-	{
+	public init?(txKey: String, store: BRReplicatedKVStore) {
 		var ver: UInt64
 		var date: Date
 		var del: Bool
 		var bytes: [UInt8]
 
 		print("[BRTxMetadataObject] find \(txKey)")
-		do
-		{
+		do {
 			(ver, date, del, bytes) = try store.get(txKey)
 			let bytesDat = Data(bytes: &bytes, count: bytes.count)
 			super.init(key: txKey, version: ver, lastModified: date, deleted: del, data: bytesDat)
 			return
-		}
-		catch let e
-		{
+		} catch let e {
 			print("[BRTxMetadataObject] Unable to initialize BRTxMetadataObject: \(String(describing: e))")
 		}
 
@@ -114,16 +102,13 @@ open class TxMetaData: BRKVStoreObject, BRCoding
 		self.comment = comment ?? ""
 	}
 
-	override func getData() -> Data?
-	{
+	override func getData() -> Data? {
 		return BRKeyedArchiver.archivedDataWithRootObject(self)
 	}
 
-	override func dataWasSet(_ value: Data)
-	{
+	override func dataWasSet(_ value: Data) {
 		guard let s: TxMetaData = BRKeyedUnarchiver.unarchiveObjectWithData(value)
-		else
-		{
+		else {
 			print("[BRTxMetadataObject] unable to deserialise tx metadata")
 			return
 		}
@@ -138,13 +123,10 @@ open class TxMetaData: BRKVStoreObject, BRCoding
 	}
 }
 
-extension UInt256
-{
-	var txKey: String
-	{
+extension UInt256 {
+	var txKey: String {
 		var u = self
-		return withUnsafePointer(to: &u)
-		{ p in
+		return withUnsafePointer(to: &u) { p in
 			let bd = Data(bytes: p, count: MemoryLayout<UInt256>.stride).sha256
 			return "txn2-\(bd.hexString)"
 		}

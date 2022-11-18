@@ -7,20 +7,17 @@
 //
 import Foundation
 
-class TransactionManager: NSObject, Subscriber
-{
+class TransactionManager: NSObject, Subscriber {
 	static let sharedInstance = TransactionManager()
 	var transactions: [Transaction] = []
 	var store: Store?
 	var rate: Rate?
 
-	override init()
-	{
+	override init() {
 		super.init()
 	}
 
-	func fetchTransactionData(store: Store)
-	{
+	func fetchTransactionData(store: Store) {
 		self.store = store
 
 		store.subscribe(self, selector: { $0.walletState.transactions != $1.walletState.transactions },

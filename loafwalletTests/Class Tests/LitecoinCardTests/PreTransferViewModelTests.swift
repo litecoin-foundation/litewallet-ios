@@ -5,8 +5,7 @@ import XCTest
 
 @testable import loafwallet
 
-class PreTransferViewModelTests: XCTestCase
-{
+class PreTransferViewModelTests: XCTestCase {
 	var viewModel: PreTransferViewModel!
 
 	let smallBalance: Double = 0.0044
@@ -15,41 +14,34 @@ class PreTransferViewModelTests: XCTestCase
 
 	var walletType: WalletType = .litecoinCard
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 
 		viewModel = PreTransferViewModel(walletType: walletType,
 		                                 balance: smallBalance)
 	}
 
-	override func setUpWithError() throws
-	{
+	override func setUpWithError() throws {
 		// Put setup code here. This method is called before the invocation of each test method in the class.
 	}
 
-	override func tearDownWithError() throws
-	{
+	override func tearDownWithError() throws {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 	}
 
-	func testExample() throws
-	{
+	func testExample() throws {
 		// This is an example of a functional test case.
 		// Use XCTAssert and related functions to verify your tests produce the correct results.
 	}
 
-	func testPerformanceExample() throws
-	{
+	func testPerformanceExample() throws {
 		// This is an example of a performance test case.
-		measure
-		{
+		measure {
 			// Put the code you want to measure the time of here.
 		}
 	}
 
-	func testWalletTypeLitecoinCardDescription() throws
-	{
+	func testWalletTypeLitecoinCardDescription() throws {
 		walletType = .litecoinCard
 
 		let failName = "Noname"
@@ -60,18 +52,14 @@ class PreTransferViewModelTests: XCTestCase
 
 		let uiImageSuccess = UIImage(named: walletType.description)
 
-		if let size = uiImageSuccess?.size
-		{
+		if let size = uiImageSuccess?.size {
 			XCTAssertNotNil(size.width > 0, "Litecoin Card image was found")
-		}
-		else
-		{
+		} else {
 			XCTFail("Fail to find Image")
 		}
 	}
 
-	func testWalletTypeLitewalletDescription() throws
-	{
+	func testWalletTypeLitewalletDescription() throws {
 		walletType = .litewallet
 
 		let failName = "Noname"
@@ -82,12 +70,9 @@ class PreTransferViewModelTests: XCTestCase
 
 		let uiImageSuccess = UIImage(named: walletType.description)
 
-		if let size = uiImageSuccess?.size
-		{
+		if let size = uiImageSuccess?.size {
 			XCTAssertNotNil(size.width > 0, "Litewallet image was found")
-		}
-		else
-		{
+		} else {
 			XCTFail("Fail to find Image")
 		}
 	}

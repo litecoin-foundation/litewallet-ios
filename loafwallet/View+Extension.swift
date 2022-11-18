@@ -1,8 +1,7 @@
 import Foundation
 import SwiftUI
 
-extension View
-{
+extension View {
 	/// Login Alert View
 	/// - Parameters:
 	///   - isShowingLoginAlert: Shown when user is waiting to login
@@ -73,8 +72,7 @@ extension View
 	///   - radius: CGFloat
 	///   - corners: topleft, topright, bottomleft, bottomright
 	/// - Returns: RoundedCornersView
-	func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View
-	{
+	func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
 		clipShape(RoundedCorner(radius: radius, corners: corners))
 	}
 
@@ -95,13 +93,11 @@ extension View
 }
 
 /// Helper struct for the custom Rounded Rect corners
-struct RoundedCorner: Shape
-{
+struct RoundedCorner: Shape {
 	var radius: CGFloat = .infinity
 	var corners: UIRectCorner = .allCorners
 
-	func path(in rect: CGRect) -> Path
-	{
+	func path(in rect: CGRect) -> Path {
 		let path = UIBezierPath(roundedRect: rect,
 		                        byRoundingCorners: corners,
 		                        cornerRadii: CGSize(width: radius,
@@ -113,23 +109,17 @@ struct RoundedCorner: Shape
 // https://stackoverflow.com/questions/58200555/swiftui-add-clearbutton-to-textfield
 
 /// Clear Button for Textfield()
-struct ClearButton: ViewModifier
-{
+struct ClearButton: ViewModifier {
 	@Binding var text: String
 
-	public func body(content: Content) -> some View
-	{
-		ZStack(alignment: .trailing)
-		{
+	public func body(content: Content) -> some View {
+		ZStack(alignment: .trailing) {
 			content
 
-			if !text.isEmpty
-			{
-				Button(action:
-					{
-						self.text = ""
-					})
-				{
+			if !text.isEmpty {
+				Button(action: {
+					self.text = ""
+				}) {
 					Image(systemName: "delete.left")
 						.resizable()
 						.aspectRatio(contentMode: .fit)
