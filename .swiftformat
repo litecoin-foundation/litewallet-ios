@@ -8,3 +8,4 @@
 
 # rules
 --enable isEmpty
+--disable enumNamespaces
