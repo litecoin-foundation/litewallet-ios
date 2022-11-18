@@ -1,13 +1,11 @@
 import BRCore
 import Foundation
 
-class PaymentProtocolDetails
-{
+class PaymentProtocolDetails {
 	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>
 	internal var isManaged: Bool
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>)
-	{
+	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
@@ -21,74 +19,62 @@ class PaymentProtocolDetails
 		isManaged = true
 	}
 
-	init?(bytes: [UInt8])
-	{
+	init?(bytes: [UInt8]) {
 		guard let cPtr = BRPaymentProtocolDetailsParse(bytes, bytes.count) else { return nil }
 		self.cPtr = cPtr
 		isManaged = true
 	}
 
-	var bytes: [UInt8]
-	{
+	var bytes: [UInt8] {
 		var bytes = [UInt8](repeating: 0, count: BRPaymentProtocolDetailsSerialize(cPtr, nil, 0))
 		BRPaymentProtocolDetailsSerialize(cPtr, &bytes, bytes.count)
 		return bytes
 	}
 
-	var network: String
-	{ // "main" or "test", default is "main"
+	var network: String { // "main" or "test", default is "main"
 		return String(cString: cPtr.pointee.network)
 	}
 
-	var outputs: [BRTxOutput]
-	{ // where to send payments, outputs[n].amount defaults to 0
+	var outputs: [BRTxOutput] { // where to send payments, outputs[n].amount defaults to 0
 		return [BRTxOutput](UnsafeBufferPointer(start: cPtr.pointee.outputs, count: cPtr.pointee.outCount))
 	}
 
-	var time: UInt64
-	{ // request creation time, seconds since unix epoch, optional
+	var time: UInt64 { // request creation time, seconds since unix epoch, optional
 		return cPtr.pointee.time
 	}
 
-	var expires: UInt64
-	{ // when this request should be considered invalid, optional
+	var expires: UInt64 { // when this request should be considered invalid, optional
 		return cPtr.pointee.expires
 	}
 
-	var memo: String?
-	{ // human-readable description of request for the customer, optional
+	var memo: String? { // human-readable description of request for the customer, optional
 		guard cPtr.pointee.memo != nil else { return nil }
 		return String(cString: cPtr.pointee.memo)
 	}
 
-	var paymentURL: String?
-	{ // url to send payment and get payment ack, optional
+	var paymentURL: String? { // url to send payment and get payment ack, optional
 		guard cPtr.pointee.paymentURL != nil else { return nil }
 		return String(cString: cPtr.pointee.paymentURL)
 	}
 
-	var merchantData: [UInt8]?
-	{ // arbitrary data to include in the payment message, optional
+	var merchantData: [UInt8]? { // arbitrary data to include in the payment message, optional
 		guard cPtr.pointee.merchantData != nil else { return nil }
 		return [UInt8](UnsafeBufferPointer(start: cPtr.pointee.merchantData, count: cPtr.pointee.merchDataLen))
 	}
 
-	deinit
-	{
+	deinit {
 		if isManaged { BRPaymentProtocolDetailsFree(cPtr) }
 	}
 }
 
-class PaymentProtocolRequest
-{
+class PaymentProtocolRequest {
 	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>
 	internal var isManaged: Bool
 	private var cName: String?
 	private var errMsg: String?
 	private var didValidate: Bool = false
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>)
-	{
+	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
@@ -104,55 +90,46 @@ class PaymentProtocolRequest
 		isManaged = true
 	}
 
-	init?(data: Data)
-	{
+	init?(data: Data) {
 		let bytes = [UInt8](data)
 		guard let cPtr = BRPaymentProtocolRequestParse(bytes, bytes.count) else { return nil }
 		self.cPtr = cPtr
 		isManaged = true
 	}
 
-	var bytes: [UInt8]
-	{
+	var bytes: [UInt8] {
 		var bytes = [UInt8](repeating: 0, count: BRPaymentProtocolRequestSerialize(cPtr, nil, 0))
 		BRPaymentProtocolRequestSerialize(cPtr, &bytes, bytes.count)
 		return bytes
 	}
 
-	var version: UInt32
-	{ // default is 1
+	var version: UInt32 { // default is 1
 		return cPtr.pointee.version
 	}
 
-	var pkiType: String
-	{ // none / x509+sha256 / x509+sha1, default is "none"
+	var pkiType: String { // none / x509+sha256 / x509+sha1, default is "none"
 		return String(cString: cPtr.pointee.pkiType)
 	}
 
-	var pkiData: [UInt8]?
-	{ // depends on pkiType, optional
+	var pkiData: [UInt8]? { // depends on pkiType, optional
 		guard cPtr.pointee.pkiData != nil else { return nil }
 		return [UInt8](UnsafeBufferPointer(start: cPtr.pointee.pkiData, count: cPtr.pointee.pkiDataLen))
 	}
 
-	var details: PaymentProtocolDetails
-	{ // required
+	var details: PaymentProtocolDetails { // required
 		return PaymentProtocolDetails(cPtr.pointee.details)
 	}
 
-	var signature: [UInt8]?
-	{ // pki-dependent signature, optional
+	var signature: [UInt8]? { // pki-dependent signature, optional
 		guard cPtr.pointee.signature != nil else { return nil }
 		return [UInt8](UnsafeBufferPointer(start: cPtr.pointee.signature, count: cPtr.pointee.sigLen))
 	}
 
-	var certs: [[UInt8]]
-	{ // array of DER encoded certificates
+	var certs: [[UInt8]] { // array of DER encoded certificates
 		var certs = [[UInt8]]()
 		var idx = 0
 
-		while BRPaymentProtocolRequestCert(cPtr, nil, 0, idx) > 0
-		{
+		while BRPaymentProtocolRequestCert(cPtr, nil, 0, idx) > 0 {
 			certs.append([UInt8](repeating: 0, count: BRPaymentProtocolRequestCert(cPtr, nil, 0, idx)))
 			BRPaymentProtocolRequestCert(cPtr, UnsafeMutablePointer(mutating: certs[idx]), certs[idx].count, idx)
 			idx = idx + 1
@@ -161,31 +138,26 @@ class PaymentProtocolRequest
 		return certs
 	}
 
-	var digest: [UInt8]
-	{ // hash of the request needed to sign or verify the request
+	var digest: [UInt8] { // hash of the request needed to sign or verify the request
 		let digest = [UInt8](repeating: 0, count: BRPaymentProtocolRequestDigest(cPtr, nil, 0))
 		BRPaymentProtocolRequestDigest(cPtr, UnsafeMutablePointer(mutating: digest), digest.count)
 		return digest
 	}
 
-	func isValid() -> Bool
-	{
+	func isValid() -> Bool {
 		defer { didValidate = true }
 
-		if pkiType != "none"
-		{
+		if pkiType != "none" {
 			var certs = [SecCertificate]()
 			let policies = [SecPolicy](repeating: SecPolicyCreateBasicX509(), count: 1)
 			var trust: SecTrust?
 			var trustResult = SecTrustResultType.invalid
 
-			for c in self.certs
-			{
+			for c in self.certs {
 				if let cert = SecCertificateCreateWithData(nil, Data(bytes: c) as CFData) { certs.append(cert) }
 			}
 
-			if !certs.isEmpty
-			{
+			if !certs.isEmpty {
 				cName = SecCertificateCopySubjectSummary(certs[0]) as String?
 			}
 
@@ -194,14 +166,11 @@ class PaymentProtocolRequest
 
 			// .unspecified indicates a positive result that wasn't decided by the user
 			guard trustResult == .unspecified || trustResult == .proceed
-			else
-			{
+			else {
 				errMsg = certs.count > 0 ? S.PaymentProtocol.Errors.untrustedCertificate : S.PaymentProtocol.Errors.missingCertificate
 
-				if let trust = trust, let properties = SecTrustCopyProperties(trust)
-				{
-					for prop in properties as! [[AnyHashable: Any]]
-					{
+				if let trust = trust, let properties = SecTrustCopyProperties(trust) {
+					for prop in properties as! [[AnyHashable: Any]] {
 						if prop["type"] as? String != kSecPropertyTypeError as String { continue }
 						errMsg = errMsg! + " - " + (prop["value"] as! String)
 						break
@@ -215,43 +184,32 @@ class PaymentProtocolRequest
 			var pubKey: SecKey?
 			if let trust = trust { pubKey = SecTrustCopyPublicKey(trust) }
 
-			if let pubKey = pubKey, let signature = signature
-			{
-				if pkiType == "x509+sha256"
-				{
+			if let pubKey = pubKey, let signature = signature {
+				if pkiType == "x509+sha256" {
 					status = SecKeyRawVerify(pubKey, .PKCS1SHA256, digest, digest.count, signature, signature.count)
-				}
-				else if pkiType == "x509+sha1"
-				{
+				} else if pkiType == "x509+sha1" {
 					status = SecKeyRawVerify(pubKey, .PKCS1SHA1, digest, digest.count, signature, signature.count)
 				}
 			}
 
 			guard status == errSecSuccess
-			else
-			{
-				if status == errSecUnimplemented
-				{
+			else {
+				if status == errSecUnimplemented {
 					errMsg = S.PaymentProtocol.Errors.unsupportedSignatureType
 					print(errMsg!)
-				}
-				else
-				{
+				} else {
 					errMsg = NSError(domain: NSOSStatusErrorDomain, code: Int(status)).localizedDescription
 					print("SecKeyRawVerify error: " + errMsg!)
 				}
 
 				return false
 			}
-		}
-		else if !certs.isEmpty
-		{ // non-standard extention to include an un-certified request name
+		} else if !certs.isEmpty { // non-standard extention to include an un-certified request name
 			cName = String(data: Data(certs[0]), encoding: .utf8)
 		}
 
 		guard details.expires == 0 || NSDate.timeIntervalSinceReferenceDate <= Double(details.expires)
-		else
-		{
+		else {
 			errMsg = S.PaymentProtocol.Errors.requestExpired
 			return false
 		}
@@ -259,31 +217,26 @@ class PaymentProtocolRequest
 		return true
 	}
 
-	var commonName: String?
-	{
+	var commonName: String? {
 		if !didValidate { _ = isValid() }
 		return cName
 	}
 
-	var errorMessage: String?
-	{
+	var errorMessage: String? {
 		if !didValidate { _ = isValid() }
 		return errMsg
 	}
 
-	deinit
-	{
+	deinit {
 		if isManaged { BRPaymentProtocolRequestFree(cPtr) }
 	}
 }
 
-class PaymentProtocolPayment
-{
+class PaymentProtocolPayment {
 	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>
 	internal var isManaged: Bool
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>)
-	{
+	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
@@ -300,28 +253,24 @@ class PaymentProtocolPayment
 		isManaged = true
 	}
 
-	init?(bytes: [UInt8])
-	{
+	init?(bytes: [UInt8]) {
 		guard let cPtr = BRPaymentProtocolPaymentParse(bytes, bytes.count) else { return nil }
 		self.cPtr = cPtr
 		isManaged = true
 	}
 
-	var bytes: [UInt8]
-	{
+	var bytes: [UInt8] {
 		var bytes = [UInt8](repeating: 0, count: BRPaymentProtocolPaymentSerialize(cPtr, nil, 0))
 		BRPaymentProtocolPaymentSerialize(cPtr, &bytes, bytes.count)
 		return bytes
 	}
 
-	var merchantData: [UInt8]?
-	{ // from request->details->merchantData, optional
+	var merchantData: [UInt8]? { // from request->details->merchantData, optional
 		guard cPtr.pointee.merchantData != nil else { return nil }
 		return [UInt8](UnsafeBufferPointer(start: cPtr.pointee.merchantData, count: cPtr.pointee.merchDataLen))
 	}
 
-	var transactions: [BRTxRef?]
-	{ // array of signed BRTxRef to satisfy outputs from details
+	var transactions: [BRTxRef?] { // array of signed BRTxRef to satisfy outputs from details
 		return [BRTxRef?](UnsafeBufferPointer(start: cPtr.pointee.transactions, count: cPtr.pointee.txCount))
 	}
 
@@ -330,31 +279,26 @@ class PaymentProtocolPayment
 		return [BRTxOutput](UnsafeBufferPointer(start: cPtr.pointee.refundTo, count: cPtr.pointee.refundToCount))
 	}
 
-	var memo: String?
-	{ // human-readable message for the merchant, optional
+	var memo: String? { // human-readable message for the merchant, optional
 		guard cPtr.pointee.memo != nil else { return nil }
 		return String(cString: cPtr.pointee.memo)
 	}
 
-	deinit
-	{
+	deinit {
 		if isManaged { BRPaymentProtocolPaymentFree(cPtr) }
 	}
 }
 
-class PaymentProtocolACK
-{
+class PaymentProtocolACK {
 	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>
 	internal var isManaged: Bool
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>)
-	{
+	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
 
-	init?(payment: PaymentProtocolPayment, memo: String? = nil)
-	{
+	init?(payment: PaymentProtocolPayment, memo: String? = nil) {
 		guard payment.isManaged else { return nil } // ack must be able to take over memory management of payment
 		guard let cPtr = BRPaymentProtocolACKNew(payment.cPtr, memo) else { return nil }
 		payment.isManaged = false
@@ -362,34 +306,29 @@ class PaymentProtocolACK
 		isManaged = true
 	}
 
-	init?(data: Data)
-	{
+	init?(data: Data) {
 		let bytes = [UInt8](data)
 		guard let cPtr = BRPaymentProtocolACKParse(bytes, bytes.count) else { return nil }
 		self.cPtr = cPtr
 		isManaged = true
 	}
 
-	var bytes: [UInt8]
-	{
+	var bytes: [UInt8] {
 		var bytes = [UInt8](repeating: 0, count: BRPaymentProtocolACKSerialize(cPtr, nil, 0))
 		BRPaymentProtocolACKSerialize(cPtr, &bytes, bytes.count)
 		return bytes
 	}
 
-	var payment: PaymentProtocolPayment
-	{ // payment message that triggered this ack, required
+	var payment: PaymentProtocolPayment { // payment message that triggered this ack, required
 		return PaymentProtocolPayment(cPtr.pointee.payment)
 	}
 
-	var memo: String?
-	{ // human-readable message for customer, optional
+	var memo: String? { // human-readable message for customer, optional
 		guard cPtr.pointee.memo != nil else { return nil }
 		return String(cString: cPtr.pointee.memo)
 	}
 
-	deinit
-	{
+	deinit {
 		if isManaged { BRPaymentProtocolACKFree(cPtr) }
 	}
 }

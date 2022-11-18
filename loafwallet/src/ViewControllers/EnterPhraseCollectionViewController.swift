@@ -2,13 +2,11 @@ import UIKit
 
 private let itemHeight: CGFloat = 50.0
 
-class EnterPhraseCollectionViewController: UICollectionViewController
-{
+class EnterPhraseCollectionViewController: UICollectionViewController {
 	// MARK: - Public
 
 	var didFinishPhraseEntry: ((String) -> Void)?
-	var height: CGFloat
-	{
+	var height: CGFloat {
 		return itemHeight * 4.0
 	}
 
@@ -16,8 +14,7 @@ class EnterPhraseCollectionViewController: UICollectionViewController
 		// let mockPhraseString = MockSeeds.mockPhraseModelX
 	#endif
 
-	init(walletManager: WalletManager)
-	{
+	init(walletManager: WalletManager) {
 		self.walletManager = walletManager
 		let layout = UICollectionViewFlowLayout()
 		let screenWidth = UIScreen.main.safeWidth
@@ -32,17 +29,14 @@ class EnterPhraseCollectionViewController: UICollectionViewController
 
 	private let cellIdentifier = "CellIdentifier"
 	private let walletManager: WalletManager
-	private var phrase: String
-	{
-		return (0 ... 11).map
-		{ index in
+	private var phrase: String {
+		return (0 ... 11).map { index in
 			guard let phraseCell = collectionView?.cellForItem(at: IndexPath(item: index, section: 0)) as? EnterPhraseCell else { return "" }
 			return phraseCell.textField.text ?? ""
 		}.joined(separator: " ")
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		collectionView = NonScrollingCollectionView(frame: view.bounds, collectionViewLayout: collectionViewLayout)
 		collectionView?.backgroundColor = .white
 		collectionView?.register(EnterPhraseCell.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -54,16 +48,14 @@ class EnterPhraseCollectionViewController: UICollectionViewController
 		collectionView?.isScrollEnabled = false
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		becomeFirstResponder(atIndex: 0)
 	}
 
 	// MARK: - UICollectionViewDataSource
 
-	override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int
-	{
+	override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
 		return 12
 	}
 
@@ -80,8 +72,7 @@ class EnterPhraseCollectionViewController: UICollectionViewController
 		}
 		enterPhraseCell.didTapDone = { [weak self] in
 			guard let phrase = self?.phrase
-			else
-			{
+			else {
 				NSLog("Phrase not initialized")
 				return
 			}
@@ -98,12 +89,9 @@ class EnterPhraseCollectionViewController: UICollectionViewController
 			enterPhraseCell.didTapNext?()
 		}
 
-		if indexPath.item == 0
-		{
+		if indexPath.item == 0 {
 			enterPhraseCell.disablePreviousButton()
-		}
-		else if indexPath.item == 11
-		{
+		} else if indexPath.item == 11 {
 			enterPhraseCell.disableNextButton()
 		}
 		return item
@@ -111,15 +99,13 @@ class EnterPhraseCollectionViewController: UICollectionViewController
 
 	// MARK: - Extras
 
-	private func becomeFirstResponder(atIndex: Int)
-	{
+	private func becomeFirstResponder(atIndex: Int) {
 		guard let phraseCell = collectionView?.cellForItem(at: IndexPath(item: atIndex, section: 0)) as? EnterPhraseCell else { return }
 		phraseCell.textField.becomeFirstResponder()
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

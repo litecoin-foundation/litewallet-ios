@@ -1,7 +1,6 @@
 import Foundation
 
-class LockScreenHeaderViewModel: ObservableObject, Subscriber
-{
+class LockScreenHeaderViewModel: ObservableObject, Subscriber {
 	// MARK: - Combine Variables
 
 	@Published
@@ -14,19 +13,16 @@ class LockScreenHeaderViewModel: ObservableObject, Subscriber
 
 	var store: Store?
 
-	init(store: Store)
-	{
+	init(store: Store) {
 		self.store = store
 
 		addSubscriptions()
 		fetchCurrentPrice()
 	}
 
-	private func fetchCurrentPrice()
-	{
+	private func fetchCurrentPrice() {
 		guard let currentRate = store?.state.currentRate
-		else
-		{
+		else {
 			print("Error: Rate not fetched")
 			return
 		}
@@ -41,11 +37,9 @@ class LockScreenHeaderViewModel: ObservableObject, Subscriber
 
 	// MARK: - Add Subscriptions
 
-	private func addSubscriptions()
-	{
+	private func addSubscriptions() {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store not initialized")
 			return
 		}

@@ -1,11 +1,9 @@
 import UIKit
 
-class SendCell: UIView
-{
+class SendCell: UIView {
 	static let defaultHeight: CGFloat = 95.0
 
-	init()
-	{
+	init() {
 		super.init(frame: .zero)
 		setupViews()
 	}
@@ -13,8 +11,7 @@ class SendCell: UIView
 	let accessoryView = UIView()
 	let border = UIView(color: .secondaryShadow)
 
-	private func setupViews()
-	{
+	private func setupViews() {
 		addSubview(accessoryView)
 		addSubview(border)
 		accessoryView.constrain([
@@ -26,8 +23,7 @@ class SendCell: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

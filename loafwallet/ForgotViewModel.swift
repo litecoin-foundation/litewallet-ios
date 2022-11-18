@@ -1,5 +1,4 @@
 import Foundation
-class ForgotViewModel: ObservableObject
-{
+class ForgotViewModel: ObservableObject {
 	init() {}
 }

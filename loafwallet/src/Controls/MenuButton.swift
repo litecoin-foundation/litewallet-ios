@@ -1,18 +1,15 @@
 import UIKit
 
-class MenuButton: UIControl
-{
+class MenuButton: UIControl {
 	// MARK: - Public
 
 	let type: MenuButtonType
 
-	init(type: MenuButtonType)
-	{
+	init(type: MenuButtonType) {
 		self.type = type
 		super.init(frame: .zero)
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			label.textColor = UIColor(named: "labelTextColor")
 			self.backgroundColor = UIColor(named: "lfBackgroundColor")
 			image.tintColor = .whiteTint
@@ -27,23 +24,17 @@ class MenuButton: UIControl
 	private let image = UIImageView()
 	private let border = UIView()
 
-	override var isHighlighted: Bool
-	{
-		didSet
-		{
-			if isHighlighted
-			{
+	override var isHighlighted: Bool {
+		didSet {
+			if isHighlighted {
 				backgroundColor = .litecoinSilver
-			}
-			else
-			{
+			} else {
 				backgroundColor = .white
 			}
 		}
 	}
 
-	private func setupViews()
-	{
+	private func setupViews() {
 		addSubview(label)
 		addSubview(image)
 		addSubview(border)
@@ -70,8 +61,7 @@ class MenuButton: UIControl
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

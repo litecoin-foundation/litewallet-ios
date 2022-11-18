@@ -3,14 +3,11 @@ import UIKit
 private let guideSize: CGFloat = 64.0
 private let lineWidth: CGFloat = 8.0
 
-enum CameraGuideState
-{
+enum CameraGuideState {
 	case normal, positive, negative
 
-	var color: UIColor
-	{
-		switch self
-		{
+	var color: UIColor {
+		switch self {
 		case .normal: return .darkLine
 		case .negative: return .cameraGuideNegative
 		case .positive: return .cameraGuidePositive
@@ -18,24 +15,19 @@ enum CameraGuideState
 	}
 }
 
-class CameraGuideView: UIView
-{
-	var state: CameraGuideState = .normal
-	{
-		didSet
-		{
+class CameraGuideView: UIView {
+	var state: CameraGuideState = .normal {
+		didSet {
 			setNeedsDisplay()
 		}
 	}
 
-	init()
-	{
+	init() {
 		super.init(frame: .zero)
 		backgroundColor = .clear
 	}
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		guard let context = UIGraphicsGetCurrentContext() else { return }
 
 		// top left
@@ -74,8 +66,7 @@ class CameraGuideView: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

@@ -1,17 +1,14 @@
 import UIKit
 
-enum ModalHeaderViewStyle
-{
+enum ModalHeaderViewStyle {
 	case light
 	case dark
 }
 
-class ModalHeaderView: UIView
-{
+class ModalHeaderView: UIView {
 	// MARK: - Public
 
-	var closeCallback: (() -> Void)?
-	{
+	var closeCallback: (() -> Void)? {
 		didSet { close.tap = closeCallback }
 	}
 
@@ -36,12 +33,10 @@ class ModalHeaderView: UIView
 	private let buttonSize: CGFloat = 44.0
 	private let style: ModalHeaderViewStyle
 
-	private func setupSubviews()
-	{
+	private func setupSubviews() {
 		addSubview(title)
 		addSubview(border)
-		if showCloseButton
-		{
+		if showCloseButton {
 			addSubview(close)
 			close.constrain([
 				close.constraint(.leading, toView: self, constant: 0.0),
@@ -61,19 +56,15 @@ class ModalHeaderView: UIView
 		border.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
 	}
 
-	private func setColors()
-	{
+	private func setColors() {
 		if #available(iOS 11.0, *),
 		   let textColor = UIColor(named: "inverseTextColor")
 		{
 			backgroundColor = textColor
-		}
-		else
-		{
+		} else {
 			backgroundColor = .white
 		}
-		switch style
-		{
+		switch style {
 		case .light:
 			title.textColor = .white
 			close.tintColor = .white
@@ -83,8 +74,7 @@ class ModalHeaderView: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

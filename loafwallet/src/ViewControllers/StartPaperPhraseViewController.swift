@@ -1,9 +1,7 @@
 import UIKit
 
-class StartPaperPhraseViewController: UIViewController
-{
-	init(store: Store, callback: @escaping () -> Void)
-	{
+class StartPaperPhraseViewController: UIViewController {
+	init(store: Store, callback: @escaping () -> Void) {
 		self.store = store
 		self.callback = callback
 		let buttonTitle = UserDefaults.walletRequiresBackup ? S.StartPaperPhrase.buttonTitle : S.StartPaperPhrase.againButtonTitle
@@ -22,8 +20,7 @@ class StartPaperPhraseViewController: UIViewController
 	private var footer = UILabel.wrapping(font: .customBody(size: 13.0), color: .secondaryGrayText)
 	private let callback: () -> Void
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		view.backgroundColor = .white
 		explanation.text = S.StartPaperPhrase.body
 
@@ -32,8 +29,7 @@ class StartPaperPhraseViewController: UIViewController
 		button.tap = { [weak self] in
 			self?.callback()
 		}
-		if let writePaperPhraseDate = UserDefaults.writePaperPhraseDate
-		{
+		if let writePaperPhraseDate = UserDefaults.writePaperPhraseDate {
 			let df = DateFormatter()
 			df.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
 			footer.text = String(format: S.StartPaperPhrase.date, df.string(from: writePaperPhraseDate))
@@ -41,8 +37,7 @@ class StartPaperPhraseViewController: UIViewController
 		}
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		header.addSubview(illustration)
 		illustration.addSubview(pencil)
@@ -51,8 +46,7 @@ class StartPaperPhraseViewController: UIViewController
 		view.addSubview(footer)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrainTopCorners(sidePadding: 0, topPadding: 0)
 		header.constrain([
 			header.constraint(.height, constant: 220.0),
@@ -87,14 +81,12 @@ class StartPaperPhraseViewController: UIViewController
 		])
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

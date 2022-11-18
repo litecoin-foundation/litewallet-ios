@@ -1,23 +1,17 @@
 import SwiftUI
 
-struct CardV1ToastView<Presenting>: View where Presenting: View
-{
+struct CardV1ToastView<Presenting>: View where Presenting: View {
 	@Binding
 	var isShowingCardToast: Bool
 
 	let presenting: Presenting
 
-	var body: some View
-	{
-		GeometryReader
-		{ (_: GeometryProxy) in
-			HStack
-			{
-				ZStack
-				{
+	var body: some View {
+		GeometryReader { (_: GeometryProxy) in
+			HStack {
+				ZStack {
 					self.presenting.disabled(isShowingCardToast)
-					VStack
-					{
+					VStack {
 						Text(S.LitecoinCard.Disclaimer.title)
 							.font(Font(UIFont.barlowBold(size: 22.0)))
 							.foregroundColor(Color.white)
@@ -39,15 +33,12 @@ struct CardV1ToastView<Presenting>: View where Presenting: View
 							.padding([.leading, .trailing], 40)
 
 						Divider().background(Color.white)
-						HStack
-						{
+						HStack {
 							Button(action: {
-								withAnimation
-								{
+								withAnimation {
 									self.isShowingCardToast.toggle()
 								}
-							})
-							{
+							}) {
 								Text(S.Button.ok)
 									.frame(minWidth: 0, maxWidth: .infinity)
 									.padding()
@@ -70,12 +61,9 @@ struct CardV1ToastView<Presenting>: View where Presenting: View
 	}
 }
 
-struct CardV1ToastView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
-		VStack
-		{
+struct CardV1ToastView_Previews: PreviewProvider {
+	static var previews: some View {
+		VStack {
 			Spacer()
 			Text("")
 				.padding(.all, 10)

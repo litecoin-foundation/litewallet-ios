@@ -10,8 +10,7 @@ private let verticalButtonPadding: CGFloat = 15.0
 private let buttonSize = CGSize(width: 52.0, height: 32.0)
 
 let swiftUICellPadding = 12.0
-class SendViewController: UIViewController, Subscriber, ModalPresentable, Trackable
-{
+class SendViewController: UIViewController, Subscriber, ModalPresentable, Trackable {
 	// MARK: - Public
 
 	var presentScan: PresentScan?
@@ -43,8 +42,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 	// MARK: - Private
 
-	deinit
-	{
+	deinit {
 		store.unsubscribe(self)
 		NotificationCenter.default.removeObserver(self)
 	}
@@ -69,8 +67,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let confirmTransitioningDelegate = TransitioningDelegate()
 	private var feeType: FeeType?
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		view.backgroundColor = UIColor.litecoinGray
 
 		// set as regular at didLoad
@@ -136,28 +133,22 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		addButtonActions()
 		store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
 		                callback: {
-		                	if let balance = $0.walletState.balance
-		                	{
+		                	if let balance = $0.walletState.balance {
 		                		self.balance = balance
 		                	}
 		                })
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		if initialAddress != nil
-		{
+		if initialAddress != nil {
 			amountView.expandPinPad()
-		}
-		else if let initialRequest = initialRequest
-		{
+		} else if let initialRequest = initialRequest {
 			handleRequest(initialRequest)
 		}
 	}
 
-	private func addButtonActions()
-	{
+	private func addButtonActions() {
 		descriptionCell.didReturn = { textView in
 			textView.resignFirstResponder()
 		}
@@ -172,13 +163,11 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		amountView.didUpdateAmount = { [weak self] amount in
 			self?.amount = amount
 		}
-		amountView.didUpdateFee = strongify(self)
-		{ myself, feeType in
+		amountView.didUpdateFee = strongify(self) { myself, feeType in
 			myself.feeType = feeType
 			let fees = myself.store.state.fees
 
-			switch feeType
-			{
+			switch feeType {
 			case .regular: myself.walletManager.wallet?.feePerKb = fees.regular
 			case .economy: myself.walletManager.wallet?.feePerKb = fees.economy
 			case .luxury: myself.walletManager.wallet?.feePerKb = fees.luxury
@@ -188,8 +177,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 
 		amountView.didChangeFirstResponder = { [weak self] isFirstResponder in
-			if isFirstResponder
-			{
+			if isFirstResponder {
 				self?.descriptionCell.textView.resignFirstResponder()
 			}
 		}
@@ -209,8 +197,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		unstoppableCell.rootView.viewModel.didResolveUDAddress = { resolvedUDAddress in
 
 			/// Paste in Unstoppable Domain resolved LTC address to textField
-			if !resolvedUDAddress.isEmpty
-			{
+			if !resolvedUDAddress.isEmpty {
 				// Toast the successful resolution
 				self.onResolvedSuccess?()
 				self.sendAddressCell.rootView.viewModel.addressString = resolvedUDAddress
@@ -237,15 +224,13 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		var feeOutput = ""
 		var color: UIColor = .grayTextTint
 
-		if let amount = amount, amount > 0
-		{
+		if let amount = amount, amount > 0 {
 			let fee = sender.feeForTx(amount: amount.rawValue)
 			let feeAmount = DisplayAmount(amount: Satoshis(rawValue: fee), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
 
 			let feeText = feeAmount.description.replacingZeroFeeWithOneCent()
 			feeOutput = String(format: S.Send.fee, feeText)
-			if balance >= fee, amount.rawValue > (balance - fee)
-			{
+			if balance >= fee, amount.rawValue > (balance - fee) {
 				color = .cameraGuideNegative
 			}
 		}
@@ -263,16 +248,13 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		return (NSAttributedString(string: balanceOutput, attributes: balanceAttributes), NSAttributedString(string: feeOutput, attributes: feeAttributes))
 	}
 
-	@objc private func pasteTapped()
-	{
+	@objc private func pasteTapped() {
 		guard let pasteboard = UIPasteboard.general.string, !pasteboard.utf8.isEmpty
-		else
-		{
+		else {
 			return showAlert(title: S.LitewalletAlert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
 		}
 		guard let request = PaymentRequest(string: pasteboard)
-		else
-		{
+		else {
 			return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressOnPasteboard, buttonLabel: S.Button.ok)
 		}
 
@@ -281,12 +263,10 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		handleRequest(request)
 	}
 
-	@objc private func scanTapped()
-	{
+	@objc private func scanTapped() {
 		descriptionCell.textView.resignFirstResponder()
 
-		presentScan?
-		{ [weak self] paymentRequest in
+		presentScan? { [weak self] paymentRequest in
 			guard let request = paymentRequest else { return }
 			guard let destinationAddress = paymentRequest?.toAddress else { return }
 
@@ -295,51 +275,40 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 	}
 
-	@objc private func sendTapped()
-	{
+	@objc private func sendTapped() {
 		let sendAddress = sendAddressCell.rootView.viewModel.addressString
 
-		if sender.transaction == nil
-		{
+		if sender.transaction == nil {
 			guard let amount = amount
-			else
-			{
+			else {
 				return showAlert(title: S.LitewalletAlert.error, message: S.Send.noAmount, buttonLabel: S.Button.ok)
 			}
-			if let minOutput = walletManager.wallet?.minOutputAmount
-			{
+			if let minOutput = walletManager.wallet?.minOutputAmount {
 				guard amount.rawValue >= minOutput
-				else
-				{
+				else {
 					let minOutputAmount = Amount(amount: minOutput, rate: Rate.empty, maxDigits: store.state.maxDigits)
 					let message = String(format: S.PaymentProtocol.Errors.smallPayment, minOutputAmount.string(isLtcSwapped: store.state.isLtcSwapped))
 					return showAlert(title: S.LitewalletAlert.error, message: message, buttonLabel: S.Button.ok)
 				}
 			}
 			guard !(walletManager.wallet?.containsAddress(sendAddress) ?? false)
-			else
-			{
+			else {
 				return showAlert(title: S.LitewalletAlert.error, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
 			}
 			guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0)
-			else
-			{
+			else {
 				return showAlert(title: S.LitewalletAlert.error, message: S.Send.insufficientFunds, buttonLabel: S.Button.ok)
 			}
 			guard sender.createTransaction(amount: amount.rawValue, to: sendAddress)
-			else
-			{
+			else {
 				return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
 			}
-		}
-		else
-		{
+		} else {
 			NSLog("Error: transaction  is nil")
 		}
 
 		guard let amount = amount
-		else
-		{
+		else {
 			NSLog("Error: Amount  is nil")
 			return
 		}
@@ -363,18 +332,14 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		present(confirm, animated: true, completion: nil)
 	}
 
-	private func handleRequest(_ request: PaymentRequest)
-	{
-		switch request.type
-		{
+	private func handleRequest(_ request: PaymentRequest) {
+		switch request.type {
 		case .local:
 
-			if let amount = request.amount
-			{
+			if let amount = request.amount {
 				amountView.forceUpdateAmount(amount: amount)
 			}
-			if request.label != nil
-			{
+			if request.label != nil {
 				descriptionCell.content = request.label
 			}
 
@@ -382,15 +347,11 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			let loadingView = BRActivityViewController(message: S.Send.loadingRequest)
 			present(loadingView, animated: true, completion: nil)
 			request.fetchRemoteRequest(completion: { [weak self] request in
-				DispatchQueue.main.async
-				{
+				DispatchQueue.main.async {
 					loadingView.dismiss(animated: true, completion: {
-						if let paymentProtocolRequest = request?.paymentProtocolRequest
-						{
+						if let paymentProtocolRequest = request?.paymentProtocolRequest {
 							self?.confirmProtocolRequest(protoReq: paymentProtocolRequest)
-						}
-						else
-						{
+						} else {
 							self?.showErrorMessage(S.Send.remoteRequestError)
 						}
 					})
@@ -399,8 +360,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 	}
 
-	private func send()
-	{
+	private func send() {
 		guard let rate = store.state.currentRate else { return }
 		guard let feePerKb = walletManager.wallet?.feePerKb else { return }
 
@@ -409,29 +369,23 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            comment: descriptionCell.textView.text,
 		            feePerKb: feePerKb,
 		            verifyPinFunction: { [weak self] pinValidationCallback in
-		            	self?.presentVerifyPin?(S.VerifyPin.authorize)
-		            	{ [weak self] pin, vc in
-		            		if pinValidationCallback(pin)
-		            		{
+		            	self?.presentVerifyPin?(S.VerifyPin.authorize) { [weak self] pin, vc in
+		            		if pinValidationCallback(pin) {
 		            			vc.dismiss(animated: true, completion: {
 		            				self?.parent?.view.isFrameChangeBlocked = false
 		            			})
 		            			return true
-		            		}
-		            		else
-		            		{
+		            		} else {
 		            			return false
 		            		}
 		            	}
 		            }, completion: { [weak self] result in
-		            	switch result
-		            	{
+		            	switch result {
 		            	case .success:
 		            		self?.dismiss(animated: true, completion: {
 		            			guard let myself = self else { return }
 		            			myself.store.trigger(name: .showStatusBar)
-		            			if myself.isPresentedFromLock
-		            			{
+		            			if myself.isPresentedFromLock {
 		            				myself.store.trigger(name: .loginFromSend)
 		            			}
 		            			myself.onPublishSuccess?()
@@ -443,8 +397,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            		self?.showAlert(title: S.Send.createTransactionError, message: message, buttonLabel: S.Button.ok)
 		            		self?.saveEvent("send.publishFailed", attributes: ["errorMessage": message])
 		            	case let .publishFailure(error):
-		            		if case let .posixError(code, description) = error
-		            		{
+		            		if case let .posixError(code, description) = error {
 		            			self?.showAlert(title: S.SecurityAlerts.sendFailure, message: "\(description) (\(code))", buttonLabel: S.Button.ok)
 		            			self?.saveEvent("send.publishFailed", attributes: ["errorMessage": "\(description) (\(code))"])
 		            		}
@@ -452,8 +405,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            })
 	}
 
-	func confirmProtocolRequest(protoReq: PaymentProtocolRequest)
-	{
+	func confirmProtocolRequest(protoReq: PaymentProtocolRequest) {
 		guard let firstOutput = protoReq.details.outputs.first else { return }
 		guard let wallet = walletManager.wallet else { return }
 
@@ -468,68 +420,53 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 		// TODO: check for duplicates of already paid requests
 		var requestAmount = Satoshis(0)
-		protoReq.details.outputs.forEach
-		{ output in
-			if output.amount > 0, output.amount < wallet.minOutputAmount
-			{
+		protoReq.details.outputs.forEach { output in
+			if output.amount > 0, output.amount < wallet.minOutputAmount {
 				isOutputTooSmall = true
 			}
 			requestAmount += output.amount
 		}
 
-		if wallet.containsAddress(address)
-		{
+		if wallet.containsAddress(address) {
 			return showAlert(title: S.LitewalletAlert.warning, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
-		}
-		else if wallet.addressIsUsed(address), !didIgnoreUsedAddressWarning
-		{
+		} else if wallet.addressIsUsed(address), !didIgnoreUsedAddressWarning {
 			let message = "\(S.Send.UsedAddress.title)\n\n\(S.Send.UsedAddress.firstLine)\n\n\(S.Send.UsedAddress.secondLine)"
 			return showError(title: S.LitewalletAlert.warning, message: message, ignore: { [weak self] in
 				self?.didIgnoreUsedAddressWarning = true
 				self?.confirmProtocolRequest(protoReq: protoReq)
 			})
-		}
-		else if let message = protoReq.errorMessage, !message.utf8.isEmpty, (protoReq.commonName?.utf8.count)! > 0, !didIgnoreIdentityNotCertified
+		} else if let message = protoReq.errorMessage, !message.utf8.isEmpty, (protoReq.commonName?.utf8.count)! > 0, !didIgnoreIdentityNotCertified
 		{
 			return showError(title: S.Send.identityNotCertified, message: message, ignore: { [weak self] in
 				self?.didIgnoreIdentityNotCertified = true
 				self?.confirmProtocolRequest(protoReq: protoReq)
 			})
-		}
-		else if requestAmount < wallet.minOutputAmount
-		{
+		} else if requestAmount < wallet.minOutputAmount {
 			let amount = Amount(amount: wallet.minOutputAmount, rate: Rate.empty, maxDigits: store.state.maxDigits)
 			let message = String(format: S.PaymentProtocol.Errors.smallPayment, amount.bits)
 			return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
-		}
-		else if isOutputTooSmall
-		{
+		} else if isOutputTooSmall {
 			let amount = Amount(amount: wallet.minOutputAmount, rate: Rate.empty, maxDigits: store.state.maxDigits)
 			let message = String(format: S.PaymentProtocol.Errors.smallTransaction, amount.bits)
 			return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
 		}
 
-		if requestAmount > 0
-		{
+		if requestAmount > 0 {
 			amountView.forceUpdateAmount(amount: requestAmount)
 		}
 		descriptionCell.content = protoReq.details.memo
 
-		if requestAmount == 0
-		{
-			if let amount = amount
-			{
+		if requestAmount == 0 {
+			if let amount = amount {
 				guard sender.createTransaction(amount: amount.rawValue, to: address)
-				else
-				{
+				else {
 					return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
 				}
 			}
 		}
 	}
 
-	private func showError(title: String, message: String, ignore: @escaping () -> Void)
-	{
+	private func showError(title: String, message: String, ignore: @escaping () -> Void) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: S.Button.ignore, style: .default, handler: { _ in
 			ignore()
@@ -540,19 +477,16 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 	// MARK: - Keyboard Notifications
 
-	@objc private func keyboardWillShow(notification: Notification)
-	{
+	@objc private func keyboardWillShow(notification: Notification) {
 		copyKeyboardChangeAnimation(notification: notification)
 	}
 
-	@objc private func keyboardWillHide(notification: Notification)
-	{
+	@objc private func keyboardWillHide(notification: Notification) {
 		copyKeyboardChangeAnimation(notification: notification)
 	}
 
 	// TODO: - maybe put this in ModalPresentable?
-	private func copyKeyboardChangeAnimation(notification: Notification)
-	{
+	private func copyKeyboardChangeAnimation(notification: Notification) {
 		guard let info = KeyboardNotificationInfo(notification.userInfo) else { return }
 		UIView.animate(withDuration: info.animationDuration, delay: 0, options: info.animationOptions, animations: {
 			guard let parentView = self.parentView else { return }
@@ -561,21 +495,17 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension SendViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension SendViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return ArticleIds.sendBitcoin
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return S.Send.title
 	}
 }

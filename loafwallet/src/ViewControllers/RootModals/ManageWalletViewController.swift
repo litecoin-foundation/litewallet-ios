@@ -1,7 +1,6 @@
 import UIKit
 
-class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
-{
+class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber {
 	var parentView: UIView? // ModalPresentable
 	private let textFieldLabel = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
 	private let textField = UITextField()
@@ -10,14 +9,12 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
 	private let store: Store
 	fileprivate let maxWalletNameLength = 20
 
-	init(store: Store)
-	{
+	init(store: Store) {
 		self.store = store
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setData()
@@ -25,28 +22,24 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
 	}
 
-	override func viewDidDisappear(_ animated: Bool)
-	{
+	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		saveWalletName()
 	}
 
-	deinit
-	{
+	deinit {
 		NotificationCenter.default.removeObserver(self)
 		store.unsubscribe(self)
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(textFieldLabel)
 		view.addSubview(textField)
 		view.addSubview(separator)
 		view.addSubview(body)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		textFieldLabel.constrain([
 			textFieldLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
 			textFieldLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: C.padding[2]),
@@ -71,8 +64,7 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		view.backgroundColor = .white
 		textField.textColor = .darkText
 		textField.font = .customBody(size: 14.0)
@@ -82,32 +74,26 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
 
 		textField.text = store.state.walletState.name
 		let creationDate = store.state.walletState.creationDate
-		if creationDate.timeIntervalSince1970 > 0
-		{
+		if creationDate.timeIntervalSince1970 > 0 {
 			let df = DateFormatter()
 			df.dateFormat = "MMMM d, yyyy"
 			body.text = "\(S.ManageWallet.description)\n\n\(S.ManageWallet.creationDatePrefix) \(df.string(from: creationDate))"
-		}
-		else
-		{
+		} else {
 			body.text = S.ManageWallet.description
 		}
 	}
 
 	// MARK: - Keyboard Notifications
 
-	@objc private func keyboardWillShow(notification: Notification)
-	{
+	@objc private func keyboardWillShow(notification: Notification) {
 		copyKeyboardChangeAnimation(notification: notification)
 	}
 
-	@objc private func keyboardWillHide(notification: Notification)
-	{
+	@objc private func keyboardWillHide(notification: Notification) {
 		copyKeyboardChangeAnimation(notification: notification)
 	}
 
-	private func copyKeyboardChangeAnimation(notification: Notification)
-	{
+	private func copyKeyboardChangeAnimation(notification: Notification) {
 		guard let info = KeyboardNotificationInfo(notification.userInfo) else { return }
 		UIView.animate(withDuration: info.animationDuration, delay: 0, options: info.animationOptions, animations: {
 			guard let parentView = self.parentView else { return }
@@ -115,32 +101,26 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
 		}, completion: nil)
 	}
 
-	func saveWalletName()
-	{
+	func saveWalletName() {
 		guard var name = textField.text else { return }
-		if name.utf8.count > maxWalletNameLength
-		{
+		if name.utf8.count > maxWalletNameLength {
 			name = String(name[..<name.index(name.startIndex, offsetBy: maxWalletNameLength)])
 		}
 		store.perform(action: WalletChange.setWalletName(name))
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension ManageWalletViewController: UITextFieldDelegate
-{
-	func textFieldDidEndEditing(_: UITextField)
-	{
+extension ManageWalletViewController: UITextFieldDelegate {
+	func textFieldDidEndEditing(_: UITextField) {
 		saveWalletName()
 	}
 
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool
-	{
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		return true
 	}
@@ -148,26 +128,20 @@ extension ManageWalletViewController: UITextFieldDelegate
 	func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool
 	{
 		guard let text = textField.text else { return true }
-		if text.utf8.count + string.utf8.count > maxWalletNameLength
-		{
+		if text.utf8.count + string.utf8.count > maxWalletNameLength {
 			return false
-		}
-		else
-		{
+		} else {
 			return true
 		}
 	}
 }
 
-extension ManageWalletViewController: ModalDisplayable
-{
-	var faqArticleId: String?
-	{
+extension ManageWalletViewController: ModalDisplayable {
+	var faqArticleId: String? {
 		return ArticleIds.manageWallet
 	}
 
-	var modalTitle: String
-	{
+	var modalTitle: String {
 		return S.ManageWallet.title
 	}
 }

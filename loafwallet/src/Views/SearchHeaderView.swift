@@ -1,17 +1,14 @@
 import UIKit
 
-enum SearchFilterType
-{
+enum SearchFilterType {
 	case sent
 	case received
 	case pending
 	case complete
 	case text(String)
 
-	var description: String
-	{
-		switch self
-		{
+	var description: String {
+		switch self {
 		case .sent:
 			return S.Search.sent
 		case .received:
@@ -25,10 +22,8 @@ enum SearchFilterType
 		}
 	}
 
-	var filter: TransactionFilter
-	{
-		switch self
-		{
+	var filter: TransactionFilter {
+		switch self {
 		case .sent:
 			return { $0.direction == .sent }
 		case .received:
@@ -38,24 +33,18 @@ enum SearchFilterType
 		case .complete:
 			return { !$0.isPending }
 		case let .text(text):
-			return
-			{ transaction in
+			return { transaction in
 				let loweredText = text.lowercased()
-				if transaction.hash.lowercased().contains(loweredText)
-				{
+				if transaction.hash.lowercased().contains(loweredText) {
 					return true
 				}
-				if let address = transaction.toAddress
-				{
-					if address.lowercased().contains(loweredText)
-					{
+				if let address = transaction.toAddress {
+					if address.lowercased().contains(loweredText) {
 						return true
 					}
 				}
-				if let metaData = transaction.metaData
-				{
-					if metaData.comment.lowercased().contains(loweredText)
-					{
+				if let metaData = transaction.metaData {
+					if metaData.comment.lowercased().contains(loweredText) {
 						return true
 					}
 				}
@@ -67,10 +56,8 @@ enum SearchFilterType
 
 extension SearchFilterType: Equatable {}
 
-func == (lhs: SearchFilterType, rhs: SearchFilterType) -> Bool
-{
-	switch (lhs, rhs)
-	{
+func == (lhs: SearchFilterType, rhs: SearchFilterType) -> Bool {
+	switch (lhs, rhs) {
 	case (.sent, .sent):
 		return true
 	case (.received, .received):
@@ -88,10 +75,8 @@ func == (lhs: SearchFilterType, rhs: SearchFilterType) -> Bool
 
 typealias TransactionFilter = (Transaction) -> Bool
 
-class SearchHeaderView: UIView
-{
-	init()
-	{
+class SearchHeaderView: UIView {
+	init() {
 		super.init(frame: .zero)
 	}
 
@@ -99,8 +84,7 @@ class SearchHeaderView: UIView
 	var didChangeFilters: (([TransactionFilter]) -> Void)?
 	var hasSetup = false
 
-	func triggerUpdate()
-	{
+	func triggerUpdate() {
 		didChangeFilters?(filters.map { $0.filter })
 	}
 
@@ -110,10 +94,8 @@ class SearchHeaderView: UIView
 	private let pending = ShadowButton(title: S.Search.pending, type: .search)
 	private let complete = ShadowButton(title: S.Search.complete, type: .search)
 	private let cancel = UIButton(type: .system)
-	fileprivate var filters: [SearchFilterType] = []
-	{
-		didSet
-		{
+	fileprivate var filters: [SearchFilterType] = [] {
+		didSet {
 			didChangeFilters?(filters.map { $0.filter })
 		}
 	}
@@ -121,29 +103,25 @@ class SearchHeaderView: UIView
 	private let sentFilter: TransactionFilter = { $0.direction == .sent }
 	private let receivedFilter: TransactionFilter = { $0.direction == .received }
 
-	override func layoutSubviews()
-	{
+	override func layoutSubviews() {
 		guard !hasSetup else { return }
 		setup()
 		hasSetup = true
 	}
 
-	private func setup()
-	{
+	private func setup() {
 		addSubviews()
 		addFilterButtons()
 		addConstraints()
 		setData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		addSubview(searchBar)
 		addSubview(cancel)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		cancel.setTitle(S.Button.cancel, for: .normal)
 		let titleSize = NSString(string: cancel.titleLabel!.text!).size(withAttributes: [NSAttributedStringKey.font: cancel.titleLabel!.font])
 		cancel.constrain([
@@ -158,8 +136,7 @@ class SearchHeaderView: UIView
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		backgroundColor = .whiteTint
 		searchBar.backgroundImage = UIImage()
 		searchBar.delegate = self
@@ -179,10 +156,8 @@ class SearchHeaderView: UIView
 
 		sent.tap = { [weak self] in
 			guard let myself = self else { return }
-			if myself.toggleFilterType(.sent)
-			{
-				if myself.received.isSelected
-				{
+			if myself.toggleFilterType(.sent) {
+				if myself.received.isSelected {
 					myself.received.isSelected = false
 					myself.toggleFilterType(.received)
 				}
@@ -191,10 +166,8 @@ class SearchHeaderView: UIView
 
 		received.tap = { [weak self] in
 			guard let myself = self else { return }
-			if myself.toggleFilterType(.received)
-			{
-				if myself.sent.isSelected
-				{
+			if myself.toggleFilterType(.received) {
+				if myself.sent.isSelected {
 					myself.sent.isSelected = false
 					myself.toggleFilterType(.sent)
 				}
@@ -203,10 +176,8 @@ class SearchHeaderView: UIView
 
 		pending.tap = { [weak self] in
 			guard let myself = self else { return }
-			if myself.toggleFilterType(.pending)
-			{
-				if myself.complete.isSelected
-				{
+			if myself.toggleFilterType(.pending) {
+				if myself.complete.isSelected {
 					myself.complete.isSelected = false
 					myself.toggleFilterType(.complete)
 				}
@@ -215,10 +186,8 @@ class SearchHeaderView: UIView
 
 		complete.tap = { [weak self] in
 			guard let myself = self else { return }
-			if myself.toggleFilterType(.complete)
-			{
-				if myself.pending.isSelected
-				{
+			if myself.toggleFilterType(.complete) {
+				if myself.pending.isSelected {
 					myself.pending.isSelected = false
 					myself.toggleFilterType(.pending)
 				}
@@ -226,24 +195,18 @@ class SearchHeaderView: UIView
 		}
 	}
 
-	@discardableResult private func toggleFilterType(_ filterType: SearchFilterType) -> Bool
-	{
-		if let index = filters.index(of: filterType)
-		{
+	@discardableResult private func toggleFilterType(_ filterType: SearchFilterType) -> Bool {
+		if let index = filters.index(of: filterType) {
 			filters.remove(at: index)
 			return false
-		}
-		else
-		{
+		} else {
 			filters.append(filterType)
 			return true
 		}
 	}
 
-	private func addFilterButtons()
-	{
-		if #available(iOS 9, *)
-		{
+	private func addFilterButtons() {
+		if #available(iOS 9, *) {
 			let stackView = UIStackView()
 			addSubview(stackView)
 			stackView.distribution = .fillProportionally
@@ -257,9 +220,7 @@ class SearchHeaderView: UIView
 			stackView.addArrangedSubview(received)
 			stackView.addArrangedSubview(pending)
 			stackView.addArrangedSubview(complete)
-		}
-		else
-		{
+		} else {
 			addSubview(sent)
 			addSubview(received)
 			addSubview(pending)
@@ -284,23 +245,18 @@ class SearchHeaderView: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension SearchHeaderView: UISearchBarDelegate
-{
-	func searchBar(_: UISearchBar, textDidChange searchText: String)
-	{
+extension SearchHeaderView: UISearchBarDelegate {
+	func searchBar(_: UISearchBar, textDidChange searchText: String) {
 		let filter: SearchFilterType = .text(searchText)
-		if let index = filters.index(of: filter)
-		{
+		if let index = filters.index(of: filter) {
 			filters.remove(at: index)
 		}
-		if searchText != ""
-		{
+		if searchText != "" {
 			filters.append(filter)
 		}
 	}

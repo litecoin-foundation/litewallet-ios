@@ -1,7 +1,6 @@
 import Foundation
 
-class SendAddressCellViewModel: ObservableObject
-{
+class SendAddressCellViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
 	@Published

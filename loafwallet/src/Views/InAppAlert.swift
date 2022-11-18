@@ -1,9 +1,7 @@
 import UIKit
 
-class InAppAlert: UIView
-{
-	init(message: String, image: UIImage)
-	{
+class InAppAlert: UIView {
+	init(message: String, image: UIImage) {
 		super.init(frame: .zero)
 		setup()
 		self.image.image = image
@@ -18,8 +16,7 @@ class InAppAlert: UIView
 	private let message = UILabel.wrapping(font: .customBody(size: 16.0), color: .whiteTint)
 	private let image = UIImageView()
 
-	override func draw(_ rect: CGRect)
-	{
+	override func draw(_ rect: CGRect) {
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
 		let colors = [UIColor.blueGradientStart.cgColor, UIColor.blueGradientEnd.cgColor] as CFArray
 		let locations: [CGFloat] = [0.0, 1.0]
@@ -28,8 +25,7 @@ class InAppAlert: UIView
 		context.drawLinearGradient(gradient, start: CGPoint(x: rect.midX, y: 0.0), end: CGPoint(x: rect.midX, y: rect.height), options: [])
 	}
 
-	private func setup()
-	{
+	private func setup() {
 		addSubview(close)
 		addSubview(image)
 		addSubview(message)
@@ -55,8 +51,7 @@ class InAppAlert: UIView
 		message.textAlignment = .center
 	}
 
-	func dismiss()
-	{
+	func dismiss() {
 		UIView.animate(withDuration: C.animationDuration, animations: {
 			self.bottomConstraint?.constant = 0.0
 			self.superview?.layoutIfNeeded()
@@ -66,8 +61,7 @@ class InAppAlert: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

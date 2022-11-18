@@ -1,15 +1,13 @@
 import BRCore
 import Foundation
 
-struct SimpleUTXO
-{
+struct SimpleUTXO {
 	let hash: UInt256
 	let index: UInt32
 	let script: [UInt8]
 	let satoshis: UInt64
 
-	init?(json: [String: Any])
-	{
+	init?(json: [String: Any]) {
 		guard let txid = json["txid"] as? String,
 		      let vout = json["vout"] as? Int,
 		      let scriptPubKey = json["scriptPubKey"] as? String,

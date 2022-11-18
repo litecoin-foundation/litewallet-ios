@@ -1,11 +1,9 @@
 import UIKit
 
-class RecoverWalletIntroViewController: UIViewController
-{
+class RecoverWalletIntroViewController: UIViewController {
 	// MARK: - Public
 
-	init(didTapNext: @escaping () -> Void)
-	{
+	init(didTapNext: @escaping () -> Void) {
 		self.didTapNext = didTapNext
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -18,23 +16,20 @@ class RecoverWalletIntroViewController: UIViewController
 	private let label = UILabel(font: .customBody(size: 16.0))
 	private let illustration = UIImageView(image: #imageLiteral(resourceName: "RecoverWalletIllustration"))
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		header.addSubview(illustration)
 		view.addSubview(nextButton)
 		view.addSubview(label)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrainTopCorners(sidePadding: 0.0, topPadding: 0.0)
 		header.constrain([header.heightAnchor.constraint(equalToConstant: C.Sizes.largeHeaderHeight)])
 		illustration.constrain([
@@ -54,8 +49,7 @@ class RecoverWalletIntroViewController: UIViewController
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		view.backgroundColor = .white
 		label.numberOfLines = 0
 		label.lineBreakMode = .byWordWrapping
@@ -64,14 +58,12 @@ class RecoverWalletIntroViewController: UIViewController
 		title = S.RecoverWallet.header
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

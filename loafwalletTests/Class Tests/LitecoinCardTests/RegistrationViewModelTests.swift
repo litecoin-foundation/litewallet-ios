@@ -3,8 +3,7 @@ import Foundation
 import SwiftUI
 import XCTest
 
-class RegistrationViewModelTests: XCTestCase
-{
+class RegistrationViewModelTests: XCTestCase {
 	var viewModel: RegistrationViewModel!
 
 	let mockRegistrationData = ["firstname": "Firstname",
@@ -29,14 +28,12 @@ class RegistrationViewModelTests: XCTestCase
 	                               "address1": "123 Town",
 	                               "zip_code": ""]
 
-	override func setUp()
-	{
+	override func setUp() {
 		super.setUp()
 		viewModel = RegistrationViewModel()
 	}
 
-	func testCountryDataValid() throws
-	{
+	func testCountryDataValid() throws {
 		XCTAssertTrue(mockRegistrationData["country"] == "US")
 
 		// DEV: For US only now
@@ -46,14 +43,12 @@ class RegistrationViewModelTests: XCTestCase
 		                                    data: mockRegistrationData["country"] as Any))
 	}
 
-	func testIfGenericDataValid() throws
-	{
+	func testIfGenericDataValid() throws {
 		XCTAssertTrue(viewModel.isDataValid(dataType: .genericString,
 		                                    data: mockRegistrationData["address1"] as Any))
 	}
 
-	func testIsEmailDataValid() throws
-	{
+	func testIsEmailDataValid() throws {
 		XCTAssertTrue(viewModel.isDataValid(dataType: .email,
 		                                    data: mockRegistrationData["email"] as Any))
 
@@ -61,8 +56,7 @@ class RegistrationViewModelTests: XCTestCase
 		                                     data: mockBadRegistrationData["email"] as Any))
 	}
 
-	func testIsPasswordDataValid() throws
-	{
+	func testIsPasswordDataValid() throws {
 		XCTAssertTrue(viewModel.isDataValid(dataType: .password,
 		                                    data: mockRegistrationData["password"] as Any))
 
@@ -70,8 +64,7 @@ class RegistrationViewModelTests: XCTestCase
 		                                     data: mockBadRegistrationData["password"] as Any))
 	}
 
-	func testIsMobileNumberDataValid() throws
-	{
+	func testIsMobileNumberDataValid() throws {
 		XCTAssertTrue(viewModel.isDataValid(dataType: .mobileNumber,
 		                                    data: mockRegistrationData["phone"] as Any))
 

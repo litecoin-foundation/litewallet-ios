@@ -8,10 +8,8 @@ private func callback(reachability _: SCNetworkReachability, flags _: SCNetworkR
 	reachability.notify()
 }
 
-class ReachabilityMonitor: Trackable
-{
-	init()
-	{
+class ReachabilityMonitor: Trackable {
+	init() {
 		networkReachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, "google.com")
 		start()
 	}
@@ -21,22 +19,18 @@ class ReachabilityMonitor: Trackable
 	private var networkReachability: SCNetworkReachability?
 	private let reachabilitySerialQueue = DispatchQueue(label: "com.litecoin.reachabilityQueue")
 
-	func notify()
-	{
-		DispatchQueue.main.async
-		{
+	func notify() {
+		DispatchQueue.main.async {
 			self.didChange?(self.isReachable)
 			self.saveEvent(self.isReachable ? "reachability.isReachable" : "reachability.isNotReachable")
 		}
 	}
 
-	var isReachable: Bool
-	{
+	var isReachable: Bool {
 		return flags.contains(.reachable)
 	}
 
-	private func start()
-	{
+	private func start() {
 		var context = SCNetworkReachabilityContext()
 		context.info = UnsafeMutableRawPointer(Unmanaged<ReachabilityMonitor>.passUnretained(self).toOpaque())
 		guard let reachability = networkReachability else { return }
@@ -44,15 +38,12 @@ class ReachabilityMonitor: Trackable
 		SCNetworkReachabilitySetDispatchQueue(reachability, reachabilitySerialQueue)
 	}
 
-	private var flags: SCNetworkReachabilityFlags
-	{
+	private var flags: SCNetworkReachabilityFlags {
 		var flags = SCNetworkReachabilityFlags(rawValue: 0)
 		if let reachability = networkReachability, withUnsafeMutablePointer(to: &flags, { SCNetworkReachabilityGetFlags(reachability, UnsafeMutablePointer($0)) }) == true
 		{
 			return flags
-		}
-		else
-		{
+		} else {
 			return []
 		}
 	}

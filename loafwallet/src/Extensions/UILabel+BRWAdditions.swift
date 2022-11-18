@@ -1,9 +1,7 @@
 import UIKit
 
-extension UILabel
-{
-	static func wrapping(font: UIFont, color: UIColor) -> UILabel
-	{
+extension UILabel {
+	static func wrapping(font: UIFont, color: UIColor) -> UILabel {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.lineBreakMode = .byWordWrapping
@@ -12,8 +10,7 @@ extension UILabel
 		return label
 	}
 
-	static func wrapping(font: UIFont) -> UILabel
-	{
+	static func wrapping(font: UIFont) -> UILabel {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.lineBreakMode = .byWordWrapping
@@ -21,21 +18,18 @@ extension UILabel
 		return label
 	}
 
-	convenience init(font: UIFont)
-	{
+	convenience init(font: UIFont) {
 		self.init()
 		self.font = font
 	}
 
-	convenience init(font: UIFont, color: UIColor)
-	{
+	convenience init(font: UIFont, color: UIColor) {
 		self.init()
 		self.font = font
 		textColor = color
 	}
 
-	func pushNewText(_ newText: String)
-	{
+	func pushNewText(_ newText: String) {
 		let animation = CATransition()
 		animation.timingFunction = CAMediaTimingFunction(name:
 			kCAMediaTimingFunctionEaseInEaseOut)

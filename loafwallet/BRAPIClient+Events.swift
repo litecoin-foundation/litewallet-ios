@@ -1,23 +1,19 @@
 import Foundation
 
 /// Implement Trackabble in your class to have access to these functions
-public protocol Trackable
-{
+public protocol Trackable {
 	func saveEvent(_ eventName: String)
 	func saveEvent(_ eventName: String, attributes: [String: String])
 }
 
-extension Trackable
-{
-	func saveEvent(_ eventName: String)
-	{
+extension Trackable {
+	func saveEvent(_ eventName: String) {
 		NotificationCenter.default.post(name: EventManager.eventNotification, object: nil, userInfo: [
 			EventManager.eventNameKey: eventName,
 		])
 	}
 
-	func saveEvent(_ eventName: String, attributes: [String: String])
-	{
+	func saveEvent(_ eventName: String, attributes: [String: String]) {
 		NotificationCenter.default.post(name: EventManager.eventNotification, object: nil, userInfo: [
 			EventManager.eventNameKey: eventName,
 			EventManager.eventAttributesKey: attributes,
@@ -28,29 +24,23 @@ extension Trackable
 private var emKey: UInt8 = 1
 
 // EventManager is attached to BRAPIClient
-extension BRAPIClient
-{
-	var events: EventManager?
-	{
-		return lazyAssociatedObject(self, key: &emKey)
-		{
+extension BRAPIClient {
+	var events: EventManager? {
+		return lazyAssociatedObject(self, key: &emKey) {
 			return EventManager(adaptor: self)
 		}
 	}
 
-	func saveEvent(_ eventName: String)
-	{
+	func saveEvent(_ eventName: String) {
 		events?.saveEvent(eventName)
 	}
 
-	func saveEvent(_ eventName: String, attributes: [String: String])
-	{
+	func saveEvent(_ eventName: String, attributes: [String: String]) {
 		events?.saveEvent(eventName, attributes: attributes)
 	}
 }
 
-class EventManager
-{
+class EventManager {
 	typealias Attributes = [String: String]
 
 	fileprivate static let eventNotification = Notification.Name("__saveEvent__")
@@ -68,15 +58,13 @@ class EventManager
 	private var buffer = [Event]()
 	private let adaptor: BRAPIAdaptor
 
-	struct Event
-	{
+	struct Event {
 		let sessionId: String
 		let time: TimeInterval
 		let eventName: String
 		let attributes: Attributes
 
-		var dictionary: [String: Any]
-		{
+		var dictionary: [String: Any] {
 			return ["sessionId": sessionId,
 			        "time": time,
 			        "eventName": eventName,
@@ -84,34 +72,28 @@ class EventManager
 		}
 	}
 
-	init(adaptor: BRAPIAdaptor)
-	{
+	init(adaptor: BRAPIAdaptor) {
 		self.adaptor = adaptor
 		queue.maxConcurrentOperationCount = 1
 	}
 
-	func saveEvent(_ eventName: String)
-	{
+	func saveEvent(_ eventName: String) {
 		pushEvent(eventName: eventName, attributes: [:])
 	}
 
-	func saveEvent(_ eventName: String, attributes: [String: String])
-	{
+	func saveEvent(_ eventName: String, attributes: [String: String]) {
 		pushEvent(eventName: eventName, attributes: attributes)
 	}
 
-	func up()
-	{
+	func up() {
 		guard !isSubscribed else { return }
 		defer { isSubscribed = true }
 
 		// slurp up app lifecycle events and save them as events
-		eventToNotifications.forEach
-		{ key, value in
+		eventToNotifications.forEach { key, value in
 			NotificationCenter.default.addObserver(forName: value, object: nil, queue: self.queue, using: { [weak self] note in
 				self?.saveEvent(key)
-				if note.name == .UIApplicationDidEnterBackground
-				{
+				if note.name == .UIApplicationDidEnterBackground {
 					self?.persistToDisk()
 					self?.sendToServer()
 				}
@@ -121,49 +103,38 @@ class EventManager
 		// slurp up events sent as notifications
 		NotificationCenter.default.addObserver(
 			forName: EventManager.eventNotification, object: nil, queue: queue
-		)
-		{ [weak self] note in
+		) { [weak self] note in
 			guard let eventName = note.userInfo?[EventManager.eventNameKey] as? String
-			else
-			{
+			else {
 				print("[EventManager] received invalid userInfo dict: \(String(describing: note.userInfo))")
 				return
 			}
-			if let eventAttributes = note.userInfo?[EventManager.eventAttributesKey] as? Attributes
-			{
+			if let eventAttributes = note.userInfo?[EventManager.eventAttributesKey] as? Attributes {
 				self?.saveEvent(eventName, attributes: eventAttributes)
-			}
-			else
-			{
+			} else {
 				self?.saveEvent(eventName)
 			}
 		}
 	}
 
-	func down()
-	{
+	func down() {
 		guard isSubscribed else { return }
-		eventToNotifications.forEach
-		{ _, value in
+		eventToNotifications.forEach { _, value in
 			NotificationCenter.default.removeObserver(self, name: value, object: nil)
 		}
 	}
 
-	private var shouldRecordData: Bool
-	{
+	private var shouldRecordData: Bool {
 		return UserDefaults.hasAquiredShareDataPermission
 	}
 
-	func sync(completion: @escaping () -> Void)
-	{
+	func sync(completion: @escaping () -> Void) {
 		guard shouldRecordData else { removeData(); return }
 		sendToServer(completion: completion)
 	}
 
-	private func pushEvent(eventName: String, attributes: [String: String])
-	{
-		queue.addOperation
-		{ [weak self] in
+	private func pushEvent(eventName: String, attributes: [String: String]) {
+		queue.addOperation { [weak self] in
 			guard let myself = self else { return }
 			print("[EventManager] pushEvent name=\(eventName) attributes=\(attributes)")
 			myself.buffer.append(Event(sessionId: myself.sessionId,
@@ -173,26 +144,19 @@ class EventManager
 		}
 	}
 
-	private func persistToDisk()
-	{
-		queue.addOperation
-		{ [weak self] in
+	private func persistToDisk() {
+		queue.addOperation { [weak self] in
 			guard let myself = self else { return }
 			let dataDirectory = myself.unsentDataDirectory
-			if !FileManager.default.fileExists(atPath: dataDirectory)
-			{
-				do
-				{
+			if !FileManager.default.fileExists(atPath: dataDirectory) {
+				do {
 					try FileManager.default.createDirectory(atPath: dataDirectory, withIntermediateDirectories: false, attributes: nil)
-				}
-				catch
-				{
+				} catch {
 					print("[EventManager] Could not create directory: \(error)")
 				}
 			}
 			let fullPath = NSString(string: dataDirectory).appendingPathComponent("/\(NSUUID().uuidString).json")
-			if let outputStream = OutputStream(toFileAtPath: fullPath, append: false)
-			{
+			if let outputStream = OutputStream(toFileAtPath: fullPath, append: false) {
 				outputStream.open()
 				defer { outputStream.close() }
 				let dataToSerialize = myself.buffer.map { $0.dictionary }
@@ -201,9 +165,7 @@ class EventManager
 				if JSONSerialization.writeJSONObject(dataToSerialize, to: outputStream, options: [], error: &error) == 0
 				{
 					print("[EventManager] Unable to write JSON for events file: \(String(describing: error))")
-				}
-				else
-				{
+				} else {
 					print("[EventManager] saved \(myself.buffer.count) events to disk")
 				}
 			}
@@ -211,25 +173,19 @@ class EventManager
 		}
 	}
 
-	private func sendToServer(completion: (() -> Void)? = nil)
-	{
-		queue.addOperation
-		{ [weak self] in
+	private func sendToServer(completion: (() -> Void)? = nil) {
+		queue.addOperation { [weak self] in
 			guard let myself = self else { return }
 			let dataDirectory = myself.unsentDataDirectory
 
-			do
-			{
+			do {
 				try FileManager.default.contentsOfDirectory(atPath: dataDirectory)
-			}
-			catch
-			{
+			} catch {
 				print("error: \(error)")
 			}
 
 			guard let files = try? FileManager.default.contentsOfDirectory(atPath: dataDirectory) else { print("Unable to read event data directory"); return }
-			files.forEach
-			{ baseName in
+			files.forEach { baseName in
 				// 1: read the json in
 				let fileName = NSString(string: dataDirectory).appendingPathComponent("/\(baseName)")
 				guard let inputStream = InputStream(fileAtPath: fileName) else { return }
@@ -247,33 +203,23 @@ class EventManager
 				request.httpBody = body
 
 				myself.adaptor.dataTaskWithRequest(request, authenticated: true, retryCount: 0, handler: { data, resp, err in
-					if let resp = resp
-					{
-						if resp.statusCode != 200
-						{
-							if let data = data
-							{
+					if let resp = resp {
+						if resp.statusCode != 200 {
+							if let data = data {
 								print("[EventManager] Error uploading event data to server: STATUS=\(resp.statusCode), connErr=\(String(describing: err)), data=\(String(describing: String(data: data, encoding: .utf8)))")
 							}
-						}
-						else
-						{
-							if let data = data
-							{
+						} else {
+							if let data = data {
 								print("[EventManager] Successfully sent \(eventDump.count) events to server \(fileName) => \(resp.statusCode) data=\(String(describing: String(data: data, encoding: .utf8)))")
 							}
 						}
 					}
 
 					// 4. remove the file from disk since we no longer need it
-					myself.queue.addOperation
-					{
-						do
-						{
+					myself.queue.addOperation {
+						do {
 							try FileManager.default.removeItem(atPath: fileName)
-						}
-						catch
-						{
+						} catch {
 							print("[EventManager] Unable to remove evnets file at path \(fileName) \(error)")
 						}
 					}
@@ -283,36 +229,28 @@ class EventManager
 		}
 	}
 
-	private func removeData()
-	{
-		queue.addOperation
-		{ [weak self] in
+	private func removeData() {
+		queue.addOperation { [weak self] in
 			guard let myself = self else { return }
 			guard let files = try? FileManager.default.contentsOfDirectory(atPath: myself.unsentDataDirectory) else { return }
-			files.forEach
-			{ baseName in
+			files.forEach { baseName in
 				let fileName = NSString(string: myself.unsentDataDirectory).appendingPathComponent("/\(baseName)")
-				do
-				{
+				do {
 					try FileManager.default.removeItem(atPath: fileName)
-				}
-				catch
-				{
+				} catch {
 					print("[EventManager] Unable to remove events file at path \(fileName): \(error)")
 				}
 			}
 		}
 	}
 
-	private func eventTupleArrayToDictionary(_ events: [[String: Any]]) -> [String: Any]
-	{
+	private func eventTupleArrayToDictionary(_ events: [[String: Any]]) -> [String: Any] {
 		return ["deviceType": 0,
 		        "appVersion": Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? -1,
 		        "events": events]
 	}
 
-	private var unsentDataDirectory: String
-	{
+	private var unsentDataDirectory: String {
 		let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 		let documentsDirectory = NSString(string: paths[0])
 		return documentsDirectory.appendingPathComponent("/event-data")

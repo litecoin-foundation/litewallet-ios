@@ -1,11 +1,9 @@
 import UIKit
 
-class StartViewController: UIViewController
-{
+class StartViewController: UIViewController {
 	// MARK: - Public
 
-	init(store: Store, didTapCreate: @escaping () -> Void, didTapRecover: @escaping () -> Void)
-	{
+	init(store: Store, didTapCreate: @escaping () -> Void, didTapRecover: @escaping () -> Void) {
 		self.store = store
 		self.didTapRecover = didTapRecover
 		self.didTapCreate = didTapCreate
@@ -36,8 +34,7 @@ class StartViewController: UIViewController
 
 	private let versionLabel = UILabel(font: .barlowMedium(size: 14), color: .transparentWhite)
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		view.backgroundColor = .white
 		setData()
 		addSubviews()
@@ -45,8 +42,7 @@ class StartViewController: UIViewController
 		addButtonActions()
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		message.text = S.StartViewController.message
 		message.lineBreakMode = .byWordWrapping
 		message.numberOfLines = 0
@@ -56,24 +52,19 @@ class StartViewController: UIViewController
 		message.textColor = .white
 		versionLabel.textColor = .white
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			guard let mainColor = UIColor(named: "mainColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Custom color not found")
 				return
 			}
 			view.backgroundColor = mainColor
-		}
-		else
-		{
+		} else {
 			view.backgroundColor = .liteWalletBlue
 		}
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(backgroundView)
 		view.addSubview(logo)
 		view.addSubview(message)
@@ -82,8 +73,7 @@ class StartViewController: UIViewController
 		view.addSubview(versionLabel)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		backgroundView.constrain(toSuperviewEdges: nil)
 
 		logo.constrain([
@@ -117,20 +107,17 @@ class StartViewController: UIViewController
 		])
 	}
 
-	private func addButtonActions()
-	{
+	private func addButtonActions() {
 		recover.tap = didTapRecover
 		create.tap = didTapCreate
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

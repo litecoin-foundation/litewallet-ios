@@ -1,13 +1,7 @@
-//  This file is required in order for the `transform` task of the translation helper tool BartyCrouch to work.
-//  See here for more details: https://github.com/Flinesoft/BartyCrouch
-//
-
 import Foundation
 
-enum BartyCrouch
-{
-	enum SupportedLanguage: String
-	{
+enum BartyCrouch {
+	enum SupportedLanguage: String {
 		// TODO: remove unsupported languages from the following cases list & add any missing languages
 		case arabic = "ar"
 		case chineseSimplified = "zh-Hans"

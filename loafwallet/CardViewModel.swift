@@ -2,8 +2,7 @@ import Foundation
 import KeychainAccess
 import SwiftUI
 
-class CardViewModel: ObservableObject
-{
+class CardViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
 	@Published
@@ -37,8 +36,7 @@ class CardViewModel: ObservableObject
 		calculatedLitewalletBalance()
 	}
 
-	func calculatedLitewalletBalance()
-	{
+	func calculatedLitewalletBalance() {
 		if let balance = walletManager.wallet?.balance,
 		   let rate = store.state.currentRate
 		{
@@ -50,45 +48,37 @@ class CardViewModel: ObservableObject
 
 	/// Fetch Card Wallet details from the Ternio server
 	/// - Parameter completion: All is well
-	func fetchCardWalletDetails(completion _: @escaping () -> Void)
-	{
+	func fetchCardWalletDetails(completion _: @escaping () -> Void) {
 		let keychain = Keychain(service: "com.litecoincard.service")
 
 		// Fetches the latest token and UserID
 		guard let token = keychain["token"],
 		      let userID = keychain["userID"]
-		else
-		{
+		else {
 			LWAnalytics.logEventWithParameters(itemName: ._20210804_ERR_KLF)
 			return
 		}
 
-		PartnerAPI.shared.getWalletDetails(userID: userID, token: token)
-		{ detailsDict in
+		PartnerAPI.shared.getWalletDetails(userID: userID, token: token) { detailsDict in
 			// Only receives the data element there is the metadata
 			guard let data = detailsDict?["data"] as? [String: Any]
-			else
-			{
+			else {
 				LWAnalytics.logEventWithParameters(itemName: ._20210405_TAWDF)
 				return
 			}
 
-			do
-			{
+			do {
 				let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
 
 				let decoder = JSONDecoder()
 
 				let walletDetails = try? decoder.decode(CardWalletDetails.self, from: jsonData)
 
-				DispatchQueue.main.async
-				{
+				DispatchQueue.main.async {
 					self.cardWalletDetails = walletDetails
 					LWAnalytics.logEventWithParameters(itemName: ._20210804_TAWDS)
 				}
-			}
-			catch
-			{
+			} catch {
 				print("Error: Incomplete dictionary data from partner API")
 				LWAnalytics.logEventWithParameters(itemName: ._20210405_TAWDF)
 			}

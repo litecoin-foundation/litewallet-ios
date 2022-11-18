@@ -1,9 +1,7 @@
 import UIKit
 
-class StartWipeWalletViewController: UIViewController
-{
-	init(didTapNext: @escaping () -> Void)
-	{
+class StartWipeWalletViewController: UIViewController {
+	init(didTapNext: @escaping () -> Void) {
 		self.didTapNext = didTapNext
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -16,15 +14,13 @@ class StartWipeWalletViewController: UIViewController
 	private let button = ShadowButton(title: S.RecoverWallet.next, type: .primary)
 	private let bullet = UIImageView(image: #imageLiteral(resourceName: "deletecircle"))
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		header.addSubview(illustration)
 		view.addSubview(message)
@@ -33,8 +29,7 @@ class StartWipeWalletViewController: UIViewController
 		view.addSubview(button)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrainTopCorners(sidePadding: 0, topPadding: 0)
 		header.constrain([
 			header.constraint(.height, constant: 220.0),
@@ -69,8 +64,7 @@ class StartWipeWalletViewController: UIViewController
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .white
 		illustration.contentMode = .scaleAspectFill
 		message.text = S.WipeWallet.startMessage
@@ -80,14 +74,12 @@ class StartWipeWalletViewController: UIViewController
 		}
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

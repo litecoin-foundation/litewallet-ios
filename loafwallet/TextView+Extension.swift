@@ -4,8 +4,7 @@ import UIKit
 
 // https://stackoverflow.com/questions/65297333/adding-placeholder-to-uitextview-in-swiftui-uiviewrepresentable
 
-struct TextView: UIViewRepresentable
-{
+struct TextView: UIViewRepresentable {
 	@Binding var text: String
 	@Binding var didStartEditing: Bool
 	private var placeholder: String
@@ -20,8 +19,7 @@ struct TextView: UIViewRepresentable
 	}
 
 	let udModel = UnstoppableDomainViewModel()
-	func makeUIView(context _: Context) -> UITextView
-	{
+	func makeUIView(context _: Context) -> UITextView {
 		let textView = UITextView()
 		textView.autocapitalizationType = .sentences
 		textView.isSelectable = true
@@ -31,15 +29,11 @@ struct TextView: UIViewRepresentable
 		return textView
 	}
 
-	func updateUIView(_ uiView: UITextView, context _: Context)
-	{
-		if didStartEditing
-		{
+	func updateUIView(_ uiView: UITextView, context _: Context) {
+		if didStartEditing {
 			uiView.textColor = UIColor.black
 			uiView.text = text
-		}
-		else
-		{
+		} else {
 			uiView.text = placeholder
 			uiView.textColor = UIColor.lightGray
 			uiView.font = .customBody(size: 6.0)

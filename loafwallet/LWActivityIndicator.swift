@@ -2,8 +2,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-struct ActivityIndicator: UIViewRepresentable
-{
+struct ActivityIndicator: UIViewRepresentable {
 	@Binding
 	var isAnimating: Bool
 

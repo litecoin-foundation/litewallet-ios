@@ -1,7 +1,6 @@
 import Foundation
 
-open class AssetArchive
-{
+open class AssetArchive {
 	let name: String
 	private let fileManager: FileManager
 	private let archiveUrl: URL
@@ -10,28 +9,23 @@ open class AssetArchive
 	let extractedUrl: URL
 	private let apiClient: BRAPIClient
 
-	private var archiveExists: Bool
-	{
+	private var archiveExists: Bool {
 		return fileManager.fileExists(atPath: archivePath)
 	}
 
-	private var extractedDirExists: Bool
-	{
+	private var extractedDirExists: Bool {
 		return fileManager.fileExists(atPath: extractedPath)
 	}
 
-	private var version: String?
-	{
+	private var version: String? {
 		guard let archiveContents = try? Data(contentsOf: archiveUrl)
-		else
-		{
+		else {
 			return nil
 		}
 		return archiveContents.sha256.hexString
 	}
 
-	init?(name: String, apiClient: BRAPIClient)
-	{
+	init?(name: String, apiClient: BRAPIClient) {
 		self.name = name
 		self.apiClient = apiClient
 		fileManager = FileManager.default
@@ -42,70 +36,49 @@ open class AssetArchive
 		extractedPath = extractedUrl.path
 	}
 
-	func update(completionHandler: @escaping (_ error: Error?) -> Void)
-	{
-		do
-		{
+	func update(completionHandler: @escaping (_ error: Error?) -> Void) {
+		do {
 			try ensureExtractedPath()
 			// If directory creation failed due to file existing
-		}
-		catch let error as NSError where error.code == 512 && error.domain == NSCocoaErrorDomain
-		{
-			do
-			{
+		} catch let error as NSError where error.code == 512 && error.domain == NSCocoaErrorDomain {
+			do {
 				try fileManager.removeItem(at: apiClient.bundleDirUrl)
 				try fileManager.createDirectory(at: extractedUrl, withIntermediateDirectories: true, attributes: nil)
-			}
-			catch let e
-			{
+			} catch let e {
 				return completionHandler(e)
 			}
-		}
-		catch let e
-		{
+		} catch let e {
 			return completionHandler(e)
 		}
-		if !archiveExists
-		{
+		if !archiveExists {
 			// see if the archive was shipped with the app
 			copyBundledArchive()
 		}
-		if !archiveExists
-		{
+		if !archiveExists {
 			// we do not have the archive, download a fresh copy
 			return downloadCompleteArchive(completionHandler: completionHandler)
 		}
-		apiClient.getAssetVersions(name)
-		{ versions, err in
-			DispatchQueue.global(qos: .utility).async
-			{
-				if let err = err
-				{
+		apiClient.getAssetVersions(name) { versions, err in
+			DispatchQueue.global(qos: .utility).async {
+				if let err = err {
 					print("[AssetArchive] could not get asset versions. error: \(err)")
 					return completionHandler(err)
 				}
 				guard let versions = versions, let version = self.version
-				else
-				{
+				else {
 					return completionHandler(BRAPIClientError.unknownError)
 				}
-				if versions.index(of: version) == versions.count - 1
-				{
+				if versions.index(of: version) == versions.count - 1 {
 					// have the most recent version
 					print("[AssetArchive] already at most recent version of bundle \(self.name)")
-					do
-					{
+					do {
 						try self.extractArchive()
 						return completionHandler(nil)
-					}
-					catch let e
-					{
+					} catch let e {
 						print("[AssetArchive] error extracting bundle: \(e)")
 						return completionHandler(BRAPIClientError.unknownError)
 					}
-				}
-				else
-				{
+				} else {
 					// need to update the version
 					self.downloadAndPatchArchive(fromVersion: version, completionHandler: completionHandler)
 				}
@@ -113,30 +86,22 @@ open class AssetArchive
 		}
 	}
 
-	fileprivate func downloadCompleteArchive(completionHandler: @escaping (_ error: Error?) -> Void)
-	{
-		apiClient.downloadAssetArchive(name)
-		{ data, err in
-			DispatchQueue.global(qos: .utility).async
-			{
-				if let err = err
-				{
+	fileprivate func downloadCompleteArchive(completionHandler: @escaping (_ error: Error?) -> Void) {
+		apiClient.downloadAssetArchive(name) { data, err in
+			DispatchQueue.global(qos: .utility).async {
+				if let err = err {
 					print("[AssetArchive] error downloading complete archive \(self.name) error=\(err)")
 					return completionHandler(err)
 				}
 				guard let data = data
-				else
-				{
+				else {
 					return completionHandler(BRAPIClientError.unknownError)
 				}
-				do
-				{
+				do {
 					try data.write(to: self.archiveUrl, options: .atomic)
 					try self.extractArchive()
 					return completionHandler(nil)
-				}
-				catch let e
-				{
+				} catch let e {
 					print("[AssetArchive] error extracting complete archive \(self.name) error=\(e)")
 					return completionHandler(e)
 				}
@@ -146,31 +111,24 @@ open class AssetArchive
 
 	fileprivate func downloadAndPatchArchive(fromVersion: String, completionHandler: @escaping (_ error: Error?) -> Void)
 	{
-		apiClient.downloadAssetDiff(name, fromVersion: fromVersion)
-		{ data, err in
-			DispatchQueue.global(qos: .utility).async
-			{
-				if let err = err
-				{
+		apiClient.downloadAssetDiff(name, fromVersion: fromVersion) { data, err in
+			DispatchQueue.global(qos: .utility).async {
+				if let err = err {
 					print("[AssetArchive] error downloading asset path \(self.name) \(fromVersion) error=\(err)")
 					return completionHandler(err)
 				}
 				guard let data = data
-				else
-				{
+				else {
 					return completionHandler(BRAPIClientError.unknownError)
 				}
 				let fm = self.fileManager
 				let diffPath = self.apiClient.bundleDirUrl.appendingPathComponent("\(self.name).diff").path
 				let oldBundlePath = self.apiClient.bundleDirUrl.appendingPathComponent("\(self.name).old").path
-				do
-				{
-					if fm.fileExists(atPath: diffPath)
-					{
+				do {
+					if fm.fileExists(atPath: diffPath) {
 						try fm.removeItem(atPath: diffPath)
 					}
-					if fm.fileExists(atPath: oldBundlePath)
-					{
+					if fm.fileExists(atPath: oldBundlePath) {
 						try fm.removeItem(atPath: oldBundlePath)
 					}
 					try data.write(to: URL(fileURLWithPath: diffPath), options: .atomic)
@@ -182,9 +140,7 @@ open class AssetArchive
 					try fm.removeItem(atPath: oldBundlePath)
 					try self.extractArchive()
 					return completionHandler(nil)
-				}
-				catch let e
-				{
+				} catch let e {
 					// something failed, clean up whatever we can, next attempt
 					// will download fresh
 					_ = try? fm.removeItem(atPath: diffPath)
@@ -196,32 +152,24 @@ open class AssetArchive
 		}
 	}
 
-	fileprivate func ensureExtractedPath() throws
-	{
-		if !extractedDirExists
-		{
+	fileprivate func ensureExtractedPath() throws {
+		if !extractedDirExists {
 			try fileManager.createDirectory(
 				atPath: extractedPath, withIntermediateDirectories: true, attributes: nil
 			)
 		}
 	}
 
-	fileprivate func extractArchive() throws
-	{
+	fileprivate func extractArchive() throws {
 		try BRTar.createFilesAndDirectoriesAtPath(extractedPath, withTarPath: archivePath)
 	}
 
-	fileprivate func copyBundledArchive()
-	{
-		if let bundledArchiveUrl = Bundle.main.url(forResource: name, withExtension: "tar")
-		{
-			do
-			{
+	fileprivate func copyBundledArchive() {
+		if let bundledArchiveUrl = Bundle.main.url(forResource: name, withExtension: "tar") {
+			do {
 				try fileManager.copyItem(at: bundledArchiveUrl, to: archiveUrl)
 				print("[AssetArchive] used bundled archive for \(name)")
-			}
-			catch let e
-			{
+			} catch let e {
 				print("[AssetArchive] unable to copy bundled archive `\(name)` \(bundledArchiveUrl) -> \(archiveUrl): \(e)")
 			}
 		}
@@ -229,45 +177,35 @@ open class AssetArchive
 }
 
 // Platform bundle management
-extension BRAPIClient
-{
+extension BRAPIClient {
 	// updates asset bundles with names included in the AssetBundles.plist file
 	// if we are in a staging/debug/test environment the bundle names will have "-staging" appended to them
-	open func updateBundles(completionHandler: @escaping (_ results: [(String, Error?)]) -> Void)
-	{
+	open func updateBundles(completionHandler: @escaping (_ results: [(String, Error?)]) -> Void) {
 		// ensure we can create the bundle directory
-		do
-		{
+		do {
 			try ensureBundlePaths()
-		}
-		catch let e
-		{
+		} catch let e {
 			// if not return the creation error for every bundle name
 			return completionHandler([("INVALID", e)])
 		}
 		guard let path = Bundle.main.path(forResource: "AssetBundles", ofType: "plist"),
 		      var names = NSArray(contentsOfFile: path) as? [String]
-		else
-		{
+		else {
 			log("updateBundles unable to load bundle names")
 			return completionHandler([("INVALID", BRAPIClientError.unknownError)])
 		}
 
-		if E.isDebug || E.isTestFlight
-		{
+		if E.isDebug || E.isTestFlight {
 			names = names.map { n in n + "-staging" }
 		}
 
 		let grp = DispatchGroup()
 		let queue = DispatchQueue.global(qos: .utility)
 		var results: [(String, Error?)] = names.map { v in (v, nil) }
-		queue.async
-		{
+		queue.async {
 			var i = 0
-			for name in names
-			{
-				if let archive = AssetArchive(name: name, apiClient: self)
-				{
+			for name in names {
+				if let archive = AssetArchive(name: name, apiClient: self) {
 					let resIdx = i
 					grp.enter()
 					archive.update(completionHandler: { err in
@@ -284,20 +222,17 @@ extension BRAPIClient
 		}
 	}
 
-	fileprivate var bundleDirUrl: URL
-	{
+	fileprivate var bundleDirUrl: URL {
 		let fm = FileManager.default
 		let docsUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first!
 		let bundleDirUrl = docsUrl.appendingPathComponent("bundles", isDirectory: true)
 		return bundleDirUrl
 	}
 
-	fileprivate func ensureBundlePaths() throws
-	{
+	fileprivate func ensureBundlePaths() throws {
 		let fm = FileManager.default
 		var attrs = try? fm.attributesOfItem(atPath: bundleDirUrl.path)
-		if attrs == nil
-		{
+		if attrs == nil {
 			try fm.createDirectory(atPath: bundleDirUrl.path, withIntermediateDirectories: true, attributes: nil)
 			attrs = try fm.attributesOfItem(atPath: bundleDirUrl.path)
 		}
@@ -306,10 +241,8 @@ extension BRAPIClient
 	open func getAssetVersions(_ name: String, completionHandler: @escaping ([String]?, Error?) -> Void)
 	{
 		let req = URLRequest(url: url("/assets/bundles/\(name)/versions"))
-		dataTaskWithRequest(req)
-		{ data, _, err in
-			if let err = err
-			{
+		dataTaskWithRequest(req) { data, _, err in
+			if let err = err {
 				completionHandler(nil, err)
 				return
 			}
@@ -319,9 +252,7 @@ extension BRAPIClient
 			   let versions = top["versions"] as? [String]
 			{
 				completionHandler(versions, nil)
-			}
-			else
-			{
+			} else {
 				completionHandler(nil, BRAPIClientError.malformedDataError)
 			}
 		}.resume()
@@ -330,22 +261,16 @@ extension BRAPIClient
 	open func downloadAssetArchive(_ name: String, completionHandler: @escaping (Data?, Error?) -> Void)
 	{
 		let req = URLRequest(url: url("/assets/bundles/\(name)/download"))
-		dataTaskWithRequest(req)
-		{ data, response, err in
-			if err != nil
-			{
+		dataTaskWithRequest(req) { data, response, err in
+			if err != nil {
 				return completionHandler(nil, err)
 			}
-			if response?.statusCode != 200
-			{
+			if response?.statusCode != 200 {
 				return completionHandler(nil, BRAPIClientError.unknownError)
 			}
-			if let data = data
-			{
+			if let data = data {
 				return completionHandler(data, nil)
-			}
-			else
-			{
+			} else {
 				return completionHandler(nil, BRAPIClientError.malformedDataError)
 			}
 		}.resume()
@@ -355,20 +280,15 @@ extension BRAPIClient
 	{
 		let req = URLRequest(url: url("/assets/bundles/\(name)/diff/\(fromVersion)"))
 		dataTaskWithRequest(req, handler: { data, resp, err in
-			if err != nil
-			{
+			if err != nil {
 				return completionHandler(nil, err)
 			}
-			if resp?.statusCode != 200
-			{
+			if resp?.statusCode != 200 {
 				return completionHandler(nil, BRAPIClientError.unknownError)
 			}
-			if let data = data
-			{
+			if let data = data {
 				return completionHandler(data, nil)
-			}
-			else
-			{
+			} else {
 				return completionHandler(nil, BRAPIClientError.malformedDataError)
 			}
 		}).resume()

@@ -1,7 +1,6 @@
 import UIKit
 
-class WritePaperPhraseViewController: UIViewController
-{
+class WritePaperPhraseViewController: UIViewController {
 	private let store: Store
 	private let walletManager: WalletManager
 	private let pin: String
@@ -21,23 +20,19 @@ class WritePaperPhraseViewController: UIViewController
 	private var proceedWidth: NSLayoutConstraint?
 	private var previousWidth: NSLayoutConstraint?
 
-	private var phraseOffscreenOffset: CGFloat
-	{
+	private var phraseOffscreenOffset: CGFloat {
 		return view.bounds.width / 2.0 + PhraseView.defaultSize.width / 2.0
 	}
 
-	private var currentPhraseIndex = 0
-	{
-		didSet
-		{
+	private var currentPhraseIndex = 0 {
+		didSet {
 			stepLabel.text = String(format: S.WritePaperPhrase.step, currentPhraseIndex + 1, phraseViews.count)
 		}
 	}
 
 	var lastWordSeen: (() -> Void)?
 
-	init(store: Store, walletManager: WalletManager, pin: String, callback: @escaping () -> Void)
-	{
+	init(store: Store, walletManager: WalletManager, pin: String, callback: @escaping () -> Void) {
 		self.store = store
 		self.walletManager = walletManager
 		self.pin = pin
@@ -47,13 +42,11 @@ class WritePaperPhraseViewController: UIViewController
 
 	private let callback: () -> Void
 
-	deinit
-	{
+	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		view.backgroundColor = .white
 
 		label.text = S.WritePaperPhrase.instruction
@@ -70,18 +63,16 @@ class WritePaperPhraseViewController: UIViewController
 		addButtonTargets()
 
 		NotificationCenter.default.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: nil)
-		{ [weak self] _ in
-			self?.dismiss(animated: true, completion: nil)
-		}
+			{ [weak self] _ in
+				self?.dismiss(animated: true, completion: nil)
+			}
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		header.addSubview(label)
 		view.addSubview(stepLabel)
@@ -90,16 +81,14 @@ class WritePaperPhraseViewController: UIViewController
 		phraseViews.forEach { view.addSubview($0) }
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrainTopCorners(sidePadding: 0, topPadding: 0)
 		header.constrain([
 			header.constraint(.height, constant: 152.0),
 		])
 		label.constrainBottomCorners(sidePadding: C.padding[3], bottomPadding: C.padding[2])
 
-		phraseViews.enumerated().forEach
-		{ index, phraseView in
+		phraseViews.enumerated().forEach { index, phraseView in
 			// The first phrase should initially be on the screen
 			let constant = index == 0 ? 0.0 : phraseOffscreenOffset
 			let xConstraint = NSLayoutConstraint(item: phraseView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: constant)
@@ -135,42 +124,33 @@ class WritePaperPhraseViewController: UIViewController
 		])
 	}
 
-	private func addButtonTargets()
-	{
+	private func addButtonTargets() {
 		proceed.addTarget(self, action: #selector(proceedTapped), for: .touchUpInside)
 		previous.addTarget(self, action: #selector(previousTapped), for: .touchUpInside)
 	}
 
-	@objc private func proceedTapped()
-	{
+	@objc private func proceedTapped() {
 		guard currentPhraseIndex < phraseViews.count - 1 else { callback(); return }
-		if currentPhraseIndex == 0
-		{
+		if currentPhraseIndex == 0 {
 			showBothButtons()
 		}
 		transitionTo(isNext: true)
 	}
 
-	@objc private func previousTapped()
-	{
+	@objc private func previousTapped() {
 		guard currentPhraseIndex > 0 else { return }
-		if currentPhraseIndex == 1
-		{
+		if currentPhraseIndex == 1 {
 			showOneButton()
 		}
 		transitionTo(isNext: false)
 	}
 
-	private func transitionTo(isNext: Bool)
-	{
+	private func transitionTo(isNext: Bool) {
 		let viewToHide = phraseViews[currentPhraseIndex]
 		let viewToShow = phraseViews[isNext ? currentPhraseIndex + 1 : currentPhraseIndex - 1]
-		if isNext
-		{
+		if isNext {
 			currentPhraseIndex += 1
-		}
-		else
-		{
+		} else {
 			currentPhraseIndex -= 1
 		}
 
@@ -181,20 +161,16 @@ class WritePaperPhraseViewController: UIViewController
 		}, completion: { _ in })
 	}
 
-	private func showBothButtons()
-	{
-		UIView.animate(withDuration: 0.4)
-		{
+	private func showBothButtons() {
+		UIView.animate(withDuration: 0.4) {
 			self.proceedWidth?.constant = -self.view.bounds.width / 2.0 - C.padding[2] - C.padding[1] / 2.0
 			self.previousWidth?.constant = -self.view.bounds.width / 2.0 - C.padding[2] - C.padding[1] / 2.0
 			self.view.layoutIfNeeded()
 		}
 	}
 
-	private func showOneButton()
-	{
-		UIView.animate(withDuration: 0.4)
-		{
+	private func showOneButton() {
+		UIView.animate(withDuration: 0.4) {
 			self.proceedWidth?.constant = -C.padding[2] * 2
 			self.previousWidth?.constant = -self.view.bounds.width
 			self.view.layoutIfNeeded()
@@ -202,8 +178,7 @@ class WritePaperPhraseViewController: UIViewController
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

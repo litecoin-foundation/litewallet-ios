@@ -13,8 +13,7 @@ private func secureAllocate(allocSize: CFIndex, hint _: CFOptionFlags, info _: U
 	return ptr.advanced(by: MemoryLayout<CFIndex>.stride)
 }
 
-private func secureDeallocate(ptr: UnsafeMutableRawPointer?, info _: UnsafeMutableRawPointer?)
-{
+private func secureDeallocate(ptr: UnsafeMutableRawPointer?, info _: UnsafeMutableRawPointer?) {
 	guard let ptr = ptr else { return }
 	let allocSize = ptr.load(fromByteOffset: -MemoryLayout<CFIndex>.stride, as: CFIndex.self)
 	memset(ptr, 0, allocSize) // cleanse allocated memory
@@ -45,10 +44,8 @@ public let secureAllocator: CFAllocator = {
 	return CFAllocatorCreate(kCFAllocatorDefault, &context).takeRetainedValue()
 }()
 
-extension BRAddress: CustomStringConvertible, Hashable
-{
-	init?(string: String)
-	{
+extension BRAddress: CustomStringConvertible, Hashable {
+	init?(string: String) {
 		self.init()
 		let cStr = [CChar](string.utf8CString)
 		guard cStr.count <= MemoryLayout<BRAddress>.size else { return nil }
@@ -56,23 +53,20 @@ extension BRAddress: CustomStringConvertible, Hashable
 		                                                                                 count: cStr.count)
 	}
 
-	init?(scriptPubKey: [UInt8])
-	{
+	init?(scriptPubKey: [UInt8]) {
 		self.init()
 		guard BRAddressFromScriptPubKey(UnsafeMutableRawPointer(mutating: &s).assumingMemoryBound(to: CChar.self),
 		                                MemoryLayout<BRAddress>.size, scriptPubKey, scriptPubKey.count) > 0
 		else { return nil }
 	}
 
-	init?(scriptSig: [UInt8])
-	{
+	init?(scriptSig: [UInt8]) {
 		self.init()
 		guard BRAddressFromScriptSig(UnsafeMutableRawPointer(mutating: &s).assumingMemoryBound(to: CChar.self),
 		                             MemoryLayout<BRAddress>.size, scriptSig, scriptSig.count) > 0 else { return nil }
 	}
 
-	var scriptPubKey: [UInt8]?
-	{
+	var scriptPubKey: [UInt8]? {
 		var script = [UInt8](repeating: 0, count: 25)
 		let count = BRAddressScriptPubKey(&script, script.count,
 		                                  UnsafeRawPointer([s]).assumingMemoryBound(to: CChar.self))
@@ -81,42 +75,35 @@ extension BRAddress: CustomStringConvertible, Hashable
 		return script
 	}
 
-	var hash160: UInt160?
-	{
+	var hash160: UInt160? {
 		var hash = UInt160()
 		guard BRAddressHash160(&hash, UnsafeRawPointer([s]).assumingMemoryBound(to: CChar.self)) != 0
 		else { return nil }
 		return hash
 	}
 
-	public var description: String
-	{
+	public var description: String {
 		return String(cString: UnsafeRawPointer([s]).assumingMemoryBound(to: CChar.self))
 	}
 
-	public var hashValue: Int
-	{
+	public var hashValue: Int {
 		return BRAddressHash([s])
 	}
 
-	public static func == (l: BRAddress, r: BRAddress) -> Bool
-	{
+	public static func == (l: BRAddress, r: BRAddress) -> Bool {
 		return BRAddressEq([l.s], [r.s]) != 0
 	}
 }
 
-extension BRKey
-{
+extension BRKey {
 	// privKey must be wallet import format (WIF), mini private key format, or hex string
-	init?(privKey: String)
-	{
+	init?(privKey: String) {
 		self.init()
 		guard BRKeySetPrivKey(&self, privKey) != 0 else { return nil }
 	}
 
 	// decrypts a BIP38 key using the given passphrase and returns nil if passphrase is incorrect
-	init?(bip38Key: String, passphrase: String)
-	{
+	init?(bip38Key: String, passphrase: String) {
 		self.init()
 		guard let nfcPhrase = CFStringCreateMutableCopy(secureAllocator, 0, passphrase as CFString) else { return nil }
 		CFStringNormalize(nfcPhrase, .C) // NFC unicode normalization
@@ -124,44 +111,38 @@ extension BRKey
 	}
 
 	// pubKey must be a DER encoded public key
-	init?(pubKey: [UInt8])
-	{
+	init?(pubKey: [UInt8]) {
 		self.init()
 		guard BRKeySetPubKey(&self, pubKey, pubKey.count) != 0 else { return nil }
 	}
 
-	init?(secret: UnsafePointer<UInt256>, compact: Bool)
-	{
+	init?(secret: UnsafePointer<UInt256>, compact: Bool) {
 		self.init()
 		guard BRKeySetSecret(&self, secret, compact ? 1 : 0) != 0 else { return nil }
 	}
 
 	// recover a pubKey from a compact signature
-	init?(md: UInt256, compactSig: [UInt8])
-	{
+	init?(md: UInt256, compactSig: [UInt8]) {
 		self.init()
 		guard BRKeyRecoverPubKey(&self, md, compactSig, compactSig.count) != 0 else { return nil }
 	}
 
 	// WIF private key
-	mutating func privKey() -> String?
-	{
+	mutating func privKey() -> String? {
 		return autoreleasepool
-		{ // wrapping in autoreleasepool ensures sensitive memory is wiped and freed immediately
-			let count = BRKeyPrivKey(&self, nil, 0)
-			var data = CFDataCreateMutable(secureAllocator, count) as Data
-			data.count = count
-			guard data.withUnsafeMutableBytes({ BRKeyPrivKey(&self, $0, count) }) != 0 else { return nil }
-			return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
-			                                                CFStringBuiltInEncodings.UTF8.rawValue) as String
-		}
+			{ // wrapping in autoreleasepool ensures sensitive memory is wiped and freed immediately
+				let count = BRKeyPrivKey(&self, nil, 0)
+				var data = CFDataCreateMutable(secureAllocator, count) as Data
+				data.count = count
+				guard data.withUnsafeMutableBytes({ BRKeyPrivKey(&self, $0, count) }) != 0 else { return nil }
+				return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
+				                                                CFStringBuiltInEncodings.UTF8.rawValue) as String
+			}
 	}
 
 	// encrypts key with passphrase
-	mutating func bip38Key(passphrase: String) -> String?
-	{
-		return autoreleasepool
-		{
+	mutating func bip38Key(passphrase: String) -> String? {
+		return autoreleasepool {
 			guard let nfcPhrase = CFStringCreateMutableCopy(secureAllocator, 0, passphrase as CFString)
 			else { return nil }
 			CFStringNormalize(nfcPhrase, .C) // NFC unicode normalization
@@ -176,31 +157,27 @@ extension BRKey
 	}
 
 	// DER encoded public key
-	mutating func pubKey() -> [UInt8]?
-	{
+	mutating func pubKey() -> [UInt8]? {
 		var pubKey = [UInt8](repeating: 0, count: BRKeyPubKey(&self, nil, 0))
 		guard !pubKey.isEmpty, BRKeyPubKey(&self, &pubKey, pubKey.count) == pubKey.count else { return nil }
 		return pubKey
 	}
 
 	// ripemd160 hash of the sha256 hash of the public key
-	mutating func hash160() -> UInt160?
-	{
+	mutating func hash160() -> UInt160? {
 		let hash = BRKeyHash160(&self)
 		guard hash != UInt160() else { return nil }
 		return hash
 	}
 
 	// pay-to-pubkey-hash bitcoin address
-	mutating func address() -> String?
-	{
+	mutating func address() -> String? {
 		var addr = [CChar](repeating: 0, count: MemoryLayout<BRAddress>.size)
 		guard BRKeyAddress(&self, &addr, addr.count) > 0 else { return nil }
 		return String(cString: addr)
 	}
 
-	mutating func sign(md: UInt256) -> [UInt8]?
-	{
+	mutating func sign(md: UInt256) -> [UInt8]? {
 		var sig = [UInt8](repeating: 0, count: 73)
 		let count = BRKeySign(&self, &sig, sig.count, md)
 		guard count > 0 else { return nil }
@@ -208,120 +185,98 @@ extension BRKey
 		return sig
 	}
 
-	mutating func verify(md: UInt256, sig: [UInt8]) -> Bool
-	{
+	mutating func verify(md: UInt256, sig: [UInt8]) -> Bool {
 		var sig = sig
 		return BRKeyVerify(&self, md, &sig, sig.count) != 0
 	}
 
 	// wipes key material
-	mutating func clean()
-	{
+	mutating func clean() {
 		BRKeyClean(&self)
 	}
 
 	// Pieter Wuille's compact signature encoding used for bitcoin message signing
 	// to verify a compact signature, recover a public key from the sig and verify that it matches the signer's pubkey
-	mutating func compactSign(md: UInt256) -> [UInt8]?
-	{
+	mutating func compactSign(md: UInt256) -> [UInt8]? {
 		var sig = [UInt8](repeating: 0, count: 65)
 		guard BRKeyCompactSign(&self, &sig, sig.count, md) == sig.count else { return nil }
 		return sig
 	}
 }
 
-extension BRTxInput
-{
-	var swiftAddress: String
-	{
+extension BRTxInput {
+	var swiftAddress: String {
 		get { return String(cString: UnsafeRawPointer([address]).assumingMemoryBound(to: CChar.self)) }
 		set { BRTxInputSetAddress(&self, newValue) }
 	}
 
-	var swiftScript: [UInt8]
-	{
+	var swiftScript: [UInt8] {
 		get { return [UInt8](UnsafeBufferPointer(start: script, count: scriptLen)) }
 		set { BRTxInputSetScript(&self, newValue, newValue.count) }
 	}
 
-	var swiftSignature: [UInt8]
-	{
+	var swiftSignature: [UInt8] {
 		get { return [UInt8](UnsafeBufferPointer(start: signature, count: sigLen)) }
 		set { BRTxInputSetSignature(&self, newValue, newValue.count) }
 	}
 }
 
-extension BRTxOutput
-{
-	var swiftAddress: String
-	{
+extension BRTxOutput {
+	var swiftAddress: String {
 		get { return String(cString: UnsafeRawPointer([address]).assumingMemoryBound(to: CChar.self)) }
 		set { BRTxOutputSetAddress(&self, newValue) }
 	}
 
-	var swiftScript: [UInt8]
-	{
+	var swiftScript: [UInt8] {
 		get { return [UInt8](UnsafeBufferPointer(start: script, count: scriptLen)) }
 		set { BRTxOutputSetScript(&self, newValue, newValue.count) }
 	}
 }
 
-extension UnsafeMutablePointer where Pointee == BRTransaction
-{
-	init?()
-	{
+extension UnsafeMutablePointer where Pointee == BRTransaction {
+	init?() {
 		self.init(BRTransactionNew())
 	}
 
 	// bytes must contain a serialized tx
-	init?(bytes: [UInt8])
-	{
+	init?(bytes: [UInt8]) {
 		self.init(BRTransactionParse(bytes, bytes.count))
 	}
 
-	var txHash: UInt256
-	{
+	var txHash: UInt256 {
 		return pointee.txHash
 	}
 
-	var version: UInt32
-	{
+	var version: UInt32 {
 		return pointee.version
 	}
 
-	var inputs: [BRTxInput]
-	{
+	var inputs: [BRTxInput] {
 		return [BRTxInput](UnsafeBufferPointer(start: pointee.inputs, count: pointee.inCount))
 	}
 
-	var outputs: [BRTxOutput]
-	{
+	var outputs: [BRTxOutput] {
 		return [BRTxOutput](UnsafeBufferPointer(start: pointee.outputs, count: pointee.outCount))
 	}
 
-	var lockTime: UInt32
-	{
+	var lockTime: UInt32 {
 		return pointee.lockTime
 	}
 
-	var blockHeight: UInt32
-	{
+	var blockHeight: UInt32 {
 		get { return pointee.blockHeight }
 		set { pointee.blockHeight = newValue }
 	}
 
-	var timestamp: TimeInterval
-	{
-		get
-		{ return pointee.timestamp > UInt32(NSTimeIntervalSince1970) ?
+	var timestamp: TimeInterval {
+		get { return pointee.timestamp > UInt32(NSTimeIntervalSince1970) ?
 			TimeInterval(pointee.timestamp) - NSTimeIntervalSince1970 : 0
 		}
 		set { pointee.timestamp = newValue > 0 ? UInt32(newValue + NSTimeIntervalSince1970) : 0 }
 	}
 
 	// serialized transaction (blockHeight and timestamp are not serialized)
-	var bytes: [UInt8]?
-	{
+	var bytes: [UInt8]? {
 		var bytes = [UInt8](repeating: 0, count: BRTransactionSerialize(self, nil, 0))
 		guard BRTransactionSerialize(self, &bytes, bytes.count) == bytes.count else { return nil }
 		return bytes
@@ -335,45 +290,38 @@ extension UnsafeMutablePointer where Pointee == BRTransaction
 	}
 
 	// adds an output to tx
-	func addOutput(amount: UInt64, script: [UInt8])
-	{
+	func addOutput(amount: UInt64, script: [UInt8]) {
 		BRTransactionAddOutput(self, amount, script, script.count)
 	}
 
 	// shuffles order of tx outputs
-	func shuffleOutputs()
-	{
+	func shuffleOutputs() {
 		BRTransactionShuffleOutputs(self)
 	}
 
 	// size in bytes if signed, or estimated size assuming compact pubkey sigs
-	var size: Int
-	{
+	var size: Int {
 		return BRTransactionSize(self)
 	}
 
 	// minimum transaction fee needed for tx to relay across the bitcoin network
-	var standardFee: UInt64
-	{
+	var standardFee: UInt64 {
 		return BRTransactionStandardFee(self)
 	}
 
 	// checks if all signatures exist, but does not verify them
-	var isSigned: Bool
-	{
+	var isSigned: Bool {
 		return BRTransactionIsSigned(self) != 0
 	}
 
 	// adds signatures to any inputs with NULL signatures that can be signed with any keys
 	// forkId is 0 for bitcoin, 0x40 for b-cash
 	// returns true if tx is signed
-	func sign(forkId: Int = 0, keys: inout [BRKey]) -> Bool
-	{
+	func sign(forkId: Int = 0, keys: inout [BRKey]) -> Bool {
 		return BRTransactionSign(self, Int32(forkId), &keys, keys.count) != 0
 	}
 
-	public var hashValue: Int
-	{
+	public var hashValue: Int {
 		return BRTransactionHash(self)
 	}
 
@@ -383,21 +331,18 @@ extension UnsafeMutablePointer where Pointee == BRTransaction
 	}
 }
 
-protocol BRWalletListener
-{
+protocol BRWalletListener {
 	func balanceChanged(_ balance: UInt64)
 	func txAdded(_ tx: BRTxRef)
 	func txUpdated(_ txHashes: [UInt256], blockHeight: UInt32, timestamp: UInt32)
 	func txDeleted(_ txHash: UInt256, notifyUser: Bool, recommendRescan: Bool)
 }
 
-class BRWallet
-{
+class BRWallet {
 	let cPtr: OpaquePointer
 	let listener: BRWalletListener
 
-	init?(transactions: [BRTxRef?], masterPubKey: BRMasterPubKey, listener: BRWalletListener)
-	{
+	init?(transactions: [BRTxRef?], masterPubKey: BRMasterPubKey, listener: BRWalletListener) {
 		var txRefs = transactions
 		guard let cPtr = BRWalletNew(&txRefs, txRefs.count, masterPubKey) else { return nil }
 		self.listener = listener
@@ -428,71 +373,60 @@ class BRWallet
 	}
 
 	// the first unused external address
-	var receiveAddress: String
-	{
+	var receiveAddress: String {
 		return BRWalletReceiveAddress(cPtr).description
 	}
 
 	// all previously genereated internal and external addresses
-	var allAddresses: [String]
-	{
+	var allAddresses: [String] {
 		var addrs = [BRAddress](repeating: BRAddress(), count: BRWalletAllAddrs(cPtr, nil, 0))
 		guard BRWalletAllAddrs(cPtr, &addrs, addrs.count) == addrs.count else { return [] }
 		return addrs.map { $0.description }
 	}
 
 	// true if the address is a previously generated internal or external address
-	func containsAddress(_ address: String) -> Bool
-	{
+	func containsAddress(_ address: String) -> Bool {
 		return BRWalletContainsAddress(cPtr, address) != 0
 	}
 
-	func addressIsUsed(_ address: String) -> Bool
-	{
+	func addressIsUsed(_ address: String) -> Bool {
 		return BRWalletAddressIsUsed(cPtr, address) != 0
 	}
 
 	// transactions registered in the wallet, sorted by date, oldest first
-	var transactions: [BRTxRef?]
-	{
+	var transactions: [BRTxRef?] {
 		var transactions = [BRTxRef?](repeating: nil, count: BRWalletTransactions(cPtr, nil, 0))
 		guard BRWalletTransactions(cPtr, &transactions, transactions.count) == transactions.count else { return [] }
 		return transactions
 	}
 
 	// current wallet balance, not including transactions known to be invalid
-	var balance: UInt64
-	{
+	var balance: UInt64 {
 		return BRWalletBalance(cPtr)
 	}
 
 	// total amount spent from the wallet (exluding change)
-	var totalSent: UInt64
-	{
+	var totalSent: UInt64 {
 		return BRWalletTotalSent(cPtr)
 	}
 
 	// fee-per-kb of transaction size to use when creating a transaction
-	var feePerKb: UInt64
-	{
+	var feePerKb: UInt64 {
 		get { return BRWalletFeePerKb(cPtr) }
 		set(value) { BRWalletSetFeePerKb(cPtr, value) }
 	}
 
-	func feeForTx(amount: UInt64) -> UInt64
-	{
+	func feeForTx(amount: UInt64) -> UInt64 {
 		return BRWalletFeeForTxAmount(cPtr, amount)
 	}
 
 	// returns an unsigned transaction that sends the specified amount from the wallet to the given address
-	func createTransaction(forAmount: UInt64, toAddress: String) -> BRTxRef?
-	{
+	func createTransaction(forAmount: UInt64, toAddress: String) -> BRTxRef? {
 		return BRWalletCreateTransaction(cPtr, forAmount, toAddress)
 	}
 
 	// returns an unsigned transaction that satisifes the given transaction outputs
-	func createTxForOutputs(_ outputs: [BRTxOutput]) -> BRTxRef
-	{
+	func createTxForOutputs(_ outputs: [BRTxOutput]) -> BRTxRef {
 		return BRWalletCreateTxForOutputs(cPtr, outputs, outputs.count)
 	}
 
@@ -500,85 +434,71 @@ class BRWallet
 	// forkId is 0 for bitcoin, 0x40 for b-cash
 	// seed is the master private key (wallet seed) corresponding to the master public key given when wallet was created
 	// returns true if all inputs were signed, or false if there was an error or not all inputs were able to be signed
-	func signTransaction(_ tx: BRTxRef, forkId: Int = 0, seed: inout UInt512) -> Bool
-	{
+	func signTransaction(_ tx: BRTxRef, forkId: Int = 0, seed: inout UInt512) -> Bool {
 		return BRWalletSignTransaction(cPtr, tx, Int32(forkId), &seed, MemoryLayout<UInt512>.stride) != 0
 	}
 
 	// true if no previous wallet transaction spends any of the given transaction's inputs, and no inputs are invalid
-	func transactionIsValid(_ tx: BRTxRef) -> Bool
-	{
+	func transactionIsValid(_ tx: BRTxRef) -> Bool {
 		return BRWalletTransactionIsValid(cPtr, tx) != 0
 	}
 
 	// true if transaction cannot be immediately spent (i.e. if it or an input tx can be replaced-by-fee)
-	func transactionIsPending(_ tx: BRTxRef) -> Bool
-	{
+	func transactionIsPending(_ tx: BRTxRef) -> Bool {
 		return BRWalletTransactionIsPending(cPtr, tx) != 0
 	}
 
 	// true if tx is considered 0-conf safe (valid and not pending, timestamp greater than 0, and no unverified inputs)
-	func transactionIsVerified(_ tx: BRTxRef) -> Bool
-	{
+	func transactionIsVerified(_ tx: BRTxRef) -> Bool {
 		return BRWalletTransactionIsVerified(cPtr, tx) != 0
 	}
 
 	// the amount received by the wallet from the transaction (total outputs to change and/or receive addresses)
-	func amountReceivedFromTx(_ tx: BRTxRef) -> UInt64
-	{
+	func amountReceivedFromTx(_ tx: BRTxRef) -> UInt64 {
 		return BRWalletAmountReceivedFromTx(cPtr, tx)
 	}
 
 	// the amount sent from the wallet by the trasaction (total wallet outputs consumed, change and fee included)
-	func amountSentByTx(_ tx: BRTxRef) -> UInt64
-	{
+	func amountSentByTx(_ tx: BRTxRef) -> UInt64 {
 		return BRWalletAmountSentByTx(cPtr, tx)
 	}
 
 	// returns the fee for the given transaction if all its inputs are from wallet transactions
-	func feeForTx(_ tx: BRTxRef) -> UInt64?
-	{
+	func feeForTx(_ tx: BRTxRef) -> UInt64? {
 		let fee = BRWalletFeeForTx(cPtr, tx)
 		return fee == UINT64_MAX ? nil : fee
 	}
 
 	// historical wallet balance after the given transaction, or current balance if tx is not registered in wallet
-	func balanceAfterTx(_ tx: BRTxRef) -> UInt64
-	{
+	func balanceAfterTx(_ tx: BRTxRef) -> UInt64 {
 		return BRWalletBalanceAfterTx(cPtr, tx)
 	}
 
 	// fee that will be added for a transaction of the given size in bytes
-	func feeForTxSize(_ size: Int) -> UInt64
-	{
+	func feeForTxSize(_ size: Int) -> UInt64 {
 		return BRWalletFeeForTxSize(cPtr, size)
 	}
 
 	// outputs below this amount are uneconomical due to fees (TX_MIN_OUTPUT_AMOUNT is the absolute min output amount)
-	var minOutputAmount: UInt64
-	{
+	var minOutputAmount: UInt64 {
 		return BRWalletMinOutputAmount(cPtr)
 	}
 
 	// maximum amount that can be sent from the wallet to a single address after fees
-	var maxOutputAmount: UInt64
-	{
+	var maxOutputAmount: UInt64 {
 		return BRWalletMaxOutputAmount(cPtr)
 	}
 
-	deinit
-	{
+	deinit {
 		BRWalletFree(cPtr)
 	}
 }
 
-enum BRPeerManagerError: Error
-{
+enum BRPeerManagerError: Error {
 	case posixError(errorCode: Int32, description: String)
 }
 
-protocol BRPeerManagerListener
-{
+protocol BRPeerManagerListener {
 	func syncStarted()
 	func syncStopped(_ error: BRPeerManagerError?)
 	func txStatusUpdate()
@@ -587,8 +507,7 @@ protocol BRPeerManagerListener
 	func networkIsReachable() -> Bool
 }
 
-class BRPeerManager
-{
+class BRPeerManager {
 	let cPtr: OpaquePointer
 	let listener: BRPeerManagerListener
 	let mainNetParams = [BRMainNetParams]
@@ -634,55 +553,46 @@ class BRPeerManager
 	}
 
 	// true if currently connected to at least one peer
-	var isConnected: Bool
-	{
+	var isConnected: Bool {
 		return BRPeerManagerConnectStatus(cPtr) == BRPeerStatusConnected
 	}
 
 	// connect to bitcoin peer-to-peer network (also call this whenever networkIsReachable() status changes)
-	func connect()
-	{
-		if let fixedAddress = UserDefaults.customNodeIP
-		{
+	func connect() {
+		if let fixedAddress = UserDefaults.customNodeIP {
 			setFixedPeer(address: fixedAddress, port: UserDefaults.customNodePort ?? C.standardPort)
 		}
 		BRPeerManagerConnect(cPtr)
 	}
 
 	// disconnect from bitcoin peer-to-peer network
-	func disconnect()
-	{
+	func disconnect() {
 		BRPeerManagerDisconnect(cPtr)
 	}
 
 	// rescans blocks and transactions after earliestKeyTime (a new random download peer is also selected due to the
 	// possibility that a malicious node might lie by omitting transactions that match the bloom filter)
-	func rescan()
-	{
+	func rescan() {
 		BRPeerManagerRescan(cPtr)
 	}
 
 	// current proof-of-work verified best block height
-	var lastBlockHeight: UInt32
-	{
+	var lastBlockHeight: UInt32 {
 		return BRPeerManagerLastBlockHeight(cPtr)
 	}
 
 	// current proof-of-work verified best block timestamp (time interval since unix epoch)
-	var lastBlockTimestamp: UInt32
-	{
+	var lastBlockTimestamp: UInt32 {
 		return BRPeerManagerLastBlockTimestamp(cPtr)
 	}
 
 	// the (unverified) best block height reported by connected peers
-	var estimatedBlockHeight: UInt32
-	{
+	var estimatedBlockHeight: UInt32 {
 		return BRPeerManagerEstimatedBlockHeight(cPtr)
 	}
 
 	// Only show syncing view if more than 2 days behind
-	var shouldShowSyncingView: Bool
-	{
+	var shouldShowSyncingView: Bool {
 		let lastBlock = Date(timeIntervalSince1970: TimeInterval(lastBlockTimestamp))
 		let cutoff = Date().addingTimeInterval(-24 * 60 * 60 * 2) // 2 days ago
 		return lastBlock.compare(cutoff) == .orderedAscending
@@ -690,73 +600,60 @@ class BRPeerManager
 
 	// current network sync progress from 0 to 1
 	// startHeight is the block height of the most recent fully completed sync
-	func syncProgress(fromStartHeight: UInt32) -> Double
-	{
+	func syncProgress(fromStartHeight: UInt32) -> Double {
 		return BRPeerManagerSyncProgress(cPtr, fromStartHeight)
 	}
 
 	// the number of currently connected peers
-	var peerCount: Int
-	{
+	var peerCount: Int {
 		return BRPeerManagerPeerCount(cPtr)
 	}
 
 	// description of the peer most recently used to sync blockchain data
-	var downloadPeerName: String
-	{
+	var downloadPeerName: String {
 		return String(cString: BRPeerManagerDownloadPeerName(cPtr))
 	}
 
 	// publishes tx to bitcoin network
-	func publishTx(_ tx: BRTxRef, completion: @escaping (Bool, BRPeerManagerError?) -> Void)
-	{
+	func publishTx(_ tx: BRTxRef, completion: @escaping (Bool, BRPeerManagerError?) -> Void) {
 		BRPeerManagerPublishTx(cPtr, tx, Unmanaged.passRetained(CompletionWrapper(completion)).toOpaque())
-		{ info, error in
-			guard let info = info else { return }
-			guard error == 0
-			else
-			{
-				let err = BRPeerManagerError.posixError(errorCode: error, description: String(cString: strerror(error)))
-				return Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(false, err)
-			}
+			{ info, error in
+				guard let info = info else { return }
+				guard error == 0
+				else {
+					let err = BRPeerManagerError.posixError(errorCode: error, description: String(cString: strerror(error)))
+					return Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(false, err)
+				}
 
-			Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(true, nil)
-		}
+				Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(true, nil)
+			}
 	}
 
 	// number of connected peers that have relayed the given unconfirmed transaction
-	func relayCount(_ forTxHash: UInt256) -> Int
-	{
+	func relayCount(_ forTxHash: UInt256) -> Int {
 		return BRPeerManagerRelayCount(cPtr, forTxHash)
 	}
 
-	func setFixedPeer(address: Int, port: Int)
-	{
-		if address != 0
-		{
+	func setFixedPeer(address: Int, port: Int) {
+		if address != 0 {
 			var newAddress = UInt128()
 			newAddress.u16.5 = 0xFFFF
 			newAddress.u32.3 = UInt32(address)
 			BRPeerManagerSetFixedPeer(cPtr, newAddress, UInt16(port))
-		}
-		else
-		{
+		} else {
 			BRPeerManagerSetFixedPeer(cPtr, UInt128(), 0)
 		}
 	}
 
-	deinit
-	{
+	deinit {
 		BRPeerManagerDisconnect(cPtr)
 		BRPeerManagerFree(cPtr)
 	}
 
-	private class CompletionWrapper
-	{
+	private class CompletionWrapper {
 		let completion: (Bool, BRPeerManagerError?) -> Void
 
-		init(_ completion: @escaping (Bool, BRPeerManagerError?) -> Void)
-		{
+		init(_ completion: @escaping (Bool, BRPeerManagerError?) -> Void) {
 			self.completion = completion
 		}
 	}
@@ -767,10 +664,8 @@ class BRPeerManager
 	let c = BRMainNetVerifyDifficulty
 }
 
-extension UInt256: CustomStringConvertible
-{
-	public var description: String
-	{
+extension UInt256: CustomStringConvertible {
+	public var description: String {
 		return String(format: "%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x" +
 			"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
 			u8.31, u8.30, u8.29, u8.28, u8.27, u8.26, u8.25, u8.24,
@@ -780,76 +675,59 @@ extension UInt256: CustomStringConvertible
 	}
 }
 
-extension UInt128: Equatable
-{
-	public static func == (l: UInt128, r: UInt128) -> Bool
-	{
+extension UInt128: Equatable {
+	public static func == (l: UInt128, r: UInt128) -> Bool {
 		return l.u64 == r.u64
 	}
 
-	public static func != (l: UInt128, r: UInt128) -> Bool
-	{
+	public static func != (l: UInt128, r: UInt128) -> Bool {
 		return l.u64 != r.u64
 	}
 }
 
-extension UInt160: Equatable
-{
-	public static func == (l: UInt160, r: UInt160) -> Bool
-	{
+extension UInt160: Equatable {
+	public static func == (l: UInt160, r: UInt160) -> Bool {
 		return l.u32 == r.u32
 	}
 
-	public static func != (l: UInt160, r: UInt160) -> Bool
-	{
+	public static func != (l: UInt160, r: UInt160) -> Bool {
 		return l.u32 != r.u32
 	}
 }
 
-extension UInt256: Equatable
-{
-	public static func == (l: UInt256, r: UInt256) -> Bool
-	{
+extension UInt256: Equatable {
+	public static func == (l: UInt256, r: UInt256) -> Bool {
 		return l.u64 == r.u64
 	}
 
-	public static func != (l: UInt256, r: UInt256) -> Bool
-	{
+	public static func != (l: UInt256, r: UInt256) -> Bool {
 		return l.u64 != r.u64
 	}
 
-	var hexString: String
-	{
+	var hexString: String {
 		var u = self
-		return withUnsafePointer(to: &u)
-		{ p in
+		return withUnsafePointer(to: &u) { p in
 			Data(bytes: p, count: MemoryLayout<UInt256>.stride).hexString
 		}
 	}
 }
 
-extension UInt512: Equatable
-{
-	public static func == (l: UInt512, r: UInt512) -> Bool
-	{
+extension UInt512: Equatable {
+	public static func == (l: UInt512, r: UInt512) -> Bool {
 		return l.u64 == r.u64
 	}
 
-	public static func != (l: UInt512, r: UInt512) -> Bool
-	{
+	public static func != (l: UInt512, r: UInt512) -> Bool {
 		return l.u64 != r.u64
 	}
 }
 
-extension BRMasterPubKey: Equatable
-{
-	public static func == (l: BRMasterPubKey, r: BRMasterPubKey) -> Bool
-	{
+extension BRMasterPubKey: Equatable {
+	public static func == (l: BRMasterPubKey, r: BRMasterPubKey) -> Bool {
 		return l.fingerPrint == r.fingerPrint && l.chainCode == r.chainCode && l.pubKey == r.pubKey
 	}
 
-	public static func != (l: BRMasterPubKey, r: BRMasterPubKey) -> Bool
-	{
+	public static func != (l: BRMasterPubKey, r: BRMasterPubKey) -> Bool {
 		return l.fingerPrint != r.fingerPrint || l.chainCode != r.chainCode || l.pubKey != r.pubKey
 	}
 }

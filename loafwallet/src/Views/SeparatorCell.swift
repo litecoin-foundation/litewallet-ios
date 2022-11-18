@@ -1,9 +1,7 @@
 import UIKit
 
-class SeparatorCell: UITableViewCell
-{
-	override init(style: UITableViewCellStyle, reuseIdentifier: String?)
-	{
+class SeparatorCell: UITableViewCell {
+	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		let separator = UIView()
 		separator.backgroundColor = .secondaryShadow
@@ -17,8 +15,7 @@ class SeparatorCell: UITableViewCell
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

@@ -1,13 +1,11 @@
 import UIKit
 
-class ModalViewController: UIViewController, Subscriber
-{
+class ModalViewController: UIViewController, Subscriber {
 	// MARK: - Public
 
 	var childViewController: UIViewController
 
-	init<T: UIViewController>(childViewController: T, store: Store) where T: ModalDisplayable
-	{
+	init<T: UIViewController>(childViewController: T, store: Store) where T: ModalDisplayable {
 		self.childViewController = childViewController
 		modalInfo = childViewController
 		self.store = store
@@ -25,20 +23,17 @@ class ModalViewController: UIViewController, Subscriber
 	private let scrollView = UIScrollView()
 	private let scrollViewContent = UIView()
 
-	deinit
-	{
+	deinit {
 		store.unsubscribe(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		view.addSubview(scrollView)
 		scrollView.addSubview(scrollViewContent)
@@ -48,8 +43,7 @@ class ModalViewController: UIViewController, Subscriber
 		childViewController.didMove(toParentViewController: self)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrain([
 			header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			header.bottomAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -87,13 +81,11 @@ class ModalViewController: UIViewController, Subscriber
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .clear
 		scrollView.backgroundColor = .white
 		scrollView.delaysContentTouches = false
-		if var modalPresentable = childViewController as? ModalPresentable
-		{
+		if var modalPresentable = childViewController as? ModalPresentable {
 			modalPresentable.parentView = view
 		}
 
@@ -109,16 +101,14 @@ class ModalViewController: UIViewController, Subscriber
 		})
 		addTopCorners()
 		header.closeCallback = { [weak self] in
-			if let delegate = self?.transitioningDelegate as? ModalTransitionDelegate
-			{
+			if let delegate = self?.transitioningDelegate as? ModalTransitionDelegate {
 				delegate.reset()
 			}
 			self?.dismiss(animated: true, completion: {})
 		}
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
 		view.layer.shadowColor = UIColor.black.cgColor
@@ -130,25 +120,21 @@ class ModalViewController: UIViewController, Subscriber
 	// Even though the status bar is hidden for this view,
 	// it still needs to be set to light as it will temporarily
 	// transition to black when this view gets presented
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
-	override var prefersStatusBarHidden: Bool
-	{
+	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
-	@objc private func didTap()
-	{
+	@objc private func didTap() {
 		guard let modalTransitionDelegate = transitioningDelegate as? ModalTransitionDelegate else { return }
 		modalTransitionDelegate.reset()
 		dismiss(animated: true, completion: nil)
 	}
 
-	private func addTopCorners()
-	{
+	private func addTopCorners() {
 		let path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 6.0, height: 6.0)).cgPath
 		let maskLayer = CAShapeLayer()
 		maskLayer.path = path
@@ -156,23 +142,17 @@ class ModalViewController: UIViewController, Subscriber
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension ModalViewController: UIGestureRecognizerDelegate
-{
-	func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
-	{
+extension ModalViewController: UIGestureRecognizerDelegate {
+	func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
 		let location = gestureRecognizer.location(in: view)
-		if location.y < header.frame.minY
-		{
+		if location.y < header.frame.minY {
 			return true
-		}
-		else
-		{
+		} else {
 			return false
 		}
 	}

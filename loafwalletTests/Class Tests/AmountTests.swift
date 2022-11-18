@@ -1,27 +1,22 @@
 @testable import loafwallet
 import XCTest
 
-class AmountTests: XCTestCase
-{
-	override func setUp()
-	{
+class AmountTests: XCTestCase {
+	override func setUp() {
 		// Put setup code here. This method is called before the invocation of each test method in the class.
 	}
 
-	override func tearDown()
-	{
+	override func tearDown() {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 	}
 
-	func testAmountString()
-	{
+	func testAmountString() {
 		// Given:
 		// When:
 		// Then:
 	}
 
-	func testAmountForLtcFormat()
-	{
+	func testAmountForLtcFormat() {
 		//        //Given:
 		//        let amount = MockSeeds.amount100
 //
@@ -33,11 +28,9 @@ class AmountTests: XCTestCase
 		//        XCTAssert(amount.amount == 0)
 	}
 
-	func testPerformanceExample()
-	{
+	func testPerformanceExample() {
 		// This is an example of a performance test case.
-		measure
-		{
+		measure {
 			// Put the code you want to measure the time of here.
 		}
 	}

@@ -1,14 +1,12 @@
 import UIKit
 
-class PromptModalViewController: UIViewController
-{
+class PromptModalViewController: UIViewController {
 	@IBOutlet var headerTitleLabel: UILabel!
 	@IBOutlet var messageLabel: UILabel!
 	@IBOutlet var cancelButton: UIButton!
 	@IBOutlet var okButton: UIButton!
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// Do any additional setup after loading the view.

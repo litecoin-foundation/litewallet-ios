@@ -1,21 +1,17 @@
 import SwiftUI
 
-struct LocaleChangeView: View
-{
+struct LocaleChangeView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
 	var viewModel: LocaleChangeViewModel
 
-	init(viewModel: LocaleChangeViewModel)
-	{
+	init(viewModel: LocaleChangeViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		VStack
-		{
+	var body: some View {
+		VStack {
 			Text("\(S.Settings.currentLocale) \(viewModel.displayName)")
 				.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 				.foregroundColor(.black)
@@ -27,14 +23,11 @@ struct LocaleChangeView: View
 	}
 }
 
-struct LocaleChangeView_Previews: PreviewProvider
-{
+struct LocaleChangeView_Previews: PreviewProvider {
 	static let viewModel = LocaleChangeViewModel()
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			LocaleChangeView(viewModel: viewModel)
 				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
 				.previewDisplayName(DeviceType.Name.iPhoneSE2)

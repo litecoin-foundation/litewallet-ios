@@ -3,19 +3,14 @@ import UIKit
 private let currencyHeight: CGFloat = 80.0
 private let feeHeight: CGFloat = 130.0
 
-class AmountViewController: UIViewController, Trackable
-{
-	init(store: Store, isPinPadExpandedAtLaunch: Bool, isRequesting: Bool = false)
-	{
+class AmountViewController: UIViewController, Trackable {
+	init(store: Store, isPinPadExpandedAtLaunch: Bool, isRequesting: Bool = false) {
 		self.store = store
 		self.isPinPadExpandedAtLaunch = isPinPadExpandedAtLaunch
 		self.isRequesting = isRequesting
-		if let rate = store.state.currentRate, store.state.isLtcSwapped
-		{
+		if let rate = store.state.currentRate, store.state.isLtcSwapped {
 			currencyToggle = ShadowButton(title: "\(rate.code)(\(rate.currencySymbol))", type: .tertiary)
-		}
-		else
-		{
+		} else {
 			currencyToggle = ShadowButton(title: S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
 		}
 		feeSelector = FeeSelector(store: store)
@@ -28,37 +23,29 @@ class AmountViewController: UIViewController, Trackable
 	var didChangeFirstResponder: ((Bool) -> Void)?
 	var didShowFiat: ((_ isShowingFiat: Bool) -> Void)?
 
-	var currentOutput: String
-	{
+	var currentOutput: String {
 		return amountLabel.text ?? ""
 	}
 
-	var selectedRate: Rate?
-	{
-		didSet
-		{
+	var selectedRate: Rate? {
+		didSet {
 			fullRefresh()
 		}
 	}
 
-	var didUpdateFee: ((FeeType) -> Void)?
-	{
-		didSet
-		{
+	var didUpdateFee: ((FeeType) -> Void)? {
+		didSet {
 			feeSelector.didUpdateFee = didUpdateFee
 		}
 	}
 
-	func forceUpdateAmount(amount: Satoshis)
-	{
+	func forceUpdateAmount(amount: Satoshis) {
 		self.amount = amount
 		fullRefresh()
 	}
 
-	func expandPinPad()
-	{
-		if pinPadHeight?.constant == 0.0
-		{
+	func expandPinPad() {
+		if pinPadHeight?.constant == 0.0 {
 			togglePinPad()
 		}
 	}
@@ -85,32 +72,25 @@ class AmountViewController: UIViewController, Trackable
 	private let editFee = UIButton(type: .system)
 	private let feeSelector: FeeSelector
 
-	private var amount: Satoshis?
-	{
-		didSet
-		{
+	private var amount: Satoshis? {
+		didSet {
 			updateAmountLabel()
 			updateBalanceLabel()
 			didUpdateAmount?(amount)
 		}
 	}
 
-	override func viewDidLoad()
-	{
-		if #available(iOS 11.0, *)
-		{
+	override func viewDidLoad() {
+		if #available(iOS 11.0, *) {
 			guard let headerTextColor = UIColor(named: "headerTextColor"),
 			      let textColor = UIColor(named: "labelTextColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Custom color")
 				return
 			}
 			placeholder.textColor = headerTextColor
 			amountLabel.textColor = textColor
-		}
-		else
-		{
+		} else {
 			placeholder.textColor = .grayTextTint
 			amountLabel.textColor = .darkText
 		}
@@ -120,8 +100,7 @@ class AmountViewController: UIViewController, Trackable
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(placeholder)
 		view.addSubview(currencyToggle)
 		view.addSubview(feeContainer)
@@ -135,8 +114,7 @@ class AmountViewController: UIViewController, Trackable
 		view.addSubview(editFee)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		amountLabel.constrain([
 			amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
 			amountLabel.centerYAnchor.constraint(equalTo: currencyToggle.centerYAnchor),
@@ -214,8 +192,7 @@ class AmountViewController: UIViewController, Trackable
 		preventAmountOverflow()
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		cursor.isHidden = true
 		cursor.startBlinking()
 
@@ -231,26 +208,22 @@ class AmountViewController: UIViewController, Trackable
 
 		placeholder.text = S.Send.amountLabel
 		bottomBorder.isHidden = true
-		if store.state.isLtcSwapped
-		{
-			if let rate = store.state.currentRate
-			{
+		if store.state.isLtcSwapped {
+			if let rate = store.state.currentRate {
 				selectedRate = rate
 			}
 		}
 		pinPad.ouputDidUpdate = { [weak self] output in
 			self?.handlePinPadUpdate(output: output)
 		}
-		currencyToggle.tap = strongify(self)
-		{ myself in
+		currencyToggle.tap = strongify(self) { myself in
 			myself.toggleCurrency()
 		}
 		let gr = UITapGestureRecognizer(target: self, action: #selector(didTap))
 		tapView.addGestureRecognizer(gr)
 		tapView.isUserInteractionEnabled = true
 
-		if isPinPadExpandedAtLaunch
-		{
+		if isPinPadExpandedAtLaunch {
 			didTap()
 		}
 
@@ -264,15 +237,13 @@ class AmountViewController: UIViewController, Trackable
 		editFee.isHidden = true
 	}
 
-	private func toggleCurrency()
-	{
+	private func toggleCurrency() {
 		saveEvent("amount.swapCurrency")
 		selectedRate = selectedRate == nil ? store.state.currentRate : nil
 		updateCurrencyToggleTitle()
 	}
 
-	private func preventAmountOverflow()
-	{
+	private func preventAmountOverflow() {
 		amountLabel.constrain([
 			amountLabel.trailingAnchor.constraint(lessThanOrEqualTo: currencyToggle.leadingAnchor, constant: -C.padding[2]),
 		])
@@ -281,109 +252,81 @@ class AmountViewController: UIViewController, Trackable
 		amountLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
 	}
 
-	private func handlePinPadUpdate(output: String)
-	{
+	private func handlePinPadUpdate(output: String) {
 		let currencyDecimalSeparator = NumberFormatter().currencyDecimalSeparator ?? "."
 		placeholder.isHidden = output.utf8.count > 0 ? true : false
 		minimumFractionDigits = 0 // set default
-		if let decimalLocation = output.range(of: currencyDecimalSeparator)?.upperBound
-		{
+		if let decimalLocation = output.range(of: currencyDecimalSeparator)?.upperBound {
 			let locationValue = output.distance(from: output.endIndex, to: decimalLocation)
 			minimumFractionDigits = abs(locationValue)
 		}
 
 		// If trailing decimal, append the decimal to the output
 		hasTrailingDecimal = false // set default
-		if let decimalLocation = output.range(of: currencyDecimalSeparator)?.upperBound
-		{
-			if output.endIndex == decimalLocation
-			{
+		if let decimalLocation = output.range(of: currencyDecimalSeparator)?.upperBound {
+			if output.endIndex == decimalLocation {
 				hasTrailingDecimal = true
 			}
 		}
 
 		var newAmount: Satoshis?
-		if let outputAmount = NumberFormatter().number(from: output)?.doubleValue
-		{
-			if let rate = selectedRate
-			{
+		if let outputAmount = NumberFormatter().number(from: output)?.doubleValue {
+			if let rate = selectedRate {
 				newAmount = Satoshis(value: outputAmount, rate: rate)
-			}
-			else
-			{
-				if store.state.maxDigits == 5
-				{
+			} else {
+				if store.state.maxDigits == 5 {
 					let bits = Bits(rawValue: outputAmount * 1000)
 					newAmount = Satoshis(bits: bits)
-				}
-				else
-				{
+				} else {
 					let bitcoin = Bitcoin(rawValue: outputAmount)
 					newAmount = Satoshis(bitcoin: bitcoin)
 				}
 			}
 		}
 
-		if let newAmount = newAmount
-		{
-			if newAmount > C.maxMoney
-			{
+		if let newAmount = newAmount {
+			if newAmount > C.maxMoney {
 				pinPad.removeLast()
-			}
-			else
-			{
+			} else {
 				amount = newAmount
 			}
-		}
-		else
-		{
+		} else {
 			amount = nil
 		}
 	}
 
-	private func updateAmountLabel()
-	{
+	private func updateAmountLabel() {
 		guard let amount = amount else { amountLabel.text = ""; return }
 		let displayAmount = DisplayAmount(amount: amount, state: store.state, selectedRate: selectedRate, minimumFractionDigits: minimumFractionDigits)
 		var output = displayAmount.description
-		if hasTrailingDecimal
-		{
+		if hasTrailingDecimal {
 			output = output.appending(NumberFormatter().currencyDecimalSeparator)
 		}
 		amountLabel.text = output
 		placeholder.isHidden = output.utf8.count > 0 ? true : false
 	}
 
-	func updateBalanceLabel()
-	{
-		if let (balance, fee) = balanceTextForAmount?(amount, selectedRate)
-		{
+	func updateBalanceLabel() {
+		if let (balance, fee) = balanceTextForAmount?(amount, selectedRate) {
 			balanceLabel.attributedText = balance
 			feeLabel.attributedText = fee
-			if let amount = amount, amount > 0, !isRequesting
-			{
+			if let amount = amount, amount > 0, !isRequesting {
 				editFee.isHidden = false
-			}
-			else
-			{
+			} else {
 				editFee.isHidden = true
 			}
 			balanceLabel.isHidden = cursor.isHidden
 		}
 	}
 
-	private func toggleFeeSelector()
-	{
+	private func toggleFeeSelector() {
 		guard let height = feeSelectorHeight else { return }
 		let isCollapsed: Bool = height.isActive
 		UIView.spring(C.animationDuration, animations: {
-			if isCollapsed
-			{
+			if isCollapsed {
 				NSLayoutConstraint.deactivate([height])
 				self.feeSelector.addIntrinsicSize()
-			}
-			else
-			{
+			} else {
 				self.feeSelector.removeIntrinsicSize()
 				NSLayoutConstraint.activate([height])
 			}
@@ -391,16 +334,14 @@ class AmountViewController: UIViewController, Trackable
 		}, completion: { _ in })
 	}
 
-	@objc private func didTap()
-	{
+	@objc private func didTap() {
 		UIView.spring(C.animationDuration, animations: {
 			self.togglePinPad()
 			self.parent?.parent?.view.layoutIfNeeded()
 		}, completion: { _ in })
 	}
 
-	func closePinPad()
-	{
+	func closePinPad() {
 		pinPadHeight?.constant = 0.0
 		cursor.isHidden = true
 		bottomBorder.isHidden = true
@@ -408,8 +349,7 @@ class AmountViewController: UIViewController, Trackable
 		updateBalanceLabel()
 	}
 
-	private func togglePinPad()
-	{
+	private func togglePinPad() {
 		let isCollapsed: Bool = pinPadHeight?.constant == 0.0
 		pinPadHeight?.constant = isCollapsed ? pinPad.height : 0.0
 		cursor.isHidden = isCollapsed ? false : true
@@ -419,28 +359,21 @@ class AmountViewController: UIViewController, Trackable
 		didChangeFirstResponder?(isCollapsed)
 	}
 
-	private func updateBalanceAndFeeLabels()
-	{
-		if let amount = amount, amount.rawValue > 0
-		{
+	private func updateBalanceAndFeeLabels() {
+		if let amount = amount, amount.rawValue > 0 {
 			balanceLabel.isHidden = false
-			if !isRequesting
-			{
+			if !isRequesting {
 				editFee.isHidden = false
 			}
-		}
-		else
-		{
+		} else {
 			balanceLabel.isHidden = cursor.isHidden
-			if !isRequesting
-			{
+			if !isRequesting {
 				editFee.isHidden = true
 			}
 		}
 	}
 
-	private func fullRefresh()
-	{
+	private func fullRefresh() {
 		updateCurrencyToggleTitle()
 		updateBalanceLabel()
 		updateAmountLabel()
@@ -453,23 +386,18 @@ class AmountViewController: UIViewController, Trackable
 		pinPad.currentOutput = String(String.UnicodeScalarView(currentOutput.unicodeScalars.filter { set.contains($0) }))
 	}
 
-	private func updateCurrencyToggleTitle()
-	{
-		if let rate = selectedRate
-		{
+	private func updateCurrencyToggleTitle() {
+		if let rate = selectedRate {
 			currencyToggle.title = "\(rate.code)(\(rate.currencySymbol))"
 			didShowFiat?(false)
-		}
-		else
-		{
+		} else {
 			currencyToggle.title = S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits)
 			didShowFiat?(true)
 		}
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

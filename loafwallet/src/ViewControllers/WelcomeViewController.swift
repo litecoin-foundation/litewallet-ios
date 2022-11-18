@@ -1,7 +1,6 @@
 import UIKit
 
-class WelcomeViewController: UIViewController, ContentBoxPresenter
-{
+class WelcomeViewController: UIViewController, ContentBoxPresenter {
 	let blurView = UIVisualEffectView()
 	let effect = UIBlurEffect(style: .dark)
 	let contentBox = UIView(color: .white)
@@ -11,15 +10,13 @@ class WelcomeViewController: UIViewController, ContentBoxPresenter
 	private let body = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
 	private let button = ShadowButton(title: S.Button.ok, type: .primary)
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(contentBox)
 		contentBox.addSubview(header)
 		contentBox.addSubview(titleLabel)
@@ -27,8 +24,7 @@ class WelcomeViewController: UIViewController, ContentBoxPresenter
 		contentBox.addSubview(button)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		contentBox.constrain([
 			contentBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			contentBox.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -55,30 +51,26 @@ class WelcomeViewController: UIViewController, ContentBoxPresenter
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .clear
 		contentBox.layer.cornerRadius = 6.0
 		contentBox.layer.masksToBounds = true
 		titleLabel.textAlignment = .center
 		titleLabel.text = S.Welcome.title
 		setBodyText()
-		button.tap = strongify(self)
-		{ myself in
+		button.tap = strongify(self) { myself in
 			myself.dismiss(animated: true, completion: nil)
 		}
 	}
 
-	private func setBodyText()
-	{
+	private func setBodyText() {
 		let bodyText = S.Welcome.body
 		let attributedString = NSMutableAttributedString(string: S.Welcome.body)
 		let icon = NSTextAttachment()
 		icon.image = #imageLiteral(resourceName: "Faq")
 		icon.bounds = CGRect(x: 0, y: -3.0, width: body.font.pointSize, height: body.font.pointSize)
 		guard let range = S.Welcome.body.range(of: "(?)")
-		else
-		{
+		else {
 			NSLog("ERROR: Range not found")
 			return
 		}
@@ -88,8 +80,7 @@ class WelcomeViewController: UIViewController, ContentBoxPresenter
 		body.attributedText = attributedString
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 }

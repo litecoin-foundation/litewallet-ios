@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct AnimatedCardView: View
-{
+struct AnimatedCardView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -12,42 +11,33 @@ struct AnimatedCardView: View
 	@Binding
 	var isLoggedIn: Bool
 
-	init(viewModel: AnimatedCardViewModel, isLoggedIn: Binding<Bool>)
-	{
+	init(viewModel: AnimatedCardViewModel, isLoggedIn: Binding<Bool>) {
 		_isLoggedIn = isLoggedIn
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		if isLoggedIn
-		{
+	var body: some View {
+		if isLoggedIn {
 			Image(viewModel.imageFront)
 				.resizable()
 				.aspectRatio(contentMode: .fit)
-				.onAppear
-				{
-					withAnimation
-					{
+				.onAppear {
+					withAnimation {
 						viewModel.dropOffset = 0.0
 					}
 				}
 				.padding()
 				.shadow(color: .gray, radius: 6, x: 4, y: 4)
-		}
-		else
-		{
+		} else {
 			Image(viewModel.imageFront)
 				.resizable()
 				.aspectRatio(contentMode: .fit)
 				.rotation3DEffect(.degrees(viewModel.rotateIn3D ? -20 : 20), axis: (x: 0, y: 1, z: 0))
 				.animation(.easeInOut(duration: 0.5))
 				.offset(x: 0.0, y: CGFloat(viewModel.dropOffset))
-				.onAppear
-				{
+				.onAppear {
 					viewModel.rotateIn3D = true
-					withAnimation
-					{
+					withAnimation {
 						viewModel.dropOffset = 0.0
 					}
 				}
@@ -57,12 +47,10 @@ struct AnimatedCardView: View
 	}
 }
 
-struct AnimatedCardView_Previews: PreviewProvider
-{
+struct AnimatedCardView_Previews: PreviewProvider {
 	static let viewModel = AnimatedCardViewModel()
 
-	static var previews: some View
-	{
+	static var previews: some View {
 		AnimatedCardView(viewModel: viewModel, isLoggedIn: .constant(true))
 	}
 }

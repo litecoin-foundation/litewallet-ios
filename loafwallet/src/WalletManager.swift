@@ -6,13 +6,11 @@ import SystemConfiguration
 internal let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
 internal let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
 
-enum WalletManagerError: Error
-{
+enum WalletManagerError: Error {
 	case sqliteError(errorCode: Int32, description: String)
 }
 
-public extension NSNotification.Name
-{
+public extension NSNotification.Name {
 	static let WalletBalanceChangedNotification = NSNotification.Name("WalletBalanceChanged")
 	static let WalletTxStatusUpdateNotification = NSNotification.Name("WalletTxStatusUpdate")
 	static let WalletTxRejectedNotification = NSNotification.Name("WalletTxRejected")
@@ -24,8 +22,7 @@ public extension NSNotification.Name
 	static let LitecoinCardLogoutNotification = NSNotification.Name("LitecoinCardLogout")
 }
 
-private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> UnsafePointer<T>?
-{
+private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> UnsafePointer<T>? {
 	guard let result = sqlite3_column_blob(statement, iCol) else { return nil }
 	return result.assumingMemoryBound(to: T.self)
 }
@@ -33,8 +30,7 @@ private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> 
 // A WalletManger instance manages a single wallet, and that wallet's individual connection to the litecoin network.
 // After instantiating a WalletManager object, call myWalletManager.peerManager.connect() to begin syncing.
 
-class WalletManager: BRWalletListener, BRPeerManagerListener
-{
+class WalletManager: BRWalletListener, BRPeerManagerListener {
 	internal var didInitWallet = false
 	internal let dbPath: String
 	internal var db: OpaquePointer?
@@ -47,23 +43,18 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 
 	static let sharedInstance: WalletManager = {
 		var instance: WalletManager?
-		do
-		{
+		do {
 			instance = try WalletManager(store: Store(), dbPath: nil)
-		}
-		catch
-		{
+		} catch {
 			NSLog("ERROR: Instance of WalletManager not initialized")
 		}
 		return instance!
 	}()
 
-	var wallet: BRWallet?
-	{
+	var wallet: BRWallet? {
 		guard masterPubKey != BRMasterPubKey() else { return nil }
 		guard let wallet = lazyWallet
-		else
-		{
+		else {
 			// stored transactions don't match masterPubKey
 			#if !Debug
 				do { try FileManager.default.removeItem(atPath: dbPath) } catch {}
@@ -75,14 +66,12 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return wallet
 	}
 
-	var apiClient: BRAPIClient?
-	{
+	var apiClient: BRAPIClient? {
 		guard masterPubKey != BRMasterPubKey() else { return nil }
 		return lazyAPIClient
 	}
 
-	var peerManager: BRPeerManager?
-	{
+	var peerManager: BRPeerManager? {
 		guard wallet != nil else { return nil }
 		return lazyPeerManager
 	}
@@ -101,20 +90,17 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return BRAPIClient(authenticator: self)
 	}()
 
-	var wordList: [NSString]?
-	{
+	var wordList: [NSString]? {
 		guard let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist") else { return nil }
 		return NSArray(contentsOfFile: path) as? [NSString]
 	}
 
 	lazy var allWordsLists: [[NSString]] = {
 		var array: [[NSString]] = []
-		Bundle.main.localizations.forEach
-		{ lang in
+		Bundle.main.localizations.forEach { lang in
 			if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang)
 			{
-				if let words = NSArray(contentsOfFile: path) as? [NSString]
-				{
+				if let words = NSArray(contentsOfFile: path) as? [NSString] {
 					array.append(words)
 				}
 			}
@@ -125,12 +111,10 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 	lazy var allWords: Set<String> = {
 		var set: Set<String> = Set()
 
-		Bundle.main.localizations.forEach
-		{ lang in
+		Bundle.main.localizations.forEach { lang in
 			if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang)
 			{
-				if let words = NSArray(contentsOfFile: path) as? [NSString]
-				{
+				if let words = NSArray(contentsOfFile: path) as? [NSString] {
 					set.formUnion(words.map { $0 as String })
 				}
 			}
@@ -138,8 +122,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return set
 	}()
 
-	var rawWordList: [UnsafePointer<CChar>?]?
-	{
+	var rawWordList: [UnsafePointer<CChar>?]? {
 		guard let wordList = wordList, wordList.count == 2048 else { return nil }
 		return wordList.map { $0.utf8String }
 	}
@@ -256,8 +239,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		sqlite3_prepare_v2(db, "select Z_ENT, Z_NAME from Z_PRIMARYKEY", -1, &sql, nil)
 		defer { sqlite3_finalize(sql) }
 
-		while sqlite3_step(sql) == SQLITE_ROW
-		{
+		while sqlite3_step(sql) == SQLITE_ROW {
 			let name = String(cString: sqlite3_column_text(sql, 1))
 			if name == "BRTxMetadataEntity" { txEnt = sqlite3_column_int(sql, 0) }
 			else if name == "BRMerkleBlockEntity" { blockEnt = sqlite3_column_int(sql, 0) }
@@ -267,19 +249,15 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		if sqlite3_errcode(db) != SQLITE_DONE { print(String(cString: sqlite3_errmsg(db))) }
 	}
 
-	func balanceChanged(_ balance: UInt64)
-	{
-		DispatchQueue.main.async
-		{
+	func balanceChanged(_ balance: UInt64) {
+		DispatchQueue.main.async {
 			NotificationCenter.default.post(name: .WalletBalanceChangedNotification, object: nil,
 			                                userInfo: ["balance": balance])
 		}
 	}
 
-	func txAdded(_ tx: BRTxRef)
-	{
-		DispatchQueue.walletQueue.async
-		{
+	func txAdded(_ tx: BRTxRef) {
+		DispatchQueue.walletQueue.async {
 			var buf = [UInt8](repeating: 0, count: BRTransactionSerialize(tx, nil, 0))
 			let timestamp = (tx.pointee.timestamp > UInt32(NSTimeIntervalSince1970)) ? tx.pointee.timestamp - UInt32(NSTimeIntervalSince1970) : 0
 			guard BRTransactionSerialize(tx, &buf, buf.count) == buf.count else { return }
@@ -291,8 +269,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			defer { sqlite3_finalize(sql) }
 
 			guard sqlite3_step(sql) == SQLITE_ROW
-			else
-			{
+			else {
 				print(String(cString: sqlite3_errmsg(self.db)))
 				sqlite3_exec(self.db, "rollback", nil, nil, nil)
 				return
@@ -308,8 +285,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			sqlite3_bind_blob(sql2, 2, [tx.pointee.txHash], Int32(MemoryLayout<UInt256>.size), SQLITE_TRANSIENT)
 
 			guard sqlite3_step(sql2) == SQLITE_DONE
-			else
-			{
+			else {
 				print(String(cString: sqlite3_errmsg(self.db)))
 				return
 			}
@@ -318,8 +294,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 				"where Z_ENT = \(self.txEnt) and Z_MAX = \(pk)", nil, nil, nil)
 
 			guard sqlite3_errcode(self.db) == SQLITE_OK
-			else
-			{
+			else {
 				print(String(cString: sqlite3_errmsg(self.db)))
 				let properties: [String: String] = ["ERROR_MESSAGE": String(cString: sqlite3_errmsg(self.db)), "ERROR_CODE": String(describing: sqlite3_errcode(self.db))]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
@@ -330,10 +305,8 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		}
 	}
 
-	func txUpdated(_ txHashes: [UInt256], blockHeight: UInt32, timestamp: UInt32)
-	{
-		DispatchQueue.walletQueue.async
-		{
+	func txUpdated(_ txHashes: [UInt256], blockHeight: UInt32, timestamp: UInt32) {
+		DispatchQueue.walletQueue.async {
 			guard !txHashes.isEmpty else { return }
 			let timestamp = (timestamp > UInt32(NSTimeIntervalSince1970)) ? timestamp - UInt32(NSTimeIntervalSince1970) : 0
 			var sql: OpaquePointer?, sql2: OpaquePointer?
@@ -341,8 +314,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 				"ZTXHASH in (" + String(repeating: "?, ", count: txHashes.count - 1) + "?)", -1, &sql, nil)
 			defer { sqlite3_finalize(sql) }
 
-			for i in 0 ..< txHashes.count
-			{
+			for i in 0 ..< txHashes.count {
 				sqlite3_bind_blob(sql, Int32(i + 1), UnsafePointer(txHashes) + i, Int32(MemoryLayout<UInt256>.size),
 				                  SQLITE_TRANSIENT)
 			}
@@ -350,16 +322,13 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			sqlite3_prepare_v2(self.db, "update ZBRTXMETADATAENTITY set ZBLOB = ? where ZTXHASH = ?", -1, &sql2, nil)
 			defer { sqlite3_finalize(sql2) }
 
-			while sqlite3_step(sql) == SQLITE_ROW
-			{
+			while sqlite3_step(sql) == SQLITE_ROW {
 				let hash = sqlite3_column_blob(sql, 0)
 				let buf = sqlite3_column_blob(sql, 1).assumingMemoryBound(to: UInt8.self)
 				var blob = [UInt8](UnsafeBufferPointer(start: buf, count: Int(sqlite3_column_bytes(sql, 1))))
 
-				[blockHeight.littleEndian, timestamp.littleEndian].withUnsafeBytes
-				{
-					if blob.count > $0.count
-					{
+				[blockHeight.littleEndian, timestamp.littleEndian].withUnsafeBytes {
+					if blob.count > $0.count {
 						blob.replaceSubrange(blob.count - $0.count ..< blob.count, with: $0)
 						sqlite3_bind_blob(sql2, 1, blob, Int32(blob.count), SQLITE_TRANSIENT)
 						sqlite3_bind_blob(sql2, 2, hash, Int32(MemoryLayout<UInt256>.size), SQLITE_TRANSIENT)
@@ -373,26 +342,21 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		}
 	}
 
-	func txDeleted(_ txHash: UInt256, notifyUser: Bool, recommendRescan: Bool)
-	{
-		DispatchQueue.walletQueue.async
-		{
+	func txDeleted(_ txHash: UInt256, notifyUser: Bool, recommendRescan: Bool) {
+		DispatchQueue.walletQueue.async {
 			var sql: OpaquePointer?
 			sqlite3_prepare_v2(self.db, "delete from ZBRTXMETADATAENTITY where ZTYPE = 1 and ZTXHASH = ?", -1, &sql, nil)
 			defer { sqlite3_finalize(sql) }
 			sqlite3_bind_blob(sql, 1, [txHash], Int32(MemoryLayout<UInt256>.size), SQLITE_TRANSIENT)
 
 			guard sqlite3_step(sql) == SQLITE_DONE
-			else
-			{
+			else {
 				print(String(cString: sqlite3_errmsg(self.db)))
 				return
 			}
 
-			if notifyUser
-			{
-				DispatchQueue.main.async
-				{
+			if notifyUser {
+				DispatchQueue.main.async {
 					NotificationCenter.default.post(name: .WalletTxRejectedNotification, object: nil,
 					                                userInfo: ["txHash": txHash, "recommendRescan": recommendRescan])
 				}
@@ -400,61 +364,47 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		}
 	}
 
-	func syncStarted()
-	{
-		DispatchQueue.main.async
-		{
+	func syncStarted() {
+		DispatchQueue.main.async {
 			NotificationCenter.default.post(name: .WalletSyncStartedNotification, object: nil)
 		}
 	}
 
-	func syncStopped(_ error: BRPeerManagerError?)
-	{
-		switch error
-		{
+	func syncStopped(_ error: BRPeerManagerError?) {
+		switch error {
 		case .some(let .posixError(errorCode, description)):
-			DispatchQueue.main.async
-			{
+			DispatchQueue.main.async {
 				NotificationCenter.default.post(name: .WalletSyncStoppedNotification, object: nil,
 				                                userInfo: ["errorCode": errorCode,
 				                                           "errorDescription": description])
 			}
 		case .none:
-			DispatchQueue.main.async
-			{
+			DispatchQueue.main.async {
 				NotificationCenter.default.post(name: .WalletSyncStoppedNotification, object: nil)
 			}
 		}
 	}
 
-	func txStatusUpdate()
-	{
-		DispatchQueue.main.async
-		{
+	func txStatusUpdate() {
+		DispatchQueue.main.async {
 			NotificationCenter.default.post(name: .WalletTxStatusUpdateNotification, object: nil)
 		}
 	}
 
-	func saveBlocks(_ replace: Bool, _ blocks: [BRBlockRef?])
-	{
-		DispatchQueue.walletQueue.async
-		{
+	func saveBlocks(_ replace: Bool, _ blocks: [BRBlockRef?]) {
+		DispatchQueue.walletQueue.async {
 			var pk: Int32 = 0
 			sqlite3_exec(self.db, "begin exclusive", nil, nil, nil)
 
-			if replace
-			{ // delete existing blocks and replace
+			if replace { // delete existing blocks and replace
 				sqlite3_exec(self.db, "delete from ZBRMERKLEBLOCKENTITY", nil, nil, nil)
-			}
-			else
-			{ // add to existing blocks
+			} else { // add to existing blocks
 				var sql: OpaquePointer?
 				sqlite3_prepare_v2(self.db, "select Z_MAX from Z_PRIMARYKEY where Z_ENT = \(self.blockEnt)", -1, &sql, nil)
 				defer { sqlite3_finalize(sql) }
 
 				guard sqlite3_step(sql) == SQLITE_ROW
-				else
-				{
+				else {
 					print(String(cString: sqlite3_errmsg(self.db)))
 
 					sqlite3_exec(self.db, "rollback", nil, nil, nil)
@@ -470,11 +420,9 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 				"ZMERKLEROOT, ZPREVBLOCK) values (?, \(self.blockEnt), 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", -1, &sql2, nil)
 			defer { sqlite3_finalize(sql2) }
 
-			for b in blocks
-			{
+			for b in blocks {
 				guard let b = b
-				else
-				{
+				else {
 					sqlite3_exec(self.db, "rollback", nil, nil, nil)
 					return
 				}
@@ -498,8 +446,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 				sqlite3_bind_blob(sql2, 12, [b.pointee.prevBlock], Int32(MemoryLayout<UInt256>.size), SQLITE_TRANSIENT)
 
 				guard sqlite3_step(sql2) == SQLITE_DONE
-				else
-				{
+				else {
 					print(String(cString: sqlite3_errmsg(self.db)))
 					return
 				}
@@ -511,8 +458,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			             nil, nil, nil)
 
 			guard sqlite3_errcode(self.db) == SQLITE_OK
-			else
-			{
+			else {
 				print(String(cString: sqlite3_errmsg(self.db)))
 				return
 			}
@@ -521,26 +467,20 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		}
 	}
 
-	func savePeers(_ replace: Bool, _ peers: [BRPeer])
-	{
-		DispatchQueue.walletQueue.async
-		{
+	func savePeers(_ replace: Bool, _ peers: [BRPeer]) {
+		DispatchQueue.walletQueue.async {
 			var pk: Int32 = 0
 			sqlite3_exec(self.db, "begin exclusive", nil, nil, nil)
 
-			if replace
-			{ // delete existing peers and replace
+			if replace { // delete existing peers and replace
 				sqlite3_exec(self.db, "delete from ZBRPEERENTITY", nil, nil, nil)
-			}
-			else
-			{ // add to existing peers
+			} else { // add to existing peers
 				var sql: OpaquePointer?
 				sqlite3_prepare_v2(self.db, "select Z_MAX from Z_PRIMARYKEY where Z_ENT = \(self.peerEnt)", -1, &sql, nil)
 				defer { sqlite3_finalize(sql) }
 
 				guard sqlite3_step(sql) == SQLITE_ROW
-				else
-				{
+				else {
 					print(String(cString: sqlite3_errmsg(self.db)))
 					sqlite3_exec(self.db, "rollback", nil, nil, nil)
 					return
@@ -555,8 +495,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 				"values (?, \(self.peerEnt), 1, ?, 0, ?, ?, ?)", -1, &sql2, nil)
 			defer { sqlite3_finalize(sql2) }
 
-			for p in peers
-			{
+			for p in peers {
 				pk = pk + 1
 				sqlite3_bind_int(sql2, 1, pk)
 				sqlite3_bind_int(sql2, 2, Int32(bitPattern: p.address.u32.3.bigEndian))
@@ -565,8 +504,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 				sqlite3_bind_int64(sql2, 5, Int64(bitPattern: p.timestamp) - Int64(NSTimeIntervalSince1970))
 
 				guard sqlite3_step(sql2) == SQLITE_DONE
-				else
-				{
+				else {
 					print(String(cString: sqlite3_errmsg(self.db)))
 					return
 				}
@@ -578,8 +516,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			             nil, nil, nil)
 
 			guard sqlite3_errcode(self.db) == SQLITE_OK
-			else
-			{
+			else {
 				print(String(cString: sqlite3_errmsg(self.db)))
 				return
 			}
@@ -588,8 +525,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		}
 	}
 
-	func networkIsReachable() -> Bool
-	{
+	func networkIsReachable() -> Bool {
 		var flags: SCNetworkReachabilityFlags = []
 		var zeroAddress = sockaddr()
 		zeroAddress.sa_len = UInt8(MemoryLayout<sockaddr>.size)
@@ -599,16 +535,14 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return flags.contains(.reachable) && !flags.contains(.connectionRequired)
 	}
 
-	private func loadTransactions() -> [BRTxRef?]
-	{
+	private func loadTransactions() -> [BRTxRef?] {
 		DispatchQueue.main.async { self.store.perform(action: LoadTransactions.set(true)) }
 		var transactions = [BRTxRef?]()
 		var sql: OpaquePointer?
 		sqlite3_prepare_v2(db, "select ZBLOB from ZBRTXMETADATAENTITY where ZTYPE = 1", -1, &sql, nil)
 		defer { sqlite3_finalize(sql) }
 
-		while sqlite3_step(sql) == SQLITE_ROW
-		{
+		while sqlite3_step(sql) == SQLITE_ROW {
 			let len = Int(sqlite3_column_bytes(sql, 0))
 			let buf = sqlite3_column_blob(sql, 0).assumingMemoryBound(to: UInt8.self)
 			guard len >= MemoryLayout<UInt32>.size * 2 else { return transactions }
@@ -627,16 +561,14 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return transactions
 	}
 
-	private func loadBlocks() -> [BRBlockRef?]
-	{
+	private func loadBlocks() -> [BRBlockRef?] {
 		var blocks = [BRBlockRef?]()
 		var sql: OpaquePointer?
 		sqlite3_prepare_v2(db, "select ZHEIGHT, ZNONCE, ZTARGET, ZTOTALTRANSACTIONS, ZVERSION, ZTIMESTAMP, " +
 			"ZBLOCKHASH, ZFLAGS, ZHASHES, ZMERKLEROOT, ZPREVBLOCK from ZBRMERKLEBLOCKENTITY", -1, &sql, nil)
 		defer { sqlite3_finalize(sql) }
 
-		while sqlite3_step(sql) == SQLITE_ROW
-		{
+		while sqlite3_step(sql) == SQLITE_ROW {
 			guard let b = BRMerkleBlockNew() else { return blocks }
 			let maxTime: UInt32 = 0xC5B0_3780
 			b.pointee.height = UInt32(bitPattern: sqlite3_column_int(sql, 0))
@@ -644,12 +576,9 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			b.pointee.target = UInt32(bitPattern: sqlite3_column_int(sql, 2))
 			b.pointee.totalTx = UInt32(bitPattern: sqlite3_column_int(sql, 3))
 			b.pointee.version = UInt32(bitPattern: sqlite3_column_int(sql, 4))
-			if UInt32(bitPattern: sqlite3_column_int(sql, 5)) >= maxTime
-			{
+			if UInt32(bitPattern: sqlite3_column_int(sql, 5)) >= maxTime {
 				b.pointee.timestamp = UInt32(NSTimeIntervalSince1970)
-			}
-			else
-			{
+			} else {
 				b.pointee.timestamp = UInt32(bitPattern: sqlite3_column_int(sql, 5)) + UInt32(NSTimeIntervalSince1970)
 			}
 			b.pointee.blockHash = sqlite3_column_blob(sql, 6).assumingMemoryBound(to: UInt256.self).pointee
@@ -668,15 +597,13 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return blocks
 	}
 
-	private func loadPeers() -> [BRPeer]
-	{
+	private func loadPeers() -> [BRPeer] {
 		var peers = [BRPeer]()
 		var sql: OpaquePointer?
 		sqlite3_prepare_v2(db, "select ZADDRESS, ZPORT, ZSERVICES, ZTIMESTAMP from ZBRPEERENTITY", -1, &sql, nil)
 		defer { sqlite3_finalize(sql) }
 
-		while sqlite3_step(sql) == SQLITE_ROW
-		{
+		while sqlite3_step(sql) == SQLITE_ROW {
 			var p = BRPeer()
 			p.address = UInt128(u32: (0, 0, UInt32(0xFFFF).bigEndian,
 			                          UInt32(bitPattern: sqlite3_column_int(sql, 0)).bigEndian))
@@ -684,13 +611,10 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 			p.services = UInt64(bitPattern: sqlite3_column_int64(sql, 2))
 
 			let result = UInt64(bitPattern: sqlite3_column_int64(sql, 3)).addingReportingOverflow(UInt64(NSTimeIntervalSince1970))
-			if result.1
-			{
+			if result.1 {
 				print("skipped overflowed timestamp: \(sqlite3_column_int64(sql, 3))")
 				continue
-			}
-			else
-			{
+			} else {
 				p.timestamp = result.0
 				peers.append(p)
 			}
@@ -700,34 +624,28 @@ class WalletManager: BRWalletListener, BRPeerManagerListener
 		return peers
 	}
 
-	func isPhraseValid(_ phrase: String) -> Bool
-	{
-		for wordList in allWordsLists
-		{
+	func isPhraseValid(_ phrase: String) -> Bool {
+		for wordList in allWordsLists {
 			var words = wordList.map { $0.utf8String }
 			guard let nfkdPhrase = CFStringCreateMutableCopy(secureAllocator, 0, phrase as CFString) else { return false }
 			CFStringNormalize(nfkdPhrase, .KD)
-			if BRBIP39PhraseIsValid(&words, nfkdPhrase as String) != 0
-			{
+			if BRBIP39PhraseIsValid(&words, nfkdPhrase as String) != 0 {
 				return true
 			}
 		}
 		return false
 	}
 
-	func isWordValid(_ word: String) -> Bool
-	{
+	func isWordValid(_ word: String) -> Bool {
 		return allWords.contains(word)
 	}
 
-	var isWatchOnly: Bool
-	{
+	var isWatchOnly: Bool {
 		let mpkData = Data(masterPubKey: masterPubKey)
 		return mpkData.isEmpty
 	}
 
-	deinit
-	{
+	deinit {
 		if db != nil { sqlite3_close(db) }
 	}
 }

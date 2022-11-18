@@ -1,7 +1,6 @@
 import UIKit
 
-class LFModalReceiveQRViewController: UIViewController
-{
+class LFModalReceiveQRViewController: UIViewController {
 	@IBOutlet var modalView: UIView!
 	@IBOutlet var qrImageView: UIImageView!
 	@IBOutlet var addressLabel: UILabel!
@@ -10,16 +9,14 @@ class LFModalReceiveQRViewController: UIViewController
 
 	var dismissQRModalAction: (() -> Void)?
 
-	@IBAction func didCancelAction(_: Any)
-	{
+	@IBAction func didCancelAction(_: Any) {
 		dismissQRModalAction?()
 	}
 
 	override func viewWillAppear(_: Bool)
 	{}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)

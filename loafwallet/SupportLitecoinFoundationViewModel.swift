@@ -2,8 +2,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class SupportLitecoinFoundationViewModel: ObservableObject
-{
+class SupportLitecoinFoundationViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
 	// MARK: - Public Variables

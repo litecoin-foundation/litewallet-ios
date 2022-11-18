@@ -1,8 +1,7 @@
 import LocalAuthentication
 import UIKit
 
-class ConfirmationViewController: UIViewController, ContentBoxPresenter
-{
+class ConfirmationViewController: UIViewController, ContentBoxPresenter {
 	init(amount: Satoshis, fee: Satoshis, feeType: FeeType, state: ReduxState, selectedRate: Rate?, minimumFractionDigits: Int?, address: String, isUsingBiometrics: Bool, isDonation _: Bool = false)
 	{
 		self.amount = amount
@@ -53,23 +52,19 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter
 	private let fee = UILabel(font: .barlowRegular(size: 15.0), color: .darkText)
 	private let total = UILabel(font: .barlowMedium(size: 15.0), color: .darkText)
 
-	override func viewDidLoad()
-	{
-		DispatchQueue.main.async
-		{
+	override func viewDidLoad() {
+		DispatchQueue.main.async {
 			self.addSubviews()
 			self.addConstraints()
 			self.setInitialData()
 		}
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(contentBox)
 
 		guard let header = header
-		else
-		{
+		else {
 			NSLog("ERROR: Header not initialized")
 			return
 		}
@@ -90,11 +85,9 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter
 		contentBox.addSubview(sendButton)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		guard let header = header
-		else
-		{
+		else {
 			NSLog("ERROR: Header not initialized")
 			return
 		}
@@ -165,19 +158,16 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .clear
 		payLabel.text = S.Confirmation.send
 		guard let header = header
-		else
-		{
+		else {
 			NSLog("ERROR: Header not initialized")
 			return
 		}
 
-		switch feeType
-		{
+		switch feeType {
 		case .luxury:
 			processingTime.text = String(format: S.Confirmation.processingTime, "2.5-5")
 		case .regular:
@@ -202,36 +192,30 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter
 		fee.text = displayFee.description.replacingZeroFeeWithOneCent()
 		total.text = displayTotal.description
 
-		cancel.tap = strongify(self)
-		{ myself in
+		cancel.tap = strongify(self) { myself in
 			myself.cancelCallback?()
 		}
-		header.closeCallback = strongify(self)
-		{ myself in
+		header.closeCallback = strongify(self) { myself in
 			myself.cancelCallback?()
 		}
-		sendButton.tap = strongify(self)
-		{ myself in
+		sendButton.tap = strongify(self) { myself in
 			myself.successCallback?()
 		}
 
 		contentBox.layer.cornerRadius = 6.0
 		contentBox.layer.masksToBounds = true
 
-		if !isUsingBiometrics
-		{
+		if !isUsingBiometrics {
 			sendButton.image = nil
 		}
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override var prefersStatusBarHidden: Bool
-	{
+	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 }

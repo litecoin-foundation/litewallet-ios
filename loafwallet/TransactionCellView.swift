@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct TransactionCellView: View
-{
+struct TransactionCellView: View {
 	private let imageLength: CGFloat = 15.0
 
 	// MARK: - Combine Variables
@@ -9,18 +8,14 @@ struct TransactionCellView: View
 	@ObservedObject
 	var viewModel: TransactionCellViewModel
 
-	init(viewModel: TransactionCellViewModel)
-	{
+	init(viewModel: TransactionCellViewModel) {
 		self.viewModel = viewModel
 	}
 
-	var body: some View
-	{
-		VStack(alignment: .leading, spacing: 1.0)
-		{
+	var body: some View {
+		VStack(alignment: .leading, spacing: 1.0) {
 			// Send and Date Labels
-			HStack(alignment: .bottom, spacing: 1.0)
-			{
+			HStack(alignment: .bottom, spacing: 1.0) {
 				Text(viewModel.amountText)
 					.font(Font(UIFont.barlowSemiBold(size: 14.0)))
 					.foregroundColor(.black)
@@ -43,8 +38,7 @@ struct TransactionCellView: View
 			.padding([.leading, .trailing], 10.0)
 
 			// Info and Direction arrow
-			HStack(alignment: .center, spacing: 1.0)
-			{
+			HStack(alignment: .center, spacing: 1.0) {
 				Text(viewModel.addressText)
 					.truncationMode(.middle)
 					.font(Font(UIFont.barlowRegular(size: 14.0)))
@@ -64,8 +58,7 @@ struct TransactionCellView: View
 			.padding([.leading, .trailing], 10.0)
 
 			// Address
-			HStack(alignment: .top, spacing: 1.0)
-			{
+			HStack(alignment: .top, spacing: 1.0) {
 				Text(viewModel.transaction.status)
 					.font(Font(UIFont.barlowSemiBold(size: 13.0)))
 					.foregroundColor(.black)

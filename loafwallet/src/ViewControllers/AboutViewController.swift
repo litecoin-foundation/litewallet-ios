@@ -1,8 +1,7 @@
 import SafariServices
 import UIKit
 
-class AboutViewController: UIViewController
-{
+class AboutViewController: UIViewController {
 	private var titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
 	private let logo = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))
 	private let logoBackground = UIView()
@@ -11,8 +10,7 @@ class AboutViewController: UIViewController
 	private let reddit = AboutCell(text: S.About.reddit)
 	private let privacy = UIButton(type: .system)
 	private let footer = UILabel(font: .customBody(size: 13.0), color: .secondaryGrayText)
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		if #available(iOS 11.0, *),
 		   let labelTextColor = UIColor(named: "labelTextColor"),
 		   let backgroundColor = UIColor(named: "lfBackgroundColor")
@@ -20,9 +18,7 @@ class AboutViewController: UIViewController
 			titleLabel.textColor = labelTextColor
 			privacy.tintColor = labelTextColor
 			view.backgroundColor = backgroundColor
-		}
-		else
-		{
+		} else {
 			privacy.tintColor = .liteWalletBlue
 			view.backgroundColor = .whiteTint
 		}
@@ -33,8 +29,7 @@ class AboutViewController: UIViewController
 		setActions()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(titleLabel)
 		view.addSubview(logoBackground)
 		logoBackground.addSubview(logo)
@@ -45,8 +40,7 @@ class AboutViewController: UIViewController
 		view.addSubview(footer)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		titleLabel.constrain([
 			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
 			titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
@@ -84,8 +78,7 @@ class AboutViewController: UIViewController
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		titleLabel.text = S.Settings.socialLinks
 		privacy.setTitle(S.About.privacy, for: .normal)
 		privacy.titleLabel?.font = UIFont.customBody(size: 13.0)
@@ -95,28 +88,22 @@ class AboutViewController: UIViewController
 		logo.contentMode = .scaleAspectFill
 	}
 
-	private func setActions()
-	{
-		blog.button.tap = strongify(self)
-		{ myself in
+	private func setActions() {
+		blog.button.tap = strongify(self) { myself in
 			myself.presentURL(string: "https://lite-wallet.org")
 		}
-		twitter.button.tap = strongify(self)
-		{ myself in
+		twitter.button.tap = strongify(self) { myself in
 			myself.presentURL(string: "https://twitter.com/Litewallet_App")
 		}
-		reddit.button.tap = strongify(self)
-		{ myself in
+		reddit.button.tap = strongify(self) { myself in
 			myself.presentURL(string: "https://www.reddit.com/r/Litewallet/")
 		}
-		privacy.tap = strongify(self)
-		{ myself in
+		privacy.tap = strongify(self) { myself in
 			myself.presentURL(string: "https://litewallet.io/privacy/policy.html")
 		}
 	}
 
-	private func presentURL(string: String)
-	{
+	private func presentURL(string: String) {
 		let vc = SFSafariViewController(url: URL(string: string)!)
 		present(vc, animated: true, completion: nil)
 	}

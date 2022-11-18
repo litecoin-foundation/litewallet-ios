@@ -1,9 +1,7 @@
 import SwiftUI
 
-struct LitewalletIconView: View
-{
-	var body: some View
-	{
+struct LitewalletIconView: View {
+	var body: some View {
 		RoundedRectangle(cornerRadius: 11)
 			.frame(width: 72.0,
 			       height: 72.0,
@@ -20,10 +18,8 @@ struct LitewalletIconView: View
 	}
 }
 
-struct LitewalletIconView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
+struct LitewalletIconView_Previews: PreviewProvider {
+	static var previews: some View {
 		LitewalletIconView()
 	}
 }

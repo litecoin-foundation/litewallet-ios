@@ -2,8 +2,7 @@ import SafariServices
 import UIKit
 import WebKit
 
-class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler
-{
+class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
 	@IBOutlet var backbutton: UIButton!
 	@IBOutlet var wkWebContainerView: UIView!
 	@IBOutlet var backButton: UIButton!
@@ -24,28 +23,24 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
 
 	var currencyCode: String = "USD"
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupSubViews()
 		loadSimplexRequest()
 	}
 
-	private func setupSubViews()
-	{
+	private func setupSubViews() {
 		currentAddressButton.setTitle(currentWalletAddress, for: .normal)
 		currentAddressButton.setTitle("Copied", for: .selected)
 		copiedLabel.text = ""
 		copiedLabel.alpha = 0.0
 	}
 
-	func loadSimplexRequest()
-	{
+	func loadSimplexRequest() {
 		let urlString: String = APIServer.baseUrl + "?address=\(currentWalletAddress)&code=\(currencyCode)&idate=\(timestamp)&uid=\(uuidString)"
 
 		guard let url = URL(string: urlString)
-		else
-		{
+		else {
 			NSLog("ERROR: URL not initialized")
 			return
 		}
@@ -71,8 +66,7 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
 		setupWkWebView.load(request)
 	}
 
-	@IBAction func didTapCurrentAddressButton(_: Any)
-	{
+	@IBAction func didTapCurrentAddressButton(_: Any) {
 		UIPasteboard.general.string = currentWalletAddress
 		copiedLabel.alpha = 1
 		copiedLabel.text = S.Receive.copied
@@ -81,14 +75,12 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
 		}, completion: nil)
 	}
 
-	@IBAction func backAction(_: Any)
-	{
+	@IBAction func backAction(_: Any) {
 		didDismissChildView?()
 	}
 }
 
-extension BuyWKWebViewController
-{
+extension BuyWKWebViewController {
 	// MARK: - WK Navigation Delegate
 
 	open func webView(_: WKWebView, decidePolicyFor _: WKNavigationAction,
@@ -97,8 +89,7 @@ extension BuyWKWebViewController
 		return decisionHandler(.allow)
 	}
 
-	func webView(_ webView: WKWebView, didFinish _: WKNavigation!)
-	{
+	func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
 		webView.evaluateJavaScript("document.readyState", completionHandler: { complete, _ in
 			if complete != nil {}
 		})

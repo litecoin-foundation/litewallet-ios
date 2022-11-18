@@ -1,8 +1,7 @@
 import LocalAuthentication
 import UIKit
 
-class BiometricsSpendingLimitViewController: UITableViewController, Subscriber
-{
+class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
 	private let cellIdentifier = "CellIdentifier"
 	private let store: Store
 	private let walletManager: WalletManager
@@ -12,17 +11,14 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber
 	private let amount = UILabel(font: .customMedium(size: 26.0), color: .darkText)
 	private let body = UILabel.wrapping(font: .customBody(size: 13.0), color: .darkText)
 
-	init(walletManager: WalletManager, store: Store)
-	{
+	init(walletManager: WalletManager, store: Store) {
 		self.walletManager = walletManager
 		self.store = store
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	override func viewDidLoad()
-	{
-		if limits.contains(walletManager.spendingLimit)
-		{
+	override func viewDidLoad() {
+		if limits.contains(walletManager.spendingLimit) {
 			selectedLimit = walletManager.spendingLimit
 		}
 		tableView.register(SeparatorCell.self, forCellReuseIdentifier: cellIdentifier)
@@ -44,23 +40,19 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber
 		body.text = S.TouchIdSpendingLimit.body
 
 		// If the user has a limit that is not a current option, we display their limit
-		if !limits.contains(walletManager.spendingLimit)
-		{
-			if let rate = store.state.currentRate
-			{
+		if !limits.contains(walletManager.spendingLimit) {
+			if let rate = store.state.currentRate {
 				let spendingLimit = Amount(amount: walletManager.spendingLimit, rate: rate, maxDigits: store.state.maxDigits)
 				setAmount(limitAmount: spendingLimit)
 			}
 		}
 	}
 
-	override func numberOfSections(in _: UITableView) -> Int
-	{
+	override func numberOfSections(in _: UITableView) -> Int {
 		return 1
 	}
 
-	override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int
-	{
+	override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
 		return limits.count
 	}
 
@@ -68,30 +60,23 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber
 	{
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 		let limit = limits[indexPath.row]
-		if limit == 0
-		{
+		if limit == 0 {
 			cell.textLabel?.text = S.TouchIdSpendingLimit.requirePasscode
-		}
-		else
-		{
+		} else {
 			let displayAmount = DisplayAmount(amount: Satoshis(rawValue: limit), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
 			cell.textLabel?.text = displayAmount.combinedDescription
 		}
-		if limits[indexPath.row] == selectedLimit
-		{
+		if limits[indexPath.row] == selectedLimit {
 			let check = UIImageView(image: #imageLiteral(resourceName: "CircleCheck").withRenderingMode(.alwaysTemplate))
 			check.tintColor = C.defaultTintColor
 			cell.accessoryView = check
-		}
-		else
-		{
+		} else {
 			cell.accessoryView = nil
 		}
 		return cell
 	}
 
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-	{
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let newLimit = limits[indexPath.row]
 		selectedLimit = newLimit
 		walletManager.spendingLimit = newLimit
@@ -102,8 +87,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber
 		tableView.reloadData()
 	}
 
-	override func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView?
-	{
+	override func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
 		if let header = self.header { return header }
 		let header = UIView(color: .whiteTint)
 		header.addSubview(amount)
@@ -119,14 +103,12 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber
 		return header
 	}
 
-	private func setAmount(limitAmount: Amount)
-	{
+	private func setAmount(limitAmount: Amount) {
 		amount.text = "\(limitAmount.bits) = \(limitAmount.localCurrency)"
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

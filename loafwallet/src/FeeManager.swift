@@ -7,15 +7,13 @@ private let defaultRegularFeePerKB: UInt64 = 25000
 private let defaultLuxuryFeePerKB: UInt64 = 66746
 private let defaultTimestamp: UInt64 = 1_583_015_199_122
 
-struct Fees: Equatable
-{
+struct Fees: Equatable {
 	let luxury: UInt64
 	let regular: UInt64
 	let economy: UInt64
 	let timestamp: UInt64
 
-	static var usingDefaultValues: Fees
-	{
+	static var usingDefaultValues: Fees {
 		return Fees(luxury: defaultLuxuryFeePerKB,
 		            regular: defaultRegularFeePerKB,
 		            economy: defaultEconomyFeePerKB,
@@ -23,15 +21,13 @@ struct Fees: Equatable
 	}
 }
 
-enum FeeType
-{
+enum FeeType {
 	case regular
 	case economy
 	case luxury
 }
 
-class FeeUpdater: Trackable
-{
+class FeeUpdater: Trackable {
 	// MARK: - Private
 
 	private let walletManager: WalletManager
@@ -44,27 +40,22 @@ class FeeUpdater: Trackable
 
 	// MARK: - Public
 
-	init(walletManager: WalletManager, store: Store)
-	{
+	init(walletManager: WalletManager, store: Store) {
 		self.walletManager = walletManager
 		self.store = store
 	}
 
-	func refresh(completion: @escaping () -> Void)
-	{
-		walletManager.apiClient?.feePerKb
-		{ newFees, error in
+	func refresh(completion: @escaping () -> Void) {
+		walletManager.apiClient?.feePerKb { newFees, error in
 			guard error == nil
-			else
-			{
+			else {
 				let properties: [String: String] = ["ERROR_MESSAGE": String(describing: error), "ERROR_TYPE": "FEE_PER_KB"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 				completion()
 				return
 			}
 
-			if newFees == Fees.usingDefaultValues
-			{
+			if newFees == Fees.usingDefaultValues {
 				LWAnalytics.logEventWithParameters(itemName: ._20200301_DUDFPK)
 				self.saveEvent("wallet.didUseDefaultFeePerKB")
 			}
@@ -73,19 +64,16 @@ class FeeUpdater: Trackable
 			completion()
 		}
 
-		if timer == nil
-		{
+		if timer == nil {
 			timer = Timer.scheduledTimer(timeInterval: feeUpdateInterval, target: self, selector: #selector(intervalRefresh), userInfo: nil, repeats: true)
 		}
 	}
 
-	func refresh()
-	{
+	func refresh() {
 		refresh(completion: {})
 	}
 
-	@objc func intervalRefresh()
-	{
+	@objc func intervalRefresh() {
 		refresh(completion: {})
 	}
 }

@@ -1,14 +1,11 @@
 import Foundation
 import UnstoppableDomainsResolution
 
-struct DomainResolutionFailure
-{
+struct DomainResolutionFailure {
 	init() {}
 
-	func messageWith(error: ResolutionError) -> String
-	{
-		switch error
-		{
+	func messageWith(error: ResolutionError) -> String {
+		switch error {
 		case .unregisteredDomain, .unsupportedDomain,
 		     .recordNotFound, .recordNotSupported,
 		     .unspecifiedResolver:

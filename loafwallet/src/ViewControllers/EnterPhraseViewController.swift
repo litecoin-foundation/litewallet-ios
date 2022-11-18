@@ -1,7 +1,6 @@
 import UIKit
 
-enum PhraseEntryReason
-{
+enum PhraseEntryReason {
 	case setSeed(EnterPhraseCallback)
 	case validateForResettingPin(EnterPhraseCallback)
 	case validateForWipingWallet(() -> Void)
@@ -11,16 +10,14 @@ typealias EnterPhraseCallback = (String) -> Void
 
 class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomTitleView, Trackable
 {
-	init(store: Store, walletManager: WalletManager, reason: PhraseEntryReason)
-	{
+	init(store: Store, walletManager: WalletManager, reason: PhraseEntryReason) {
 		self.store = store
 		self.walletManager = walletManager
 		enterPhrase = EnterPhraseCollectionViewController(walletManager: walletManager)
 		faq = UIButton.buildFaqButton(store: store, articleId: ArticleIds.recoverWallet)
 		self.reason = reason
 
-		switch reason
-		{
+		switch reason {
 		case .setSeed:
 			customTitle = S.RecoverWallet.header
 		case .validateForResettingPin:
@@ -50,20 +47,17 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 	private let moreInfoButton = UIButton(type: .system)
 	let customTitle: String
 
-	deinit
-	{
+	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(scrollView)
 		scrollView.addSubview(container)
 		container.addSubview(titleLabel)
@@ -78,8 +72,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		enterPhrase.didMove(toParentViewController: self)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		scrollView.constrain(toSuperviewEdges: nil)
 		scrollView.constrain([
 			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -129,8 +122,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		])
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		view.backgroundColor = .secondaryButton
 		errorLabel.text = S.RecoverWallet.invalid
 		errorLabel.isHidden = true
@@ -140,8 +132,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		}
 		instruction.text = S.RecoverWallet.instruction
 
-		switch reason
-		{
+		switch reason {
 		case .setSeed:
 			saveEvent("enterPhrase.setSeed")
 			titleLabel.text = S.RecoverWallet.header
@@ -167,19 +158,16 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		addCustomTitle()
 	}
 
-	private func validatePhrase(_ phrase: String)
-	{
+	private func validatePhrase(_ phrase: String) {
 		guard walletManager.isPhraseValid(phrase)
-		else
-		{
+		else {
 			saveEvent("enterPhrase.invalid")
 			errorLabel.isHidden = false
 			return
 		}
 		saveEvent("enterPhrase.valid")
 		errorLabel.isHidden = true
-		switch reason
-		{
+		switch reason {
 		case let .setSeed(callback):
 			guard walletManager.setSeedPhrase(phrase) else { errorLabel.isHidden = false; return }
 			// Since we know that the user had their phrase at this point,
@@ -196,30 +184,25 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		}
 	}
 
-	@objc private func keyboardWillShow(notification: Notification)
-	{
+	@objc private func keyboardWillShow(notification: Notification) {
 		guard let userInfo = notification.userInfo else { return }
 		guard let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
 		var contentInset = scrollView.contentInset
-		if contentInset.bottom == 0.0
-		{
+		if contentInset.bottom == 0.0 {
 			contentInset.bottom = frameValue.cgRectValue.height + 44.0
 		}
 		scrollView.contentInset = contentInset
 	}
 
-	@objc private func keyboardWillHide(notification _: Notification)
-	{
+	@objc private func keyboardWillHide(notification _: Notification) {
 		var contentInset = scrollView.contentInset
-		if contentInset.bottom > 0.0
-		{
+		if contentInset.bottom > 0.0 {
 			contentInset.bottom = 0.0
 		}
 		scrollView.contentInset = contentInset
 	}
 
-	func scrollViewDidScroll(_ scrollView: UIScrollView)
-	{
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		didScrollForCustomTitle(yOffset: scrollView.contentOffset.y)
 	}
 
@@ -229,8 +212,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

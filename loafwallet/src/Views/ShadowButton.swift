@@ -1,7 +1,6 @@
 import UIKit
 
-enum ButtonType
-{
+enum ButtonType {
 	case primary
 	case secondary
 	case tertiary
@@ -16,10 +15,8 @@ enum ButtonType
 
 let minTargetSize: CGFloat = 48.0
 
-class ShadowButton: UIControl
-{
-	init(title: String, type: ButtonType)
-	{
+class ShadowButton: UIControl {
+	init(title: String, type: ButtonType) {
 		self.title = title
 		self.type = type
 		super.init(frame: .zero)
@@ -27,8 +24,7 @@ class ShadowButton: UIControl
 		setupViews()
 	}
 
-	init(title: String, type: ButtonType, image: UIImage)
-	{
+	init(title: String, type: ButtonType, image: UIImage) {
 		self.title = title
 		self.type = type
 		self.image = image
@@ -38,18 +34,14 @@ class ShadowButton: UIControl
 	}
 
 	var isToggleable = false
-	var title: String
-	{
-		didSet
-		{
+	var title: String {
+		didSet {
 			label.text = title
 		}
 	}
 
-	var image: UIImage?
-	{
-		didSet
-		{
+	var image: UIImage? {
+		didSet {
 			imageView?.image = image
 		}
 	}
@@ -62,20 +54,15 @@ class ShadowButton: UIControl
 	private let cornerRadius: CGFloat = 4.0
 	private var imageView: UIImageView?
 
-	override var isHighlighted: Bool
-	{
-		didSet
-		{
-			if isHighlighted
-			{
+	override var isHighlighted: Bool {
+		didSet {
+			if isHighlighted {
 				UIView.animate(withDuration: 0.04, animations: {
 					let shrink = CATransform3DMakeScale(0.97, 0.97, 1.0)
 					let translate = CATransform3DTranslate(shrink, 0, 4.0, 0)
 					self.container.layer.transform = translate
 				})
-			}
-			else
-			{
+			} else {
 				UIView.animate(withDuration: 0.04, animations: {
 					self.container.transform = CGAffineTransform.identity
 				})
@@ -83,29 +70,22 @@ class ShadowButton: UIControl
 		}
 	}
 
-	override var isSelected: Bool
-	{
-		didSet
-		{
+	override var isSelected: Bool {
+		didSet {
 			guard isToggleable else { return }
-			if type == .tertiary || type == .search
-			{
-				if isSelected
-				{
+			if type == .tertiary || type == .search {
+				if isSelected {
 					container.layer.borderColor = UIColor.primaryButton.cgColor
 					imageView?.tintColor = .primaryButton
 					label.textColor = .primaryButton
-				}
-				else
-				{
+				} else {
 					setColors()
 				}
 			}
 		}
 	}
 
-	private func setupViews()
-	{
+	private func setupViews() {
 		addShadowView()
 		addContent()
 		setColors()
@@ -116,8 +96,7 @@ class ShadowButton: UIControl
 		label.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
 	}
 
-	private func addShadowView()
-	{
+	private func addShadowView() {
 		addSubview(shadowView)
 		shadowView.constrain([
 			NSLayoutConstraint(item: shadowView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0.5, constant: 0.0),
@@ -131,8 +110,7 @@ class ShadowButton: UIControl
 		shadowView.isUserInteractionEnabled = false
 	}
 
-	private func addContent()
-	{
+	private func addContent() {
 		addSubview(container)
 		container.backgroundColor = .primaryButton
 		container.layer.cornerRadius = cornerRadius
@@ -146,20 +124,15 @@ class ShadowButton: UIControl
 		configureContentType()
 	}
 
-	private func configureContentType()
-	{
-		if let icon = image
-		{
+	private func configureContentType() {
+		if let icon = image {
 			setupImageOption(icon: icon)
-		}
-		else
-		{
+		} else {
 			setupLabelOnly()
 		}
 	}
 
-	private func setupImageOption(icon: UIImage)
-	{
+	private func setupImageOption(icon: UIImage) {
 		let content = UIView()
 		let iconImageView = UIImageView(image: icon.withRenderingMode(.alwaysTemplate))
 		iconImageView.contentMode = .scaleAspectFit
@@ -175,16 +148,13 @@ class ShadowButton: UIControl
 		imageView = iconImageView
 	}
 
-	private func setupLabelOnly()
-	{
+	private func setupLabelOnly() {
 		container.addSubview(label)
 		label.constrain(toSuperviewEdges: UIEdgeInsets(top: C.padding[1], left: C.padding[1], bottom: -C.padding[1], right: -C.padding[1]))
 	}
 
-	private func setColors()
-	{
-		switch type
-		{
+	private func setColors() {
+		switch type {
 		case .flatLitecoinBlue:
 			container.backgroundColor = .liteWalletBlue
 			label.textColor = .primaryText
@@ -265,8 +235,7 @@ class ShadowButton: UIControl
 		}
 	}
 
-	override open func hitTest(_ point: CGPoint, with _: UIEvent?) -> UIView?
-	{
+	override open func hitTest(_ point: CGPoint, with _: UIEvent?) -> UIView? {
 		guard !isHidden || isUserInteractionEnabled else { return nil }
 		let deltaX = max(minTargetSize - bounds.width, 0)
 		let deltaY = max(minTargetSize - bounds.height, 0)
@@ -274,14 +243,12 @@ class ShadowButton: UIControl
 		return hitFrame.contains(point) ? self : nil
 	}
 
-	@objc private func touchUpInside()
-	{
+	@objc private func touchUpInside() {
 		isSelected = !isSelected
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

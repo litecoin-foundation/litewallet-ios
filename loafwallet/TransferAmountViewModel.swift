@@ -3,8 +3,7 @@ import Foundation
 import KeychainAccess
 import UIKit
 
-class TransferAmountViewModel: ObservableObject
-{
+class TransferAmountViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
 	@Published
@@ -33,8 +32,7 @@ class TransferAmountViewModel: ObservableObject
 	var transferAmount: Double = 0.0
 
 	/// This is the LTC address the wallet is sending LTC TO
-	var destinationAddress: String
-	{
+	var destinationAddress: String {
 		return walletType == .litewallet ? cardAddress : litewalletAddress
 	}
 
@@ -86,8 +84,7 @@ class TransferAmountViewModel: ObservableObject
 		// Fetches the latest token and UserID
 		guard let token = keychain["token"],
 		      let userID = keychain["userID"]
-		else
-		{
+		else {
 			LWAnalytics.logEventWithParameters(itemName: ._20210804_ERR_KLF)
 			return
 		}
@@ -98,11 +95,10 @@ class TransferAmountViewModel: ObservableObject
 			                  token: token,
 			                  withdrawal:
 			                  ["amount": amount,
-			                   "wallet_address": address])
-		{ _ in
-			// DEV: Mothballed
-			// Need information from Ternio to move forward
-		}
+			                   "wallet_address": address]) { _ in
+				// DEV: Mothballed
+				// Need information from Ternio to move forward
+			}
 	}
 
 	/// Transfer Litecoin from **Litewallet to Litecoin Card**
@@ -126,8 +122,7 @@ class TransferAmountViewModel: ObservableObject
 		sender = Sender(walletManager: walletManager, kvStore: kvStore, store: store)
 
 		sender?.sendToCard(amount: litoshis,
-		                   toAddress: address)
-		{ didSend in
+		                   toAddress: address) { didSend in
 			completion(didSend)
 		}
 	}

@@ -1,8 +1,7 @@
 import Foundation
 import UIKit
 
-class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate
-{
+class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
 	let kInitialChildViewControllerIndex = 0 // TransactionsViewController
 	@IBOutlet var headerView: UIView!
 	@IBOutlet var containerView: UIView!
@@ -28,34 +27,28 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 	var updateTimer: Timer?
 	var store: Store?
 	var walletManager: WalletManager?
-	var exchangeRate: Rate?
-	{
+	var exchangeRate: Rate? {
 		didSet { setBalances() }
 	}
 
-	private var balance: UInt64 = 0
-	{
+	private var balance: UInt64 = 0 {
 		didSet { setBalances() }
 	}
 
-	var isLtcSwapped: Bool?
-	{
+	var isLtcSwapped: Bool? {
 		didSet { setBalances() }
 	}
 
-	@IBAction func showSettingsAction(_: Any)
-	{
+	@IBAction func showSettingsAction(_: Any) {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR: Store not set")
 			return
 		}
 		store.perform(action: RootModalActions.Present(modal: .menu))
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupModels()
 		setupViews()
@@ -63,53 +56,44 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		addSubscriptions()
 		dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a")
 
-		for (index, storyboardID) in storyboardIDs.enumerated()
-		{
+		for (index, storyboardID) in storyboardIDs.enumerated() {
 			let controller = UIStoryboard(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
 			viewControllers.append(controller)
 		}
 
-		updateTimer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: true)
-		{ _ in
+		updateTimer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: true) { _ in
 			self.setBalances()
 		}
 
 		guard let array = tabBar.items
-		else
-		{
+		else {
 			NSLog("ERROR: no items found")
 			return
 		}
 		tabBar.selectedItem = array[kInitialChildViewControllerIndex]
 	}
 
-	deinit
-	{
+	deinit {
 		self.updateTimer = nil
 	}
 
-	private func setupModels()
-	{
+	private func setupModels() {
 		guard let store = store else { return }
 
 		isLtcSwapped = store.state.isLtcSwapped
 
-		if let rate = store.state.currentRate
-		{
+		if let rate = store.state.currentRate {
 			exchangeRate = rate
 			let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: store.state.maxDigits)
 			secondaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.localFormat)
 			primaryBalanceLabel = UpdatingLabel(formatter: placeholderAmount.ltcFormat)
-		}
-		else
-		{
+		} else {
 			secondaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
 			primaryBalanceLabel = UpdatingLabel(formatter: NumberFormatter())
 		}
 	}
 
-	private func setupViews()
-	{
+	private func setupViews() {
 		walletBalanceLabel.text = S.ManageWallet.balance + ":"
 
 		if #available(iOS 11.0, *),
@@ -119,9 +103,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 			tabBar.barTintColor = backgroundColor
 			containerView.backgroundColor = backgroundColor
 			self.view.backgroundColor = backgroundColor
-		}
-		else
-		{
+		} else {
 			headerView.backgroundColor = .liteWalletBlue
 			tabBar.barTintColor = .liteWalletBlue
 			containerView.backgroundColor = .liteWalletBlue
@@ -129,21 +111,18 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		}
 	}
 
-	private func configurePriceLabels()
-	{
+	private func configurePriceLabels() {
 		// TODO: Debug the reizing of label...very important
 		guard let primaryLabel = primaryBalanceLabel,
 		      let secondaryLabel = secondaryBalanceLabel
-		else
-		{
+		else {
 			NSLog("ERROR: Price labels not initialized")
 			return
 		}
 
 		let priceLabelArray = [primaryBalanceLabel, secondaryBalanceLabel, equalsLabel]
 
-		priceLabelArray.enumerated().forEach
-		{ _, view in
+		priceLabelArray.enumerated().forEach { _, view in
 			view?.backgroundColor = .clear
 			view?.textColor = .white
 		}
@@ -179,8 +158,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 			primaryLabel.leadingAnchor.constraint(equalTo: equalsLabel.trailingAnchor, constant: C.padding[1] / 2.0),
 		]
 
-		if let isLTCSwapped = isLtcSwapped
-		{
+		if let isLTCSwapped = isLtcSwapped {
 			NSLayoutConstraint.activate(isLTCSwapped ? swappedConstraints : regularConstraints)
 		}
 
@@ -197,19 +175,16 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 
 	// MARK: - Adding Subscriptions
 
-	private func addSubscriptions()
-	{
+	private func addSubscriptions() {
 		guard let store = store
-		else
-		{
+		else {
 			NSLog("ERROR - Store not passed")
 			return
 		}
 
 		guard let primaryLabel = primaryBalanceLabel,
 		      let secondaryLabel = secondaryBalanceLabel
-		else
-		{
+		else {
 			NSLog("ERROR: Price labels not initialized")
 			return
 		}
@@ -225,8 +200,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		store.lazySubscribe(self,
 		                    selector: { $0.currentRate != $1.currentRate },
 		                    callback: {
-		                    	if let rate = $0.currentRate
-		                    	{
+		                    	if let rate = $0.currentRate {
 		                    		let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: $0.maxDigits)
 		                    		secondaryLabel.formatter = placeholderAmount.localFormat
 		                    		primaryLabel.formatter = placeholderAmount.ltcFormat
@@ -237,8 +211,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		store.lazySubscribe(self,
 		                    selector: { $0.maxDigits != $1.maxDigits },
 		                    callback: {
-		                    	if let rate = $0.currentRate
-		                    	{
+		                    	if let rate = $0.currentRate {
 		                    		let placeholderAmount = Amount(amount: 0, rate: rate, maxDigits: $0.maxDigits)
 		                    		secondaryLabel.formatter = placeholderAmount.localFormat
 		                    		primaryLabel.formatter = placeholderAmount.ltcFormat
@@ -249,8 +222,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		store.subscribe(self,
 		                selector: { $0.walletState.balance != $1.walletState.balance },
 		                callback: { state in
-		                	if let balance = state.walletState.balance
-		                	{
+		                	if let balance = state.walletState.balance {
 		                		self.balance = balance
 		                		self.setBalances()
 		                	}
@@ -258,50 +230,39 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 	}
 
 	/// This is called when the price changes
-	private func setBalances()
-	{
+	private func setBalances() {
 		guard let rate = exchangeRate, let store = store, let isLTCSwapped = isLtcSwapped
-		else
-		{
+		else {
 			NSLog("ERROR: Rate, Store not initialized")
 			return
 		}
 		guard let primaryLabel = primaryBalanceLabel,
 		      let secondaryLabel = secondaryBalanceLabel
-		else
-		{
+		else {
 			NSLog("ERROR: Price labels not initialized")
 			return
 		}
 
 		let amount = Amount(amount: balance, rate: rate, maxDigits: store.state.maxDigits)
 
-		if !hasInitialized
-		{
+		if !hasInitialized {
 			let amount = Amount(amount: balance, rate: exchangeRate!, maxDigits: store.state.maxDigits)
 			NSLayoutConstraint.deactivate(isLTCSwapped ? regularConstraints : swappedConstraints)
 			NSLayoutConstraint.activate(isLTCSwapped ? swappedConstraints : regularConstraints)
 			primaryLabel.setValue(amount.amountForLtcFormat)
 			secondaryLabel.setValue(amount.localAmount)
-			if isLTCSwapped
-			{
+			if isLTCSwapped {
 				primaryLabel.transform = transform(forView: primaryLabel)
-			}
-			else
-			{
+			} else {
 				secondaryLabel.transform = transform(forView: secondaryLabel)
 			}
 			hasInitialized = true
-		}
-		else
-		{
-			if primaryLabel.isHidden
-			{
+		} else {
+			if primaryLabel.isHidden {
 				primaryLabel.isHidden = false
 			}
 
-			if secondaryLabel.isHidden
-			{
+			if secondaryLabel.isHidden {
 				secondaryLabel.isHidden = false
 			}
 		}
@@ -309,13 +270,10 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		primaryLabel.setValue(amount.amountForLtcFormat)
 		secondaryLabel.setValue(amount.localAmount)
 
-		if !isLTCSwapped
-		{
+		if !isLTCSwapped {
 			primaryLabel.transform = .identity
 			secondaryLabel.transform = transform(forView: secondaryLabel)
-		}
-		else
-		{
+		} else {
 			secondaryLabel.transform = .identity
 			primaryLabel.transform = transform(forView: primaryLabel)
 		}
@@ -324,8 +282,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 	/// Transform LTC and Fiat  Balances
 	/// - Parameter forView: Views
 	/// - Returns: the inverse transform
-	private func transform(forView: UIView) -> CGAffineTransform
-	{
+	private func transform(forView: UIView) -> CGAffineTransform {
 		forView.transform = .identity
 		let scaleFactor: CGFloat = smallFontSize / largeFontSize
 		let deltaX = forView.frame.width * (1 - scaleFactor)
@@ -334,21 +291,17 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		return scale.translatedBy(x: -deltaX, y: deltaY / 2.0)
 	}
 
-	override func viewWillAppear(_ animated: Bool)
-	{
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		guard let array = tabBar.items
-		else
-		{
+		else {
 			NSLog("ERROR: no items found")
 			return
 		}
 
-		array.forEach
-		{ item in
-			switch item.tag
-			{
+		array.forEach { item in
+			switch item.tag {
 			case 0: item.title = S.History.barItemTitle
 			case 1: item.title = S.Send.barItemTitle
 			case 2: item.title = S.Receive.barItemTitle
@@ -360,23 +313,19 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		}
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		displayContentController(contentController: viewControllers[kInitialChildViewControllerIndex])
 	}
 
-	func displayContentController(contentController: UIViewController)
-	{
+	func displayContentController(contentController: UIViewController) {
 		// MARK: - Tab View Controllers Configuration
 
-		switch NSStringFromClass(contentController.classForCoder)
-		{
+		switch NSStringFromClass(contentController.classForCoder) {
 		case "loafwallet.TransactionsViewController":
 
 			guard let transactionVC = contentController as? TransactionsViewController
-			else
-			{
+			else {
 				return
 			}
 
@@ -386,8 +335,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 
 		case "loafwallet.BuyTableViewController":
 			guard let buyVC = contentController as? BuyTableViewController
-			else
-			{
+			else {
 				return
 			}
 			buyVC.store = store
@@ -395,8 +343,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 
 		case "loafwallet.SendLTCViewController":
 			guard let sendVC = contentController as? SendLTCViewController
-			else
-			{
+			else {
 				return
 			}
 
@@ -404,8 +351,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 
 		case "loafwallet.ReceiveLTCViewController":
 			guard let receiveVC = contentController as? ReceiveLTCViewController
-			else
-			{
+			else {
 				return
 			}
 			receiveVC.store = store
@@ -422,17 +368,14 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		activeController = contentController
 	}
 
-	func hideContentController(contentController: UIViewController)
-	{
+	func hideContentController(contentController: UIViewController) {
 		contentController.willMove(toParentViewController: nil)
 		contentController.view.removeFromSuperview()
 		contentController.removeFromParentViewController()
 	}
 
-	func tabBar(_: UITabBar, didSelect item: UITabBarItem)
-	{
-		if let tempActiveController = activeController
-		{
+	func tabBar(_: UITabBar, didSelect item: UITabBarItem) {
+		if let tempActiveController = activeController {
 			hideContentController(contentController: tempActiveController)
 		}
 
@@ -441,17 +384,14 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 	}
 }
 
-extension NonUSTabBarViewController
-{
-	@objc private func currencySwitchTapped()
-	{
+extension NonUSTabBarViewController {
+	@objc private func currencySwitchTapped() {
 		view.layoutIfNeeded()
 		guard let store = store else { return }
 		guard let isLTCSwapped = isLtcSwapped else { return }
 		guard let primaryLabel = primaryBalanceLabel,
 		      let secondaryLabel = secondaryBalanceLabel
-		else
-		{
+		else {
 			NSLog("ERROR: Price labels not initialized")
 			return
 		}

@@ -1,29 +1,23 @@
 import UIKit
 
-class DescriptionSendCell: SendCell
-{
-	init(placeholder: String)
-	{
+class DescriptionSendCell: SendCell {
+	init(placeholder: String) {
 		super.init()
 		textView.delegate = self
 		textView.font = .customBody(size: 20.0)
 		textView.returnKeyType = .done
 		self.placeholder.text = placeholder
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			guard let headerTextColor = UIColor(named: "headerTextColor"),
 			      let textColor = UIColor(named: "labelTextColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Custom color")
 				return
 			}
 			textView.textColor = textColor
 			self.placeholder.textColor = headerTextColor
-		}
-		else
-		{
+		} else {
 			textView.textColor = .darkText
 		}
 
@@ -33,10 +27,8 @@ class DescriptionSendCell: SendCell
 	var didBeginEditing: (() -> Void)?
 	var didReturn: ((UITextView) -> Void)?
 	var didChange: ((String) -> Void)?
-	var content: String?
-	{
-		didSet
-		{
+	var content: String? {
+		didSet {
 			textView.text = content
 			textViewDidChange(textView)
 		}
@@ -44,8 +36,7 @@ class DescriptionSendCell: SendCell
 
 	var textView = UITextView()
 	fileprivate var placeholder = UILabel(font: .customBody(size: 16.0), color: .grayTextTint)
-	private func setupViews()
-	{
+	private func setupViews() {
 		textView.isScrollEnabled = false
 
 		textView.clipsToBounds = true
@@ -66,62 +57,50 @@ class DescriptionSendCell: SendCell
 		])
 	}
 
-	func clearPlaceholder()
-	{
+	func clearPlaceholder() {
 		placeholder.text = ""
 		placeholder.isHidden = true
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension DescriptionSendCell: UITextViewDelegate
-{
-	func textViewDidBeginEditing(_: UITextView)
-	{
+extension DescriptionSendCell: UITextViewDelegate {
+	func textViewDidBeginEditing(_: UITextView) {
 		didBeginEditing?()
 	}
 
-	func textViewDidChange(_ textView: UITextView)
-	{
+	func textViewDidChange(_ textView: UITextView) {
 		placeholder.isHidden = textView.text.utf8.count > 0
-		if let text = textView.text
-		{
+		if let text = textView.text {
 			didChange?(text)
 		}
 	}
 
-	func textViewShouldEndEditing(_: UITextView) -> Bool
-	{
+	func textViewShouldEndEditing(_: UITextView) -> Bool {
 		return true
 	}
 
 	func textView(_ textView: UITextView, shouldChangeTextIn _: NSRange, replacementText text: String) -> Bool
 	{
 		guard text.rangeOfCharacter(from: CharacterSet.newlines) == nil
-		else
-		{
+		else {
 			textView.resignFirstResponder()
 			return false
 		}
 
 		let count = (textView.text ?? "").utf8.count + text.utf8.count
-		if count > C.maxMemoLength
-		{
+		if count > C.maxMemoLength {
 			return false
-		}
-		else
-		{
+		} else {
 			return true
 		}
 	}
 
-	func textViewDidEndEditing(_ textView: UITextView)
-	{
+	func textViewDidEndEditing(_ textView: UITextView) {
 		didReturn?(textView)
 	}
 }

@@ -2,8 +2,7 @@ import UIKit
 
 private let duration: TimeInterval = 0.4
 
-class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate
-{
+class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
 	var shouldShowMaskView = true
 
 	func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning?
@@ -17,22 +16,18 @@ class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate
 	}
 }
 
-class PresentGenericAnimator: NSObject, UIViewControllerAnimatedTransitioning
-{
-	init(shouldShowMaskView: Bool)
-	{
+class PresentGenericAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+	init(shouldShowMaskView: Bool) {
 		self.shouldShowMaskView = shouldShowMaskView
 	}
 
 	private let shouldShowMaskView: Bool
 
-	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval
-	{
+	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return duration
 	}
 
-	func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
-	{
+	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 		let duration = transitionDuration(using: transitionContext)
 		let container = transitionContext.containerView
 		guard let toView = transitionContext.view(forKey: .to) else { return }
@@ -46,8 +41,7 @@ class PresentGenericAnimator: NSObject, UIViewControllerAnimatedTransitioning
 		let fromFrame = container.frame
 		let maskView = UIView(frame: CGRect(x: 0, y: fromFrame.height, width: fromFrame.width, height: 40.0))
 		maskView.backgroundColor = .whiteTint
-		if shouldShowMaskView
-		{
+		if shouldShowMaskView {
 			container.addSubview(maskView)
 		}
 
@@ -73,15 +67,12 @@ class PresentGenericAnimator: NSObject, UIViewControllerAnimatedTransitioning
 	}
 }
 
-class DismissGenericAnimator: NSObject, UIViewControllerAnimatedTransitioning
-{
-	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval
-	{
+class DismissGenericAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+	func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return duration
 	}
 
-	func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
-	{
+	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 		let duration = transitionDuration(using: transitionContext)
 		guard let fromView = transitionContext.view(forKey: .from) else { assertionFailure("Missing from view"); return }
 		guard let fromVc = transitionContext.viewController(forKey: .from) as? ContentBoxPresenter else { return }

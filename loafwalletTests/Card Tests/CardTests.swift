@@ -10,12 +10,10 @@ import Firebase
 @testable import loafwallet
 import XCTest
 
-class CardTests: XCTestCase
-{
+class CardTests: XCTestCase {
 	var sharedAppDelegate = AppDelegate()
 
-	func testCheckUserIsExUSA() throws
-	{
+	func testCheckUserIsExUSA() throws {
 		let 🇲🇽 = Locale(identifier: "mx_MX")
 		let 🇮🇩 = Locale(identifier: "id_ID")
 		let 🇷🇺 = Locale(identifier: "ru_RU")
@@ -28,15 +26,13 @@ class CardTests: XCTestCase
 
 		let arrayOfLocales = [🇲🇽, 🇮🇩, 🇷🇺, 🇧🇷, 🇹🇷, 🇨🇳, 🇯🇵, 🇪🇸, 🇩🇪]
 
-		arrayOfLocales.forEach
-		{ locale in
+		arrayOfLocales.forEach { locale in
 			sharedAppDelegate.updateCurrentUserLocale(localeId: locale.identifier)
 			XCTAssertFalse(UserDefaults.userIsInUSA)
 		}
 	}
 
-	func testCheckUserIsBilingualInUSA() throws
-	{
+	func testCheckUserIsBilingualInUSA() throws {
 		let 🇺🇸 = Locale(identifier: "en_US")
 		let 🇲🇽🇺🇸 = Locale(identifier: "mx_US")
 		let 🇮🇩🇺🇸 = Locale(identifier: "id_US")
@@ -50,8 +46,7 @@ class CardTests: XCTestCase
 
 		let arrayOfLocales = [🇺🇸, 🇲🇽🇺🇸, 🇮🇩🇺🇸, 🇷🇺🇺🇸, 🇧🇷🇺🇸, 🇹🇷🇺🇸, 🇨🇳🇺🇸, 🇯🇵🇺🇸, 🇪🇸🇺🇸, 🇩🇪🇺🇸]
 
-		arrayOfLocales.forEach
-		{ locale in
+		arrayOfLocales.forEach { locale in
 			sharedAppDelegate.updateCurrentUserLocale(localeId: locale.identifier)
 			XCTAssertTrue(UserDefaults.userIsInUSA)
 		}

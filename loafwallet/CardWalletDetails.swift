@@ -1,7 +1,6 @@
 import Foundation
 
-struct CardWalletDetails: Decodable
-{
+struct CardWalletDetails: Decodable {
 	var balance: Double?
 	var ltcAddress: String?
 	var createdAt: String?
@@ -10,8 +9,7 @@ struct CardWalletDetails: Decodable
 	var withdrawableBalance: Double?
 	var spendableBalance: Double?
 
-	enum CodingKeys: String, CodingKey
-	{
+	enum CodingKeys: String, CodingKey {
 		case balance
 		case ltcAddress = "ltc_address"
 		case createdAt = "created_at"
@@ -21,8 +19,7 @@ struct CardWalletDetails: Decodable
 		case spendableBalance = "spendable_balance"
 	}
 
-	init(from decoder: Decoder) throws
-	{
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
 		balance = try? container.decode(Double.self, forKey: .balance)

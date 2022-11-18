@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct LoginCardAlertView<Presenting>: View where Presenting: View
-{
+struct LoginCardAlertView<Presenting>: View where Presenting: View {
 	@Binding
 	var isShowingLoginAlert: Bool
 
@@ -13,18 +12,13 @@ struct LoginCardAlertView<Presenting>: View where Presenting: View
 
 	let presenting: Presenting
 
-	var body: some View
-	{
-		GeometryReader
-		{ (deviceSize: GeometryProxy) in
-			HStack
-			{ Spacer()
-				ZStack
-				{
+	var body: some View {
+		GeometryReader { (deviceSize: GeometryProxy) in
+			HStack { Spacer()
+				ZStack {
 					self.presenting.disabled(isShowingLoginAlert)
 
-					VStack
-					{
+					VStack {
 						Text(self.mainMessage)
 							.padding()
 							.font(Font(UIFont.customMedium(size: 16.0)))
@@ -33,15 +27,12 @@ struct LoginCardAlertView<Presenting>: View where Presenting: View
 						                  style: .medium)
 							.padding(.bottom, 15)
 						Divider()
-						HStack
-						{
+						HStack {
 							Button(action: {
-								withAnimation
-								{
+								withAnimation {
 									self.isShowingLoginAlert.toggle()
 								}
-							})
-							{
+							}) {
 								Text(S.Prompts.dismiss.localizedCapitalized)
 									.font(Font(UIFont.barlowLight(size: 14.0)))
 									.foregroundColor(.gray)
@@ -68,12 +59,9 @@ struct LoginCardAlertView<Presenting>: View where Presenting: View
 	}
 }
 
-struct LoginCardAlertView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
-		VStack
-		{
+struct LoginCardAlertView_Previews: PreviewProvider {
+	static var previews: some View {
+		VStack {
 			Spacer()
 			Text("").padding(.all, 10)
 				.loginAlertView(isShowingLoginAlert: .constant(true),

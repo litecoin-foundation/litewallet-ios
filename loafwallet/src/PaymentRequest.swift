@@ -1,36 +1,29 @@
 import BRCore
 import Foundation
 
-enum PaymentRequestType
-{
+enum PaymentRequestType {
 	case local
 	case remote
 }
 
-struct PaymentRequest
-{
-	init?(string: String)
-	{
+struct PaymentRequest {
+	init?(string: String) {
 		if var url = NSURL(string: string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).replacingOccurrences(of: " ", with: "%20"))
 		{
-			if let scheme = url.scheme, let resourceSpecifier = url.resourceSpecifier, url.host == nil
-			{
+			if let scheme = url.scheme, let resourceSpecifier = url.resourceSpecifier, url.host == nil {
 				url = NSURL(string: "\(scheme)://\(resourceSpecifier)")!
 
-				if url.scheme == "litecoin", let host = url.host
-				{
+				if url.scheme == "litecoin", let host = url.host {
 					toAddress = host
 					guard let components = url.query?.components(separatedBy: "&") else { type = .local; return }
-					for component in components
-					{
+					for component in components {
 						let pair = component.components(separatedBy: "=")
 						if pair.count < 2 { continue }
 						let key = pair[0]
 						var value = String(component[component.index(key.endIndex, offsetBy: 1)...])
 						value = (value.replacingOccurrences(of: "+", with: " ") as NSString).removingPercentEncoding!
 
-						switch key
-						{
+						switch key {
 						case "amount":
 							amount = Satoshis(btcString: value)
 						case "label":
@@ -46,17 +39,14 @@ struct PaymentRequest
 					type = r == nil ? .local : .remote
 					return
 				}
-			}
-			else if url.scheme == "http" || url.scheme == "https"
-			{
+			} else if url.scheme == "http" || url.scheme == "https" {
 				type = .remote
 				remoteRequest = url
 				return
 			}
 		}
 
-		if string.isValidAddress
-		{
+		if string.isValidAddress {
 			toAddress = string
 			type = .local
 			return
@@ -65,62 +55,48 @@ struct PaymentRequest
 		return nil
 	}
 
-	init?(data: Data)
-	{
+	init?(data: Data) {
 		paymentProtocolRequest = PaymentProtocolRequest(data: data)
 		type = .local
 	}
 
-	func fetchRemoteRequest(completion: @escaping (PaymentRequest?) -> Void)
-	{
+	func fetchRemoteRequest(completion: @escaping (PaymentRequest?) -> Void) {
 		let request: NSMutableURLRequest
-		if let url = r
-		{
+		if let url = r {
 			request = NSMutableURLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5.0)
-		}
-		else
-		{
+		} else {
 			request = NSMutableURLRequest(url: remoteRequest! as URL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5.0) // TODO: - fix !
 		}
 
 		request.setValue("application/litecoin-paymentrequest", forHTTPHeaderField: "Accept")
 
-		URLSession.shared.dataTask(with: request as URLRequest)
-		{ data, response, error in
+		URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
 			guard error == nil else { return completion(nil) }
 			guard let data = data else { return completion(nil) }
 			guard let response = response else { return completion(nil) }
 
-			if response.mimeType?.lowercased() == "application/litecoin-paymentrequest"
-			{
+			if response.mimeType?.lowercased() == "application/litecoin-paymentrequest" {
 				completion(PaymentRequest(data: data))
-			}
-			else if response.mimeType?.lowercased() == "text/uri-list"
-			{
+			} else if response.mimeType?.lowercased() == "text/uri-list" {
 				guard let dataStringArray = String(data: data, encoding: .utf8)?.components(separatedBy: "\n")
-				else
-				{
+				else {
 					NSLog("ERROR: Data string must not be empty")
 					return
 				}
 
-				for line in dataStringArray
-				{
+				for line in dataStringArray {
 					if line.hasPrefix("#") { continue }
 					completion(PaymentRequest(string: line))
 					break
 				}
 				completion(nil)
-			}
-			else
-			{
+			} else {
 				completion(nil)
 			}
 		}.resume()
 	}
 
-	static func requestString(withAddress: String, forAmount: UInt64) -> String
-	{
+	static func requestString(withAddress: String, forAmount: UInt64) -> String {
 		let btcAmount = convertToBTC(fromSatoshis: forAmount)
 		return "litecoin:\(withAddress)?amount=\(btcAmount)"
 	}
@@ -135,8 +111,7 @@ struct PaymentRequest
 	var r: URL?
 }
 
-private func convertToBTC(fromSatoshis: UInt64) -> String
-{
+private func convertToBTC(fromSatoshis: UInt64) -> String {
 	var decimal = Decimal(fromSatoshis)
 	var amount: Decimal = 0.0
 	NSDecimalMultiplyByPowerOf10(&amount, &decimal, -8, .up)

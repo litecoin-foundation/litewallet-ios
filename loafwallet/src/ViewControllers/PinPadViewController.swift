@@ -1,13 +1,11 @@
 import UIKit
 
-enum PinPadColorStyle
-{
+enum PinPadColorStyle {
 	case white
 	case clear
 }
 
-enum KeyboardType
-{
+enum KeyboardType {
 	case decimalPad
 	case pinPad
 }
@@ -16,17 +14,14 @@ let deleteKeyIdentifier = "del"
 let kDecimalPadItemHeight: CGFloat = 48.0
 let kPinPadItemHeight: CGFloat = 54.0
 
-class PinPadViewController: UICollectionViewController
-{
+class PinPadViewController: UICollectionViewController {
 	let currencyDecimalSeparator = NumberFormatter().currencyDecimalSeparator ?? "."
 	var isAppendingDisabled = false
 	var ouputDidUpdate: ((String) -> Void)?
 	var didUpdateFrameWidth: ((CGRect) -> Void)?
 
-	var height: CGFloat
-	{
-		switch keyboardType
-		{
+	var height: CGFloat {
+		switch keyboardType {
 		case .decimalPad:
 			return kDecimalPadItemHeight * 4.0 // for four rows tall
 		case .pinPad:
@@ -36,22 +31,18 @@ class PinPadViewController: UICollectionViewController
 
 	var currentOutput = ""
 
-	func clear()
-	{
+	func clear() {
 		isAppendingDisabled = false
 		currentOutput = ""
 	}
 
-	func removeLast()
-	{
-		if !currentOutput.utf8.isEmpty
-		{
+	func removeLast() {
+		if !currentOutput.utf8.isEmpty {
 			currentOutput = String(currentOutput[..<currentOutput.index(currentOutput.startIndex, offsetBy: currentOutput.utf8.count - 1)])
 		}
 	}
 
-	init(style: PinPadColorStyle, keyboardType: KeyboardType, maxDigits: Int)
-	{
+	init(style: PinPadColorStyle, keyboardType: KeyboardType, maxDigits: Int) {
 		self.style = style
 		self.keyboardType = keyboardType
 		self.maxDigits = maxDigits
@@ -65,8 +56,7 @@ class PinPadViewController: UICollectionViewController
 		// This value caused havoc (=1.0) on the iPad UI as the margins were previously too small. And items would be truncated
 		let itemWidthWithMargin = screenWidth / 3.0 - 2.0
 
-		switch keyboardType
-		{
+		switch keyboardType {
 		case .decimalPad:
 			items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", currencyDecimalSeparator, "0", deleteKeyIdentifier]
 			layout.itemSize = CGSize(width: itemWidthWithMargin, height: kDecimalPadItemHeight - 1.0)
@@ -84,13 +74,10 @@ class PinPadViewController: UICollectionViewController
 	private let items: [String]
 	private let maxDigits: Int
 
-	override func viewDidLoad()
-	{
-		switch style
-		{
+	override func viewDidLoad() {
+		switch style {
 		case .white:
-			switch keyboardType
-			{
+			switch keyboardType {
 			case .decimalPad:
 				collectionView?.backgroundColor = .clear
 				collectionView?.register(WhiteDecimalPad.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -99,8 +86,7 @@ class PinPadViewController: UICollectionViewController
 				collectionView?.register(WhiteNumberPad.self, forCellWithReuseIdentifier: cellIdentifier)
 			}
 		case .clear:
-			switch keyboardType
-			{
+			switch keyboardType {
 			case .decimalPad:
 				collectionView?.backgroundColor = .clear
 				collectionView?.register(ClearDecimalPad.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -120,8 +106,7 @@ class PinPadViewController: UICollectionViewController
 
 	// MARK: - UICollectionViewDataSource
 
-	override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int
-	{
+	override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
 		return items.count
 	}
 
@@ -132,8 +117,7 @@ class PinPadViewController: UICollectionViewController
 		pinPadCell.text = items[indexPath.item]
 
 		// produces a frame for lining up other subviews
-		if indexPath.item == 0
-		{
+		if indexPath.item == 0 {
 			didUpdateFrameWidth?(collectionView.convert(pinPadCell.frame, to: view))
 		}
 		return pinPadCell
@@ -141,91 +125,66 @@ class PinPadViewController: UICollectionViewController
 
 	// MARK: - UICollectionViewDelegate
 
-	override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath)
-	{
+	override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let item = items[indexPath.row]
-		if item == "del"
-		{
-			if !currentOutput.isEmpty
-			{
-				if currentOutput == ("0" + currencyDecimalSeparator)
-				{
+		if item == "del" {
+			if !currentOutput.isEmpty {
+				if currentOutput == ("0" + currencyDecimalSeparator) {
 					currentOutput = ""
-				}
-				else
-				{
+				} else {
 					currentOutput.remove(at: currentOutput.index(before: currentOutput.endIndex))
 				}
 			}
-		}
-		else
-		{
-			if shouldAppendChar(char: item), !isAppendingDisabled
-			{
+		} else {
+			if shouldAppendChar(char: item), !isAppendingDisabled {
 				currentOutput = currentOutput + item
 			}
 		}
 		ouputDidUpdate?(currentOutput)
 	}
 
-	func shouldAppendChar(char: String) -> Bool
-	{
+	func shouldAppendChar(char: String) -> Bool {
 		let decimalLocation = currentOutput.range(of: currencyDecimalSeparator)?.lowerBound
 
 		// Don't allow more that maxDigits decimal points
-		if let location = decimalLocation
-		{
+		if let location = decimalLocation {
 			let locationValue = currentOutput.distance(from: currentOutput.endIndex, to: location)
-			if locationValue < -maxDigits
-			{
+			if locationValue < -maxDigits {
 				return false
 			}
 		}
 
 		// Don't allow more than 2 decimal separators
-		if currentOutput.contains("\(currencyDecimalSeparator)"), char == currencyDecimalSeparator
-		{
+		if currentOutput.contains("\(currencyDecimalSeparator)"), char == currencyDecimalSeparator {
 			return false
 		}
 
-		if keyboardType == .decimalPad
-		{
-			if currentOutput == "0"
-			{
+		if keyboardType == .decimalPad {
+			if currentOutput == "0" {
 				// Append . to 0
-				if char == currencyDecimalSeparator
-				{
+				if char == currencyDecimalSeparator {
 					return true
 
 					// Dont append 0 to 0
-				}
-				else if char == "0"
-				{
+				} else if char == "0" {
 					return false
 
 					// Replace 0 with any other digit
-				}
-				else
-				{
+				} else {
 					currentOutput = char
 					return false
 				}
 			}
 		}
 
-		if char == currencyDecimalSeparator
-		{
-			if decimalLocation == nil
-			{
+		if char == currencyDecimalSeparator {
+			if decimalLocation == nil {
 				// Prepend a 0 if the first character is a decimal point
-				if currentOutput.isEmpty
-				{
+				if currentOutput.isEmpty {
 					currentOutput = "0"
 				}
 				return true
-			}
-			else
-			{
+			} else {
 				return false
 			}
 		}
@@ -233,26 +192,19 @@ class PinPadViewController: UICollectionViewController
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-class GenericPinPadCell: UICollectionViewCell
-{
-	var text: String?
-	{
-		didSet
-		{
-			if text == deleteKeyIdentifier
-			{
+class GenericPinPadCell: UICollectionViewCell {
+	var text: String? {
+		didSet {
+			if text == deleteKeyIdentifier {
 				imageView.image = #imageLiteral(resourceName: "Delete")
 				topLabel.text = ""
 				centerLabel.text = ""
-			}
-			else
-			{
+			} else {
 				imageView.image = nil
 				topLabel.text = text
 				centerLabel.text = text
@@ -273,17 +225,14 @@ class GenericPinPadCell: UICollectionViewCell
 		"9": "WXYZ",
 	]
 
-	override var isHighlighted: Bool
-	{
-		didSet
-		{
+	override var isHighlighted: Bool {
+		didSet {
 			guard text != "" else { return } // We don't want the blank cell to highlight
 			setAppearance()
 		}
 	}
 
-	override init(frame: CGRect)
-	{
+	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
 	}
@@ -293,8 +242,7 @@ class GenericPinPadCell: UICollectionViewCell
 	internal let sublabel = UILabel(font: .customBody(size: 11.0))
 	internal let imageView = UIImageView()
 
-	private func setup()
-	{
+	private func setup() {
 		setAppearance()
 		topLabel.textAlignment = .center
 		centerLabel.textAlignment = .center
@@ -307,8 +255,7 @@ class GenericPinPadCell: UICollectionViewCell
 		addConstraints()
 	}
 
-	func addConstraints()
-	{
+	func addConstraints() {
 		imageView.constrain(toSuperviewEdges: nil)
 		centerLabel.constrain(toSuperviewEdges: nil)
 		topLabel.constrain([
@@ -321,28 +268,22 @@ class GenericPinPadCell: UICollectionViewCell
 		])
 	}
 
-	override var isAccessibilityElement: Bool
-	{
-		get
-		{
+	override var isAccessibilityElement: Bool {
+		get {
 			return true
 		}
 		set {}
 	}
 
-	override var accessibilityLabel: String?
-	{
-		get
-		{
+	override var accessibilityLabel: String? {
+		get {
 			return topLabel.text
 		}
 		set {}
 	}
 
-	override var accessibilityTraits: UIAccessibilityTraits
-	{
-		get
-		{
+	override var accessibilityTraits: UIAccessibilityTraits {
+		get {
 			return UIAccessibilityTraitStaticText
 		}
 		set {}
@@ -352,23 +293,17 @@ class GenericPinPadCell: UICollectionViewCell
 	func setSublabel() {}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-class ClearNumberPad: GenericPinPadCell
-{
-	override func setAppearance()
-	{
-		if text == "0"
-		{
+class ClearNumberPad: GenericPinPadCell {
+	override func setAppearance() {
+		if text == "0" {
 			topLabel.isHidden = true
 			centerLabel.isHidden = false
-		}
-		else
-		{
+		} else {
 			topLabel.isHidden = false
 			centerLabel.isHidden = true
 		}
@@ -377,113 +312,84 @@ class ClearNumberPad: GenericPinPadCell
 		centerLabel.textColor = .white
 		sublabel.textColor = .white
 
-		if isHighlighted
-		{
+		if isHighlighted {
 			backgroundColor = .transparentBlack
-		}
-		else
-		{
+		} else {
 			backgroundColor = .clear
 
-			if text == "" || text == deleteKeyIdentifier
-			{
+			if text == "" || text == deleteKeyIdentifier {
 				imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
 				imageView.tintColor = .white
 			}
 		}
 	}
 
-	override func setSublabel()
-	{
+	override func setSublabel() {
 		guard let text = text else { return }
-		if sublabels[text] != nil
-		{
+		if sublabels[text] != nil {
 			sublabel.text = sublabels[text]
 		}
 	}
 }
 
-class ClearDecimalPad: GenericPinPadCell
-{
-	override func setAppearance()
-	{
+class ClearDecimalPad: GenericPinPadCell {
+	override func setAppearance() {
 		centerLabel.backgroundColor = .clear
 		imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
 
-		if isHighlighted
-		{
+		if isHighlighted {
 			centerLabel.textColor = .grayTextTint
 			imageView.tintColor = .grayTextTint
-		}
-		else
-		{
+		} else {
 			centerLabel.textColor = .white
 			imageView.tintColor = .white
 		}
 	}
 
-	override func addConstraints()
-	{
+	override func addConstraints() {
 		centerLabel.constrain(toSuperviewEdges: nil)
 		imageView.constrain(toSuperviewEdges: nil)
 	}
 }
 
-class WhiteDecimalPad: GenericPinPadCell
-{
-	override func setAppearance()
-	{
-		if isHighlighted
-		{
+class WhiteDecimalPad: GenericPinPadCell {
+	override func setAppearance() {
+		if isHighlighted {
 			centerLabel.backgroundColor = .secondaryShadow
 			centerLabel.textColor = .darkText
-		}
-		else
-		{
+		} else {
 			centerLabel.backgroundColor = .white
 			centerLabel.textColor = .grayTextTint
 		}
 	}
 
-	override func addConstraints()
-	{
+	override func addConstraints() {
 		centerLabel.constrain(toSuperviewEdges: nil)
 		imageView.constrain(toSuperviewEdges: nil)
 	}
 }
 
-class WhiteNumberPad: GenericPinPadCell
-{
-	override func setAppearance()
-	{
-		if text == "0"
-		{
+class WhiteNumberPad: GenericPinPadCell {
+	override func setAppearance() {
+		if text == "0" {
 			topLabel.isHidden = true
 			centerLabel.isHidden = false
-		}
-		else
-		{
+		} else {
 			topLabel.isHidden = false
 			centerLabel.isHidden = true
 		}
 
-		if isHighlighted
-		{
+		if isHighlighted {
 			backgroundColor = .secondaryShadow
 			topLabel.textColor = .darkText
 			centerLabel.textColor = .darkText
 			sublabel.textColor = .darkText
-		}
-		else
-		{
-			if text == "" || text == deleteKeyIdentifier
-			{
+		} else {
+			if text == "" || text == deleteKeyIdentifier {
 				backgroundColor = .whiteTint
 				imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
 				imageView.tintColor = .grayTextTint
-			}
-			else
-			{
+			} else {
 				backgroundColor = .whiteTint
 				topLabel.textColor = .grayTextTint
 				centerLabel.textColor = .grayTextTint
@@ -492,11 +398,9 @@ class WhiteNumberPad: GenericPinPadCell
 		}
 	}
 
-	override func setSublabel()
-	{
+	override func setSublabel() {
 		guard let text = text else { return }
-		if sublabels[text] != nil
-		{
+		if sublabels[text] != nil {
 			sublabel.text = sublabels[text]
 		}
 	}

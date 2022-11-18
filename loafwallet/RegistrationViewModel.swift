@@ -2,8 +2,7 @@ import Foundation
 import KeychainAccess
 import SwiftUI
 
-enum UserDataType
-{
+enum UserDataType {
 	case genericString
 	case email
 	case country
@@ -12,8 +11,7 @@ enum UserDataType
 	case confirmation
 }
 
-class RegistrationViewModel: ObservableObject
-{
+class RegistrationViewModel: ObservableObject {
 	@Published
 	var isRegistering: Bool = false
 
@@ -61,12 +59,10 @@ class RegistrationViewModel: ObservableObject
 		}
 	}
 
-	func registerCardUser()
-	{
+	func registerCardUser() {
 		var setupUserID: String?
 
-		PartnerAPI.shared.createUser(userDataParams: dataDictionary)
-		{ newUser in
+		PartnerAPI.shared.createUser(userDataParams: dataDictionary) { newUser in
 			if let userID = newUser?.userID,
 			   let createdAt = newUser?.createdAtDateString
 			{
@@ -82,38 +78,31 @@ class RegistrationViewModel: ObservableObject
 				keychain["userID"] = userID
 				keychain["createdAt"] = createdAt
 
-				DispatchQueue.main.async
-				{
+				DispatchQueue.main.async {
 					self.message = S.LitecoinCard.registrationSuccess
 					self.didRegister = true
 
-					DispatchQueue.main.asyncAfter(deadline: .now() + 5.0)
-					{
+					DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
 						self.isRegistering = false
 					}
 				}
 			}
 		}
 
-		if setupUserID == nil
-		{
-			DispatchQueue.main.async
-			{
+		if setupUserID == nil {
+			DispatchQueue.main.async {
 				self.message = S.LitecoinCard.registrationFailure
-				DispatchQueue.main.asyncAfter(deadline: .now() + 4.0)
-				{
+				DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
 					self.isRegistering = false
 				}
 			}
 		}
 	}
 
-	func isDataValid(dataType: UserDataType, firstString: String = "", data: Any) -> Bool
-	{
+	func isDataValid(dataType: UserDataType, firstString: String = "", data: Any) -> Bool {
 		guard let dataString = data as? String else { return false }
 
-		switch dataType
-		{
+		switch dataType {
 		case .genericString:
 			return isGenericStringValid(genericString: dataString)
 		case .email:
@@ -131,39 +120,32 @@ class RegistrationViewModel: ObservableObject
 
 	// MARK: - Data Validators
 
-	func isGenericStringValid(genericString: String) -> Bool
-	{
+	func isGenericStringValid(genericString: String) -> Bool {
 		guard genericString != ""
-		else
-		{
+		else {
 			return false
 		}
 
 		guard genericString.count <= 32
-		else
-		{
+		else {
 			return false
 		}
 
 		return true
 	}
 
-	func isConfirmedValid(firstString: String, confirmingString: String) -> Bool
-	{
+	func isConfirmedValid(firstString: String, confirmingString: String) -> Bool {
 		return firstString == confirmingString ? true : false
 	}
 
-	func isEmailValid(emailString: String) -> Bool
-	{
+	func isEmailValid(emailString: String) -> Bool {
 		if try! NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive)
 			.firstMatch(in: emailString, options: [],
 			            range: NSRange(location: 0,
 			                           length: emailString.count)) == nil
 		{
 			return false
-		}
-		else
-		{
+		} else {
 			return true
 		}
 	}
@@ -171,11 +153,9 @@ class RegistrationViewModel: ObservableObject
 	/// Password  Validator
 	/// - Parameter passwordString: 6 chars minimum
 	/// - Returns: Bool
-	func isPasswordValid(passwordString: String) -> Bool
-	{
+	func isPasswordValid(passwordString: String) -> Bool {
 		guard passwordString.count >= 6
-		else
-		{
+		else {
 			return false
 		}
 
@@ -185,9 +165,7 @@ class RegistrationViewModel: ObservableObject
 			                           length: passwordString.count)) == nil
 		{
 			return false
-		}
-		else
-		{
+		} else {
 			return true
 		}
 	}
@@ -195,18 +173,15 @@ class RegistrationViewModel: ObservableObject
 	/// Mobile Number Validator
 	/// - Parameter mobileString: 10+ integers 0 - 9
 	/// - Returns: Bool
-	func isMobileNumberValid(mobileString: String) -> Bool
-	{
+	func isMobileNumberValid(mobileString: String) -> Bool {
 		guard mobileString != ""
-		else
-		{
+		else {
 			return false
 		}
 
 		// https://boards.straightdope.com/t/longest-telephone-number-in-the-world/400450
 		guard mobileString.count >= 10, mobileString.count <= 20
-		else
-		{
+		else {
 			return false
 		}
 
@@ -216,9 +191,7 @@ class RegistrationViewModel: ObservableObject
 			                           length: mobileString.count)) == nil
 		{
 			return false
-		}
-		else
-		{
+		} else {
 			return true
 		}
 	}

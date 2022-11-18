@@ -1,7 +1,6 @@
 import Foundation
 
-enum ValidatorType
-{
+enum ValidatorType {
 	case email
 	case genericString
 	case password
@@ -9,27 +8,21 @@ enum ValidatorType
 	case requiredField(field: String)
 }
 
-protocol ValidatorConvertible
-{
+protocol ValidatorConvertible {
 	func validated(_ value: String) throws -> String
 }
 
-struct ValidationError: Error
-{
+struct ValidationError: Error {
 	var message: String
 
-	init(_ message: String)
-	{
+	init(_ message: String) {
 		self.message = message
 	}
 }
 
-enum VaildatorFactory
-{
-	static func validatorFor(type: ValidatorType) -> ValidatorConvertible
-	{
-		switch type
-		{
+enum VaildatorFactory {
+	static func validatorFor(type: ValidatorType) -> ValidatorConvertible {
+		switch type {
 		case .genericString: return GenericStringValidator()
 		case .email: return EmailValidator()
 		case .password: return PasswordValidator()
@@ -39,10 +32,8 @@ enum VaildatorFactory
 	}
 }
 
-struct GenericStringValidator: ValidatorConvertible
-{
-	func validated(_ value: String) throws -> String
-	{
+struct GenericStringValidator: ValidatorConvertible {
+	func validated(_ value: String) throws -> String {
 		guard !value.isEmpty else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
@@ -51,10 +42,8 @@ struct GenericStringValidator: ValidatorConvertible
 	}
 }
 
-struct MobileNumberValidator: ValidatorConvertible
-{
-	func validated(_ value: String) throws -> String
-	{
+struct MobileNumberValidator: ValidatorConvertible {
+	func validated(_ value: String) throws -> String {
 		guard value != "" else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
@@ -68,20 +57,16 @@ struct MobileNumberValidator: ValidatorConvertible
 	}
 }
 
-struct RequiredFieldValidator: ValidatorConvertible
-{
+struct RequiredFieldValidator: ValidatorConvertible {
 	private let fieldName: String
 
-	init(_ field: String)
-	{
+	init(_ field: String) {
 		fieldName = field
 	}
 
-	func validated(_ value: String) throws -> String
-	{
+	func validated(_ value: String) throws -> String {
 		guard !value.isEmpty
-		else
-		{
+		else {
 			throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
@@ -91,10 +76,8 @@ struct RequiredFieldValidator: ValidatorConvertible
 	}
 }
 
-struct PasswordValidator: ValidatorConvertible
-{
-	func validated(_ value: String) throws -> String
-	{
+struct PasswordValidator: ValidatorConvertible {
+	func validated(_ value: String) throws -> String {
 		guard value != "" else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
@@ -105,8 +88,7 @@ struct PasswordValidator: ValidatorConvertible
 				.ValidationError
 				.passwordCharacters) }
 
-		do
-		{
+		do {
 			if try NSRegularExpression(pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil
 			{
 				throw ValidationError(S.LitecoinCard
@@ -114,9 +96,7 @@ struct PasswordValidator: ValidatorConvertible
 					.ValidationError
 					.passwordComposition)
 			}
-		}
-		catch
-		{
+		} catch {
 			throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
@@ -126,12 +106,9 @@ struct PasswordValidator: ValidatorConvertible
 	}
 }
 
-struct EmailValidator: ValidatorConvertible
-{
-	func validated(_ value: String) throws -> String
-	{
-		do
-		{
+struct EmailValidator: ValidatorConvertible {
+	func validated(_ value: String) throws -> String {
+		do {
 			if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil
 			{
 				throw ValidationError(S.LitecoinCard
@@ -139,9 +116,7 @@ struct EmailValidator: ValidatorConvertible
 					.ValidationError
 					.invalidEmail)
 			}
-		}
-		catch
-		{
+		} catch {
 			throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError

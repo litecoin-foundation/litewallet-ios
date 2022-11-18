@@ -1,31 +1,25 @@
 import UIKit
 
-class AddressCell: UIView
-{
-	init()
-	{
+class AddressCell: UIView {
+	init() {
 		super.init(frame: .zero)
 		setupViews()
 	}
 
-	var address: String?
-	{
+	var address: String? {
 		return contentLabel.text
 	}
 
 	var didBeginEditing: (() -> Void)?
 	var didReceivePaymentRequest: ((PaymentRequest) -> Void)?
 
-	func setContent(_ content: String?)
-	{
+	func setContent(_ content: String?) {
 		contentLabel.text = content
 		textField.text = content
 	}
 
-	var isEditable = false
-	{
-		didSet
-		{
+	var isEditable = false {
+		didSet {
 			gr.isEnabled = isEditable
 		}
 	}
@@ -39,21 +33,16 @@ class AddressCell: UIView
 	fileprivate let tapView = UIView()
 	private let border = UIView(color: .secondaryShadow)
 
-	private func setupViews()
-	{
-		if #available(iOS 11.0, *)
-		{
+	private func setupViews() {
+		if #available(iOS 11.0, *) {
 			guard let textColor = UIColor(named: "labelTextColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Main color")
 				return
 			}
 			contentLabel.textColor = textColor
 			label.textColor = textColor
-		}
-		else
-		{
+		} else {
 			contentLabel.textColor = .darkText
 		}
 
@@ -62,8 +51,7 @@ class AddressCell: UIView
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		addSubview(label)
 		addSubview(contentLabel)
 		addSubview(textField)
@@ -73,8 +61,7 @@ class AddressCell: UIView
 		addSubview(scan)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		label.constrain([
 			label.constraint(.centerY, toView: self),
 			label.constraint(.leading, toView: self, constant: C.padding[2]),
@@ -111,8 +98,7 @@ class AddressCell: UIView
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		label.text = S.Send.enterLTCAddressLabel
 		textField.font = contentLabel.font
 		textField.adjustsFontSizeToFitWidth = true
@@ -125,8 +111,7 @@ class AddressCell: UIView
 		label.textColor = .grayTextTint
 		contentLabel.lineBreakMode = .byTruncatingMiddle
 
-		textField.editingChanged = strongify(self)
-		{ myself in
+		textField.editingChanged = strongify(self) { myself in
 			myself.contentLabel.text = myself.textField.text
 		}
 
@@ -135,32 +120,27 @@ class AddressCell: UIView
 		tapView.addGestureRecognizer(gr)
 	}
 
-	@objc private func didTap()
-	{
+	@objc private func didTap() {
 		textField.becomeFirstResponder()
 		contentLabel.isHidden = true
 		textField.isHidden = false
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension AddressCell: UITextFieldDelegate
-{
-	func textFieldDidBeginEditing(_: UITextField)
-	{
+extension AddressCell: UITextFieldDelegate {
+	func textFieldDidBeginEditing(_: UITextField) {
 		didBeginEditing?()
 		contentLabel.isHidden = true
 		gr.isEnabled = false
 		tapView.isUserInteractionEnabled = false
 	}
 
-	func textFieldDidEndEditing(_ textField: UITextField)
-	{
+	func textFieldDidEndEditing(_ textField: UITextField) {
 		contentLabel.isHidden = false
 		textField.isHidden = true
 		gr.isEnabled = true
@@ -168,21 +148,17 @@ extension AddressCell: UITextFieldDelegate
 		contentLabel.text = textField.text
 	}
 
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool
-	{
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		return true
 	}
 
 	func textField(_: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool
 	{
-		if let request = PaymentRequest(string: string)
-		{
+		if let request = PaymentRequest(string: string) {
 			didReceivePaymentRequest?(request)
 			return false
-		}
-		else
-		{
+		} else {
 			return true
 		}
 	}

@@ -1,6 +1,5 @@
 import Foundation
 
-class SupportLFViewModel: ObservableObject
-{
+class SupportLFViewModel: ObservableObject {
 	init() {}
 }

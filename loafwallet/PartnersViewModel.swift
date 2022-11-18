@@ -1,7 +1,6 @@
 import Foundation
 
-class PartnerViewModel: ObservableObject
-{
+class PartnerViewModel: ObservableObject {
 	init()
 	{}
 }

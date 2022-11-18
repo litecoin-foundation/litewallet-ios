@@ -1,19 +1,15 @@
 import UIKit
 
-class EnterPhraseCell: UICollectionViewCell
-{
+class EnterPhraseCell: UICollectionViewCell {
 	// MARK: - Public
 
-	override init(frame: CGRect)
-	{
+	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
 	}
 
-	var index: Int?
-	{
-		didSet
-		{
+	var index: Int? {
+		didSet {
 			guard let index = index else { return }
 			label.text = "\(index + 1)"
 		}
@@ -21,26 +17,20 @@ class EnterPhraseCell: UICollectionViewCell
 
 	private(set) var text: String?
 
-	var didTapPrevious: (() -> Void)?
-	{
-		didSet
-		{
+	var didTapPrevious: (() -> Void)? {
+		didSet {
 			previousField.tap = didTapPrevious
 		}
 	}
 
-	var didTapNext: (() -> Void)?
-	{
-		didSet
-		{
+	var didTapNext: (() -> Void)? {
+		didSet {
 			nextField.tap = didTapNext
 		}
 	}
 
-	var didTapDone: (() -> Void)?
-	{
-		didSet
-		{
+	var didTapDone: (() -> Void)? {
+		didSet {
 			done.tap = {
 				self.textField.resignFirstResponder()
 				self.didTapDone?()
@@ -51,14 +41,12 @@ class EnterPhraseCell: UICollectionViewCell
 	var didEnterSpace: (() -> Void)?
 	var isWordValid: ((String) -> Bool)?
 
-	func disablePreviousButton()
-	{
+	func disablePreviousButton() {
 		previousField.tintColor = .secondaryShadow
 		previousField.isEnabled = false
 	}
 
-	func disableNextButton()
-	{
+	func disableNextButton() {
 		nextField.tintColor = .secondaryShadow
 		nextField.isEnabled = false
 	}
@@ -73,8 +61,7 @@ class EnterPhraseCell: UICollectionViewCell
 	fileprivate let separator = UIView(color: .secondaryShadow)
 	fileprivate var hasDisplayedInvalidState = false
 
-	private func setup()
-	{
+	private func setup() {
 		contentView.addSubview(textField)
 		contentView.addSubview(separator)
 		contentView.addSubview(label)
@@ -98,8 +85,7 @@ class EnterPhraseCell: UICollectionViewCell
 		setData()
 	}
 
-	private func setData()
-	{
+	private func setData() {
 		textField.inputAccessoryView = accessoryView
 		textField.autocorrectionType = .no
 		textField.textAlignment = .center
@@ -113,8 +99,7 @@ class EnterPhraseCell: UICollectionViewCell
 		done.setTitle(S.RecoverWallet.done, for: .normal)
 	}
 
-	private var accessoryView: UIView
-	{
+	private var accessoryView: UIView {
 		let view = UIView(color: .secondaryButton)
 		view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 44)
 		let topBorder = UIView(color: .secondaryShadow)
@@ -148,46 +133,35 @@ class EnterPhraseCell: UICollectionViewCell
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension EnterPhraseCell: UITextFieldDelegate
-{
-	func textFieldDidEndEditing(_ textField: UITextField)
-	{
+extension EnterPhraseCell: UITextFieldDelegate {
+	func textFieldDidEndEditing(_ textField: UITextField) {
 		setColors(textField: textField)
 	}
 
-	@objc func textChanged(textField: UITextField)
-	{
-		if let text = textField.text
-		{
-			if text.last == " "
-			{
+	@objc func textChanged(textField: UITextField) {
+		if let text = textField.text {
+			if text.last == " " {
 				textField.text = text.replacingOccurrences(of: " ", with: "")
 				didEnterSpace?()
 			}
 		}
-		if hasDisplayedInvalidState
-		{
+		if hasDisplayedInvalidState {
 			setColors(textField: textField)
 		}
 	}
 
-	private func setColors(textField: UITextField)
-	{
+	private func setColors(textField: UITextField) {
 		guard let isWordValid = isWordValid else { return }
 		guard let word = textField.text else { return }
-		if isWordValid(word) || word == ""
-		{
+		if isWordValid(word) || word == "" {
 			textField.textColor = .darkText
 			separator.backgroundColor = .secondaryShadow
-		}
-		else
-		{
+		} else {
 			textField.textColor = .cameraGuideNegative
 			separator.backgroundColor = .cameraGuideNegative
 			hasDisplayedInvalidState = true

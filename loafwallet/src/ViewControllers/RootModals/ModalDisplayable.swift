@@ -1,12 +1,10 @@
 import UIKit
 
-protocol ModalDisplayable
-{
+protocol ModalDisplayable {
 	var modalTitle: String { get }
 	var faqArticleId: String? { get }
 }
 
-protocol ModalPresentable
-{
+protocol ModalPresentable {
 	var parentView: UIView? { get set }
 }

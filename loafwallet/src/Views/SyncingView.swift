@@ -2,18 +2,14 @@ import UIKit
 
 private let progressHeight: CGFloat = 8.0
 
-class SyncingView: UIView
-{
-	init()
-	{
+class SyncingView: UIView {
+	init() {
 		super.init(frame: .zero)
 		setup()
 	}
 
-	var progress: CGFloat = 0.0
-	{
-		didSet
-		{
+	var progress: CGFloat = 0.0 {
+		didSet {
 			progressForegroundWidth?.isActive = false
 			progressForegroundWidth = progressForeground.widthAnchor.constraint(equalTo: progressBackground.widthAnchor, multiplier: progress)
 			progressForegroundWidth?.isActive = true
@@ -21,22 +17,18 @@ class SyncingView: UIView
 		}
 	}
 
-	var timestamp: UInt32 = 0
-	{
-		didSet
-		{
+	var timestamp: UInt32 = 0 {
+		didSet {
 			date.text = dateFormatter.string(from: Date(timeIntervalSince1970: Double(timestamp)))
 		}
 	}
 
-	func setIsConnecting()
-	{
+	func setIsConnecting() {
 		header.text = S.SyncingView.connecting
 		date.text = ""
 	}
 
-	func reset()
-	{
+	func reset() {
 		setInitialData()
 	}
 
@@ -66,8 +58,7 @@ class SyncingView: UIView
 
 	private var progressForegroundWidth: NSLayoutConstraint?
 
-	private func setup()
-	{
+	private func setup() {
 		addSubview(header)
 		addSubview(date)
 		addSubview(progressBackground)
@@ -102,16 +93,14 @@ class SyncingView: UIView
 		setInitialData()
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		header.text = S.SyncingView.syncing
 		header.textColor = .darkText
 		date.text = ""
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

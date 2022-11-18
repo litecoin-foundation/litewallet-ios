@@ -1,7 +1,6 @@
 import Foundation
 
-class TransferringViewModel: ObservableObject
-{
+class TransferringViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
 	@Published
@@ -9,8 +8,7 @@ class TransferringViewModel: ObservableObject
 
 	init() {}
 
-	func shouldDismissView(completion: @escaping () -> Void)
-	{
+	func shouldDismissView(completion: @escaping () -> Void) {
 		completion()
 	}
 }

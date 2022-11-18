@@ -1,33 +1,26 @@
 @testable import loafwallet
 import XCTest
 
-class NSDataExtensionTests: XCTestCase
-{
-	override func setUp()
-	{
+class NSDataExtensionTests: XCTestCase {
+	override func setUp() {
 		super.setUp()
 	}
 
-	override func tearDown()
-	{
+	override func tearDown() {
 		super.tearDown()
 	}
 
-	func testRoundTrip()
-	{
-		for _ in 0 ..< 10
-		{
+	func testRoundTrip() {
+		for _ in 0 ..< 10 {
 			let randomData = (1 ... 7321).map { _ in UInt8(arc4random_uniform(0x30)) }
 			let data = Data(bytes: UnsafePointer<UInt8>(randomData), count: randomData.count)
 			guard let compressed = data.bzCompressedData
-			else
-			{
+			else {
 				XCTFail("compressed data was nil")
 				return
 			}
 			guard let decompressed = Data(bzCompressedData: compressed)
-			else
-			{
+			else {
 				XCTFail("decompressed data was nil")
 				return
 			}

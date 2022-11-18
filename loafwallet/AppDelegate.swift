@@ -4,8 +4,7 @@ import SwiftUI
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
-{
+class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
 
@@ -28,23 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		return true
 	}
 
-	func applicationDidBecomeActive(_: UIApplication)
-	{
+	func applicationDidBecomeActive(_: UIApplication) {
 		UIApplication.shared.applicationIconBadgeNumber = 0
 	}
 
-	func applicationWillEnterForeground(_: UIApplication)
-	{
+	func applicationWillEnterForeground(_: UIApplication) {
 		applicationController.willEnterForeground()
 	}
 
-	func applicationDidEnterBackground(_: UIApplication)
-	{
+	func applicationDidEnterBackground(_: UIApplication) {
 		applicationController.didEnterBackground()
 	}
 
-	func applicationWillResignActive(_: UIApplication)
-	{
+	func applicationWillResignActive(_: UIApplication) {
 		applicationController.willResignActive()
 	}
 
@@ -63,45 +58,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		return applicationController.open(url: url)
 	}
 
-	func application(_: UIApplication, shouldSaveApplicationState _: NSCoder) -> Bool
-	{
+	func application(_: UIApplication, shouldSaveApplicationState _: NSCoder) -> Bool {
 		return true
 	}
 
-	func application(_: UIApplication, shouldRestoreApplicationState _: NSCoder) -> Bool
-	{
+	func application(_: UIApplication, shouldRestoreApplicationState _: NSCoder) -> Bool {
 		return true
 	}
 
 	/// Sets the correct Google Services  plist file
-	private func setFirebaseConfiguration()
-	{
+	private func setFirebaseConfiguration() {
 		// Load a Firebase debug config file.
 		// let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
 
 		let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
 
-		if let fboptions = FirebaseOptions(contentsOfFile: filePath!)
-		{
+		if let fboptions = FirebaseOptions(contentsOfFile: filePath!) {
 			FirebaseApp.configure(options: fboptions)
-		}
-		else
-		{
+		} else {
 			assertionFailure("Couldn't load Firebase config file")
 		}
 	}
 
 	/// Check Locale
-	func updateCurrentUserLocale(localeId: String)
-	{
+	func updateCurrentUserLocale(localeId: String) {
 		let suffix = String(localeId.suffix(3))
 
-		if suffix == "_US"
-		{
+		if suffix == "_US" {
 			UserDefaults.userIsInUSA = true
-		}
-		else
-		{
+		} else {
 			UserDefaults.userIsInUSA = false
 		}
 	}

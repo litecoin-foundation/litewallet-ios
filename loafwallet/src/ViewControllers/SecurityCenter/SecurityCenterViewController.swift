@@ -5,37 +5,29 @@ private let headerHeight: CGFloat = 222.0
 private let fadeStart: CGFloat = 185.0
 private let fadeEnd: CGFloat = 160.0
 
-class SecurityCenterViewController: UIViewController, Subscriber
-{
-	var didTapPin: (() -> Void)?
-	{
-		didSet
-		{
+class SecurityCenterViewController: UIViewController, Subscriber {
+	var didTapPin: (() -> Void)? {
+		didSet {
 			pinCell.tap = didTapPin
 		}
 	}
 
-	var didTapBiometrics: (() -> Void)?
-	{
-		didSet
-		{
+	var didTapBiometrics: (() -> Void)? {
+		didSet {
 			biometricsCell.tap = didTapBiometrics
 		}
 	}
 
-	var didTapPaperKey: (() -> Void)?
-	{
+	var didTapPaperKey: (() -> Void)? {
 		didSet { paperKeyCell.tap = didTapPaperKey }
 	}
 
-	init(store: Store, walletManager: WalletManager)
-	{
+	init(store: Store, walletManager: WalletManager) {
 		self.store = store
 		self.walletManager = walletManager
 		header = ModalHeaderView(title: S.SecurityCenter.title, style: .light, faqInfo: (store, ArticleIds.securityCenter))
 
-		if #available(iOS 11.0, *)
-		{
+		if #available(iOS 11.0, *) {
 			shield.tintColor = UIColor(named: "labelTextColor")
 			headerBackground.backgroundColor = UIColor(named: "mainColor")
 		}
@@ -57,56 +49,45 @@ class SecurityCenterViewController: UIViewController, Subscriber
 	private let walletManager: WalletManager
 	fileprivate var didViewAppear = false
 
-	deinit
-	{
+	deinit {
 		store.unsubscribe(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		setupSubviewProperties()
 		addSubviews()
 		addConstraints()
 	}
 
-	override func viewWillAppear(_ animated: Bool)
-	{
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		setPinAndPhraseChecks()
 		didViewAppear = false
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		didViewAppear = true
 	}
 
-	override func viewWillDisappear(_ animated: Bool)
-	{
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		didViewAppear = false
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
+	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
 
-	private func setupSubviewProperties()
-	{
-		if #available(iOS 11.0, *)
-		{
+	private func setupSubviewProperties() {
+		if #available(iOS 11.0, *) {
 			guard let backgroundColor = UIColor(named: "lfBackgroundColor")
-			else
-			{
+			else {
 				NSLog("ERROR: Main color")
 				return
 			}
 			view.backgroundColor = backgroundColor
-		}
-		else
-		{
+		} else {
 			view.backgroundColor = .white
 		}
 
@@ -131,8 +112,7 @@ class SecurityCenterViewController: UIViewController, Subscriber
 		})
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(scrollView)
 		scrollView.addSubview(headerBackground)
 		headerBackground.addSubview(header)
@@ -143,8 +123,7 @@ class SecurityCenterViewController: UIViewController, Subscriber
 		scrollView.addSubview(info)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		scrollView.constrain([
 			scrollView.topAnchor.constraint(equalTo: view.topAnchor),
 			scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -197,42 +176,34 @@ class SecurityCenterViewController: UIViewController, Subscriber
 			paperKeyCell.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -C.padding[2]),
 		])
 
-		if !LAContext.isBiometricsAvailable
-		{
+		if !LAContext.isBiometricsAvailable {
 			biometricsCell.constrain([biometricsCell.heightAnchor.constraint(equalToConstant: 0.0)])
 		}
 	}
 
-	private func setPinAndPhraseChecks()
-	{
+	private func setPinAndPhraseChecks() {
 		pinCell.isCheckHighlighted = store.state.pinLength == 6
 		paperKeyCell.isCheckHighlighted = !UserDefaults.walletRequiresBackup
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension SecurityCenterViewController: UIScrollViewDelegate
-{
-	func scrollViewDidScroll(_ scrollView: UIScrollView)
-	{
+extension SecurityCenterViewController: UIScrollViewDelegate {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		guard didViewAppear else { return } // We don't want to be doing an stretchy header stuff during interactive pop gestures
 		let yOffset = scrollView.contentOffset.y + 20.0
 		let newHeight = headerHeight - yOffset
 		headerBackgroundHeight?.constant = newHeight
 
-		if newHeight < fadeStart
-		{
+		if newHeight < fadeStart {
 			let range = fadeStart - fadeEnd
 			let alpha = (newHeight - fadeEnd) / range
 			shield.alpha = max(alpha, 0.0)
-		}
-		else
-		{
+		} else {
 			shield.alpha = 1.0
 		}
 	}

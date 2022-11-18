@@ -1,9 +1,7 @@
 import UIKit
 
-class ReScanViewController: UIViewController, Subscriber
-{
-	init(store: Store)
-	{
+class ReScanViewController: UIViewController, Subscriber {
+	init(store: Store) {
 		self.store = store
 		faq = .buildFaqButton(store: store, articleId: ArticleIds.reScan)
 		super.init(nibName: nil, bundle: nil)
@@ -16,20 +14,17 @@ class ReScanViewController: UIViewController, Subscriber
 	private let store: Store
 	private let faq: UIButton
 
-	deinit
-	{
+	deinit {
 		store.unsubscribe(self)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		addSubviews()
 		addConstraints()
 		setInitialData()
 	}
 
-	private func addSubviews()
-	{
+	private func addSubviews() {
 		view.addSubview(header)
 		view.addSubview(faq)
 		view.addSubview(body)
@@ -37,8 +32,7 @@ class ReScanViewController: UIViewController, Subscriber
 		view.addSubview(footer)
 	}
 
-	private func addConstraints()
-	{
+	private func addConstraints() {
 		header.constrain([
 			header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
 			header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
@@ -67,8 +61,7 @@ class ReScanViewController: UIViewController, Subscriber
 		])
 	}
 
-	private func setInitialData()
-	{
+	private func setInitialData() {
 		view.backgroundColor = .whiteTint
 		header.text = S.ReScan.header
 		body.attributedText = bodyText
@@ -78,8 +71,7 @@ class ReScanViewController: UIViewController, Subscriber
 		}
 	}
 
-	private func presentRescanAlert()
-	{
+	private func presentRescanAlert() {
 		let alert = UIAlertController(title: S.ReScan.alertTitle, message: S.ReScan.alertMessage, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: S.Button.cancel, style: .default, handler: nil))
 		alert.addAction(UIAlertAction(title: S.ReScan.alertAction, style: .default, handler: { _ in
@@ -91,8 +83,7 @@ class ReScanViewController: UIViewController, Subscriber
 		present(alert, animated: true, completion: nil)
 	}
 
-	private var bodyText: NSAttributedString
-	{
+	private var bodyText: NSAttributedString {
 		let body = NSMutableAttributedString()
 		let headerAttributes = [NSAttributedStringKey.font: UIFont.customBold(size: 16.0),
 		                        NSAttributedStringKey.foregroundColor: UIColor.darkText]
@@ -107,8 +98,7 @@ class ReScanViewController: UIViewController, Subscriber
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

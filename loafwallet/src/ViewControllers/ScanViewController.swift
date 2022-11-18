@@ -4,8 +4,7 @@ import UIKit
 typealias ScanCompletion = (PaymentRequest?) -> Void
 typealias KeyScanCompletion = (String) -> Void
 
-class ScanViewController: UIViewController, Trackable
-{
+class ScanViewController: UIViewController, Trackable {
 	// TODO: Add a storyboard
 	@IBOutlet var cameraOverlayView: UIView!
 	@IBOutlet var toolbarView: UIView!
@@ -14,21 +13,18 @@ class ScanViewController: UIViewController, Trackable
 	@IBOutlet var closeButton: UIButton!
 	@IBOutlet var flashButton: UIButton!
 
-	static func presentCameraUnavailableAlert(fromRoot: UIViewController)
-	{
+	static func presentCameraUnavailableAlert(fromRoot: UIViewController) {
 		let alertController = UIAlertController(title: S.Send.cameraUnavailableTitle, message: S.Send.cameraUnavailableMessage, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
 		alertController.addAction(UIAlertAction(title: S.Button.settings, style: .default, handler: { _ in
-			if let appSettings = URL(string: UIApplicationOpenSettingsURLString)
-			{
+			if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
 				UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
 			}
 		}))
 		fromRoot.present(alertController, animated: true, completion: nil)
 	}
 
-	static var isCameraAllowed: Bool
-	{
+	static var isCameraAllowed: Bool {
 		return AVCaptureDevice.authorizationStatus(for: AVMediaType.video) != .denied
 	}
 
@@ -43,24 +39,21 @@ class ScanViewController: UIViewController, Trackable
 	private let flash = UIButton.icon(image: UIImage(named: "flashIcon")!, accessibilityLabel: S.Scanner.flashButtonLabel)
 	fileprivate var currentUri = ""
 
-	init(completion: @escaping ScanCompletion, isValidURI: @escaping (String) -> Bool)
-	{
+	init(completion: @escaping ScanCompletion, isValidURI: @escaping (String) -> Bool) {
 		self.completion = completion
 		scanKeyCompletion = nil
 		self.isValidURI = isValidURI
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	init(scanKeyCompletion: @escaping KeyScanCompletion, isValidURI: @escaping (String) -> Bool)
-	{
+	init(scanKeyCompletion: @escaping KeyScanCompletion, isValidURI: @escaping (String) -> Bool) {
 		self.scanKeyCompletion = scanKeyCompletion
 		completion = nil
 		self.isValidURI = isValidURI
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		view.backgroundColor = .black
 		toolbar.backgroundColor = .secondaryButton
 
@@ -70,8 +63,7 @@ class ScanViewController: UIViewController, Trackable
 		view.addSubview(guide)
 
 		toolbar.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
-		if E.isIPhoneX
-		{
+		if E.isIPhoneX {
 			toolbar.constrain([toolbar.constraint(.height, constant: 60.0)])
 
 			close.constrain([
@@ -87,9 +79,7 @@ class ScanViewController: UIViewController, Trackable
 				flash.constraint(.width, constant: 50.0),
 				flash.constraint(.height, constant: 50.0),
 			])
-		}
-		else
-		{
+		} else {
 			toolbar.constrain([toolbar.constraint(.height, constant: 60.0)])
 
 			close.constrain([
@@ -125,16 +115,14 @@ class ScanViewController: UIViewController, Trackable
 		addCameraPreview()
 	}
 
-	override func viewDidAppear(_ animated: Bool)
-	{
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		UIView.spring(0.8, animations: {
 			self.guide.transform = .identity
 		}, completion: { _ in })
 	}
 
-	private func addCameraPreview()
-	{
+	private func addCameraPreview() {
 		guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
 		guard let input = try? AVCaptureDeviceInput(device: device) else { return }
 		session.addInput(input)
@@ -148,133 +136,97 @@ class ScanViewController: UIViewController, Trackable
 
 		if output.availableMetadataObjectTypes.contains(where: { objectType in
 			objectType == AVMetadataObject.ObjectType.qr
-		})
-		{
+		}) {
 			output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-		}
-		else
-		{
+		} else {
 			print("no qr code support")
 		}
 
-		DispatchQueue(label: "qrscanner").async
-		{
+		DispatchQueue(label: "qrscanner").async {
 			self.session.startRunning()
 		}
 
-		if device.hasTorch
-		{
+		if device.hasTorch {
 			flash.tap = { [weak self] in
-				do
-				{
+				do {
 					try device.lockForConfiguration()
 					device.torchMode = device.torchMode == .on ? .off : .on
 					device.unlockForConfiguration()
-					if device.torchMode == .on
-					{
+					if device.torchMode == .on {
+						self?.saveEvent("scan.torchOn")
+					} else {
 						self?.saveEvent("scan.torchOn")
 					}
-					else
-					{
-						self?.saveEvent("scan.torchOn")
-					}
-				}
-				catch
-				{
+				} catch {
 					print("Camera Torch error: \(error)")
 				}
 			}
 		}
 	}
 
-	override var prefersStatusBarHidden: Bool
-	{
+	override var prefersStatusBarHidden: Bool {
 		return true
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
 
-extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate
-{
+extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
 	func metadataOutput(_: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from _: AVCaptureConnection)
 	{
-		if let data = metadataObjects as? [AVMetadataMachineReadableCodeObject]
-		{
-			if data.isEmpty
-			{
+		if let data = metadataObjects as? [AVMetadataMachineReadableCodeObject] {
+			if data.isEmpty {
 				guide.state = .normal
-			}
-			else
-			{
-				data.forEach
-				{
+			} else {
+				data.forEach {
 					guard let uri = $0.stringValue
-					else
-					{
+					else {
 						NSLog("ERROR: URI String not found")
 						return
 					}
-					if completion != nil, guide.state != .positive
-					{
+					if completion != nil, guide.state != .positive {
 						handleURI(uri)
-					}
-					else if scanKeyCompletion != nil, guide.state != .positive
-					{
+					} else if scanKeyCompletion != nil, guide.state != .positive {
 						handleKey(uri)
 					}
 				}
 			}
-		}
-		else
-		{
+		} else {
 			NSLog("ERROR: data metadata objects not accessed")
 		}
 	}
 
-	func handleURI(_ uri: String)
-	{
-		if currentUri != uri
-		{
+	func handleURI(_ uri: String) {
+		if currentUri != uri {
 			currentUri = uri
-			if let paymentRequest = PaymentRequest(string: uri)
-			{
+			if let paymentRequest = PaymentRequest(string: uri) {
 				saveEvent("scan.litecoinUri")
 				guide.state = .positive
 				// Add a small delay so the green guide will be seen
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
-				{
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 					self.dismiss(animated: true, completion: {
 						self.completion?(paymentRequest)
 					})
 				}
-			}
-			else
-			{
+			} else {
 				guide.state = .negative
 			}
 		}
 	}
 
-	func handleKey(_ keyString: String)
-	{
-		if isValidURI(keyString)
-		{
+	func handleKey(_ keyString: String) {
+		if isValidURI(keyString) {
 			saveEvent("scan.privateKey")
 			guide.state = .positive
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
-			{
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 				self.dismiss(animated: true, completion: {
 					self.scanKeyCompletion?(keyString)
 				})
 			}
-		}
-		else
-		{
+		} else {
 			guide.state = .negative
 		}
 	}

@@ -2,15 +2,13 @@ import BRCore
 import Foundation
 import UIKit
 
-enum SendResult
-{
+enum SendResult {
 	case success
 	case creationError(String)
 	case publishFailure(BRPeerManagerError)
 }
 
-class Sender
-{
+class Sender {
 	// MARK: - Private Variables
 
 	private let walletManager: WalletManager
@@ -29,33 +27,28 @@ class Sender
 
 	var feePerKb: UInt64?
 
-	var fee: UInt64
-	{
+	var fee: UInt64 {
 		guard let tx = transaction else { return 0 }
 		return walletManager.wallet?.feeForTx(tx) ?? 0
 	}
 
-	var canUseBiometrics: Bool
-	{
+	var canUseBiometrics: Bool {
 		guard let tx = transaction else { return false }
 		return walletManager.canUseBiometrics(forTx: tx)
 	}
 
-	init(walletManager: WalletManager, kvStore: BRReplicatedKVStore, store: Store)
-	{
+	init(walletManager: WalletManager, kvStore: BRReplicatedKVStore, store: Store) {
 		self.walletManager = walletManager
 		self.kvStore = kvStore
 		self.store = store
 	}
 
-	func createTransaction(amount: UInt64, to: String) -> Bool
-	{
+	func createTransaction(amount: UInt64, to: String) -> Bool {
 		transaction = walletManager.wallet?.createTransaction(forAmount: amount, toAddress: to)
 		return transaction != nil
 	}
 
-	func feeForTx(amount: UInt64) -> UInt64
-	{
+	func feeForTx(amount: UInt64) -> UInt64 {
 		return walletManager.wallet?.feeForTx(amount: amount) ?? 0
 	}
 
@@ -76,8 +69,7 @@ class Sender
 	          completion: @escaping (SendResult) -> Void)
 	{
 		guard let tx = transaction
-		else
-		{
+		else {
 			return completion(.creationError(S.Send.createTransactionError))
 		}
 
@@ -88,8 +80,7 @@ class Sender
 		if UserDefaults.isBiometricsEnabled &&
 			walletManager.canUseBiometrics(forTx: tx)
 		{
-			DispatchQueue.walletQueue.async
-			{ [weak self] in
+			DispatchQueue.walletQueue.async { [weak self] in
 				guard let myself = self else { return }
 				myself
 					.walletManager
@@ -97,14 +88,10 @@ class Sender
 					                 biometricsPrompt:
 					                 biometricsMessage,
 					                 completion: { result in
-					                 	if result == .success
-					                 	{
+					                 	if result == .success {
 					                 		myself.publish(completion: completion)
-					                 	}
-					                 	else
-					                 	{
-					                 		if result == .failure || result == .fallback
-					                 		{
+					                 	} else {
+					                 		if result == .failure || result == .fallback {
 					                 			myself.verifyPin(tx: tx,
 					                 			                 withFunction: verifyPinFunction,
 					                 			                 completion: completion)
@@ -112,26 +99,18 @@ class Sender
 					                 	}
 					                 })
 			}
-		}
-		else
-		{
+		} else {
 			verifyPin(tx: tx, withFunction: verifyPinFunction, completion: completion)
 		}
 	}
 
-	func sendToCard(amount: UInt64, toAddress: String, completion: @escaping (Bool) -> Void)
-	{
-		if createTransaction(amount: amount, to: toAddress)
-		{
-			if let tx = transaction
-			{
-				DispatchQueue.walletQueue.async
-				{ [weak self] in
+	func sendToCard(amount: UInt64, toAddress: String, completion: @escaping (Bool) -> Void) {
+		if createTransaction(amount: amount, to: toAddress) {
+			if let tx = transaction {
+				DispatchQueue.walletQueue.async { [weak self] in
 					guard let myself = self else { return }
-					myself.walletManager.signCardTransaction(tx)
-					{ result in
-						switch result
-						{
+					myself.walletManager.signCardTransaction(tx) { result in
+						switch result {
 						case .success:
 
 							self?.publish(completion: { result in
@@ -169,23 +148,19 @@ class Sender
 	                       withFunction: (@escaping (String) -> Bool) -> Void,
 	                       completion: @escaping (SendResult) -> Void)
 	{
-		withFunction
-		{ pin in
+		withFunction { pin in
 			var success = false
 			let group = DispatchGroup()
 			group.enter()
-			DispatchQueue.walletQueue.async
-			{
-				if self.walletManager.signTransaction(tx, pin: pin)
-				{
+			DispatchQueue.walletQueue.async {
+				if self.walletManager.signTransaction(tx, pin: pin) {
 					self.publish(completion: completion)
 					success = true
 				}
 				group.leave()
 			}
 			let result = group.wait(timeout: .now() + 30.0)
-			if result == .timedOut
-			{
+			if result == .timedOut {
 				let properties: [String: String] =
 					["ERROR_TX": "\(tx.txHash)",
 					 "ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
@@ -210,21 +185,15 @@ class Sender
 
 	/// Publish TX
 	/// - Parameter completion: completion
-	private func publish(completion: @escaping (SendResult) -> Void)
-	{
+	private func publish(completion: @escaping (SendResult) -> Void) {
 		guard let tx = transaction else { assertionFailure("publish failure"); return }
-		DispatchQueue.walletQueue.async
-		{ [weak self] in
+		DispatchQueue.walletQueue.async { [weak self] in
 			guard let myself = self else { assertionFailure("myself didn't exist"); return }
 			myself.walletManager.peerManager?.publishTx(tx, completion: { _, error in
-				DispatchQueue.main.async
-				{
-					if let error = error
-					{
+				DispatchQueue.main.async {
+					if let error = error {
 						completion(.publishFailure(error))
-					}
-					else
-					{
+					} else {
 						myself.setMetaData()
 						completion(.success)
 					}
@@ -234,28 +203,24 @@ class Sender
 	}
 
 	/// Set transaction metadata
-	private func setMetaData()
-	{
+	private func setMetaData() {
 		// Fires an event if the rate is not set
 		guard let rate = rate
-		else
-		{
+		else {
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_RNI)
 			return
 		}
 
 		// Fires an event if the transaction is not set
 		guard let tx = transaction
-		else
-		{
+		else {
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_TNI)
 			return
 		}
 
 		// Fires an event if the feePerKb is not set
 		guard let feePerKb = feePerKb
-		else
-		{
+		else {
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_FNI)
 			return
 		}
@@ -266,12 +231,9 @@ class Sender
 		                          feeRate: Double(feePerKb),
 		                          deviceId: UserDefaults.standard.deviceID,
 		                          comment: comment)
-		do
-		{
+		do {
 			_ = try kvStore.set(metaData)
-		}
-		catch
-		{
+		} catch {
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
 			                                   properties: ["error":
 			                                   	String(describing: error)])

@@ -1,9 +1,7 @@
 import UIKit
 
-class LightWeightAlert: UIView
-{
-	init(message: String)
-	{
+class LightWeightAlert: UIView {
+	init(message: String) {
 		super.init(frame: .zero)
 		label.text = message
 		setup()
@@ -14,8 +12,7 @@ class LightWeightAlert: UIView
 	let container = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .dark)))
 	private let label = UILabel(font: .customBold(size: 16.0))
 
-	private func setup()
-	{
+	private func setup() {
 		addSubview(background)
 		background.constrain(toSuperviewEdges: nil)
 		background.contentView.addSubview(container)
@@ -27,8 +24,7 @@ class LightWeightAlert: UIView
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

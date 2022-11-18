@@ -1,17 +1,13 @@
 import UIKit
 
-class UpdatingLabel: UILabel
-{
-	var formatter: NumberFormatter
-	{
-		didSet
-		{
+class UpdatingLabel: UILabel {
+	var formatter: NumberFormatter {
+		didSet {
 			setFormattedText(forValue: value)
 		}
 	}
 
-	init(formatter: NumberFormatter)
-	{
+	init(formatter: NumberFormatter) {
 		self.formatter = formatter
 		super.init(frame: .zero)
 		text = self.formatter.string(from: 0 as NSNumber)
@@ -20,14 +16,12 @@ class UpdatingLabel: UILabel
 	var completion: (() -> Void)?
 	private var value: Double = 0.0
 
-	func setValue(_ value: Double)
-	{
+	func setValue(_ value: Double) {
 		self.value = value
 		setFormattedText(forValue: value)
 	}
 
-	func setValueAnimated(_ endingValue: Double, completion: @escaping () -> Void)
-	{
+	func setValueAnimated(_ endingValue: Double, completion: @escaping () -> Void) {
 		self.completion = completion
 		guard let currentText = text else { return }
 		guard let startingValue = formatter.number(from: currentText)?.doubleValue else { return }
@@ -49,44 +43,37 @@ class UpdatingLabel: UILabel
 	private var progress: Double = 0.0
 	private var lastUpdate: CFTimeInterval = 0.0
 
-	private func startTimer()
-	{
+	private func startTimer() {
 		timer = CADisplayLink(target: self, selector: #selector(UpdatingLabel.update))
 		timer?.preferredFramesPerSecond = 2
 		timer?.add(to: .main, forMode: .defaultRunLoopMode)
 		timer?.add(to: .main, forMode: .UITrackingRunLoopMode)
 	}
 
-	@objc private func update()
-	{
+	@objc private func update() {
 		let now = CACurrentMediaTime()
 		progress = progress + (now - lastUpdate)
 		lastUpdate = now
-		if progress >= duration
-		{
+		if progress >= duration {
 			timer?.invalidate()
 			timer = nil
 			setFormattedText(forValue: endingValue)
 			completion?()
-		}
-		else
-		{
+		} else {
 			let percentProgress = progress / duration
 			let easedVal = 1.0 - pow(1.0 - percentProgress, easingRate)
 			setFormattedText(forValue: startingValue + (easedVal * (endingValue - startingValue)))
 		}
 	}
 
-	private func setFormattedText(forValue: Double)
-	{
+	private func setFormattedText(forValue: Double) {
 		value = forValue
 		text = formatter.string(from: forValue as NSNumber)
 		sizeToFit()
 	}
 
 	@available(*, unavailable)
-	required init?(coder _: NSCoder)
-	{
+	required init?(coder _: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }

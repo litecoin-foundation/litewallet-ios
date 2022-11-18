@@ -1,18 +1,15 @@
 import UIKit
 
-class StartNavigationDelegate: NSObject, UINavigationControllerDelegate
-{
+class StartNavigationDelegate: NSObject, UINavigationControllerDelegate {
 	let store: Store
 
-	init(store: Store)
-	{
+	init(store: Store) {
 		self.store = store
 	}
 
 	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool)
 	{
-		if viewController is RecoverWalletIntroViewController
-		{
+		if viewController is RecoverWalletIntroViewController {
 			navigationController.navigationBar.tintColor = .white
 			navigationController.navigationBar.titleTextAttributes = [
 				NSAttributedStringKey.foregroundColor: UIColor.white,
@@ -22,8 +19,7 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate
 			navigationController.navigationBar.barTintColor = .clear
 		}
 
-		if viewController is EnterPhraseViewController
-		{
+		if viewController is EnterPhraseViewController {
 			navigationController.navigationBar.tintColor = .darkText
 			navigationController.navigationBar.titleTextAttributes = [
 				NSAttributedStringKey.foregroundColor: UIColor.darkText,
@@ -34,8 +30,7 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate
 			navigationController.navigationBar.barTintColor = .whiteTint
 		}
 
-		if viewController is UpdatePinViewController
-		{
+		if viewController is UpdatePinViewController {
 			navigationController.navigationBar.tintColor = .darkText
 			navigationController.navigationBar.titleTextAttributes = [
 				NSAttributedStringKey.foregroundColor: UIColor.darkText,
@@ -44,16 +39,13 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate
 			navigationController.setClearNavbar()
 		}
 
-		if viewController is UpdatePinViewController
-		{
-			if let gr = navigationController.interactivePopGestureRecognizer
-			{
+		if viewController is UpdatePinViewController {
+			if let gr = navigationController.interactivePopGestureRecognizer {
 				navigationController.view.removeGestureRecognizer(gr)
 			}
 		}
 
-		if viewController is StartWipeWalletViewController
-		{
+		if viewController is StartWipeWalletViewController {
 			navigationController.setClearNavbar()
 			navigationController.setWhiteStyle()
 		}

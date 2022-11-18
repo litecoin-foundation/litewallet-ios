@@ -1,5 +1,4 @@
 # format options
---allman true
 --header strip
 --indent tab
 

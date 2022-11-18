@@ -3,18 +3,15 @@ import SwiftUI
 import UIKit
 import WebKit
 
-class BuyTableViewController: UITableViewController, SFSafariViewControllerDelegate
-{
+class BuyTableViewController: UITableViewController, SFSafariViewControllerDelegate {
 	@IBOutlet var bitrefillLogoImageView: UIImageView!
 	@IBOutlet var bitrefillHeaderLabel: UILabel!
 	@IBOutlet var bitrefillDetailsLabel: UILabel!
 	@IBOutlet var bitrefillCellContainerView: UIView!
 
-	@IBAction func didTapBitrefill(_: UIButton)
-	{
+	@IBAction func didTapBitrefill(_: UIButton) {
 		guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935")
-		else
-		{
+		else {
 			return
 		}
 
@@ -31,8 +28,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet var moonpayCellContainerView: UIView!
 	@IBOutlet var moonpaySegmentedControl: UISegmentedControl!
 
-	@IBAction func didTapMoonpay(_: Any)
-	{
+	@IBAction func didTapMoonpay(_: Any) {
 		let timestamp = Int(appInstallDate.timeIntervalSince1970)
 
 		let urlString = APIServer.baseUrl + "moonpay/buy" + "?address=\(currentWalletAddress)&idate=\(timestamp)&uid=\(uuidString)&code=\(currencyCode)"
@@ -54,8 +50,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 
 	private var currencyCode: String = "USD"
 
-	@IBAction func didTapSimplex(_: Any)
-	{
+	@IBAction func didTapSimplex(_: Any) {
 		if let vcWKVC = UIStoryboard(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController
 		{
 			vcWKVC.currencyCode = currencyCode
@@ -68,19 +63,15 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 			vcWKVC.didMove(toParentViewController: self)
 
 			vcWKVC.didDismissChildView = {
-				for vc in self.childViewControllers
-				{
-					DispatchQueue.main.async
-					{
+				for vc in self.childViewControllers {
+					DispatchQueue.main.async {
 						vc.willMove(toParentViewController: nil)
 						vc.view.removeFromSuperview()
 						vc.removeFromParentViewController()
 					}
 				}
 			}
-		}
-		else
-		{
+		} else {
 			NSLog("ERROR: Storyboard not initialized")
 		}
 	}
@@ -88,8 +79,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	var store: Store?
 	var walletManager: WalletManager?
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		let thinHeaderView = UIView()
@@ -115,8 +105,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		LWAnalytics.logEventWithParameters(itemName: ._20191105_DTBT)
 	}
 
-	private func setupWkVCData()
-	{
+	private func setupWkVCData() {
 		let bitrefillData = Partner.partnerDataArray()[0]
 		bitrefillLogoImageView.image = bitrefillData.logo
 		bitrefillHeaderLabel.text = bitrefillData.headerTitle
@@ -160,26 +149,20 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		return Date()
 	}()
 
-	@objc private func didChangeCurrencyMoonpay()
-	{
+	@objc private func didChangeCurrencyMoonpay() {
 		if let code = PartnerFiatOptions(rawValue: moonpaySegmentedControl.selectedSegmentIndex)?.description
 		{
 			currencyCode = code
-		}
-		else
-		{
+		} else {
 			print("Error: Code not found: \(moonpaySegmentedControl.selectedSegmentIndex)")
 		}
 	}
 
-	@objc private func didChangeCurrencySimplex()
-	{
+	@objc private func didChangeCurrencySimplex() {
 		if let code = PartnerFiatOptions(rawValue: simplexCurrencySegmentedControl.selectedSegmentIndex)?.description
 		{
 			currencyCode = code
-		}
-		else
-		{
+		} else {
 			print("Error: Code not found: \(simplexCurrencySegmentedControl.selectedSegmentIndex)")
 		}
 	}

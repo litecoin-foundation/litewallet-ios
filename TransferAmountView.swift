@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct TransferAmountView: View
-{
+struct TransferAmountView: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -31,33 +30,24 @@ struct TransferAmountView: View
 
 	private let smallButtonSize: CGFloat = 25.0
 
-	private var transferAmountTo: String
-	{
+	private var transferAmountTo: String {
 		return viewModel.walletType == .litewallet ?
 			S.LitecoinCard.Transfer.amountToCard :
 			S.LitecoinCard.Transfer.amountToLitewallet
 	}
 
-	private var remainingCardBalance: Double
-	{
-		if viewModel.walletType == .litewallet
-		{
+	private var remainingCardBalance: Double {
+		if viewModel.walletType == .litewallet {
 			return abs(viewModel.cardBalance + (viewModel.currentBalance * sliderValue))
-		}
-		else
-		{
+		} else {
 			return abs(viewModel.cardBalance - (viewModel.currentBalance * sliderValue))
 		}
 	}
 
-	private var remainingLitewalletBalance: Double
-	{
-		if viewModel.walletType == .litecoinCard
-		{
+	private var remainingLitewalletBalance: Double {
+		if viewModel.walletType == .litecoinCard {
 			return abs(viewModel.litewalletBalance + (viewModel.currentBalance * sliderValue))
-		}
-		else
-		{
+		} else {
 			return abs(viewModel.litewalletBalance - (viewModel.currentBalance * sliderValue))
 		}
 	}
@@ -73,34 +63,27 @@ struct TransferAmountView: View
 		_shouldShow = shouldShow
 	}
 
-	private func increaseValue()
-	{
+	private func increaseValue() {
 		// Only take action when value is less than the current balance
-		if transferAmount < viewModel.currentBalance
-		{
+		if transferAmount < viewModel.currentBalance {
 			transferAmount = transferAmount + 0.001
 			viewModel.transferAmount = transferAmount
 			sliderValue = abs(transferAmount / viewModel.currentBalance)
 		}
 	}
 
-	private func decreaseValue()
-	{
+	private func decreaseValue() {
 		// Only take action when value is more than 0.001
-		if transferAmount > 0.001
-		{
+		if transferAmount > 0.001 {
 			transferAmount = transferAmount - 0.001
 			viewModel.transferAmount = transferAmount
 			sliderValue = abs(transferAmount / viewModel.currentBalance)
 		}
 	}
 
-	var body: some View
-	{
-		ZStack
-		{
-			if didStartTransferringView
-			{
+	var body: some View {
+		ZStack {
+			if didStartTransferringView {
 				TransferringModalView(viewModel: transferringviewModel,
 				                      isShowingTransferring: $didStartTransferringView,
 				                      shouldStartTransfer: $shouldStartTransfer,
@@ -108,46 +91,35 @@ struct TransferAmountView: View
 				                      transferAmount: viewModel.currentBalance * sliderValue,
 				                      walletType: viewModel.walletType)
 					.zIndex(1)
-					.onReceive(transferringviewModel.$shouldStartTransfer)
-					{ _ in
-						if transferringviewModel.shouldStartTransfer
-						{
+					.onReceive(transferringviewModel.$shouldStartTransfer) { _ in
+						if transferringviewModel.shouldStartTransfer {
 							// Transfer to Litecoin Card
-							if viewModel.walletType == .litewallet
-							{
+							if viewModel.walletType == .litewallet {
 								viewModel.transferToCard(amount:
 									viewModel.transferAmount,
-									address: viewModel.destinationAddress)
-								{ didSend in
-									didStartTransferringView = didSend
-								}
+									address: viewModel.destinationAddress) { didSend in
+										didStartTransferringView = didSend
+									}
 
 								// Transfer to Litewallet
-							}
-							else if viewModel.walletType == .litecoinCard
-							{
+							} else if viewModel.walletType == .litecoinCard {
 								viewModel.transferToLitewallet(amount: viewModel.transferAmount,
-								                               address: viewModel.destinationAddress)
-								{
+								                               address: viewModel.destinationAddress) {
 									didStartTransferringView = false
 								}
 							}
 
-							DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
-							{
+							DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 								shouldShow = false
 							}
 						}
 					}
 			}
 
-			VStack
-			{
-				Group
-				{
+			VStack {
+				Group {
 					// Litewallet Balance Amount
-					HStack
-					{
+					HStack {
 						Text(S.LitecoinCard.Transfer.litewalletBalance + ": ")
 							.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 							.foregroundColor(Color.liteWalletBlue)
@@ -161,8 +133,7 @@ struct TransferAmountView: View
 					}
 
 					// Card Balance Amount
-					HStack
-					{
+					HStack {
 						Text(S.LitecoinCard.cardBalance + ": ")
 							.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 							.foregroundColor(Color.liteWalletBlue)
@@ -176,8 +147,7 @@ struct TransferAmountView: View
 					}
 
 					// Transfer Amount
-					HStack
-					{
+					HStack {
 						Text(transferAmountTo + ": ")
 							.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 							.foregroundColor(Color.liteWalletBlue)
@@ -191,8 +161,7 @@ struct TransferAmountView: View
 					}
 
 					// Destination Address
-					HStack
-					{
+					HStack {
 						Text(S.LitecoinCard.Transfer.destinationAddress + ": ")
 							.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 							.foregroundColor(Color.liteWalletBlue)
@@ -210,15 +179,12 @@ struct TransferAmountView: View
 				Divider()
 
 				// Amount Slider
-				Group
-				{
-					HStack
-					{
+				Group {
+					HStack {
 						// Decrease value
 						Button(action: {
 							decreaseValue()
-						})
-						{
+						}) {
 							Image(systemName: "minus.circle.fill")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
@@ -231,8 +197,7 @@ struct TransferAmountView: View
 
 						// Slider factor
 						Slider(value: $sliderValue,
-						       in: 0 ... 1)
-						{ _ in
+						       in: 0 ... 1) { _ in
 							transferAmount = sliderValue * viewModel.currentBalance
 						}
 						.accentColor(.liteWalletBlue)
@@ -241,8 +206,7 @@ struct TransferAmountView: View
 						// Increase value
 						Button(action: {
 							increaseValue()
-						})
-						{
+						}) {
 							Image(systemName: "plus.circle.fill")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
@@ -262,8 +226,7 @@ struct TransferAmountView: View
 
 					didStartTransferringView = true
 
-				})
-				{
+				}) {
 					Text(S.LitecoinCard.Transfer.startTransfer.localizedUppercase)
 						.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 						.frame(maxWidth: .infinity)
@@ -283,8 +246,7 @@ struct TransferAmountView: View
 				Button(action: {
 					self.shouldShow = false
 					sliderValue = 0.0
-				})
-				{
+				}) {
 					Text(S.Button.cancel.uppercased())
 						.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 						.frame(maxWidth: .infinity)
@@ -304,8 +266,7 @@ struct TransferAmountView: View
 	}
 }
 
-struct TransferAmountView_Previews: PreviewProvider
-{
+struct TransferAmountView_Previews: PreviewProvider {
 	static let walletManager = try! WalletManager(store: Store())
 
 	static let lwPlusviewModel = TransferAmountViewModel(walletType: .litewallet,
@@ -332,10 +293,8 @@ struct TransferAmountView_Previews: PreviewProvider
 	                                                       walletManager: walletManager,
 	                                                       store: Store())
 
-	static var previews: some View
-	{
-		Group
-		{
+	static var previews: some View {
+		Group {
 			TransferAmountView(viewModel: lwPlusviewModel,
 			                   sliderValue: .constant(0.5),
 			                   shouldShow: .constant(true))

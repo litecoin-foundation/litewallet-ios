@@ -1,7 +1,6 @@
 import Foundation
 
-enum ArticleIds
-{
+enum ArticleIds {
 	static let displayCurrency = "display-currency"
 	static let recoverWallet = "recover-wallet"
 	static let reScan = "re-scan"

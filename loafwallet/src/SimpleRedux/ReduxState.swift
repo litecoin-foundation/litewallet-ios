@@ -1,7 +1,6 @@
 import UIKit
 
-struct ReduxState
-{
+struct ReduxState {
 	let isStartFlowVisible: Bool
 	let isLoginRequired: Bool
 	let rootModal: RootModal
@@ -21,10 +20,8 @@ struct ReduxState
 	let fees: Fees
 }
 
-extension ReduxState
-{
-	static var initial: ReduxState
-	{
+extension ReduxState {
+	static var initial: ReduxState {
 		return ReduxState(isStartFlowVisible: false,
 		                  isLoginRequired: true,
 		                  rootModal: .none,
@@ -45,8 +42,7 @@ extension ReduxState
 	}
 }
 
-enum RootModal
-{
+enum RootModal {
 	case none
 	case send
 	case receive
@@ -58,15 +54,13 @@ enum RootModal
 	case wipeEmptyWallet
 }
 
-enum SyncState
-{
+enum SyncState {
 	case syncing
 	case connecting
 	case success
 }
 
-struct WalletState
-{
+struct WalletState {
 	let isConnected: Bool
 	let syncProgress: Double
 	let syncState: SyncState
@@ -76,15 +70,13 @@ struct WalletState
 	let name: String
 	let creationDate: Date
 	let isRescanning: Bool
-	static var initial: WalletState
-	{
+	static var initial: WalletState {
 		return WalletState(isConnected: false, syncProgress: 0.0, syncState: .success, balance: nil, transactions: [], lastBlockTimestamp: 0, name: S.AccountHeader.defaultWalletName, creationDate: Date.zeroValue(), isRescanning: false)
 	}
 }
 
 extension WalletState: Equatable {}
 
-func == (lhs: WalletState, rhs: WalletState) -> Bool
-{
+func == (lhs: WalletState, rhs: WalletState) -> Bool {
 	return lhs.isConnected == rhs.isConnected && lhs.syncProgress == rhs.syncProgress && lhs.syncState == rhs.syncState && lhs.balance == rhs.balance && lhs.transactions == rhs.transactions && lhs.name == rhs.name && lhs.creationDate == rhs.creationDate && lhs.isRescanning == rhs.isRescanning
 }

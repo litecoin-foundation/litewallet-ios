@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct ForgotAlertView<Presenting>: View where Presenting: View
-{
+struct ForgotAlertView<Presenting>: View where Presenting: View {
 	// MARK: - Combine Variables
 
 	@ObservedObject
@@ -23,28 +22,21 @@ struct ForgotAlertView<Presenting>: View where Presenting: View
 	@State
 	var didCheckEmailAddress: Bool = false
 
-	var body: some View
-	{
-		GeometryReader
-		{ (_: GeometryProxy) in
-			HStack
-			{
+	var body: some View {
+		GeometryReader { (_: GeometryProxy) in
+			HStack {
 				Spacer()
-				ZStack
-				{
+				ZStack {
 					self.presenting.disabled(isShowingForgot)
-					VStack
-					{
+					VStack {
 						// Dismiss button
 						Button(action: {
-							viewModel.shouldDismissView
-							{
+							viewModel.shouldDismissView {
 								self.isShowingForgot.toggle()
 								UIApplication.shared.endEditing()
 							}
 
-						})
-						{
+						}) {
 							Image("whiteCross")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
@@ -76,17 +68,13 @@ struct ForgotAlertView<Presenting>: View where Presenting: View
 							.disableAutocorrection(true)
 							.padding(.all, 20)
 
-						HStack
-						{
+						HStack {
 							// Reset password button
 							Button(action: {
-								withAnimation
-								{
+								withAnimation {
 									viewModel.emailString = email
-									viewModel.resetPassword
-									{
-										DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)
-										{
+									viewModel.resetPassword {
+										DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
 											self.isShowingForgot.toggle()
 											UIApplication.shared.endEditing()
 											didCheckEmailAddress = true
@@ -94,8 +82,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View
 										}
 									}
 								}
-							})
-							{
+							}) {
 								Text(S.LitecoinCard.resetPassword)
 									.frame(minWidth: 0, maxWidth: .infinity)
 									.font(Font(UIFont.barlowBold(size: 20.0)))
@@ -126,12 +113,9 @@ struct ForgotAlertView<Presenting>: View where Presenting: View
 	}
 }
 
-struct ForgotAlertView_Previews: PreviewProvider
-{
-	static var previews: some View
-	{
-		VStack
-		{
+struct ForgotAlertView_Previews: PreviewProvider {
+	static var previews: some View {
+		VStack {
 			Spacer()
 			Text("")
 				.padding(.all, 10)

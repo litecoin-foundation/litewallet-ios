@@ -1,15 +1,13 @@
 import UIKit
 
-class DrawableCircle: UIView
-{
+class DrawableCircle: UIView {
 	private let circleLayer = CAShapeLayer()
 	private let checkLayer = CAShapeLayer()
 	private var hasPerformedLayout = false
 	private let originalCheckSize: CGFloat = 96.0
 	private let animationDuration: TimeInterval = 0.4
 
-	override func layoutSubviews()
-	{
+	override func layoutSubviews() {
 		guard !hasPerformedLayout else { hasPerformedLayout = true; return }
 		clipsToBounds = false
 		backgroundColor = .clear
@@ -39,8 +37,7 @@ class DrawableCircle: UIView
 		layer.addSublayer(checkLayer)
 	}
 
-	func show()
-	{
+	func show() {
 		let circleAnimation = CABasicAnimation(keyPath: "opacity")
 		circleAnimation.duration = animationDuration
 		circleAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
