@@ -1448,4 +1448,4 @@
 "WritePaperPhrase.step" = "%1$d di %2$d";
 
 /* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "Are you sure you want to change the language to %l?";
+"Settings.ChangeLanguage.alertMessage" = "Sei sicuro di voler cambiare la lingua in %l?";

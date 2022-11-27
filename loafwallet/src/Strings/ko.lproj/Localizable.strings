@@ -1448,4 +1448,4 @@
 "WritePaperPhrase.step" = "%2$d의 %1$d";
 
 /* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "Are you sure you want to change the language to %l?";
+"Settings.ChangeLanguage.alertMessage" = "언어를 변경하시겠습니까?";
