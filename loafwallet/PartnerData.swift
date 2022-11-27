@@ -28,6 +28,6 @@ struct Partner {
         let simplex = Partner(logo: UIImage(named: "simplexLogo")!, headerTitle: S.BuyCenter.Cells.simplexTitle.localize(), details: S.BuyCenter.Cells.simplexFinancialDetails.localize())
 
         return [bitrefill, moonpay, simplex]
-    }     
+    }
 }
 
