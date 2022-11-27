@@ -146,11 +146,3 @@ extension String {
         return self.replacingOccurrences(of: ".00)", with: ".01)", options: .literal, range: range)
     }
 }
-
-extension String {
-
-    func localize(value: String = "", comment: String = "") -> String {
-        return NSLocalizedString(self, value: value, comment: comment)
-    }
-
-}
