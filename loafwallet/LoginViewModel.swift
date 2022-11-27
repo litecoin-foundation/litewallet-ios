@@ -31,7 +31,7 @@ class LoginViewModel: ObservableObject {
     var didCompleteLogin: Bool = false
     
     @Published
-    var processMessage: String = S.LitecoinCard.login + " ..."
+    var processMessage: String = S.LitecoinCard.login.localize() + " ..."
 
     //MARK: - Private Variables
     private let keychain = Keychain(service: "com.litecoincard.service")

@@ -48,7 +48,7 @@ class Transaction {
 
         self.isValid = wallet.transactionIsValid(tx)
         let transactionBlockHeight = tx.pointee.blockHeight
-        self.blockHeight = tx.pointee.blockHeight == UInt32(INT32_MAX) ? S.TransactionDetails.notConfirmedBlockHeightLabel : "\(tx.pointee.blockHeight)"
+        self.blockHeight = tx.pointee.blockHeight == UInt32(INT32_MAX) ? S.TransactionDetails.notConfirmedBlockHeightLabel.localize() : "\(tx.pointee.blockHeight)"
 
         let blockHeight = peerManager.lastBlockHeight
         confirms = transactionBlockHeight > blockHeight ? 0 : Int(blockHeight - transactionBlockHeight) + 1
@@ -77,15 +77,15 @@ class Transaction {
 
     var detailsAddressText: String {
         let address = toAddress?.largeCondensed
-        return String(format: direction.addressTextFormat, address ?? S.TransactionDetails.account)
+        return String(format: direction.addressTextFormat, address ?? S.TransactionDetails.account.localize())
     }
 
     func amountDetails(isLtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
         let feeAmount = Amount(amount: fee, rate: rate, maxDigits: maxDigits)
-        let feeString = direction == .sent ? String(format: S.Transaction.fee, "\(feeAmount.string(isLtcSwapped: isLtcSwapped))") : ""
+        let feeString = direction == .sent ? String(format: S.Transaction.fee.localize(), "\(feeAmount.string(isLtcSwapped: isLtcSwapped))") : ""
         let amountString = "\(direction.sign)\(Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped)) \(feeString)"
-        var startingString = String(format: S.Transaction.starting, "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))")
-        var endingString = String(format: String(format: S.Transaction.ending, "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))"))
+        var startingString = String(format: S.Transaction.starting.localize(), "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))")
+        var endingString = String(format: String(format: S.Transaction.ending.localize(), "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))"))
 
         if startingBalance > C.maxMoney {
             startingString = ""
@@ -111,16 +111,16 @@ class Transaction {
     
     func amountDetailsAmountString(isLtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
         let feeAmount = Amount(amount: fee, rate: rate, maxDigits: maxDigits)
-        let feeString = direction == .sent ? String(format: S.Transaction.fee, "\(feeAmount.string(isLtcSwapped: isLtcSwapped))") : ""
+        let feeString = direction == .sent ? String(format: S.Transaction.fee.localize(), "\(feeAmount.string(isLtcSwapped: isLtcSwapped))") : ""
         return "\(direction.sign)\(Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped)) \(feeString)"
     }
     
     func amountDetailsStartingBalanceString(isLtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
-        return String(format: S.Transaction.starting, "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))")
+        return String(format: S.Transaction.starting.localize(), "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))")
     }
     
     func amountDetailsEndingBalanceString(isLtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
-        return  String(format: String(format: S.Transaction.ending, "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))"))
+        return  String(format: String(format: S.Transaction.ending.localize(), "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))"))
     }
     
     func amountExchangeString(isLtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
@@ -226,7 +226,7 @@ class Transaction {
 
         let result: (String, Bool)
         guard timestamp > 0 else {
-            result = (S.Transaction.justNow, false)
+            result = (S.Transaction.justNow.localize(), false)
             timeSinceCache = result
             return result
         }
@@ -255,13 +255,13 @@ class Transaction {
         let secondsInDay = 86400
         let secondsInWeek = secondsInDay * 7
         if (difference < secondsInMinute) {
-            result = (String(format: S.TimeSince.seconds, "\(difference)"), true)
+            result = (String(format: S.TimeSince.seconds.localize(), "\(difference)"), true)
         } else if difference < secondsInHour {
-            result = (String(format: S.TimeSince.minutes, "\(difference/secondsInMinute)"), true)
+            result = (String(format: S.TimeSince.minutes.localize(), "\(difference/secondsInMinute)"), true)
         } else if difference < secondsInDay {
-            result = (String(format: S.TimeSince.hours, "\(difference/secondsInHour)"), false)
+            result = (String(format: S.TimeSince.hours.localize(), "\(difference/secondsInHour)"), false)
         } else if difference < secondsInWeek {
-            result = (String(format: S.TimeSince.days, "\(difference/secondsInDay)"), false)
+            result = (String(format: S.TimeSince.days.localize(), "\(difference/secondsInDay)"), false)
         } else {
             let df = DateFormatter()
             df.setLocalizedDateFormatFromTemplate("MMM dd")
@@ -276,13 +276,13 @@ class Transaction {
     private var timeSinceCache: (String, Bool)?
 
     var longTimestamp: String {
-        guard timestamp > 0 else { return wallet.transactionIsValid(tx) ? S.Transaction.justNow : "" }
+        guard timestamp > 0 else { return wallet.transactionIsValid(tx) ? S.Transaction.justNow.localize() : "" }
         let date = Date(timeIntervalSince1970: Double(timestamp))
         return Transaction.longDateFormatter.string(from: date)
     }
     
     var shortTimestamp: String {
-        guard timestamp > 0 else { return wallet.transactionIsValid(tx) ? S.Transaction.justNow : "" }
+        guard timestamp > 0 else { return wallet.transactionIsValid(tx) ? S.Transaction.justNow.localize() : "" }
         let date = Date(timeIntervalSince1970: Double(timestamp))
         return Transaction.shortDateFormatter.string(from: date)
     }
@@ -343,7 +343,7 @@ private extension String {
 private func makeStatus(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRPeerManager, confirms: Int, direction: TransactionDirection) -> String {
     let tx = txRef.pointee
     guard wallet.transactionIsValid(txRef) else {
-        return S.Transaction.invalid
+        return S.Transaction.invalid.localize()
     }
 
     if confirms < 6 {
@@ -364,10 +364,10 @@ private func makeStatus(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRPeerM
         } else if confirms > 2 {
             percentageString = "100%"
         }
-        let format = direction == .sent ? S.Transaction.sendingStatus : S.Transaction.receivedStatus
+        let format = direction == .sent ? S.Transaction.sendingStatus.localize() : S.Transaction.receivedStatus.localize()
         return String(format: format, percentageString)
     } else {
-        return S.Transaction.complete
+        return S.Transaction.complete.localize()
     }
 }
 

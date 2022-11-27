@@ -44,7 +44,7 @@ struct LoginCardAlertView<Presenting>: View where Presenting: View {
                                     self.isShowingLoginAlert.toggle()
                                 }
                             }) {
-                                Text(S.Prompts.dismiss.localizedCapitalized)
+                                Text(S.Prompts.dismiss.localize().capitalized)
                                     .font(Font(UIFont.barlowLight(size: 14.0)))
                                     .foregroundColor(.gray)
                             }.padding([.top,.bottom], 5)

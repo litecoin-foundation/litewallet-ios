@@ -62,11 +62,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
         configurePriceLabels()
         addSubscriptions()
         dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a")
-        
-        for (index, storyboardID) in self.storyboardIDs.enumerated() {
-            let controller = UIStoryboard.init(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
-            viewControllers.append(controller)
-        }
+
+        addViewControllers()
         
         self.updateTimer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: true) { timer in
             self.setBalances()
@@ -77,10 +74,31 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
             return
         }
         self.tabBar.selectedItem = array[kInitialChildViewControllerIndex]
+
+        NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: .languageChanged, object: nil)
     }
     
     deinit {
+        NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
         self.updateTimer = nil
+    }
+
+    @objc
+    func languageChanged() {
+        walletBalanceLabel.text = S.ManageWallet.balance.localize() + ":"
+        localizeTabBar()
+        viewControllers = []
+        addViewControllers()
+        guard let array = self.tabBar.items else { return }
+        tabBar.selectedItem = array[kInitialChildViewControllerIndex]
+        displayContentController(contentController: viewControllers[0])
+    }
+
+    func addViewControllers() {
+        for (index, storyboardID) in self.storyboardIDs.enumerated() {
+            let controller = UIStoryboard.init(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
+            viewControllers.append(controller)
+        }
     }
     
     private func setupModels() {
@@ -102,7 +120,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     
     private func setupViews() {
         
-        walletBalanceLabel.text = S.ManageWallet.balance + ":"
+        walletBalanceLabel.text = S.ManageWallet.balance.localize() + ":"
 
         if #available(iOS 11.0, *),
            let  backgroundColor = UIColor(named: "mainColor") {
@@ -291,22 +309,24 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
-        
+        localizeTabBar()
+    }
+
+    func localizeTabBar() {
         guard let array = self.tabBar.items else {
             NSLog("ERROR: no items found")
             return
         }
-        
+
         array.forEach { item in
-            
+
             switch item.tag {
-            case 0: item.title = S.History.barItemTitle
-            case 1: item.title = S.Send.barItemTitle
-            case 2: item.title = S.LitecoinCard.barItemTitle
-            case 3: item.title = S.Receive.barItemTitle
-            case 4: item.title = S.BuyCenter.barItemTitle
+            case 0: item.title = S.History.barItemTitle.localize()
+            case 1: item.title = S.Send.barItemTitle.localize()
+            case 2: item.title = S.LitecoinCard.barItemTitle.localize()
+            case 3: item.title = S.Receive.barItemTitle.localize()
+            case 4: item.title = S.BuyCenter.barItemTitle.localize()
             default:
                 item.title = "NO-TITLE"
                 NSLog("ERROR: UITabbar item count is wrong")

@@ -14,9 +14,9 @@ class AboutViewController : UIViewController {
     private var titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
     private let logo = UIImageView(image: #imageLiteral(resourceName: "coinBlueWhite"))
     private let logoBackground = UIView()
-    private let blog = AboutCell(text: S.About.blog)
-    private let twitter = AboutCell(text: S.About.twitter)
-    private let reddit = AboutCell(text: S.About.reddit)
+    private let blog = AboutCell(text: S.About.blog.localize())
+    private let twitter = AboutCell(text: S.About.twitter.localize())
+    private let reddit = AboutCell(text: S.About.reddit.localize())
     private let privacy = UIButton(type: .system)
     private let footer = UILabel(font: .customBody(size: 13.0), color: .secondaryGrayText)
     override func viewDidLoad() {
@@ -81,12 +81,12 @@ class AboutViewController : UIViewController {
 
     private func setData() {
         
-        titleLabel.text = S.Settings.socialLinks
-        privacy.setTitle(S.About.privacy, for: .normal)
+        titleLabel.text = S.Settings.socialLinks.localize()
+        privacy.setTitle(S.About.privacy.localize(), for: .normal)
         privacy.titleLabel?.font = UIFont.customBody(size: 13.0)
         footer.textAlignment = .center
         footer.numberOfLines = 4
-        footer.text = String(format: S.About.footer, AppVersion.string)
+        footer.text = String(format: S.About.footer.localize(), AppVersion.string)
         logo.contentMode = .scaleAspectFill
     }
 

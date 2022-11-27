@@ -39,7 +39,7 @@ struct SendAddressCellView: View {
                      
                         VStack {
                             
-                            AddressFieldView(S.Send.enterLTCAddressLabel, text: $viewModel.addressString)
+                            AddressFieldView(S.Send.enterLTCAddressLabel.localize(), text: $viewModel.addressString)
                                 .onTapGesture {
                                         didStartEditing = true
                                     }
@@ -62,7 +62,7 @@ struct SendAddressCellView: View {
                                     .foregroundColor(Color(UIColor.secondaryButton))
                                     .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)                                     .padding(.trailing, 3.0)
                                 
-                                Text(S.Send.pasteLabel)
+                                Text(S.Send.pasteLabel.localize())
                                     .frame(width: actionButtonWidth, height: 30, alignment: .center)
                                     .font(Font(UIFont.customMedium(size: 15.0)))
                                     .foregroundColor(Color(UIColor.grayTextTint))
@@ -87,7 +87,7 @@ struct SendAddressCellView: View {
                                     .foregroundColor(Color(UIColor.secondaryButton))
                                     .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)                                     .padding(.trailing, 8.0)
                                 
-                                Text(S.Send.scanLabel)
+                                Text(S.Send.scanLabel.localize())
                                     .frame(width: actionButtonWidth, height: 30, alignment: .center)
                                     .font(Font(UIFont.customMedium(size: 15.0)))
                                     .foregroundColor(Color(UIColor.grayTextTint))

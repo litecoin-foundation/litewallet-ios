@@ -87,7 +87,7 @@ class CardTwoFactor: ObservableObject {
                           code == "invalid_token",
                           status == 401 {
                                 
-                                self.errorMessage = S.Fragments.sorry + "" + S.LitecoinCard.twoFAErrorMessage
+                                self.errorMessage = S.Fragments.sorry.localize() + "" + S.LitecoinCard.twoFAErrorMessage.localize()
                                 
                                 self.errorOccured = true
                                 

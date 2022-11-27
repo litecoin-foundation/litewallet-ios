@@ -28,7 +28,7 @@ class RegistrationViewModel: ObservableObject {
     var didRegister: Bool = false
     
     @Published
-    var message: String = S.LitecoinCard.registeringUser
+    var message: String = S.LitecoinCard.registeringUser.localize()
     
     var dataDictionary = [String: Any]()
     
@@ -91,7 +91,7 @@ class RegistrationViewModel: ObservableObject {
                 keychain["createdAt"] = createdAt
                 
                 DispatchQueue.main.async {
-                    self.message = S.LitecoinCard.registrationSuccess
+                    self.message = S.LitecoinCard.registrationSuccess.localize()
                     self.didRegister = true
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
@@ -103,7 +103,7 @@ class RegistrationViewModel: ObservableObject {
      
         if setupUserID == nil {
             DispatchQueue.main.async {
-                self.message = S.LitecoinCard.registrationFailure
+                self.message = S.LitecoinCard.registrationFailure.localize()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                     self.isRegistering = false
                 }

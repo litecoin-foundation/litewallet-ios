@@ -27,13 +27,13 @@ class StartImportViewController : UIViewController {
     private let illustration = UIImageView(image: #imageLiteral(resourceName: "ImportIllustration"))
     private let message = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
     private let warning = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
-    private let button = ShadowButton(title: S.Import.scan, type: .primary)
+    private let button = ShadowButton(title: S.Import.scan.localize(), type: .primary)
     private let bullet = UIImageView(image: #imageLiteral(resourceName: "deletecircle"))
     private let leftCaption = UILabel.wrapping(font: .customMedium(size: 13.0), color: .darkText)
     private let rightCaption = UILabel.wrapping(font: .customMedium(size: 13.0), color: .darkText)
-    private let balanceActivity = BRActivityViewController(message: S.Import.checking)
-    private let importingActivity = BRActivityViewController(message: S.Import.importing)
-    private let unlockingActivity = BRActivityViewController(message: S.Import.unlockingActivity)
+    private let balanceActivity = BRActivityViewController(message: S.Import.checking.localize())
+    private let importingActivity = BRActivityViewController(message: S.Import.importing.localize())
+    private let unlockingActivity = BRActivityViewController(message: S.Import.unlockingActivity.localize())
 
     override func viewDidLoad() {
         addSubviews()
@@ -92,12 +92,12 @@ class StartImportViewController : UIViewController {
     private func setInitialData() {
         view.backgroundColor = .white
         illustration.contentMode = .scaleAspectFill
-        message.text = S.Import.importMessage
-        leftCaption.text = S.Import.leftCaption
+        message.text = S.Import.importMessage.localize()
+        leftCaption.text = S.Import.leftCaption.localize()
         leftCaption.textAlignment = .center
-        rightCaption.text = S.Import.rightCaption
+        rightCaption.text = S.Import.rightCaption.localize()
         rightCaption.textAlignment = .center
-        warning.text = S.Import.importWarning
+        warning.text = S.Import.importWarning.localize()
 
         button.tap = { [weak self] in
             let scan = ScanViewController(scanKeyCompletion: { keyString in
@@ -124,14 +124,14 @@ class StartImportViewController : UIViewController {
     }
 
     private func unlock(address: String, callback: @escaping (BRKey) -> Void) {
-        let alert = UIAlertController(title: S.Import.title, message: S.Import.password, preferredStyle: .alert)
+        let alert = UIAlertController(title: S.Import.title.localize(), message: S.Import.password.localize(), preferredStyle: .alert)
         alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = S.Import.passwordPlaceholder
+            textField.placeholder = S.Import.passwordPlaceholder.localize()
             textField.isSecureTextEntry = true
             textField.returnKeyType = .done
         })
-        alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: S.Button.ok.localize(), style: .default, handler: { _ in
             self.present(self.unlockingActivity, animated: true, completion: {
                 if let password = alert.textFields?.first?.text {
                     if let key = BRKey(bip38Key: address, passphrase: password) {
@@ -142,7 +142,7 @@ class StartImportViewController : UIViewController {
                     }
                 }
                 self.unlockingActivity.dismiss(animated: true, completion: {
-                    self.showErrorMessage(S.Import.wrongPassword)
+                    self.showErrorMessage(S.Import.wrongPassword.localize())
                 })
             })
         }))
@@ -185,7 +185,7 @@ class StartImportViewController : UIViewController {
         guard let wallet = walletManager.wallet else { return }
         guard let address = key.address() else { return }
         guard !wallet.containsAddress(address) else {
-            return showErrorMessage(S.Import.Error.duplicate)
+            return showErrorMessage(S.Import.Error.duplicate.localize())
         }
         let outputs = data.compactMap { SimpleUTXO(json: $0) }
         let balance = outputs.map { $0.satoshis }.reduce(0, +)
@@ -197,20 +197,20 @@ class StartImportViewController : UIViewController {
         let fee = wallet.feeForTxSize(tx.size + 34 + (pubKeyLength - 34)*tx.inputs.count)
         balanceActivity.dismiss(animated: true, completion: {
             guard outputs.count > 0 && balance > 0 else {
-                return self.showErrorMessage(S.Import.Error.empty)
+                return self.showErrorMessage(S.Import.Error.empty.localize())
             }
             guard fee + wallet.minOutputAmount <= balance else {
-                return self.showErrorMessage(S.Import.Error.highFees)
+                return self.showErrorMessage(S.Import.Error.highFees.localize())
             }
             guard let rate = self.store.state.currentRate else { return }
             let balanceAmount = Amount(amount: balance, rate: rate, maxDigits: self.store.state.maxDigits)
             let feeAmount = Amount(amount: fee, rate: rate, maxDigits: self.store.state.maxDigits)
             let balanceText = self.store.state.isLtcSwapped ? balanceAmount.localCurrency : balanceAmount.bits
             let feeText = self.store.state.isLtcSwapped ? feeAmount.localCurrency : feeAmount.bits
-            let message = String(format: S.Import.confirm, balanceText, feeText)
-            let alert = UIAlertController(title: S.Import.title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: S.Import.importButton, style: .default, handler: { _ in
+            let message = String(format: S.Import.confirm.localize(), balanceText, feeText)
+            let alert = UIAlertController(title: S.Import.title.localize(), message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: S.Import.importButton.localize(), style: .default, handler: { _ in
                 self.publish(tx: tx, balance: balance, fee: fee, key: key)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -228,7 +228,7 @@ class StartImportViewController : UIViewController {
                 guard tx.isSigned else {
                     DispatchQueue.main.async {
                         self.importingActivity.dismiss(animated: true, completion: {
-                            self.showErrorMessage(S.Import.Error.signing)
+                            self.showErrorMessage(S.Import.Error.signing.localize())
                         })
                     }
                     return

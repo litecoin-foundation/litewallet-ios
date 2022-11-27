@@ -48,12 +48,12 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                         }
                         .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
 
-                        Text(S.LitecoinCard.enterCode)
+                        Text(S.LitecoinCard.enterCode.localize())
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
                             .padding(.bottom, 8)
                             .foregroundColor(Color.white)
                          
-                        Text(S.LitecoinCard.enterCodeDetail)
+                        Text(S.LitecoinCard.enterCodeDetail.localize())
                             .font(Font(UIFont.barlowRegular(size: 19.0)))
                             .foregroundColor(Color.white)
                             .padding([.leading, .trailing], 20)
@@ -96,7 +96,7 @@ struct Enter2FACodeView<Presenting>: View where Presenting: View {
                                 }
                                 
                             }) {
-                                Text(S.Fragments.confirm.localizedUppercase)
+                                Text(S.Fragments.confirm.localize().uppercased())
                                     .frame(minWidth:0, maxWidth: .infinity)
                                     .padding()
                                     .font(Font(UIFont.barlowBold(size: 20.0)))

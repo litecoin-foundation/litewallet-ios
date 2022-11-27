@@ -48,11 +48,11 @@ class ConfirmPaperPhraseViewController : UITableViewController {
         return wordArray
     }()
     
-    lazy private var confirmFirstPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word, "\(self.fourIndices.0+1)"), word: self.words[self.fourIndices.0])
+    lazy private var confirmFirstPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.0+1)"), word: self.words[self.fourIndices.0])
     }()
-    lazy private var confirmSecondPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word, "\(self.fourIndices.1+1)"), word: self.words[self.fourIndices.1]) }()
-    lazy private var confirmThirdPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word, "\(self.fourIndices.2+1)"), word: self.words[self.fourIndices.2]) }()
-    lazy private var confirmFourthPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word, "\(self.fourIndices.3+1)"), word: self.words[self.fourIndices.3]) }()
+    lazy private var confirmSecondPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.1+1)"), word: self.words[self.fourIndices.1]) }()
+    lazy private var confirmThirdPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.2+1)"), word: self.words[self.fourIndices.2]) }()
+    lazy private var confirmFourthPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.3+1)"), word: self.words[self.fourIndices.3]) }()
      
     var store: Store?
     var walletManager: WalletManager?
@@ -91,8 +91,8 @@ class ConfirmPaperPhraseViewController : UITableViewController {
         headerTitleLabel.font = UIFont.barlowBold(size: 18.0)
         headerDescriptionLabel.font = UIFont.barlowRegular(size: 14.0)
         
-        headerTitleLabel.text = S.SecurityCenter.Cells.paperKeyTitle
-        headerDescriptionLabel.text = S.ConfirmPaperPhrase.label
+        headerTitleLabel.text = S.SecurityCenter.Cells.paperKeyTitle.localize()
+        headerDescriptionLabel.text = S.ConfirmPaperPhrase.label.localize()
         headerTitleLabel.textColor = .white
         headerDescriptionLabel.textColor = .white
          
@@ -117,7 +117,7 @@ class ConfirmPaperPhraseViewController : UITableViewController {
                                   views: ["confirmFourthPhrase": confirmFourthPhrase]))
 
         backButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
-        submitButton.setTitle(S.Button.submit, for: .normal)
+        submitButton.setTitle(S.Button.submit.localize(), for: .normal)
         submitButton.titleLabel?.font = UIFont.barlowBold(size: 18.0)
         submitButton.backgroundColor = .liteWalletBlue
         submitButton.layer.cornerRadius = 4.0
@@ -183,7 +183,7 @@ class ConfirmPaperPhraseViewController : UITableViewController {
             secondWordCell.confirmPhraseView?.validate()
             thirdWordCell.confirmPhraseView?.validate()
             fourthWordCell.confirmPhraseView?.validate()
-            showErrorMessage(S.ConfirmPaperPhrase.error)
+            showErrorMessage(S.ConfirmPaperPhrase.error.localize())
         }
     }
 }

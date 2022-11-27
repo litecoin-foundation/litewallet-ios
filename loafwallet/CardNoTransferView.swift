@@ -34,7 +34,7 @@ struct CardNoTransferView: View {
                 Group {
                     
                     // Top description
-                    Text(S.LitecoinCard.cardBalance.localizedUppercase)
+                    Text(S.LitecoinCard.cardBalance.localize().uppercased())
                         .frame(minWidth: 0,
                                maxWidth: .infinity,
                                alignment: .center)
@@ -54,7 +54,7 @@ struct CardNoTransferView: View {
                         )
                          
                         // 2FA description
-                        Text(S.LitecoinCard.cardBalanceOnlyDescription)
+                        Text(S.LitecoinCard.cardBalanceOnlyDescription.localize())
                             .frame(minWidth: 0,
                                    maxWidth: .infinity,
                                    alignment: .center)

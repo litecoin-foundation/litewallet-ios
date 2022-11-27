@@ -74,7 +74,7 @@ class ManageWalletViewController : UIViewController, ModalPresentable, Subscribe
         textField.textColor = .darkText
         textField.font = .customBody(size: 14.0)
         textField.returnKeyType = .done
-        textFieldLabel.text = S.ManageWallet.textFieldLabel
+        textFieldLabel.text = S.ManageWallet.textFieldLabel.localize()
         textField.delegate = self
 
         self.textField.text = store.state.walletState.name
@@ -84,7 +84,7 @@ class ManageWalletViewController : UIViewController, ModalPresentable, Subscribe
             df.dateFormat = "MMMM d, yyyy"
             body.text = "\(S.ManageWallet.description)\n\n\(S.ManageWallet.creationDatePrefix) \(df.string(from: creationDate))"
         } else {
-            body.text = S.ManageWallet.description
+            body.text = S.ManageWallet.description.localize()
         }
     }
 
@@ -144,6 +144,6 @@ extension ManageWalletViewController : ModalDisplayable {
     }
 
     var modalTitle: String {
-        return S.ManageWallet.title
+        return S.ManageWallet.title.localize()
     }
 }

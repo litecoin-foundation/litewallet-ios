@@ -77,6 +77,6 @@ extension MenuViewController : ModalDisplayable {
     }
 
     var modalTitle: String {
-        return S.MenuViewController.modalTitle
+        return S.MenuViewController.modalTitle.localize()
     }
 }

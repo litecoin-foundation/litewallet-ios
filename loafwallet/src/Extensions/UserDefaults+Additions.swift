@@ -25,6 +25,7 @@ private let hasPromptedShareDataKey = "hasPromptedShareDataKey"
 private let hasShownWelcomeKey = "hasShownWelcomeKey"
 private let didSeeTransactionCorruption = "DidSeeTransactionCorruption"
 private let userIsInUSAKey = "userIsInUSAKey"
+private let selectedLanguageKey = "selectedLanguage"
 
 
 
@@ -39,7 +40,16 @@ extension UserDefaults {
         }
         set { defaults.set(newValue, forKey: isBiometricsEnabledKey) }
     }
-    
+
+    static var selectedLanguage: String {
+        get {
+            guard defaults.object(forKey: selectedLanguageKey) != nil else {
+                return "en"
+            }
+            return defaults.string(forKey: selectedLanguageKey) ?? "en"
+        }
+        set { defaults.set(newValue, forKey: selectedLanguageKey) }
+    }
     
     static var didSeeCorruption: Bool {
         get { return defaults.bool(forKey: didSeeTransactionCorruption) }
@@ -77,7 +87,7 @@ extension UserDefaults {
     }
  
     static var userIsInUSA: Bool {
-        get { return defaults.bool(forKey: userIsInUSAKey)
+        get { defaults.bool(forKey: userIsInUSAKey)
         }
         set { defaults.set(newValue, forKey: userIsInUSAKey) }
     }

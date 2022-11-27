@@ -21,8 +21,8 @@ class StartViewController : UIViewController {
     //MARK: - Private
     private let message = UILabel(font: .barlowLight(size: 22),color: .whiteTint)
     
-    private let create = ShadowButton(title: S.StartViewController.createButton, type: .flatWhite) 
-    private let recover = ShadowButton(title: S.StartViewController.recoverButton, type: .flatLitecoinBlue)
+    private let create = ShadowButton(title: S.StartViewController.createButton.localize(), type: .flatWhite)
+    private let recover = ShadowButton(title: S.StartViewController.recoverButton.localize(), type: .flatLitecoinBlue)
     private let store: Store
     private let didTapRecover: () -> Void
     private let didTapCreate: () -> Void
@@ -50,7 +50,7 @@ class StartViewController : UIViewController {
     }
 
     private func setData() {
-        message.text = S.StartViewController.message
+        message.text = S.StartViewController.message.localize()
         message.lineBreakMode = .byWordWrapping
         message.numberOfLines = 0
         message.textAlignment = .center

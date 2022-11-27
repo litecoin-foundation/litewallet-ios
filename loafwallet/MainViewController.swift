@@ -195,13 +195,13 @@ class MainViewController : UIViewController, Subscriber, LoginViewControllerDele
     private func showJailbreakWarnings(isJailbroken: Bool) {
         guard isJailbroken else { return }
         let totalSent = walletManager?.wallet?.totalSent ?? 0
-        let message = totalSent > 0 ? S.JailbreakWarnings.messageWithBalance : S.JailbreakWarnings.messageWithBalance
-        let alert = UIAlertController(title: S.JailbreakWarnings.title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.JailbreakWarnings.ignore, style: .default, handler: nil))
+        let message = totalSent > 0 ? S.JailbreakWarnings.messageWithBalance.localize() : S.JailbreakWarnings.messageWithBalance.localize()
+        let alert = UIAlertController(title: S.JailbreakWarnings.title.localize(), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: S.JailbreakWarnings.ignore.localize(), style: .default, handler: nil))
         if totalSent > 0 {
-            alert.addAction(UIAlertAction(title: S.JailbreakWarnings.wipe, style: .default, handler: nil)) //TODO - implement wipe
+            alert.addAction(UIAlertAction(title: S.JailbreakWarnings.wipe.localize(), style: .default, handler: nil)) //TODO - implement wipe
         } else {
-            alert.addAction(UIAlertAction(title: S.JailbreakWarnings.close, style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: S.JailbreakWarnings.close.localize(), style: .default, handler: { _ in
                 exit(0)
             }))
         }

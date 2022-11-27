@@ -205,7 +205,7 @@ class WalletCoordinator : Subscriber, Trackable {
             let amount = Amount(amount: amount, rate: rate, maxDigits: store.state.maxDigits)
             let primary = store.state.isLtcSwapped ? amount.localCurrency : amount.bits
             let secondary = store.state.isLtcSwapped ? amount.bits : amount.localCurrency
-            let message = String(format: S.TransactionDetails.received, "\(primary) (\(secondary))")
+            let message = String(format: S.TransactionDetails.received.localize(), "\(primary) (\(secondary))")
             store.trigger(name: .lightWeightAlert(message))
             showLocalNotification(message: message)
             ping()

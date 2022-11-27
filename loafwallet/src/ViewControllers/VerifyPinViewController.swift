@@ -109,7 +109,7 @@ class VerifyPinViewController : UIViewController, ContentBoxPresenter {
         
         toolbar.backgroundColor = .clear
 
-        titleLabel.text = S.VerifyPin.title
+        titleLabel.text = S.VerifyPin.title.localize()
         body.text = bodyText
         body.numberOfLines = 0
         body.lineBreakMode = .byWordWrapping
@@ -134,7 +134,7 @@ class VerifyPinViewController : UIViewController, ContentBoxPresenter {
             self?.didCancel?()
             self?.dismiss(animated: true, completion: nil)
         }
-        cancel.setTitle(S.Button.cancel, for: .normal)
+        cancel.setTitle(S.Button.cancel.localize(), for: .normal)
         cancel.tintColor = .white
         view.backgroundColor = .clear
     }

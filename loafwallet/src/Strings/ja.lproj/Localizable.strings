@@ -1446,3 +1446,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Are you sure you want to change the language to %l?";
