@@ -34,7 +34,7 @@ class FeeSelector : UIView {
     private let header = UILabel(font: .barlowMedium(size: 16.0), color: .darkText)
     private let subheader = UILabel(font: .barlowRegular(size: 14.0), color: .grayTextTint)
     private let feeMessageLabel = UILabel.wrapping(font: .barlowSemiBold(size: 14.0), color: .red)
-    private let control = UISegmentedControl(items: [S.FeeSelector.regular, S.FeeSelector.economy, S.FeeSelector.luxury])
+    private let control = UISegmentedControl(items: [S.FeeSelector.regular.localize(), S.FeeSelector.economy.localize(), S.FeeSelector.luxury.localize()])
     private var bottomConstraint: NSLayoutConstraint?
 
     private func setupViews() {
@@ -59,8 +59,8 @@ class FeeSelector : UIView {
             feeMessageLabel.leadingAnchor.constraint(equalTo: subheader.leadingAnchor),
             feeMessageLabel.topAnchor.constraint(equalTo: control.bottomAnchor, constant: 4.0),
             feeMessageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]) ])
-        header.text = S.FeeSelector.title
-        subheader.text = S.FeeSelector.regularLabel
+        header.text = S.FeeSelector.title.localize()
+        subheader.text = S.FeeSelector.regularLabel.localize()
         control.constrain([
             control.leadingAnchor.constraint(equalTo: feeMessageLabel.leadingAnchor),
             control.topAnchor.constraint(equalTo: subheader.bottomAnchor, constant: 4.0),
@@ -71,21 +71,21 @@ class FeeSelector : UIView {
             switch myself.control.selectedSegmentIndex {
             case 0:
                 myself.didUpdateFee?(.regular)
-                myself.subheader.text = S.FeeSelector.regularLabel
+                myself.subheader.text = S.FeeSelector.regularLabel.localize()
                 myself.feeMessageLabel.text = ""
             case 1:
                 myself.didUpdateFee?(.economy)
-                myself.subheader.text = S.FeeSelector.economyLabel
-                myself.feeMessageLabel.text = S.FeeSelector.economyWarning
+                myself.subheader.text = S.FeeSelector.economyLabel.localize()
+                myself.feeMessageLabel.text = S.FeeSelector.economyWarning.localize()
                 myself.feeMessageLabel.textColor = .red
             case 2:
                 myself.didUpdateFee?(.luxury)
-                myself.subheader.text = S.FeeSelector.luxuryLabel
-                myself.feeMessageLabel.text = S.FeeSelector.luxuryMessage
+                myself.subheader.text = S.FeeSelector.luxuryLabel.localize()
+                myself.feeMessageLabel.text = S.FeeSelector.luxuryMessage.localize()
                 myself.feeMessageLabel.textColor = .grayTextTint
             default:
                 myself.didUpdateFee?(.regular)
-                myself.subheader.text = S.FeeSelector.regularLabel
+                myself.subheader.text = S.FeeSelector.regularLabel.localize()
                 myself.feeMessageLabel.text = ""
                 LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["FEE_MANAGER":"DID_USE_DEFAULT"])
             }

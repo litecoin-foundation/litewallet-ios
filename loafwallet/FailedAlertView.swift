@@ -14,14 +14,14 @@ enum AlertFailureType {
     var header: String {
         switch self {
             case .failedResolution:
-                return S.Send.UnstoppableDomains.lookupFailureHeader
+                return S.Send.UnstoppableDomains.lookupFailureHeader.localize()
         }
     }
     
     var subheader: String {
         switch self {
             case .failedResolution:
-                return S.SecurityAlerts.resolvedSuccessSubheader
+                return S.SecurityAlerts.resolvedSuccessSubheader.localize()
         }
     }
     

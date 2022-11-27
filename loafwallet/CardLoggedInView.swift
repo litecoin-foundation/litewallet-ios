@@ -93,7 +93,7 @@ struct CardLoggedInView: View {
                                                 object: nil,
                                                 userInfo: nil)
             }) {
-                Text(S.LitecoinCard.logout)
+                Text(S.LitecoinCard.logout.localize())
                     .frame(minWidth: 0,
                            maxWidth: .infinity,
                            alignment: .center)
@@ -112,7 +112,7 @@ struct CardLoggedInView: View {
                         // Transfer Amount Subview
                         Group {
                             
-                            Text(S.LitecoinCard.Transfer.setAmount + ": ")
+                            Text(S.LitecoinCard.Transfer.setAmount.localize() + ": ")
                                 .frame(minWidth: 0,
                                        maxWidth: .infinity,
                                        alignment: .center)
@@ -146,7 +146,7 @@ struct CardLoggedInView: View {
                         Group {
                             
                             // Top description
-                            Text(S.LitecoinCard.Transfer.description)
+                            Text(S.LitecoinCard.Transfer.description.localize())
                                 .frame(minWidth: 0,
                                        maxWidth: .infinity,
                                        alignment: .center)

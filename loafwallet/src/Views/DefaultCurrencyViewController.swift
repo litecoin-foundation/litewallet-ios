@@ -63,7 +63,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
         tableView.separatorStyle = .none
 
         let titleLabel = UILabel(font: .customBold(size: 17.0), color: .darkText)
-        titleLabel.text = S.Settings.currency
+        titleLabel.text = S.Settings.currency.localize()
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
 
@@ -156,8 +156,8 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
             }
         }
 
-        bitcoinLabel.text = S.DefaultCurrency.bitcoinLabel
-        rateLabelTitle.text = S.DefaultCurrency.rateLabel
+        bitcoinLabel.text = S.DefaultCurrency.bitcoinLabel.localize()
+        rateLabelTitle.text = S.DefaultCurrency.rateLabel.localize()
 
         self.header = header
         return header

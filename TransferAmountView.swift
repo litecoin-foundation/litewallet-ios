@@ -39,8 +39,8 @@ struct TransferAmountView: View {
     
     private var transferAmountTo: String {
         return viewModel.walletType == .litewallet ?
-            S.LitecoinCard.Transfer.amountToCard :
-            S.LitecoinCard.Transfer.amountToLitewallet
+            S.LitecoinCard.Transfer.amountToCard.localize() :
+            S.LitecoinCard.Transfer.amountToLitewallet.localize()
     }
     
     private var remainingCardBalance: Double {
@@ -142,7 +142,7 @@ struct TransferAmountView: View {
                     
                     //Litewallet Balance Amount
                     HStack {
-                        Text(S.LitecoinCard.Transfer.litewalletBalance + ": ")
+                        Text(S.LitecoinCard.Transfer.litewalletBalance.localize() + ": ")
                             .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                         
@@ -156,7 +156,7 @@ struct TransferAmountView: View {
                     
                     //Card Balance Amount
                     HStack {
-                        Text(S.LitecoinCard.cardBalance + ": ")
+                        Text(S.LitecoinCard.cardBalance.localize() + ": ")
                             .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                         
@@ -185,7 +185,7 @@ struct TransferAmountView: View {
                     
                     //Destination Address
                     HStack {
-                        Text(S.LitecoinCard.Transfer.destinationAddress + ": ")
+                        Text(S.LitecoinCard.Transfer.destinationAddress.localize() + ": ")
                             .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                             .foregroundColor(Color.liteWalletBlue)
                         
@@ -253,7 +253,7 @@ struct TransferAmountView: View {
                     didStartTransferringView = true
                     
                 }) {
-                    Text(S.LitecoinCard.Transfer.startTransfer.localizedUppercase)
+                    Text(S.LitecoinCard.Transfer.startTransfer.localize().uppercased())
                         .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                         .frame(maxWidth: .infinity)
                         .padding(.all, 10.0)
@@ -274,7 +274,7 @@ struct TransferAmountView: View {
                     self.shouldShow = false
                     sliderValue = 0.0
                 }) {
-                    Text(S.Button.cancel.uppercased())
+                    Text(S.Button.cancel.localize().uppercased())
                         .font(Font(UIFont.barlowSemiBold(size: 18.0)))
                         .frame(maxWidth: .infinity)
                         .foregroundColor(Color(UIColor.liteWalletBlue))

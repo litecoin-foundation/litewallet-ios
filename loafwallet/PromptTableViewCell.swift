@@ -42,12 +42,12 @@ enum PromptType {
     
     var title: String {
         switch self {
-        case .biometrics: return LAContext.biometricType() == .face ? S.Prompts.FaceId.title : S.Prompts.TouchId.title
-        case .paperKey: return S.Prompts.PaperKey.title
-        case .upgradePin: return S.Prompts.SetPin.title
-        case .recommendRescan: return S.Prompts.RecommendRescan.title
-        case .noPasscode: return S.Prompts.NoPasscode.title
-        case .shareData: return S.Prompts.ShareData.title
+        case .biometrics: return LAContext.biometricType() == .face ? S.Prompts.FaceId.title.localize() : S.Prompts.TouchId.title.localize()
+        case .paperKey: return S.Prompts.PaperKey.title.localize()
+        case .upgradePin: return S.Prompts.SetPin.title.localize()
+        case .recommendRescan: return S.Prompts.RecommendRescan.title.localize()
+        case .noPasscode: return S.Prompts.NoPasscode.title.localize()
+        case .shareData: return S.Prompts.ShareData.title.localize()
         }
     }
     
@@ -64,12 +64,12 @@ enum PromptType {
 
     var body: String {
         switch self {
-        case .biometrics: return LAContext.biometricType() == .face ? S.Prompts.FaceId.body : S.Prompts.TouchId.body
-        case .paperKey: return S.Prompts.PaperKey.body
-        case .upgradePin: return S.Prompts.SetPin.body
-        case .recommendRescan: return S.Prompts.RecommendRescan.body
-        case .noPasscode: return S.Prompts.NoPasscode.body
-        case .shareData: return S.Prompts.ShareData.body
+        case .biometrics: return LAContext.biometricType() == .face ? S.Prompts.FaceId.body.localize() : S.Prompts.TouchId.body.localize()
+        case .paperKey: return S.Prompts.PaperKey.body.localize()
+        case .upgradePin: return S.Prompts.SetPin.body.localize()
+        case .recommendRescan: return S.Prompts.RecommendRescan.body.localize()
+        case .noPasscode: return S.Prompts.NoPasscode.body.localize()
+        case .shareData: return S.Prompts.ShareData.body.localize()
         }
     }
 

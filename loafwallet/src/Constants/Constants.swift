@@ -28,18 +28,18 @@ enum WalletType: String {
     var balanceLabel: String {
         switch self {
             case .litecoinCard:
-                return S.LitecoinCard.cardBalance
+                return S.LitecoinCard.cardBalance.localize()
             case .litewallet:
-                return S.LitecoinCard.Transfer.litewalletBalance
+                return S.LitecoinCard.Transfer.litewalletBalance.localize()
         }
     }
     
     var nameLabel: String {
         switch self {
             case .litecoinCard:
-                return S.LitecoinCard.name
+                return S.LitecoinCard.name.localize()
             case .litewallet:
-                return S.Litewallet.name
+                return S.Litewallet.name.localize()
         }
     }
 }

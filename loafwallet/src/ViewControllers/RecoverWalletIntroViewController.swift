@@ -19,7 +19,7 @@ class RecoverWalletIntroViewController : UIViewController {
     //MARK: - Private
     private let didTapNext: () -> Void
     private let header = RadialGradientView(backgroundColor: .purple)
-    private let nextButton = ShadowButton(title: S.RecoverWallet.next, type: .primary)
+    private let nextButton = ShadowButton(title: S.RecoverWallet.next.localize(), type: .primary)
     private let label = UILabel(font: .customBody(size: 16.0))
     private let illustration = UIImageView(image: #imageLiteral(resourceName: "RecoverWalletIllustration"))
 
@@ -57,9 +57,9 @@ class RecoverWalletIntroViewController : UIViewController {
         view.backgroundColor = .white
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = S.RecoverWallet.intro
+        label.text = S.RecoverWallet.intro.localize()
         nextButton.tap = didTapNext
-        title = S.RecoverWallet.header
+        title = S.RecoverWallet.header.localize()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

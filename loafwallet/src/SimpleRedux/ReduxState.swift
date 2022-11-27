@@ -79,7 +79,7 @@ struct WalletState {
     let creationDate: Date
     let isRescanning: Bool
     static var initial: WalletState {
-        return WalletState(isConnected: false, syncProgress: 0.0, syncState: .success, balance: nil, transactions: [], lastBlockTimestamp: 0, name: S.AccountHeader.defaultWalletName, creationDate: Date.zeroValue(), isRescanning: false)
+        return WalletState(isConnected: false, syncProgress: 0.0, syncState: .success, balance: nil, transactions: [], lastBlockTimestamp: 0, name: S.AccountHeader.defaultWalletName.localize(), creationDate: Date.zeroValue(), isRescanning: false)
     }
 }
 

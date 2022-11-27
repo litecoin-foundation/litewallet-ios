@@ -79,7 +79,7 @@ struct CardView: View {
                 //MARK: - Login Textfields
                 Group {
                     
-                    TextField(S.Receive.emailButton,
+                    TextField(S.Receive.emailButton.localize(),
                               text: $loginModel.emailString)
                         .onReceive(loginModel.$emailString) { currentEmail in
                             isEmailValid = EmailValidation.isEmailValid(emailString: currentEmail)
@@ -97,7 +97,7 @@ struct CardView: View {
                     HStack {
                         if shouldShowPassword {
                             
-                            TextField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
+                            TextField(S.Import.passwordPlaceholder.localize().capitalized, text: $loginModel.passwordString)
                                 .foregroundColor(.black)
                                 .font(Font(UIFont.barlowSemiBold(size: 17.0)))
                                 .accentColor(Color(UIColor.liteWalletBlue))
@@ -108,7 +108,7 @@ struct CardView: View {
                             
                         } else {
                             
-                            SecureField(S.Import.passwordPlaceholder.capitalized, text: $loginModel.passwordString)
+                            SecureField(S.Import.passwordPlaceholder.localize().capitalized, text: $loginModel.passwordString)
                                 .foregroundColor(.black)
                                 .font(Font(UIFont.barlowSemiBold(size: 17.0)))
                                 .accentColor(Color(UIColor.liteWalletBlue))
@@ -133,7 +133,7 @@ struct CardView: View {
                     Spacer()
                     
                     HStack {
-                        Toggle((viewModel.cardTwoFactor.isEnabled ? S.LitecoinCard.twoFAOn : S.LitecoinCard.twoFAOff),
+                        Toggle((viewModel.cardTwoFactor.isEnabled ? S.LitecoinCard.twoFAOn.localize() : S.LitecoinCard.twoFAOff.localize()),
                                isOn: $viewModel.cardTwoFactor.isEnabled)
                             .foregroundColor(.gray)
                             .font(Font(UIFont.barlowRegular(size: 16.0)))
@@ -147,9 +147,9 @@ struct CardView: View {
                             // It may need to be refactored if it is a growing concern
                             .alert(isPresented:$viewModel.cardTwoFactor.errorOccured) {
                                 Alert(
-                                    title: Text(S.Fragments.sorry.localizedCapitalized + "!"),
-                                    message: Text( S.LitecoinCard.twoFAErrorMessage),
-                                    dismissButton: .default(Text(S.Button.ok)){
+                                    title: Text(S.Fragments.sorry.localize().localizedCapitalized + "!"),
+                                    message: Text( S.LitecoinCard.twoFAErrorMessage.localize()),
+                                    dismissButton: .default(Text(S.Button.ok.localize())){
                                         viewModel.cardTwoFactor.errorOccured = false
                                     })
                             }
@@ -163,7 +163,7 @@ struct CardView: View {
                             didTapIForgot = true
                         }) {
                             
-                            Text(S.LitecoinCard.forgotPassword)
+                            Text(S.LitecoinCard.forgotPassword.localize())
                                 .frame(minWidth:0, maxWidth: .infinity)
                                 .font(Font(UIFont.barlowLight(size: 15)))
                                 .foregroundColor(Color(UIColor.liteWalletBlue))
@@ -216,7 +216,7 @@ struct CardView: View {
                             }  
                         }) {
                             
-                            Text(S.LitecoinCard.login)
+                            Text(S.LitecoinCard.login.localize())
                                 .frame(minWidth:0, maxWidth: .infinity)
                                 .padding()
                                 .font(Font(UIFont.barlowMedium(size: 16.0)))
@@ -236,7 +236,7 @@ struct CardView: View {
                         Button(action: {
                             shouldShowRegistrationView = true
                         }) {
-                            Text(S.LitecoinCard.registerCard)
+                            Text(S.LitecoinCard.registerCard.localize())
                                 .frame(minWidth:0, maxWidth: .infinity)
                                 .padding()
                                 .font(Font(UIFont.barlowMedium(size: 15.0)))
@@ -295,7 +295,7 @@ struct CardView: View {
             .transition(.scale)
             .forgotPasswordView(isShowingForgot: $didTapIForgot,
                                 emailString: $forgotEmailAddressInput,
-                                message: S.LitecoinCard.forgotPassword)
+                                message: S.LitecoinCard.forgotPassword.localize())
             .loginAlertView(isShowingLoginAlert: $shouldShowLoginModal,
                             didFail: $didFailToLogin,
                             message: $loginModel.processMessage)

@@ -37,7 +37,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
         tableView.separatorStyle = .none
 
         let titleLabel = UILabel(font: .customBold(size: 17.0), color: .darkText)
-        let biometricsTitle = LAContext.biometricType() == .face ? S.FaceIdSpendingLimit.title : S.TouchIdSpendingLimit.title
+        let biometricsTitle = LAContext.biometricType() == .face ? S.FaceIdSpendingLimit.title.localize() : S.TouchIdSpendingLimit.title.localize()
         titleLabel.text = biometricsTitle
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
@@ -46,7 +46,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
         faqButton.tintColor = .darkText
         navigationItem.rightBarButtonItems = [UIBarButtonItem.negativePadding, UIBarButtonItem(customView: faqButton)]
 
-        body.text = S.TouchIdSpendingLimit.body
+        body.text = S.TouchIdSpendingLimit.body.localize()
 
         //If the user has a limit that is not a current option, we display their limit
         if !limits.contains(walletManager.spendingLimit) {
@@ -69,7 +69,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let limit = limits[indexPath.row]
         if limit == 0 {
-            cell.textLabel?.text = S.TouchIdSpendingLimit.requirePasscode
+            cell.textLabel?.text = S.TouchIdSpendingLimit.requirePasscode.localize()
         } else {
             let displayAmount = DisplayAmount(amount: Satoshis(rawValue: limit), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
             cell.textLabel?.text = displayAmount.combinedDescription

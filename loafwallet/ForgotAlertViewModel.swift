@@ -17,7 +17,7 @@ class ForgotAlertViewModel: ObservableObject {
     var emailString: String = ""
     
     @Published
-    var detailMessage: String = S.LitecoinCard.resetPasswordDetail
+    var detailMessage: String = S.LitecoinCard.resetPasswordDetail.localize()
     
     init() { }
     

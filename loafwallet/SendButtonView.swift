@@ -33,7 +33,7 @@ struct SendButtonView: View {
                                 .foregroundColor(Color(UIColor.liteWalletBlue))
                                 .shadow(color:Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)
 
-                            Text(S.Send.sendLabel)
+                            Text(S.Send.sendLabel.localize())
                                 .frame(width: geometry.size.width * 0.9, height: 45, alignment: .center)
                                 .font(Font(UIFont.customMedium(size: 15.0)))
                                 .foregroundColor(Color(UIColor.grayTextTint))

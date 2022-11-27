@@ -23,7 +23,7 @@ struct TransferringModalView: View {
     var shouldStartTransfer: Bool
      
     @State
-    var detailMessage: String = S.LitecoinCard.resetPasswordDetail
+    var detailMessage: String = S.LitecoinCard.resetPasswordDetail.localize()
     
     //MARK: - Private Variables
     private var destinationAddress: String
@@ -89,13 +89,13 @@ struct TransferringModalView: View {
                         }
                         .frame(minWidth: 0,maxWidth: .infinity, alignment: .trailing)
                          
-                        Text(S.LitecoinCard.Transfer.title + ": " + String(format: "%6.6f Ł", self.transferAmount))
+                        Text(S.LitecoinCard.Transfer.title.localize() + ": " + String(format: "%6.6f Ł", self.transferAmount))
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
                             .padding(.bottom, 10)
                             .foregroundColor(Color.white)
                             .padding([.leading, .trailing], generalSidePadding)
                         
-                        Text(S.Fragments.to + " " + (self.walletType == .litewallet ? "Litewallet"  : S.LitecoinCard.barItemTitle.localizedCapitalized))
+                        Text(S.Fragments.to.localize() + " " + (self.walletType == .litewallet ? "Litewallet"  : S.LitecoinCard.barItemTitle.localize().capitalized))
                             .font(Font(UIFont.barlowSemiBold(size: 21.0)))
                             .padding(.bottom, 10)
                             .foregroundColor(Color.white)
@@ -106,7 +106,7 @@ struct TransferringModalView: View {
                             viewModel.shouldStartTransfer = true
                         }) {
                             
-                            Text(S.Button.ok)
+                            Text(S.Button.ok.localize())
                                 .frame(minWidth:0, maxWidth: .infinity)
                                 .font(Font(UIFont.barlowBold(size: 20.0)))
                                 .foregroundColor(Color.white)

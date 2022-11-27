@@ -34,8 +34,8 @@ class AddressCell : UIView {
     }
 
     let textField = UITextField()
-    let paste = ShadowButton(title: S.Send.pasteLabel, type: .tertiary)
-    let scan = ShadowButton(title: S.Send.scanLabel, type: .tertiary)
+    let paste = ShadowButton(title: S.Send.pasteLabel.localize(), type: .tertiary)
+    let scan = ShadowButton(title: S.Send.scanLabel.localize(), type: .tertiary)
     fileprivate var contentLabel = UILabel(font: .customBody(size: 13.0), color: .darkText)
     private var label = UILabel(font: .customBody(size: 16.0))
     fileprivate let gr = UITapGestureRecognizer()
@@ -101,7 +101,7 @@ class AddressCell : UIView {
     }
 
     private func setInitialData() {
-        label.text = S.Send.enterLTCAddressLabel
+        label.text = S.Send.enterLTCAddressLabel.localize()
         textField.font = contentLabel.font
         textField.adjustsFontSizeToFitWidth = true
         textField.minimumFontSize = 10.0

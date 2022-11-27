@@ -46,21 +46,21 @@ class UpdatePinViewController: UIViewController, Subscriber {
         didSet {
             switch step {
             case .verify:
-                instruction.text = isCreatingPin ? S.UpdatePin.createInstruction : S.UpdatePin.enterCurrent
+                instruction.text = isCreatingPin ? S.UpdatePin.createInstruction.localize() : S.UpdatePin.enterCurrent.localize()
                 caption.isHidden = true
             case .new:
-                let instructionText = isCreatingPin ? S.UpdatePin.createInstruction : S.UpdatePin.enterNew
+                let instructionText = isCreatingPin ? S.UpdatePin.createInstruction.localize() : S.UpdatePin.enterNew.localize()
                 if instruction.text != instructionText {
                     instruction.pushNewText(instructionText)
                 }
-                header.text = S.UpdatePin.createTitle
+                header.text = S.UpdatePin.createTitle.localize()
                 caption.isHidden = false
             case .confirmNew:
                 caption.isHidden = true
                 if isCreatingPin {
-                    header.text = S.UpdatePin.createTitleConfirm
+                    header.text = S.UpdatePin.createTitleConfirm.localize()
                 } else {
-                    instruction.pushNewText(S.UpdatePin.reEnterNew)
+                    instruction.pushNewText(S.UpdatePin.reEnterNew.localize())
                 }
             }
         }
@@ -134,7 +134,7 @@ class UpdatePinViewController: UIViewController, Subscriber {
     }
 
     private func setData() {
-        caption.text = S.UpdatePin.caption
+        caption.text = S.UpdatePin.caption.localize()
         view.addSubview(spacer)
 
         header.textColor = .whiteTint
@@ -149,8 +149,8 @@ class UpdatePinViewController: UIViewController, Subscriber {
         } else {
             view.backgroundColor = .liteWalletBlue
         }
-        header.text = isCreatingPin ? S.UpdatePin.createTitle : S.UpdatePin.updateTitle
-        instruction.text = isCreatingPin ? S.UpdatePin.createInstruction : S.UpdatePin.enterCurrent
+        header.text = isCreatingPin ? S.UpdatePin.createTitle.localize() : S.UpdatePin.updateTitle.localize()
+        instruction.text = isCreatingPin ? S.UpdatePin.createInstruction.localize() : S.UpdatePin.enterCurrent.localize()
 
         pinPad.ouputDidUpdate = { [weak self] text in
             guard let step = self?.step else { return }
@@ -278,8 +278,8 @@ class UpdatePinViewController: UIViewController, Subscriber {
                     }
 
                 } else {
-                    let alert = UIAlertController(title: S.UpdatePin.updateTitle, message: S.UpdatePin.setPinError, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: { [weak self] _ in
+                    let alert = UIAlertController(title: S.UpdatePin.updateTitle.localize(), message: S.UpdatePin.setPinError.localize(), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: S.Button.ok.localize(), style: .default, handler: { [weak self] _ in
                         self?.clearAfterFailure()
                         self?.pushNewStep(.new)
                     }))

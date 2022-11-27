@@ -22,21 +22,21 @@ enum AlertType {
     var header: String {
         switch self {
             case .pinSet:
-                return S.SecurityAlerts.pinSet
+                return S.SecurityAlerts.pinSet.localize()
             case .paperKeySet:
-                return S.SecurityAlerts.paperKeySet
+                return S.SecurityAlerts.paperKeySet.localize()
             case .sendSuccess:
-                return S.SecurityAlerts.sendSuccess
+                return S.SecurityAlerts.sendSuccess.localize()
             case .resolvedSuccess:
-                return S.SecurityAlerts.resolvedSuccess
+                return S.SecurityAlerts.resolvedSuccess.localize()
             case .addressesCopied:
-                return S.SecurityAlerts.copiedAddressesHeader
+                return S.SecurityAlerts.copiedAddressesHeader.localize()
             case .sweepSuccess:
-                return S.Import.success
+                return S.Import.success.localize()
         
             // Failure(s)
             case .failedResolution:
-                return S.SecurityAlerts.sendFailure
+                return S.SecurityAlerts.sendFailure.localize()
         }
     }
     
@@ -45,19 +45,19 @@ enum AlertType {
             case .pinSet:
                 return ""
             case .paperKeySet:
-                return S.SecurityAlerts.paperKeySetSubheader
+                return S.SecurityAlerts.paperKeySetSubheader.localize()
             case .sendSuccess:
-                return S.SecurityAlerts.sendSuccessSubheader
+                return S.SecurityAlerts.sendSuccessSubheader.localize()
             case .resolvedSuccess:
-                return S.SecurityAlerts.resolvedSuccessSubheader
+                return S.SecurityAlerts.resolvedSuccessSubheader.localize()
             case .addressesCopied:
-                return S.SecurityAlerts.copiedAddressesSubheader
+                return S.SecurityAlerts.copiedAddressesSubheader.localize()
             case .sweepSuccess:
-                return S.Import.successBody
+                return S.Import.successBody.localize()
                 
             // Failure(s)
             case .failedResolution:
-                return S.SecurityAlerts.resolvedSuccessSubheader
+                return S.SecurityAlerts.resolvedSuccessSubheader.localize()
         }
     }
     

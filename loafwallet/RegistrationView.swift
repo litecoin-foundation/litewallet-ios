@@ -71,7 +71,7 @@ struct RegistrationView: View {
             // Litewallet Blue Background
             VStack {
             
-                Text(S.LitecoinCard.Registration.registerCardPhrase)
+                Text(S.LitecoinCard.Registration.registerCardPhrase.localize())
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.white)
                     .font(Font(UIFont.barlowBold(size: 20.0)))
@@ -85,7 +85,7 @@ struct RegistrationView: View {
                         Group {
                             HStack {
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.firstName,
+                                    TextField(S.LitecoinCard.Registration.firstName.localize(),
                                               text: $firstName)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .keyboardType(.namePhonePad)
@@ -99,7 +99,7 @@ struct RegistrationView: View {
                                 }
                                 
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.lastName,
+                                    TextField(S.LitecoinCard.Registration.lastName.localize(),
                                               text: $lastName)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .keyboardType(.namePhonePad)
@@ -116,7 +116,7 @@ struct RegistrationView: View {
                         
                         //MARK: - Login credentials
                         Group {
-                               TextField(S.Receive.emailButton,
+                               TextField(S.Receive.emailButton.localize(),
                                       text: $usernameEmail)
                                 .font(Font(UIFont.barlowRegular(size: 16.0)))
                                 .keyboardType(.emailAddress)
@@ -129,7 +129,7 @@ struct RegistrationView: View {
                             
                             HStack {
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.password,
+                                    TextField(S.LitecoinCard.Registration.password.localize(),
                                               text: $password)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .autocapitalization(.none)
@@ -143,7 +143,7 @@ struct RegistrationView: View {
                                 }
                                 
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.confirmPassword,
+                                    TextField(S.LitecoinCard.Registration.confirmPassword.localize(),
                                               text: $confirmPassword)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .autocapitalization(.none)
@@ -163,7 +163,7 @@ struct RegistrationView: View {
                         //MARK: - Mobile number
                         Group {
                             VStack {
-                                TextField(S.LitecoinCard.Registration.mobileNumber, text: $mobileNumber)
+                                TextField(S.LitecoinCard.Registration.mobileNumber.localize(), text: $mobileNumber)
                                     .font(Font(UIFont.barlowRegular(size: 16.0)))
                                     .keyboardType(.numberPad)
                                     .padding([.leading, .trailing, .top], 4)
@@ -180,7 +180,7 @@ struct RegistrationView: View {
                         Group {
                             HStack {
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.address, text: $address)
+                                    TextField(S.LitecoinCard.Registration.address.localize(), text: $address)
                                         .padding([.leading, .trailing, .top], 4)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .foregroundColor(viewModel.isDataValid(dataType: .genericString,
@@ -192,7 +192,7 @@ struct RegistrationView: View {
                             }
                             HStack {
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.city, text: $city)
+                                    TextField(S.LitecoinCard.Registration.city.localize(), text: $city)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .padding([.leading, .trailing, .top], 4)
                                         .foregroundColor(viewModel.isDataValid(dataType: .genericString,
@@ -202,7 +202,7 @@ struct RegistrationView: View {
                                         .padding(.top, 1)
                                 }
                                 VStack {
-                                    TextField(S.LitecoinCard.Registration.stateProvince, text: $state)
+                                    TextField(S.LitecoinCard.Registration.stateProvince.localize(), text: $state)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .padding([.leading, .trailing, .top], 4)
                                         .foregroundColor(viewModel.isDataValid(dataType: .genericString,
@@ -228,7 +228,7 @@ struct RegistrationView: View {
                                 
                                 VStack {
                                     //DEV: Will change when EU support comes
-                                    TextField(S.LitecoinCard.Registration.zipPostCode, text: $zipCodePostCode)
+                                    TextField(S.LitecoinCard.Registration.zipPostCode.localize(), text: $zipCodePostCode)
                                         .font(Font(UIFont.barlowRegular(size: 16.0)))
                                         .padding([.leading, .trailing, .top], 4)
                                     Divider()
@@ -250,7 +250,7 @@ struct RegistrationView: View {
                     Button(action: {
                         resetFields()
                     }) {
-                        Text(S.Button.resetFields)
+                        Text(S.Button.resetFields.localize())
                             .frame(minWidth:0, maxWidth: .infinity)
                             .padding()
                             .font(Font(UIFont.barlowRegular(size:20.0)))
@@ -276,7 +276,7 @@ struct RegistrationView: View {
                         }
                         
                     }) {
-                        Text(S.Button.submit)
+                        Text(S.Button.submit.localize())
                             .frame(minWidth:0, maxWidth: .infinity)
                             .padding()
                             .font(Font(UIFont.barlowBold(size:20.0)))

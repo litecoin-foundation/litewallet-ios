@@ -17,7 +17,7 @@ class WelcomeViewController : UIViewController, ContentBoxPresenter {
     private let header = GradientView()
     private let titleLabel = UILabel.wrapping(font: .customBody(size: 26.0), color: .darkText)
     private let body = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
-    private let button = ShadowButton(title: S.Button.ok, type: .primary)
+    private let button = ShadowButton(title: S.Button.ok.localize(), type: .primary)
 
     override func viewDidLoad() {
         addSubviews()
@@ -61,7 +61,7 @@ class WelcomeViewController : UIViewController, ContentBoxPresenter {
         contentBox.layer.cornerRadius = 6.0
         contentBox.layer.masksToBounds = true
         titleLabel.textAlignment = .center
-        titleLabel.text = S.Welcome.title
+        titleLabel.text = S.Welcome.title.localize()
         setBodyText()
         button.tap = strongify(self) { myself in
             myself.dismiss(animated: true, completion: nil)
@@ -69,12 +69,12 @@ class WelcomeViewController : UIViewController, ContentBoxPresenter {
     }
 
     private func setBodyText() {
-        let bodyText = S.Welcome.body
-        let attributedString = NSMutableAttributedString(string: S.Welcome.body)
+        let bodyText = S.Welcome.body.localize()
+        let attributedString = NSMutableAttributedString(string: S.Welcome.body.localize())
         let icon = NSTextAttachment()
         icon.image = #imageLiteral(resourceName: "Faq")
         icon.bounds = CGRect(x: 0, y: -3.0, width: body.font.pointSize, height: body.font.pointSize)
-        guard let range = S.Welcome.body.range(of: "(?)") else {
+        guard let range = S.Welcome.body.localize().range(of: "(?)") else {
             NSLog("ERROR: Range not found")
             return
         }

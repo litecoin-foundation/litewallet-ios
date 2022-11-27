@@ -18,7 +18,7 @@ class UnstoppableDomainViewModel: ObservableObject {
     var searchString: String = ""
     
     @Published
-    var placeholderString: String = S.Send.UnstoppableDomains.simplePlaceholder
+    var placeholderString: String = S.Send.UnstoppableDomains.simplePlaceholder.localize()
     
     @Published
     var isDomainResolving: Bool = false

@@ -13,7 +13,7 @@ class StartPaperPhraseViewController : UIViewController {
     init(store: Store, callback: @escaping () -> Void) {
         self.store = store
         self.callback = callback
-        let buttonTitle = UserDefaults.walletRequiresBackup ? S.StartPaperPhrase.buttonTitle : S.StartPaperPhrase.againButtonTitle
+        let buttonTitle = UserDefaults.walletRequiresBackup ? S.StartPaperPhrase.buttonTitle.localize() : S.StartPaperPhrase.againButtonTitle.localize()
         button = ShadowButton(title: buttonTitle, type: .flatLitecoinBlue)
         super.init(nibName: nil, bundle: nil)
         explanation.textColor = .darkText
@@ -31,7 +31,7 @@ class StartPaperPhraseViewController : UIViewController {
 
     override func viewDidLoad() {
         view.backgroundColor = .white
-        explanation.text = S.StartPaperPhrase.body
+        explanation.text = S.StartPaperPhrase.body.localize()
  
         addSubviews()
         addConstraints()
@@ -41,7 +41,7 @@ class StartPaperPhraseViewController : UIViewController {
         if let writePaperPhraseDate = UserDefaults.writePaperPhraseDate {
             let df = DateFormatter()
             df.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
-            footer.text = String(format: S.StartPaperPhrase.date, df.string(from: writePaperPhraseDate))
+            footer.text = String(format: S.StartPaperPhrase.date.localize(), df.string(from: writePaperPhraseDate))
             footer.textAlignment = .center
         }
     }
