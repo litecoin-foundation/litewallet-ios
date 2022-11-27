@@ -87,7 +87,7 @@ extension UserDefaults {
     }
  
     static var userIsInUSA: Bool {
-        get { defaults.bool(forKey: userIsInUSAKey)
+        get { return defaults.bool(forKey: userIsInUSAKey)
         }
         set { defaults.set(newValue, forKey: userIsInUSAKey) }
     }
