@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "Alan adını girin";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
+"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin adresleri tek kullanımlıktır.";
