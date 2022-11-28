@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "Inserisci dominio";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
+"Send.UnstoppableDomains.udSystemError" = "Problema di ricerca del sistema. [Errore: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Gli indirizzi Litecoin dovrebbero essere utilizzati una sola volta.";
