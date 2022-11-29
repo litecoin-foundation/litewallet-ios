@@ -18,7 +18,7 @@ class BuyCenterWebViewController : UIViewController {
     let webConfiguration = WKWebViewConfiguration()
     webView = WKWebView(frame: .zero, configuration: webConfiguration)
     webView.navigationDelegate = self
-    webView.customUserAgent = "litewallet-ios"
+    webView.customUserAgent = customUserAgent
     view = webView
     
     self.navigationController?.setNavigationBarHidden(false, animated: true)
