@@ -72,6 +72,7 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
         setupWkWebView.contentMode = .scaleAspectFit
         setupWkWebView.autoresizesSubviews = true
         setupWkWebView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        setupWkWebView.customUserAgent = "litewallet-ios"
         self.wkWebContainerView.addSubview(setupWkWebView)
         setupWkWebView.load(request)
     }

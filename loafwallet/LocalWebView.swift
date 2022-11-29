@@ -37,6 +37,7 @@ struct LocalWebView: UIViewRepresentable, WebViewHandlerDelegate {
         webView.navigationDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = false
         webView.scrollView.isScrollEnabled = true
+        webView.customUserAgent = "litewallet-ios"
         return webView
     }
     
