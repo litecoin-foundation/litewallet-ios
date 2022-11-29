@@ -10,7 +10,7 @@ class BuyWKWebViewController: UIViewController, WKNavigationDelegate, WKScriptMe
 	@IBOutlet var copiedLabel: UILabel!
 
 	var didDismissChildView: (() -> Void)?
-
+ 
 	var uuidString: String = ""
 
 	var currentWalletAddress: String = ""
