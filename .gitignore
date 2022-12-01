@@ -39,3 +39,6 @@ Package.resolved
 
 Pods/ 
 
+# Codesigndoc Tool
+/codesigndoc_exports/*
+/codesigndoc
