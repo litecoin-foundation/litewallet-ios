@@ -42,3 +42,4 @@ Pods/
 # Codesigndoc Tool
 /codesigndoc_exports/*
 /codesigndoc
+.bitrise/*
