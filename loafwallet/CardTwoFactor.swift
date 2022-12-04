@@ -3,7 +3,7 @@ import KeychainAccess
 
 class CardTwoFactor: ObservableObject {
 	// MARK: - Combine Variables
-
+ 
 	@Published
 	var isEnabled: Bool = true {
 		didSet {

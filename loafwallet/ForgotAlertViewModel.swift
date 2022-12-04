@@ -3,7 +3,7 @@ import LitewalletPartnerAPI
 import SwiftUI
 
 class ForgotAlertViewModel: ObservableObject {
-	// MARK: - Combine Variables
+	// MARK: - Combine Variables 
 
 	@Published
 	var emailString: String = ""
