@@ -7,3 +7,6 @@
 [submodule "Modules/loafwallet-core"]
 	path = Modules/loafwallet-core
 	url = https://github.com/litecoin-foundation/loafwallet-core.git
+[submodule "Modules/litewallet-partner-api-ios"]
+	path = Modules/litewallet-partner-api-ios
+	url = https://github.com/litecoin-foundation/litewallet-partner-api-ios.git
