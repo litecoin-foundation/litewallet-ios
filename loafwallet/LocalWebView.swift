@@ -10,7 +10,7 @@ protocol WebViewHandlerDelegate
 {}
 
 struct LocalWebView: UIViewRepresentable, WebViewHandlerDelegate {
- 	@ObservedObject
+	@ObservedObject
 	var viewModel: LocalWebViewModel
 
 	func makeCoordinator() -> Coordinator {

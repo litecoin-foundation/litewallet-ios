@@ -3,7 +3,7 @@ import LitewalletPartnerAPI
 import SwiftUI
 
 class ForgotAlertViewModel: ObservableObject {
-	// MARK: - Combine Variables 
+	// MARK: - Combine Variables
 
 	@Published
 	var emailString: String = ""
@@ -14,9 +14,9 @@ class ForgotAlertViewModel: ObservableObject {
 	init() {}
 
 	func resetPassword(completion: @escaping () -> Void) {
-		PartnerAPI.shared.forgotPassword(email: emailString) { responseMessage, code in
+		PartnerAPI.shared.forgotPassword(email: emailString) { responseMessage in
 			DispatchQueue.main.async {
-				self.detailMessage = "\(code): " + responseMessage
+				self.detailMessage = responseMessage
 				completion()
 			}
 		}

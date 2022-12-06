@@ -19,7 +19,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	var selectedIndexes = [IndexPath: NSNumber]()
 	var shouldBeSyncing: Bool = false
 	var syncingHeaderView: SyncProgressHeaderView?
-	var shouldShowPrompt = true 
+	var shouldShowPrompt = true
 
 	private var transactions: [Transaction] = []
 	private var allTransactions: [Transaction] = [] {

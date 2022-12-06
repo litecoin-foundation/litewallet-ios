@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 
 enum PartnerName {
-    case unstop
-    case changeNow
-} 
+	case unstop
+	case changeNow
+}
 
 struct Partner {
 	let logo: UIImage
@@ -19,5 +19,5 @@ struct Partner {
 		let simplex = Partner(logo: UIImage(named: "simplexLogo")!, headerTitle: S.BuyCenter.Cells.simplexTitle, details: S.BuyCenter.Cells.simplexFinancialDetails)
 
 		return [bitrefill, moonpay, simplex]
-	} 
+	}
 }

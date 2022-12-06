@@ -38,7 +38,6 @@ enum WalletType: String {
 
 /// Custom Event Enum: Events related to different user based actions
 enum CustomEvent: String {
-
 	/// App Launched
 	case _20191105_AL = "app_launched"
 

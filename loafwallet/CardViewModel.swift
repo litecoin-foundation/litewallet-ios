@@ -59,13 +59,7 @@ class CardViewModel: ObservableObject {
 			return
 		}
 
-		PartnerAPI.shared.getWalletDetails(userID: userID, token: token) { detailsDict in
-			// Only receives the data element there is the metadata
-			guard let data = detailsDict?["data"] as? [String: Any]
-			else {
-				LWAnalytics.logEventWithParameters(itemName: ._20210405_TAWDF)
-				return
-			}
+		PartnerAPI.shared.getWalletDetails(userID: userID) { data in
 
 			do {
 				let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])

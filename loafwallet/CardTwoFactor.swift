@@ -3,7 +3,7 @@ import KeychainAccess
 
 class CardTwoFactor: ObservableObject {
 	// MARK: - Combine Variables
- 
+
 	@Published
 	var isEnabled: Bool = true {
 		didSet {
@@ -56,27 +56,30 @@ class CardTwoFactor: ObservableObject {
 		if let userID = keychain["userID"],
 		   let token = keychain["token"]
 		{
-			PartnerAPI.shared.enable2FA(userID: userID,
-			                            token: token,
-			                            shouldEnable: isEnabled) { responseDict in
-				if let response = responseDict?["response"] as? [String: Any],
-				   let code = response["code"] as? Int,
-				   code == 200
-				{
-					LWAnalytics.logEventWithParameters(itemName: ._20210804_TAA2FAC)
-				} else if let code = responseDict?["code"] as? String,
-				          let status = responseDict?["status"] as? Int,
-				          code == "invalid_token",
-				          status == 401
-				{
-					self.errorMessage = S.Fragments.sorry + "" + S.LitecoinCard.twoFAErrorMessage
+			// DEV: Mothballed this code to refactor
+			LWAnalytics.logEventWithParameters(itemName: ._20210405_TAWDF)
 
-					self.errorOccured = true
-
-					LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-					                                   properties: ["error": "ERROR: Unauthorized Error - jwt expired, invalid_token"])
-				}
-			}
+			//			PartnerAPI.shared.enable2FA(userID: userID,
+			//			                            token: token,
+			//			                            shouldEnable: isEnabled) { responseDict in
+			//				if let response = responseDict?["response"] as? [String: Any],
+			//				   let code = response["code"] as? Int,
+			//				   code == 200
+			//				{
+			//					LWAnalytics.logEventWithParameters(itemName: ._20210804_TAA2FAC)
+			//				} else if let code = responseDict?["code"] as? String,
+			//				          let status = responseDict?["status"] as? Int,
+			//				          code == "invalid_token",
+			//				          status == 401
+			//				{
+			//					self.errorMessage = S.Fragments.sorry + "" + S.LitecoinCard.twoFAErrorMessage
+			//
+			//					self.errorOccured = true
+			//
+			//					LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+			//					                                   properties: ["error": "ERROR: Unauthorized Error - jwt expired, invalid_token"])
+			//				}
+			//			}
 		}
 	}
 }

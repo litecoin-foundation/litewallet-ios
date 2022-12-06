@@ -13,7 +13,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		else {
 			return
 		}
- 
+
 		let sfSafariVC = SFSafariViewController(url: url)
 		sfSafariVC.delegate = self
 		present(sfSafariVC, animated: true)

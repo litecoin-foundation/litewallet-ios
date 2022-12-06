@@ -1445,3 +1445,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "";

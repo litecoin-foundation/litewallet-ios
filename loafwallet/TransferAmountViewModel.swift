@@ -75,8 +75,8 @@ class TransferAmountViewModel: ObservableObject {
 	///   - amount: Litecoin to 6 decimal places
 	///   - completion: To complete process
 	///   - address: Destination Litecoin address
-	func transferToLitewallet(amount: Double,
-	                          address: String,
+	func transferToLitewallet(amount _: Double,
+	                          address _: String,
 	                          completion _: @escaping () -> Void)
 	{
 		let keychain = Keychain(service: "com.litecoincard.service")
@@ -89,16 +89,17 @@ class TransferAmountViewModel: ObservableObject {
 			return
 		}
 
-		PartnerAPI
-			.shared
-			.withdrawToWallet(userID: userID,
-			                  token: token,
-			                  withdrawal:
-			                  ["amount": amount,
-			                   "wallet_address": address]) { _ in
-				// DEV: Mothballed
-				// Need information from Ternio to move forward
-			}
+		// DEV: Mothballed
+		// Need information from Ternio to move forward
+		//		PartnerAPI
+		//			.shared
+		//			.withdrawToWallet(userID: userID,
+		//			                  token: token,
+		//			                  withdrawal:
+		//			                  ["amount": amount,
+		//			                   "wallet_address": address]) { _ in
+		//
+		//			}
 	}
 
 	/// Transfer Litecoin from **Litewallet to Litecoin Card**
