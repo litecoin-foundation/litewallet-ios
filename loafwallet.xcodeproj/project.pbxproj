@@ -314,6 +314,7 @@
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
 		C3C8E1892694F204006522B7 /* PreTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E1882694F204006522B7 /* PreTransferView.swift */; };
 		C3C8E18B2694F3B9006522B7 /* PreTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8E18A2694F3B9006522B7 /* PreTransferViewModel.swift */; };
+		C3CDE033293F466100785A4B /* LitewalletPartnerAPI in Frameworks */ = {isa = PBXBuildFile; productRef = C3CDE032293F466100785A4B /* LitewalletPartnerAPI */; };
 		C3D4379F2566EA3E00F423E1 /* LWActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */; };
 		C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */; };
 		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
@@ -1498,6 +1499,7 @@
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
 		C3C8E1882694F204006522B7 /* PreTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTransferView.swift; sourceTree = "<group>"; };
 		C3C8E18A2694F3B9006522B7 /* PreTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTransferViewModel.swift; sourceTree = "<group>"; };
+		C3CDE031293F463500785A4B /* litewallet-partner-api-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "litewallet-partner-api-ios"; path = "Modules/litewallet-partner-api-ios"; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
 		C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainView.swift; sourceTree = "<group>"; };
 		C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModel.swift; sourceTree = "<group>"; };
@@ -1736,6 +1738,7 @@
 				752FB04D1DF8BF4B009086FB /* sqlite3.framework in Frameworks */,
 				C35C1224293D464A0009022D /* FirebaseCrashlytics in Frameworks */,
 				C35C1220293D464A0009022D /* FirebaseAnalytics in Frameworks */,
+				C3CDE033293F466100785A4B /* LitewalletPartnerAPI in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3049,6 +3052,7 @@
 		75B6F52F1DA71DCC0031A93F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C3CDE031293F463500785A4B /* litewallet-partner-api-ios */,
 				1BBAEBE51F80237B0047DEA8 /* loafwallet-core */,
 				22A9A9971DF63426000F0016 /* libbz2 */,
 				755CD3831DAA0E3E0075898E /* unbound */,
@@ -3729,6 +3733,7 @@
 				C35C1223293D464A0009022D /* FirebaseCrashlytics */,
 				C35C1226293D47EE0009022D /* UnstoppableDomainsResolution */,
 				C35C1229293D48340009022D /* KeychainAccess */,
+				C3CDE032293F466100785A4B /* LitewalletPartnerAPI */,
 			);
 			productName = breadwallet;
 			productReference = 75A2A7901DA5934300A983D8 /* Litewallet.app */;
@@ -5630,6 +5635,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C35C1228293D48330009022D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		C3CDE032293F466100785A4B /* LitewalletPartnerAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LitewalletPartnerAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
