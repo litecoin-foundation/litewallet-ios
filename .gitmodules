@@ -10,3 +10,6 @@
 [submodule "Modules/litewallet-partner-api-ios"]
 	path = Modules/litewallet-partner-api-ios
 	url = https://github.com/litecoin-foundation/litewallet-partner-api-ios.git
+[submodule "litewallet-partner-api-ios"]
+	path = litewallet-partner-api-ios
+	url = https://github.com/litecoin-foundation/litewallet-partner-api-ios.git
