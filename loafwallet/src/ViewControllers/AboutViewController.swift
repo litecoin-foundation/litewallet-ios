@@ -90,7 +90,7 @@ class AboutViewController: UIViewController {
 
 	private func setActions() {
 		blog.button.tap = strongify(self) { myself in
-			myself.presentURL(string: "https://lite-wallet.org")
+			myself.presentURL(string: "https://litewallet.io")
 		}
 		twitter.button.tap = strongify(self) { myself in
 			myself.presentURL(string: "https://twitter.com/Litewallet_App")
