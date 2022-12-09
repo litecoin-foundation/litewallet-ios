@@ -17,15 +17,11 @@ class AmountTests: XCTestCase {
 	}
 
 	func testAmountForLtcFormat() {
-		//        //Given:
-		//        let amount = MockSeeds.amount100
-//
-		//        //When:
-		//        if amount.amountForLtcFormat == 0.003 {
-		//            XCTAssertFalse(true)
-		//        }
-		//        //Then:
-		//        XCTAssert(amount.amount == 0)
+		// Given:
+		let amount = MockSeeds.amount100
+
+		// Then:
+		XCTAssertFalse(amount.amount != 0)
 	}
 
 	func testPerformanceExample() {
