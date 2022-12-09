@@ -21,7 +21,7 @@ class AmountTests: XCTestCase {
 		let amount = MockSeeds.amount100
 
 		// Then:
-		XCTAssertFalse(amount.amount != 0)
+		XCTAssertFalse(amount.amount == 0)
 	}
 
 	func testPerformanceExample() {
