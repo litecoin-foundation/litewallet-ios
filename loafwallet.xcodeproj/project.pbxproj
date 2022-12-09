@@ -249,25 +249,17 @@
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
 		C30029E225D0185500F08C2B /* StandardDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029E125D0185500F08C2B /* StandardDividerView.swift */; };
 		C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029EA25D019BC00F08C2B /* CopyButtonView.swift */; };
-		C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C308993E2616124800EE6A40 /* CardWalletTests.swift */; };
 		C30899792616426800EE6A40 /* ForgotAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30899782616426800EE6A40 /* ForgotAlertViewModel.swift */; };
 		C316CF49261887FC00E4C09B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */; };
 		C3188E2726431E750008ADD1 /* Debug-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */; };
 		C3188E3326445EA20008ADD1 /* FileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3188E3226445EA20008ADD1 /* FileTests.swift */; };
 		C31891C1267338D300ECE25C /* NonUSTabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C0267338D300ECE25C /* NonUSTabBarViewControllerTests.swift */; };
 		C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */; };
-		C31FEECE26CA7F8C00DF4999 /* PreTransferViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FEECD26CA7F8C00DF4999 /* PreTransferViewModelTests.swift */; };
-		C31FEED026CB06B500DF4999 /* TransferAmountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FEECF26CB06B500DF4999 /* TransferAmountViewModelTests.swift */; };
-		C31FEED226CB06CB00DF4999 /* TransferringViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31FEED126CB06CB00DF4999 /* TransferringViewModelTests.swift */; };
 		C32142EA25C97CD900BECCD0 /* TransactionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32142E925C97CD900BECCD0 /* TransactionCellView.swift */; };
 		C32142FA25C988C800BECCD0 /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32142F925C988C800BECCD0 /* TransactionCellViewModel.swift */; };
 		C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DAE0625925B7E003FC978 /* Color+Extension.swift */; };
-		C32DB42D264847FD00017D26 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DB42C264847FD00017D26 /* CardTests.swift */; };
 		C32DB42F26488CAA00017D26 /* NonUSTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DB42E26488CAA00017D26 /* NonUSTabBarViewController.swift */; };
 		C339752127001BEC0071FED6 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C339752027001BEC0071FED6 /* EmailValidation.swift */; };
-		C345D81525A8D52600657E30 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D81425A8D52600657E30 /* LoginViewModelTests.swift */; };
-		C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */; };
-		C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */; };
 		C350788C27DCB10700A50819 /* TextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350788B27DCB10700A50819 /* TextView+Extension.swift */; };
 		C3543A27264AFE490005D17A /* LocaleChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A26264AFE490005D17A /* LocaleChangeView.swift */; };
 		C3543A29264AFE720005D17A /* LocaleChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A28264AFE720005D17A /* LocaleChangeViewModel.swift */; };
@@ -297,7 +289,6 @@
 		C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */; };
 		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
 		C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */; };
-		C3DAAE2D26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */; };
 		C3EFA9A12650807B005C59B5 /* LockScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */; };
 		C3EFA9A3265080FF005C59B5 /* LockScreenHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */; };
 		C3EFA9A62651A808005C59B5 /* LockScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */; };
@@ -1405,25 +1396,17 @@
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C30029E125D0185500F08C2B /* StandardDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDividerView.swift; sourceTree = "<group>"; };
 		C30029EA25D019BC00F08C2B /* CopyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButtonView.swift; sourceTree = "<group>"; };
-		C308993E2616124800EE6A40 /* CardWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWalletTests.swift; sourceTree = "<group>"; };
 		C30899782616426800EE6A40 /* ForgotAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAlertViewModel.swift; sourceTree = "<group>"; };
 		C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Debug-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3188E3226445EA20008ADD1 /* FileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTests.swift; sourceTree = "<group>"; };
 		C31891C0267338D300ECE25C /* NonUSTabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonUSTabBarViewControllerTests.swift; sourceTree = "<group>"; };
 		C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerTests.swift; sourceTree = "<group>"; };
-		C31FEECD26CA7F8C00DF4999 /* PreTransferViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTransferViewModelTests.swift; sourceTree = "<group>"; };
-		C31FEECF26CB06B500DF4999 /* TransferAmountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferAmountViewModelTests.swift; sourceTree = "<group>"; };
-		C31FEED126CB06CB00DF4999 /* TransferringViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferringViewModelTests.swift; sourceTree = "<group>"; };
 		C32142E925C97CD900BECCD0 /* TransactionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellView.swift; sourceTree = "<group>"; };
 		C32142F925C988C800BECCD0 /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
 		C32DAE0625925B7E003FC978 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		C32DB42C264847FD00017D26 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		C32DB42E26488CAA00017D26 /* NonUSTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonUSTabBarViewController.swift; sourceTree = "<group>"; };
 		C339752027001BEC0071FED6 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
-		C345D81425A8D52600657E30 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
-		C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
-		C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCardViewModelTests.swift; sourceTree = "<group>"; };
 		C350788727DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C350788827DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		C350788927DCAAA000A50819 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1456,7 +1439,6 @@
 		C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainView.swift; sourceTree = "<group>"; };
 		C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModel.swift; sourceTree = "<group>"; };
 		C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModelTests.swift; sourceTree = "<group>"; };
-		C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter2FACodeViewModelTests.swift; sourceTree = "<group>"; };
 		C3EFA9A02650807B005C59B5 /* LockScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenHeaderView.swift; sourceTree = "<group>"; };
 		C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenHeaderViewModel.swift; sourceTree = "<group>"; };
 		C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenTests.swift; sourceTree = "<group>"; };
@@ -2102,7 +2084,6 @@
 		24470E4323A6088700ADDA27 /* Class Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C345D81325A8D50600657E30 /* LitecoinCardTests */,
 				24470E4423A608A700ADDA27 /* AmountTests.swift */,
 				2494037523AD35C000369261 /* BuyWKWebVCTests.swift */,
 				C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */,
@@ -2115,9 +2096,7 @@
 		2465873723A5AAD100A32E9E /* loafwalletTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3DAAE2B26C9C15A00D9E18C /* Two Factor Auth Tests */,
 				C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */,
-				C32DB42B264847D500017D26 /* Card Tests */,
 				C3188E3126445E5E0008ADD1 /* File Tests */,
 				C3B7C3EC255FF56100E98A64 /* Constants Tests */,
 				24470E3923A5FF5700ADDA27 /* TestHelpers.swift */,
@@ -3038,28 +3017,6 @@
 			name = Transactions;
 			sourceTree = "<group>";
 		};
-		C32DB42B264847D500017D26 /* Card Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C32DB42C264847FD00017D26 /* CardTests.swift */,
-			);
-			path = "Card Tests";
-			sourceTree = "<group>";
-		};
-		C345D81325A8D50600657E30 /* LitecoinCardTests */ = {
-			isa = PBXGroup;
-			children = (
-				C345D81425A8D52600657E30 /* LoginViewModelTests.swift */,
-				C308993E2616124800EE6A40 /* CardWalletTests.swift */,
-				C345D83625A8D57E00657E30 /* AnimatedCardViewModelTests.swift */,
-				C345D82425A8D54200657E30 /* RegistrationViewModelTests.swift */,
-				C31FEECD26CA7F8C00DF4999 /* PreTransferViewModelTests.swift */,
-				C31FEECF26CB06B500DF4999 /* TransferAmountViewModelTests.swift */,
-				C31FEED126CB06CB00DF4999 /* TransferringViewModelTests.swift */,
-			);
-			path = LitecoinCardTests;
-			sourceTree = "<group>";
-		};
 		C3543A25264AFE190005D17A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -3120,14 +3077,6 @@
 				C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */,
 			);
 			name = Unstoppable;
-			sourceTree = "<group>";
-		};
-		C3DAAE2B26C9C15A00D9E18C /* Two Factor Auth Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C3DAAE2C26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift */,
-			);
-			path = "Two Factor Auth Tests";
 			sourceTree = "<group>";
 		};
 		C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */ = {
@@ -3969,11 +3918,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C31FEED026CB06B500DF4999 /* TransferAmountViewModelTests.swift in Sources */,
 				C3188E3326445EA20008ADD1 /* FileTests.swift in Sources */,
 				24470E4223A6007200ADDA27 /* WalletInfoTest.swift in Sources */,
 				24470E2123A5DA9700ADDA27 /* APIManagerTests.swift in Sources */,
-				C32DB42D264847FD00017D26 /* CardTests.swift in Sources */,
 				24470E3423A5F5E600ADDA27 /* PaymentRequestTests.swift in Sources */,
 				24470E2E23A5F4FF00ADDA27 /* BRCoderTests.swift in Sources */,
 				2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */,
@@ -3985,18 +3932,11 @@
 				24470E3E23A6000900ADDA27 /* WalletAuthenticationTests.swift in Sources */,
 				24470E2A23A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift in Sources */,
 				C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */,
-				C345D81525A8D52600657E30 /* LoginViewModelTests.swift in Sources */,
-				C31FEED226CB06CB00DF4999 /* TransferringViewModelTests.swift in Sources */,
-				C3DAAE2D26C9C19600D9E18C /* Enter2FACodeViewModelTests.swift in Sources */,
 				24470E2523A5EF0D00ADDA27 /* BRAPIClientTests.swift in Sources */,
 				C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */,
 				24470E3C23A5FFD700ADDA27 /* TouchIdEnabledTests.swift in Sources */,
 				24470E3A23A5FF5700ADDA27 /* TestHelpers.swift in Sources */,
-				C345D83725A8D57E00657E30 /* AnimatedCardViewModelTests.swift in Sources */,
-				C345D82525A8D54200657E30 /* RegistrationViewModelTests.swift in Sources */,
 				24470E3623A5FDE800ADDA27 /* PhraseTests.swift in Sources */,
-				C308993F2616124800EE6A40 /* CardWalletTests.swift in Sources */,
-				C31FEECE26CA7F8C00DF4999 /* PreTransferViewModelTests.swift in Sources */,
 				C31891C1267338D300ECE25C /* NonUSTabBarViewControllerTests.swift in Sources */,
 				24470E4523A608A700ADDA27 /* AmountTests.swift in Sources */,
 				C3B7C3EE255FF59200E98A64 /* ConstantsTests.swift in Sources */,
