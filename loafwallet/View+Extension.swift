@@ -2,22 +2,6 @@ import Foundation
 import SwiftUI
 
 extension View {
-	/// Login Alert View
-	/// - Parameters:
-	///   - isShowingLoginAlert: Shown when user is waiting to login
-	///   - didFail: failed to login (false)
-	///   - message: Error message
-	/// - Returns: a constructed View
-	func loginAlertView(isShowingLoginAlert: Binding<Bool>,
-	                    didFail: Binding<Bool>,
-	                    message: Binding<String>) -> some View
-	{
-		loafwallet.LoginCardAlertView(isShowingLoginAlert: isShowingLoginAlert,
-		                              didFail: didFail,
-		                              mainMessage: message,
-		                              presenting: self)
-	}
-
 	/// Forgot Password View Modal
 	/// - Parameters:
 	///   - isShowingForgot: Boolean to show/hide the modal
@@ -31,37 +15,6 @@ extension View {
 	{
 		loafwallet.ForgotAlertView(isShowingForgot: isShowingForgot, presenting: self,
 		                           mainMessage: message)
-	}
-
-	/// Registration View Modal
-	/// - Parameters:
-	///   - shouldStartRegistering: Boolean to show/hide the modal
-	///   - didRegister: Boolean fali/success
-	///   - data: User data for the registration
-	///   - message: Message details
-	/// - Returns: RegistrationView
-	func registeredAlertView(shouldStartRegistering: Binding<Bool>,
-	                         didRegister: Binding<Bool>,
-	                         data _: [String: Any],
-	                         message: Binding<String>) -> some View
-	{
-		loafwallet.RegistrationAlertView(shouldStartRegistering: shouldStartRegistering,
-		                                 didRegister: didRegister,
-		                                 mainMessage: message,
-		                                 presenting: self)
-	}
-
-	/// Enter 2FA View Modal
-	/// - Parameters:
-	///   - shouldShowEnter2FAView: Boolean to show/hide the modal
-	///   - twoFAModel: The observable model
-	/// - Returns: Enter2FAView
-	func enter2FACodeView(shouldShowEnter2FAView: Binding<Bool>,
-	                      twoFAModel: Enter2FACodeViewModel) -> some View
-	{
-		loafwallet.Enter2FACodeView(twoFAViewModel: twoFAModel,
-		                            shouldShowEnter2FAView: shouldShowEnter2FAView,
-		                            presenting: self)
 	}
 
 	/// From Stack Overflow
