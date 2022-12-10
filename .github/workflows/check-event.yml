@@ -1,0 +1,20 @@
+name: Read Bitrise Checks and change the build number to the match .ipa
+
+on:
+  pull_request:
+    branches: [ develop ]
+    
+jobs:
+  build:
+  
+  runs-on: ubuntu-latest
+  
+  steps:
+  - uses: LouisBrunner/checks-action@v1.1.1
+    if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Test XYZ
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.test.outputs.summary }}}
