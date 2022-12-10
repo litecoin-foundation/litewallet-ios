@@ -7,14 +7,14 @@ on:
 jobs:
   build:
   
-  runs-on: ubuntu-latest
+    runs-on: macos-latest
   
-  steps:
-  - uses: actions/checkout@v3
-  - name: Build
-    run: swift build
-  - name: Run tests
-    run: swift test
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
   
  # - uses: LouisBrunner/checks-action@v1.1.1
  #   if: always()
