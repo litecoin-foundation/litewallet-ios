@@ -973,6 +973,9 @@
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "Masukkan domain";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Masalah pencarian sistem. [Kesalahan: %2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Alamat Litecoin hanya ditujukan untuk penggunaan tunggal.";
 
@@ -1443,6 +1446,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d dari %2$d";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "";

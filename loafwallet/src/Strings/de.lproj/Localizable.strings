@@ -973,6 +973,9 @@
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "Domäne eingeben";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problem mit der Systemsuche. [Fehler: %2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin-Adressen sind lediglich zur einmaligen Benutzung vorgesehen.";
 
@@ -1443,6 +1446,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "";

@@ -3,6 +3,8 @@ import Foundation
 import KeychainAccess
 import UIKit
 
+// DEV: To be removed in following issue https://github.com/litecoin-foundation/litewallet-ios/issues/177
+
 class TransferAmountViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
@@ -88,18 +90,6 @@ class TransferAmountViewModel: ObservableObject {
 			LWAnalytics.logEventWithParameters(itemName: ._20210804_ERR_KLF)
 			return
 		}
-
-		// DEV: Mothballed
-		// Need information from Ternio to move forward
-		//		PartnerAPI
-		//			.shared
-		//			.withdrawToWallet(userID: userID,
-		//			                  token: token,
-		//			                  withdrawal:
-		//			                  ["amount": amount,
-		//			                   "wallet_address": address]) { _ in
-		//
-		//			}
 	}
 
 	/// Transfer Litecoin from **Litewallet to Litecoin Card**

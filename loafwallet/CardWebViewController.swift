@@ -14,10 +14,6 @@ class CardWebViewController: UIViewController {
 		webView.navigationDelegate = self
 		webView.load(request)
 		view = webView
-
-//		navigationController?.setNavigationBarHidden(false, animated: true)
-//		let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Close"), style: .plain, target: self, action: #selector(BuyCenterWebViewController.dismissWebView))
-//		navigationController?.navigationItem.leftBarButtonItem = backButton
 	}
 }
 

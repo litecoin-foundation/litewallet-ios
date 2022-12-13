@@ -973,6 +973,9 @@
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "输入域";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "系统查找问题。 [错误：%2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "莱特币地址仅供一次性使用。";
 
@@ -1443,6 +1446,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "";

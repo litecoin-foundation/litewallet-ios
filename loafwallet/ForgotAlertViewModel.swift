@@ -12,14 +12,7 @@ class ForgotAlertViewModel: ObservableObject {
 
 	init() {}
 
-	func resetPassword(completion _: @escaping () -> Void) {
-//		PartnerAPI.shared.forgotPassword(email: emailString) { responseMessage in
-//			DispatchQueue.main.async {
-//				self.detailMessage = responseMessage
-//				completion()
-//			}
-//		}
-	}
+	func resetPassword(completion _: @escaping () -> Void) {}
 
 	func shouldDismissView(completion: @escaping () -> Void) {
 		completion()

@@ -975,6 +975,9 @@
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "Introducir dominio";
 
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problema de búsqueda del sistema. [Error: %2$d]";
+
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Las direcciones Litecoin están diseñadas para un solo uso.";
 
@@ -1445,6 +1448,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "";
