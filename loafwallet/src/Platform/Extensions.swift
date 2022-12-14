@@ -511,7 +511,6 @@ extension UIImage {
 	}
 
 	/// Scales an image to fit within a bounds with a size governed by the passed size. Also keeps the aspect ratio.
-	///
 	/// - parameters:
 	///     - newSize:     the size of the bounds the image must fit within.
 	///     - scalingMode: the desired scaling mode

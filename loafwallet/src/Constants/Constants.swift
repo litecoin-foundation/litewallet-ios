@@ -1,6 +1,8 @@
 import UIKit
 
 let π: CGFloat = .pi
+let customUserAgent: String = "litewallet-ios"
+let litecoinCardURL: String = "https://litecoin.dashboard.getblockcard.com/"
 
 /// Sets tthe wallet type, the image and the label
 enum WalletType: String {

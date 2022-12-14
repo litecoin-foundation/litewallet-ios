@@ -1,5 +1,6 @@
 import SwiftUI
 
+// DEV: To be removed in following issue https://github.com/litecoin-foundation/litewallet-ios/issues/177
 struct ForgotAlertView<Presenting>: View where Presenting: View {
 	// MARK: - Combine Variables
 

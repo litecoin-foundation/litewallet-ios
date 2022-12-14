@@ -3,6 +3,8 @@ import Foundation
 import KeychainAccess
 import UIKit
 
+// DEV: To be removed in following issue https://github.com/litecoin-foundation/litewallet-ios/issues/177
+
 class TransferAmountViewModel: ObservableObject {
 	// MARK: - Combine Variables
 
@@ -75,8 +77,8 @@ class TransferAmountViewModel: ObservableObject {
 	///   - amount: Litecoin to 6 decimal places
 	///   - completion: To complete process
 	///   - address: Destination Litecoin address
-	func transferToLitewallet(amount: Double,
-	                          address: String,
+	func transferToLitewallet(amount _: Double,
+	                          address _: String,
 	                          completion _: @escaping () -> Void)
 	{
 		let keychain = Keychain(service: "com.litecoincard.service")
@@ -88,17 +90,6 @@ class TransferAmountViewModel: ObservableObject {
 			LWAnalytics.logEventWithParameters(itemName: ._20210804_ERR_KLF)
 			return
 		}
-
-		PartnerAPI
-			.shared
-			.withdrawToWallet(userID: userID,
-			                  token: token,
-			                  withdrawal:
-			                  ["amount": amount,
-			                   "wallet_address": address]) { _ in
-				// DEV: Mothballed
-				// Need information from Ternio to move forward
-			}
 	}
 
 	/// Transfer Litecoin from **Litewallet to Litecoin Card**
