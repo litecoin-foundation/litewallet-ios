@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "輸入域";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤: %2$d]";
+"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
