@@ -78,7 +78,17 @@ $ git submodule update
 ```
 4. From the root where the Podfile is located, install the pods: `pod install`
 5. From the root where the *Xcode Workspace* is located, open the project: `open loafwallet.xcworkspace`
- 
+
+### Cleaning Github Action workflow runs
+Use this to delete old workflow runs from the terminal when logged in:
+
+```
+gh run list --json databaseId  -q '.[].databaseId' |
+  xargs -IID gh api \
+    "repos/$(gh repo view --json nameWithOwner -q .nameWithOwner)/actions/runs/ID" \
+    -X DELETE
+```
+
 ### Litewallet Team:
 * [Development Code of Conduct](/development.md)
 ---
