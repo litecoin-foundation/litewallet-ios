@@ -14,14 +14,13 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	private let largeFontSize: CGFloat = 24.0
 	private let smallFontSize: CGFloat = 12.0
 	private var hasInitialized = false
-	private var didLoginLitecoinCardAccount = false
 	private let dateFormatter = DateFormatter()
 	private let equalsLabel = UILabel(font: .barlowMedium(size: 12), color: .whiteTint)
 	private var regularConstraints: [NSLayoutConstraint] = []
 	private var swappedConstraints: [NSLayoutConstraint] = []
 	private let currencyTapView = UIView()
 	private let storyboardNames: [String] = ["Transactions", "Send", "Card", "Receive", "Buy"]
-	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "CardViewController", "ReceiveLTCViewController", "BuyTableViewController"]
+	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "CardWebViewController", "ReceiveLTCViewController", "BuyTableViewController"]
 	var viewControllers: [UIViewController] = []
 	var activeController: UIViewController?
 	var updateTimer: Timer?
@@ -334,17 +333,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			transactionVC.walletManager = walletManager
 			transactionVC.isLtcSwapped = store?.state.isLtcSwapped
 
-		case "loafwallet.CardViewController":
-			guard let cardVC = contentController as? CardViewController
-			else {
-				return
-			}
-
-			cardVC.parentFrame = containerView.frame
-
-			cardVC.store = store
-
-			cardVC.walletManager = walletManager
+		case "loafwallet.CardWebViewController":
+			let cardVC = contentController as? CardWebViewController
 
 		case "loafwallet.BuyTableViewController":
 			guard let buyVC = contentController as? BuyTableViewController

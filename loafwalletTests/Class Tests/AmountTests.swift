@@ -2,30 +2,18 @@
 import XCTest
 
 class AmountTests: XCTestCase {
-	override func setUp() {
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
+	override func setUp() {}
 
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-	}
+	override func tearDown() {}
 
-	func testAmountString() {
-		// Given:
-		// When:
-		// Then:
-	}
+	func testAmountString() {}
 
 	func testAmountForLtcFormat() {
-		//        //Given:
-		//        let amount = MockSeeds.amount100
-//
-		//        //When:
-		//        if amount.amountForLtcFormat == 0.003 {
-		//            XCTAssertFalse(true)
-		//        }
-		//        //Then:
-		//        XCTAssert(amount.amount == 0)
+		// Given:
+		let amount = MockSeeds.amount100
+
+		// Then:
+		XCTAssertFalse(amount.amount == 0)
 	}
 
 	func testPerformanceExample() {
