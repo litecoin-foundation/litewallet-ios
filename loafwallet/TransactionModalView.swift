@@ -38,7 +38,7 @@ struct TransactionModalView: View {
 
 			Group {
 				VStack(alignment: .leading) {
-					Text(S.Transaction.amountDetailLabel)
+					Text(S.Transaction.amountDetailLabel.localize())
 						.font(Font(UIFont.barlowSemiBold(size: 16.0)))
 						.foregroundColor(Color(UIColor.darkGray))
 						.padding(.leading, 20.0)
@@ -66,7 +66,7 @@ struct TransactionModalView: View {
 				.padding(.bottom, 2.0)
 
 				VStack(alignment: .leading, spacing: 1.0) {
-					Text(S.Confirmation.staticAddressLabel.capitalized(with: Locale.current))
+					Text(S.Confirmation.staticAddressLabel.localize().capitalized(with: Locale.current))
 						.font(Font(UIFont.barlowSemiBold(size: 16.0)))
 						.foregroundColor(Color(UIColor.darkGray))
 						.padding(.leading, 20.0)
@@ -93,7 +93,7 @@ struct TransactionModalView: View {
 
 			Group {
 				VStack(alignment: .leading, spacing: 1.0) {
-					Text(S.Transaction.txIDLabel)
+					Text(S.Transaction.txIDLabel.localize())
 						.font(Font(UIFont.barlowSemiBold(size: 16.0)))
 						.foregroundColor(Color(UIColor.darkGray))
 						.padding(.leading, 20.0)
@@ -118,7 +118,7 @@ struct TransactionModalView: View {
 				.frame(height: dataRowHeight)
 
 				VStack(alignment: .leading, spacing: 1.0) {
-					Text(S.Transaction.commentLabel)
+					Text(S.Transaction.commentLabel.localize())
 						.font(Font(UIFont.barlowSemiBold(size: 16.0)))
 						.foregroundColor(Color(UIColor.darkGray))
 						.padding(.leading, 20.0)
@@ -144,7 +144,7 @@ struct TransactionModalView: View {
 				.frame(height: dataRowHeight)
 
 				VStack(alignment: .leading, spacing: 1.0) {
-					Text(S.TransactionDetails.blockHeightLabel + ":")
+					Text(S.TransactionDetails.blockHeightLabel.localize() + ":")
 						.font(Font(UIFont.barlowSemiBold(size: 16.0)))
 						.foregroundColor(Color(UIColor.darkGray))
 						.padding(.leading, 20.0)
@@ -200,7 +200,7 @@ struct TransactionModalView: View {
 						UIPasteboard.general.string = copiedData
 
 					}) {
-						Text(copiedData == "" ? S.TransactionDetails.copyAllDetails : S.TransactionDetails.copiedAll)
+						Text(copiedData == "" ? S.TransactionDetails.copyAllDetails.localize() : S.TransactionDetails.copiedAll.localize())
 							.animation(.easeInOut(duration: 1.0))
 							.font(Font(UIFont.barlowSemiBold(size: 20.0)))
 							.padding(.all, 10.0)

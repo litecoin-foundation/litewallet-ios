@@ -17,8 +17,8 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber {
 	var headerMessage: SyncState = .success {
 		didSet {
 			switch headerMessage {
-			case .connecting: headerLabel.text = S.SyncingHeader.connecting
-			case .syncing: headerLabel.text = S.SyncingHeader.syncing
+			case .connecting: headerLabel.text = S.SyncingHeader.connecting.localize()
+			case .syncing: headerLabel.text = S.SyncingHeader.syncing.localize()
 			case .success:
 				headerLabel.text = ""
 			}
@@ -36,7 +36,7 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber {
 	var isRescanning: Bool = false {
 		didSet {
 			if isRescanning {
-				headerLabel.text = S.SyncingHeader.rescanning
+				headerLabel.text = S.SyncingHeader.rescanning.localize()
 				timestampLabel.text = ""
 				progressView.alpha = 0.0
 				noSendImageView.alpha = 0.0

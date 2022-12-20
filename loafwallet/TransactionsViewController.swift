@@ -133,7 +133,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	private func emptyMessageView() -> UILabel {
 		let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 		let messageLabel = UILabel(frame: rect)
-		messageLabel.text = S.TransactionDetails.emptyMessage
+		messageLabel.text = S.TransactionDetails.emptyMessage.localize()
 		messageLabel.textColor = .litecoinGray
 		messageLabel.numberOfLines = 0
 		messageLabel.textAlignment = .center

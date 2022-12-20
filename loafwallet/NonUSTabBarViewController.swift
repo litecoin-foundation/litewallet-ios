@@ -56,10 +56,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 		addSubscriptions()
 		dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a")
 
-		for (index, storyboardID) in storyboardIDs.enumerated() {
-			let controller = UIStoryboard(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
-			viewControllers.append(controller)
-		}
+		addViewControllers()
 
 		updateTimer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: true) { _ in
 			self.setBalances()
@@ -71,10 +68,31 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 			return
 		}
 		tabBar.selectedItem = array[kInitialChildViewControllerIndex]
+
+		NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: .languageChanged, object: nil)
 	}
 
 	deinit {
+		NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
 		self.updateTimer = nil
+	}
+
+	@objc
+	func languageChanged() {
+		walletBalanceLabel.text = S.ManageWallet.balance.localize() + ":"
+		localizeTabBar()
+		viewControllers = []
+		addViewControllers()
+		guard let array = tabBar.items else { return }
+		tabBar.selectedItem = array[kInitialChildViewControllerIndex]
+		displayContentController(contentController: viewControllers[0])
+	}
+
+	func addViewControllers() {
+		for (index, storyboardID) in storyboardIDs.enumerated() {
+			let controller = UIStoryboard(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
+			viewControllers.append(controller)
+		}
 	}
 
 	private func setupModels() {
@@ -94,7 +112,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 	}
 
 	private func setupViews() {
-		walletBalanceLabel.text = S.ManageWallet.balance + ":"
+		walletBalanceLabel.text = S.ManageWallet.balance.localize() + ":"
 
 		if #available(iOS 11.0, *),
 		   let backgroundColor = UIColor(named: "mainColor")
@@ -293,7 +311,10 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		localizeTabBar()
+	}
 
+	func localizeTabBar() {
 		guard let array = tabBar.items
 		else {
 			NSLog("ERROR: no items found")
@@ -302,10 +323,10 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 
 		array.forEach { item in
 			switch item.tag {
-			case 0: item.title = S.History.barItemTitle
-			case 1: item.title = S.Send.barItemTitle
-			case 2: item.title = S.Receive.barItemTitle
-			case 3: item.title = S.BuyCenter.barItemTitle
+			case 0: item.title = S.History.barItemTitle.localize()
+			case 1: item.title = S.Send.barItemTitle.localize()
+			case 2: item.title = S.Receive.barItemTitle.localize()
+			case 3: item.title = S.BuyCenter.barItemTitle.localize()
 			default:
 				item.title = "NO-TITLE"
 				NSLog("ERROR: UITabbar item count is wrong")

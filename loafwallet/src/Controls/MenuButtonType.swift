@@ -9,13 +9,13 @@ enum MenuButtonType {
 	var title: String {
 		switch self {
 		case .security:
-			return S.MenuButton.security
+			return S.MenuButton.security.localize()
 		case .customerSupport:
-			return S.MenuButton.support
+			return S.MenuButton.support.localize()
 		case .settings:
-			return S.MenuButton.settings
+			return S.MenuButton.settings.localize()
 		case .lock:
-			return S.MenuButton.lock
+			return S.MenuButton.lock.localize()
 		}
 	}
 

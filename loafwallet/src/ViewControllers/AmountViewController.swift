@@ -206,7 +206,7 @@ class AmountViewController: UIViewController, Trackable {
 		amountLabel.layer.cornerRadius = 8.0
 		amountLabel.layer.masksToBounds = true
 
-		placeholder.text = S.Send.amountLabel
+		placeholder.text = S.Send.amountLabel.localize()
 		bottomBorder.isHidden = true
 		if store.state.isLtcSwapped {
 			if let rate = store.state.currentRate {

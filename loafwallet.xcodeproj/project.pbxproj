@@ -113,6 +113,13 @@
 		24D91D0B2166923E0077A619 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D91D0A2166923E0077A619 /* UserNotifications.framework */; };
 		24DFCE6823B89CDE001F17F8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DFCE6723B89CDE001F17F8 /* Settings.storyboard */; };
 		375DDB3F2697C253005E2B27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 375DDB3D2697C253005E2B27 /* GoogleService-Info.plist */; };
+		584E24F32951C11A005E0E8B /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E24F22951C119005E0E8B /* Localization.swift */; };
+		584E24F52951D2DC005E0E8B /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E24F42951D2DB005E0E8B /* BundleExtension.swift */; };
+		584E24F82951D412005E0E8B /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E24F72951D412005E0E8B /* LanguageSelectionViewController.swift */; };
+		584E24FA2951D43A005E0E8B /* LanguageSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E24F92951D43A005E0E8B /* LanguageSelectionViewModel.swift */; };
+		584E24FC2951D476005E0E8B /* NSNotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E24FB2951D476005E0E8B /* NSNotificationNameExtension.swift */; };
+		584E24FE2951D752005E0E8B /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E24FD2951D752005E0E8B /* UITableViewExtension.swift */; };
+		584E25012951DAAA005E0E8B /* LanguageSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E25002951DAAA005E0E8B /* LanguageSelectionTests.swift */; };
 		7503773D1DF57428005EB8AE /* WalletManager+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7503773C1DF57428005EB8AE /* WalletManager+Auth.swift */; };
 		751734B91DAC941E00193C87 /* sec-sub-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD8BE1DAA16820075898E /* sec-sub-1.c */; };
 		752438751DAAC50800844BEC /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD6761DAA0E400075898E /* alloc.c */; };
@@ -798,6 +805,13 @@
 		24D91D0D2166A5480077A619 /* TestnetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestnetData.swift; sourceTree = "<group>"; };
 		24DFCE6723B89CDE001F17F8 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		375DDB3D2697C253005E2B27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		584E24F22951C119005E0E8B /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		584E24F42951D2DB005E0E8B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		584E24F72951D412005E0E8B /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
+		584E24F92951D43A005E0E8B /* LanguageSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewModel.swift; sourceTree = "<group>"; };
+		584E24FB2951D476005E0E8B /* NSNotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationNameExtension.swift; sourceTree = "<group>"; };
+		584E24FD2951D752005E0E8B /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		584E25002951DAAA005E0E8B /* LanguageSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTests.swift; sourceTree = "<group>"; };
 		7503773C1DF57428005EB8AE /* WalletManager+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WalletManager+Auth.swift"; path = "src/WalletManager+Auth.swift"; sourceTree = "<group>"; };
 		7528D2971ECF655500925DBC /* PaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentProtocol.swift; path = src/PaymentProtocol.swift; sourceTree = "<group>"; };
 		752FB03B1DF8BE4B009086FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2096,6 +2110,7 @@
 		2465873723A5AAD100A32E9E /* loafwalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				584E24FF2951DA97005E0E8B /* Language Selection Tests */,
 				C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */,
 				C3188E3126445E5E0008ADD1 /* File Tests */,
 				C3B7C3EC255FF56100E98A64 /* Constants Tests */,
@@ -2169,6 +2184,23 @@
 				248BFE2523AB302200CE1A71 /* BuyWKWebViewController.swift */,
 			);
 			name = Buy;
+			sourceTree = "<group>";
+		};
+		584E24F62951D400005E0E8B /* LanguageSelection */ = {
+			isa = PBXGroup;
+			children = (
+				584E24F72951D412005E0E8B /* LanguageSelectionViewController.swift */,
+				584E24F92951D43A005E0E8B /* LanguageSelectionViewModel.swift */,
+			);
+			name = LanguageSelection;
+			sourceTree = "<group>";
+		};
+		584E24FF2951DA97005E0E8B /* Language Selection Tests */ = {
+			isa = PBXGroup;
+			children = (
+				584E25002951DAAA005E0E8B /* LanguageSelectionTests.swift */,
+			);
+			path = "Language Selection Tests";
 			sourceTree = "<group>";
 		};
 		755CD3831DAA0E3E0075898E /* unbound */ = {
@@ -3122,6 +3154,7 @@
 		CE20C8EF1DBAF6D300C8397A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				584E24F62951D400005E0E8B /* LanguageSelection */,
 				24313C8F23823D8500A83F69 /* Main */,
 				24313C8E23823C5D00A83F69 /* PaperPhrase */,
 				24313C8D23823C2B00A83F69 /* Pin */,
@@ -3198,6 +3231,9 @@
 				CE1280F51EEA855C00D27649 /* Date+Additions.swift */,
 				CEC4CF081F0C84AB00E5C82E /* UIViewController+Alerts.swift */,
 				CE47A8DF1F7DA54000FF35BA /* UIScreen+Additions.swift */,
+				584E24F42951D2DB005E0E8B /* BundleExtension.swift */,
+				584E24FB2951D476005E0E8B /* NSNotificationNameExtension.swift */,
+				584E24FD2951D752005E0E8B /* UITableViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3306,6 +3342,7 @@
 				24B8FADE2163C4D400A155B1 /* Currency.swift */,
 				24313C732381E73200A83F69 /* TransactionManager.swift */,
 				24470E4623A6B6E900ADDA27 /* MockSeeds.swift */,
+				584E24F22951C119005E0E8B /* Localization.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3922,6 +3959,7 @@
 				24470E4223A6007200ADDA27 /* WalletInfoTest.swift in Sources */,
 				24470E2123A5DA9700ADDA27 /* APIManagerTests.swift in Sources */,
 				24470E3423A5F5E600ADDA27 /* PaymentRequestTests.swift in Sources */,
+				584E25012951DAAA005E0E8B /* LanguageSelectionTests.swift in Sources */,
 				24470E2E23A5F4FF00ADDA27 /* BRCoderTests.swift in Sources */,
 				2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */,
 				24470E3223A5F5B100ADDA27 /* NSDataExtensionTests.swift in Sources */,
@@ -4091,6 +4129,7 @@
 				CE8644251F2C160200033129 /* ConfirmationViewController.swift in Sources */,
 				CEE1F5631DF13E5A00D733AD /* ModalHeaderView.swift in Sources */,
 				CE5F21DB1E4A93A500C47B8E /* LoginTransitionDelegate.swift in Sources */,
+				584E24FA2951D43A005E0E8B /* LanguageSelectionViewModel.swift in Sources */,
 				CEE659E91F664C73001FF29D /* WelcomeViewController.swift in Sources */,
 				24313C8723821B8C00A83F69 /* PromptTableViewCell.swift in Sources */,
 				2228734F1E916FC30044BA15 /* BRAPIClient+Wallet.swift in Sources */,
@@ -4121,6 +4160,7 @@
 				CE8CD8E11E31976800785E02 /* LoginViewController.swift in Sources */,
 				C3F7BCDE25FEC6AD00694C28 /* AlertFailureView.swift in Sources */,
 				CEC6AA391DEE10BA00EE5AFD /* UINavigationController+Extension.swift in Sources */,
+				584E24FC2951D476005E0E8B /* NSNotificationNameExtension.swift in Sources */,
 				CECCE5B01E04AD7600D99448 /* DescriptionSendCell.swift in Sources */,
 				CE44BA1B1F33BFC500392A1A /* NodeSelectorViewController.swift in Sources */,
 				CE124D001E69170900DFA146 /* SyncingView.swift in Sources */,
@@ -4184,16 +4224,19 @@
 				C339752127001BEC0071FED6 /* EmailValidation.swift in Sources */,
 				CE5E6C941EB7964900A476DB /* WalletDisabledView.swift in Sources */,
 				CEF3E8341DE57166007C0A9E /* AnimatableIcon.swift in Sources */,
+				584E24F52951D2DC005E0E8B /* BundleExtension.swift in Sources */,
 				CEF61B161ED2056D00C7EA6A /* NumberFormatter+Additions.swift in Sources */,
 				CEF3E8321DE55540007C0A9E /* CheckView.swift in Sources */,
 				C3BD49C925954A1B00D97079 /* ForgotView.swift in Sources */,
 				CECCE5A91E0378FB00D99448 /* PinPadViewController.swift in Sources */,
+				584E24F32951C11A005E0E8B /* Localization.swift in Sources */,
 				C354C4632590059500675E0E /* TransactionsViewModel.swift in Sources */,
 				CEF3D2DB1E8B55C80070178E /* UISlider+Gradient.swift in Sources */,
 				C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */,
 				C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */,
 				CEC6AA4B1DEFD24C00EE5AFD /* MenuButtonType.swift in Sources */,
 				C3D471F7294337E700D9E415 /* CardWebViewController.swift in Sources */,
+				584E24FE2951D752005E0E8B /* UITableViewExtension.swift in Sources */,
 				24313C752381E73200A83F69 /* TransactionManager.swift in Sources */,
 				CE4CA7BC1EE3649100373F11 /* BRActivityView.swift in Sources */,
 				CEC6AA421DEFC88F00EE5AFD /* ReceiveViewController.swift in Sources */,
@@ -4273,6 +4316,7 @@
 				CE6DCC271E6108D50044257B /* EnterPhraseCell.swift in Sources */,
 				C3EFA9A3265080FF005C59B5 /* LockScreenHeaderViewModel.swift in Sources */,
 				CE760EDD1E561DF900EFAC2B /* UpdatePinViewController.swift in Sources */,
+				584E24F82951D412005E0E8B /* LanguageSelectionViewController.swift in Sources */,
 				24BA90C62410129E001E3825 /* FeeSelectorView.swift in Sources */,
 				CE9057181DFF0FA8006BA848 /* String+Additions.swift in Sources */,
 				CED341331EF5A5C00014912A /* InAppAlert.swift in Sources */,

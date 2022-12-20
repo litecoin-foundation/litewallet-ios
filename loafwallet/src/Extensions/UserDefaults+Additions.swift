@@ -17,8 +17,19 @@ private let hasPromptedShareDataKey = "hasPromptedShareDataKey"
 private let hasShownWelcomeKey = "hasShownWelcomeKey"
 private let didSeeTransactionCorruption = "DidSeeTransactionCorruption"
 private let userIsInUSAKey = "userIsInUSAKey"
+private let selectedLanguageKey = "selectedLanguage"
 
 extension UserDefaults {
+	static var selectedLanguage: String {
+		get {
+			guard defaults.object(forKey: selectedLanguageKey) != nil else {
+				return "en"
+			}
+			return defaults.string(forKey: selectedLanguageKey) ?? "en"
+		}
+		set { defaults.set(newValue, forKey: selectedLanguageKey) }
+	}
+
 	static var isBiometricsEnabled: Bool {
 		get {
 			guard defaults.object(forKey: isBiometricsEnabledKey) != nil
