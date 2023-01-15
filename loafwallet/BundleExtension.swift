@@ -23,7 +23,11 @@ public extension Bundle {
 		}
 
 		if let temp = language {
-			objc_setAssociatedObject(Bundle.main, &_bundle, Bundle(path: Bundle.main.path(forResource: temp, ofType: "lproj")!), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+			guard let bundle = Bundle(path: Bundle.main.path(forResource: temp, ofType: "lproj")!) else {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+				return
+			}
+			objc_setAssociatedObject(Bundle.main, &_bundle, bundle, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 		} else {
 			objc_setAssociatedObject(Bundle.main, &_bundle, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 		}

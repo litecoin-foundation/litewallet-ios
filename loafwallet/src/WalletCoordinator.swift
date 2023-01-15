@@ -117,6 +117,7 @@ class WalletCoordinator: Subscriber, Trackable {
 	}
 
 	@objc private func updateTransactions() {
+		print("Updating transactions")
 		updateTimer?.invalidate()
 		updateTimer = nil
 		DispatchQueue.walletQueue.async {
@@ -169,6 +170,10 @@ class WalletCoordinator: Subscriber, Trackable {
 
 		NotificationCenter.default.addObserver(forName: .WalletSyncStoppedNotification, object: nil, queue: nil, using: { note in
 			self.onSyncStop(notification: note)
+		})
+
+		NotificationCenter.default.addObserver(forName: .languageChanged, object: nil, queue: nil, using: { _ in
+			self.updateTransactions()
 		})
 	}
 

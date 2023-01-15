@@ -22,9 +22,9 @@ final class LanguageSelectionTests: XCTestCase {
 		let initialLanguage = UserDefaults.selectedLanguage
 		XCTAssertEqual(initialLanguage, "en")
 
-		let spannish = "es"
-		viewModel.setLanguage(code: spannish)
-		XCTAssertEqual(spannish, UserDefaults.selectedLanguage)
+		let spanish = "es"
+		viewModel.setLanguage(code: spanish)
+		XCTAssertEqual(spanish, UserDefaults.selectedLanguage)
 		XCTAssertEqual(S.LitewalletAlert.warning.localize(), "Aviso")
 	}
 }

@@ -3,7 +3,7 @@ import UIKit
 class LanguageSelectionViewController: UITableViewController {
 	let viewModel = LanguageSelectionViewModel()
 
-	var titleLabel: UILabel!
+	var titleLabel = UILabel(font: .customBold(size: 17.0), color: .darkText)
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -16,7 +16,6 @@ class LanguageSelectionViewController: UITableViewController {
 		tableView.backgroundColor = .whiteTint
 		tableView.separatorStyle = .none
 
-		titleLabel = UILabel(font: .customBold(size: 17.0), color: .darkText)
 		titleLabel.text = S.Settings.languages.localize()
 		titleLabel.sizeToFit()
 		navigationItem.titleView = titleLabel
