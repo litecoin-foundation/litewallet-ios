@@ -995,6 +995,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Cadeia bloco";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Tem certeza de que deseja alterar o idioma para %l?";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Mostrar moeda";
 
@@ -1447,6 +1450,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "Tem certeza de que deseja alterar o idioma para %l?";

@@ -1,8 +1,15 @@
 import Foundation
 
 class LanguageSelectionViewModel {
+	var bundle: Bundle
+
+	init(bundle: Bundle) {
+		self.bundle = bundle
+		print("::: bundlKSM.bundlePath : \(self.bundle.bundlePath)")
+	}
+
 	var localizations: [String] {
-		return Bundle.main.localizations.filter { $0 != "Base" }.sorted()
+		return ["Base"] // Bundle.main.localizations.filter { $0 != "Base" }.sorted()
 	}
 
 	func setLanguage(code: String) {

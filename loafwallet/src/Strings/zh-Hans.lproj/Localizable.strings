@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "区块链";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "您确定要更改语言吗？";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "显示币种";
 
@@ -1446,7 +1449,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
-
-
-/* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "您确定要更改语言吗？";

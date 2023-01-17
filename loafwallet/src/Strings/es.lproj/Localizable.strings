@@ -996,6 +996,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Cadena articulada";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "¿Está seguro de que desea cambiar el idioma a %l?";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Mostrar moneda";
 
@@ -1448,6 +1451,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "¿Está seguro de que desea cambiar el idioma a %l?";

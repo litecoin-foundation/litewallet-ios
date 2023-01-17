@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Блокчейн";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Ви впевнені, що хочете змінити мову на %l?";
+
 /* Default currency label */
 "Settings.currency" = "Відображення валюти";
 
@@ -1446,6 +1449,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d з %2$d";
-
-/* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "Ви впевнені, що хочете змінити мову на %l?";

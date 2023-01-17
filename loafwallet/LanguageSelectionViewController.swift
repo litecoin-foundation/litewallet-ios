@@ -1,7 +1,7 @@
 import UIKit
 
 class LanguageSelectionViewController: UITableViewController {
-	let viewModel = LanguageSelectionViewModel()
+	let viewModel = LanguageSelectionViewModel(bundle: Bundle.main)
 
 	var titleLabel = UILabel(font: .customBold(size: 17.0), color: .darkText)
 

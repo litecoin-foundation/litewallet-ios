@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "blockchain";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Sei sicuro di voler cambiare la lingua in %l?";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Visualizza valuta";
 
@@ -1446,6 +1449,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d di %2$d";
-
-/* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "Sei sicuro di voler cambiare la lingua in %l?";
