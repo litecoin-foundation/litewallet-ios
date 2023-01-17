@@ -68,11 +68,16 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 		}
 		tabBar.selectedItem = array[kInitialChildViewControllerIndex]
 
-		NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: .languageChanged, object: nil)
+		NotificationCenter.default.addObserver(self,
+		                                       selector: #selector(languageChanged),
+		                                       name: .languageChangedNotification,
+		                                       object: nil)
 	}
 
 	deinit {
-		NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
+		NotificationCenter.default.removeObserver(self,
+		                                          name: .languageChangedNotification,
+		                                          object: nil)
 		self.updateTimer = nil
 	}
 

@@ -54,8 +54,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	private func setup() {
 		guard let _ = walletManager
 		else {
-			NSLog("ERROR - Wallet manager not initialized")
-			assertionFailure("PEER MANAGER Not initialized")
+			NSLog("ERROR: Wallet manager Not initialized")
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 			return
 		}
 
@@ -91,7 +91,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	}
 
 	private func attemptShowPrompt() {
-		guard let walletManager = walletManager else { return }
+		guard let walletManager = walletManager else {
+			NSLog("ERROR: WalletManager not initialized")
+			return
+		}
 		guard let store = store
 		else {
 			NSLog("ERROR: Store not initialized")

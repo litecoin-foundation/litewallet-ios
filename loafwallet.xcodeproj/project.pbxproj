@@ -3866,7 +3866,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "##  This only notates strings that have yet to be localized. The Base Localizable file is wnere the change needs to be changed.\n\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+			shellScript = "##  This only notates strings that have yet to be localized. The Base Localizable file is wnere the change needs to be changed.\n## Routing the extractLocString errors to null due to swift tools bug : kcw-grunt 17 JAN 23\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x > /dev/null 2>&1;\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
 		};
 		583FE8702927ED5A009A6384 /* Run SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -7,9 +7,8 @@ final class LanguageSelectionTests: XCTestCase {
 	override func setUpWithError() throws {
 		// Put setup code here.
 		// This method is called before the invocation of each test method in the class.
-		let bundleDoingTest = Bundle(for: type(of: self))
-		print("::: bundleDoingTest.bundlePath : \(bundleDoingTest.bundlePath)")
-		viewModel = LanguageSelectionViewModel(bundle: bundleDoingTest)
+
+		viewModel = LanguageSelectionViewModel()
 		viewModel.setLanguage(code: "en")
 	}
 
@@ -20,16 +19,16 @@ final class LanguageSelectionTests: XCTestCase {
 	}
 
 	func testIfLanguagesExist() throws {
-		// XCTAssert(!viewModel.localizations.isEmpty)
+		XCTAssert(!viewModel.localizations.isEmpty)
 	}
-//
-//	func testLanguageChange() throws {
-//		let initialLanguage = UserDefaults.selectedLanguage
-//		XCTAssertEqual(initialLanguage, "en")
-//
-//		let spanish = "es"
-//		viewModel.setLanguage(code: spanish)
-//		XCTAssertEqual(spanish, UserDefaults.selectedLanguage)
-//		XCTAssertEqual(S.LitewalletAlert.warning.localize(), "Aviso")
-//	}
+
+	func testLanguageChange() throws {
+		let initialLanguage = UserDefaults.selectedLanguage
+		XCTAssertEqual(initialLanguage, "en")
+
+		let spanish = "es"
+		viewModel.setLanguage(code: spanish)
+		XCTAssertEqual(spanish, UserDefaults.selectedLanguage)
+		XCTAssertEqual(S.LitewalletAlert.warning.localize(), "Aviso")
+	}
 }

@@ -421,7 +421,7 @@ extension WalletManager: WalletAuthenticator {
 			try setKeychainItem(key: KeychainKey.masterPubKey, item: nil as Data?)
 			try setKeychainItem(key: KeychainKey.seed, item: nil as Data?)
 			try setKeychainItem(key: KeychainKey.mnemonic, item: nil as String?, authenticated: true)
-			NotificationCenter.default.post(name: .WalletDidWipeNotification, object: nil)
+			NotificationCenter.default.post(name: .walletDidWipeNotification, object: nil)
 			return true
 		} catch {
 			print("Wipe wallet error: \(error)")
@@ -445,7 +445,7 @@ extension WalletManager: WalletAuthenticator {
 			try BRAPIClient(authenticator: self).kv?.rmdb()
 			try? FileManager.default.removeItem(atPath: dbPath)
 			try? FileManager.default.removeItem(at: BRReplicatedKVStore.dbPath)
-			NotificationCenter.default.post(name: .DidDeleteWalletDBNotification, object: nil)
+			NotificationCenter.default.post(name: .didDeleteWalletDBNotification, object: nil)
 			return true
 		} catch {
 			print("Wipe wallet error: \(error)")
