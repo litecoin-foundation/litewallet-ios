@@ -41,7 +41,7 @@ extension LanguageSelectionViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: SeparatorCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
 
-		cell.textLabel?.text = "\(Locale.current.localizedString(forLanguageCode: viewModel.localizations[indexPath.row]) ?? "") (\(viewModel.localizations[indexPath.row]))"
+		cell.textLabel?.text = "\(Locale.current.localizedString(forLanguageCode: viewModel.localizations[indexPath.row])?.capitalized ?? "") (\(viewModel.localizations[indexPath.row].capitalizingFirstLetter()))"
 		cell.accessoryType = viewModel.localizations[indexPath.row] == UserDefaults.selectedLanguage ? .checkmark : .none
 		cell.textLabel?.font = .customBody(size: 16.0)
 		cell.textLabel?.textColor = UIColor(named: "labelTextColor")
