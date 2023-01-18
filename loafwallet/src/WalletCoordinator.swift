@@ -117,6 +117,7 @@ class WalletCoordinator: Subscriber, Trackable {
 	}
 
 	@objc private func updateTransactions() {
+		print("Updating transactions")
 		updateTimer?.invalidate()
 		updateTimer = nil
 		DispatchQueue.walletQueue.async {
@@ -146,16 +147,16 @@ class WalletCoordinator: Subscriber, Trackable {
 	}
 
 	private func addWalletObservers() {
-		NotificationCenter.default.addObserver(forName: .WalletBalanceChangedNotification, object: nil, queue: nil, using: { _ in
+		NotificationCenter.default.addObserver(forName: .walletBalanceChangedNotification, object: nil, queue: nil, using: { _ in
 			self.updateBalance()
 			self.requestTxUpdate()
 		})
 
-		NotificationCenter.default.addObserver(forName: .WalletTxStatusUpdateNotification, object: nil, queue: nil, using: { _ in
+		NotificationCenter.default.addObserver(forName: .walletTxStatusUpdateNotification, object: nil, queue: nil, using: { _ in
 			self.requestTxUpdate()
 		})
 
-		NotificationCenter.default.addObserver(forName: .WalletTxRejectedNotification, object: nil, queue: nil, using: { note in
+		NotificationCenter.default.addObserver(forName: .walletTxRejectedNotification, object: nil, queue: nil, using: { note in
 			guard let recommendRescan = note.userInfo?["recommendRescan"] as? Bool else { return }
 			self.requestTxUpdate()
 			if recommendRescan {
@@ -163,13 +164,21 @@ class WalletCoordinator: Subscriber, Trackable {
 			}
 		})
 
-		NotificationCenter.default.addObserver(forName: .WalletSyncStartedNotification, object: nil, queue: nil, using: { _ in
+		NotificationCenter.default.addObserver(forName: .walletSyncStartedNotification, object: nil, queue: nil, using: { _ in
 			self.onSyncStart()
 		})
 
-		NotificationCenter.default.addObserver(forName: .WalletSyncStoppedNotification, object: nil, queue: nil, using: { note in
+		NotificationCenter.default.addObserver(forName: .walletSyncStoppedNotification, object: nil, queue: nil, using: { note in
 			self.onSyncStop(notification: note)
 		})
+
+		NotificationCenter.default.addObserver(forName: .languageChangedNotification, object: nil, queue: nil, using: { _ in
+			self.updateTransactions()
+		})
+	}
+
+	deinit {
+		NotificationCenter.default.removeObserver(self)
 	}
 
 	private func updateBalance() {
@@ -197,7 +206,7 @@ class WalletCoordinator: Subscriber, Trackable {
 			let amount = Amount(amount: amount, rate: rate, maxDigits: store.state.maxDigits)
 			let primary = store.state.isLtcSwapped ? amount.localCurrency : amount.bits
 			let secondary = store.state.isLtcSwapped ? amount.bits : amount.localCurrency
-			let message = String(format: S.TransactionDetails.received, "\(primary) (\(secondary))")
+			let message = String(format: S.TransactionDetails.received.localize(), "\(primary) (\(secondary))")
 			store.trigger(name: .lightWeightAlert(message))
 			showLocalNotification(message: message)
 			ping()

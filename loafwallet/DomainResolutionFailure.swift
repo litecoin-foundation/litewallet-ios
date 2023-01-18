@@ -9,9 +9,9 @@ struct DomainResolutionFailure {
 		case .unregisteredDomain, .unsupportedDomain,
 		     .recordNotFound, .recordNotSupported,
 		     .unspecifiedResolver:
-			return String(format: S.Send.UnstoppableDomains.lookupDomainError, 0)
+			return String(format: S.Send.UnstoppableDomains.lookupDomainError.localize(), 0)
 		default:
-			return String(format: S.Send.UnstoppableDomains.udSystemError, 10)
+			return String(format: S.Send.UnstoppableDomains.udSystemError.localize(), 10)
 		}
 	}
 }

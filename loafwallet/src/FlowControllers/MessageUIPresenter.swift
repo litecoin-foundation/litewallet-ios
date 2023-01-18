@@ -96,15 +96,15 @@ class MessageUIPresenter: NSObject, Trackable {
 
 	private func showEmailUnavailableAlert() {
 		saveEvent("receive.emailUnavailable")
-		let alert = UIAlertController(title: S.ErrorMessages.emailUnavailableTitle, message: S.ErrorMessages.emailUnavailableMessage, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+		let alert = UIAlertController(title: S.ErrorMessages.emailUnavailableTitle.localize(), message: S.ErrorMessages.emailUnavailableMessage.localize(), preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: S.Button.ok.localize(), style: .default, handler: nil))
 		presenter?.present(alert, animated: true, completion: nil)
 	}
 
 	private func showMessageUnavailableAlert() {
 		saveEvent("receive.messagingUnavailable")
-		let alert = UIAlertController(title: S.ErrorMessages.messagingUnavailableTitle, message: S.ErrorMessages.messagingUnavailableMessage, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+		let alert = UIAlertController(title: S.ErrorMessages.messagingUnavailableTitle.localize(), message: S.ErrorMessages.messagingUnavailableMessage.localize(), preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: S.Button.ok.localize(), style: .default, handler: nil))
 		presenter?.present(alert, animated: true, completion: nil)
 	}
 }

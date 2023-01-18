@@ -54,8 +54,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	private func setup() {
 		guard let _ = walletManager
 		else {
-			NSLog("ERROR - Wallet manager not initialized")
-			assertionFailure("PEER MANAGER Not initialized")
+			NSLog("ERROR: Wallet manager Not initialized")
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 			return
 		}
 
@@ -91,7 +91,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	}
 
 	private func attemptShowPrompt() {
-		guard let walletManager = walletManager else { return }
+		guard let walletManager = walletManager else {
+			NSLog("ERROR: WalletManager not initialized")
+			return
+		}
 		guard let store = store
 		else {
 			NSLog("ERROR: Store not initialized")
@@ -133,7 +136,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	private func emptyMessageView() -> UILabel {
 		let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 		let messageLabel = UILabel(frame: rect)
-		messageLabel.text = S.TransactionDetails.emptyMessage
+		messageLabel.text = S.TransactionDetails.emptyMessage.localize()
 		messageLabel.textColor = .litecoinGray
 		messageLabel.numberOfLines = 0
 		messageLabel.textAlignment = .center

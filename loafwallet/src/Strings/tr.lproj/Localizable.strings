@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Dili %l olarak değiştirmek istediğinizden emin misiniz?";
+
 /* Default currency label */
 "Settings.currency" = "Para Birimi Görüntüle";
 

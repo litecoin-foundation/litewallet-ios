@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "ブロックチェーン";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "本当に言語を変更しますか?";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "表示される通貨";
 

@@ -19,11 +19,11 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 
 		switch reason {
 		case .setSeed:
-			customTitle = S.RecoverWallet.header
+			customTitle = S.RecoverWallet.header.localize()
 		case .validateForResettingPin:
-			customTitle = S.RecoverWallet.headerResetPin
+			customTitle = S.RecoverWallet.headerResetPin.localize()
 		case .validateForWipingWallet:
-			customTitle = S.WipeWallet.title
+			customTitle = S.WipeWallet.title.localize()
 		}
 
 		super.init(nibName: nil, bundle: nil)
@@ -124,34 +124,34 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 
 	private func setData() {
 		view.backgroundColor = .secondaryButton
-		errorLabel.text = S.RecoverWallet.invalid
+		errorLabel.text = S.RecoverWallet.invalid.localize()
 		errorLabel.isHidden = true
 		errorLabel.textAlignment = .center
 		enterPhrase.didFinishPhraseEntry = { [weak self] phrase in
 			self?.validatePhrase(phrase)
 		}
-		instruction.text = S.RecoverWallet.instruction
+		instruction.text = S.RecoverWallet.instruction.localize()
 
 		switch reason {
 		case .setSeed:
 			saveEvent("enterPhrase.setSeed")
-			titleLabel.text = S.RecoverWallet.header
-			subheader.text = S.RecoverWallet.subheader
+			titleLabel.text = S.RecoverWallet.header.localize()
+			subheader.text = S.RecoverWallet.subheader.localize()
 			moreInfoButton.isHidden = true
 		case .validateForResettingPin:
 			saveEvent("enterPhrase.resettingPin")
-			titleLabel.text = S.RecoverWallet.headerResetPin
-			subheader.text = S.RecoverWallet.subheaderResetPin
+			titleLabel.text = S.RecoverWallet.headerResetPin.localize()
+			subheader.text = S.RecoverWallet.subheaderResetPin.localize()
 			instruction.isHidden = true
-			moreInfoButton.setTitle(S.RecoverWallet.resetPinInfo, for: .normal)
+			moreInfoButton.setTitle(S.RecoverWallet.resetPinInfo.localize(), for: .normal)
 			moreInfoButton.tap = { [weak self] in
 				self?.store.trigger(name: .presentFaq(ArticleIds.resetPinWithPaperKey))
 			}
 			faq.isHidden = true
 		case .validateForWipingWallet:
 			saveEvent("enterPhrase.wipeWallet")
-			titleLabel.text = S.WipeWallet.title
-			subheader.text = S.WipeWallet.instruction
+			titleLabel.text = S.WipeWallet.title.localize()
+			subheader.text = S.WipeWallet.instruction.localize()
 		}
 
 		scrollView.delegate = self

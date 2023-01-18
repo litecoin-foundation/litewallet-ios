@@ -15,9 +15,9 @@ class NodeSelectorViewController: UIViewController, Trackable {
 	init(walletManager: WalletManager) {
 		self.walletManager = walletManager
 		if UserDefaults.customNodeIP == nil {
-			button = ShadowButton(title: S.NodeSelector.manualButton, type: .primary)
+			button = ShadowButton(title: S.NodeSelector.manualButton.localize(), type: .primary)
 		} else {
-			button = ShadowButton(title: S.NodeSelector.automaticButton, type: .primary)
+			button = ShadowButton(title: S.NodeSelector.automaticButton.localize(), type: .primary)
 		}
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -53,9 +53,9 @@ class NodeSelectorViewController: UIViewController, Trackable {
 
 	private func setInitialData() {
 		view.backgroundColor = .whiteTint
-		titleLabel.text = S.NodeSelector.title
-		nodeLabel.text = S.NodeSelector.nodeLabel
-		statusLabel.text = S.NodeSelector.statusLabel
+		titleLabel.text = S.NodeSelector.title.localize()
+		nodeLabel.text = S.NodeSelector.nodeLabel.localize()
+		statusLabel.text = S.NodeSelector.statusLabel.localize()
 		button.tap = strongify(self) { myself in
 			if UserDefaults.customNodeIP == nil {
 				myself.switchToManual()
@@ -69,7 +69,7 @@ class NodeSelectorViewController: UIViewController, Trackable {
 
 	@objc private func setStatusText() {
 		if let peerManager = walletManager.peerManager {
-			status.text = peerManager.isConnected ? S.NodeSelector.connected : S.NodeSelector.notConnected
+			status.text = peerManager.isConnected ? S.NodeSelector.connected.localize() : S.NodeSelector.notConnected.localize()
 		}
 		node.text = walletManager.peerManager?.downloadPeerName
 	}
@@ -79,7 +79,7 @@ class NodeSelectorViewController: UIViewController, Trackable {
 		saveEvent("nodeSelector.switchToAuto")
 		UserDefaults.customNodeIP = nil
 		UserDefaults.customNodePort = nil
-		button.title = S.NodeSelector.manualButton
+		button.title = S.NodeSelector.manualButton.localize()
 		DispatchQueue.walletQueue.async {
 			self.walletManager.peerManager?.setFixedPeer(address: 0, port: 0)
 			self.walletManager.peerManager?.connect()
@@ -87,9 +87,9 @@ class NodeSelectorViewController: UIViewController, Trackable {
 	}
 
 	private func switchToManual() {
-		let alert = UIAlertController(title: S.NodeSelector.enterTitle, message: S.NodeSelector.enterBody, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-		let okAction = UIAlertAction(title: S.Button.ok, style: .default, handler: { _ in
+		let alert = UIAlertController(title: S.NodeSelector.enterTitle.localize(), message: S.NodeSelector.enterBody.localize(), preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .cancel, handler: nil))
+		let okAction = UIAlertAction(title: S.Button.ok.localize(), style: .default, handler: { _ in
 			guard let ip = alert.textFields?.first, let port = alert.textFields?.last else { return }
 			if let addressText = ip.text {
 				self.saveEvent("nodeSelector.switchToManual")
@@ -102,7 +102,7 @@ class NodeSelectorViewController: UIViewController, Trackable {
 				DispatchQueue.walletQueue.async {
 					self.walletManager.peerManager?.connect()
 				}
-				self.button.title = S.NodeSelector.automaticButton
+				self.button.title = S.NodeSelector.automaticButton.localize()
 			}
 		})
 		self.okAction = okAction

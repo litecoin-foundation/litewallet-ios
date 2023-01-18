@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "Bloc de la chaîne";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Voulez-vous vraiment changer la langue en %l?";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Afficher la devise";
 
