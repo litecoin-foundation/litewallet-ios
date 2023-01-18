@@ -25,7 +25,7 @@ class SecurityCenterViewController: UIViewController, Subscriber {
 	init(store: Store, walletManager: WalletManager) {
 		self.store = store
 		self.walletManager = walletManager
-		header = ModalHeaderView(title: S.SecurityCenter.title, style: .light, faqInfo: (store, ArticleIds.securityCenter))
+		header = ModalHeaderView(title: S.SecurityCenter.title.localize(), style: .light, faqInfo: (store, ArticleIds.securityCenter))
 
 		if #available(iOS 11.0, *) {
 			shield.tintColor = UIColor(named: "labelTextColor")
@@ -41,9 +41,9 @@ class SecurityCenterViewController: UIViewController, Subscriber {
 	fileprivate var shield = UIImageView(image: #imageLiteral(resourceName: "shield"))
 	private let scrollView = UIScrollView()
 	private let info = UILabel(font: .customBody(size: 16.0))
-	private let pinCell = SecurityCenterCell(title: S.SecurityCenter.Cells.pinTitle, descriptionText: S.SecurityCenter.Cells.pinDescription)
-	private let biometricsCell = SecurityCenterCell(title: LAContext.biometricType() == .face ? S.SecurityCenter.Cells.faceIdTitle : S.SecurityCenter.Cells.touchIdTitle, descriptionText: S.SecurityCenter.Cells.touchIdDescription)
-	private let paperKeyCell = SecurityCenterCell(title: S.SecurityCenter.Cells.paperKeyTitle, descriptionText: S.SecurityCenter.Cells.paperKeyDescription)
+	private let pinCell = SecurityCenterCell(title: S.SecurityCenter.Cells.pinTitle.localize(), descriptionText: S.SecurityCenter.Cells.pinDescription.localize())
+	private let biometricsCell = SecurityCenterCell(title: LAContext.biometricType() == .face ? S.SecurityCenter.Cells.faceIdTitle.localize() : S.SecurityCenter.Cells.touchIdTitle.localize(), descriptionText: S.SecurityCenter.Cells.touchIdDescription.localize())
+	private let paperKeyCell = SecurityCenterCell(title: S.SecurityCenter.Cells.paperKeyTitle.localize(), descriptionText: S.SecurityCenter.Cells.paperKeyDescription.localize())
 	private var separator = UIView(color: .secondaryShadow)
 	private let store: Store
 	private let walletManager: WalletManager
@@ -97,7 +97,7 @@ class SecurityCenterViewController: UIViewController, Subscriber {
 		scrollView.alwaysBounceVertical = true
 		scrollView.panGestureRecognizer.delaysTouchesBegan = false
 		scrollView.delegate = self
-		info.text = S.SecurityCenter.info
+		info.text = S.SecurityCenter.info.localize()
 		info.numberOfLines = 0
 		info.lineBreakMode = .byWordWrapping
 		header.backgroundColor = .clear

@@ -11,7 +11,7 @@ class StartWipeWalletViewController: UIViewController {
 	private let illustration = UIImageView(image: #imageLiteral(resourceName: "RestoreIllustration"))
 	private let message = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
 	private let warning = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
-	private let button = ShadowButton(title: S.RecoverWallet.next, type: .primary)
+	private let button = ShadowButton(title: S.RecoverWallet.next.localize(), type: .primary)
 	private let bullet = UIImageView(image: #imageLiteral(resourceName: "deletecircle"))
 
 	override func viewDidLoad() {
@@ -67,8 +67,8 @@ class StartWipeWalletViewController: UIViewController {
 	private func setInitialData() {
 		view.backgroundColor = .white
 		illustration.contentMode = .scaleAspectFill
-		message.text = S.WipeWallet.startMessage
-		warning.text = S.WipeWallet.startWarning
+		message.text = S.WipeWallet.startMessage.localize()
+		warning.text = S.WipeWallet.startWarning.localize()
 		button.tap = { [weak self] in
 			self?.didTapNext()
 		}

@@ -55,9 +55,9 @@ class PushNotificationsViewController: UIViewController {
 
 	private func setData() {
 		view.backgroundColor = .whiteTint
-		titleLabel.text = S.PushNotifications.title
-		body.text = S.PushNotifications.body
-		label.text = S.PushNotifications.label
+		titleLabel.text = S.PushNotifications.title.localize()
+		body.text = S.PushNotifications.body.localize()
+		label.text = S.PushNotifications.label.localize()
 
 		toggle.isOn = store.state.isPushNotificationsEnabled
 		toggle.sendActions(for: .valueChanged)

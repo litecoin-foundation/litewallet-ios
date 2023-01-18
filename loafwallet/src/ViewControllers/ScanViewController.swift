@@ -14,9 +14,9 @@ class ScanViewController: UIViewController, Trackable {
 	@IBOutlet var flashButton: UIButton!
 
 	static func presentCameraUnavailableAlert(fromRoot: UIViewController) {
-		let alertController = UIAlertController(title: S.Send.cameraUnavailableTitle, message: S.Send.cameraUnavailableMessage, preferredStyle: .alert)
-		alertController.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-		alertController.addAction(UIAlertAction(title: S.Button.settings, style: .default, handler: { _ in
+		let alertController = UIAlertController(title: S.Send.cameraUnavailableTitle.localize(), message: S.Send.cameraUnavailableMessage.localize(), preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .cancel, handler: nil))
+		alertController.addAction(UIAlertAction(title: S.Button.settings.localize(), style: .default, handler: { _ in
 			if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
 				UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
 			}
@@ -36,7 +36,7 @@ class ScanViewController: UIViewController, Trackable {
 	fileprivate let session = AVCaptureSession()
 	private let toolbar = UIView()
 	private let close = UIButton.close
-	private let flash = UIButton.icon(image: UIImage(named: "flashIcon")!, accessibilityLabel: S.Scanner.flashButtonLabel)
+	private let flash = UIButton.icon(image: UIImage(named: "flashIcon")!, accessibilityLabel: S.Scanner.flashButtonLabel.localize())
 	fileprivate var currentUri = ""
 
 	init(completion: @escaping ScanCompletion, isValidURI: @escaping (String) -> Bool) {

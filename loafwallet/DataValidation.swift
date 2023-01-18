@@ -37,7 +37,7 @@ struct GenericStringValidator: ValidatorConvertible {
 		guard !value.isEmpty else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.empty) }
+				.empty.localize()) }
 		return value
 	}
 }
@@ -47,12 +47,12 @@ struct MobileNumberValidator: ValidatorConvertible {
 		guard value != "" else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.empty) }
+				.empty.localize()) }
 
 		guard value.count >= 10 else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.numberDigitsRequired) }
+				.numberDigitsRequired.localize()) }
 		return value
 	}
 }
@@ -70,7 +70,7 @@ struct RequiredFieldValidator: ValidatorConvertible {
 			throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.requiredField + fieldName)
+				.requiredField.localize() + fieldName)
 		}
 		return value
 	}
@@ -81,12 +81,12 @@ struct PasswordValidator: ValidatorConvertible {
 		guard value != "" else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.empty) }
+				.empty.localize()) }
 
 		guard value.count >= 6 else { throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.passwordCharacters) }
+				.passwordCharacters.localize()) }
 
 		do {
 			if try NSRegularExpression(pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil
@@ -94,13 +94,13 @@ struct PasswordValidator: ValidatorConvertible {
 				throw ValidationError(S.LitecoinCard
 					.Registration
 					.ValidationError
-					.passwordComposition)
+					.passwordComposition.localize())
 			}
 		} catch {
 			throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.passwordComposition)
+				.passwordComposition.localize())
 		}
 		return value
 	}
@@ -114,13 +114,13 @@ struct EmailValidator: ValidatorConvertible {
 				throw ValidationError(S.LitecoinCard
 					.Registration
 					.ValidationError
-					.invalidEmail)
+					.invalidEmail.localize())
 			}
 		} catch {
 			throw ValidationError(S.LitecoinCard
 				.Registration
 				.ValidationError
-				.invalidEmail)
+				.invalidEmail.localize())
 		}
 		return value
 	}

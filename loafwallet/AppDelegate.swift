@@ -10,6 +10,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
 	{
+		UINavigationBar.appearance().tintColor = .darkText
+
+		if #available(iOS 15, *) {
+			let appearance = UINavigationBarAppearance()
+			appearance.configureWithOpaqueBackground()
+			appearance.titleTextAttributes = [.foregroundColor: UIColor.darkText]
+			UINavigationBar.appearance().standardAppearance = appearance
+			UINavigationBar.appearance().scrollEdgeAppearance = appearance
+		}
+
 		setFirebaseConfiguration()
 
 		updateCurrentUserLocale(localeId: Locale.current.identifier)
@@ -23,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.launch(application: application, window: thisWindow)
 
 		LWAnalytics.logEventWithParameters(itemName: ._20191105_AL)
+
+		Bundle.setLanguage(UserDefaults.selectedLanguage)
 
 		return true
 	}

@@ -17,7 +17,7 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable {
 	private let warningDetailTextView = UITextView()
 	private let warningAlertLabel = UILabel()
 	private let border = UIView()
-	private let reset = ShadowButton(title: S.WipeWallet.resetButton, type: .boldWarning)
+	private let reset = ShadowButton(title: S.WipeWallet.resetButton.localize(), type: .boldWarning)
 
 	private var topSharePopoutConstraint: NSLayoutConstraint?
 	private let walletManager: WalletManager
@@ -79,9 +79,9 @@ class WipeEmptyWalletViewController: UIViewController, Subscriber, Trackable {
 	}
 
 	private func addContent() {
-		titleLabel.text = S.WipeWallet.warningTitle
-		warningDetailTextView.text = S.WipeWallet.warningDescription
-		warningAlertLabel.text = S.WipeWallet.warningAlert
+		titleLabel.text = S.WipeWallet.warningTitle.localize()
+		warningDetailTextView.text = S.WipeWallet.warningDescription.localize()
+		warningAlertLabel.text = S.WipeWallet.warningAlert.localize()
 	}
 
 	private func setStyle() {
@@ -119,6 +119,6 @@ extension WipeEmptyWalletViewController: ModalDisplayable {
 	}
 
 	var modalTitle: String {
-		return S.WipeWallet.resetTitle
+		return S.WipeWallet.resetTitle.localize()
 	}
 }

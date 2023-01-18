@@ -54,7 +54,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let amountView: AmountViewController
 	private let sendAddressCell = SendAddressHostingController()
 	private let unstoppableCell = UIHostingController(rootView: UnstoppableDomainView(viewModel: UnstoppableDomainViewModel()))
-	private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
+	private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel.localize())
 	private let orView = UILabel(font: .barlowMedium(size: 14.0), color: .litecoinSilver)
 	private var sendButtonCell = SendButtonHostingController()
 	private let currency: ShadowButton
@@ -79,7 +79,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		amountView.view.backgroundColor = UIColor.litecoinGray
 
 		orView.backgroundColor = UIColor.litecoinGray
-		orView.text = "-- " + S.Fragments.or + " --"
+		orView.text = "-- " + S.Fragments.or.localize() + " --"
 		orView.textAlignment = .center
 
 		view.addSubview(sendAddressCell.view)
@@ -221,7 +221,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
 		let balanceText = balanceAmount.description
 
-		let balanceOutput = String(format: S.Send.balance, balanceText)
+		let balanceOutput = String(format: S.Send.balance.localize(), balanceText)
 		var feeOutput = ""
 		var color: UIColor = .grayTextTint
 
@@ -230,7 +230,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			let feeAmount = DisplayAmount(amount: Satoshis(rawValue: fee), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
 
 			let feeText = feeAmount.description.replacingZeroFeeWithOneCent()
-			feeOutput = String(format: S.Send.fee, feeText)
+			feeOutput = String(format: S.Send.fee.localize(), feeText)
 			if balance >= fee, amount.rawValue > (balance - fee) {
 				color = .cameraGuideNegative
 			}
@@ -252,11 +252,11 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	@objc private func pasteTapped() {
 		guard let pasteboard = UIPasteboard.general.string, !pasteboard.utf8.isEmpty
 		else {
-			return showAlert(title: S.LitewalletAlert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
+			return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.emptyPasteboard.localize(), buttonLabel: S.Button.ok.localize())
 		}
 		guard let request = PaymentRequest(string: pasteboard)
 		else {
-			return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressOnPasteboard, buttonLabel: S.Button.ok)
+			return showAlert(title: S.Send.invalidAddressTitle.localize(), message: S.Send.invalidAddressOnPasteboard.localize(), buttonLabel: S.Button.ok.localize())
 		}
 
 		sendAddressCell.rootView.viewModel.addressString = pasteboard
@@ -282,27 +282,27 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		if sender.transaction == nil {
 			guard let amount = amount
 			else {
-				return showAlert(title: S.LitewalletAlert.error, message: S.Send.noAmount, buttonLabel: S.Button.ok)
+				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAmount.localize(), buttonLabel: S.Button.ok.localize())
 			}
 			if let minOutput = walletManager.wallet?.minOutputAmount {
 				guard amount.rawValue >= minOutput
 				else {
 					let minOutputAmount = Amount(amount: minOutput, rate: Rate.empty, maxDigits: store.state.maxDigits)
-					let message = String(format: S.PaymentProtocol.Errors.smallPayment, minOutputAmount.string(isLtcSwapped: store.state.isLtcSwapped))
-					return showAlert(title: S.LitewalletAlert.error, message: message, buttonLabel: S.Button.ok)
+					let message = String(format: S.PaymentProtocol.Errors.smallPayment.localize(), minOutputAmount.string(isLtcSwapped: store.state.isLtcSwapped))
+					return showAlert(title: S.LitewalletAlert.error.localize(), message: message, buttonLabel: S.Button.ok.localize())
 				}
 			}
 			guard !(walletManager.wallet?.containsAddress(sendAddress) ?? false)
 			else {
-				return showAlert(title: S.LitewalletAlert.error, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
+				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.containsAddress.localize(), buttonLabel: S.Button.ok.localize())
 			}
 			guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0)
 			else {
-				return showAlert(title: S.LitewalletAlert.error, message: S.Send.insufficientFunds, buttonLabel: S.Button.ok)
+				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.insufficientFunds.localize(), buttonLabel: S.Button.ok.localize())
 			}
 			guard sender.createTransaction(amount: amount.rawValue, to: sendAddress)
 			else {
-				return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
+				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
 			}
 		} else {
 			NSLog("Error: transaction  is nil")
@@ -345,7 +345,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			}
 
 		case .remote:
-			let loadingView = BRActivityViewController(message: S.Send.loadingRequest)
+			let loadingView = BRActivityViewController(message: S.Send.loadingRequest.localize())
 			present(loadingView, animated: true, completion: nil)
 			request.fetchRemoteRequest(completion: { [weak self] request in
 				DispatchQueue.main.async {
@@ -353,7 +353,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 						if let paymentProtocolRequest = request?.paymentProtocolRequest {
 							self?.confirmProtocolRequest(protoReq: paymentProtocolRequest)
 						} else {
-							self?.showErrorMessage(S.Send.remoteRequestError)
+							self?.showErrorMessage(S.Send.remoteRequestError.localize())
 						}
 					})
 				}
@@ -365,12 +365,12 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		guard let rate = store.state.currentRate else { return }
 		guard let feePerKb = walletManager.wallet?.feePerKb else { return }
 
-		sender.send(biometricsMessage: S.VerifyPin.touchIdMessage,
+		sender.send(biometricsMessage: S.VerifyPin.touchIdMessage.localize(),
 		            rate: rate,
 		            comment: descriptionCell.textView.text,
 		            feePerKb: feePerKb,
 		            verifyPinFunction: { [weak self] pinValidationCallback in
-		            	self?.presentVerifyPin?(S.VerifyPin.authorize) { [weak self] pin, vc in
+		            	self?.presentVerifyPin?(S.VerifyPin.authorize.localize()) { [weak self] pin, vc in
 		            		if pinValidationCallback(pin) {
 		            			vc.dismiss(animated: true, completion: {
 		            				self?.parent?.view.isFrameChangeBlocked = false
@@ -395,11 +395,11 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            		LWAnalytics.logEventWithParameters(itemName: ._20191105_DSL)
 
 		            	case let .creationError(message):
-		            		self?.showAlert(title: S.Send.createTransactionError, message: message, buttonLabel: S.Button.ok)
+		            		self?.showAlert(title: S.Send.createTransactionError.localize(), message: message, buttonLabel: S.Button.ok.localize())
 		            		self?.saveEvent("send.publishFailed", attributes: ["errorMessage": message])
 		            	case let .publishFailure(error):
 		            		if case let .posixError(code, description) = error {
-		            			self?.showAlert(title: S.SecurityAlerts.sendFailure, message: "\(description) (\(code))", buttonLabel: S.Button.ok)
+		            			self?.showAlert(title: S.SecurityAlerts.sendFailure.localize(), message: "\(description) (\(code))", buttonLabel: S.Button.ok.localize())
 		            			self?.saveEvent("send.publishFailed", attributes: ["errorMessage": "\(description) (\(code))"])
 		            		}
 		            	}
@@ -414,9 +414,9 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		let isValid = protoReq.isValid()
 		var isOutputTooSmall = false
 
-		if let errorMessage = protoReq.errorMessage, errorMessage == S.PaymentProtocol.Errors.requestExpired, !isValid
+		if let errorMessage = protoReq.errorMessage, errorMessage == S.PaymentProtocol.Errors.requestExpired.localize(), !isValid
 		{
-			return showAlert(title: S.PaymentProtocol.Errors.badPaymentRequest, message: errorMessage, buttonLabel: S.Button.ok)
+			return showAlert(title: S.PaymentProtocol.Errors.badPaymentRequest.localize(), message: errorMessage, buttonLabel: S.Button.ok.localize())
 		}
 
 		// TODO: check for duplicates of already paid requests
@@ -429,27 +429,27 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 
 		if wallet.containsAddress(address) {
-			return showAlert(title: S.LitewalletAlert.warning, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
+			return showAlert(title: S.LitewalletAlert.warning.localize(), message: S.Send.containsAddress.localize(), buttonLabel: S.Button.ok.localize())
 		} else if wallet.addressIsUsed(address), !didIgnoreUsedAddressWarning {
-			let message = "\(S.Send.UsedAddress.title)\n\n\(S.Send.UsedAddress.firstLine)\n\n\(S.Send.UsedAddress.secondLine)"
-			return showError(title: S.LitewalletAlert.warning, message: message, ignore: { [weak self] in
+			let message = "\(S.Send.UsedAddress.title.localize())\n\n\(S.Send.UsedAddress.firstLine.localize())\n\n\(S.Send.UsedAddress.secondLine.localize())"
+			return showError(title: S.LitewalletAlert.warning.localize(), message: message, ignore: { [weak self] in
 				self?.didIgnoreUsedAddressWarning = true
 				self?.confirmProtocolRequest(protoReq: protoReq)
 			})
 		} else if let message = protoReq.errorMessage, !message.utf8.isEmpty, (protoReq.commonName?.utf8.count)! > 0, !didIgnoreIdentityNotCertified
 		{
-			return showError(title: S.Send.identityNotCertified, message: message, ignore: { [weak self] in
+			return showError(title: S.Send.identityNotCertified.localize(), message: message, ignore: { [weak self] in
 				self?.didIgnoreIdentityNotCertified = true
 				self?.confirmProtocolRequest(protoReq: protoReq)
 			})
 		} else if requestAmount < wallet.minOutputAmount {
 			let amount = Amount(amount: wallet.minOutputAmount, rate: Rate.empty, maxDigits: store.state.maxDigits)
-			let message = String(format: S.PaymentProtocol.Errors.smallPayment, amount.bits)
-			return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
+			let message = String(format: S.PaymentProtocol.Errors.smallPayment.localize(), amount.bits)
+			return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle.localize(), message: message, buttonLabel: S.Button.ok.localize())
 		} else if isOutputTooSmall {
 			let amount = Amount(amount: wallet.minOutputAmount, rate: Rate.empty, maxDigits: store.state.maxDigits)
-			let message = String(format: S.PaymentProtocol.Errors.smallTransaction, amount.bits)
-			return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle, message: message, buttonLabel: S.Button.ok)
+			let message = String(format: S.PaymentProtocol.Errors.smallTransaction.localize(), amount.bits)
+			return showAlert(title: S.PaymentProtocol.Errors.smallOutputErrorTitle.localize(), message: message, buttonLabel: S.Button.ok.localize())
 		}
 
 		if requestAmount > 0 {
@@ -461,7 +461,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			if let amount = amount {
 				guard sender.createTransaction(amount: amount.rawValue, to: address)
 				else {
-					return showAlert(title: S.LitewalletAlert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
+					return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
 				}
 			}
 		}
@@ -469,10 +469,10 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 	private func showError(title: String, message: String, ignore: @escaping () -> Void) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		alertController.addAction(UIAlertAction(title: S.Button.ignore, style: .default, handler: { _ in
+		alertController.addAction(UIAlertAction(title: S.Button.ignore.localize(), style: .default, handler: { _ in
 			ignore()
 		}))
-		alertController.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+		alertController.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .cancel, handler: nil))
 		present(alertController, animated: true, completion: nil)
 	}
 
@@ -507,6 +507,6 @@ extension SendViewController: ModalDisplayable {
 	}
 
 	var modalTitle: String {
-		return S.Send.title
+		return S.Send.title.localize()
 	}
 }

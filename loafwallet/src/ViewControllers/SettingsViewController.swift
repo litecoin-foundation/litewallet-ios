@@ -15,13 +15,13 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 			self.rows = rows
 		} else {
 			var tempRows = rows
-			let biometricsLimit = LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit
+			let biometricsLimit = LAContext.biometricType() == .face ? S.Settings.faceIdLimit.localize() : S.Settings.touchIdLimit.localize()
 			tempRows["Manage"] = tempRows["Manage"]?.filter { $0.title != biometricsLimit }
 			self.rows = tempRows
 		}
 
-		customTitle = optionalTitle ?? S.Settings.title
-		titleLabel.text = optionalTitle ?? S.Settings.title
+		customTitle = optionalTitle ?? S.Settings.title.localize()
+		titleLabel.text = optionalTitle ?? S.Settings.title.localize()
 		super.init(style: .plain)
 	}
 
@@ -120,15 +120,15 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 		view.addSubview(label)
 		switch sections[section] {
 		case "About":
-			label.text = S.Settings.about
+			label.text = S.Settings.about.localize()
 		case "Wallet":
-			label.text = S.Settings.wallet
+			label.text = S.Settings.wallet.localize()
 		case "Manage":
-			label.text = S.Settings.manage
+			label.text = S.Settings.manage.localize()
 		case "Support":
-			label.text = S.Settings.support
+			label.text = S.Settings.support.localize()
 		case "Blockchain":
-			label.text = S.Settings.blockchain
+			label.text = S.Settings.blockchain.localize()
 		default:
 			label.text = ""
 		}

@@ -994,6 +994,9 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "블록 체인";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "언어를 변경하시겠습니까?";
+
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "통화 보기";
 

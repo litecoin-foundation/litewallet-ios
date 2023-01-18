@@ -18,7 +18,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 	var mainMessage: String
 
 	@State
-	var detailMessage: String = S.LitecoinCard.resetPasswordDetail
+	var detailMessage: String = S.LitecoinCard.resetPasswordDetail.localize()
 
 	@State
 	var didCheckEmailAddress: Bool = false
@@ -46,7 +46,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 						}
 						.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
 
-						Text(S.LitecoinCard.forgotPassword)
+						Text(S.LitecoinCard.forgotPassword.localize())
 							.font(Font(UIFont.barlowSemiBold(size: 21.0)))
 							.padding(.bottom, 8)
 							.foregroundColor(Color.white)
@@ -61,7 +61,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 								detailMessage = updatedMessage
 							})
 
-						TextField(S.Receive.emailButton, text: $email)
+						TextField(S.Receive.emailButton.localize(), text: $email)
 							.font(Font(UIFont.barlowMedium(size: 16.0)))
 							.textFieldStyle(RoundedBorderTextFieldStyle())
 							.keyboardType(.emailAddress)
@@ -79,12 +79,12 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 											self.isShowingForgot.toggle()
 											UIApplication.shared.endEditing()
 											didCheckEmailAddress = true
-											detailMessage = S.LitecoinCard.resetPasswordDetail
+											detailMessage = S.LitecoinCard.resetPasswordDetail.localize()
 										}
 									}
 								}
 							}) {
-								Text(S.LitecoinCard.resetPassword)
+								Text(S.LitecoinCard.resetPassword.localize())
 									.frame(minWidth: 0, maxWidth: .infinity)
 									.font(Font(UIFont.barlowBold(size: 20.0)))
 									.foregroundColor(Color.white)

@@ -70,7 +70,7 @@ class Sender {
 	{
 		guard let tx = transaction
 		else {
-			return completion(.creationError(S.Send.createTransactionError))
+			return completion(.creationError(S.Send.createTransactionError.localize()))
 		}
 
 		self.rate = rate
@@ -169,8 +169,8 @@ class Sender {
 					._20200112_ERR,
 					properties: properties)
 
-				let alert = UIAlertController(title: S.LitewalletAlert.corruptionError,
-				                              message: S.LitewalletAlert.corruptionMessage,
+				let alert = UIAlertController(title: S.LitewalletAlert.corruptionError.localize(),
+				                              message: S.LitewalletAlert.corruptionMessage.localize(),
 				                              preferredStyle: .alert)
 
 				UserDefaults.didSeeCorruption = true

@@ -167,7 +167,7 @@ class PaymentProtocolRequest {
 			// .unspecified indicates a positive result that wasn't decided by the user
 			guard trustResult == .unspecified || trustResult == .proceed
 			else {
-				errMsg = certs.count > 0 ? S.PaymentProtocol.Errors.untrustedCertificate : S.PaymentProtocol.Errors.missingCertificate
+				errMsg = certs.count > 0 ? S.PaymentProtocol.Errors.untrustedCertificate.localize() : S.PaymentProtocol.Errors.missingCertificate.localize()
 
 				if let trust = trust, let properties = SecTrustCopyProperties(trust) {
 					for prop in properties as! [[AnyHashable: Any]] {
@@ -195,7 +195,7 @@ class PaymentProtocolRequest {
 			guard status == errSecSuccess
 			else {
 				if status == errSecUnimplemented {
-					errMsg = S.PaymentProtocol.Errors.unsupportedSignatureType
+					errMsg = S.PaymentProtocol.Errors.unsupportedSignatureType.localize()
 					print(errMsg!)
 				} else {
 					errMsg = NSError(domain: NSOSStatusErrorDomain, code: Int(status)).localizedDescription
@@ -210,7 +210,7 @@ class PaymentProtocolRequest {
 
 		guard details.expires == 0 || NSDate.timeIntervalSinceReferenceDate <= Double(details.expires)
 		else {
-			errMsg = S.PaymentProtocol.Errors.requestExpired
+			errMsg = S.PaymentProtocol.Errors.requestExpired.localize()
 			return false
 		}
 

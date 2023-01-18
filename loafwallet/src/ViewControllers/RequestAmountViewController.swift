@@ -22,7 +22,7 @@ class RequestAmountViewController: UIViewController {
 	private let qrCode = UIImageView()
 	private let address = UILabel(font: .customBody(size: 14.0))
 	private let addressPopout = InViewAlert(type: .primary)
-	private let share = ShadowButton(title: S.Receive.share, type: .tertiary, image: #imageLiteral(resourceName: "Share"))
+	private let share = ShadowButton(title: S.Receive.share.localize(), type: .tertiary, image: #imageLiteral(resourceName: "Share"))
 	private let sharePopout = InViewAlert(type: .secondary)
 	private let border = UIView()
 	private var topSharePopoutConstraint: NSLayoutConstraint?
@@ -133,7 +133,7 @@ class RequestAmountViewController: UIViewController {
 	private func setupCopiedMessage() {
 		let copiedMessage = UILabel(font: .customMedium(size: 14.0))
 		copiedMessage.textColor = .white
-		copiedMessage.text = S.Receive.copied
+		copiedMessage.text = S.Receive.copied.localize()
 		copiedMessage.textAlignment = .center
 		addressPopout.contentView = copiedMessage
 	}
@@ -141,8 +141,8 @@ class RequestAmountViewController: UIViewController {
 	private func setupShareButtons() {
 		let container = UIView()
 		container.translatesAutoresizingMaskIntoConstraints = false
-		let email = ShadowButton(title: S.Receive.emailButton, type: .tertiary)
-		let text = ShadowButton(title: S.Receive.textButton, type: .tertiary)
+		let email = ShadowButton(title: S.Receive.emailButton.localize(), type: .tertiary)
+		let text = ShadowButton(title: S.Receive.textButton.localize(), type: .tertiary)
 		container.addSubview(email)
 		container.addSubview(text)
 		email.constrain([
@@ -179,13 +179,13 @@ class RequestAmountViewController: UIViewController {
 	}
 
 	@objc private func emailTapped() {
-		guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount) }
+		guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount.localize()) }
 		let text = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
 		presentEmail?(text, qrCode.image!)
 	}
 
 	@objc private func textTapped() {
-		guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount) }
+		guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount.localize()) }
 		let text = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
 		presentText?(text, qrCode.image!)
 	}
@@ -242,6 +242,6 @@ extension RequestAmountViewController: ModalDisplayable {
 	}
 
 	var modalTitle: String {
-		return S.Receive.request
+		return S.Receive.request.localize()
 	}
 }

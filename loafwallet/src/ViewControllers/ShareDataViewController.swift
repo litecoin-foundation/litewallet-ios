@@ -55,9 +55,9 @@ class ShareDataViewController: UIViewController {
 
 	private func setInitialData() {
 		view.backgroundColor = .whiteTint
-		titleLabel.text = S.ShareData.header
-		body.text = S.ShareData.body
-		label.text = S.ShareData.toggleLabel
+		titleLabel.text = S.ShareData.header.localize()
+		body.text = S.ShareData.body.localize()
+		label.text = S.ShareData.toggleLabel.localize()
 
 		if UserDefaults.hasAquiredShareDataPermission {
 			toggle.isOn = true

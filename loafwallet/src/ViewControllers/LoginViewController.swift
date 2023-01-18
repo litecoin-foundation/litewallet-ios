@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 		button.layer.borderWidth = 1.0
 		button.layer.cornerRadius = squareButtonSize / 2.0
 		button.layer.masksToBounds = true
-		button.accessibilityLabel = LAContext.biometricType() == .face ? S.UnlockScreen.faceIdText : S.UnlockScreen.touchIdText
+		button.accessibilityLabel = LAContext.biometricType() == .face ? S.UnlockScreen.faceIdText.localize() : S.UnlockScreen.touchIdText.localize()
 		return button
 	}()
 
@@ -251,7 +251,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 			activityView.startAnimating()
 		}
 
-		enterPINLabel.text = S.UnlockScreen.enterPIN
+		enterPINLabel.text = S.UnlockScreen.enterPIN.localize()
 		versionLabel.text = AppVersion.string
 		versionLabel.textAlignment = .right
 	}
@@ -282,7 +282,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 			wipeBannerButton.heightAnchor.constraint(equalToConstant: 60),
 		])
 
-		wipeBannerButton.setTitle(S.WipeWallet.emptyWallet, for: .normal)
+		wipeBannerButton.setTitle(S.WipeWallet.emptyWallet.localize(), for: .normal)
 		wipeBannerButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .normal)
 		wipeBannerButton.titleLabel?.font = .barlowSemiBold(size: 17)
 		wipeBannerButton.addTarget(self, action: #selector(wipeTapped), for: .touchUpInside)
@@ -346,7 +346,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 		saveEvent("login.success")
 		let label = UILabel(font: enterPINLabel.font)
 		label.textColor = .white
-		label.text = S.UnlockScreen.unlocked
+		label.text = S.UnlockScreen.unlocked.localize()
 		let lock = UIImageView(image: #imageLiteral(resourceName: "unlock"))
 		lock.transform = .init(scaleX: 0.6, y: 0.6)
 
@@ -413,7 +413,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 
 	@objc func biometricsTapped() {
 		guard !isWalletDisabled else { return }
-		walletManager?.authenticate(biometricsPrompt: S.UnlockScreen.touchIdPrompt, completion: { result in
+		walletManager?.authenticate(biometricsPrompt: S.UnlockScreen.touchIdPrompt.localize(), completion: { result in
 			if result == .success {
 				self.authenticationSucceded()
 				LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWB)
@@ -440,7 +440,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 				let df = DateFormatter()
 				df.setLocalizedDateFormatFromTemplate(unlockInterval > C.secondsInDay ? "h:mm:ss a MMM d, yyy" : "h:mm:ss a")
 
-				disabledView.setTimeLabel(string: String(format: S.UnlockScreen.disabled, df.string(from: disabledUntilDate)))
+				disabledView.setTimeLabel(string: String(format: S.UnlockScreen.disabled.localize(), df.string(from: disabledUntilDate)))
 
 				pinPadViewController.view.isUserInteractionEnabled = false
 				unlockTimer?.invalidate()
@@ -471,7 +471,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 	@objc private func unlock() {
 		saveEvent("login.unlocked")
 		delegate?.didUnlockLogin()
-		enterPINLabel.pushNewText(S.UnlockScreen.enterPIN)
+		enterPINLabel.pushNewText(S.UnlockScreen.enterPIN.localize())
 		pinPadViewController.view.isUserInteractionEnabled = true
 		unlockTimer = nil
 		disabledView.hide { [weak self] in

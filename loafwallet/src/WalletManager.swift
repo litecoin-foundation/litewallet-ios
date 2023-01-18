@@ -10,18 +10,6 @@ enum WalletManagerError: Error {
 	case sqliteError(errorCode: Int32, description: String)
 }
 
-public extension NSNotification.Name {
-	static let WalletBalanceChangedNotification = NSNotification.Name("WalletBalanceChanged")
-	static let WalletTxStatusUpdateNotification = NSNotification.Name("WalletTxStatusUpdate")
-	static let WalletTxRejectedNotification = NSNotification.Name("WalletTxRejected")
-	static let WalletSyncStartedNotification = NSNotification.Name("WalletSyncStarted")
-	static let WalletSyncStoppedNotification = NSNotification.Name("WalletSyncStopped")
-	static let WalletDidWipeNotification = NSNotification.Name("WalletDidWipe")
-	static let DidDeleteWalletDBNotification = NSNotification.Name("DidDeleteDatabase")
-	static let LitecoinCardLoginNotification = NSNotification.Name("LitecoinCardLogin")
-	static let LitecoinCardLogoutNotification = NSNotification.Name("LitecoinCardLogout")
-}
-
 private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> UnsafePointer<T>? {
 	guard let result = sqlite3_column_blob(statement, iCol) else { return nil }
 	return result.assumingMemoryBound(to: T.self)
@@ -251,7 +239,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 
 	func balanceChanged(_ balance: UInt64) {
 		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: .WalletBalanceChangedNotification, object: nil,
+			NotificationCenter.default.post(name: .walletBalanceChangedNotification, object: nil,
 			                                userInfo: ["balance": balance])
 		}
 	}
@@ -357,7 +345,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 
 			if notifyUser {
 				DispatchQueue.main.async {
-					NotificationCenter.default.post(name: .WalletTxRejectedNotification, object: nil,
+					NotificationCenter.default.post(name: .walletTxRejectedNotification, object: nil,
 					                                userInfo: ["txHash": txHash, "recommendRescan": recommendRescan])
 				}
 			}
@@ -366,7 +354,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 
 	func syncStarted() {
 		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: .WalletSyncStartedNotification, object: nil)
+			NotificationCenter.default.post(name: .walletSyncStartedNotification, object: nil)
 		}
 	}
 
@@ -374,20 +362,20 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 		switch error {
 		case .some(let .posixError(errorCode, description)):
 			DispatchQueue.main.async {
-				NotificationCenter.default.post(name: .WalletSyncStoppedNotification, object: nil,
+				NotificationCenter.default.post(name: .walletSyncStoppedNotification, object: nil,
 				                                userInfo: ["errorCode": errorCode,
 				                                           "errorDescription": description])
 			}
 		case .none:
 			DispatchQueue.main.async {
-				NotificationCenter.default.post(name: .WalletSyncStoppedNotification, object: nil)
+				NotificationCenter.default.post(name: .walletSyncStoppedNotification, object: nil)
 			}
 		}
 	}
 
 	func txStatusUpdate() {
 		DispatchQueue.main.async {
-			NotificationCenter.default.post(name: .WalletTxStatusUpdateNotification, object: nil)
+			NotificationCenter.default.post(name: .walletTxStatusUpdateNotification, object: nil)
 		}
 	}
 

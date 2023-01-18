@@ -15,8 +15,8 @@ class WritePaperPhraseViewController: UIViewController {
 	}()
 
 	// This is awkwardly named because nextResponder is now named next is swift 3 :(,
-	private let proceed = ShadowButton(title: S.WritePaperPhrase.next, type: .secondary)
-	private let previous = ShadowButton(title: S.WritePaperPhrase.previous, type: .secondary)
+	private let proceed = ShadowButton(title: S.WritePaperPhrase.next.localize(), type: .secondary)
+	private let previous = ShadowButton(title: S.WritePaperPhrase.previous.localize(), type: .secondary)
 	private var proceedWidth: NSLayoutConstraint?
 	private var previousWidth: NSLayoutConstraint?
 
@@ -26,7 +26,7 @@ class WritePaperPhraseViewController: UIViewController {
 
 	private var currentPhraseIndex = 0 {
 		didSet {
-			stepLabel.text = String(format: S.WritePaperPhrase.step, currentPhraseIndex + 1, phraseViews.count)
+			stepLabel.text = String(format: S.WritePaperPhrase.step.localize(), currentPhraseIndex + 1, phraseViews.count)
 		}
 	}
 
@@ -49,11 +49,11 @@ class WritePaperPhraseViewController: UIViewController {
 	override func viewDidLoad() {
 		view.backgroundColor = .white
 
-		label.text = S.WritePaperPhrase.instruction
+		label.text = S.WritePaperPhrase.instruction.localize()
 		label.textAlignment = .center
 		label.textColor = .white
 
-		stepLabel.text = String(format: S.WritePaperPhrase.step, 1, phraseViews.count)
+		stepLabel.text = String(format: S.WritePaperPhrase.step.localize(), 1, phraseViews.count)
 		stepLabel.textAlignment = .center
 
 		stepLabel.textColor = UIColor(white: 170.0 / 255.0, alpha: 1.0)
