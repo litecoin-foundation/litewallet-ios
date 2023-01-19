@@ -140,9 +140,9 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	private let appInstallDate: Date = {
 		if let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
 		{
-			if let installDate = try! FileManager.default.attributesOfItem(atPath: documentsFolder.path)[.creationDate] as? Date
+			if let installDate = try? FileManager.default.attributesOfItem(atPath: documentsFolder.path)[.creationDate] as? Date
 			{
-				return installDate
+				return installDate ?? Date()
 			}
 		}
 		return Date()
