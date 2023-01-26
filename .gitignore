@@ -39,3 +39,11 @@ Package.resolved
 
 Pods/ 
 
+# SwiftFormat
+BuildTools/.build
+BuildTools/.swiftpm
+
+
+# Sensitive Partner API 
+Modules/litewallet-partner-api-ios
+litewallet-partner-api-ios

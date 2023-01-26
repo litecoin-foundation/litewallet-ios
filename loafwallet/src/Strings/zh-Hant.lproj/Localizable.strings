@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "輸入域";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤: %2$d]";
+"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "萊特幣位址專供一次性使用。";
@@ -993,6 +993,9 @@
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "區塊鏈";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "您確定要更改語言嗎？";
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "顯示貨幣";

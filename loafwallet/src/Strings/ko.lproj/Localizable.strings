@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "도메인 입력";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "시스템 조회 문제입니다. [오류 : %2$d]";
+"Send.UnstoppableDomains.udSystemError" = "시스템 조회 문제. [오류: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin 주소는 일회용입니다.";
@@ -993,6 +993,9 @@
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "블록 체인";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "언어를 변경하시겠습니까?";
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "통화 보기";

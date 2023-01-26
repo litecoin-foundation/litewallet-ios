@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "Введите домен";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "Проблема с поиском в системе. [Ошибка: %2$d]";
+"Send.UnstoppableDomains.udSystemError" = "Проблема поиска в системе. [Ошибка: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Биткойн-адреса предназначены исключительно для однократного использования.";
@@ -993,6 +993,9 @@
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Вы уверены, что хотите изменить язык на %l?";
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Отображать валюту";
