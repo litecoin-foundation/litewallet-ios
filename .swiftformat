@@ -1,0 +1,10 @@
+# format options
+--header strip
+--indent tab
+
+# file options
+--exclude Pods
+
+# rules
+--enable isEmpty
+--disable enumNamespaces

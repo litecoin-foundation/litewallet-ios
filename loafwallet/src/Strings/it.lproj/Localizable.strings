@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "Inserisci dominio";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "Problema di ricerca nel sistema. [Errore: %2$d]";
+"Send.UnstoppableDomains.udSystemError" = "Problema di ricerca del sistema. [Errore: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Gli indirizzi Litecoin dovrebbero essere utilizzati una sola volta.";
@@ -993,6 +993,9 @@
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "blockchain";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Sei sicuro di voler cambiare la lingua in %l?";
 
 /* i.e. the currency which will be displayed */
 "Settings.currency" = "Visualizza valuta";

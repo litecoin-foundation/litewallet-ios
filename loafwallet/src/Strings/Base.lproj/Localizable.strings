@@ -1464,3 +1464,6 @@
 
 /* domain */
 "Send.UnstoppableDomains.domain" = "domain";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Are you sure you want to change the language to %l?";

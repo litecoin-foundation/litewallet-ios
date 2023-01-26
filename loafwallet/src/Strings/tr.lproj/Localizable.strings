@@ -974,7 +974,7 @@
 "Send.UnstoppableDomains.simpleplaceholder" = "Alan adını girin";
 
 /* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata:%2$d]";
+"Send.UnstoppableDomains.udSystemError" = "Sistem arama sorunu. [Hata: %2$d]";
 
 /* Adress already used alert message - first part */
 "Send.UsedAddress.firstLine" = "Litecoin adresleri tek kullanımlıktır.";
@@ -993,6 +993,9 @@
 
 /* Blockchain settings section header */
 "Settings.blockchain" = "Blockchain";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Dili %l olarak değiştirmek istediğinizden emin misiniz?";
 
 /* Default currency label */
 "Settings.currency" = "Para Birimi Görüntüle";
