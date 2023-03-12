@@ -1036,8 +1036,14 @@
 /* Leave review button label */
 "Settings.review" = "Leave us a Review";
 
+/* Seed Phrase  */
+"Settings.seedPhrase" = "Seed Phrase";
+
 /* Share anonymous data label */
 "Settings.shareData" = "Share Anonymous Data";
+
+/* Show seed */
+"Settings.showSeedTitle" = "Show my seed phrase";
 
 /* Litewallet Social links */
 "Settings.socialLinks" = "Social";

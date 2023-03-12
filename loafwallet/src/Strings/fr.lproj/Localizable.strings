@@ -1039,6 +1039,9 @@
 /* Share anonymous data label */
 "Settings.shareData" = "Partager des données anonymes";
 
+/* Show seed */
+"Settings.showSeedTitle" = "Afficher ma phrase de départ";
+
 /* Litewallet Social links */
 "Settings.socialLinks" = "Social";
 
@@ -1449,3 +1452,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
+
+/* Seed Phrase  */
+"Settings.seedPhrase" = "";
