@@ -1039,6 +1039,9 @@
 /* Share anonymous data label */
 "Settings.shareData" = "익명 데이터 공유";
 
+/* Show seed */
+"Settings.showSeedTitle" = "내 시드 문구 표시";
+
 /* Litewallet Social links */
 "Settings.socialLinks" = "사회적인";
 
@@ -1449,3 +1452,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
+
+/* Seed Phrase  */
+"Settings.seedPhrase" = "";

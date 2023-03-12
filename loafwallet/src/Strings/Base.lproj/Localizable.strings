@@ -1467,3 +1467,9 @@
 
 /* Change language alert message */
 "Settings.ChangeLanguage.alertMessage" = "Are you sure you want to change the language to %l?";
+
+/* Show seed */
+"Settings.showSeedTitle" = "Show my seed phrase";
+
+/* Seed Phrase  */
+"Settings.seedPhrase" = "Seed Phrase";

@@ -1,3 +1,5 @@
+import FirebaseAnalytics
+import Foundation
 import LocalAuthentication
 import SafariServices
 import SwiftUI
@@ -213,8 +215,7 @@ class ModalPresenter: Subscriber, Trackable {
 	                                 errorMessage: String,
 	                                 completion: @escaping () -> Void)
 	{
-		let hostingViewController = UIHostingController(rootView: AlertFailureView(alertFailureType: .failedResolution,
-		                                                                           errorMessage: errorMessage))
+		let hostingViewController = UIHostingController(rootView: AlertFailureView(alertFailureType: .failedResolution, errorMessage: errorMessage))
 
 		guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
 		      let failureAlertView = hostingViewController.view else { return }
@@ -237,12 +238,46 @@ class ModalPresenter: Subscriber, Trackable {
 			UIView.spring(0.6, delay: 5.0, animations: {
 				topConstraint?.constant = size.height
 				window.layoutIfNeeded()
-			}, completion: { _ in
-				// TODO: - Make these callbacks generic
+			}, completion: { _ in 
 				completion()
 				failureAlertView.removeFromSuperview()
 			})
 		})
+	}
+
+	private func presentSeed(seed: String,
+	                         completion _: @escaping () -> Void)
+	{
+		let showSeedView = ShowSeedView(seedPhrase: seed)
+		let hostingViewController = UIHostingController(rootView: showSeedView)
+
+		guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
+		      let seedAlertView = hostingViewController.view else { return }
+		let size = window.bounds.size
+		window.addSubview(seedAlertView)
+
+		let topConstraint = seedAlertView.constraint(.top, toView: window, constant: size.height)
+		seedAlertView.constrain([
+			seedAlertView.constraint(.width, constant: size.width),
+			seedAlertView.constraint(.height, constant: alertHeight),
+			seedAlertView.constraint(.leading, toView: window, constant: nil),
+			topConstraint,
+		])
+		window.layoutIfNeeded()
+
+		UIView.animate(withDuration: Double(0.6), animations: {
+			topConstraint?.constant = size.height - self.alertHeight
+			window.layoutIfNeeded()
+		})
+
+		hostingViewController.rootView.dismissAction = {
+			UIView.spring(0.6, animations: {
+				topConstraint?.constant = size.height
+				window.layoutIfNeeded()
+			}, completion: { _ in
+				seedAlertView.removeFromSuperview()
+			})
+		}
 	}
 
 	private func rootModalViewController(_ type: RootModal) -> UIViewController? {
@@ -419,41 +454,48 @@ class ModalPresenter: Subscriber, Trackable {
 			}),
 
 			],
-			"Wallet": [Setting(title: S.Settings.importTile.localize(), callback: { [weak self] in
-				guard let myself = self else { return }
-				guard let walletManager = myself.walletManager else { return }
-				let importNav = ModalNavigationController()
-				importNav.setClearNavbar()
-				importNav.setWhiteStyle()
-				let start = StartImportViewController(walletManager: walletManager, store: myself.store)
-				start.addCloseNavigationItem(tintColor: .white)
-				start.navigationItem.title = S.Import.title.localize()
-				importNav.viewControllers = [start]
-				settingsNav.dismiss(animated: true, completion: {
-					myself.topViewController?.present(importNav, animated: true, completion: nil)
-				})
-			}),
-			Setting(title: S.Settings.wipe.localize(), callback: { [weak self] in
-				guard let myself = self else { return }
-				guard let walletManager = myself.walletManager else { return }
-				let nc = ModalNavigationController()
-				nc.setClearNavbar()
-				nc.setWhiteStyle()
-				nc.delegate = myself.wipeNavigationDelegate
-				let start = StartWipeWalletViewController {
-					let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet
-						{
-							myself.wipeWallet()
-						})
-					nc.pushViewController(recover, animated: true)
-				}
-				start.addCloseNavigationItem(tintColor: .white)
-				start.navigationItem.title = S.WipeWallet.title.localize()
-				nc.viewControllers = [start]
-				settingsNav.dismiss(animated: true, completion: {
-					myself.topViewController?.present(nc, animated: true, completion: nil)
-				})
-			}),
+			"Wallet": [
+				/// Import Wallet Cell
+				Setting(title: S.Settings.importTile.localize(), callback: { [weak self] in
+					guard let myself = self else { return }
+					guard let walletManager = myself.walletManager else { return }
+					let importNav = ModalNavigationController()
+					importNav.setClearNavbar()
+					importNav.setWhiteStyle()
+					let start = StartImportViewController(walletManager: walletManager, store: myself.store)
+					start.addCloseNavigationItem(tintColor: .white)
+					start.navigationItem.title = S.Import.title.localize()
+					importNav.viewControllers = [start]
+					settingsNav.dismiss(animated: true, completion: {
+						myself.topViewController?.present(importNav, animated: true, completion: nil)
+					})
+				}),
+				/// Import Show Seed Cell
+				Setting(title: S.Settings.showSeedTile.localize(), callback: { [weak self] in
+					self?.presentSeed(seed: walletManager.clearSeedPhrase() ?? "") {}
+				}),
+				/// Wipe Wallet Cell
+				Setting(title: S.Settings.wipe.localize(), callback: { [weak self] in
+					guard let myself = self else { return }
+					guard let walletManager = myself.walletManager else { return }
+					let nc = ModalNavigationController()
+					nc.setClearNavbar()
+					nc.setWhiteStyle()
+					nc.delegate = myself.wipeNavigationDelegate
+					let start = StartWipeWalletViewController {
+						let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet
+							{
+								myself.wipeWallet()
+							})
+						nc.pushViewController(recover, animated: true)
+					}
+					start.addCloseNavigationItem(tintColor: .white)
+					start.navigationItem.title = S.WipeWallet.title.localize()
+					nc.viewControllers = [start]
+					settingsNav.dismiss(animated: true, completion: {
+						myself.topViewController?.present(nc, animated: true, completion: nil)
+					})
+				}),
 			],
 			"Manage": [
 				Setting(title: S.Settings.languages.localize(), callback: strongify(self) { _ in

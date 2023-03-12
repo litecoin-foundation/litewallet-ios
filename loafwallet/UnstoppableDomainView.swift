@@ -53,6 +53,37 @@ struct UnstoppableDomainView: View {
 						}
 
 						Spacer()
+						Button(action: {
+							viewModel.resolveDomain()
+						}) {
+							HStack(spacing: 10) {
+								ZStack {
+									RoundedRectangle(cornerRadius: 4)
+										.frame(width: 60, height: 30, alignment: .center)
+										.foregroundColor(Color(UIColor.secondaryButton))
+										.shadow(color: Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4).padding(.trailing, 18)
+
+									Text(S.Send.UnstoppableDomains.lookup.localize())
+										.frame(width: 60, height: 30, alignment: .center)
+										.font(Font(UIFont.customMedium(size: 15.0)))
+										.foregroundColor(Color(UIColor.grayTextTint))
+										.overlay(
+											RoundedRectangle(cornerRadius: 4)
+												.stroke(Color(UIColor.secondaryBorder))
+										)
+										.padding(.trailing, 18)
+								}
+							}
+						}
+						.onReceive(viewModel.$searchString,
+						           perform: { currentString in
+
+						           	// Description: the minmum domain length is 4 e.g.; 'a.zil'
+						           	// Enabling the button until the domain string is at least 4 chars long
+						           	shouldDisableLookupButton = currentString.count < 4
+
+						           })
+						.disabled(shouldDisableLookupButton)
 					}
 					.background(
 						Color.white.clipShape(RoundedRectangle(cornerRadius: 8.0))
@@ -91,7 +122,9 @@ struct UnstoppableDomainView: View {
 									}
 
 									if #available(iOS 10.0, *) {
-										UIApplication.shared.open(url, options: [:], completionHandler: nil)
+										UIApplication.shared.open(url,
+										                          options: [:],
+										                          completionHandler: nil)
 									} else {
 										UIApplication.shared.openURL(url)
 									}

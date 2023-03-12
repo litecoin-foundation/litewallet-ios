@@ -428,6 +428,8 @@ enum S {
 		static let litewalletPartners = Localization(key: "Settings.litewallet.partners", value: "**Litewallet Partners:**", comment: "Litewallet Partners")
 		static let currentLocale = Localization(key: "Settings.currentLocale", value: "**Current Locale:**", comment: "Current Locale")
 		static let changeLanguageMessage = Localization(key: "Settings.ChangeLanguage.alertMessage", value: nil, comment: nil)
+		static let showSeedTile = Localization(key: "Settings.showSeedTitle", value: "**Show Seed**", comment: "Show seed")
+		static let seedPhrase = Localization(key: "Settings.seedPhrase", value: "**Seed Phrase**", comment: "Seed Phrase")
 	}
 
 	enum About {
