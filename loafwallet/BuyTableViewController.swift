@@ -28,7 +28,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet var moonpaySegmentedControl: UISegmentedControl!
 
 	@IBAction func didTapMoonpay(_: Any) {
-		let timestamp = Int(appInstallDate.timeIntervalSince1970)
+		let timestamp = Int(Date().timeIntervalSince1970)
 
 		let urlString = APIServer.baseUrl + "moonpay/buy" + "?address=\(currentWalletAddress)&idate=\(timestamp)&uid=\(uuidString)&code=\(currencyCode)"
 
@@ -55,7 +55,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 			vcWKVC.currencyCode = currencyCode
 			vcWKVC.currentWalletAddress = currentWalletAddress
 			vcWKVC.uuidString = uuidString
-			vcWKVC.timestamp = Int(appInstallDate.timeIntervalSince1970)
+			vcWKVC.timestamp = Int(Date().timeIntervalSince1970)
 
 			addChildViewController(vcWKVC)
 			view.addSubview(vcWKVC.view)
@@ -136,17 +136,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	private let uuidString: String = UIDevice.current.identifierForVendor?.uuidString ?? ""
 
 	private let currentWalletAddress: String = WalletManager.sharedInstance.wallet?.receiveAddress ?? ""
-
-	private let appInstallDate: Date = {
-		if let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-		{
-			if let installDate = try? FileManager.default.attributesOfItem(atPath: documentsFolder.path)[.creationDate] as? Date
-			{
-				return installDate ?? Date()
-			}
-		}
-		return Date()
-	}()
 
 	@objc private func didChangeCurrencyMoonpay() {
 		if let code = PartnerFiatOptions(rawValue: moonpaySegmentedControl.selectedSegmentIndex)?.description
