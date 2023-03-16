@@ -1449,3 +1449,9 @@
 
 /* Change language alert message */
 "Settings.ChangeLanguage.alertMessage" = "";
+
+/* Seed Phrase  */
+"Settings.seedPhrase" = "";
+
+/* Show seed */
+"Settings.showSeedTitle" = "";

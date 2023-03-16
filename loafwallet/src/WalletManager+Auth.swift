@@ -303,6 +303,14 @@ extension WalletManager: WalletAuthenticator {
 
 		do {
 			return try keychainItem(key: KeychainKey.mnemonic)
+
+		} catch { return nil }
+	}
+
+	func clearSeedPhrase() -> String? {
+		do {
+			return try keychainItem(key: KeychainKey.mnemonic)
+
 		} catch { return nil }
 	}
 

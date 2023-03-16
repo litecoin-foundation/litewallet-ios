@@ -1039,6 +1039,9 @@
 /* Share anonymous data label */
 "Settings.shareData" = "匿名データをシェアする";
 
+/* Show seed */
+"Settings.showSeedTitle" = "私のシードフレーズを表示";
+
 /* Litewallet Social links */
 "Settings.socialLinks" = "ソーシャル";
 
@@ -1449,3 +1452,6 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
+
+/* Seed Phrase  */
+"Settings.seedPhrase" = "";
