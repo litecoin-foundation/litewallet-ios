@@ -33,6 +33,34 @@ private func secureReallocate(ptr: UnsafeMutableRawPointer?, newsize: CFIndex, h
 	return newptr
 }
 
+/// Converts CChar to Int8 and String
+/// - Parameter tuple: CChar
+/// - Returns: String
+private func charInt8ToString(tuple: (CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar)) -> String {
+	var tuplesArray = [unichar(tuple.0), unichar(tuple.1), unichar(tuple.2), unichar(tuple.3),
+	                   unichar(tuple.4), unichar(tuple.5), unichar(tuple.6), unichar(tuple.7),
+	                   unichar(tuple.8), unichar(tuple.9), unichar(tuple.10), unichar(tuple.11),
+	                   unichar(tuple.12), unichar(tuple.13), unichar(tuple.14), unichar(tuple.15),
+	                   unichar(tuple.16), unichar(tuple.17), unichar(tuple.18), unichar(tuple.19),
+	                   unichar(tuple.20), unichar(tuple.21), unichar(tuple.22), unichar(tuple.23),
+	                   unichar(tuple.23), unichar(tuple.24), unichar(tuple.25), unichar(tuple.26),
+	                   unichar(tuple.27), unichar(tuple.28), unichar(tuple.29), unichar(tuple.30),
+	                   unichar(tuple.31), unichar(tuple.32), unichar(tuple.33), unichar(tuple.34),
+	                   unichar(tuple.35), unichar(tuple.36), unichar(tuple.37), unichar(tuple.38),
+	                   unichar(tuple.39), unichar(tuple.40), unichar(tuple.41), unichar(tuple.42),
+	                   unichar(tuple.43), unichar(tuple.44), unichar(tuple.45), unichar(tuple.46),
+	                   unichar(tuple.47), unichar(tuple.48), unichar(tuple.49), unichar(tuple.50),
+	                   unichar(tuple.51), unichar(tuple.52), unichar(tuple.53), unichar(tuple.54),
+	                   unichar(tuple.55), unichar(tuple.56), unichar(tuple.57), unichar(tuple.58),
+	                   unichar(tuple.59), unichar(tuple.60), unichar(tuple.61), unichar(tuple.62),
+	                   unichar(tuple.63), unichar(tuple.64), unichar(tuple.65), unichar(tuple.66),
+	                   unichar(tuple.67), unichar(tuple.68), unichar(tuple.69), unichar(tuple.70),
+	                   unichar(tuple.71), unichar(tuple.72), unichar(tuple.73), unichar(tuple.74)]
+
+	let length = tuplesArray.reduce(0) { $1 != 0 ? $0 + 1 : $0 }
+	return String(NSString(characters: tuplesArray, length: length))
+}
+
 // since iOS does not page memory to disk, all we need to do is cleanse allocated memory prior to deallocation
 public let secureAllocator: CFAllocator = {
 	var context = CFAllocatorContext()
@@ -210,6 +238,14 @@ extension BRTxInput {
 		set { BRTxInputSetAddress(&self, newValue) }
 	}
 
+	var updatedSwiftAddress: String {
+		get {
+			print(":::Receved: \(charInt8ToString(tuple: address))")
+			return charInt8ToString(tuple: address)
+		}
+		set { BRTxInputSetAddress(&self, newValue) }
+	}
+
 	var swiftScript: [UInt8] {
 		get { return [UInt8](UnsafeBufferPointer(start: script, count: scriptLen)) }
 		set { BRTxInputSetScript(&self, newValue, newValue.count) }
@@ -224,6 +260,15 @@ extension BRTxInput {
 extension BRTxOutput {
 	var swiftAddress: String {
 		get { return String(cString: UnsafeRawPointer([address]).assumingMemoryBound(to: CChar.self)) }
+		set { BRTxOutputSetAddress(&self, newValue) }
+	}
+
+	var updatedSwiftAddress: String {
+		get {
+			print(":::Output: \(charInt8ToString(tuple: address))")
+
+			return charInt8ToString(tuple: address)
+		}
 		set { BRTxOutputSetAddress(&self, newValue) }
 	}
 
@@ -511,15 +556,20 @@ class BRPeerManager {
 	let cPtr: OpaquePointer
 	let listener: BRPeerManagerListener
 	let mainNetParams = [BRMainNetParams]
+	var falsePositiveRate: Double
 
-	init?(wallet: BRWallet, earliestKeyTime: TimeInterval, blocks: [BRBlockRef?], peers: [BRPeer],
-	      listener: BRPeerManagerListener)
+	init?(wallet: BRWallet,
+	      earliestKeyTime: TimeInterval,
+	      blocks: [BRBlockRef?], peers: [BRPeer],
+	      listener: BRPeerManagerListener,
+	      fpRate: Double)
 	{
 		var blockRefs = blocks
 		guard let cPtr = BRPeerManagerNew(mainNetParams, wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
-		                                  &blockRefs, blockRefs.count, peers, peers.count) else { return nil }
+		                                  &blockRefs, blockRefs.count, peers, peers.count, fpRate) else { return nil }
 		self.listener = listener
 		self.cPtr = cPtr
+		falsePositiveRate = fpRate
 
 		BRPeerManagerSetCallbacks(cPtr, Unmanaged.passUnretained(self).toOpaque(),
 		                          { info in // syncStarted
