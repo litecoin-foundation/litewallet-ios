@@ -157,15 +157,47 @@ class Transaction {
 	lazy var toAddress: String? = {
 		switch self.direction {
 		case .sent:
-			guard let output = self.tx.outputs.filter({ output in
-				!self.wallet.containsAddress(output.swiftAddress)
-			}).first else { return nil }
-			return output.swiftAddress
+
+			guard let output = self
+				.tx
+				.outputs
+				.filter({ output in
+
+					!self.wallet.containsAddress(output.updatedSwiftAddress)
+				})
+				.first
+			else {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+				return nil
+			}
+			return output.updatedSwiftAddress
+
 		case .received:
-			guard let output = self.tx.outputs.filter({ output in
-				self.wallet.containsAddress(output.swiftAddress)
-			}).first else { return nil }
-			return output.swiftAddress
+
+			/// ltc1
+			///  108 116 99 49 13 10
+//
+//			guard let output = self.tx.outputs.filter({ output in
+//				self.wallet.containsAddress(output.updatedSwiftAddress)
+//			}).first else {
+//				return nil
+//			}
+//
+//			return output.updatedSwiftAddress
+
+			guard let output = self
+				.tx
+				.outputs
+				.filter({ output in
+
+					self.wallet.containsAddress(output.updatedSwiftAddress)
+				})
+				.first
+			else {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+				return nil
+			}
+			return output.updatedSwiftAddress
 		case .moved:
 			guard let output = self.tx.outputs.filter({ output in
 				self.wallet.containsAddress(output.swiftAddress)
