@@ -29,6 +29,8 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 	var masterPubKey = BRMasterPubKey()
 	var earliestKeyTime: TimeInterval = 0
 
+	var userPreferredfpRate: Double = FalsePositiveRates.semiPrivate.rawValue
+
 	static let sharedInstance: WalletManager = {
 		var instance: WalletManager?
 		do {
@@ -68,11 +70,14 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 	internal lazy var lazyPeerManager: BRPeerManager? = {
 		guard let wallet = self.wallet else { return nil }
 		return BRPeerManager(wallet: wallet, earliestKeyTime: self.earliestKeyTime,
-		                     blocks: self.loadBlocks(), peers: self.loadPeers(), listener: self, falsePositivesRate: 0.00001)
+		                     blocks: self.loadBlocks(), peers: self.loadPeers(), 
+							 listener: self, 
+							 falsePositivesRate: FalsePositiveRates.semiPrivate.rawValue)
 	}()
 
-	internal lazy var lazyWallet: BRWallet? = BRWallet(transactions: self.loadTransactions(), masterPubKey: self.masterPubKey,
-	                                                   listener: self)
+	internal lazy var lazyWallet: BRWallet? = BRWallet(transactions: self.loadTransactions(), 
+											masterPubKey: self.masterPubKey,
+											listener: self)
 
 	private lazy var lazyAPIClient: BRAPIClient? = {
 		guard let wallet = self.wallet else { return nil }
@@ -116,7 +121,11 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 		return wordList.map { $0.utf8String }
 	}
 
-	init(masterPubKey: BRMasterPubKey, earliestKeyTime: TimeInterval, dbPath: String? = nil, store: Store) throws
+	init(masterPubKey: BRMasterPubKey,
+	     earliestKeyTime: TimeInterval,
+	     dbPath: String? = nil,
+	     store: Store,
+	     fpRate: Double) throws
 	{
 		self.masterPubKey = masterPubKey
 		self.earliestKeyTime = earliestKeyTime
@@ -124,6 +133,8 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 			FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil,
 			                        create: false).appendingPathComponent("BreadWallet.sqlite").path
 		self.store = store
+		userPreferredfpRate = fpRate
+
 		// open sqlite database
 		if sqlite3_open_v2(self.dbPath, &db,
 		                   SQLITE_OPEN_FULLMUTEX | SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE, nil) != SQLITE_OK
