@@ -263,3 +263,16 @@ struct AppVersion {
 	static let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	static let string = "v" + versionNumber! + " (\(buildNumber!))"
 }
+
+/// False Positive Rates
+/// The rate at which the requested numner of false
+/// addresses are sent to the syncing node.  The more
+/// fp sent the less likely that the node cannot
+/// identify the Litewallet user.  Used when deploying the
+/// Bloom Filter. The 3 options are from testing ideal
+/// rates.
+enum FalsePositiveRates: Double {
+	case lowPrivacy = 0.00005
+	case semiPrivate = 0.00008
+	case anonymous = 0.0005
+}

@@ -556,6 +556,7 @@ class BRPeerManager {
 	let cPtr: OpaquePointer
 	let listener: BRPeerManagerListener
 	let mainNetParams = [BRMainNetParams]
+	let falsePositiveRate: Double
 
 	init?(wallet: BRWallet, earliestKeyTime: TimeInterval, blocks: [BRBlockRef?], peers: [BRPeer],
 	      listener: BRPeerManagerListener, falsePositivesRate: Double)
@@ -565,6 +566,7 @@ class BRPeerManager {
 		                                  &blockRefs, blockRefs.count, peers, peers.count, falsePositivesRate) else { return nil }
 		self.listener = listener
 		self.cPtr = cPtr
+		falsePositiveRate = fpRate
 
 		BRPeerManagerSetCallbacks(cPtr, Unmanaged.passUnretained(self).toOpaque(),
 		                          { info in // syncStarted
