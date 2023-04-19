@@ -556,14 +556,17 @@ class BRPeerManager {
 	let cPtr: OpaquePointer
 	let listener: BRPeerManagerListener
 	let mainNetParams = [BRMainNetParams]
-	let falsePositiveRate: Double
+	var falsePositiveRate: Double
 
-	init?(wallet: BRWallet, earliestKeyTime: TimeInterval, blocks: [BRBlockRef?], peers: [BRPeer],
-	      listener: BRPeerManagerListener, falsePositivesRate: Double)
+	init?(wallet: BRWallet,
+	      earliestKeyTime: TimeInterval,
+	      blocks: [BRBlockRef?], peers: [BRPeer],
+	      listener: BRPeerManagerListener,
+	      fpRate: Double)
 	{
 		var blockRefs = blocks
 		guard let cPtr = BRPeerManagerNew(mainNetParams, wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
-		                                  &blockRefs, blockRefs.count, peers, peers.count, falsePositivesRate) else { return nil }
+		                                  &blockRefs, blockRefs.count, peers, peers.count, fpRate) else { return nil }
 		self.listener = listener
 		self.cPtr = cPtr
 		falsePositiveRate = fpRate
