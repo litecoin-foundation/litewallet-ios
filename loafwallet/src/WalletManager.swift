@@ -68,16 +68,16 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 
 	// TODO: Pass the fpRate from User Preferences
 	internal lazy var lazyPeerManager: BRPeerManager? = {
-		guard let wallet = self.wallet else { return nil }
-		return BRPeerManager(wallet: wallet, earliestKeyTime: self.earliestKeyTime,
-		                     blocks: self.loadBlocks(), peers: self.loadPeers(), 
-							 listener: self, 
-							 falsePositivesRate: FalsePositiveRates.semiPrivate.rawValue)
+		if let wallet = self.wallet {
+			return BRPeerManager(wallet: wallet, earliestKeyTime: self.earliestKeyTime, blocks: self.loadBlocks(), peers: self.loadPeers(), listener: self, fpRate: FalsePositiveRates.semiPrivate.rawValue)
+		} else {
+			return nil
+		}
 	}()
 
-	internal lazy var lazyWallet: BRWallet? = BRWallet(transactions: self.loadTransactions(), 
-											masterPubKey: self.masterPubKey,
-											listener: self)
+	internal lazy var lazyWallet: BRWallet? = BRWallet(transactions: self.loadTransactions(),
+	                                                   masterPubKey: self.masterPubKey,
+	                                                   listener: self)
 
 	private lazy var lazyAPIClient: BRAPIClient? = {
 		guard let wallet = self.wallet else { return nil }
