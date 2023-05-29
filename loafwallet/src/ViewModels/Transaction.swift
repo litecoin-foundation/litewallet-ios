@@ -159,50 +159,38 @@ class Transaction {
 		case .sent:
 
 			guard let output = self
-				.tx
-				.outputs
-				.filter({ output in
-
+				.tx.outputs.filter({ output in
 					!self.wallet.containsAddress(output.updatedSwiftAddress)
 				})
 				.first
+
 			else {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil
 			}
+
 			return output.updatedSwiftAddress
 
 		case .received:
-
-			/// ltc1
-			///  108 116 99 49 13 10
-//
-//			guard let output = self.tx.outputs.filter({ output in
-//				self.wallet.containsAddress(output.updatedSwiftAddress)
-//			}).first else {
-//				return nil
-//			}
-//
-//			return output.updatedSwiftAddress
 
 			guard let output = self
 				.tx
 				.outputs
 				.filter({ output in
-
 					self.wallet.containsAddress(output.updatedSwiftAddress)
-				})
-				.first
+				}).first
+
 			else {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil
 			}
 			return output.updatedSwiftAddress
+
 		case .moved:
 			guard let output = self.tx.outputs.filter({ output in
-				self.wallet.containsAddress(output.swiftAddress)
+				self.wallet.containsAddress(output.updatedSwiftAddress)
 			}).first else { return nil }
-			return output.swiftAddress
+			return output.updatedSwiftAddress
 		}
 	}()
 
