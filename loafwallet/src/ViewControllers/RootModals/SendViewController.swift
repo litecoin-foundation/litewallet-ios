@@ -410,7 +410,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		guard let firstOutput = protoReq.details.outputs.first else { return }
 		guard let wallet = walletManager.wallet else { return }
 
-		let address = firstOutput.swiftAddress
+		let address = firstOutput.updatedSwiftAddress
 		let isValid = protoReq.isValid()
 		var isOutputTooSmall = false
 
