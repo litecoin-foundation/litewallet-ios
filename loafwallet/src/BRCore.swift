@@ -240,7 +240,7 @@ extension BRTxInput {
 
 	var updatedSwiftAddress: String {
 		get {
-			print(":::Receved: \(charInt8ToString(tuple: address))")
+			print("::: Received: \(charInt8ToString(tuple: address))")
 			return charInt8ToString(tuple: address)
 		}
 		set { BRTxInputSetAddress(&self, newValue) }
@@ -265,9 +265,11 @@ extension BRTxOutput {
 
 	var updatedSwiftAddress: String {
 		get {
-			print(":::Output: \(charInt8ToString(tuple: address))")
+			let updatedAddressString = charInt8ToString(tuple: address)
+//			print("::: Output: \(charInt8ToString(tuple: address))")
+//			print("::: Output updated Address String: \(updatedAddressString)")
 
-			return charInt8ToString(tuple: address)
+			return updatedAddressString
 		}
 		set { BRTxOutputSetAddress(&self, newValue) }
 	}

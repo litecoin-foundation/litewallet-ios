@@ -172,14 +172,10 @@ class Transaction {
 			return output.updatedSwiftAddress
 
 		case .received:
+			guard let output = self.tx.outputs.filter({ output in
+				self.wallet.containsAddress(output.updatedSwiftAddress)
 
-			guard let output = self
-				.tx
-				.outputs
-				.filter({ output in
-					self.wallet.containsAddress(output.updatedSwiftAddress)
-				}).first
-
+			}).first
 			else {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil
