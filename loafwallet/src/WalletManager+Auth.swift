@@ -58,7 +58,11 @@ extension WalletManager: WalletAuthenticator {
 		let mpkData: Data? = try keychainItem(key: KeychainKey.masterPubKey)
 		guard let masterPubKey = mpkData?.masterPubKey
 		else {
-			try self.init(masterPubKey: BRMasterPubKey(), earliestKeyTime: 0, dbPath: dbPath, store: store)
+			try self.init(masterPubKey: BRMasterPubKey(),
+			              earliestKeyTime: 0,
+			              dbPath: dbPath,
+			              store: store,
+			              fpRate: FalsePositiveRates.semiPrivate.rawValue)
 			return
 		}
 
@@ -69,7 +73,11 @@ extension WalletManager: WalletAuthenticator {
 			creationTime.withUnsafeBytes { earliestKeyTime = $0.pointee }
 		}
 
-		try self.init(masterPubKey: masterPubKey, earliestKeyTime: earliestKeyTime, dbPath: dbPath, store: store)
+		try self.init(masterPubKey: masterPubKey,
+		              earliestKeyTime: earliestKeyTime,
+		              dbPath: dbPath,
+		              store: store,
+		              fpRate: FalsePositiveRates.semiPrivate.rawValue)
 	}
 
 	// true if keychain is available and we know that no wallet exists on it
