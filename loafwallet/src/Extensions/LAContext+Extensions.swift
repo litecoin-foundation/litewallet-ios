@@ -34,6 +34,8 @@ extension LAContext {
 				return .touch
 			case .faceID:
 				return .face
+			case .opticID:
+				return .optical
 			}
 		} else {
 			return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) ? .touch : .none
@@ -44,5 +46,6 @@ extension LAContext {
 		case none
 		case touch
 		case face
+		case optical
 	}
 }
