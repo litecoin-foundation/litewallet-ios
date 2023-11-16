@@ -74,7 +74,7 @@ class UnstoppableDomainViewModel: ObservableObject {
 		// Otherwise, we may never get in the callback relative to UDR v4.0.0
 		let group = DispatchGroup()
 
-		guard let resolution = try? Resolution()
+		guard let resolution = try? Resolution(apiKey: Partner.partnerKeyPath(name: .infura))
 		else {
 			print("Init of Resolution instance with default parameters failed...")
 			return
@@ -86,7 +86,7 @@ class UnstoppableDomainViewModel: ObservableObject {
 			switch result {
 			case let .success(returnValue):
 
-				let timestamp: String = dateFormatter?.string(from: Date()) ?? ""
+				let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
 
 				LWAnalytics.logEventWithParameters(itemName:
 					CustomEvent._20201121_DRIA,
@@ -101,7 +101,7 @@ class UnstoppableDomainViewModel: ObservableObject {
 
 			case let .failure(error):
 				let errorMessage = DomainResolutionFailure().messageWith(error: error)
-				let timestamp: String = dateFormatter?.string(from: Date()) ?? ""
+				let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
 
 				LWAnalytics.logEventWithParameters(itemName:
 					CustomEvent._20201121_FRIA,
