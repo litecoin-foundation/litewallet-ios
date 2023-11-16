@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
+class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
 	let kInitialChildViewControllerIndex = 0 // TransactionsViewController
 	@IBOutlet var headerView: UIView!
 	@IBOutlet var containerView: UIView!
@@ -405,7 +405,7 @@ class NonUSTabBarViewController: UIViewController, Subscriber, Trackable, UITabB
 	}
 }
 
-extension NonUSTabBarViewController {
+extension TabBarViewController {
 	@objc private func currencySwitchTapped() {
 		view.layoutIfNeeded()
 		guard let store = store else { return }
