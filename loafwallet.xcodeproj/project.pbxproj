@@ -282,6 +282,7 @@
 		C36DBF6128F1988900FBCB24 /* LocalWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */; };
 		C39443F9269DDAD3002703E9 /* LitewalletIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39443F8269DDAD3002703E9 /* LitewalletIconView.swift */; };
 		C39A71472608CB4300E7B640 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A71462608CB4300E7B640 /* EmptyTableViewCell.swift */; };
+		C3A01CBD2B069A5300CC156B /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3A01CBC2B069A5300CC156B /* partner-keys.plist */; };
 		C3A4647D259A646A00D74D81 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A4647C259A646A00D74D81 /* DataValidation.swift */; };
 		C3B7C3B9255EABBF00E98A64 /* SupportSafariViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B7C3B8255EABBF00E98A64 /* SupportSafariViewModel.swift */; };
 		C3B7C3EE255FF59200E98A64 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B7C3ED255FF59200E98A64 /* ConstantsTests.swift */; };
@@ -1440,6 +1441,7 @@
 		C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebViewModel.swift; sourceTree = "<group>"; };
 		C39443F8269DDAD3002703E9 /* LitewalletIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitewalletIconView.swift; sourceTree = "<group>"; };
 		C39A71462608CB4300E7B640 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		C3A01CBC2B069A5300CC156B /* partner-keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "partner-keys.plist"; path = "../../../../Desktop/partner-keys.plist"; sourceTree = "<group>"; };
 		C3A4647C259A646A00D74D81 /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 		C3ACF2DE25DED601008671D4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		C3B7C3B8255EABBF00E98A64 /* SupportSafariViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSafariViewModel.swift; sourceTree = "<group>"; };
@@ -2932,6 +2934,7 @@
 		75A2A7921DA5934300A983D8 /* loafwallet */ = {
 			isa = PBXGroup;
 			children = (
+				C3A01CBC2B069A5300CC156B /* partner-keys.plist */,
 				375DDB3D2697C253005E2B27 /* GoogleService-Info.plist */,
 				C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */,
 				C35ABD07257404C6002BB9BB /* SwiftUI+UIKit */,
@@ -3868,6 +3871,7 @@
 				24D5F25F22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,
 				24DFCE6823B89CDE001F17F8 /* Settings.storyboard in Resources */,
 				24393B5C23C259400075218D /* Phrase.storyboard in Resources */,
+				C3A01CBD2B069A5300CC156B /* partner-keys.plist in Resources */,
 				75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
