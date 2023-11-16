@@ -86,7 +86,7 @@ class UnstoppableDomainViewModel: ObservableObject {
 			switch result {
 			case let .success(returnValue):
 
-				let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
+				let timestamp: String = dateFormatter?.string(from: Date()) ?? ""
 
 				LWAnalytics.logEventWithParameters(itemName:
 					CustomEvent._20201121_DRIA,
@@ -101,7 +101,7 @@ class UnstoppableDomainViewModel: ObservableObject {
 
 			case let .failure(error):
 				let errorMessage = DomainResolutionFailure().messageWith(error: error)
-				let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
+				let timestamp: String = dateFormatter?.string(from: Date()) ?? ""
 
 				LWAnalytics.logEventWithParameters(itemName:
 					CustomEvent._20201121_FRIA,
