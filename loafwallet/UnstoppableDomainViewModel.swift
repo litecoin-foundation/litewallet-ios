@@ -74,7 +74,7 @@ class UnstoppableDomainViewModel: ObservableObject {
 		// Otherwise, we may never get in the callback relative to UDR v4.0.0
 		let group = DispatchGroup()
 
-		guard let resolution = try? Resolution()
+		guard let resolution = try? Resolution(apiKey: Partner.partnerKeyPath(name: .infura))
 		else {
 			print("Init of Resolution instance with default parameters failed...")
 			return

@@ -14,13 +14,14 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	private let largeFontSize: CGFloat = 24.0
 	private let smallFontSize: CGFloat = 12.0
 	private var hasInitialized = false
+	private var didLoginLitecoinCardAccount = false
 	private let dateFormatter = DateFormatter()
 	private let equalsLabel = UILabel(font: .barlowMedium(size: 12), color: .whiteTint)
 	private var regularConstraints: [NSLayoutConstraint] = []
 	private var swappedConstraints: [NSLayoutConstraint] = []
 	private let currencyTapView = UIView()
-	private let storyboardNames: [String] = ["Transactions", "Send", "Card", "Receive", "Buy"]
-	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "CardWebViewController", "ReceiveLTCViewController", "BuyTableViewController"]
+	private let storyboardNames: [String] = ["Transactions", "Send", "Receive", "Buy"]
+	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "ReceiveLTCViewController", "BuyTableViewController"]
 	var viewControllers: [UIViewController] = []
 	var activeController: UIViewController?
 	var updateTimer: Timer?
@@ -68,16 +69,11 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 		}
 		tabBar.selectedItem = array[kInitialChildViewControllerIndex]
 
-		NotificationCenter.default.addObserver(self,
-		                                       selector: #selector(languageChanged),
-		                                       name: .languageChangedNotification,
-		                                       object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(languageChanged), name: .languageChangedNotification, object: nil)
 	}
 
 	deinit {
-		NotificationCenter.default.removeObserver(self,
-		                                          name: .languageChangedNotification,
-		                                          object: nil)
+		NotificationCenter.default.removeObserver(self, name: .languageChangedNotification, object: nil)
 		self.updateTimer = nil
 	}
 
@@ -329,9 +325,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			switch item.tag {
 			case 0: item.title = S.History.barItemTitle.localize()
 			case 1: item.title = S.Send.barItemTitle.localize()
-			case 2: item.title = S.LitecoinCard.barItemTitle.localize()
-			case 3: item.title = S.Receive.barItemTitle.localize()
-			case 4: item.title = S.BuyCenter.barItemTitle.localize()
+			case 2: item.title = S.Receive.barItemTitle.localize()
+			case 3: item.title = S.BuyCenter.barItemTitle.localize()
 			default:
 				item.title = "NO-TITLE"
 				NSLog("ERROR: UITabbar item count is wrong")
@@ -358,9 +353,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			transactionVC.store = store
 			transactionVC.walletManager = walletManager
 			transactionVC.isLtcSwapped = store?.state.isLtcSwapped
-
-		case "loafwallet.CardWebViewController":
-			let cardVC = contentController as? CardWebViewController
 
 		case "loafwallet.BuyTableViewController":
 			guard let buyVC = contentController as? BuyTableViewController
