@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "捐款金额";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "网络费：";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "处理时间：这些交易将花费 ％1$@ 分钟来处理。";
 
@@ -1449,3 +1446,12 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "费用: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "费用: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "费用:";

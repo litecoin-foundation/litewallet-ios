@@ -151,7 +151,7 @@ class Transaction {
 
 	private let tx: BRTxRef
 	private let wallet: BRWallet
-	fileprivate let satoshis: UInt64
+	private let satoshis: UInt64
 	private var kvStore: BRReplicatedKVStore?
 
 	lazy var toAddress: String? = {

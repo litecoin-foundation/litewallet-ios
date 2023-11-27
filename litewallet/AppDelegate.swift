@@ -15,13 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	{
 		UINavigationBar.appearance().tintColor = .darkText
 
-		if #available(iOS 15, *) {
-			let appearance = UINavigationBarAppearance()
-			appearance.configureWithOpaqueBackground()
-			appearance.titleTextAttributes = [.foregroundColor: UIColor.darkText]
-			UINavigationBar.appearance().standardAppearance = appearance
-			UINavigationBar.appearance().scrollEdgeAppearance = appearance
-		}
+		let appearance = UINavigationBarAppearance()
+		appearance.configureWithOpaqueBackground()
+		appearance.titleTextAttributes = [.foregroundColor: UIColor.darkText]
+		UINavigationBar.appearance().standardAppearance = appearance
+		UINavigationBar.appearance().scrollEdgeAppearance = appearance
 
 		setFirebaseConfiguration()
 

@@ -1449,3 +1449,14 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Ücret: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Ücretler: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Ücretler:";
+
+

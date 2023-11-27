@@ -13,11 +13,6 @@ class AddressCell: UIView {
 	var didBeginEditing: (() -> Void)?
 	var didReceivePaymentRequest: ((PaymentRequest) -> Void)?
 
-	func setContent(_ content: String?) {
-		contentLabel.text = content
-		textField.text = content
-	}
-
 	var isEditable = false {
 		didSet {
 			gr.isEnabled = isEditable

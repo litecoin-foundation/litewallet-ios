@@ -35,22 +35,16 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 	override func viewDidLoad() {
 		let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 48.0))
 
-		if #available(iOS 11.0, *) {
-			guard let textColor = UIColor(named: "labelTextColor"),
-			      let backGroundColor = UIColor(named: "lfBackgroundColor")
-			else {
-				NSLog("ERROR: Custom color not found")
-				return
-			}
-
-			headerView.backgroundColor = backGroundColor
-			tableView.backgroundColor = backGroundColor
-			titleLabel = UILabel(font: .customBold(size: 26.0), color: textColor)
-		} else {
-			headerView.backgroundColor = .liteWalletBlue
-			tableView.backgroundColor = .clear
-			titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
+		guard let textColor = UIColor(named: "labelTextColor"),
+		      let backGroundColor = UIColor(named: "lfBackgroundColor")
+		else {
+			NSLog("ERROR: Custom color not found")
+			return
 		}
+
+		headerView.backgroundColor = backGroundColor
+		tableView.backgroundColor = backGroundColor
+		titleLabel = UILabel(font: .customBold(size: 26.0), color: textColor)
 
 		headerView.addSubview(titleLabel)
 		titleLabel.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: C.padding[2], bottom: 0, right: 0))

@@ -1,7 +1,7 @@
 import UIKit
 
 private let currencyToggleConstant: CGFloat = 20.0
-private let amountFont: CGFloat = 15.0
+private let amountFont: UIFont = UIFont.barlowMedium(size: 14.0)
 class AmountViewController: UIViewController, Trackable {
 	init(store: Store,
 	     isPinPadExpandedAtLaunch: Bool,
@@ -61,8 +61,8 @@ class AmountViewController: UIViewController, Trackable {
 	private var pinPadHeight: NSLayoutConstraint?
 	private var feeSelectorHeight: NSLayoutConstraint?
 	private var feeSelectorTop: NSLayoutConstraint?
-	private var placeholder = UILabel(font: .customBody(size: amountFont), color: .grayTextTint)
-	private var amountLabel = UILabel(font: .customBody(size: amountFont), color: .darkText)
+	private var placeholder = PaddingLabel(font: amountFont, color: .grayTextTint)
+	private var amountLabel = UILabel(font: amountFont, color: .darkText)
 	private let pinPad: PinPadViewController
 	private let currencyToggle: ShadowButton
 	private let border = UIView(color: .secondaryShadow)
@@ -119,13 +119,15 @@ class AmountViewController: UIViewController, Trackable {
 
 	private func addConstraints() {
 		amountLabel.constrain([
-			amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
+			amountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: swiftUICellPadding),
 			amountLabel.centerYAnchor.constraint(equalTo: currencyToggle.centerYAnchor),
+			amountLabel.heightAnchor.constraint(equalToConstant: 44.0),
 		])
 
 		placeholder.constrain([
-			placeholder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[3]),
+			placeholder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: swiftUICellPadding),
 			placeholder.centerYAnchor.constraint(equalTo: amountLabel.centerYAnchor),
+			placeholder.heightAnchor.constraint(equalToConstant: 44.0),
 		])
 		cursor.constrain([
 			cursor.leadingAnchor.constraint(equalTo: amountLabel.trailingAnchor, constant: 2.0),
@@ -251,7 +253,7 @@ class AmountViewController: UIViewController, Trackable {
 		amountLabel.constrain([
 			amountLabel.trailingAnchor.constraint(lessThanOrEqualTo: currencyToggle.leadingAnchor, constant: -C.padding[2]),
 		])
-		amountLabel.minimumScaleFactor = 0.5
+		amountLabel.minimumScaleFactor = 0.95
 		amountLabel.adjustsFontSizeToFitWidth = true
 		amountLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
 	}

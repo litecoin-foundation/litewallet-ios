@@ -31,13 +31,8 @@ struct UnstoppableDomainView: View {
 					Spacer()
 					HStack {
 						if viewModel.isDomainResolving {
-							if #available(iOS 14.0, *) {
-								ProgressView()
-									.padding(.all, swiftUICellPadding)
-							} else {
-								ActivityIndicator(isAnimating: .constant(true), style: .large)
-									.padding(.all, swiftUICellPadding)
-							}
+							ProgressView()
+								.padding(.all, swiftUICellPadding)
 						} else {
 							VStack {
 								ZStack {
@@ -90,11 +85,7 @@ struct UnstoppableDomainView: View {
 										return
 									}
 
-									if #available(iOS 10.0, *) {
-										UIApplication.shared.open(url, options: [:], completionHandler: nil)
-									} else {
-										UIApplication.shared.openURL(url)
-									}
+									UIApplication.shared.open(url, options: [:], completionHandler: nil)
 
 									LWAnalytics.logEventWithParameters(itemName: ._20220822_UTOU)
 								}

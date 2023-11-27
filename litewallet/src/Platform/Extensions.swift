@@ -322,7 +322,7 @@ public extension Data {
 		}
 	}
 
-	fileprivate func genNonce() -> [UInt8] {
+	private func genNonce() -> [UInt8] {
 		var tv = timeval()
 		gettimeofday(&tv, nil)
 		var t = UInt64(tv.tv_usec) * 1_000_000 + UInt64(tv.tv_usec)

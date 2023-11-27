@@ -2,7 +2,13 @@ import LocalAuthentication
 import UIKit
 
 class ConfirmationViewController: UIViewController, ContentBoxPresenter {
-	init(amount: Satoshis, fee: Satoshis, feeType: FeeType, state: ReduxState, selectedRate: Rate?, minimumFractionDigits: Int?, address: String, isUsingBiometrics: Bool, isDonation _: Bool = false)
+	init(amount: Satoshis,
+	     fee: Satoshis,
+	     feeType: FeeType,
+	     state: ReduxState,
+	     selectedRate: Rate?,
+	     minimumFractionDigits: Int?,
+	     address: String, isUsingBiometrics: Bool, isDonation _: Bool = false)
 	{
 		self.amount = amount
 		feeAmount = fee
@@ -181,7 +187,7 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter {
 		let displayTotal = DisplayAmount(amount: amount + feeAmount, state: state, selectedRate: selectedRate, minimumFractionDigits: 2)
 
 		toLabel.text = S.Confirmation.to.localize()
-		feeLabel.text = S.Confirmation.feeLabel.localize()
+		feeLabel.text = S.Send.feeBlank.localize()
 		sendLabel.text = S.Confirmation.amountLabel.localize()
 		totalLabel.text = S.Confirmation.totalLabel.localize()
 

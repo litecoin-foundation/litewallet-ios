@@ -199,11 +199,12 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		var color: UIColor = .grayTextTint
 
 		if let amount = amount, amount > 0 {
-			let fee = sender.feeForTx(amount: amount.rawValue)
-			let feeAmount = DisplayAmount(amount: Satoshis(rawValue: fee), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
+			let fee = sender.feeForTx(amount: amount.rawValue + tieredOpsFee(amount: amount.rawValue))
+			let feeAmount = DisplayAmount(amount: Satoshis(rawValue: fee + tieredOpsFee(amount: amount.rawValue)), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
 
 			let feeText = feeAmount.description.replacingZeroFeeWithTenCents()
-			feeOutput = String(format: S.Send.fee.localize(), feeText)
+
+			feeOutput = hasActivatedInlineFees ? String(format: S.Send.fee.localize(), feeText) : String(format: S.Send.bareFee.localize(), feeText)
 			if balance >= fee, amount.rawValue > (balance - fee) {
 				color = .cameraGuideNegative
 			}
@@ -253,10 +254,13 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		let sendAddress = sendAddressCell.rootView.viewModel.addressString
 
 		if sender.transaction == nil {
-			guard let amount = amount
+			guard var amount = amount
 			else {
 				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAmount.localize(), buttonLabel: S.Button.ok.localize())
 			}
+
+			amount = amount + Satoshis(rawValue: tieredOpsFee(amount: amount.rawValue))
+
 			if let minOutput = walletManager.wallet?.minOutputAmount {
 				guard amount.rawValue >= minOutput
 				else {
@@ -273,10 +277,19 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			else {
 				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.insufficientFunds.localize(), buttonLabel: S.Button.ok.localize())
 			}
-			guard sender.createTransaction(amount: amount.rawValue, to: sendAddress)
+
+//			guard sender.createTransaction(amount: amount.rawValue, to: sendAddress)
+//			else {
+//				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
+//			}
+
+			guard sender.createTransactionWithOutputs(amount: amount.rawValue, to: sendAddress,
+			                                          hasAcceptedFees: hasActivatedInlineFees,
+			                                          fees: tieredOpsFee(amount: amount.rawValue))
 			else {
 				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
 			}
+
 		} else {
 			NSLog("Error: transaction  is nil")
 		}
@@ -287,7 +300,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			return
 		}
 
-		let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(sender.fee), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: sendAddress, isUsingBiometrics: sender.canUseBiometrics)
+		let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(rawValue: sender.fee + tieredOpsFee(amount: amount.rawValue)), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: sendAddress, isUsingBiometrics: sender.canUseBiometrics)
 
 		confirm.successCallback = {
 			confirm.dismiss(animated: true, completion: {
@@ -305,69 +318,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		confirm.modalPresentationCapturesStatusBarAppearance = true
 		present(confirm, animated: true, completion: nil)
 	}
-
-//	@objc private func sendTapped() {
-//		let sendAddress = sendAddressCell.rootView.viewModel.addressString
-//
-//		if sender.transaction == nil {
-//			/// Main Transaction
-//			guard let amount = amount
-//			else {
-//				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAmount.localize(), buttonLabel: S.Button.ok.localize())
-//			}
-//			if let minOutput = walletManager.wallet?.minOutputAmount {
-//				guard amount.rawValue >= minOutput
-//				else {
-//					let minOutputAmount = Amount(amount: minOutput, rate: Rate.empty, maxDigits: store.state.maxDigits)
-//					let message = String(format: S.PaymentProtocol.Errors.smallPayment.localize(), minOutputAmount.string(isLtcSwapped: store.state.isLtcSwapped))
-//					return showAlert(title: S.LitewalletAlert.error.localize(), message: message, buttonLabel: S.Button.ok.localize())
-//				}
-//			}
-//			guard !(walletManager.wallet?.containsAddress(sendAddress) ?? false)
-//			else {
-//				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.containsAddress.localize(), buttonLabel: S.Button.ok.localize())
-//			}
-//			guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0)
-//			else {
-//				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.insufficientFunds.localize(), buttonLabel: S.Button.ok.localize())
-//			}
-//
-//			/// Fees
-//
-//			let opsFee = sender.createTransaction(amount: tieredOpsFee(amount: amount.rawValue), to: Partner.partnerKeyPath(name: .litewalletOps))
-//
-//			guard sender.createTransaction(amount: amount.rawValue, to: sendAddress)
-//			else {
-//				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
-//			}
-//		} else {
-//			NSLog("Error: transaction  is nil")
-//		}
-//
-//		guard let amount = amount
-//		else {
-//			NSLog("Error: Amount  is nil")
-//			return
-//		}
-//
-//		let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(sender.fee), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: sendAddress, isUsingBiometrics: sender.canUseBiometrics)
-//
-//		confirm.successCallback = {
-//			confirm.dismiss(animated: true, completion: {
-//				self.send()
-//			})
-//		}
-//		confirm.cancelCallback = {
-//			confirm.dismiss(animated: true, completion: {
-//				self.sender.transaction = nil
-//			})
-//		}
-//		confirmTransitioningDelegate.shouldShowMaskView = false
-//		confirm.transitioningDelegate = confirmTransitioningDelegate
-//		confirm.modalPresentationStyle = .overFullScreen
-//		confirm.modalPresentationCapturesStatusBarAppearance = true
-//		present(confirm, animated: true, completion: nil)
-//	}
 
 	private func handleRequest(_ request: PaymentRequest) {
 		switch request.type {
@@ -546,5 +496,3 @@ extension SendViewController: ModalDisplayable {
 		return S.Send.title.localize()
 	}
 }
-
-//            let litewalletFees = BRTxOutput(address: <#T##(CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar, CChar)#>, amount: <#T##UInt64#>, script: <#T##UnsafeMutablePointer<UInt8>!#>, scriptLen: <#T##Int#>)

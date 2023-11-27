@@ -83,6 +83,31 @@ public func charInt8ToString(charArray: (CChar, CChar, CChar, CChar, CChar, CCha
 	return String(NSString(characters: addressCharArray, length: length))
 }
 
+/// Converts String to CChar
+/// - Parameter String
+/// - Returns: characterArray: [CChar]
+public func stringToCharArray(addressString: String) -> [UInt8] {
+	let arrayLength = 75
+
+	var charArray = [UInt8]()
+
+	let stringArray = Array(addressString)
+
+	for index in 0 ... arrayLength {
+		if stringArray.count > index {
+			charArray.append(0)
+		} else {
+			let value = UInt8(stringArray[index].unicodeScalars.map { $0.value }.reduce(0, +))
+			charArray.append(value)
+		}
+		print(":::  chara \(charArray)")
+	}
+
+	print(":::  chara FINAL \(charArray)")
+
+	return charArray
+}
+
 // since iOS does not page memory to disk, all we need to do is cleanse allocated memory prior to deallocation
 public let secureAllocator: CFAllocator = {
 	var context = CFAllocatorContext()

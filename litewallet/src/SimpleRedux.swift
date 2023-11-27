@@ -8,7 +8,7 @@ protocol Action {
 }
 
 // We need reference semantics for Subscribers, so they are restricted to classes
-protocol Subscriber: class {}
+protocol Subscriber: AnyObject {}
 
 extension Subscriber {
 	var hashValue: Int {

@@ -1449,3 +1449,14 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d з %2$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Комісія: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Збори: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Збори:";
+
+ 

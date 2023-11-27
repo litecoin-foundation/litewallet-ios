@@ -114,19 +114,10 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	private func setupViews() {
 		walletBalanceLabel.text = S.ManageWallet.balance.localize() + ":"
 
-		if #available(iOS 11.0, *),
-		   let backgroundColor = UIColor(named: "mainColor")
-		{
-			headerView.backgroundColor = backgroundColor
-			tabBar.barTintColor = backgroundColor
-			containerView.backgroundColor = backgroundColor
-			self.view.backgroundColor = backgroundColor
-		} else {
-			headerView.backgroundColor = .liteWalletBlue
-			tabBar.barTintColor = .liteWalletBlue
-			containerView.backgroundColor = .liteWalletBlue
-			view.backgroundColor = .liteWalletBlue
-		}
+		headerView.backgroundColor = .liteWalletBlue
+		tabBar.barTintColor = .liteWalletBlue
+		containerView.backgroundColor = .liteWalletBlue
+		view.backgroundColor = .liteWalletBlue
 	}
 
 	private func configurePriceLabels() {

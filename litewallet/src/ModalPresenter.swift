@@ -662,13 +662,7 @@ class ModalPresenter: Subscriber, Trackable {
 
 		var staticColor = UIColor()
 
-		if #available(iOS 11.0, *),
-		   let tempStaticColor = UIColor(named: "staticWhiteColor")
-		{
-			staticColor = tempStaticColor
-		} else {
-			staticColor = .whiteTint
-		}
+		let tempStaticColor = UIColor(named: "staticWhiteColor")
 
 		if UserDefaults.writePaperPhraseDate != nil {
 			start.addCloseNavigationItem(tintColor: staticColor)
