@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Jumlah yang disumbangkan:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Biaya Jaringan:";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "Waktu pemrosesan: Transaksi-transaksi ini akan memakan waktu %1$@ menit untuk diproses.";
 
@@ -1449,3 +1446,13 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d dari %2$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Biaya: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Biaya: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Biaya:";
+ 

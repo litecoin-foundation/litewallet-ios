@@ -71,8 +71,9 @@ enum S {
 		static let cameraUnavailableTitle = Localization(key: "Send.cameraUnavailableTitle", value: "**Litewallet is not allowed to access the camera**", comment: "Camera not allowed alert title")
 		static let cameraUnavailableMessage = Localization(key: "Send.cameraunavailableMessage", value: "**Go to Settings to allow camera access.**", comment: "Camera not allowed message")
 		static let balance = Localization(key: "Send.balance", value: "**Balance: %1$@**", comment: "Balance: $4.00")
-		static let fee = Localization(key: "Send.fee", value: "**Fee: %1$@**", comment: "Fee: $0.10")
-		static let bareFee = Localization(key: "Send.fee", value: "**Network Fee: %1$@**", comment: "Network Fee: $0.01")
+		static let fee = Localization(key: "Send.fees", value: "**Fees: %1$@**", comment: "Fees: $0.10")
+		static let feeBlank = Localization(key: "Send.feeBlank", value: "**Fees:**", comment: "Fees: ")
+		static let bareFee = Localization(key: "Send.fee", value: "**Fee: %1$@**", comment: "Fee: $0.01")
 		static let containsAddress = Localization(key: "Send.containsAddress", value: "**The destination is your own address. You cannot send to yourself.**", comment: "Warning when sending to self.")
 		enum UsedAddress {
 			static let title = Localization(key: "Send.UsedAddress.title", value: "**Address Already Used**", comment: "Adress already used alert title")
@@ -725,12 +726,6 @@ enum S {
 		static let processingAndDonationTime = Localization(key: "Confirmation.processingAndDonationTime", value: "**Processing time: These transactions will take %1$@ minutes to process.**", comment: "eg. Processing with Donation time: This transaction will take 10-30 minutes to process.")
 		static let amountLabel = Localization(key: "Confirmation.amountLabel", value: "**Amount to Send:**", comment: "Amount to Send: ($1.00)")
 		static let donateLabel = Localization(key: "Confirmation.donateLabel", value: "**Amount to Donate:**", comment: "Amount to Donate: ($1.00)")
-
-		static let bareFeeLabel = Localization(key: "Confirmation.bareFeeLabel", value: "**Network Fee:**", comment: "Network Fee: ($1.00)")
-		static let bareShortFeeLabel = Localization(key: "Confirmation.bareShortFeeLabel", value: "**FEE:**", comment: "Short Network Fee: ($1.00)")
-
-		static let feeLabel = Localization(key: "Confirmation.feeLabel", value: "**Fees:**", comment: "Fee: ($1.00)")
-		static let shortFeeLabel = Localization(key: "Confirmation.shortFeeLabel", value: "**Fee:**", comment: "Short Fee: ($1.00)")
 
 		static let totalLabel = Localization(key: "Confirmation.totalLabel", value: "**Total Cost:**", comment: "Total Cost: ($5.00)")
 		static let amountDetailLabel = Localization(key: "Confirmation.amountDetailLabel", value: "**Exchange details:**", comment: "$53.09/L + 1.07%")

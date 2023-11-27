@@ -1,4 +1,4 @@
-import FirebaseCrashlytics
+import Firebase
 import LocalAuthentication
 import SwiftUI
 import UIKit

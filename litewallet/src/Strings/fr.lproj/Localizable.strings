@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Montant à donner:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Frais de réseau :";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "Temps de traitement: le traitement de ces transactions prendra %1$@ minutes.";
 
@@ -1449,3 +1446,12 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Frais: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Frais: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Frais:";

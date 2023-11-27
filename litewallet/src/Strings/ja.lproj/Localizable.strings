@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "寄付金額：";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "ネットワーク手数料：";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "処理時間：これらのトランザクションの処理には ％1$@ 分かかります。";
 
@@ -1449,3 +1446,13 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "手数料: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "料金: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "料金:";
+ 
