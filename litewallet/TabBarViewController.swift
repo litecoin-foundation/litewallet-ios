@@ -14,7 +14,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	private let largeFontSize: CGFloat = 24.0
 	private let smallFontSize: CGFloat = 12.0
 	private var hasInitialized = false
-	private var didLoginLitecoinCardAccount = false
 	private let dateFormatter = DateFormatter()
 	private let equalsLabel = UILabel(font: .barlowMedium(size: 12), color: .whiteTint)
 	private var regularConstraints: [NSLayoutConstraint] = []
