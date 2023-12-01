@@ -8,8 +8,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
-	/// FIXME: - Waiting for Pusher to respond:  https://github.com/pusher/push-notifications-swift/issues/187
-	/// let pushNotifications = PushNotifications.shared
+	// FIXME: - Waiting for Pusher to respond:  https://github.com/pusher/push-notifications-swift/issues/187
+	// let pushNotifications = PushNotifications.shared
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
