@@ -28,27 +28,14 @@ struct Partner {
 	static func partnerKeyPath(name: PartnerName) -> String {
 		/// Switch the config file based on the environment
 		var filePath: String
-		#if Release
 
-			// Loads the release Partner Keys config file.
-			guard let releasePath = Bundle.main.path(forResource: "partner-keys",
-			                                         ofType: "plist")
-			else {
-				return "ERROR: FILE-NOT-FOUND"
-			}
-			filePath = releasePath
-		#else
-
-			// Loads the debug Partner Keys config file.
-			guard let debugPath = Bundle.main.path(forResource: "debug-partner-keys",
-			                                       ofType: "plist")
-			else {
-				return "ERROR: FILE-NOT-FOUND"
-			}
-
-			filePath = debugPath
-
-		#endif
+		// Loads the release Partner Keys config file.
+		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
+		                                         ofType: "plist")
+		else {
+			return "ERROR: FILE-NOT-FOUND"
+		}
+		filePath = releasePath
 
 		switch name {
 		case .infura:

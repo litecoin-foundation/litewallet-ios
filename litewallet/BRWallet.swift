@@ -83,20 +83,14 @@ class BRWallet {
 		return BRWalletFeeForTxAmount(cPtr, amount)
 	}
 
-	func feeForOps(amount: UInt64) -> UInt64 {
-		let tfee = tieredOpsFee(amount: amount)
-		print("::: Tiered \(tfee)")
-		return tfee
-	}
-
 	// returns an unsigned transaction that sends the specified amount from the wallet to the given address
 	func createTransaction(forAmount: UInt64, toAddress: String) -> BRTxRef? {
 		return BRWalletCreateTransaction(cPtr, forAmount, toAddress)
 	}
 
-	// returns an unsigned transaction that satisifes the given transaction outputs
-	func createTxForOutputs(_ outputs: [BRTxOutput]) -> BRTxRef {
-		return BRWalletCreateTxForOutputs(cPtr, outputs, outputs.count)
+	// returns an unsigned transaction that sends the specified amount from the wallet to the given address
+	func createOpsTransaction(forAmount: UInt64, toAddress: String, opsFee: UInt64, opsAddress: String) -> BRTxRef? {
+		return BRWalletCreateOpsTransaction(cPtr, forAmount, toAddress, opsFee, opsAddress)
 	}
 
 	// signs any inputs in tx that can be signed using private keys from the wallet

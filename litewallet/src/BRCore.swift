@@ -86,24 +86,23 @@ public func charInt8ToString(charArray: (CChar, CChar, CChar, CChar, CChar, CCha
 /// Converts String to CChar
 /// - Parameter String
 /// - Returns: characterArray: [CChar]
-public func stringToCharArray(addressString: String) -> [UInt8] {
+public func stringToCharArray(addressString: String) -> [CChar] {
 	let arrayLength = 75
 
-	var charArray = [UInt8]()
+	var charArray = [CChar]()
 
 	let stringArray = Array(addressString)
 
-	for index in 0 ... arrayLength {
-		if stringArray.count > index {
-			charArray.append(0)
+	for index in 0 ... arrayLength - 1 {
+		if index < stringArray.count {
+			let value = Int8(stringArray[index]
+				.unicodeScalars
+				.map { $0.value }.reduce(0, +))
+			charArray.append(CChar(value))
 		} else {
-			let value = UInt8(stringArray[index].unicodeScalars.map { $0.value }.reduce(0, +))
-			charArray.append(value)
+			charArray.append(0)
 		}
-		print(":::  chara \(charArray)")
 	}
-
-	print(":::  chara FINAL \(charArray)")
 
 	return charArray
 }

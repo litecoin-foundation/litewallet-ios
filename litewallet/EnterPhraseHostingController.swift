@@ -5,7 +5,7 @@ class EnterPhraseHostingController: UIHostingController<EnterPhraseView> {
 	//    EnterPhraseViewController(store: myself.store, walletManager: myself.walletManager, reason: .setSeed(myself.pushPinCreationViewForRecoveredWallet))
 
 	//    private let enterPhrase: EnterPhraseCollectionViewController
-	//    private let errorLabel = UILabel.wrapping(font: .customBody(size: 16.0), color: .cameraGuideNegative)
+	//    private let errorLabel = UILabel.wrapping(font: .customBody(size: 16.0), color: .litecoinOrange)
 	//    private let instruction = UILabel(font: .customBold(size: 14.0), color: .darkText)
 	//    internal let titleLabel = UILabel.wrapping(font: .customBold(size: 26.0), color: .darkText)
 	//    private let subheader = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
