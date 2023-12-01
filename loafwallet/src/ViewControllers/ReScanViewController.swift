@@ -3,7 +3,7 @@ import UIKit
 class ReScanViewController: UIViewController, Subscriber {
 	init(store: Store) {
 		self.store = store
-		faq = .buildFaqButton(store: store, articleId: ArticleIds.reScan)
+		faq = .buildFaqButton(store: store, articleId: ArticleIds.nothing)
 		super.init(nibName: nil, bundle: nil)
 	}
 

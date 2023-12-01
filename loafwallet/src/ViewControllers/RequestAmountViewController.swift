@@ -238,7 +238,7 @@ class RequestAmountViewController: UIViewController {
 
 extension RequestAmountViewController: ModalDisplayable {
 	var faqArticleId: String? {
-		return ArticleIds.requestAmount
+		return ArticleIds.nothing
 	}
 
 	var modalTitle: String {

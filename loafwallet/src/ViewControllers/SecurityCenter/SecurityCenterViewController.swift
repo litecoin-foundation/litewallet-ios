@@ -25,7 +25,7 @@ class SecurityCenterViewController: UIViewController, Subscriber {
 	init(store: Store, walletManager: WalletManager) {
 		self.store = store
 		self.walletManager = walletManager
-		header = ModalHeaderView(title: S.SecurityCenter.title.localize(), style: .light, faqInfo: (store, ArticleIds.securityCenter))
+		header = ModalHeaderView(title: S.SecurityCenter.title.localize(), style: .light, faqInfo: (store, ArticleIds.nothing))
 
 		if #available(iOS 11.0, *) {
 			shield.tintColor = UIColor(named: "labelTextColor")

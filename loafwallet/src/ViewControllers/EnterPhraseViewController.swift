@@ -14,7 +14,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		self.store = store
 		self.walletManager = walletManager
 		enterPhrase = EnterPhraseCollectionViewController(walletManager: walletManager)
-		faq = UIButton.buildFaqButton(store: store, articleId: ArticleIds.recoverWallet)
+		faq = UIButton.buildFaqButton(store: store, articleId: ArticleIds.nothing)
 		self.reason = reason
 
 		switch reason {
@@ -145,7 +145,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 			instruction.isHidden = true
 			moreInfoButton.setTitle(S.RecoverWallet.resetPinInfo.localize(), for: .normal)
 			moreInfoButton.tap = { [weak self] in
-				self?.store.trigger(name: .presentFaq(ArticleIds.resetPinWithPaperKey))
+				self?.store.trigger(name: .presentFaq(ArticleIds.nothing))
 			}
 			faq.isHidden = true
 		case .validateForWipingWallet:
