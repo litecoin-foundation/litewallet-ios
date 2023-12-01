@@ -7,7 +7,7 @@ class WalletDisabledView: UIView {
 
 	init(store: Store) {
 		self.store = store
-		faq = UIButton.buildFaqButton(store: store, articleId: ArticleIds.walletDisabled)
+		faq = UIButton.buildFaqButton(store: store, articleId: ArticleIds.nothing)
 		blur = UIVisualEffectView()
 		super.init(frame: .zero)
 		setup()
