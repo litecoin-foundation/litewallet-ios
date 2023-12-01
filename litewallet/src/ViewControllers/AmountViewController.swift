@@ -3,6 +3,36 @@ import UIKit
 private let currencyToggleConstant: CGFloat = 20.0
 private let amountFont: UIFont = UIFont.barlowMedium(size: 14.0)
 class AmountViewController: UIViewController, Trackable {
+	private let store: Store
+	private let isPinPadExpandedAtLaunch: Bool
+	private let isRequesting: Bool
+	var minimumFractionDigits = 2
+	private var hasTrailingDecimal = false
+	private var pinPadHeight: NSLayoutConstraint?
+	private var feeSelectorHeight: NSLayoutConstraint?
+	private var feeSelectorTop: NSLayoutConstraint?
+	private var placeholder = PaddingLabel(font: amountFont, color: .grayTextTint)
+	private var amountLabel = UILabel(font: amountFont, color: .darkText)
+	private let pinPad: PinPadViewController
+	private let currencyToggle: ShadowButton
+	private let border = UIView(color: .secondaryShadow)
+	private let bottomBorder = UIView(color: .secondaryShadow)
+	private let cursor = BlinkingView(blinkColor: C.defaultTintColor)
+	private let balanceLabel = UILabel()
+	private let feeLabel = UILabel()
+	private let feeContainer = InViewAlert(type: .secondary)
+	private let tapView = UIView()
+	private let editFee = UIButton(type: .system)
+	private let feeSelector: FeeSelector
+
+	private var amount: Satoshis? {
+		didSet {
+			updateAmountLabel()
+			updateBalanceLabel()
+			didUpdateAmount?(amount)
+		}
+	}
+
 	init(store: Store,
 	     isPinPadExpandedAtLaunch: Bool,
 	     hasAcceptedFees _: Bool,
@@ -50,36 +80,6 @@ class AmountViewController: UIViewController, Trackable {
 	func expandPinPad() {
 		if pinPadHeight?.constant == 0.0 {
 			togglePinPad()
-		}
-	}
-
-	private let store: Store
-	private let isPinPadExpandedAtLaunch: Bool
-	private let isRequesting: Bool
-	var minimumFractionDigits = 2
-	private var hasTrailingDecimal = false
-	private var pinPadHeight: NSLayoutConstraint?
-	private var feeSelectorHeight: NSLayoutConstraint?
-	private var feeSelectorTop: NSLayoutConstraint?
-	private var placeholder = PaddingLabel(font: amountFont, color: .grayTextTint)
-	private var amountLabel = UILabel(font: amountFont, color: .darkText)
-	private let pinPad: PinPadViewController
-	private let currencyToggle: ShadowButton
-	private let border = UIView(color: .secondaryShadow)
-	private let bottomBorder = UIView(color: .secondaryShadow)
-	private let cursor = BlinkingView(blinkColor: C.defaultTintColor)
-	private let balanceLabel = UILabel()
-	private let feeLabel = UILabel()
-	private let feeContainer = InViewAlert(type: .secondary)
-	private let tapView = UIView()
-	private let editFee = UIButton(type: .system)
-	private let feeSelector: FeeSelector
-
-	private var amount: Satoshis? {
-		didSet {
-			updateAmountLabel()
-			updateBalanceLabel()
-			didUpdateAmount?(amount)
 		}
 	}
 

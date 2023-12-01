@@ -3,7 +3,8 @@ import UIKit
 
 class ConfirmationViewController: UIViewController, ContentBoxPresenter {
 	init(amount: Satoshis,
-	     fee: Satoshis,
+	     txFee: Satoshis,
+	     opsFee: Satoshis,
 	     feeType: FeeType,
 	     state: ReduxState,
 	     selectedRate: Rate?,
@@ -11,7 +12,8 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter {
 	     address: String, isUsingBiometrics: Bool, isDonation _: Bool = false)
 	{
 		self.amount = amount
-		feeAmount = fee
+		self.txFee = txFee
+		self.opsFee = opsFee
 		self.feeType = feeType
 		self.state = state
 		self.selectedRate = selectedRate
@@ -24,7 +26,8 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter {
 	}
 
 	private let amount: Satoshis
-	private let feeAmount: Satoshis
+	private let txFee: Satoshis
+	private let opsFee: Satoshis
 	private let feeType: FeeType
 	private let state: ReduxState
 	private let selectedRate: Rate?
@@ -183,8 +186,8 @@ class ConfirmationViewController: UIViewController, ContentBoxPresenter {
 		}
 
 		let displayAmount = DisplayAmount(amount: amount, state: state, selectedRate: selectedRate, minimumFractionDigits: 2)
-		let displayFee = DisplayAmount(amount: feeAmount, state: state, selectedRate: selectedRate, minimumFractionDigits: 2)
-		let displayTotal = DisplayAmount(amount: amount + feeAmount, state: state, selectedRate: selectedRate, minimumFractionDigits: 2)
+		let displayFee = DisplayAmount(amount: txFee + opsFee, state: state, selectedRate: selectedRate, minimumFractionDigits: 2)
+		let displayTotal = DisplayAmount(amount: amount + txFee + opsFee, state: state, selectedRate: selectedRate, minimumFractionDigits: 2)
 
 		toLabel.text = S.Confirmation.to.localize()
 		feeLabel.text = S.Send.feeBlank.localize()

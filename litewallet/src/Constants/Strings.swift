@@ -71,9 +71,9 @@ enum S {
 		static let cameraUnavailableTitle = Localization(key: "Send.cameraUnavailableTitle", value: "**Litewallet is not allowed to access the camera**", comment: "Camera not allowed alert title")
 		static let cameraUnavailableMessage = Localization(key: "Send.cameraunavailableMessage", value: "**Go to Settings to allow camera access.**", comment: "Camera not allowed message")
 		static let balance = Localization(key: "Send.balance", value: "**Balance: %1$@**", comment: "Balance: $4.00")
-		static let fee = Localization(key: "Send.fees", value: "**Fees: %1$@**", comment: "Fees: $0.10")
-		static let feeBlank = Localization(key: "Send.feeBlank", value: "**Fees:**", comment: "Fees: ")
-		static let bareFee = Localization(key: "Send.fee", value: "**Fee: %1$@**", comment: "Fee: $0.01")
+		static let fee = Localization(key: "Send.fees", value: "Fees: %1$@", comment: "Fees: $0.10")
+		static let feeBlank = Localization(key: "Send.feeBlank", value: "Fees:", comment: "Fees: ")
+		static let bareFee = Localization(key: "Send.fee", value: "Fee: %1$@", comment: "Fee: $0.01")
 		static let containsAddress = Localization(key: "Send.containsAddress", value: "**The destination is your own address. You cannot send to yourself.**", comment: "Warning when sending to self.")
 		enum UsedAddress {
 			static let title = Localization(key: "Send.UsedAddress.title", value: "**Address Already Used**", comment: "Adress already used alert title")

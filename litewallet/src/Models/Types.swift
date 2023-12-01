@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-// MARK: - Satishis
+// MARK: - Satoshis
 
 struct Satoshis {
 	let rawValue: UInt64
