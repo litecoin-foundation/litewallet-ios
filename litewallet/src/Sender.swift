@@ -83,23 +83,6 @@ class Sender {
 		else {
 			return completion(.creationError(S.Send.createTransactionError.localize()))
 		}
-//
-//		if !hasActivatedInlineFees {}
-//		else {
-		//            let opsFee = tieredOpsFee(amount: transaction?.outputs.)
-//
-		//            createTransaction(amount: opsFee, to: Partner.partnerKeyPath(name: .litewalletOps))
-//		}
-		////
-//		//        }
-//
-//		print(tx.outputs)
-//
-		////		let fee = tx.addOutput(amount: <#T##UInt64#>, script: T##[UInt8])
-		////
-		////		(amount: <#T##UInt64#>, script: <#T##[UInt8]#>)
-		////
-		////		addOutput
 
 		self.rate = rate
 		self.comment = comment

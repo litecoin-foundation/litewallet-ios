@@ -2,7 +2,7 @@ import FirebaseAnalytics
 import Foundation
 
 // this is the default that matches the mobile-api if the server is unavailable
-private let defaultEconomyFeePerKB: UInt64 = 2500 // From legacy minimum. default min is 1000 as Litecoin Core version v0.17.1
+private let defaultEconomyFeePerKB: UInt64 = 8000 // Updated Dec 2, 2024
 private let defaultRegularFeePerKB: UInt64 = 25000
 private let defaultLuxuryFeePerKB: UInt64 = 66746
 private let defaultTimestamp: UInt64 = 1_583_015_199_122
@@ -49,7 +49,8 @@ class FeeUpdater: Trackable {
 		walletManager.apiClient?.feePerKb { newFees, error in
 			guard error == nil
 			else {
-				let properties: [String: String] = ["ERROR_MESSAGE": String(describing: error), "ERROR_TYPE": "FEE_PER_KB"]
+				let properties: [String: String] = ["ERROR_MESSAGE": String(describing: error),
+				                                    "ERROR_TYPE": "FEE_PER_KB"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 				completion()
 				return
@@ -65,7 +66,10 @@ class FeeUpdater: Trackable {
 		}
 
 		if timer == nil {
-			timer = Timer.scheduledTimer(timeInterval: feeUpdateInterval, target: self, selector: #selector(intervalRefresh), userInfo: nil, repeats: true)
+			timer = Timer.scheduledTimer(timeInterval: feeUpdateInterval,
+			                             target: self,
+			                             selector: #selector(intervalRefresh),
+			                             userInfo: nil, repeats: true)
 		}
 	}
 

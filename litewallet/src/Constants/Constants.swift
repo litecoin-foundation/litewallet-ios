@@ -3,6 +3,7 @@ import UIKit
 let π: CGFloat = .pi
 let customUserAgent: String = "litewallet-ios"
 let litecoinCardURL: String = "https://litecoin.dashboard.getblockcard.com/"
+let swiftUICellPadding = 12.0
 
 /// Sets tthe wallet type, the image and the label
 enum WalletType: String {
