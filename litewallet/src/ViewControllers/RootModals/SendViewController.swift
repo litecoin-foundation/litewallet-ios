@@ -65,8 +65,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let memoCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel.localize())
 	private var sendButtonCell = SendButtonHostingController()
 	private let currency: ShadowButton
-	private let currencyBorder = UIView(color: .secondaryShadow)
-	private var pinPadHeightConstraint: NSLayoutConstraint?
 	private var balance: UInt64 = 0
 	private var amount: Satoshis?
 	private var didIgnoreUsedAddressWarning = false
@@ -189,40 +187,60 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 	}
 
+	/// Settng the balance text label
+	/// - Parameters:
+	///   - amount: amount in Satoshis (Litoshis)
+	///   - rate: Fiat to Litecoin conversion
+	/// - Returns: Tuple of NSAttributedStrings
 	private func balanceTextForAmount(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?)
 	{
-		let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
+		let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance),
+		                                  state: store.state,
+		                                  selectedRate: rate,
+		                                  minimumFractionDigits: 2)
+
 		let balanceText = balanceAmount.description
 
 		let balanceOutput = String(format: S.Send.balance.localize(), balanceText)
 		var feeOutput = ""
-		var color: UIColor = .grayTextTint
+		var balanceColor: UIColor = .grayTextTint
 
+		/// Check the amount is greater than zero and if user is opting out of fees
 		if let amount = amount, amount > 0 {
-			let fee = sender.feeForTx(amount: amount.rawValue + tieredOpsFee(amount: amount.rawValue))
-			let feeAmount = DisplayAmount(amount: Satoshis(rawValue: fee + tieredOpsFee(amount: amount.rawValue)), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
+			let feeAmount = hasActivatedInlineFees ?
+				(amount.rawValue + tieredOpsFee(amount: amount.rawValue)) : amount.rawValue
+			let fee = sender.feeForTx(amount: feeAmount)
+			let feeAmountLabel = DisplayAmount(amount: Satoshis(rawValue: fee),
+			                                   state: store.state,
+			                                   selectedRate: rate,
+			                                   minimumFractionDigits: 2)
 
-			let feeText = feeAmount.description.replacingZeroFeeWithTenCents()
+			let feeText = feeAmountLabel.description.replacingZeroFeeWithTenCents()
 
-			feeOutput = hasActivatedInlineFees ? String(format: S.Send.fee.localize(), feeText) : String(format: S.Send.bareFee.localize(), feeText)
+			feeOutput = hasActivatedInlineFees ?
+				String(format: S.Send.fee.localize(), feeText) :
+				String(format: S.Send.bareFee.localize(), feeText)
+
 			if balance >= fee, amount.rawValue > (balance - fee) {
-				color = .cameraGuideNegative
+				balanceColor = .litecoinOrange
 			}
 		}
 
-		let balanceAttributes: [NSAttributedString.Key: Any] = [
+		let balanceStyle = [
 			NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
-			NSAttributedString.Key.foregroundColor: color,
+			NSAttributedString.Key.foregroundColor: balanceColor,
 		]
 
-		let feeAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
-			NSAttributedString.Key.foregroundColor: UIColor.grayTextTint,
-		]
+		let balanceAttributes: [NSAttributedString.Key: Any] = balanceStyle
+		let feeAttributes: [NSAttributedString.Key: Any] = balanceStyle
 
-		return (NSAttributedString(string: balanceOutput, attributes: balanceAttributes), NSAttributedString(string: feeOutput, attributes: feeAttributes))
+		return (NSAttributedString(string: balanceOutput,
+		                           attributes: balanceAttributes),
+		        NSAttributedString(string: feeOutput,
+		                           attributes: feeAttributes))
 	}
 
+	/// User taps button  to use pasteboard to paste ltc address
 	@objc private func pasteTapped() {
 		guard let pasteboard = UIPasteboard.general.string, !pasteboard.utf8.isEmpty
 		else {
@@ -238,6 +256,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		handleRequest(request)
 	}
 
+	/// User taps button  to scan QR code to get ltc address
 	@objc private func scanTapped() {
 		memoCell.textView.resignFirstResponder()
 
@@ -253,13 +272,24 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	@objc private func sendTapped() {
 		let sendAddress = sendAddressCell.rootView.viewModel.addressString
 
+		let showAlertNoAmount: () = showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAmount.localize(), buttonLabel: S.Button.ok.localize())
+		let showAlertContainsAddress: () = showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.containsAddress.localize(), buttonLabel: S.Button.ok.localize())
+		let showAlertInsufficientFunds: () = showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.insufficientFunds.localize(), buttonLabel: S.Button.ok.localize())
+		let showAlertCreateTxError: () = showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
+
 		if sender.transaction == nil {
+			/// Checks amount value
 			guard var amount = amount
 			else {
-				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAmount.localize(), buttonLabel: S.Button.ok.localize())
+				return showAlertNoAmount
 			}
 
-			amount = amount + Satoshis(rawValue: tieredOpsFee(amount: amount.rawValue))
+			let opsFeeAmount = Satoshis(rawValue: tieredOpsFee(amount: amount.rawValue))
+
+			/// Set fees
+			if hasActivatedInlineFees {
+				amount = amount + opsFeeAmount
+			}
 
 			if let minOutput = walletManager.wallet?.minOutputAmount {
 				guard amount.rawValue >= minOutput
@@ -269,25 +299,30 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 					return showAlert(title: S.LitewalletAlert.error.localize(), message: message, buttonLabel: S.Button.ok.localize())
 				}
 			}
+
+			/// Checks address
 			guard !(walletManager.wallet?.containsAddress(sendAddress) ?? false)
 			else {
-				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.containsAddress.localize(), buttonLabel: S.Button.ok.localize())
+				return showAlertContainsAddress
 			}
 			guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0)
 			else {
-				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.insufficientFunds.localize(), buttonLabel: S.Button.ok.localize())
+				return showAlertInsufficientFunds
 			}
 
-//			guard sender.createTransaction(amount: amount.rawValue, to: sendAddress)
-//			else {
-//				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
-//			}
-
-			guard sender.createTransactionWithOutputs(amount: amount.rawValue, to: sendAddress,
-			                                          hasAcceptedFees: hasActivatedInlineFees,
-			                                          fees: tieredOpsFee(amount: amount.rawValue))
-			else {
-				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.createTransactionError.localize(), buttonLabel: S.Button.ok.localize())
+			/// Set Outputs based on Ops
+			if hasActivatedInlineFees {
+				guard sender.createTransactionWithOpsOutputs(amount: amount.rawValue,
+				                                             to: sendAddress)
+				else {
+					return showAlertCreateTxError
+				}
+			} else {
+				guard sender.createTransaction(amount: amount.rawValue,
+				                               to: sendAddress)
+				else {
+					return showAlertCreateTxError
+				}
 			}
 
 		} else {
@@ -300,6 +335,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			return
 		}
 
+		/// Confirming Transaction
 		let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(rawValue: sender.fee + tieredOpsFee(amount: amount.rawValue)), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: sendAddress, isUsingBiometrics: sender.canUseBiometrics)
 
 		confirm.successCallback = {
@@ -489,7 +525,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 extension SendViewController: ModalDisplayable {
 	var faqArticleId: String? {
-		return ArticleIds.sendBitcoin
+		return ArticleIds.nothing
 	}
 
 	var modalTitle: String {

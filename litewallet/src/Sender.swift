@@ -48,18 +48,13 @@ class Sender {
 		return transaction != nil
 	}
 
-	func createTransactionWithOutputs(amount _: UInt64,
-	                                  to _: String,
-	                                  hasAcceptedFees _: Bool,
-	                                  fees _: UInt64) -> Bool
+	func createTransactionWithOpsOutputs(amount: UInt64,
+	                                     to: String) -> Bool
 	{
-		let chars = stringToCharArray(addressString: Partner.partnerKeyPath(name: .litewalletOps))
-
-		print("::: \(chars)")
-		//        transaction = walletManager.wallet?.createTxForOutputs(<#T##outputs: [BRTxOutput]##[BRTxOutput]#>)
-//
-		//        createTransaction(forAmount: amount, toAddress: to)
-//
+		transaction = walletManager.wallet?.createOpsTransaction(forAmount: amount,
+		                                                         toAddress: to,
+		                                                         opsFee: tieredOpsFee(amount: amount),
+		                                                         opsAddress: Partner.partnerKeyPath(name: .litewalletOps))
 
 		return transaction != nil
 	}
