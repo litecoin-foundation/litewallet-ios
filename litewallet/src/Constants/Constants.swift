@@ -138,6 +138,9 @@ enum CustomEvent: String {
 
 	/// User Tapped on  UD Image
 	case _20220822_UTOU = "user_tapped_on_ud"
+
+	/// User registered Pusher interest
+	case _20231202_RIGI = "registered_ios_general_interest"
 }
 
 struct FoundationSupport {

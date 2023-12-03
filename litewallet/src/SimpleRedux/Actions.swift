@@ -209,15 +209,6 @@ enum MaxDigits {
 	}
 }
 
-enum PushNotifications {
-	struct setIsEnabled: Action {
-		let reduce: Reducer
-		init(_ isEnabled: Bool) {
-			reduce = { $0.clone(isPushNotificationsEnabled: isEnabled) }
-		}
-	}
-}
-
 enum biometricsActions {
 	struct setIsPrompting: Action {
 		let reduce: Reducer
