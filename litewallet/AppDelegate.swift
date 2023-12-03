@@ -8,8 +8,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
-	// FIXME: - Waiting for Pusher to respond:  https://github.com/pusher/push-notifications-swift/issues/187
-	// let pushNotifications = PushNotifications.shared
+	let pushNotifications = PushNotifications.shared
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
@@ -37,7 +36,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		Bundle.setLanguage(UserDefaults.selectedLanguage)
 
-		// "bbac5210-989c-49d5-a336-ae1eaf81e586"
+		// Pusher
+		pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
+		pushNotifications.registerForRemoteNotifications()
+
+		let generaliOSInterest = "general-ios"
+		let debugGeneraliOSInterest = "debug-general-ios"
+
+		try? pushNotifications
+			.addDeviceInterest(interest: generaliOSInterest)
+		try? pushNotifications
+			.addDeviceInterest(interest: debugGeneraliOSInterest)
+
+		let interests = pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
+		let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
+		let interestesDict: [String: String] = ["device_id": device,
+		                                        "pusher_interests": interests]
+
+		LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI, properties: interestesDict)
 
 		return true
 	}
@@ -79,6 +95,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_: UIApplication, shouldRestoreApplicationState _: NSCoder) -> Bool {
 		return true
+	}
+
+	func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		pushNotifications.registerDeviceToken(deviceToken)
+	}
+
+	func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void) {
+		pushNotifications.handleNotification(userInfo: userInfo)
 	}
 
 	/// Sets the correct Google Services  plist file
