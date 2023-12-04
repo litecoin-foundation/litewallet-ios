@@ -83,6 +83,18 @@ class StartFlowPresenter: Subscriber {
 		}
 	}
 
+//	private func presentStartFlow() {
+//		let startHostingController = StartHostingController(store: store) {
+//			//
+//		} didTapRecover: {
+//			///
+//		}
+//
+//		navigationController = ModalNavigationController(rootViewController: startHostingController)
+//		navigationController?.delegate = navigationControllerDelegate
+//		navigationController?.modalPresentationStyle = .fullScreen
+//	}
+
 	private var pushRecoverWalletView: () -> Void {
 		return { [weak self] in
 			guard let myself = self else { return }

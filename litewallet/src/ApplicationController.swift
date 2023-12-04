@@ -1,10 +1,10 @@
 import StoreKit
 import UIKit
 
-private let timeSinceLastExitKey = "TimeSinceLastExit"
-private let shouldRequireLoginTimeoutKey = "ShouldRequireLoginTimeoutKey"
-private let numberOfLitewalletLaunches = "NumberOfLitewalletLaunches"
-private let LITEWALLET_APP_STORE_ID = 1_119_332_592
+let timeSinceLastExitKey = "TimeSinceLastExit"
+let shouldRequireLoginTimeoutKey = "ShouldRequireLoginTimeoutKey"
+let numberOfLitewalletLaunches = "NumberOfLitewalletLaunches"
+let LITEWALLET_APP_STORE_ID = 1_119_332_592
 
 class ApplicationController: Subscriber, Trackable {
 	// Ideally the window would be private, but is unfortunately required
@@ -149,10 +149,6 @@ class ApplicationController: Subscriber, Trackable {
 		walletManager?.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
 	}
 
-	func performFetch(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		fetchCompletionHandler = completionHandler
-	}
-
 	func open(url: URL) -> Bool {
 		if let urlController = urlController {
 			return urlController.handleUrl(url)
@@ -202,9 +198,6 @@ class ApplicationController: Subscriber, Trackable {
 					self?.performBackgroundFetch()
 				}
 			}
-			exchangeUpdater?.refresh(completion: {
-				// Update values
-			})
 		}
 	}
 
@@ -213,31 +206,6 @@ class ApplicationController: Subscriber, Trackable {
 		let timeout = UserDefaults.standard.double(forKey: shouldRequireLoginTimeoutKey)
 		let now = Date().timeIntervalSince1970
 		return now - then > timeout
-	}
-
-	private func setupDefaults() {
-		if UserDefaults.standard.object(forKey: shouldRequireLoginTimeoutKey) == nil {
-			UserDefaults.standard.set(60.0 * 3.0, forKey: shouldRequireLoginTimeoutKey) // Default 3 min timeout
-		}
-	}
-
-	private func countLaunches() {
-		if var launchNumber = UserDefaults.standard.object(forKey: numberOfLitewalletLaunches) as? Int {
-			launchNumber += 1
-			UserDefaults.standard.set(NSNumber(value: launchNumber), forKey: numberOfLitewalletLaunches)
-			if launchNumber == 5 {
-				SKStoreReviewController.requestReview()
-
-				SKStoreReviewController.requestReviewInCurrentScene()
-
-				// iOSAppStoreURLFormat = @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d";
-				// [NSURL URLWithString:[NSString stringWithFormat:([[UIDevice currentDevice].systemVersion floatValue] >= 7.0f)? iOS7AppStoreURLFormat: iOSAppStoreURLFormat, YOUR_APP_STORE_ID]]; // Would contain the right link
-
-				LWAnalytics.logEventWithParameters(itemName: ._20200125_DSRR)
-			}
-		} else {
-			UserDefaults.standard.set(NSNumber(value: 1), forKey: numberOfLitewalletLaunches)
-		}
 	}
 
 	private func setupRootViewController() {
@@ -251,9 +219,6 @@ class ApplicationController: Subscriber, Trackable {
 		feeUpdater?.refresh()
 		defaultsUpdater?.refresh()
 		walletManager?.apiClient?.events?.up()
-		exchangeUpdater?.refresh(completion: {
-			// Update values
-		})
 	}
 
 	private func addWalletCreationListener() {
@@ -339,10 +304,4 @@ class ApplicationController: Subscriber, Trackable {
 			self.fetchCompletionHandler = nil
 		}
 	}
-
-	func willResignActive()
-	{}
 }
-
-extension ApplicationController
-{}
