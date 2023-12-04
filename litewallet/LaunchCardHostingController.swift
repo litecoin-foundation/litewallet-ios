@@ -1,14 +1,10 @@
 import Foundation
 import SwiftUI
 
-class StartHostingController: UIHostingController<StartView> {
-	var viewModel = StartViewModel(store: Store())
-	let contentView = StartView()
+class LaunchCardHostingController: UIHostingController<LaunchView> {
+	var contentView = LaunchView()
 
-	// MARK: - Private
-
-	init(store: Store) {
-		viewModel.store = store
+	init() {
 		super.init(rootView: contentView)
 	}
 

@@ -117,13 +117,14 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 					self.tempLoginView.view.constrain(toSuperviewEdges: nil)
 				})
 			} else {
-				let startView = StartViewController(store: self.store, didTapCreate: {}, didTapRecover: {})
-				self.addChildViewController(startView, layout: {
-					startView.view.constrain(toSuperviewEdges: nil)
-					startView.view.isUserInteractionEnabled = false
+				// Adds a card view before thread finishes
+				let launchView = LaunchCardHostingController()
+				self.addChildViewController(launchView, layout: {
+					launchView.view.constrain(toSuperviewEdges: nil)
+					launchView.view.isUserInteractionEnabled = false
 				})
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-					startView.remove()
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+					launchView.remove()
 				}
 			}
 		}
