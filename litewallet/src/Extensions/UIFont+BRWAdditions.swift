@@ -1,3 +1,4 @@
+import SwiftUI
 import UIKit
 
 extension UIFont {
@@ -53,5 +54,31 @@ extension UIFont {
 			.font: UIFont.customBold(size: 14.0),
 			.foregroundColor: UIColor.darkText,
 		]
+	}
+}
+
+extension Font {
+	static func barlowSemiBold(size: CGFloat) -> Font {
+		return Font.custom("BarlowSemiCondensed-SemiBold", size: size)
+	}
+
+	static func barlowBold(size: CGFloat) -> Font {
+		return Font.custom("BarlowSemiCondensed-Bold", size: size)
+	}
+
+	static func barlowItalic(size: CGFloat) -> Font {
+		return Font.custom("BarlowSemiCondensed-Italic", size: size)
+	}
+
+	static func barlowMedium(size: CGFloat) -> Font {
+		return Font.custom("BarlowSemiCondensed-Medium", size: size)
+	}
+
+	static func barlowRegular(size: CGFloat) -> Font {
+		return Font.custom("BarlowSemiCondensed-Regular", size: size)
+	}
+
+	static func barlowLight(size: CGFloat) -> Font {
+		return Font.custom("BarlowSemiCondensed-Light", size: size)
 	}
 }

@@ -1,3 +1,4 @@
+import SwiftUI
 import UIKit
 
 extension UIColor {
@@ -150,8 +151,22 @@ extension UIColor {
 	static var blueGradientEnd: UIColor {
 		return UIColor(red: 56.0 / 255.0, green: 141.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0)
 	}
+}
 
-	static var txListGreen: UIColor {
-		return UIColor(red: 0.0, green: 169.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0)
+extension Color {
+	static var litewalletBlue: Color { // 345D9D
+		return Color(#colorLiteral(red: 0.2039215686, green: 0.3647058824, blue: 0.6156862745, alpha: 1))
+	}
+
+	static var litewalletDarkBlue: Color { // 0C3475
+		return Color(#colorLiteral(red: 0.04705882353, green: 0.2039215686, blue: 0.4588235294, alpha: 1))
+	}
+
+	static var litewalletOrange: Color { // FE5F55
+		return Color(#colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.3333333333, alpha: 1))
+	}
+
+	static var litewalletGreen: Color { // 179E27
+		return Color(#colorLiteral(red: 0.09019607843, green: 0.6196078431, blue: 0.1529411765, alpha: 1))
 	}
 }

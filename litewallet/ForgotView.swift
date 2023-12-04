@@ -113,15 +113,3 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 		}
 	}
 }
-
-struct ForgotAlertView_Previews: PreviewProvider {
-	static var previews: some View {
-		VStack {
-			Spacer()
-			Text("")
-				.padding(.all, 10)
-				.forgotPasswordView(isShowingForgot: .constant(true), emailString: .constant("efef@sec.com"), message: "Forgot message")
-			Spacer()
-		}
-	}
-}
