@@ -74,11 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.willResignActive()
 	}
 
-	func application(_: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
-	{
-		applicationController.performFetch(completionHandler)
-	}
-
 	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool
 	{
 		return false // disable extensions such as custom keyboards for security purposes
@@ -97,11 +92,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 
+	/// Pusher Related funcs
 	func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 		pushNotifications.registerDeviceToken(deviceToken)
 	}
 
-	func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void) {
+	func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+	                 fetchCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void)
+	{
 		pushNotifications.handleNotification(userInfo: userInfo)
 	}
 
