@@ -1084,8 +1084,8 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "Ви востаннє записали свій паперовий ключ %1$@";
 
-/* Start view message */
-"StartViewController.message" = "Найбезпечніший і найбезпечніший спосіб використання Litecoin.";
+/* Start view tagline */
+"StartViewController.tagline" = "Найбезпечніший і найбезпечніший спосіб використання Litecoin.";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Підтримайте Litecoin Foundation";

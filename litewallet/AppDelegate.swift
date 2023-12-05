@@ -12,14 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
-		UINavigationBar.appearance().tintColor = .darkText
-
-		let appearance = UINavigationBarAppearance()
-		appearance.configureWithOpaqueBackground()
-		appearance.titleTextAttributes = [.foregroundColor: UIColor.darkText]
-		UINavigationBar.appearance().standardAppearance = appearance
-		UINavigationBar.appearance().scrollEdgeAppearance = appearance
-
 		setFirebaseConfiguration()
 
 		updateCurrentUserLocale(localeId: Locale.current.identifier)

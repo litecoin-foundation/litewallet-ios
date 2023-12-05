@@ -1080,9 +1080,9 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "あなたが最後に紙の鍵を書き留めたのは %1$@です";
-
-/* Start view message */
-"StartViewController.message" = "最も安全にリテコインを使う手段。";
+ 
+/* Start view tagline */
+"StartViewController.tagline" = "最も安全にリテコインを使う手段。";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Litecoin基金を支援する";

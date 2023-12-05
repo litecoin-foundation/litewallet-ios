@@ -547,7 +547,7 @@ enum S {
 	enum StartViewController {
 		static let createButton = Localization(key: "MenuViewController.createButton", value: "**Create New Wallet**", comment: "button label")
 		static let recoverButton = Localization(key: "MenuViewController.recoverButton", value: "**Recover Wallet**", comment: "button label")
-		static let message = Localization(key: "StartViewController.message", value: "**The most secure and safest way to use Litecoin.**", comment: "Start view message")
+		static let tagline = Localization(key: "StartViewController.tagline", value: "**The most secure and safest way to use Litecoin.**", comment: "Start view message")
 	}
 
 	enum AccessibilityLabels {

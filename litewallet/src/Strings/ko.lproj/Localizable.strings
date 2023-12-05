@@ -1081,8 +1081,8 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "%1$@에 마지막으로 페이퍼 키를 작성하셨습니다.";
 
-/* Start view message */
-"StartViewController.message" = "Litecoin을 사용하는 가장 안정되고 안전한 방법.";
+/* Start view tagline */
+"StartViewController.tagline" = "Litecoin을 사용하는 가장 안정되고 안전한 방법.";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "라이트 코인 재단 지원";

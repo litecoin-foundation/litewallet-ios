@@ -1083,9 +1083,9 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "您最近一次在 %1$@ 寫下了您的紙本金鑰";
-
-/* Start view message */
-"StartViewController.message" = "使用萊特幣最安全、最有保障的方式。";
+ 
+/* Start view tagline */
+"StartViewController.tagline" = "使用萊特幣最安全、最有保障的方式。";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "支持萊特幣基金會";
