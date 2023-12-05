@@ -1081,8 +1081,8 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "Hai annotato la tua chiave cartacea l'ultima volta il %1$@";
 
-/* Start view message */
-"StartViewController.message" = "Il modo più sicuro per usare i Litecoin.";
+/* Start view tagline */
+"StartViewController.tagline" = "Il modo più sicuro per usare i Litecoin.";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Sostenere la Fondazione Litecoin";

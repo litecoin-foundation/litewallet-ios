@@ -1081,8 +1081,8 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "Terakhir Anda menuliskan kunci kertas Anda di %1$@";
 
-/* Start view message */
-"StartViewController.message" = "Cara paling aman dan teraman untuk menggunakan Litecoin.";
+/* Start view tagline */
+"StartViewController.tagline" = "Cara paling aman dan teraman untuk menggunakan Litecoin.";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Dukung Yayasan Litecoin";

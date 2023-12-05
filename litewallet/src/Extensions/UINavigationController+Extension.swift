@@ -43,3 +43,15 @@ extension UINavigationController {
 		navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "Back")
 	}
 }
+
+extension UINavigationBarAppearance {
+	func setColor(title: UIColor? = nil, background: UIColor? = nil) {
+		configureWithTransparentBackground()
+		if let titleColor = title {
+			titleTextAttributes = [.foregroundColor: titleColor]
+		}
+		backgroundColor = background
+		UINavigationBar.appearance().scrollEdgeAppearance = self
+		UINavigationBar.appearance().standardAppearance = self
+	}
+}

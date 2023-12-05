@@ -775,8 +775,8 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "You last wrote down your paper key on %1$@";
 
-/* Start view message */
-"StartViewController.message" = "The most secure and safest way to use Litecoin.";
+/* Start view tagline */
+"StartViewController.tagline" = "The most secure and safest way to use Litecoin.";
 
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "Connecting";

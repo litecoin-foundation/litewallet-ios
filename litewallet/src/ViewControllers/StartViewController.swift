@@ -43,7 +43,6 @@ class StartViewController: UIViewController {
 	}
 
 	private func setData() {
-		message.text = S.StartViewController.message.localize()
 		message.lineBreakMode = .byWordWrapping
 		message.numberOfLines = 0
 		message.textAlignment = .center
