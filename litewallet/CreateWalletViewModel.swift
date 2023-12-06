@@ -8,5 +8,7 @@ class CreateWalletViewModel: ObservableObject {
 
 	// MARK: - Private Variables
 
+	@Published
+	var testValue: Bool = false
 	init() {}
 }
