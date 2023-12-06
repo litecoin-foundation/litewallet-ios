@@ -1,13 +1,17 @@
 import SwiftUI
+import UIKit
 
 struct CreateWalletView: View {
 	@ObservedObject
 	var createViewModel: CreateWalletViewModel
 
-	private let createStepsArray = [CreateStepView(createConfig: .intro, mainTitle: "Intro : Get Ready", backgroundColor: .yellow),
-	                                CreateStepView(createConfig: .checkboxes, mainTitle: "Join the Family", backgroundColor: .orange),
-	                                CreateStepView(createConfig: .seedPhrase, mainTitle: "Don't lose this!", backgroundColor: .litewalletDarkBlue),
-	                                CreateStepView(createConfig: .finished, mainTitle: "Done", backgroundColor: .litewalletGreen)]
+	@Environment(\.presentationMode)
+	var presentationMode: Binding<PresentationMode>
+
+	private let createStepsArray = [CreateStepView(createConfig: .intro),
+	                                CreateStepView(createConfig: .checkboxes),
+	                                CreateStepView(createConfig: .seedPhrase),
+	                                CreateStepView(createConfig: .finished)]
 	init(viewModel: CreateWalletViewModel) {
 		createViewModel = viewModel
 	}
@@ -19,13 +23,12 @@ struct CreateWalletView: View {
 
 			ZStack {
 				Color.litewalletBlue.edgesIgnoringSafeArea(.all)
-
-				LazyHStack {
+				HStack {
 					CreateStepTabView(stepViews: createStepsArray)
-						.frame(width: width * 0.9)
 				}
 			}
 		}
+		.environmentObject(createViewModel)
 	}
 }
 

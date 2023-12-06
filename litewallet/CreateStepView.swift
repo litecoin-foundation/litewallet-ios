@@ -1,23 +1,22 @@
 import SwiftUI
 
-enum CreateStepConfig {
-	case intro
-	case checkboxes
-	case seedPhrase
-	case finished
-}
-
 struct CreateStepView: View {
+	@EnvironmentObject
+	var createViewModel: CreateWalletViewModel
+
+	@State
+	private var shouldShowCheckbox = false
+
+	@State
+	private var shouldTest = false
+
 	var backgroundColor: Color = .litewalletDarkBlue
-	let mainTitle: String
-	let detailMessage: String = ""
-	let extendedMessage: String = ""
 	let createStepConfig: CreateStepConfig
 
-	init(createConfig: CreateStepConfig, mainTitle: String, backgroundColor: Color) {
+	let hugeFont = Font.barlowBold(size: 30.0)
+
+	init(createConfig: CreateStepConfig) {
 		createStepConfig = createConfig
-		self.mainTitle = mainTitle
-		self.backgroundColor = backgroundColor
 	}
 
 	var body: some View {
@@ -26,10 +25,16 @@ struct CreateStepView: View {
 				let height = geometry.size.height
 				let width = geometry.size.width
 
-				backgroundColor.edgesIgnoringSafeArea(.all)
+				createStepConfig.backgroundColor
+					.edgesIgnoringSafeArea(.all)
 
 				VStack {
-					Text(mainTitle)
+					Text("createStepConfig.mainTitle")
+						.font(hugeFont)
+					Text(createStepConfig.detailMessage)
+						.font(.subheadline)
+					Text(createStepConfig.extendedMessage)
+
 					Spacer()
 				}
 			}
@@ -38,5 +43,5 @@ struct CreateStepView: View {
 }
 
 #Preview {
-	CreateStepView(createConfig: .intro, mainTitle: "TEST TITLE", backgroundColor: .red)
+	CreateStepView(createConfig: .intro)
 }

@@ -2,21 +2,6 @@ import Foundation
 import SwiftUI
 
 extension View {
-	/// Forgot Password View Modal
-	/// - Parameters:
-	///   - isShowingForgot: Boolean to show/hide the modal
-	///   - emailString: Users email
-	///   - message: Message detail
-	/// - Returns: ForgotPasswordView
-
-	func forgotPasswordView(isShowingForgot: Binding<Bool>,
-	                        emailString _: Binding<String>,
-	                        message: String) -> some View
-	{
-		litewallet.ForgotAlertView(isShowingForgot: isShowingForgot, presenting: self,
-		                           mainMessage: message)
-	}
-
 	/// From Stack Overflow
 	/// https://stackoverflow.com/questions/56760335/round-specific-corners-swiftui
 
