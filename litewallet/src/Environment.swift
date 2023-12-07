@@ -1,5 +1,80 @@
 import UIKit
 
+/// 14  Languages
+enum LanguageSelection: Int, CaseIterable, Equatable {
+	case English = 0
+	case ChineseTraditional
+	case ChineseSimplified
+	case French
+	case German
+	case Indonesian
+	case Italian
+	case Japan
+	case Korean
+	case Portuguese
+	case Russian
+	case Spanish
+	case Turkish
+	case Ukrainian
+
+	var code: String {
+		switch self {
+		case .English: return "en"
+		case .ChineseTraditional: return "zh"
+		case .ChineseSimplified: return "zh"
+		case .French: return "fr"
+		case .German: return "de"
+		case .Indonesian: return "id"
+		case .Italian: return "it"
+		case .Japan: return "ja"
+		case .Korean: return "ko"
+		case .Portuguese: return "pt"
+		case .Russian: return "ru"
+		case .Spanish: return "es"
+		case .Turkish: return "tr"
+		case .Ukrainian: return "uk"
+		}
+	}
+
+	var nativeName: String {
+		switch self {
+		case .English: return "English"
+		case .ChineseTraditional: return "中國人"
+		case .ChineseSimplified: return "中国人"
+		case .French: return "Français"
+		case .German: return "Deutsch"
+		case .Indonesian: return "Bahasa Indonesia"
+		case .Italian: return "Italiano"
+		case .Japan: return "日本語"
+		case .Korean: return "한국인"
+		case .Portuguese: return "Português"
+		case .Russian: return "Русский"
+		case .Spanish: return "Español"
+		case .Turkish: return "Türkçe"
+		case .Ukrainian: return "українська"
+		}
+	}
+
+	var voiceFilename: String {
+		switch self {
+		case .English: return "English"
+		case .ChineseTraditional: return "中國人"
+		case .ChineseSimplified: return "中國人"
+		case .French: return "Français"
+		case .German: return "Deutsch"
+		case .Indonesian: return "BahasaIndonesia"
+		case .Italian: return "Italiano"
+		case .Japan: return "日本語"
+		case .Korean: return "한국인"
+		case .Portuguese: return "Português"
+		case .Russian: return "Русский"
+		case .Spanish: return "Español"
+		case .Turkish: return "Türkçe"
+		case .Ukrainian: return "українська"
+		}
+	}
+}
+
 struct E {
 	static let isTestnet: Bool = {
 		#if Testnet

@@ -9,9 +9,6 @@ struct CreateStepTabView: View {
 	@Environment(\.presentationMode)
 	var presentationMode: Binding<PresentationMode>
 
-	@State
-	private var currentTitle: String = ""
-
 	init(stepViews: [CreateStepView]) {
 		self.stepViews = stepViews
 	}
@@ -38,22 +35,13 @@ struct CreateStepTabView: View {
 				}
 				.frame(height: 30)
 
-				HStack {
-					Text(currentTitle)
-						.font(.barlowBold(size: 22.0))
-						.foregroundColor(Color(UIColor.grayTextTint))
-				}
-				.frame(height: 44.0)
-
 				Spacer()
-				TabView {
+				TabView(selection: $createViewModel.didTapIndex) {
 					ForEach(0 ..< stepViews.count, id: \.self) { index in
 						ZStack {
 							let currentStepView = stepViews[index]
 							currentStepView
-								.onAppear(perform: {
-									currentTitle = currentStepView.createStepConfig.mainTitle
-								})
+								.onAppear(perform: {})
 								.environmentObject(createViewModel)
 						}
 						.clipShape(RoundedRectangle(cornerRadius: 20.0,

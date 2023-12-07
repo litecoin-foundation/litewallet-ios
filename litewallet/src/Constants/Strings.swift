@@ -1,6 +1,50 @@
 import Foundation
 
 enum S {
+	enum CreateStep {
+		enum MainTitle {
+			static let intro = Localization(key: "MainTitle.intro", value: "Litewallet Quick Start", comment: "Litewallet Quick Start")
+			static let checkboxes = Localization(key: "MainTitle.checkboxes", value: "Stay Connected", comment: "Stay Connected")
+			static let seedPhrase = Localization(key: "MainTitle.seedPhrase", value: "Protect your Litecoin!", comment: "Protect your Litecoin!")
+			static let finished = Localization(key: "MainTitle.finished", value: "Confirm and Go", comment: "Confirm and Go")
+		}
+
+		enum DetailedMessage {
+			static let intro = Localization(key: "DetailedMessage.intro", value: "Take the next 5 minutes to secure your Litecoin.", comment: "Detailed message for intro")
+			static let checkboxes = Localization(key: "DetailedMessage.checkboxes", value: "Sign up for the push notifications to learn Litecoin news. Unsubscribe any time in Settings", comment: "Settings button label")
+			static let seedPhrase = Localization(key: "DetailedMessage.seedPhrase", value: "Settings", comment: "Settings button label")
+			static let finished = Localization(key: "DetailedMessage.finished", value: "Settings", comment: "Settings button label")
+		}
+
+		enum ExtendedMessage {
+			static let intro = Localization(key: "ExtendedMessage.intro", value: "Please find a private place to write down your PIN and seed phrase.", comment: "extended message")
+			static let checkboxes = Localization(key: "ExtendedMessage.checkboxes", value: "Settings", comment: "Settings button label")
+			static let seedPhrase = Localization(key: "ExtendedMessage.seedPhrase", value: "Settings", comment: "Settings button label")
+			static let finished = Localization(key: "ExtendedMessage.finished", value: "Settings", comment: "Settings button label")
+		}
+
+		enum Bullet1 {
+			static let intro = Localization(key: "Bullet1.intro", value: "Litewallet is from the Litecoin Foundation and Charlie Lee, creator of Litecoin.", comment: "")
+			static let checkboxes = Localization(key: "Bullet1.checkboxes", value: "Settings", comment: "Settings button label")
+			static let seedPhrase = Localization(key: "Bullet1.seedPhrase", value: "Settings", comment: "Settings button label")
+			static let finished = Localization(key: "Bullet1.finished", value: "Settings", comment: "Settings button label")
+		}
+
+		enum Bullet2 {
+			static let intro = Localization(key: "Bullet2.intro", value: "Settings", comment: "Settings button label")
+			static let checkboxes = Localization(key: "Bullet2.checkboxes", value: "Settings", comment: "Settings button label")
+			static let seedPhrase = Localization(key: "Bullet2.seedPhrase", value: "Settings", comment: "Settings button label")
+			static let finished = Localization(key: "Bullet2.finished", value: "Settings", comment: "Settings button label")
+		}
+
+		enum Bullet3 {
+			static let intro = Localization(key: "Bullet3.intro", value: "Settings", comment: "Settings button label")
+			static let checkboxes = Localization(key: "Bullet3.checkboxes", value: "Settings", comment: "Settings button label")
+			static let seedPhrase = Localization(key: "Bullet3.seedPhrase", value: "Settings", comment: "Settings button label")
+			static let finished = Localization(key: "Bullet3.finished", value: "Settings", comment: "Settings button label")
+		}
+	}
+
 	enum Symbols {
 		static let photons = "mł"
 		static let lites = "ł"

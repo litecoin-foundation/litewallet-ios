@@ -97,22 +97,6 @@ struct SendAddressCellView: View {
 	}
 }
 
-struct SendAddressCellView_Previews: PreviewProvider {
-	static let viewModel = SendAddressCellViewModel()
-
-	static var previews: some View {
-		Group {
-			SendAddressCellView(viewModel: viewModel)
-				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
-				.previewDisplayName(DeviceType.Name.iPhoneSE2)
-
-			SendAddressCellView(viewModel: viewModel)
-				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
-				.previewDisplayName(DeviceType.Name.iPhone8)
-
-			SendAddressCellView(viewModel: viewModel)
-				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
-				.previewDisplayName(DeviceType.Name.iPhone12ProMax)
-		}
-	}
+#Preview {
+	SendAddressCellView(viewModel: SendAddressCellViewModel())
 }

@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	let applicationController = ApplicationController()
 	let pushNotifications = PushNotifications.shared
 
+	var didUpdatePush: Bool = false
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
 		setFirebaseConfiguration()
@@ -30,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		// Pusher
 		pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
-		pushNotifications.registerForRemoteNotifications()
 
 		let generaliOSInterest = "general-ios"
 		let debugGeneraliOSInterest = "debug-general-ios"
