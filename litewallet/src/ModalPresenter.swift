@@ -691,7 +691,7 @@ class ModalPresenter: Subscriber, Trackable {
 
 				group.enter()
 				DispatchQueue.walletQueue.asyncAfter(deadline: .now() + 2.0) {
-					print("Pausing to show 'Wiping' Dialog")
+					print("::: Pausing to show 'Wiping' Dialog")
 					group.leave()
 				}
 
@@ -700,7 +700,9 @@ class ModalPresenter: Subscriber, Trackable {
 					   canForceWipeWallet
 					{
 						self.store.trigger(name: .reinitWalletManager {
-							activity.dismiss(animated: true, completion: {})
+							activity.dismiss(animated: true, completion: {
+								print("::: Reiniting the WalletManager")
+							})
 						})
 					} else {
 						let failure = UIAlertController(title: S.WipeWallet.failedTitle.localize(), message: S.WipeWallet.failedMessage.localize(), preferredStyle: .alert)

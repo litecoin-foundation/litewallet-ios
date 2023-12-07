@@ -34,7 +34,7 @@ enum CreateStepConfig {
 		}
 	}
 
-	var detailMessage: String {
+	var detaiedlMessage: String {
 		switch self {
 		case .intro:
 			return "You will need 5 mins, a private area and way to take this information down."

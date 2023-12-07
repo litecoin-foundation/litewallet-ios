@@ -46,5 +46,6 @@ struct AlertFailureView_Previews: PreviewProvider {
 
 	static var previews: some View {
 		AlertFailureView(alertFailureType: alert, errorMessage: errorMessage)
+			.environment(\.locale, .init(identifier: "en"))
 	}
 }

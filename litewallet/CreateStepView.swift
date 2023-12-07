@@ -4,14 +4,8 @@ struct CreateStepView: View {
 	@EnvironmentObject
 	var createViewModel: CreateWalletViewModel
 
-	@State
-	private var shouldShowCheckbox = false
-
-	@State
-	private var shouldTest = false
-
 	var backgroundColor: Color = .litewalletDarkBlue
-	let createStepConfig: CreateStepConfig
+	var createStepConfig: CreateStepConfig = .intro
 
 	let hugeFont = Font.barlowBold(size: 30.0)
 
@@ -29,13 +23,15 @@ struct CreateStepView: View {
 					.edgesIgnoringSafeArea(.all)
 
 				VStack {
-					Text("createStepConfig.mainTitle")
-						.font(hugeFont)
-					Text(createStepConfig.detailMessage)
-						.font(.subheadline)
-					Text(createStepConfig.extendedMessage)
-
-					Spacer()
+					if createStepConfig == .intro {
+						IntroStepView(createViewModel: createViewModel)
+					} else if createStepConfig == .checkboxes {
+						CheckboxesStepView(createViewModel: createViewModel)
+					} else if createStepConfig == .seedPhrase {
+						SeedPhraseStepView()
+					} else {
+						FinishedStepView()
+					}
 				}
 			}
 		}

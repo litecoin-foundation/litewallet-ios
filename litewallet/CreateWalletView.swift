@@ -5,9 +5,6 @@ struct CreateWalletView: View {
 	@ObservedObject
 	var createViewModel: CreateWalletViewModel
 
-	@Environment(\.presentationMode)
-	var presentationMode: Binding<PresentationMode>
-
 	private let createStepsArray = [CreateStepView(createConfig: .intro),
 	                                CreateStepView(createConfig: .checkboxes),
 	                                CreateStepView(createConfig: .seedPhrase),

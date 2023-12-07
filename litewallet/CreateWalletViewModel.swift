@@ -9,6 +9,9 @@ class CreateWalletViewModel: ObservableObject {
 	// MARK: - Private Variables
 
 	@Published
-	var testValue: Bool = false
+	var didTapIndex: Int = 0
+
 	init() {}
+
+	func updatePushPreference(didAcceptPush _: Bool) {}
 }

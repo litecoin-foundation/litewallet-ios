@@ -28,7 +28,6 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 				loginView.shouldSelfDismiss = true
 				present(loginView, animated: false, completion: {
 					self.tempLoginView.remove()
-					self.attemptShowWelcomeView()
 				})
 			}
 		}
@@ -170,18 +169,6 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 			}))
 		}
 		present(alert, animated: true, completion: nil)
-	}
-
-	private func attemptShowWelcomeView() {
-		if !UserDefaults.hasShownWelcome {
-			let welcome = WelcomeViewController()
-			welcome.transitioningDelegate = welcomeTransitingDelegate
-			welcome.modalPresentationStyle = .overFullScreen
-			welcome.modalPresentationCapturesStatusBarAppearance = true
-			welcomeTransitingDelegate.shouldShowMaskView = false
-			loginView.present(welcome, animated: true, completion: nil)
-			UserDefaults.hasShownWelcome = true
-		}
 	}
 
 	override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {

@@ -23,22 +23,7 @@ struct LocaleChangeView: View {
 	}
 }
 
-struct LocaleChangeView_Previews: PreviewProvider {
-	static let viewModel = LocaleChangeViewModel()
-
-	static var previews: some View {
-		Group {
-			LocaleChangeView(viewModel: viewModel)
-				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhoneSE2))
-				.previewDisplayName(DeviceType.Name.iPhoneSE2)
-
-			LocaleChangeView(viewModel: viewModel)
-				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone8))
-				.previewDisplayName(DeviceType.Name.iPhone8)
-
-			LocaleChangeView(viewModel: viewModel)
-				.previewDevice(PreviewDevice(rawValue: DeviceType.Name.iPhone12ProMax))
-				.previewDisplayName(DeviceType.Name.iPhone12ProMax)
-		}
-	}
+#Preview {
+	LocaleChangeView(viewModel: LocaleChangeViewModel())
+		.environment(\.locale, .init(identifier: "fr"))
 }
