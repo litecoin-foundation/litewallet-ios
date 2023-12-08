@@ -2,16 +2,14 @@ import SwiftUI
 import UIKit
 
 struct CreateWalletView: View {
-	@ObservedObject
-	var createViewModel: CreateWalletViewModel
+	@EnvironmentObject
+	var viewModel: StartViewModel
 
 	private let createStepsArray = [CreateStepView(createConfig: .intro),
 	                                CreateStepView(createConfig: .checkboxes),
 	                                CreateStepView(createConfig: .seedPhrase),
 	                                CreateStepView(createConfig: .finished)]
-	init(viewModel: CreateWalletViewModel) {
-		createViewModel = viewModel
-	}
+	init() {}
 
 	var body: some View {
 		GeometryReader { geometry in
@@ -22,13 +20,13 @@ struct CreateWalletView: View {
 				Color.litewalletBlue.edgesIgnoringSafeArea(.all)
 				HStack {
 					CreateStepTabView(stepViews: createStepsArray)
+						.environmentObject(viewModel)
 				}
 			}
 		}
-		.environmentObject(createViewModel)
 	}
 }
 
 #Preview {
-	CreateWalletView(viewModel: CreateWalletViewModel())
+	CreateWalletView()
 }

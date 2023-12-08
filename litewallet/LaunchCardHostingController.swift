@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 
+/// As litewalletBlue view that has no real elements
 class LaunchCardHostingController: UIHostingController<LaunchView> {
 	var contentView = LaunchView()
 

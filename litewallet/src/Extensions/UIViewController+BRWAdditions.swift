@@ -20,13 +20,7 @@ extension UIViewController {
 			self?.dismiss(animated: true, completion: nil)
 		}
 		if let color = tintColor {
-			if #available(iOS 11.0, *),
-			   let labelTextColor = UIColor(named: "labelTextColor")
-			{
-				close.tintColor = labelTextColor
-			} else {
-				close.tintColor = color
-			}
+			close.tintColor = UIColor.black
 		}
 		navigationItem.leftBarButtonItems = [UIBarButtonItem.negativePadding, UIBarButtonItem(customView: close)]
 	}

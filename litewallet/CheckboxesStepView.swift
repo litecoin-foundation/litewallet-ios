@@ -1,14 +1,17 @@
+import SafariServices
 import SwiftUI
 
 struct CheckboxesStepView: View {
-	@ObservedObject
-	var createViewModel: CreateWalletViewModel
+	@EnvironmentObject
+	var viewModel: StartViewModel
 
 	let paragraphFont: Font = .barlowSemiBold(size: 22.0)
+	let calloutFont: Font = .barlowLight(size: 12.0)
 
-	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	@State
-	private var didAcceptPush: Bool = false
+	let genericPad = 5.0
+
+	@State private var scroll = false
+
 	var body: some View {
 		GeometryReader { geometry in
 
@@ -21,48 +24,20 @@ struct CheckboxesStepView: View {
 					.backgroundColor
 					.edgesIgnoringSafeArea(.all)
 				VStack {
-					Text(S.CreateStep.MainTitle.checkboxes.localize())
-						.font(.barlowBold(size: 24.0))
-						.foregroundColor(.litewalletDarkBlue)
-						.padding([.bottom, .top], 20.0)
-					HStack {
-						Text(S.CreateStep.DetailedMessage.checkboxes.localize())
-							.font(paragraphFont)
-							.foregroundColor(.litewalletDarkBlue)
-							.frame(width: width * 0.6, alignment: .leading)
-							.padding([.leading, .trailing], 20.0)
-
-						Spacer()
-                        
-						Image(systemName: didAcceptPush ? "checkmark.circle.fill" : "checkmark.circle")
-							.resizable()
-							.aspectRatio(contentMode: .fit)
-							.frame(width: 30, height: 30, alignment: .leading)
-							.foregroundColor(didAcceptPush ? .litewalletGreen : .litecoinSilver)
-							.padding()
-					}
-					.onTapGesture {
-						didAcceptPush.toggle()
-						if didAcceptPush {
-							appDelegate.pushNotifications.registerForRemoteNotifications()
-						}
-					}
-					.padding(.bottom, 20.0)
-
-					Text(S.CreateStep.ExtendedMessage.checkboxes.localize())
-						.font(paragraphFont)
-						.foregroundColor(.litewalletDarkBlue)
-						.frame(width: width * 0.8, alignment: .leading)
-						.padding([.leading, .trailing], 20.0)
-						.padding(.bottom, 20.0)
-
-					Text(S.CreateStep.Bullet1.checkboxes.localize())
-						.font(paragraphFont)
-						.foregroundColor(.litewalletDarkBlue)
-						.frame(width: width * 0.8, alignment: .leading)
-						.padding([.leading, .trailing], 20.0)
-						.padding(.bottom, 20.0)
-					Spacer()
+					WebView(url: URL(string: C.signupURL)!,
+					        scrollToSignup: $scroll)
+						.frame(width: width * 0.9)
+						.padding([.leading, .trailing], genericPad)
+						.edgesIgnoringSafeArea(.all)
+						.onAppear {
+							delay(2.0) {
+								scroll = true
+							}
+						}.mask(
+							RoundedRectangle(cornerRadius: 12.0)
+								.frame(width: width * 0.9,
+								       height: height * 0.9)
+						)
 				}
 				.frame(width: width * 0.9)
 			}
@@ -71,5 +46,5 @@ struct CheckboxesStepView: View {
 }
 
 #Preview {
-	CheckboxesStepView(createViewModel: CreateWalletViewModel())
+	CheckboxesStepView()
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CreateStepView: View {
 	@EnvironmentObject
-	var createViewModel: CreateWalletViewModel
+	var viewModel: StartViewModel
 
 	var backgroundColor: Color = .litewalletDarkBlue
 	var createStepConfig: CreateStepConfig = .intro
@@ -24,11 +24,14 @@ struct CreateStepView: View {
 
 				VStack {
 					if createStepConfig == .intro {
-						IntroStepView(createViewModel: createViewModel)
+						IntroStepView()
+							.environmentObject(viewModel)
 					} else if createStepConfig == .checkboxes {
-						CheckboxesStepView(createViewModel: createViewModel)
+						CheckboxesStepView()
+							.environmentObject(viewModel)
 					} else if createStepConfig == .seedPhrase {
 						SeedPhraseStepView()
+							.environmentObject(viewModel)
 					} else {
 						FinishedStepView()
 					}

@@ -2,15 +2,17 @@ import Foundation
 import SwiftUI
 
 class StartHostingController: UIHostingController<StartView> {
-	var viewModel = StartViewModel(store: Store())
-	let contentView = StartView()
-
 	// MARK: - Private
 
-	init(store: Store) {
-		viewModel.store = store
-		super.init(rootView: contentView)
+	var viewModel: StartViewModel
+
+	init(store: Store, walletManager: WalletManager) {
+		viewModel = StartViewModel(store: store, walletManager: walletManager)
+
+		super.init(rootView: StartView(viewModel: viewModel))
 	}
+
+	// MARK: - Private
 
 	@available(*, unavailable)
 	@MainActor dynamic required init?(coder _: NSCoder) {

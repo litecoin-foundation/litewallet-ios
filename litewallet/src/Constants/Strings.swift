@@ -3,7 +3,7 @@ import Foundation
 enum S {
 	enum CreateStep {
 		enum MainTitle {
-			static let intro = Localization(key: "MainTitle.intro", value: "Litewallet Quick Start", comment: "Litewallet Quick Start")
+			static let intro = Localization(key: "MainTitle.intro", value: "Quick Start", comment: "Litewallet Quick Start")
 			static let checkboxes = Localization(key: "MainTitle.checkboxes", value: "Stay Connected", comment: "Stay Connected")
 			static let seedPhrase = Localization(key: "MainTitle.seedPhrase", value: "Protect your Litecoin!", comment: "Protect your Litecoin!")
 			static let finished = Localization(key: "MainTitle.finished", value: "Confirm and Go", comment: "Confirm and Go")
@@ -12,13 +12,13 @@ enum S {
 		enum DetailedMessage {
 			static let intro = Localization(key: "DetailedMessage.intro", value: "Take the next 5 minutes to secure your Litecoin.", comment: "Detailed message for intro")
 			static let checkboxes = Localization(key: "DetailedMessage.checkboxes", value: "Sign up for the push notifications to learn Litecoin news. Unsubscribe any time in Settings", comment: "Settings button label")
-			static let seedPhrase = Localization(key: "DetailedMessage.seedPhrase", value: "Settings", comment: "Settings button label")
+			static let seedPhrase = Localization(key: "DetailedMessage.seedPhrase", value: "Please write this down", comment: "Warning seed phrase")
 			static let finished = Localization(key: "DetailedMessage.finished", value: "Settings", comment: "Settings button label")
 		}
 
 		enum ExtendedMessage {
 			static let intro = Localization(key: "ExtendedMessage.intro", value: "Please find a private place to write down your PIN and seed phrase.", comment: "extended message")
-			static let checkboxes = Localization(key: "ExtendedMessage.checkboxes", value: "Settings", comment: "Settings button label")
+			static let checkboxes = Localization(key: "ExtendedMessage.checkboxes", value: "Enter your email to get updates about Litewallet", comment: "Email sign up website")
 			static let seedPhrase = Localization(key: "ExtendedMessage.seedPhrase", value: "Settings", comment: "Settings button label")
 			static let finished = Localization(key: "ExtendedMessage.finished", value: "Settings", comment: "Settings button label")
 		}
@@ -513,6 +513,7 @@ enum S {
 		static let createButton = Localization(key: "MenuViewController.createButton", value: "Create New Wallet", comment: "button label")
 		static let recoverButton = Localization(key: "MenuViewController.recoverButton", value: "Recover Wallet", comment: "button label")
 		static let tagline = Localization(key: "StartViewController.tagline", value: "The most secure and safest way to use Litecoin.", comment: "Start view message")
+		static let continueButton = Localization(key: "StartViewController.continueButton", value: "Continue", comment: "Continue button label")
 	}
 
 	enum AccessibilityLabels {
