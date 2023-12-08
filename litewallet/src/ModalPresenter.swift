@@ -535,11 +535,6 @@ class ModalPresenter: Subscriber, Trackable {
 		let settings = SettingsViewController(sections: sections, rows: rows)
 		settings.addCloseNavigationItem()
 		settingsNav.viewControllers = [settings]
-		let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-		view.backgroundColor = .whiteTint
-		settingsNav.navigationBar.setBackgroundImage(view.imageRepresentation, for: .default)
-		settingsNav.navigationBar.shadowImage = UIImage()
-		settingsNav.navigationBar.isTranslucent = false
 		top.present(settingsNav, animated: true, completion: nil)
 	}
 

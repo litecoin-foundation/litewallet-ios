@@ -161,11 +161,12 @@ class ApplicationController: Subscriber, Trackable {
 	private func didInitWalletManager() {
 		guard let walletManager = walletManager else { assertionFailure("WalletManager should exist!"); return }
 		guard let rootViewController = window?.rootViewController else { return }
+		guard let window = window else { return }
 
 		hasPerformedWalletDependentInitialization = true
 		store.perform(action: PinLength.set(walletManager.pinLength))
 		walletCoordinator = WalletCoordinator(walletManager: walletManager, store: store)
-		modalPresenter = ModalPresenter(store: store, walletManager: walletManager, window: window!, apiClient: noAuthApiClient)
+		modalPresenter = ModalPresenter(store: store, walletManager: walletManager, window: window, apiClient: noAuthApiClient)
 		exchangeUpdater = ExchangeUpdater(store: store, walletManager: walletManager)
 		feeUpdater = FeeUpdater(walletManager: walletManager, store: store)
 		startFlowController = StartFlowPresenter(store: store, walletManager: walletManager, rootViewController: rootViewController)
@@ -179,7 +180,6 @@ class ApplicationController: Subscriber, Trackable {
 
 		if UIApplication.shared.applicationState != .background {
 			if walletManager.noWallet {
-				UserDefaults.hasShownWelcome = true
 				addWalletCreationListener()
 				store.perform(action: ShowStartFlow())
 			} else {

@@ -3,14 +3,6 @@ import UIKit
 class StartFlowPresenter: Subscriber {
 	// MARK: - Public
 
-	init(store: Store, walletManager: WalletManager, rootViewController: UIViewController) {
-		self.store = store
-		self.walletManager = walletManager
-		self.rootViewController = rootViewController
-		navigationControllerDelegate = StartNavigationDelegate(store: store)
-		addSubscriptions()
-	}
-
 	// MARK: - Private
 
 	private let store: Store
@@ -21,13 +13,12 @@ class StartFlowPresenter: Subscriber {
 	private var loginViewController: UIViewController?
 	private let loginTransitionDelegate = LoginTransitionDelegate()
 
-	private var closeButton: UIButton {
-		let button = UIButton.close
-		button.tintColor = .white
-		button.tap = { [weak self] in
-			self?.store.perform(action: HideStartFlow())
-		}
-		return button
+	init(store: Store, walletManager: WalletManager, rootViewController: UIViewController) {
+		self.store = store
+		self.walletManager = walletManager
+		self.rootViewController = rootViewController
+		navigationControllerDelegate = StartNavigationDelegate(store: store)
+		addSubscriptions()
 	}
 
 	private func addSubscriptions() {
@@ -36,7 +27,7 @@ class StartFlowPresenter: Subscriber {
 		                callback: { self.handleStartFlowChange(state: $0) })
 		store.lazySubscribe(self,
 		                    selector: { $0.isLoginRequired != $1.isLoginRequired },
-		                    callback: { self.handleLoginRequiredChange(state: $0) }) // TODO: - this should probably be in modal presenter
+		                    callback: { self.handleLoginRequiredChange(state: $0) })
 		store.subscribe(self, name: .lock,
 		                callback: { _ in self.presentLoginFlow(isPresentedForLock: true) })
 	}
@@ -59,35 +50,47 @@ class StartFlowPresenter: Subscriber {
 		}
 	}
 
-//	private func presentStartFlow() {
-//		let startViewController = StartViewController(store: store,
-//		                                              didTapCreate: { [weak self] in
-//		                                              	self?.pushPinCreationViewControllerForNewWallet()
-//		                                              },
-//		                                              didTapRecover: { [weak self] in
-//		                                              	guard let myself = self else { return }
-//		                                              	let recoverIntro = RecoverWalletIntroViewController(didTapNext: myself.pushRecoverWalletView)
-//		                                              	myself.navigationController?.setClearNavbar()
-//		                                              	myself.navigationController?.modalPresentationStyle = .fullScreen
-//		                                              	myself.navigationController?.setNavigationBarHidden(false, animated: false)
-//		                                              	myself.navigationController?.pushViewController(recoverIntro, animated: true)
-//		                                              })
-//
-//		navigationController = ModalNavigationController(rootViewController: startViewController)
-//		navigationController?.delegate = navigationControllerDelegate
-//		navigationController?.modalPresentationStyle = .fullScreen
-//
-//		if let startFlow = navigationController {
-//			startFlow.setNavigationBarHidden(true, animated: false)
-//			rootViewController.present(startFlow, animated: false, completion: nil)
-//		}
-//	}
+	// MARK: - SwiftUI Start Flow
 
 	private func presentStartFlow() {
-		let startHostingController = StartHostingController(store: store)
-		navigationController = ModalNavigationController(rootViewController: startHostingController)
-		navigationController?.delegate = navigationControllerDelegate
-		navigationController?.modalPresentationStyle = .fullScreen
+		/// DOC: This is a legacy path for iPad users since SwiftUI doesnt gracefully handle presentations like iPhone
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			let startViewController = StartViewController(store: store,
+			                                              didTapCreate: { [weak self] in
+			                                              	self?.pushPinCreationViewControllerForNewWallet()
+			                                              },
+			                                              didTapRecover: { [weak self] in
+			                                              	guard let myself = self else { return }
+			                                              	let recoverIntro = RecoverWalletIntroViewController(didTapNext: myself.pushRecoverWalletView)
+			                                              	myself.navigationController?.setClearNavbar()
+			                                              	myself.navigationController?.modalPresentationStyle = .fullScreen
+			                                              	myself.navigationController?.setNavigationBarHidden(false, animated: false)
+			                                              	myself.navigationController?.pushViewController(recoverIntro, animated: true)
+			                                              })
+
+			navigationController = ModalNavigationController(rootViewController: startViewController)
+			navigationController?.delegate = navigationControllerDelegate
+			navigationController?.modalPresentationStyle = .fullScreen
+		} else {
+			let startHostingController = StartHostingController(store: store,
+			                                                    walletManager: walletManager)
+
+			startHostingController.viewModel.userWantsToCreate {
+				self.pushPinCreationViewControllerForNewWallet()
+			}
+
+			startHostingController.viewModel.userWantsToRecover {
+				let recoverIntro = RecoverWalletIntroViewController(didTapNext: self.pushRecoverWalletView)
+				self.navigationController?.setClearNavbar()
+				self.navigationController?.modalPresentationStyle = .fullScreen
+				self.navigationController?.setNavigationBarHidden(false, animated: false)
+				self.navigationController?.pushViewController(recoverIntro, animated: true)
+			}
+
+			navigationController = ModalNavigationController(rootViewController: startHostingController)
+			navigationController?.delegate = navigationControllerDelegate
+			navigationController?.modalPresentationStyle = .fullScreen
+		}
 
 		if let startFlow = navigationController {
 			startFlow.setNavigationBarHidden(true, animated: false)

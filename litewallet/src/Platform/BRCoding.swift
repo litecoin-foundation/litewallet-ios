@@ -3,6 +3,7 @@ import Foundation
 // BRCoder/BRCoding works a lot like NSCoder/NSCoding but simpler
 // instead of using optionals everywhere we just use zero values, and take advantage
 // of the swift type system somewhat to make the whole api a little cleaner
+
 protocol BREncodable {
 	// return anything that is JSON-able
 	func encode() -> AnyObject

@@ -1,12 +1,10 @@
 import SwiftUI
 
 struct RecoverWalletView: View {
-	@ObservedObject
-	var recoverViewModel: RecoverWalletViewModel
+	@EnvironmentObject
+	var viewModel: StartViewModel
 
-	init(viewModel: RecoverWalletViewModel) {
-		recoverViewModel = viewModel
-	}
+	init() {}
 
 	var body: some View {
 		GeometryReader { _ in
@@ -21,5 +19,5 @@ struct RecoverWalletView: View {
 }
 
 #Preview {
-	RecoverWalletView(viewModel: RecoverWalletViewModel())
+	RecoverWalletView()
 }

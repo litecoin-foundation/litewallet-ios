@@ -10,13 +10,7 @@ struct StartView: View {
 	let squareImageSize: CGFloat = 25.0
 
 	@ObservedObject
-	var startCardViewModel = StartCardViewModel()
-
-	@ObservedObject
-	var createViewModel = CreateWalletViewModel()
-
-	@ObservedObject
-	var recoverViewModel = RecoverWalletViewModel()
+	var startViewModel: StartViewModel
 
 	@State
 	private var selectedLang: Bool = false
@@ -28,9 +22,20 @@ struct StartView: View {
 	private var currentTagline = ""
 
 	@State
+	private var animationAmount = 0.0
+
+	@State
 	private var currentLanguage: LanguageSelection = .English
 
-	init() {}
+	@State
+	private var pickedLanguage: LanguageSelection = .English
+
+	@State
+	private var didContinue: Bool = false
+
+	init(viewModel: StartViewModel) {
+		startViewModel = viewModel
+	}
 
 	var body: some View {
 		GeometryReader { geometry in
@@ -40,7 +45,7 @@ struct StartView: View {
 
 			NavigationView {
 				ZStack {
-					Color.litewalletBlue.edgesIgnoringSafeArea(.all)
+					Color.litewalletDarkBlue.edgesIgnoringSafeArea(.all)
 					VStack {
 						Spacer()
 						Image("new-logotype-white")
@@ -61,17 +66,29 @@ struct StartView: View {
 							       alignment: .center)
 							.padding(.top, height * 0.02)
 							.padding(.bottom, height * 0.08)
-							.animation(.bouncy)
 							.onAppear {
-								currentTagline = startCardViewModel.staticTagline
+								currentTagline = startViewModel.staticTagline
 							}
 						HStack {
 							ZStack {
-								Text(startCardViewModel.currentLanguage.nativeName)
-									.font(selectedLang ? buttonFont : buttonLightFont)
-									.transition(.scale)
-									.foregroundColor(.white)
-									.multilineTextAlignment(.center)
+								Picker("", selection: $pickedLanguage) {
+									ForEach(startViewModel.languages, id: \.self) {
+										Text($0.nativeName)
+											.font(selectedLang ? buttonFont : buttonLightFont)
+											.foregroundColor(.white)
+									}
+								}
+								.pickerStyle(.wheel)
+								.frame(width: width * 0.5)
+								.onChange(of: $pickedLanguage.wrappedValue) { _ in
+									startViewModel.currentLanguage = pickedLanguage
+									selectedLang = true
+									currentTagline = startViewModel.taglines[startViewModel.currentLanguage.rawValue]
+									startViewModel.speakLanguage()
+									delay(1.5) {
+										delayedSelect = true
+									}
+								}
 
 								Image(systemName: "checkmark.message.fill")
 									.resizable()
@@ -79,8 +96,7 @@ struct StartView: View {
 									.frame(width: squareImageSize,
 									       height: squareImageSize,
 									       alignment: .center)
-									.foregroundColor(startCardViewModel
-										.didSelectLanguage ?
+									.foregroundColor(selectedLang ?
 										.litewalletGreen : .litecoinGray.opacity(0.4))
 									.shadow(radius: 6, x: 3.0, y: 3.0)
 									.padding(.all, 4.0)
@@ -89,47 +105,40 @@ struct StartView: View {
 									       alignment: .center)
 									.offset(CGSize(width: width * 0.18,
 									               height: -height * 0.03))
+									.scaleEffect(CGSize(width: animationAmount, height: animationAmount))
+									.animation(
+										.easeInOut(duration: 1.8)
+											.repeatCount(5),
+										value: animationAmount
+									)
+									.onAppear {
+										animationAmount = 1.0
+									}
 							}
 						}
 						.frame(width: width * 0.9,
 						       height: height * 0.1,
 						       alignment: .center)
-						.onTapGesture {
-							startCardViewModel
-								.didSelectLanguage
-								.toggle()
-							if startCardViewModel
-								.didSelectLanguage
-							{
-								currentTagline = startCardViewModel
-									.taglines[startCardViewModel.currentLanguage.rawValue]
-								startCardViewModel
-									.speakLanguage(currentLanguage:
-										startCardViewModel.currentLanguage)
-								delay(1.5) {
-									delayedSelect = true
-								}
-							} else {
-								startCardViewModel.startTimer()
-								currentTagline = startCardViewModel.staticTagline
-							}
-						}
-						.alert(startCardViewModel
-							.alertMessage[startCardViewModel.currentLanguage.rawValue],
+						.alert(startViewModel
+							.alertMessage[startViewModel.currentLanguage.rawValue],
 							isPresented: $delayedSelect) {
 								HStack {
 									Button(S.Button.yes.localize(), role: .cancel) {
-										startCardViewModel.setLanguage(code: startCardViewModel.currentLanguage.code)
+										startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
+										selectedLang = false
 									}
 									Button(S.Button.cancel.localize(), role: .destructive) {
 										// Dismisses
+										selectedLang = false
 									}
 								}
 						}
 						Spacer()
 						NavigationLink(destination:
-							CreateWalletView(viewModel: createViewModel)
 
+							AnnounceUpdatesView(navigateStart: .create, didTapContinue: $didContinue)
+								.environmentObject(startViewModel)
+								.navigationBarBackButtonHidden(true)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
@@ -150,7 +159,11 @@ struct StartView: View {
 						.padding([.top, .bottom], 10.0)
 
 						NavigationLink(destination:
-							RecoverWalletView(viewModel: recoverViewModel)
+
+							AnnounceUpdatesView(navigateStart: .recover, didTapContinue: $didContinue)
+								.environmentObject(startViewModel)
+								.navigationBarBackButtonHidden(true)
+							// RecoverWalletView().environmentObject(startViewModel)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
@@ -180,11 +193,20 @@ struct StartView: View {
 				}
 			}
 		}
+		.alert(S.LitewalletAlert.error.localize(),
+		       isPresented: $startViewModel.walletCreationDidFail,
+		       actions: {
+		       	HStack {
+		       		Button(S.Button.ok.localize(), role: .cancel) {
+		       			startViewModel.walletCreationDidFail = false
+		       		}
+		       	}
+		       })
 	}
 }
 
-#Preview {
-	StartView()
-		.environment(\.locale, .init(identifier: "en"))
-		.environmentObject(StartCardViewModel())
-}
+// #Preview {
+//	StartView(viewModel: StartViewModel(store: Store(),
+//	                                    walletManager: WalletManager(store: Store())))
+//		.environment(\.locale, .init(identifier: "en"))
+// }

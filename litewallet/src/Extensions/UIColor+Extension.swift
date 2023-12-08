@@ -44,6 +44,10 @@ extension UIColor {
 		return #colorLiteral(red: 0.09019607843, green: 0.6196078431, blue: 0.1529411765, alpha: 1)
 	}
 
+	static var litewalletLime: UIColor { // D9E76C
+		return #colorLiteral(red: 0.8509803922, green: 0.9058823529, blue: 0.4235294118, alpha: 1)
+	}
+
 	// MARK: Buttons
 
 	static var primaryButton: UIColor {

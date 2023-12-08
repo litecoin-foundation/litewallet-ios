@@ -64,6 +64,8 @@ struct C {
 	static let supportEmail = "support@litecoinfoundation.zendesk.com"
 
 	static let reviewLink = "https://itunes.apple.com/app/loafwallet-litecoin-wallet/id1119332592?action=write-review"
+	static let signupURL = "https://litewallet.io/mobile-signup/signup.html"
+
 	static var standardPort: Int {
 		return E.isTestnet ? 19335 : 9333
 	}

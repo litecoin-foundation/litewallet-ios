@@ -2,6 +2,8 @@ import Foundation
 import SwiftUI
 
 class EnterPhraseHostingController: UIHostingController<EnterPhraseView> {
+	// WIP
+
 	//    EnterPhraseViewController(store: myself.store, walletManager: myself.walletManager, reason: .setSeed(myself.pushPinCreationViewForRecoveredWallet))
 
 	//    private let enterPhrase: EnterPhraseCollectionViewController
@@ -16,11 +18,20 @@ class EnterPhraseHostingController: UIHostingController<EnterPhraseView> {
 	//    let customTitle: String
 
 	var contentView: EnterPhraseView
+	var store: Store
+	var walletManager: WalletManager
+	var reason: PhraseEntryReason
 
 	// store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet
 
 	init(store: Store, walletManager: WalletManager, reason: PhraseEntryReason) {
-		contentView = EnterPhraseView(viewModel: EnterPhraseViewModel(store: store, walletManager: walletManager, reason: reason))
+		// WIP
+		self.store = store
+		self.walletManager = walletManager
+		self.reason = reason
+		contentView = EnterPhraseView(viewModel: EnterPhraseViewModel(store: self.store,
+		                                                              walletManager: self.walletManager,
+		                                                              reason: self.reason))
 
 		super.init(rootView: contentView)
 	}

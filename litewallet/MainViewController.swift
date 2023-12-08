@@ -1,5 +1,6 @@
 import BRCore
 import MachO
+import PushNotifications
 import SwiftUI
 import UIKit
 
@@ -12,10 +13,8 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 	private let loginView: LoginViewController
 	private let tempLoginView: LoginViewController
 	private let loginTransitionDelegate = LoginTransitionDelegate()
-	private let welcomeTransitingDelegate = TransitioningDelegate()
 
-	private var loadingTimer: Timer?
-	private var didEndLoading = false
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 	var walletManager: WalletManager? {
 		didSet {
@@ -107,6 +106,10 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 		}) { _ in
 			NSLog("US MainView Controller presented")
 		}
+
+		delay(4.0) {
+			self.appDelegate.pushNotifications.registerForRemoteNotifications()
+		}
 	}
 
 	private func addTemporaryStartupViews() {
@@ -116,7 +119,7 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 					self.tempLoginView.view.constrain(toSuperviewEdges: nil)
 				})
 			} else {
-				// Adds a card view before thread finishes
+				// Adds a litewalletBlue card view the hides work while thread finishes
 				let launchView = LaunchCardHostingController()
 				self.addChildViewController(launchView, layout: {
 					launchView.view.constrain(toSuperviewEdges: nil)

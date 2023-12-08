@@ -104,4 +104,7 @@ enum CustomEvent: String {
 
 	/// User registered Pusher interest
 	case _20231202_RIGI = "registered_ios_general_interest"
+
+	/// User accepted pushes
+	case _20231225_UAP = "user_accepted_push"
 }

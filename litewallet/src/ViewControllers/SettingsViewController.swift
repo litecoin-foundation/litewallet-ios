@@ -9,7 +9,7 @@ import LocalAuthentication
 import UIKit
 
 class SettingsViewController: UITableViewController, CustomTitleView {
-	init(sections: [String], rows: [String: [Setting]], optionalTitle: String? = nil) {
+	init(sections: [String], rows: [String: [Setting]], optionalTitle _: String? = nil) {
 		self.sections = sections
 		if UserDefaults.isBiometricsEnabled {
 			self.rows = rows
@@ -20,8 +20,8 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 			self.rows = tempRows
 		}
 
-		customTitle = optionalTitle ?? S.Settings.title.localize()
-		titleLabel.text = optionalTitle ?? S.Settings.title.localize()
+		customTitle = S.Settings.title.localize() // optionalTitle ?? S.Settings.title.localize()
+		titleLabel.text = S.Settings.title.localize() // "optionalTitle" //  ?? S.Settings.title.localize()
 		super.init(style: .plain)
 	}
 

@@ -11,13 +11,13 @@ enum CreateStepConfig {
 	var backgroundColor: Color {
 		switch self {
 		case .intro:
-			return .litewalletLightGray
+			return .white
 		case .checkboxes:
-			return .litewalletOrange
+			return .white
 		case .seedPhrase:
-			return .litewalletGreen
+			return .white
 		case .finished:
-			return .liteWalletDarkBlue
+			return .white
 		}
 	}
 
