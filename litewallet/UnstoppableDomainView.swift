@@ -36,7 +36,7 @@ struct UnstoppableDomainView: View {
 						} else {
 							VStack {
 								ZStack {
-									AddressFieldView(viewModel.placeholderString,
+									AddressFieldView(placeholder: viewModel.placeholderString,
 									                 text: $viewModel.searchString)
 										.onTapGesture {
 											didStartEditing = true

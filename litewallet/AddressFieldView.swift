@@ -1,13 +1,24 @@
 import Foundation
 import SwiftUI
 
-struct AddressFieldView: UIViewRepresentable {
-	private var placeholder: String
+enum LWTextFieldType {
+	case genericType
+	case email
+}
 
+struct AddressFieldView: UIViewRepresentable {
 	@Binding var text: String
 
-	init(_ placeholder: String, text: Binding<String>) {
+	private var placeholder: String
+
+	var fieldType: LWTextFieldType
+
+	init(placeholder: String,
+	     text: Binding<String>,
+	     fieldType: LWTextFieldType = .genericType)
+	{
 		self.placeholder = placeholder
+		self.fieldType = fieldType
 		_text = text
 	}
 

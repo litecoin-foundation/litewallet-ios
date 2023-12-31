@@ -107,4 +107,7 @@ enum CustomEvent: String {
 
 	/// User accepted pushes
 	case _20231225_UAP = "user_accepted_push"
+
+	/// User signup
+	case _20240101_US = "user_signup"
 }

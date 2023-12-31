@@ -66,6 +66,13 @@ class StartViewModel: ObservableObject {
 		didTapRecover = completion
 	}
 
+	func didAddToMailingList(email: String, preference: LanguageSelection) {
+		let signupDict: [String: String] = ["user_email": email,
+		                                    "date_accepted": Date().ISO8601Format(),
+		                                    "language_pref": preference.code]
+		LWAnalytics.logEventWithParameters(itemName: ._20240101_US, properties: signupDict)
+	}
+
 	private func checkForWalletAndSync() {
 		/// Test seed count
 		guard seedWords.count == 12 else { return }
