@@ -25,9 +25,6 @@ struct StartView: View {
 	private var animationAmount = 0.0
 
 	@State
-	private var currentLanguage: LanguageSelection = .English
-
-	@State
 	private var pickedLanguage: LanguageSelection = .English
 
 	@State
@@ -35,6 +32,9 @@ struct StartView: View {
 
 	init(viewModel: StartViewModel) {
 		startViewModel = viewModel
+
+//		print("::: \(UserDefaults.selectedLanguage)")
+		//        pickedLanguage =  LanguageSelection(rawValue: <#T##Int#>)
 	}
 
 	var body: some View {
@@ -136,7 +136,9 @@ struct StartView: View {
 						Spacer()
 						NavigationLink(destination:
 
-							AnnounceUpdatesView(navigateStart: .create, didTapContinue: $didContinue)
+							AnnounceUpdatesView(navigateStart: .create,
+							                    language: startViewModel.currentLanguage,
+							                    didTapContinue: $didContinue)
 								.environmentObject(startViewModel)
 								.navigationBarBackButtonHidden(true)
 						) {
@@ -160,10 +162,11 @@ struct StartView: View {
 
 						NavigationLink(destination:
 
-							AnnounceUpdatesView(navigateStart: .recover, didTapContinue: $didContinue)
+							AnnounceUpdatesView(navigateStart: .recover,
+							                    language: startViewModel.currentLanguage,
+							                    didTapContinue: $didContinue)
 								.environmentObject(startViewModel)
 								.navigationBarBackButtonHidden(true)
-							// RecoverWalletView().environmentObject(startViewModel)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)

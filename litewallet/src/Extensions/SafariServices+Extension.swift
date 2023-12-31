@@ -91,6 +91,8 @@ class SignupWebView: WKWebView, WKNavigationDelegate {
 			// webview.scrollView.setZoomScale(0.3, animated: true)
 
 			let result = value as? String
+
+			print(value)
 		})
 	}
 }

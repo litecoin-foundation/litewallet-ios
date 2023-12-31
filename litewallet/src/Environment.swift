@@ -1,7 +1,7 @@
 import UIKit
 
 /// 14  Languages
-enum LanguageSelection: Int, CaseIterable, Equatable {
+enum LanguageSelection: Int, CaseIterable, Equatable, Identifiable {
 	case English = 0
 	case ChineseTraditional
 	case ChineseSimplified
@@ -16,6 +16,7 @@ enum LanguageSelection: Int, CaseIterable, Equatable {
 	case Spanish
 	case Turkish
 	case Ukrainian
+	var id: LanguageSelection { self }
 
 	var code: String {
 		switch self {

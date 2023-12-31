@@ -27,7 +27,7 @@ struct SendAddressCellView: View {
 					Spacer()
 					HStack {
 						VStack {
-							AddressFieldView(S.Send.enterLTCAddressLabel.localize(), text: $viewModel.addressString)
+							AddressFieldView(placeholder: S.Send.enterLTCAddressLabel.localize(), text: $viewModel.addressString)
 								.onTapGesture {
 									didStartEditing = true
 								}
