@@ -407,10 +407,12 @@ enum S {
 	}
 
 	enum Notifications {
+		static let emailTitle = Localization(key: "Notifications.emailTitle", value: "Don't a miss a thing!", comment: "Email title")
 		static let pitchMessage = Localization(key: "Notifications.pitchMessage", value: "Sign up to hear about updates & contests from the Litewallet team!\nAccept notifications to get live news, price & market information!", comment: "Pitch to get user to sign up")
 		static let emailLabel = Localization(key: "Notifications.emailLabel", value: "Email address", comment: "Email address label")
 		static let emailPlaceholder = Localization(key: "Notifications.emailPlaceholder", value: "Enter here", comment: "Email address placeholder")
 		static let languagePreference = Localization(key: "Notifications.languagePreference", value: "Preferred language:", comment: "Language preference label")
+		static let signupCancel = Localization(key: "Notifications.signupCancel", value: "No, thanks", comment: "Signup cancel")
 	}
 
 	enum DefaultCurrency {

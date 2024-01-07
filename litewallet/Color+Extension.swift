@@ -6,7 +6,7 @@ extension Color {
 		return Color(UIColor.liteWalletBlue)
 	}
 
-	static var liteWalletDarkBlue: Color { // 163e7f
+	static var liteWalletDarkBlue: Color { // 0C3475
 		return Color(UIColor.liteWalletDarkBlue)
 	}
 

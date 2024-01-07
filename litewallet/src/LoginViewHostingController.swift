@@ -13,10 +13,8 @@ class LoginViewHostingController: UIHostingController<LoginView> {
 
 	var viewModel: LockScreenViewModel
 
-	init(store: Store, isPresentedForLock: Bool, walletManager: WalletManager? = nil) {
-		viewModel = LockScreenViewModel(store: store,
-		                                isPresentedForLock: isPresentedForLock,
-		                                walletManager: walletManager)
+	init(store: Store, isPresentedForLock _: Bool, walletManager _: WalletManager? = nil) {
+		viewModel = LockScreenViewModel(store: store)
 
 		super.init(rootView: LoginView(viewModel: viewModel))
 	}

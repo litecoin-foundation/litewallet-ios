@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 			pinView = PinView(style: .login, length: store.state.pinLength)
 		}
 
-		let viewModel = LockScreenViewModel(store: self.store, isPresentedForLock: isPresentedForLock, walletManager: walletManager)
+		let viewModel = LockScreenViewModel(store: self.store)
 		headerView = UIHostingController(rootView: LockScreenHeaderView(viewModel: viewModel))
 
 		super.init(nibName: nil, bundle: nil)
