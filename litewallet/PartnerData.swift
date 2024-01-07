@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 enum PartnerName {
-	case unstop
 	case infura
 	case litewalletOps
 	case litewalletStart
@@ -49,18 +48,6 @@ struct Partner {
 				return "https://mainnet.infura.io/v3/" + key
 			} else {
 				let errorDescription = "ERROR-INFURA_KEY"
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
-				return errorDescription
-			}
-
-		case .unstop:
-
-			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
-			   let key = dictionary["change-now-api"] as? String
-			{
-				return key
-			} else {
-				let errorDescription = "ERROR-CHANGENOW_KEY"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}

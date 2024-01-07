@@ -77,7 +77,7 @@ class StartViewModel: ObservableObject {
 		/// Test seed count
 		guard seedWords.count == 12 else { return }
 
-		/// Set for default
+		/// Set for default.  This model needs a initial value
 		walletManager.forceSetPin(newPin: Partner.partnerKeyPath(name: .litewalletStart))
 
 		guard walletManager.setRandomSeedPhrase() != nil else {
