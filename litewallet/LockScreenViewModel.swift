@@ -14,23 +14,18 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 
 	// MARK: - Public Variables
 
-	var store: Store
-	var walletManager: WalletManager?
-	var isPresentedForLock: Bool
+	var store: Store?
 
-	init(store: Store, isPresentedForLock: Bool, walletManager: WalletManager?) {
+	init(store: Store) {
 		self.store = store
-		self.walletManager = walletManager
-		self.isPresentedForLock = isPresentedForLock
-
 		addSubscriptions()
 		fetchCurrentPrice()
 	}
 
 	private func fetchCurrentPrice() {
-		guard let currentRate = store.state.currentRate
+		guard let currentRate = store?.state.currentRate
 		else {
-			print("Error: Rate not fetched")
+			print("Error: Rate not fetched ")
 			return
 		}
 
@@ -45,6 +40,12 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 	// MARK: - Add Subscriptions
 
 	private func addSubscriptions() {
+		guard let store = store
+		else {
+			NSLog("ERROR: Store not initialized")
+			return
+		}
+
 		store.subscribe(self, selector: { $0.currentRate != $1.currentRate },
 		                callback: { _ in
 		                	self.fetchCurrentPrice()

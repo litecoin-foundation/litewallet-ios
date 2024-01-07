@@ -9,11 +9,11 @@ let LITEWALLET_APP_STORE_ID = 1_119_332_592
 class ApplicationController: Subscriber, Trackable {
 	// Ideally the window would be private, but is unfortunately required
 	// by the UIApplicationDelegate Protocol
+
 	var window: UIWindow?
 	fileprivate let store = Store()
 	private var startFlowController: StartFlowPresenter?
 	private var modalPresenter: ModalPresenter?
-
 	fileprivate var walletManager: WalletManager?
 	private var walletCoordinator: WalletCoordinator?
 	private var exchangeUpdater: ExchangeUpdater?
@@ -149,6 +149,10 @@ class ApplicationController: Subscriber, Trackable {
 		walletManager?.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
 	}
 
+	func performFetch(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		fetchCompletionHandler = completionHandler
+	}
+
 	func open(url: URL) -> Bool {
 		if let urlController = urlController {
 			return urlController.handleUrl(url)
@@ -198,6 +202,10 @@ class ApplicationController: Subscriber, Trackable {
 					self?.performBackgroundFetch()
 				}
 			}
+
+			exchangeUpdater?.refresh(completion: {
+				NSLog("Rates were updated")
+			})
 		}
 	}
 
@@ -219,6 +227,10 @@ class ApplicationController: Subscriber, Trackable {
 		feeUpdater?.refresh()
 		defaultsUpdater?.refresh()
 		walletManager?.apiClient?.events?.up()
+
+		exchangeUpdater?.refresh(completion: {
+			NSLog("::: Refreshed fiat rates")
+		})
 	}
 
 	private func addWalletCreationListener() {

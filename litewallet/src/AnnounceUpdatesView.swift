@@ -15,6 +15,9 @@ struct AnnounceUpdatesView: View {
 	private var emailAddress = ""
 
 	@State
+	private var didComplete = false
+
+	@State
 	private var isEmailValid = false
 
 	@State
@@ -25,6 +28,8 @@ struct AnnounceUpdatesView: View {
 	@Binding
 	var didTapContinue: Bool
 
+	private var signupViewModel = SignupWebViewModel()
+
 	let navigateStart: NavigateStart
 
 	let paragraphFont: Font = .barlowSemiBold(size: 22.0)
@@ -33,6 +38,7 @@ struct AnnounceUpdatesView: View {
 	let genericPad = 20.0
 	let smallLabelPad = 15.0
 	let buttonHeight = 44.0
+	let pageHeight = 145.0
 	let hugeFont = Font.barlowBold(size: 30.0)
 	let smallerFont = Font.barlowLight(size: 15.0)
 	let buttonLightFont: Font = .barlowLight(size: 20.0)
@@ -54,13 +60,14 @@ struct AnnounceUpdatesView: View {
 			ZStack {
 				Color.liteWalletDarkBlue.edgesIgnoringSafeArea(.all)
 				VStack {
-					Text("Don't a miss a thing!")
+					Text(S.Notifications.emailTitle.localize())
 						.font(hugeFont)
 						.multilineTextAlignment(.leading)
 						.frame(maxWidth: .infinity, alignment: .leading)
-						.frame(height: buttonHeight)
+						.frame(idealHeight: buttonHeight)
 						.foregroundColor(.white)
 						.padding(.all, genericPad)
+						.padding(.top, height * 0.08)
 
 					Text(S.Notifications.pitchMessage.localize())
 						.font(buttonLightFont)
@@ -72,92 +79,27 @@ struct AnnounceUpdatesView: View {
 						.onTapGesture {
 							isEmailFieldFocused.toggle()
 						}
+					SignupWebView(viewModel: signupViewModel,
+					              url: URL(string: C.signupURL)!,
+					              userAction: $didComplete)
+						.frame(width: width)
+						.frame(height: pageHeight)
+						.edgesIgnoringSafeArea(.all)
+						.padding(.bottom, smallLabelPad)
+						.onChange(of: didComplete) { updateValue in
+							print("::: updateValue \(updateValue)")
 
-					HStack {
-						VStack(alignment: .leading) {
-							Text(S.Notifications.emailLabel.localize())
-								.frame(height: smallLabelPad)
-								.font(smallerFont)
-								.multilineTextAlignment(.leading)
-								.frame(maxWidth: .infinity, alignment: .leading)
-								.foregroundColor(.white)
-
-							TextField(S.Notifications.emailPlaceholder.localize(), text: $emailAddress)
-								.focused($isEmailFieldFocused)
-								.frame(height: buttonHeight)
-								.frame(maxWidth: .infinity, alignment: .leading)
-								.textFieldStyle(.roundedBorder)
-								.foregroundColor(isEmailValid ? .litewalletDarkBlue : .litewalletOrange)
-								.font(smallerFont)
-						}
-						VStack(alignment: .leading) {
-							Text(S.Notifications.languagePreference.localize())
-								.frame(height: smallLabelPad)
-								.font(smallerFont)
-								.multilineTextAlignment(.center)
-								.frame(maxWidth: .infinity, alignment: .leading)
-								.foregroundColor(.white)
-								.offset(x: 10.0)
-
-							Picker("", selection: $languagePref) {
-								ForEach(LanguageSelection.allCases) { pref in
-									Text(pref.nativeName)
-										.frame(width: height * 0.3)
-										.font(smallerFont)
-										.foregroundColor(.white)
-										.tag(pref.rawValue)
+							if updateValue {
+								switch navigateStart {
+								case .create:
+									viewModel.didTapCreate!()
+								case .recover:
+									viewModel.didTapRecover!()
 								}
 							}
-							.pickerStyle(.wheel)
-							.frame(width: height * 0.3)
-							.frame(height: buttonHeight)
-							.clipped()
 						}
-					}
-					.frame(height: 80.0)
-					.frame(maxWidth: .infinity, alignment: .leading)
-					.padding(.all, genericPad)
+
 					Spacer()
-
-					Button {
-						viewModel.didAddToMailingList(email: emailAddress, preference: languagePref)
-						/// Reuse this struct for  Create or Recover
-						switch navigateStart {
-						case .create:
-							viewModel.didTapCreate!()
-						case .recover:
-							viewModel.didTapRecover!()
-						}
-
-					} label: {
-						ZStack {
-							RoundedRectangle(cornerRadius: bigButtonCornerRadius)
-								.frame(width: width * 0.9, height: 45, alignment: .center)
-								.foregroundColor(.white)
-								.shadow(radius: 3, x: 3.0, y: 3.0)
-
-							Text(S.Button.submit.localize())
-								.frame(width: width * 0.9, height: 45, alignment: .center)
-								.font(buttonFont)
-								.foregroundColor(isEmailValid ? .litewalletBlue :
-									.litewalletBlue.opacity(0.4))
-								.overlay(
-									RoundedRectangle(cornerRadius: bigButtonCornerRadius)
-										.stroke(.white, lineWidth: 2.0)
-								)
-						}
-					}
-					.disabled(!isEmailValid)
-					.padding(.bottom, smallLabelPad)
-					.onAppear {
-						delay(4.0) {
-							appDelegate.pushNotifications.registerForRemoteNotifications()
-						}
-					}
-					.onChange(of: $emailAddress.wrappedValue) { _ in
-						isEmailValid = EmailValidation.isEmailValid(emailString: emailAddress)
-					}
-
 					Button {
 						/// Reuse this struct for  Create or Recover
 						switch navigateStart {
@@ -173,7 +115,7 @@ struct AnnounceUpdatesView: View {
 								.frame(width: width * 0.9, height: 45, alignment: .center)
 								.foregroundColor(.litewalletDarkBlue)
 
-							Text(S.Button.cancel.localize())
+							Text(S.Notifications.signupCancel.localize())
 								.frame(width: width * 0.9, height: 45, alignment: .center)
 								.font(buttonLightFont)
 								.foregroundColor(.white)
@@ -184,9 +126,13 @@ struct AnnounceUpdatesView: View {
 						}
 					}
 					.padding(.bottom, genericPad)
+					.onAppear {
+						print("::: height \(height)")
+					}
 				}
 			}
 		}
+		.edgesIgnoringSafeArea(.top)
 	}
 }
 
