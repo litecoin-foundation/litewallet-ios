@@ -310,12 +310,14 @@ class ModalPresenter: Subscriber, Trackable {
 		sendVC.presentScan = presentScan(parent: root)
 		sendVC.presentVerifyPin = { [weak self, weak root] bodyText, callback in
 			guard let myself = self else { return }
+			guard let myroot = root else { return }
+
 			let vc = VerifyPinViewController(bodyText: bodyText, pinLength: myself.store.state.pinLength, callback: callback)
-			vc.transitioningDelegate = self?.verifyPinTransitionDelegate
+			vc.transitioningDelegate = myself.verifyPinTransitionDelegate
 			vc.modalPresentationStyle = .overFullScreen
 			vc.modalPresentationCapturesStatusBarAppearance = true
-			root?.view.isFrameChangeBlocked = true
-			root?.present(vc, animated: true, completion: nil)
+			myroot.view.isFrameChangeBlocked = true
+			myroot.present(vc, animated: true, completion: nil)
 		}
 		sendVC.onPublishSuccess = { [weak self] in
 			self?.presentAlert(.sendSuccess, completion: {})

@@ -147,33 +147,35 @@ class WalletCoordinator: Subscriber, Trackable {
 	}
 
 	private func addWalletObservers() {
-		NotificationCenter.default.addObserver(forName: .walletBalanceChangedNotification, object: nil, queue: nil, using: { _ in
-			self.updateBalance()
-			self.requestTxUpdate()
+		weak var myself = self
+		NotificationCenter.default.addObserver(forName: .walletBalanceChangedNotification, object: nil, queue: nil, using: {
+			_ in
+			myself?.updateBalance()
+			myself?.requestTxUpdate()
 		})
 
 		NotificationCenter.default.addObserver(forName: .walletTxStatusUpdateNotification, object: nil, queue: nil, using: { _ in
-			self.requestTxUpdate()
+			myself?.requestTxUpdate()
 		})
 
 		NotificationCenter.default.addObserver(forName: .walletTxRejectedNotification, object: nil, queue: nil, using: { note in
 			guard let recommendRescan = note.userInfo?["recommendRescan"] as? Bool else { return }
-			self.requestTxUpdate()
+			myself?.requestTxUpdate()
 			if recommendRescan {
-				self.store.perform(action: RecommendRescan.set(recommendRescan))
+				myself?.store.perform(action: RecommendRescan.set(recommendRescan))
 			}
 		})
 
 		NotificationCenter.default.addObserver(forName: .walletSyncStartedNotification, object: nil, queue: nil, using: { _ in
-			self.onSyncStart()
+			myself?.onSyncStart()
 		})
 
 		NotificationCenter.default.addObserver(forName: .walletSyncStoppedNotification, object: nil, queue: nil, using: { note in
-			self.onSyncStop(notification: note)
+			myself?.onSyncStop(notification: note)
 		})
 
 		NotificationCenter.default.addObserver(forName: .languageChangedNotification, object: nil, queue: nil, using: { _ in
-			self.updateTransactions()
+			myself?.updateTransactions()
 		})
 	}
 
