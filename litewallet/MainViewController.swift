@@ -84,6 +84,8 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 	}
 
 	func didUnlockLogin() {
+		let hasSeenAnnounce = UserDefaults.standard.bool(forKey: hasSeenAnnounceView)
+
 		guard let tabVC = UIStoryboard(name: "Main", bundle: nil)
 			.instantiateViewController(withIdentifier: "TabBarViewController")
 			as? TabBarViewController

@@ -4,6 +4,7 @@ import UIKit
 let timeSinceLastExitKey = "TimeSinceLastExit"
 let shouldRequireLoginTimeoutKey = "ShouldRequireLoginTimeoutKey"
 let numberOfLitewalletLaunches = "NumberOfLitewalletLaunches"
+let hasSeenAnnounceView = "HasSeedAnnounceView"
 let LITEWALLET_APP_STORE_ID = 1_119_332_592
 
 class ApplicationController: Subscriber, Trackable {
