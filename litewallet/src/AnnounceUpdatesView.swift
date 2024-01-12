@@ -12,13 +12,7 @@ struct AnnounceUpdatesView: View {
 	var viewModel: StartViewModel
 
 	@State
-	private var emailAddress = ""
-
-	@State
 	private var didComplete = false
-
-	@State
-	private var isEmailValid = false
 
 	@State
 	private var languagePref: LanguageSelection = .English
@@ -27,8 +21,6 @@ struct AnnounceUpdatesView: View {
 
 	@Binding
 	var didTapContinue: Bool
-
-	private var signupViewModel = SignupWebViewModel()
 
 	let navigateStart: NavigateStart
 
@@ -79,16 +71,14 @@ struct AnnounceUpdatesView: View {
 						.onTapGesture {
 							isEmailFieldFocused.toggle()
 						}
-					SignupWebView(viewModel: signupViewModel,
-					              url: URL(string: C.signupURL)!,
-					              userAction: $didComplete)
+
+					SignupWebView(userAction: $didComplete,
+					              urlString: C.signupURL)
 						.frame(width: width)
 						.frame(height: pageHeight)
 						.edgesIgnoringSafeArea(.all)
 						.padding(.bottom, smallLabelPad)
 						.onChange(of: didComplete) { updateValue in
-							print("::: updateValue \(updateValue)")
-
 							if updateValue {
 								switch navigateStart {
 								case .create:
@@ -126,9 +116,6 @@ struct AnnounceUpdatesView: View {
 						}
 					}
 					.padding(.bottom, genericPad)
-					.onAppear {
-						print("::: height \(height)")
-					}
 				}
 			}
 		}

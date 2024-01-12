@@ -117,7 +117,6 @@ class WalletCoordinator: Subscriber, Trackable {
 	}
 
 	@objc private func updateTransactions() {
-		print("::: Updating transactions")
 		updateTimer?.invalidate()
 		updateTimer = nil
 		DispatchQueue.walletQueue.async {

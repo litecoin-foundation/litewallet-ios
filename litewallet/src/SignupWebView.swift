@@ -5,169 +5,175 @@ import SwiftUI
 import UIKit
 import WebKit
 
-// inspired https://www.swiftyplace.com/blog/loading-a-web-view-in-swiftui-with-wkwebview
-struct SignupWebView: UIViewRepresentable, WebViewHandlerDelegate {
-	@ObservedObject
-	var viewModel: SignupWebViewModel
-	let url: URL
-
+struct SignupWebView: UIViewRepresentable {
 	@Binding
 	var userAction: Bool
 
-	func makeCoordinator() -> Coordinator {
-		Coordinator(self)
+	let urlString: String
+
+	private var webView: WKWebView?
+
+	init(userAction: Binding<Bool>, urlString: String) {
+		webView = WKWebView()
+		self.urlString = urlString
+		_userAction = userAction
 	}
 
 	func makeUIView(context: Context) -> WKWebView {
-		let webview = SignupWebView(viewModel: SignupWebViewModel(),
-		                            url: URL(string: C.signupURL)!,
-		                            userAction: $userAction)
-
-		let coordinator = makeCoordinator()
-
-		let preferences = WKPreferences()
-		preferences.javaScriptCanOpenWindowsAutomatically = true
-
-		let configuration = WKWebViewConfiguration()
-		configuration.preferences = preferences
-
 		let source = "var meta = document.createElement('meta');" +
 			"meta.name = 'viewport';" +
 			"meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
 			"var head = document.getElementsByTagName('head')[0];" +
 			"head.appendChild(meta);"
 
-		let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-		let contentController = WKUserContentController()
-		configuration.userContentController = contentController
-		contentController.addUserScript(script)
+		let script = WKUserScript(source: source,
+		                          injectionTime: .atDocumentEnd,
+		                          forMainFrameOnly: true)
 
-		let request = URLRequest(url: url)
-		let wkwebView = WKWebView(frame: CGRect.zero, configuration: configuration)
-		wkwebView.navigationDelegate = context.coordinator
-		wkwebView.allowsBackForwardNavigationGestures = false
-		wkwebView.scrollView.isScrollEnabled = false
-		wkwebView.load(request)
+		let userContentController = WKUserContentController()
+		userContentController.addUserScript(script)
 
-		return wkwebView
+		let configuration = WKWebViewConfiguration()
+		configuration.userContentController = userContentController
+
+		let _wkwebview = WKWebView(frame: .zero, configuration: configuration)
+		_wkwebview.navigationDelegate = context.coordinator
+		_wkwebview.uiDelegate = context.coordinator
+		_wkwebview.allowsBackForwardNavigationGestures = false
+		_wkwebview.scrollView.isScrollEnabled = false
+		_wkwebview.backgroundColor = UIColor.liteWalletDarkBlue
+		_wkwebview.load(URLRequest(url: URL(string: urlString)!))
+
+		return _wkwebview
 	}
 
-	func updateUIView(_ webview: WKWebView, context _: Context) {
-		// Dismisses the keyboard
-		// webview.endEditing(true)
+	func updateUIView(_ webView: WKWebView, context _: Context) {
+		webView.evaluateJavaScript("document.getElementById('submit-email').value") { response, _ in
 
-		/// Submit Button
-		webview.evaluateJavaScript("document.getElementById('submit-email').value") { result, _ in
-
-			if let resultString = result,
-			   resultString as! String == "Please Wait..."
+			if let resultString = response as? String,
+			   resultString.contains("Please")
 			{
-				print("::: Submitted resultString \(resultString)")
+				print("::: signup Submitted resultString \(resultString)")
 				userAction = true
+                
+                let signupDict: [String: String] = ["date_accepted": Date().ISO8601Format()]
+                LWAnalytics.logEventWithParameters(itemName: ._20240101_US, properties: signupDict)
 			}
 		}
 	}
 
-	class Coordinator: NSObject, WKNavigationDelegate {
-		var parent: SignupWebView
-		var delegate: WebViewHandlerDelegate?
-		var valueSubscriber: AnyCancellable?
-		var webViewNavigationSubscriber: AnyCancellable?
+	func makeCoordinator() -> Coordinator {
+		return Coordinator(self)
+	}
 
-		init(_ uiWebView: SignupWebView) {
-			parent = uiWebView
-			delegate = parent
+	class Coordinator: NSObject,
+		WKNavigationDelegate,
+		WKUIDelegate,
+		WKScriptMessageHandler
+	{
+		func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage) {
+			print("::: message \(message)")
 		}
 
-		deinit {
-			valueSubscriber?.cancel()
-			webViewNavigationSubscriber?.cancel()
-		}
+		let parent: SignupWebView
 
-		// MARK: WKWebView's delegate functions
-
-		func webView(_: WKWebView, didFail _: WKNavigation!, withError _: Error) {
-			// Hides loader
-			parent.viewModel.showLoader.send(false)
+		init(_ parent: SignupWebView) {
+			self.parent = parent
 		}
 	}
 }
 
-// #Preview {
-//    SignupWebView()
+//
+//
+// class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
+//    var parent: SignupWebView
+//    var valueSubscriber: AnyCancellable?
+//    var webViewNavigationSubscriber: AnyCancellable?
+//
+//    init(_ uiWebView: SignupWebView) {
+//        parent = uiWebView
+//    }
+//
+//    deinit {
+//        valueSubscriber?.cancel()
+//        webViewNavigationSubscriber?.cancel()
+//    }
+//
+//    // MARK: WKWebView's delegate functions
+//
+//    func webView(_ webView: WKWebView, didFail _: WKNavigation!, withError _: Error) {
+//        // Hides loader
+//        parent.viewModel.showLoader.send(false)
+//
+//        webView.evaluateJavaScript("document.getElementById('email').value") { result, error in
+//            print("::: result \(result) error \(error)")
+//        }
+//    }
+//
+//    func webView(_: WKWebView, runJavaScriptAlertPanelWithMessage _: String, initiatedByFrame _: WKFrameInfo, completionHandler _: @escaping () -> Void) {
+//        // alert functionality goes here
+//    }
+// }
+//
+// func makeCoordinator() -> Coordinator {
+//    Coordinator(self)
+// }
+//
+// func makeUIView(context: Context) -> WKWebView {
+//    let coordinator = makeCoordinator()
+//
+//    let preferences = WKPreferences()
+//    preferences.javaScriptEnabled = true
+//
+//    let configuration = WKWebViewConfiguration()
+//    configuration.preferences = preferences
+//
+//    let contentController = WKUserContentController()
+//
+//    let source = "var meta = document.createElement('meta');" +
+//    "meta.name = 'viewport';" +
+//    "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
+//    "var head = document.getElementsByTagName('head')[0];" +
+//    "head.appendChild(meta);"
+//
+//    let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+//    configuration.userContentController = contentController
+//    contentController.addUserScript(script)
+//
+//    let wkwebView = WKWebView(frame: CGRect.zero, configuration: configuration)
+//    wkwebView.navigationDelegate = context.coordinator
+//    wkwebView.uiDelegate = context.coordinator
+//    wkwebView.allowsBackForwardNavigationGestures = false
+//    wkwebView.scrollView.isScrollEnabled = false
+//    wkwebView.backgroundColor = UIColor.liteWalletDarkBlue
+//
+//    wkwebView.load(URLRequest(url: url))
+//
+//    return wkwebView
+// }
+//
+// func updateUIView(_ webview: WKWebView, context: Context) {
+//    // Dismisses the keyboard
+//    // webview.endEditing(true)
+//
+//    webview.uiDelegate = context.coordinator
+//
+//    /// Submit Button
+//    webview.evaluateJavaScript("document.getElementById('submit-email').value") { result, _ in
+//
+//        if let resultString = result as? String,
+//           resultString == "Please close, and read more."
+//        {
+//            print("::: signup Submitted resultString \(resultString)")
+//            userAction = true
+//        }
+//    }
+//
+//    webview.evaluateJavaScript("document.getElementById('email').value") { _, _ in
+//    }
+// }
 // }
 
-//            var scriptContent = "var meta = document.createElement('meta');"
-//            scriptContent += "meta.name='viewport';"
-//            scriptContent += "meta.content='width=device-width';"
-//            scriptContent += "meta.content = 'initial-scale=1.0, maximum-scale=1.0, user-scalable=no';"
-//            scriptContent += "document.getElementsByTagName('head')[0].appendChild(meta);"
-//            scriptContent += "document.body.scrollHeight;"
-
-//            let source: String = "var meta = document.createElement('meta');" +
-//            "meta.name = 'viewport';" +
-//            "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
-//            "var head = document.getElementsByTagName('head')[0];" +
-//            "head.appendChild(meta);"
-
-//            let script: WKUserScript = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-//            let userContentController: WKUserContentController = WKUserContentController()
-//            let conf = WKWebViewConfiguration()
-//            conf.userContentController = userContentController
-//            userContentController.addUserScript(script)
-//            let webView = WKWebView(frame: CGRect.zero, configuration: conf)
-
-//            webView.evaluateJavaScript(scriptContent, completionHandler: { _, _ in
-//                print("::: evaluate JS")
-//            })
-
-//
-// struct TestWebView: UIViewRepresentable {
-//    class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
-//        var webView: WKWebView?
-//
-//        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//            self.webView = webView
-//        }
-//
-//        // receive message from wkwebview
-//        func userContentController(
-//            _ userContentController: WKUserContentController,
-//            didReceive message: WKScriptMessage
-//        ) {
-//            print(message.body)
-//            let date = Date()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.messageToWebview(msg: "hello, I got your messsage: \(message.body) at \(date)")
-//            }
-//        }
-//
-//        func messageToWebview(msg: String) {
-//            self.webView?.evaluateJavaScript("webkit.messageHandlers.bridge.onMessage('\(msg)')")
-//        }
-//    }
-//
-//    func makeCoordinator() -> Coordinator {
-//        return Coordinator()
-//    }
-//
-//    func makeUIView(context: Context) -> WKWebView {
-//        let coordinator = makeCoordinator()
-//        let userContentController = WKUserContentController()
-//        userContentController.add(coordinator, name: "bridge")
-//
-//        let configuration = WKWebViewConfiguration()
-//        configuration.userContentController = userContentController
-//
-//        let _wkwebview = WKWebView(frame: .zero, configuration: configuration)
-//        _wkwebview.navigationDelegate = coordinator
-//
-//        return _wkwebview
-//    }
-//
-//    func updateUIView(_ webView: WKWebView, context: Context) {
-//        guard let path: String = Bundle.main.path(forResource: "index", ofType: "html") else { return }
-//        let localHTMLUrl = URL(fileURLWithPath: path, isDirectory: false)
-//        webView.loadFileURL(localHTMLUrl, allowingReadAccessTo: localHTMLUrl)
-//    }
+// #Preview {
+//    SignupWebView()
 // }
