@@ -40,4 +40,5 @@ BuildTools/.swiftpm
 # Sensitive Partner API 
 Modules/litewallet-partner-api-ios
 litewallet-partner-api-ios
- 
+/partner-keys.plist
+partner-keys.plist
