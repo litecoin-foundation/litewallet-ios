@@ -13,7 +13,8 @@ class RequestAmountViewController: UIViewController {
 
 	init(wallet: BRWallet, store: Store) {
 		self.wallet = wallet
-        amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: true, hasAcceptedFees: <#Bool#>, isRequesting: true)
+		amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: true, hasAcceptedFees: true)
+
 		super.init(nibName: nil, bundle: nil)
 	}
 
