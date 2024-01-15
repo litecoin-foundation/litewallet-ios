@@ -37,7 +37,9 @@ struct AddressFieldView: UIViewRepresentable {
 	}
 
 	func updateUIView(_ uiView: UITextField, context _: Context) {
-		uiView.text = text
+		DispatchQueue.main.async {
+			uiView.text = text
+		}
 	}
 
 	func makeCoordinator() -> Coordinator {

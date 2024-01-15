@@ -6,6 +6,9 @@ struct SendAddressCellView: View {
 	@ObservedObject
 	var viewModel = SendAddressCellViewModel()
 
+	@State
+	private var didStartEditing: Bool = false
+
 	let actionButtonWidth: CGFloat = 45.0
 	let textFieldHeight: CGFloat = 45.0
 
@@ -20,6 +23,9 @@ struct SendAddressCellView: View {
 						VStack {
 							AddressFieldView(placeholder: S.Send.enterLTCAddressLabel.localize(),
 							                 text: $viewModel.addressString)
+								.onTapGesture {
+									didStartEditing = true
+								}
 								.frame(height: textFieldHeight, alignment: .leading)
 						}
 						.padding(.leading, swiftUICellPadding)
@@ -33,9 +39,11 @@ struct SendAddressCellView: View {
 							HStack {
 								ZStack {
 									RoundedRectangle(cornerRadius: 4)
-										.frame(width: actionButtonWidth, height: 30, alignment: .center)
+										.frame(width: actionButtonWidth, height: 30,
+										       alignment: .center)
 										.foregroundColor(Color(UIColor.secondaryButton))
-										.shadow(color: Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4).padding(.trailing, 3.0)
+										.shadow(color: Color(UIColor.grayTextTint), radius: 3, x: 0, y: 4)
+										.padding(.trailing, 3.0)
 
 									Text(S.Send.pasteLabel.localize())
 										.frame(width: actionButtonWidth, height: 30, alignment: .center)

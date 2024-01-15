@@ -8,6 +8,7 @@ class SendAddressHostingController: UIHostingController<SendAddressCellView> {
 
 	init() {
 		addressString = contentView.viewModel.addressString
+
 		super.init(rootView: contentView)
 	}
 
