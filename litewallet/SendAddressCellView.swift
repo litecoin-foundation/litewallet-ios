@@ -7,8 +7,6 @@ struct SendAddressCellView: View {
 	var viewModel = SendAddressCellViewModel()
 
 	let actionButtonWidth: CGFloat = 45.0
-	let toggleButtonWidth: CGFloat = 60.0
-
 	let textFieldHeight: CGFloat = 45.0
 
 	var body: some View {
@@ -20,7 +18,8 @@ struct SendAddressCellView: View {
 					/// Send Address Field
 					HStack {
 						VStack {
-							AddressFieldView(placeholder: S.Send.enterLTCAddressLabel.localize(), text: $viewModel.addressString)
+							AddressFieldView(placeholder: S.Send.enterLTCAddressLabel.localize(),
+							                 text: $viewModel.addressString)
 								.frame(height: textFieldHeight, alignment: .leading)
 						}
 						.padding(.leading, swiftUICellPadding)
