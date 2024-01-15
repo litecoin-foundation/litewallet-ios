@@ -6,9 +6,6 @@ class SendAddressCellViewModel: ObservableObject {
 	@Published
 	var addressString: String = ""
 
-	@Published
-	var didUpdatePaste: Bool = false
-
 	// MARK: - Public Variables
 
 	var shouldPasteAddress: (() -> Void)?
