@@ -68,7 +68,6 @@ class ModalViewController: UIViewController, Subscriber {
 		// Two stage layout is required here because we need the height constant
 		// of the content at initial layout
 		view.layoutIfNeeded()
-
 		let height = scrollViewContent.bounds.size.height + 60.0
 		let minHeight = scrollView.heightAnchor.constraint(greaterThanOrEqualToConstant: height)
 		let midHeight = scrollView.heightAnchor.constraint(equalTo: scrollViewContent.heightAnchor)

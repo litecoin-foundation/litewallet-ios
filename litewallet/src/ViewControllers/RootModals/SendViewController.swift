@@ -26,7 +26,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let sender: Sender
 	private let walletManager: WalletManager
 	private let amountView: AmountViewController
-	private let sendAddressCell = SendAddressHostingController()
+	private let sendAddressCell = AddressCell()
 	private let memoCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel.localize())
 	private var sendButtonCell = SendButtonHostingController()
 	private let currency: ShadowButton
@@ -83,17 +83,17 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		memoCell.backgroundColor = UIColor.litecoinGray
 		amountView.view.backgroundColor = UIColor.litecoinGray
 
-		view.addSubview(sendAddressCell.view)
+		view.addSubview(sendAddressCell)
 		view.addSubview(memoCell)
 		view.addSubview(sendButtonCell.view)
 
-		sendAddressCell.view.invalidateIntrinsicContentSize()
-		sendAddressCell.view.constrainTopCorners(height: SendCell.defaultHeight)
+		sendAddressCell.invalidateIntrinsicContentSize()
+		sendAddressCell.constrainTopCorners(height: SendCell.defaultHeight)
 
 		addChildViewController(amountView, layout: {
 			amountView.view.constrain([
 				amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-				amountView.view.topAnchor.constraint(equalTo: sendAddressCell.view.bottomAnchor),
+				amountView.view.topAnchor.constraint(equalTo: sendAddressCell.bottomAnchor),
 				amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			])
 		})
@@ -141,12 +141,16 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	}
 
 	private func addButtonActions() {
+		// MARK: - MemoCell Callbacks
+
 		memoCell.didReturn = { textView in
 			textView.resignFirstResponder()
 		}
 		memoCell.didBeginEditing = { [weak self] in
 			self?.amountView.closePinPad()
 		}
+
+		// MARK: - AmountView Callbacks
 
 		amountView.balanceTextForAmount = { [weak self] amount, rate in
 			self?.balanceTextForAmount(amount: amount, rate: rate)
@@ -171,18 +175,23 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		amountView.didChangeFirstResponder = { [weak self] isFirstResponder in
 			if isFirstResponder {
 				self?.memoCell.textView.resignFirstResponder()
+				self?.sendAddressCell.textField.resignFirstResponder()
 			}
 		}
 
-		// MARK: - SendAddressView Model Callbacks
+		// MARK: - SendAddressView Model Callbacks / Actions
 
-		sendAddressCell.rootView.viewModel.shouldPasteAddress = {
-			self.pasteTapped()
+		sendAddressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
+		sendAddressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
+
+		sendAddressCell.didBeginEditing = strongify(self) { myself in
+			myself.amountView.closePinPad()
+		}
+		sendAddressCell.didReceivePaymentRequest = { [weak self] request in
+			self?.handleRequest(request)
 		}
 
-		sendAddressCell.rootView.viewModel.shouldScanAddress = {
-			self.scanTapped()
-		}
+		// MARK: - SendButton Model Callbacks / Actions
 
 		sendButtonCell.rootView.doSendTransaction = {
 			self.sendTapped()
@@ -240,9 +249,8 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			return showAlert(title: S.Send.invalidAddressTitle.localize(), message: S.Send.invalidAddressOnPasteboard.localize(), buttonLabel: S.Button.ok.localize())
 		}
 
-		sendAddressCell.rootView.viewModel.addressString = pasteboard
-
 		handleRequest(request)
+		sendAddressCell.textField.text = pasteboard
 	}
 
 	@objc private func scanTapped() {
@@ -252,15 +260,20 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			guard let request = paymentRequest else { return }
 			guard let destinationAddress = paymentRequest?.toAddress else { return }
 
-			self?.sendAddressCell.rootView.viewModel.addressString = destinationAddress
 			self?.handleRequest(request)
+			self?.sendAddressCell.textField.text = destinationAddress
 		}
 	}
 
 	@objc private func sendTapped() {
-		let sendAddress = sendAddressCell.rootView.viewModel.addressString
+		if sendAddressCell.textField.isFirstResponder {
+			sendAddressCell.textField.resignFirstResponder()
+		}
 		let bareAmount: Satoshis?
 		if sender.transaction == nil {
+			guard let address = sendAddressCell.address else {
+				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAddress.localize(), buttonLabel: S.Button.ok.localize())
+			}
 			guard var amountToSend = amount
 			else {
 				return showAlert(title: S.LitewalletAlert.error.localize(),
@@ -289,7 +302,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 					                 buttonLabel: S.Button.ok.localize())
 				}
 			}
-			guard !(walletManager.wallet?.containsAddress(sendAddress) ?? false)
+			guard !(walletManager.wallet?.containsAddress(address) ?? false)
 			else {
 				return showAlert(title: S.LitewalletAlert.error.localize(),
 				                 message: S.Send.containsAddress.localize(),
@@ -305,7 +318,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			/// Set Ops or Single Output
 			if hasActivatedInlineFees {
 				guard let bareAmt = bareAmount?.rawValue,
-				      sender.createTransactionWithOpsOutputs(amount: bareAmt, to: sendAddress)
+				      sender.createTransactionWithOpsOutputs(amount: bareAmt, to: address)
 				else {
 					return showAlert(title: S.LitewalletAlert.error.localize(),
 					                 message: S.Send.createTransactionError.localize(),
@@ -313,7 +326,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 				}
 			} else {
 				guard let bareAmt = bareAmount?.rawValue,
-				      sender.createTransaction(amount: bareAmt, to: sendAddress)
+				      sender.createTransaction(amount: bareAmt, to: address)
 				else {
 					return showAlert(title: S.LitewalletAlert.error.localize(),
 					                 message: S.Send.createTransactionError.localize(),
@@ -327,7 +340,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			                                         feeType: feeType ?? .regular, state: store.state,
 			                                         selectedRate: amountView.selectedRate,
 			                                         minimumFractionDigits: amountView.minimumFractionDigits,
-			                                         address: sendAddress, isUsingBiometrics: sender.canUseBiometrics)
+			                                         address: address, isUsingBiometrics: sender.canUseBiometrics)
 
 			confirm.successCallback = {
 				confirm.dismiss(animated: true, completion: {
@@ -347,12 +360,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 		} else {
 			NSLog("Error: transaction  is nil")
-		}
-
-		guard let amount = amount
-		else {
-			NSLog("Error: Amount  is nil")
-			return
 		}
 	}
 
@@ -509,7 +516,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		copyKeyboardChangeAnimation(notification: notification)
 	}
 
-	// TODO: - maybe put this in ModalPresentable?
 	private func copyKeyboardChangeAnimation(notification: Notification) {
 		guard let info = KeyboardNotificationInfo(notification.userInfo) else { return }
 		UIView.animate(withDuration: info.animationDuration, delay: 0, options: info.animationOptions, animations: {

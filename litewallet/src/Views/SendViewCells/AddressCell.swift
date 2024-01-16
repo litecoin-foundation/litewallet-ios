@@ -7,7 +7,7 @@ class AddressCell: UIView {
 	}
 
 	var address: String? {
-		return contentLabel.text
+		return textField.text
 	}
 
 	var didBeginEditing: (() -> Void)?
@@ -22,8 +22,6 @@ class AddressCell: UIView {
 	let textField = UITextField()
 	let paste = ShadowButton(title: S.Send.pasteLabel.localize(), type: .tertiary)
 	let scan = ShadowButton(title: S.Send.scanLabel.localize(), type: .tertiary)
-	fileprivate var contentLabel = UILabel(font: .customBody(size: 13.0), color: .darkText)
-	private var label = UILabel(font: .customBody(size: 16.0))
 	fileprivate let gr = UITapGestureRecognizer()
 	fileprivate let tapView = UIView()
 	private let border = UIView(color: .secondaryShadow)
@@ -35,10 +33,9 @@ class AddressCell: UIView {
 				NSLog("ERROR: Main color")
 				return
 			}
-			contentLabel.textColor = textColor
-			label.textColor = textColor
+			textField.textColor = textColor
 		} else {
-			contentLabel.textColor = .darkText
+			textField.textColor = .darkText
 		}
 
 		addSubviews()
@@ -47,8 +44,6 @@ class AddressCell: UIView {
 	}
 
 	private func addSubviews() {
-		addSubview(label)
-		addSubview(contentLabel)
 		addSubview(textField)
 		addSubview(tapView)
 		addSubview(border)
@@ -57,18 +52,9 @@ class AddressCell: UIView {
 	}
 
 	private func addConstraints() {
-		label.constrain([
-			label.constraint(.centerY, toView: self),
-			label.constraint(.leading, toView: self, constant: C.padding[2]),
-		])
-		contentLabel.constrain([
-			contentLabel.constraint(.leading, toView: label),
-			contentLabel.constraint(toBottom: label, constant: 0.0),
-			contentLabel.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1]),
-		])
 		textField.constrain([
-			textField.constraint(.leading, toView: label),
-			textField.constraint(toBottom: label, constant: 0.0),
+			textField.constraint(.leading, toView: self, constant: 11.0),
+			textField.constraint(.centerY, toView: self),
 			textField.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1]),
 		])
 		tapView.constrain([
@@ -94,21 +80,13 @@ class AddressCell: UIView {
 	}
 
 	private func setInitialData() {
-		label.text = S.Send.enterLTCAddressLabel.localize()
-		textField.font = contentLabel.font
+		textField.font = .customBody(size: 15.0)
 		textField.adjustsFontSizeToFitWidth = true
 		textField.minimumFontSize = 10.0
-		textField.textColor = contentLabel.textColor
-		textField.isHidden = true
+		textField.placeholder = S.Send.enterLTCAddressLabel.localize()
 		textField.returnKeyType = .done
 		textField.delegate = self
 		textField.clearButtonMode = .whileEditing
-		label.textColor = .grayTextTint
-		contentLabel.lineBreakMode = .byTruncatingMiddle
-
-		textField.editingChanged = strongify(self) { myself in
-			myself.contentLabel.text = myself.textField.text
-		}
 
 		// GR to start editing label
 		gr.addTarget(self, action: #selector(didTap))
@@ -117,8 +95,6 @@ class AddressCell: UIView {
 
 	@objc private func didTap() {
 		textField.becomeFirstResponder()
-		contentLabel.isHidden = true
-		textField.isHidden = false
 	}
 
 	@available(*, unavailable)
@@ -130,17 +106,13 @@ class AddressCell: UIView {
 extension AddressCell: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_: UITextField) {
 		didBeginEditing?()
-		contentLabel.isHidden = true
 		gr.isEnabled = false
 		tapView.isUserInteractionEnabled = false
 	}
 
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		contentLabel.isHidden = false
-		textField.isHidden = true
+	func textFieldDidEndEditing(_: UITextField) {
 		gr.isEnabled = true
 		tapView.isUserInteractionEnabled = true
-		contentLabel.text = textField.text
 	}
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
