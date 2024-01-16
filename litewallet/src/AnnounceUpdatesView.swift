@@ -32,7 +32,6 @@ struct AnnounceUpdatesView: View {
 	let buttonHeight = 44.0
 	let pageHeight = 145.0
 	let hugeFont = Font.barlowBold(size: 30.0)
-	let smallerFont = Font.barlowLight(size: 15.0)
 	let buttonLightFont: Font = .barlowLight(size: 20.0)
 	let buttonFont: Font = .barlowSemiBold(size: 20.0)
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate

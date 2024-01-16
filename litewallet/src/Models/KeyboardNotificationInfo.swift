@@ -1,6 +1,10 @@
 import UIKit
 
 struct KeyboardNotificationInfo {
+	let endFrame: CGRect
+
+	let startFrame: CGRect
+
 	var deltaY: CGFloat {
 		return endFrame.minY - startFrame.minY
 	}
@@ -27,7 +31,5 @@ struct KeyboardNotificationInfo {
 		self.animationCurve = animationCurve.uintValue
 	}
 
-	private let endFrame: CGRect
-	private let startFrame: CGRect
 	private let animationCurve: UInt
 }
