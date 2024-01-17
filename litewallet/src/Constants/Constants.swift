@@ -2,13 +2,11 @@ import UIKit
 
 let π: CGFloat = .pi
 let customUserAgent: String = "litewallet-ios"
-let litecoinCardURL: String = "https://litecoin.dashboard.getblockcard.com/"
 let swiftUICellPadding = 12.0
-let buttonCornerRadius = 8.0
 let bigButtonCornerRadius = 15.0
 
 struct FoundationSupport {
-	static let dashboard = "https://litecoinfoundation.zendesk.com/"
+	static let dashboard = "https://support.litewallet.io/"
 }
 
 struct APIServer {
@@ -25,29 +23,13 @@ struct Padding {
 	}
 }
 
-struct DeviceType {
-	enum Name {
-		static var iPhoneSE = "iPhone SE"
-		static var iPhoneSE2 = "iPhone SE2"
-		static var iPhone7 = "iPhone 7"
-		static var iPhone8 = "iPhone 8"
-		static var iPhone8Plus = "iPhone 8+"
-		static var iPhoneXSMax = "iPhone Xs Max"
-		static var iPhone11ProMax = "iPhone 11 Pro Max"
-		static var iPhone12Pro = "iPhone 12 Pro"
-		static var iPhone12ProMax = "iPhone 12 Pro Max"
-		static var iPadPro = "iPad Pro (12.9-inch) (3rd generation)"
-	}
-}
-
 struct C {
 	static let padding = Padding()
 	struct Sizes {
 		static let buttonHeight: CGFloat = 48.0
-		static let sendButtonHeight: CGFloat = 65.0
+		static let sendButtonHeight: CGFloat = 165.0
 		static let headerHeight: CGFloat = 48.0
 		static let largeHeaderHeight: CGFloat = 220.0
-		static let logoAspectRatio: CGFloat = 125.0 / 417.0
 	}
 
 	static var defaultTintColor: UIColor = UIView().tintColor
