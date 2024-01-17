@@ -1,7 +1,7 @@
 import UIKit
 
 private let currencyToggleConstant: CGFloat = 20.0
-private let amountFont: UIFont = UIFont.barlowMedium(size: 18.0)
+private let amountFont: UIFont = UIFont.barlowMedium(size: 14.0)
 class AmountViewController: UIViewController, Trackable {
 	private let store: Store
 	private let isPinPadExpandedAtLaunch: Bool
@@ -33,24 +33,6 @@ class AmountViewController: UIViewController, Trackable {
 		}
 	}
 
-	init(store: Store,
-	     isPinPadExpandedAtLaunch: Bool,
-	     hasAcceptedFees _: Bool,
-	     isRequesting: Bool = false)
-	{
-		self.store = store
-		self.isPinPadExpandedAtLaunch = isPinPadExpandedAtLaunch
-		self.isRequesting = isRequesting
-		if let rate = store.state.currentRate, store.state.isLtcSwapped {
-			currencyToggle = ShadowButton(title: "\(rate.code)(\(rate.currencySymbol))", type: .tertiary)
-		} else {
-			currencyToggle = ShadowButton(title: S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
-		}
-		feeSelector = FeeSelector(store: store)
-		pinPad = PinPadViewController(style: .white, keyboardType: .decimalPad, maxDigits: store.state.maxDigits)
-		super.init(nibName: nil, bundle: nil)
-	}
-
 	var balanceTextForAmount: ((Satoshis?, Rate?) -> (NSAttributedString?, NSAttributedString?)?)?
 	var didUpdateAmount: ((Satoshis?) -> Void)?
 	var didChangeFirstResponder: ((Bool) -> Void)?
@@ -70,6 +52,24 @@ class AmountViewController: UIViewController, Trackable {
 		didSet {
 			feeSelector.didUpdateFee = didUpdateFee
 		}
+	}
+
+	init(store: Store,
+	     isPinPadExpandedAtLaunch: Bool,
+	     hasAcceptedFees _: Bool,
+	     isRequesting: Bool = false)
+	{
+		self.store = store
+		self.isPinPadExpandedAtLaunch = isPinPadExpandedAtLaunch
+		self.isRequesting = isRequesting
+		if let rate = store.state.currentRate, store.state.isLtcSwapped {
+			currencyToggle = ShadowButton(title: "\(rate.code)(\(rate.currencySymbol))", type: .tertiary)
+		} else {
+			currencyToggle = ShadowButton(title: S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
+		}
+		feeSelector = FeeSelector(store: store)
+		pinPad = PinPadViewController(style: .white, keyboardType: .decimalPad, maxDigits: store.state.maxDigits)
+		super.init(nibName: nil, bundle: nil)
 	}
 
 	func forceUpdateAmount(amount: Satoshis) {

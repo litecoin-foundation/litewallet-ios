@@ -79,7 +79,7 @@ class TransactionCellViewModel: ObservableObject {
 
 		if transaction.direction == .sent {
 			directionImageText = "arrowtriangle.up.circle.fill"
-			directionArrowColor = Color(UIColor.litecoinOrange)
+			directionArrowColor = Color(UIColor.litewalletOrange)
 		} else if transaction.direction == .received {
 			directionImageText = "arrowtriangle.down.circle.fill"
 			directionArrowColor = Color(UIColor.litecoinGreen)
