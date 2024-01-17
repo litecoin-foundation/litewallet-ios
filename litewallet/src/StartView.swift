@@ -32,9 +32,6 @@ struct StartView: View {
 
 	init(viewModel: StartViewModel) {
 		startViewModel = viewModel
-
-//		print("::: \(UserDefaults.selectedLanguage)")
-		//        pickedLanguage =  LanguageSelection(rawValue: <#T##Int#>)
 	}
 
 	var body: some View {
