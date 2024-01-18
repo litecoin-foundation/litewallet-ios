@@ -126,11 +126,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		                		self.balance = balance
 		                	}
 		                })
-
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)),
-		                                       name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),
-		                                       name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
