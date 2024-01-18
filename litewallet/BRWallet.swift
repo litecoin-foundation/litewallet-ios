@@ -37,7 +37,7 @@ class BRWallet {
 
 	// the first unused external address
 	var receiveAddress: String {
-		return BRWalletReceiveAddress(cPtr).description
+		return charInt8ToString(charArray: BRWalletReceiveAddress(cPtr).s)
 	}
 
 	// all previously genereated internal and external addresses

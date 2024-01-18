@@ -657,12 +657,8 @@ class ModalPresenter: Subscriber, Trackable {
 		})
 		start.navigationItem.title = S.SecurityCenter.Cells.paperKeyTitle.localize()
 
-		var staticColor = UIColor()
-
-		let tempStaticColor = UIColor(named: "staticWhiteColor")
-
 		if UserDefaults.writePaperPhraseDate != nil {
-			start.addCloseNavigationItem(tintColor: staticColor)
+			start.addCloseNavigationItem(tintColor: .lightGray)
 		} else {
 			start.hideCloseNavigationItem()
 		}
@@ -710,23 +706,6 @@ class ModalPresenter: Subscriber, Trackable {
 			})
 		}))
 		topViewController?.present(alert, animated: true, completion: nil)
-	}
-
-	private func handlePaymentRequest(request: PaymentRequest) {
-		currentRequest = request
-		guard !store.state.isLoginRequired else { presentModal(.send); return }
-
-		if topViewController is MainViewController {
-			presentModal(.send)
-		} else {
-			LWAnalytics.logEventWithParameters(itemName: ._20210427_HCIEEH)
-			if let presented = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.presentedViewController
-			{
-				presented.dismiss(animated: true, completion: {
-					self.presentModal(.send)
-				})
-			}
-		}
 	}
 
 	private func handleScanQrURL() {

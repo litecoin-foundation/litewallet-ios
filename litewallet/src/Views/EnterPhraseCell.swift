@@ -162,8 +162,8 @@ extension EnterPhraseCell: UITextFieldDelegate {
 			textField.textColor = .darkText
 			separator.backgroundColor = .secondaryShadow
 		} else {
-			textField.textColor = .litecoinOrange
-			separator.backgroundColor = .litecoinOrange
+			textField.textColor = .litewalletOrange
+			separator.backgroundColor = .litewalletOrange
 			hasDisplayedInvalidState = true
 		}
 	}

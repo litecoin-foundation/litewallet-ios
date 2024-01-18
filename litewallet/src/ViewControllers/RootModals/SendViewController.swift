@@ -39,6 +39,8 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let confirmTransitioningDelegate = TransitioningDelegate()
 	private var feeType: FeeType?
 	private let keychainPreferences = Keychain(service: "litewallet.user-prefs")
+	private var adjustmentHeight: CGFloat = 0.0
+	private var buttonToBorder: CGFloat = 0.0
 
 	init(store: Store, sender: Sender, walletManager: WalletManager, initialAddress: String? = nil, initialRequest: PaymentRequest? = nil)
 	{
@@ -90,31 +92,31 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		sendAddressCell.invalidateIntrinsicContentSize()
 		sendAddressCell.constrainTopCorners(height: SendCell.defaultHeight)
 
-		addChildViewController(amountView, layout: {
-			amountView.view.constrain([
-				amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-				amountView.view.topAnchor.constraint(equalTo: sendAddressCell.bottomAnchor),
-				amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			])
-		})
-
 		memoCell.constrain([
-			memoCell.widthAnchor.constraint(equalTo: amountView.view.widthAnchor),
-			memoCell.topAnchor.constraint(equalTo: amountView.view.bottomAnchor),
-			memoCell.leadingAnchor.constraint(equalTo: amountView.view.leadingAnchor),
+			memoCell.widthAnchor.constraint(equalTo: sendAddressCell.widthAnchor),
+			memoCell.topAnchor.constraint(equalTo: sendAddressCell.bottomAnchor),
+			memoCell.leadingAnchor.constraint(equalTo: sendAddressCell.leadingAnchor),
 			memoCell.heightAnchor.constraint(equalTo: memoCell.textView.heightAnchor, constant: C.padding[3]),
 		])
 		memoCell.accessoryView.constrain([
 			memoCell.accessoryView.constraint(.width, constant: 0.0),
 		])
+		addChildViewController(amountView, layout: {
+			amountView.view.constrain([
+				amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+				amountView.view.topAnchor.constraint(equalTo: memoCell.bottomAnchor),
+				amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			])
+		})
+
 		sendButtonCell.view.constrain([
 			sendButtonCell.view.constraint(.leading, toView: view),
 			sendButtonCell.view.constraint(.trailing, toView: view),
-			sendButtonCell.view.constraint(toBottom: memoCell, constant: 0.0),
+			sendButtonCell.view.constraint(toBottom: amountView.view, constant: buttonToBorder),
 			sendButtonCell.view.constraint(.height, constant: C.Sizes.sendButtonHeight),
 			sendButtonCell.view
 				.bottomAnchor
-				.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2]),
+				.constraint(equalTo: view.bottomAnchor, constant: -C.padding[8]),
 		])
 
 		addButtonActions()
@@ -176,6 +178,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 			if isFirstResponder {
 				self?.memoCell.textView.resignFirstResponder()
 				self?.sendAddressCell.textField.resignFirstResponder()
+				/// copyKeyboardChangeAnimation(willShow: true, notification: notification)
 			}
 		}
 
@@ -184,9 +187,14 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		sendAddressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
 		sendAddressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
 
-		sendAddressCell.didBeginEditing = strongify(self) { myself in
-			myself.amountView.closePinPad()
+		sendAddressCell.didBeginEditing = strongify(self) { _ in
+			// myself.amountView.closePinPad()
 		}
+
+		sendAddressCell.didEndEditing = strongify(self) { myself in
+			myself.resignFirstResponder()
+		}
+
 		sendAddressCell.didReceivePaymentRequest = { [weak self] request in
 			self?.handleRequest(request)
 		}
@@ -194,7 +202,13 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		// MARK: - SendButton Model Callbacks / Actions
 
 		sendButtonCell.rootView.doSendTransaction = {
-			self.sendTapped()
+			guard let sendAddress = self.sendAddressCell.address else { return }
+			if sendAddress.isValidAddress {
+				self.sendTapped()
+			} else {
+				self.showAlert(title: S.LitewalletAlert.error.localize(), message: S.Transaction.invalid.localize(),
+				               buttonLabel: S.Button.ok.localize())
+			}
 		}
 	}
 
@@ -224,7 +238,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 				String(format: S.Send.feeBlank.localize(), feeText)
 
 			if balance >= (fee + tieredOpsFee), amount.rawValue > (balance - (fee + tieredOpsFee)) {
-				balanceColor = .litecoinOrange
+				balanceColor = .litewalletOrange
 			}
 		}
 
@@ -242,15 +256,16 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	@objc private func pasteTapped() {
 		guard let pasteboard = UIPasteboard.general.string, !pasteboard.utf8.isEmpty
 		else {
-			return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.emptyPasteboard.localize(), buttonLabel: S.Button.ok.localize())
+			return showAlert(title: S.Send.invalidAddressTitle.localize(), message: S.Send.noAddress.localize(), buttonLabel: S.Button.ok.localize())
 		}
 		guard let request = PaymentRequest(string: pasteboard)
 		else {
-			return showAlert(title: S.Send.invalidAddressTitle.localize(), message: S.Send.invalidAddressOnPasteboard.localize(), buttonLabel: S.Button.ok.localize())
+			return showAlert(title: S.Send.invalidAddressTitle.localize(), message: S.Send.noAddress.localize(), buttonLabel: S.Button.ok.localize())
 		}
 
 		handleRequest(request)
 		sendAddressCell.textField.text = pasteboard
+		sendAddressCell.textField.layoutIfNeeded()
 	}
 
 	@objc private func scanTapped() {
@@ -272,8 +287,16 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		let bareAmount: Satoshis?
 		if sender.transaction == nil {
 			guard let address = sendAddressCell.address else {
-				return showAlert(title: S.LitewalletAlert.error.localize(), message: S.Send.noAddress.localize(), buttonLabel: S.Button.ok.localize())
+				return showAlert(title: S.LitewalletAlert.error.localize(),
+				                 message: S.Send.noAddress.localize(), buttonLabel: S.Button.ok.localize())
 			}
+
+			if !address.isValidAddress {
+				return showAlert(title: S.LitewalletAlert.error.localize(),
+				                 message: S.Send.noAddress.localize(),
+				                 buttonLabel: S.Button.ok.localize())
+			}
+
 			guard var amountToSend = amount
 			else {
 				return showAlert(title: S.LitewalletAlert.error.localize(),
@@ -422,6 +445,8 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            			myself.onPublishSuccess?()
 		            		})
 		            		self?.saveEvent("send.success")
+		            		self?.sendAddressCell.textField.text = ""
+		            		self?.memoCell.textView.text = ""
 		            		LWAnalytics.logEventWithParameters(itemName: ._20191105_DSL)
 
 		            	case let .creationError(message):
@@ -504,24 +529,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}))
 		alertController.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .cancel, handler: nil))
 		present(alertController, animated: true, completion: nil)
-	}
-
-	// MARK: - Keyboard Notifications
-
-	@objc private func keyboardWillShow(notification: Notification) {
-		copyKeyboardChangeAnimation(notification: notification)
-	}
-
-	@objc private func keyboardWillHide(notification: Notification) {
-		copyKeyboardChangeAnimation(notification: notification)
-	}
-
-	private func copyKeyboardChangeAnimation(notification: Notification) {
-		guard let info = KeyboardNotificationInfo(notification.userInfo) else { return }
-		UIView.animate(withDuration: info.animationDuration, delay: 0, options: info.animationOptions, animations: {
-			guard let parentView = self.parentView else { return }
-			parentView.frame = parentView.frame.offsetBy(dx: 0, dy: info.deltaY)
-		}, completion: nil)
 	}
 
 	@available(*, unavailable)

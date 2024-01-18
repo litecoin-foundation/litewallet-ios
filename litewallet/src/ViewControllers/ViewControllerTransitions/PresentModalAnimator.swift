@@ -3,6 +3,7 @@ import UIKit
 class PresentModalAnimator: NSObject {
 	// MARK: - Public
 
+	let heightOffset: CGFloat = 40.0
 	init(shouldCoverBottomGap: Bool, completion: @escaping () -> Void) {
 		self.completion = completion
 		self.shouldCoverBottomGap = shouldCoverBottomGap
@@ -36,7 +37,7 @@ extension PresentModalAnimator: UIViewControllerAnimatedTransitioning {
 		let fromFrame = container.frame
 		var maskView: UIView?
 		if shouldCoverBottomGap {
-			maskView = UIView(frame: CGRect(x: 0, y: fromFrame.height, width: fromFrame.width, height: 40.0))
+			maskView = UIView(frame: CGRect(x: 0, y: fromFrame.height, width: fromFrame.width, height: heightOffset))
 			maskView?.backgroundColor = .white
 			container.addSubview(maskView!)
 		}
@@ -46,7 +47,8 @@ extension PresentModalAnimator: UIViewControllerAnimatedTransitioning {
 		container.addSubview(toView)
 
 		UIView.spring(duration, animations: {
-			maskView?.frame = CGRect(x: 0, y: fromFrame.height - 30.0, width: fromFrame.width, height: 40.0)
+			// fromFrame.height - 30.0
+			maskView?.frame = CGRect(x: 0, y: fromFrame.height, width: fromFrame.width, height: self.heightOffset)
 			blurView.effect = UIBlurEffect(style: .dark)
 			toView.frame = finalToViewFrame
 		}, completion: { _ in
