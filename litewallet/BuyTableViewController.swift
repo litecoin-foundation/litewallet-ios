@@ -48,6 +48,8 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet var simplexCurrencySegmentedControl: UISegmentedControl!
 
 	private var currencyCode: String = "USD"
+	private let uuidString: String = UIDevice.current.identifierForVendor?.uuidString ?? ""
+	private let currentWalletAddress: String = WalletManager.sharedInstance.wallet?.receiveAddress ?? ""
 
 	@IBAction func didTapSimplex(_: Any) {
 		if let vcWKVC = UIStoryboard(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController
@@ -132,10 +134,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		simplexCellContainerView.layer.borderWidth = 1.0
 		simplexCellContainerView.clipsToBounds = true
 	}
-
-	private let uuidString: String = UIDevice.current.identifierForVendor?.uuidString ?? ""
-
-	private let currentWalletAddress: String = WalletManager.sharedInstance.wallet?.receiveAddress ?? ""
 
 	@objc private func didChangeCurrencyMoonpay() {
 		if let code = PartnerFiatOptions(rawValue: moonpaySegmentedControl.selectedSegmentIndex)?.description

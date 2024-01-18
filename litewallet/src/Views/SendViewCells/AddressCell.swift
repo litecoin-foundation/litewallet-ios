@@ -11,20 +11,13 @@ class AddressCell: UIView {
 	}
 
 	var didBeginEditing: (() -> Void)?
+	var didEndEditing: (() -> Void)?
 	var didReceivePaymentRequest: ((PaymentRequest) -> Void)?
-
-	var isEditable = false {
-		didSet {
-			gr.isEnabled = isEditable
-		}
-	}
 
 	let textField = UITextField()
 	let paste = ShadowButton(title: S.Send.pasteLabel.localize(), type: .tertiary)
 	let scan = ShadowButton(title: S.Send.scanLabel.localize(), type: .tertiary)
-	fileprivate let gr = UITapGestureRecognizer()
-	fileprivate let tapView = UIView()
-	private let border = UIView(color: .secondaryShadow)
+	private let dividerView = UIView(color: .secondaryShadow)
 
 	private func setupViews() {
 		if #available(iOS 11.0, *) {
@@ -37,7 +30,6 @@ class AddressCell: UIView {
 		} else {
 			textField.textColor = .darkText
 		}
-
 		addSubviews()
 		addConstraints()
 		setInitialData()
@@ -45,8 +37,7 @@ class AddressCell: UIView {
 
 	private func addSubviews() {
 		addSubview(textField)
-		addSubview(tapView)
-		addSubview(border)
+		addSubview(dividerView)
 		addSubview(paste)
 		addSubview(scan)
 	}
@@ -57,12 +48,6 @@ class AddressCell: UIView {
 			textField.constraint(.centerY, toView: self),
 			textField.trailingAnchor.constraint(equalTo: paste.leadingAnchor, constant: -C.padding[1]),
 		])
-		tapView.constrain([
-			tapView.leadingAnchor.constraint(equalTo: leadingAnchor),
-			tapView.topAnchor.constraint(equalTo: topAnchor),
-			tapView.bottomAnchor.constraint(equalTo: bottomAnchor),
-			tapView.trailingAnchor.constraint(equalTo: paste.leadingAnchor),
-		])
 		scan.constrain([
 			scan.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
 			scan.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -71,11 +56,11 @@ class AddressCell: UIView {
 			paste.centerYAnchor.constraint(equalTo: centerYAnchor),
 			paste.trailingAnchor.constraint(equalTo: scan.leadingAnchor, constant: -C.padding[0.625]),
 		])
-		border.constrain([
-			border.leadingAnchor.constraint(equalTo: leadingAnchor),
-			border.bottomAnchor.constraint(equalTo: bottomAnchor),
-			border.trailingAnchor.constraint(equalTo: trailingAnchor),
-			border.heightAnchor.constraint(equalToConstant: 1.0),
+		dividerView.constrain([
+			dividerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+			dividerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+			dividerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+			dividerView.heightAnchor.constraint(equalToConstant: 1.0),
 		])
 	}
 
@@ -87,10 +72,6 @@ class AddressCell: UIView {
 		textField.returnKeyType = .done
 		textField.delegate = self
 		textField.clearButtonMode = .whileEditing
-
-		// GR to start editing label
-		gr.addTarget(self, action: #selector(didTap))
-		tapView.addGestureRecognizer(gr)
 	}
 
 	@objc private func didTap() {
@@ -106,13 +87,10 @@ class AddressCell: UIView {
 extension AddressCell: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_: UITextField) {
 		didBeginEditing?()
-		gr.isEnabled = false
-		tapView.isUserInteractionEnabled = false
 	}
 
 	func textFieldDidEndEditing(_: UITextField) {
-		gr.isEnabled = true
-		tapView.isUserInteractionEnabled = true
+		didEndEditing?()
 	}
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {

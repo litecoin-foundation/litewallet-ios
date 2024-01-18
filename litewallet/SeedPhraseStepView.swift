@@ -70,9 +70,6 @@ struct SeedPhraseStepView: View {
 						}
 						.frame(width: width * 0.4)
 						.opacity(0.7)
-						.onAppear(perform: {
-							print("::: viewRect \(viewModel.pinViewRect)")
-						})
 
 					Spacer()
 					Button(action: {
