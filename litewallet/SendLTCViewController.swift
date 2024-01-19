@@ -4,8 +4,8 @@ import UIKit
 class SendLTCViewController: UIViewController {
 	var store: Store?
 
-	override func viewDidLoad()
-	{}
+	@IBOutlet var containerView: UIView!
+	override func viewDidLoad() {}
 
 	override func viewWillAppear(_: Bool) {
 		guard let store = store

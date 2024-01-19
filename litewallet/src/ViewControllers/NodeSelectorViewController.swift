@@ -11,6 +11,7 @@ class NodeSelectorViewController: UIViewController, Trackable {
 	private let walletManager: WalletManager
 	private var okAction: UIAlertAction?
 	private var timer: Timer?
+	private let leftJustPadding = C.padding[6]
 
 	init(walletManager: WalletManager) {
 		self.walletManager = walletManager
@@ -38,15 +39,15 @@ class NodeSelectorViewController: UIViewController, Trackable {
 	}
 
 	private func addConstraints() {
-		titleLabel.pinTopLeft(padding: C.padding[2])
-		nodeLabel.pinTopLeft(toView: titleLabel, topPadding: C.padding[2])
+		titleLabel.pinTopLeft(padding: leftJustPadding)
+		nodeLabel.pinTopLeft(toView: titleLabel, topPadding: leftJustPadding)
 		node.pinTopLeft(toView: nodeLabel, topPadding: 0)
-		statusLabel.pinTopLeft(toView: node, topPadding: C.padding[2])
+		statusLabel.pinTopLeft(toView: node, topPadding: leftJustPadding)
 		status.pinTopLeft(toView: statusLabel, topPadding: 0)
 		button.constrain([
-			button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
-			button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
-			button.topAnchor.constraint(equalTo: status.bottomAnchor, constant: C.padding[2]),
+			button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftJustPadding),
+			button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftJustPadding),
+			button.topAnchor.constraint(equalTo: status.bottomAnchor, constant: leftJustPadding),
 			button.heightAnchor.constraint(equalToConstant: 44.0),
 		])
 	}
