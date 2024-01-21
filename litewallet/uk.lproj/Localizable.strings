@@ -1,0 +1,1462 @@
+/* About screen website label */
+"About.blog" = "веб-сайт";
+
+/* About screen footer */
+"About.footer" = "Зроблено командою LiteWallet\of\Litecoin Foundation\n%1$@";
+
+/* Privay Policy button label */
+"About.privacy" = "Політика конфіденційності";
+
+/* About screen reddit label */
+"About.reddit" = "Reddit";
+
+/* About screen title */
+"About.title" = "Про";
+
+/* About screen twitter label */
+"About.twitter" = "Twitter";
+
+/* Close modal button accessibility label */
+"AccessibilityLabels.close" = "Закрити";
+
+/* Support center accessibiliy label */
+"AccessibilityLabels.faq" = "Центр підтримки";
+
+/* Loading Wallet Message */
+"Account.loadingMessage" = "Завантаження гаманця";
+
+/* Default wallet name */
+"AccountHeader.defaultWalletName" = "Мій Litewallet";
+
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "КЕРУВАТИ";
+
+/* Corruption Error alert title */
+"Alert.corruptionError" = "Локальна корупційна помилка";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "Ваша локальна база даних пошкоджена. Щоб оновити, перейдіть до Налаштування > Блокчейн: Налаштування > Видалити базу даних";
+
+/* Error alert title */
+"Alert.error" = "Помилка";
+
+/* No internet alert message */
+"Alert.noInternet" = "Не знайдено підключення до Інтернету. Перевірте підключення та спробуйте ще раз.";
+
+/* Warning alert title */
+"Alert.warning" = "Увага";
+
+/* 'the addresses were copied'' Alert title */
+"Alerts.copiedAddressesHeader" = "Адреси скопійовано";
+
+/* Addresses Copied Alert sub header */
+"Alerts.copiedAddressesSubheader" = "Усі адреси гаманців успішно скопійовано.";
+
+/* Alert Header Label (the paper key was set) */
+"Alerts.paperKeySet" = "Набір паперових ключів";
+
+/* Alert Subheader label (playfully positive) */
+"Alerts.paperKeySetSubheader" = "Чудово!";
+
+/* Alert Header label (the PIN was set) */
+"Alerts.pinSet" = "PIN набір";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Роздільна здатність домену";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Адреса вирішена!";
+
+/* Send failure alert header label (the send failed to happen) */
+"Alerts.sendFailure" = "Не вдалося надіслати";
+
+/* Send success alert header label (confirmation that the send happened) */
+"Alerts.sendSuccess" = "Надіслати підтвердження";
+
+/* Send success alert subheader label (e.g. the money was sent) */
+"Alerts.sendSuccessSubheader" = "Гроші надіслані!";
+
+/* JSON Serialization error message */
+"ApiClient.jsonError" = "JПомилка серіалізації JSON";
+
+/* Wallet not ready error message */
+"ApiClient.notReady" = "Гаманець не готовий";
+
+/* API Token error message */
+"ApiClient.tokenError" = "Не вдається отримати маркер API";
+
+/* buy button */
+"Button.buy" = "купити";
+
+/* Cancel button label */
+"Button.cancel" = "Скасувати";
+
+/* Ignore button label */
+"Button.ignore" = "Ігнорувати";
+
+/* menu button */
+"Button.menu" = "меню";
+
+/* No button */
+"Button.no" = "Ні";
+
+/* OK button label */
+"Button.ok" = "гаразд";
+
+/* receive button */
+"Button.receive" = "отримувати";
+
+/* resetFields */
+"Button.resetFields" = "Скинути поля";
+
+/* send button */
+"Button.send" = "відправити";
+
+/* Settings button label */
+"Button.settings" = "Налаштування";
+
+/* Settings button label */
+"Button.submit" = "Подати";
+
+/* Yes button */
+"Button.yes" = "Так";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "КУПИТИ";
+
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "• Купуйте подарункові карти\n• Поповніть передплачені телефони\n• Steam, Amazon, Hotels.comПрацює в 170 країнах";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "• Змініть Litecoin на інші криптовалюти\n• Ідентифікатор не потрібен\n• Купуйте за допомогою кредитної картки\n• Глобальне покриття";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "Купуйте Łitecoin";
+
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Купуйте LTC за допомогою багатьох фіатних пар\n• Сплачуйте кількома способами\n• Глобальний постачальник платежів";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• Отримайте Litecoin за 5 хвилин!\n• Купуйте Litecoin за допомогою кредитної картки\n• Паспорт або посвідчення особи штату";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "Купуйте Litecoin";
+
+/* Camera plugin instruction */
+"CameraPlugin.centerInstruction" = "Центруйте свій ідентифікатор у полі";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Деталі обміну:";
+
+/* Amount to Send: ($1.00) */
+"Confirmation.amountLabel" = "Сума для відправки:";
+
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "Сума для пожертвування:";
+
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "Плата за мережу:";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "Час обробки: обробка цих трансакцій займе %1$@ хвилин.";
+
+/* eg. Processing time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingTime" = "Час обробки: обробка цієї транзакції займе %1$@ хвилин.";
+
+/* Send: (amount) */
+"Confirmation.send" = "Надіслати";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "ЗБОР:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "АДРЕСА:";
+
+/* Confirmation Screen title */
+"Confirmation.title" = "Підтвердження";
+
+/* To: (address) */
+"Confirmation.to" = "До";
+
+/* Total Cost: ($5.00) */
+"Confirmation.totalLabel" = "Загальна вартість:";
+
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "Введені слова не відповідають вашому паперовому ключу. Будь ласка спробуйте ще раз.";
+
+/* Confirm paper phrase view label. */
+"ConfirmPaperPhrase.label" = "Щоб переконатися, що все було записано правильно, будь ласка, введіть наступні слова з паперового ключа.";
+
+/* Word label eg. Word #1, Word #2 */
+"ConfirmPaperPhrase.word" = "слово #%1$@";
+
+/* as of a time or date */
+"Conjunction.asOf" = "щодо";
+
+/* No comment provided by engineer. */
+"Copy" = "Копія";
+
+/* Litecoin denomination picker label */
+"DefaultCurrency.bitcoinLabel" = "Litecoin Блок дисплея";
+
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "Виберіть:";
+
+/* Exchange rate label */
+"DefaultCurrency.rateLabel" = "Курс валюти";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableMessage" = "Цей пристрій не налаштовано на надсилання електронної пошти за допомогою поштової програми iOS.";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableTitle" = "Електронна пошта недоступна";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableMessage" = "Цей пристрій не налаштовано на надсилання повідомлень.";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableTitle" = "Повідомлення недоступні";
+
+/* You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"FaceIDSettings.customizeText" = "Ви можете налаштувати ліміт витрат на Face ID за допомогою %1$@.";
+
+/* Face ID screen label */
+"FaceIDSettings.label" = "Використовуйте своє обличчя, щоб розблокувати свій Litewallet і надсилати гроші до встановленого ліміту.";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"FaceIDSettings.linkText" = "Екран ліміту витрат Face ID";
+
+/* Face id switch label. */
+"FaceIDSettings.switchLabel" = "Увімкнути Face ID для Litewallet";
+
+/* Face ID settings view title */
+"FaceIDSettings.title" = "Face ID";
+
+/* Face ID unavailable alert message */
+"FaceIDSettings.unavailableAlertMessage" = "Ви не налаштували Face ID на цьому пристрої. Перейдіть у Налаштування->Face ID і пароль, щоб налаштувати його зараз.";
+
+/* Face ID unavailable alert title */
+"FaceIDSettings.unavailableAlertTitle" = "Face ID не налаштовано";
+
+/* Face Id spending limit screen title */
+"FaceIDSpendingLimit.title" = "Ліміт витрат на Face ID";
+
+/* Economy fee */
+"FeeSelector.economy" = "Економіка";
+
+/* Fee Selector economy fee description */
+"FeeSelector.economyLabel" = "Орієнтовна доставка: більше 10 хвилин";
+
+/* Warning message for economy fee */
+"FeeSelector.economyWarning" = "Цей параметр не рекомендується для чутливих до часу транзакцій.";
+
+/* Luxury fee */
+"FeeSelector.luxury" = "Розкіш";
+
+/* Fee Selector economy fee description */
+"FeeSelector.luxuryLabel" = "Орієнтовна доставка: 2,5 - 5+ хвилин";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "Ця опція практично гарантує прийняття вашої транзакції, хоча ви платите премію.";
+
+/* Regular fee */
+"FeeSelector.regular" = "Звичайний";
+
+/* Fee Selector regular fee description */
+"FeeSelector.regularLabel" = "Орієнтовна доставка: 2,5 - 5+ хвилин";
+
+/* Fee Selector title */
+"FeeSelector.title" = "Швидкість обробки";
+
+/* Confirm */
+"Fragment.confirm" = "підтвердити";
+
+/* Or */
+"Fragment.or" = "або";
+
+/* sorry */
+"Fragment.sorry" = "вибачте";
+
+/* to */
+"Fragment.to" = "до";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "ІСТОРІЯ";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Поточне значення LTC в";
+
+/* Checking private key balance progress view text */
+"Import.checking" = "Перевірка балансу приватного ключа...";
+
+/* Sweep private key confirmation message */
+"Import.confirm" = "Надіслати %1$@ з цього приватного ключа у свій гаманець? Мережа Litecoin отримає комісію в розмірі %2$@.";
+
+/* Duplicate key error message */
+"Import.Error.duplicate" = "Цей приватний ключ уже є у вашому гаманці.";
+
+/* empty private key error message */
+"Import.Error.empty" = "Цей закритий ключ порожній.";
+
+/* High fees error message */
+"Import.Error.highFees" = "Комісія за транзакцію буде коштувати більше, ніж кошти, доступні на цьому приватному ключі.";
+
+/* Not a valid private key error message */
+"Import.Error.notValid" = "Недійсний закритий ключ";
+
+/* Import signing error message */
+"Import.Error.signing" = "Помилка підписання транзакції";
+
+/* Import button label */
+"Import.importButton" = "Імпорт";
+
+/* Importing wallet progress view label */
+"Import.importing" = "Імпорт гаманця";
+
+/* Caption for graphics */
+"Import.leftCaption" = "Гаманець для імпорту";
+
+/* Import wallet intro screen message */
+"Import.message" = "Імпорт гаманця передає всі гроші з вашого іншого гаманця у ваш гаманець Litewallet за допомогою однієї транзакції.";
+
+/* Enter password alert view title */
+"Import.password" = "Цей закритий ключ захищений паролем.";
+
+/* password textfield placeholder */
+"Import.passwordPlaceholder" = "пароль";
+
+/* Caption for graphics */
+"Import.rightCaption" = "Ваш гаманець Litewallet";
+
+/* Scan Private key button label */
+"Import.scan" = "Сканувати приватний ключ";
+
+/* Import wallet success alert title */
+"Import.success" = "Успіх";
+
+/* Successfully imported wallet message body */
+"Import.SuccessBody" = "Гаманець успішно імпортовано.";
+
+/* Import Wallet screen title */
+"Import.title" = "Імпорт гаманця";
+
+/* Unlocking Private key activity view message. */
+"Import.unlockingActivity" = "Ключ розблокування";
+
+/* Import wallet intro warning message */
+"Import.warning" = "Імпорт гаманця не включає історію транзакцій чи інші деталі.";
+
+/* Wrong password alert message */
+"Import.wrongPassword" = "Неправильний пароль, спробуйте ще раз.";
+
+/* Close app button */
+"JailbreakWarnings.close" = "Закрити";
+
+/* Ignore jailbreak warning button */
+"JailbreakWarnings.ignore" = "Ігнорувати";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithBalance" = "БЕЗПЕКА ПРИСТРОЮ ПОГРУЗАНА\n Будь-який додаток для втечі з в’язниці може отримати доступ до даних брелока Litewallet і вкрасти ваш Litecoin! Негайно зітріть цей гаманець і відновіть його на захищеному пристрої.";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithoutBalance" = "БЕЗПЕКА ПРИСТРОЮ ПОГІДРЕНО\n Будь-який додаток для втечі з в’язниці може отримати доступ до даних брелока Litewallet і вкрасти ваш Litecoin. Будь ласка, використовуйте Litewallet лише на пристрої без джейлбрейка.";
+
+/* Jailbreak warning title */
+"JailbreakWarnings.title" = "УВАГА";
+
+/* Wipe wallet button */
+"JailbreakWarnings.wipe" = "Витерти";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "Картка";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Баланс картки";
+
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Вийдіть із системи та ввімкніть 2FA, щоб дозволити перекази";
+
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Реєстрація та вхід\n- Доступний баланс картки\n- Скидання пароля\n- Немає переказу на Litewallet\n- Лише в США";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Наразі Litecoin Card має обмежену функціональність у Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Відвідайте litecoin.getblockcard.com для повного доступу";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Бета-версія картки Litecoin";
+
+/* Enter code */
+"LitecoinCard.enterCode" = "Введіть код";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Введіть код, який нещодавно був надісланий на електронну адресу вашого облікового запису Litecoin Card.";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Помилка логіну";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Забули пароль?";
+
+/* Login */
+"LitecoinCard.login" = "Увійти";
+
+/* Logout */
+"LitecoinCard.logout" = "Вийти";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Картка Litecoin";
+
+/* Register */
+"LitecoinCard.registerCard" = "Реєстрація";
+
+/* Litecoin card */
+"LitecoinCard.registerCardPhrase" = "Зареєструйтеся на карту Litecoin";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Реєстрація користувача...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Адреса";
+
+/* city */
+"LitecoinCard.Registration.city" = "Місто";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "Підтвердьте пароль";
+
+/* country */
+"LitecoinCard.Registration.country" = "Країна";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "Ім'я";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Ідентифікація";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Номер документа";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "Тип ідентифікатора";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "Прізвище";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Номер мобільного";
+
+/* password */
+"LitecoinCard.Registration.password" = "Пароль";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "штат / провінція";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Електронна пошта (ім'я користувача)";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Не має бути порожнім";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Невірна адреса електронної пошти";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Номер мобільного телефону має містити не менше 10 цифр";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Необхідний номер мобільного телефону";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Пароль має містити не менше 6 символів";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Пароль має містити більше 6 символів, принаймні один символ і один символ цифри";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Пароль обов'язковий";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "Обов'язкове поле";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Поштовий індекс";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Виникла проблема з вашою реєстрацією. \nПеревірте свої дані та повторіть спробу.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Ви зареєструвалися!\nПеревірте та підтвердьте свою електронну пошту. Потім поверніться до входу.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Скинути пароль";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Введіть адресу електронної пошти, пов’язану з вашим обліковим записом картки Litecoin, і знайдіть лист із інструкціями для скидання.";
+
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Переказ на картку";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Перевести на Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Виберіть гаманець для передачі:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Адреса";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "спрощений баланс гаманця";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Проведіть пальцем, щоб встановити суму переказу";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Почати передачу";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Передача";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Це була помилка. Увімкніть 2FA на *Enabled*, введіть код, надісланий електронною поштою, і повторіть спробу.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA не ввімкнено";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA увімкнено";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Відвідати https://litecoin.dashboard.getblockcard.com/password/forgot\nщоб скинути пароль.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
+/* Location services disabled error */
+"LocationPlugin.disabled" = "Служби локації вимкнені.";
+
+/* No permissions for location services */
+"LocationPlugin.notAuthorized" = "Litewallet не має дозволу на доступ до служб локації.";
+
+/* No comment provided by engineer. */
+"Malformed URI" = "Неправильний URI";
+
+/* Balance */
+"ManageWallet.balance" = "Баланс";
+
+/* Wallet creation date prefix */
+"ManageWallet.creationDatePrefix" = "Ви створили свій гаманець на %1$@";
+
+/* Manage wallet description text */
+"ManageWallet.description" = "Ім’я вашого гаманця з’являється лише в історії транзакцій вашого облікового запису і нікому не доступне.";
+
+/* Change Wallet name textfield label */
+"ManageWallet.textFeildLabel" = "Назва гаманця";
+
+/* Manage wallet modal title */
+"ManageWallet.title" = "Керування гаманцем";
+
+/* Buy Litecoin title */
+"MenuButton.buy" = "Купуйте Litecoin";
+
+/* Menu button title */
+"MenuButton.customer.support" = "Підтримка клієнтів";
+
+/* Menu button title */
+"MenuButton.lock" = "Блокування гаманця";
+
+/* Menu button title */
+"MenuButton.security" = "Центр безпеки";
+
+/* Menu button title */
+"MenuButton.settings" = "Налаштування";
+
+/* Menu button title */
+"MenuButton.support" = "Підтримка";
+
+/* button label */
+"MenuViewController.createButton" = "Створити новий гаманець";
+
+/* Menu modal title */
+"MenuViewController.modalTitle" = "Меню";
+
+/* button label */
+"MenuViewController.recoverButton" = "Відновити гаманець";
+
+/* No wallet. */
+"No wallet" = "Немає гаманця";
+
+/* Switch to automatic mode button label */
+"NodeSelector.automaticButton" = "Перейдіть в автоматичний режим";
+
+/* Node is connected label */
+"NodeSelector.connected" = "Підключено";
+
+/* Enter node ip address view body */
+"NodeSelector.enterBody" = "Введіть IP-адресу та порт вузла (необов’язково)";
+
+/* Enter Node ip address view title */
+"NodeSelector.enterTitle" = "Введіть Node";
+
+/* Switch to manual mode button label */
+"NodeSelector.manualButton" = "Перейти в ручний режим";
+
+/* Node address label */
+"NodeSelector.nodeLabel" = "Поточний первинний вузол";
+
+/* Node is not connected label */
+"NodeSelector.notConnected" = "Не під'єднано";
+
+/* Node status label */
+"NodeSelector.statusLabel" = "Стан підключення вузла";
+
+/* Node Selector view title */
+"NodeSelector.title" = "Вузли Litecoin";
+
+/* Bad Payment request alert title */
+"PaymentProtocol.Errors.badPaymentRequest" = "Поганий запит на оплату";
+
+/* Error opening payment protocol file message */
+"PaymentProtocol.Errors.corruptedDocument" = "Непідтримуваний або пошкоджений документ";
+
+/* Missing certificate payment protocol error message */
+"PaymentProtocol.Errors.missingCertificate" = "відсутній сертифікат";
+
+/* Request expired payment protocol error message */
+"PaymentProtocol.Errors.requestExpired" = "термін дії запиту закінчився";
+
+/* Payment too small alert title */
+"PaymentProtocol.Errors.smallOutputError" = "Не вдалося здійснити платіж";
+
+/* Amount too small error message */
+"PaymentProtocol.Errors.smallPayment" = "Платежі Litecoin не можуть бути меншими %1$@.";
+
+/* Output too small error message. */
+"PaymentProtocol.Errors.smallTransaction" = "Вихід транзакцій Litecoin не може бути меншим $@.";
+
+/* Unsupported signature type payment protocol error message */
+"PaymentProtocol.Errors.unsupportedSignatureType" = "непідтримуваний тип підпису";
+
+/* Untrusted certificate payment protocol error message */
+"PaymentProtocol.Errors.untrustedCertificate" = "ненадійний сертифікат";
+
+/* Dismiss button. */
+"Prompts.dismiss" = "ВІДХІДИТИ";
+
+/* Enable face ID prompt body */
+"Prompts.FaceId.body" = "Торкніться тут, щоб увімкнути Face ID";
+
+/* Enable face ID prompt title */
+"Prompts.FaceId.title" = "Увімкніть Face ID";
+
+/* No passcode set warning body */
+"Prompts.NoPasscode.body" = "Для захисту вашого гаманця потрібен пароль пристрою.";
+
+/* No Passcode set warning title */
+"Prompts.NoPasscode.title" = "Увімкніть пароль пристрою";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Продовжуйте";
+
+/* Warning about paper key. */
+"Prompts.PaperKey.body" = "Ваш паперовий ключ необхідно зберігати в безпечному місці. Це єдиний спосіб змінити або відновити свій гаманець Luno або передати біткойн. Будь ласка, запишіть це.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "Скасувати";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Увімкнути";
+
+/* An action is required (You must do this action). */
+"Prompts.PaperKey.title" = "Потрібна дія";
+
+/* Transaction rejected prompt body */
+"Prompts.RecommendRescan.body" = "Можливо, ваш гаманець не синхронізований. Часто це можна виправити шляхом повторного сканування блокчейну.";
+
+/* Transaction rejected prompt title */
+"Prompts.RecommendRescan.title" = "Транзакція відхилена";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Для Litewallet потрібен 6-значний PIN-код. Будь ласка, встановіть та зберігайте свій PIN-код у безпечному місці.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "Встановити PIN-код";
+
+/* Share data prompt body */
+"Prompts.ShareData.body" = "Допоможіть покращити Litewallet, поділившись з нами своїми анонімними даними";
+
+/* Share data prompt title */
+"Prompts.ShareData.title" = "Поділіться анонімними даними";
+
+/* Enable touch ID prompt body */
+"Prompts.TouchId.body" = "Торкніться тут, щоб увімкнути Touch ID";
+
+/* Enable touch ID prompt title */
+"Prompts.TouchId.title" = "Увімкнути Touch ID";
+
+/* Push notifications settings view body */
+"PushNotifications.body" = "Увімкніть сповіщення, щоб у майбутньому отримувати спеціальні повідомлення від Litewallet.";
+
+/* Push notifications toggle switch label */
+"PushNotifications.label" = "Push-повідомлення";
+
+/* Push notifications are off label */
+"PushNotifications.off" = "Вимкнено";
+
+/* Push notifications are on label */
+"PushNotifications.on" = "Увімкнено";
+
+/* Push notifications settings view title label */
+"PushNotifications.title" = "Сповіщення";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "ОТРИМАТИ";
+
+/* Address copied message. */
+"Receive.copied" = "Скопійовано в буфер обміну.";
+
+/* Share via email button label */
+"Receive.emailButton" = "Електронна пошта";
+
+/* Request button label */
+"Receive.request" = "Запит на суму";
+
+/* Share button label */
+"Receive.share" = "Поділіться";
+
+/* Share via text message (SMS) */
+"Receive.textButton" = "Текстове повідомлення";
+
+/* Receive modal title */
+"Receive.title" = "Отримати";
+
+/* Done button text */
+"RecoverWallet.done" = "Готово";
+
+/* Recover wallet header */
+"RecoverWallet.header" = "Відновити гаманець";
+
+/* Reset PIN with paper key: header */
+"RecoverWallet.header_reset_pin" = "Скинути PIN-код";
+
+/* Enter paper key instruction */
+"RecoverWallet.instruction" = "Введіть ключ паперу";
+
+/* Recover wallet intro */
+"RecoverWallet.intro" = "Відновіть свій Litewallet за допомогою паперового ключа.";
+
+/* Invalid paper key message */
+"RecoverWallet.invalid" = "Паперовий ключ, який ви ввели, недійсний. Перевірте кожне слово і повторіть спробу.";
+
+/* Previous button accessibility label */
+"RecoverWallet.leftArrow" = "Стрілка вліво";
+
+/* Next button label */
+"RecoverWallet.next" = "Далі";
+
+/* Reset PIN with paper key: more information button. */
+"RecoverWallet.reset_pin_more_info" = "Торкніться тут для отримання додаткової інформації.";
+
+/* Next button accessibility label */
+"RecoverWallet.rightArrow" = "Стрілка вправо";
+
+/* Recover wallet sub-header */
+"RecoverWallet.subheader" = "Введіть паперовий ключ для гаманця, який потрібно відновити.";
+
+/* Reset PIN with paper key: sub-header */
+"RecoverWallet.subheader_reset_pin" = "Щоб скинути PIN-код, введіть слова з паперового ключа в поля нижче.";
+
+/* No amount entered error message. */
+"RequestAnAmount.noAmount" = "Спочатку введіть суму.";
+
+/* Request a specific amount of Litecoin */
+"RequestAnAmount.title" = "Запит на суму";
+
+/* Alert action button label */
+"ReScan.alertAction" = "Синхронізувати";
+
+/* Alert message body */
+"ReScan.alertMessage" = "Ви не зможете надсилати гроші під час синхронізації.";
+
+/* Alert message title */
+"ReScan.alertTitle" = "Синхронізація з Blockchain?";
+
+/* extimated time */
+"ReScan.body1" = "20-45 хвилин";
+
+/* Syncing explanation */
+"ReScan.body2" = "Якщо транзакція відображається як завершена в мережі Litecoin, але не у вашому Litewallet.";
+
+/* Syncing explanation */
+"ReScan.body3" = "Ви неодноразово отримуєте повідомлення про помилку, що ваша транзакція відхилена.";
+
+/* Start Sync button label */
+"ReScan.buttonTitle" = "Запустити синхронізацію";
+
+/* Sync blockchain view footer */
+"ReScan.footer" = "Ви не зможете надсилати гроші під час синхронізації з блокчейном.";
+
+/* Sync Blockchain view header */
+"ReScan.header" = "Синхронізувати блокчейн";
+
+/* Subheader label */
+"ReScan.subheader1" = "Розрахунковий час";
+
+/* Subheader label */
+"ReScan.subheader2" = "Коли синхронізувати?";
+
+/* Reset walet button  title */
+"resetButton" = "Так, скинути гаманець";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "Видалити мій Litewallet";
+
+/* Scan Litecoin address camera flash toggle */
+"Scanner.flashButtonLabel" = "Спалах камери";
+
+/* Complete filter label */
+"Search.complete" = "завершено";
+
+/* Pending filter label */
+"Search.pending" = "на розгляді";
+
+/* Received filter label */
+"Search.received" = "отримано";
+
+/* Sent filter label */
+"Search.sent" = "надісланий";
+
+/* Face ID button title */
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/* Security Center Info */
+"SecurityCenter.info" = "Увімкніть усі функції безпеки для максимального захисту.";
+
+/* Paper Key button description */
+"SecurityCenter.paperKeyDescription" = "Єдиний спосіб отримати доступ до свого Litecoin, якщо ви втратите або оновите свій телефон.";
+
+/* Paper Key button title */
+"SecurityCenter.paperKeyTitle" = "Паперовий ключ";
+
+/* PIN button description */
+"SecurityCenter.pinDescription" = "Захищає ваш Litewallet від неавторизованих користувачів.";
+
+/* PIN button title */
+"SecurityCenter.pinTitle" = "6-значний PIN-код";
+
+/* Security Center Title */
+"SecurityCenter.title" = "Центр безпеки";
+
+/* Touch ID/FaceID button description */
+"SecurityCenter.touchIdDescription" = "Зручно розблокуйте свій Litewallet і надсилайте гроші до встановленого ліміту.";
+
+/* Touch ID button title */
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/* Send money amount label */
+"Send.amountLabel" = "Сума";
+
+/* Balance: $4.00 */
+"Send.balance" = "Баланс: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "НАДІСЛАТИ";
+
+/* Camera not allowed message */
+"Send.cameraunavailableMessage" = "Перейдіть до Налаштувань, щоб дозволити доступ до камери.";
+
+/* Camera not allowed alert title */
+"Send.cameraUnavailableTitle" = "Litewallet не має доступу до камери";
+
+/* Warning when sending to self. */
+"Send.containsAddress" = "Пунктом призначення є ваша власна адреса. Ви не можете відправити собі.";
+
+/* Could not create transaction alert title */
+"Send.creatTransactionError" = "Не вдалося створити транзакцію.";
+
+/* Description for sending money label */
+"Send.descriptionLabel" = "Пам'ятка";
+
+/* Empty pasteboard error message */
+"Send.emptyPasteboard" = "Картонний картон порожній";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Введіть адресу Litecoin";
+
+/* Network Fee: $0.01 */
+"Send.fee" = "Плата за мережу: %1$@";
+
+/* Payee identity not certified alert title. */
+"Send.identityNotCertified" = "Особа одержувача не підтверджена.";
+
+/* Insufficient funds error */
+"Send.insufficientFunds" = "Недостатньо коштів";
+
+/* Invalid address alert message */
+"Send.invalidAddressMessage" = "Адреса призначення не є дійсною адресою Litecoin.";
+
+/* Invalid address on pasteboard message */
+"Send.invalidAddressOnPasteboard" = "Pasteboard не містить дійсної адреси Litecoin.";
+
+/* Invalid address alert title */
+"Send.invalidAddressTitle" = "Недійсна адреса";
+
+/* Is rescanning error message */
+"Send.isRescanning" = "Під час повного повторного сканування надсилання вимкнено.";
+
+/* Loading request activity view message */
+"Send.loadingRequest" = "Запит на завантаження";
+
+/* Empty address alert message */
+"Send.noAddress" = "Будь ласка, введіть адресу одержувача.";
+
+/* Emtpy amount alert message */
+"Send.noAmount" = "Будь ласка, введіть суму для відправки.";
+
+/* Paste button label */
+"Send.pasteLabel" = "Вставити";
+
+/* Could not publish transaction alert title */
+"Send.publishTransactionError" = "Не вдалося опублікувати транзакцію.";
+
+/* Could not load remote request error message */
+"Send.remoteRequestError" = "Не вдалося завантажити платіжний запит";
+
+/* Scan button label */
+"Send.scanLabel" = "Сканувати";
+
+/* Send button label */
+"Send.sendLabel" = "Надіслати";
+
+/* Send modal title */
+"Send.title" = "Надіслати";
+
+/* Send money to label */
+"Send.toLabel" = "До";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "домен";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "Введіть a";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Пошук";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "На жаль, домен не знайдено. [Помилка: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Помилка пошуку";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Введіть домен .crypto, .wallet, .zil, .nft, .blockchain, \n.bitcoin, .coin, .888, .dao або .x.";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "Введіть домен";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Проблема пошуку системи. [Помилка: %2$d]";
+
+/* Adress already used alert message - first part */
+"Send.UsedAddress.firstLine" = "Адреси Litecoin призначені лише для одноразового використання.";
+
+/* Adress already used alert message - second part */
+"Send.UsedAddress.secondLIne" = "Повторне використання знижує конфіденційність як для вас, так і для одержувача і може призвести до втрати, якщо одержувач безпосередньо не контролює адресу.";
+
+/* Adress already used alert title */
+"Send.UsedAddress.title" = "Адреса вже використана";
+
+/* About label */
+"Settings.about" = "Про";
+
+/* Advanced Settings title */
+"Settings.advancedTitle" = "Розширені налаштування";
+
+/* Blockchain settings section header */
+"Settings.blockchain" = "Блокчейн";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "Ви впевнені, що хочете змінити мову на %l?";
+
+/* Default currency label */
+"Settings.currency" = "Відображення валюти";
+
+/* Current Locale */
+"Settings.currentLocale" = "Поточна мова:";
+
+/* Join Early access label */
+"Settings.earlyAccess" = "Приєднуйтесь до раннього доступу";
+
+/* Are you enjoying Litewallet alert message body */
+"Settings.enjoying" = "Вам подобається Litewallet?";
+
+/* Face ID spending limit label */
+"Settings.faceIdLimit" = "Ліміт витрат на Face ID";
+
+/* Import wallet label */
+"Settings.importTitle" = "Імпорт гаманця";
+
+/* Languages label */
+"Settings.languages" = "Мови";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "Середовище:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Партнери Litewallet";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Версія Litewallet:";
+
+/* Manage settings section header */
+"Settings.manage" = "Керувати";
+
+/* Notifications label */
+"Settings.notifications" = "Сповіщення";
+
+/* Leave review button label */
+"Settings.review" = "Залиште нам відгук";
+
+/* Share anonymous data label */
+"Settings.shareData" = "Поділіться анонімними даними";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "Соціальний";
+
+/* Support settings section header */
+"Settings.support" = "Підтримка";
+
+/* Sync blockchain label */
+"Settings.sync" = "Синхронізувати блокчейн";
+
+/* Settings title */
+"Settings.title" = "Налаштування";
+
+/* Touch ID spending limit label */
+"Settings.touchIdLimit" = "Ліміт витрат Touch ID";
+
+/* Wallet Settings section header */
+"Settings.wallet" = "Wallet";
+
+/* Start or recover another wallet menu label. */
+"Settings.wipe" = "Запустити/Відновити інший гаманець";
+
+/* Share data view body */
+"ShareData.body" = "Допоможіть покращити Litewallet, поділившись з нами своїми анонімними даними. Це не включає фінансову інформацію. Ми поважаємо вашу фінансову конфіденційність.";
+
+/* Share data header */
+"ShareData.header" = "Поділитися даними?";
+
+/* Share data switch label. */
+"ShareData.toggleLabel" = "Поділитися анонімними даними?";
+
+/* Current spending limit: */
+"SpendingLimit.title" = "Поточний ліміт витрат: ";
+
+/* button label */
+"StartPaperPhrase.againButtonTitle" = "Знову запишіть паперовий ключ";
+
+/* Paper key explanation text. */
+"StartPaperPhrase.body" = "Ваш паперовий ключ – це єдиний спосіб відновити Litewallet, якщо ваш телефон втрачено, вкрадено, зламано чи оновлено.\n\nМи покажемо вам список слів, які потрібно записати на аркуші паперу та зберегти в безпеці.";
+
+/* button label */
+"StartPaperPhrase.buttonTitle" = "Запишіть ключ на папері";
+
+/* Argument is date */
+"StartPaperPhrase.date" = "Ви востаннє записали свій паперовий ключ %1$@";
+
+/* Start view tagline */
+"StartViewController.tagline" = "Найбезпечніший і найбезпечніший спосіб використання Litecoin.";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "Підтримайте Litecoin Foundation";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Підключення...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Повторне сканування...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Успіх!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Синхронізація...";
+
+/* Syncing view connectiong state header text */
+"SyncingView.connecting" = "Підключення";
+
+/* Syncing view syncing state header text */
+"SyncingView.syncing" = "Синхронізація";
+
+/* 6 d (6 days) */
+"TimeSince.days" = "%1$@ d";
+
+/* 6 h (6 hours) */
+"TimeSince.hours" = "%1$@ h";
+
+/* 6 m (6 minutes) */
+"TimeSince.minutes" = "%1$@ m";
+
+/* 6 s (6 seconds) */
+"TimeSince.seconds" = "%1$@ s";
+
+/* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"TouchIdSettings.customizeText" = "Ви можете налаштувати свій ліміт витрат Touch ID з %1$@.";
+
+/* Touch Id screen label */
+"TouchIdSettings.label" = "Використовуйте відбиток пальця, щоб розблокувати свій Litewallet і надсилати гроші до встановленого ліміту.";
+
+/*  ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"TouchIdSettings.linkText" = "Екран ліміту витрат Touch ID";
+
+/* Spending Limit: b100,000 ($100) */
+"TouchIdSettings.spendingLimit" = "Ліміт витрат: %1$@ (%2$@)";
+
+/* Touch id switch label. */
+"TouchIdSettings.switchLabel" = "Увімкнути Touch ID для Litewallet";
+
+/* Touch ID settings view title */
+"TouchIdSettings.title" = "Touch ID";
+
+/* Touch ID unavailable alert message */
+"TouchIdSettings.unavailableAlertMessage" = "Ви не налаштували Touch ID на цьому пристрої. Перейдіть у Налаштування->Touch ID і пароль, щоб налаштувати його зараз.";
+
+/* Touch ID unavailable alert title */
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID не налаштовано";
+
+/* Always require passcode option */
+"TouchIdSpendingLimit" = "Завжди вимагайте пароль";
+
+/* Touch ID spending limit screen body */
+"TouchIdSpendingLimit.body" = "Вам буде запропоновано ввести свій 6-значний PIN-код, щоб надіслати будь-яку транзакцію, яка перевищує ліміт витрат, і кожні 48 годин з моменту останнього введення 6-значного PIN-коду.";
+
+/* Touch Id spending limit screen title */
+"TouchIdSpendingLimit.title" = "Ліміт витрат Touch ID";
+
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Інформація про суму:";
+
+/* Availability status text */
+"Transaction.available" = "Доступні для витрат";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Блокувати:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Пам'ятка:";
+
+/* Transaction complete label */
+"Transaction.complete" = "Завершено";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Інформація про кінцеву суму транзакції";
+
+/* eg. Ending balance: $50.00 */
+"Transaction.ending" = "Кінцевий баланс: %1$@";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDayReceived" = "Курс обміну при отриманні:";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDaySent" = "Курс обміну при відправці:";
+
+/* (b600 fee) */
+"Transaction.fee" = "(%1$@ плата)";
+
+/* Invalid transaction */
+"Transaction.invalid" = "НЕДІЙСНИЙ";
+
+/* Timestamp label for event that just happened */
+"Transaction.justNow" = "just now";
+
+/* Receive status text: 'In progress: 20%' */
+"Transaction.receivedStatus" = "прямо зараз: %1$@";
+
+/* Send status text: 'In progress: 20%' */
+"Transaction.sendingStatus" = "прямо зараз: %1$@";
+
+/* eg. Starting balance: $50.00 */
+"Transaction.starting" = "Початковий баланс: %1$@";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Інформація про початкову суму транзакції";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
+/* Waiting to be confirmed string */
+"Transaction.waiting" = "Очікування підтвердження. Деякі продавці вимагають підтвердження для завершення транзакції. Орієнтовний час: 1-2 години.";
+
+/* e.g. I received money from an account. */
+"TransactionDetails.account" = "рахунок";
+
+/* Amount section header */
+"TransactionDetails.amountHeader" = "Сума";
+
+/* Block height label */
+"TransactionDetails.blockHeightLabel" = "Підтверджено в блоку";
+
+/* Memo section header */
+"TransactionDetails.commentsHeader" = "Пам'ятка";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "Скопійовано";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "Скопіюйте всі деталі";
+
+/* Empty transaction list message. */
+"TransactionDetails.emptyMessage" = "Тут з’являться ваші транзакції.";
+
+/* [received] at <address> (received title 2/2) */
+"TransactionDetails.from" = "на %1$@";
+
+/* Less button title */
+"TransactionDetails.less" = "Менше...";
+
+/* Moved $5.00 */
+"TransactionDetails.moved" = "Переміщено %1$@";
+
+/* Moved $5.00 */
+"TransactionDetails.movedAmountDescription" = "Переміщено <b>%1@</b>";
+
+/* eg. Confirmed in Block: Not Confirmed */
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Не підтверджено";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "щодо";
+
+/* Received $5.00 (received title 1/2) */
+"TransactionDetails.received" = "Отримано %1$@";
+
+/* Received $5.00 */
+"TransactionDetails.receivedAmountDescription" = "Отримано <b>%1@</b>";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "ОТРИМАТИ АДРЕСУ";
+
+/* Sent $5.00 (sent title 1/2) */
+"TransactionDetails.sent" = "Надісланий %1$@";
+
+/* Sent $5.00 */
+"TransactionDetails.sentAmountDescription" = "Надісланий <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
+
+/* Status section header */
+"TransactionDetails.statusHeader" = "Статус";
+
+/* Transaction Details Title */
+"TransactionDetails.title" = "Transaction Details";
+
+/* [sent] to <address> (sent title 2/2) */
+"TransactionDetails.to" = "до %1$@";
+
+/* Transaction ID header */
+"TransactionDetails.txHashHeader" = "Ідентифікатор транзакції Litecoin";
+
+/* (this transaction was) Received at this address: */
+"TransactionDirection.address" = "Отримано за цією адресою";
+
+/* (this transaction was) Sent to this address: */
+"TransactionDirection.to" = "Надіслано на цю адресу";
+
+/* Disabled until date */
+"UnlockScreen.disabled" = "Вимкнено до: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "Enter PIN";
+
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "Розблокування за допомогою FaceID";
+
+/* My Address button title */
+"UnlockScreen.myAddress" = "Моя адреса";
+
+/* Reset PIN with Paper Key button label. */
+"UnlockScreen.resetPin" = "Скинути PIN-код";
+
+/* Scan button title */
+"UnlockScreen.scan" = "Сканувати";
+
+/* TouchID/FaceID prompt text */
+"UnlockScreen.touchIdPrompt" = "Розблокуйте свій Litewallet.";
+
+/* Unlock with TouchID accessibility label */
+"UnlockScreen.touchIdText" = "Розблокування за допомогою TouchID";
+
+/* Wallet unlocked message */
+"UnlockScreen.unlocked" = "Гаманець розблоковано";
+
+/* Update PIN caption text */
+"UpdatePin.caption" = "Запам’ятайте цей PIN-код. Якщо ви забудете його, ви не зможете отримати доступ до свого Litecoin.";
+
+/* PIN creation info. */
+"UpdatePin.createInstruction" = "Ваш PIN-код буде використано для розблокування вашого Litewallet та надсилання грошей.";
+
+/* Update PIN title */
+"UpdatePin.createTitle" = "Встановити PIN-код";
+
+/* Update PIN title */
+"UpdatePin.createTitleConfirm" = "Повторно введіть PIN-код";
+
+/* Enter current PIN instruction */
+"UpdatePin.enterCurrent" = "Введіть свій поточний PIN-код.";
+
+/* Enter new PIN instruction */
+"UpdatePin.enterNew" = "Введіть новий PIN-код.";
+
+/* Re-Enter new PIN instruction */
+"UpdatePin.reEnterNew" = "Повторно введіть новий PIN-код.";
+
+/* Update PIN failure error message. */
+"UpdatePin.setPinError" = "На жаль, не вдалося оновити PIN-код.";
+
+/* Update PIN failure alert view title */
+"UpdatePin.setPinErrorTitle" = "Помилка оновлення PIN-коду";
+
+/* Update PIN title */
+"UpdatePin.updateTitle" = "Оновіть PIN-код";
+
+/* Authorize to copy wallet addresses alert message */
+"URLHandling.addressaddressListAlertMessage" = "Скопіювати адреси гаманців у буфер обміну?";
+
+/* Authorize to copy wallet address PIN view prompt. */
+"URLHandling.addressList" = "Дозволити копіювати адресу гаманця в буфер обміну";
+
+/* Authorize to copy wallet address alert title */
+"URLHandling.addressListAlertTitle" = "Копіювати адреси гаманця";
+
+/* Copy wallet addresses alert button label */
+"URLHandling.copy" = "Копія";
+
+/* Verify PIN for transaction view body */
+"VerifyPin.authorize" = "Будь ласка, введіть свій PIN-код, щоб авторизувати цю транзакцію.";
+
+/* Verify PIN view body */
+"VerifyPin.continueBody" = "Введіть свій PIN-код, щоб продовжити.";
+
+/* Verify PIN view title */
+"VerifyPin.title" = "Потрібний PIN-код";
+
+/* Authorize transaction with touch id message */
+"VerifyPin.touchIdMessage" = "Авторизуйте цю трансакцію";
+
+/* 'No wallet' warning for watch app */
+"Watch.noWalletWarning" = "Відкрийте додаток Litewallet для iPhone, щоб налаштувати гаманець.";
+
+/* Dismiss button label */
+"Webview.dismiss" = "Звільнити";
+
+/* Webview loading error message */
+"Webview.errorMessage" = "Під час завантаження вмісту сталася помилка. Будь ласка спробуйте ще раз.";
+
+/* Updating webview message */
+"Webview.updating" = "Оновлення...";
+
+/* Welcome view body text */
+"Welcome.body" = "Тепер Litewallet має абсолютно новий вигляд і деякі нові функції.\n\nУсі монети відображаються в lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).";
+
+/* Welcome view title */
+"Welcome.title" = "Ласкаво просимо до Litewallet!";
+
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "Видалити базу даних";
+
+/* Wipe wallet alert message */
+"WipeWallet.alertMessage" = "Ви впевнені, що хочете видалити цей гаманець?";
+
+/* Wipe wallet alert title */
+"WipeWallet.alertTitle" = "Витерти гаманець?";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "Видалити базу даних";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "Це видаляє базу даних, але зберігає PIN-код і фразу. Підтвердьте свій наявний PIN-код, запустіть і дочекайтеся завершення синхронізації з новою базою даних";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "Видалити та синхронізувати";
+
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "Забули початкову фразу або PIN-код?";
+
+/* Failed wipe wallet alert message */
+"WipeWallet.failedMessage" = "Не вдалося стерти гаманець.";
+
+/* Failed wipe wallet alert title */
+"WipeWallet.failedTitle" = "Не вдалося";
+
+/* Enter key to wipe wallet instruction. */
+"WipeWallet.instruction" = "Щоб запустити новий гаманець або відновити наявний гаманець, спочатку потрібно стерти гаманець, який зараз встановлено. Щоб продовжити, введіть паперовий ключ поточного гаманця.";
+
+/* Start wipe wallet view message */
+"WipeWallet.startMessage" = "Запуск або відновлення іншого гаманця дає змогу отримати доступ до іншого гаманця Litewallet і керувати ним на цьому пристрої.";
+
+/* Start wipe wallet view warning */
+"WipeWallet.startWarning" = "Ваш поточний гаманець буде видалено з цього пристрою. Якщо ви хочете відновити його в майбутньому, вам потрібно буде ввести свій паперовий ключ.";
+
+/* Wipe wallet navigation item title. */
+"WipeWallet.title" = "Запустіть або відновіть інший гаманець";
+
+/* Warning Alert */
+"WipeWallet.warningAlert" = "Ця дія видалить ваш Litewallet!";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "Видалення гаманця означає, що приватний ключ і стирання даних програми не буде. Ви можете втратити свій Litecoin назавжди! \n\n\nНіхто з команди Litewallet не може отримати це початкове значення для вас. Ми не несемо відповідальності, якщо ви не зважите на це попередження.";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "БУДЬ ЛАСКА, ПРОЧИТАЙТЕ!";
+
+/* Wipe wallet button title */
+"WipeWallet.wipe" = "Витерти";
+
+/* Wiping activity message */
+"WipeWallet.wiping" = "Витирання...";
+
+/* Paper key instructions. */
+"WritePaperPhrase.instruction" = "Запишіть кожне слово по порядку і зберігайте його в надійному місці.";
+
+/* button label */
+"WritePaperPhrase.next" = "Далі";
+
+/* button label */
+"WritePaperPhrase.previous" = "Попередній";
+
+/* 1 of 3 */
+"WritePaperPhrase.step" = "%1$d з %2$d";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Комісія: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Збори: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Збори:";
+
+ 

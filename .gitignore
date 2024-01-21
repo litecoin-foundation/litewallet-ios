@@ -1,6 +1,6 @@
 ## Litewallet related
-loafwallet/partner-keys.plist
-loafwallet/GoogleService-Info.plist
+litewallet/partner-keys.plist
+litewallet/GoogleService-Info.plist
 
 ## Build generated
 build/
@@ -40,5 +40,5 @@ BuildTools/.swiftpm
 # Sensitive Partner API 
 Modules/litewallet-partner-api-ios
 litewallet-partner-api-ios
-
 /partner-keys.plist
+partner-keys.plist
