@@ -1,0 +1,1451 @@
+/* About screen blog label */
+"About.blog" = "Blog";
+
+/* About screen footer */
+"About.footer" = "Lavet af det globale Litewallet hold. Version %1$@";
+
+/* Privay Policy button label */
+"About.privacy" = "Privatlivspolitik";
+
+/* About screen reddit label */
+"About.reddit" = "Reddit";
+
+/* About screen title */
+"About.title" = "Om";
+
+/* About screen twitter label */
+"About.twitter" = "Twitter";
+
+/* Close modal button accessibility label */
+"AccessibilityLabels.close" = "Luk";
+
+/* Support center accessibiliy label */
+"AccessibilityLabels.faq" = "Supportcenter";
+
+/* Loading Wallet Message */
+"Account.loadingMessage" = "Indlæser pung";
+
+/* Default wallet name */
+"AccountHeader.defaultWalletName" = "Mit Litewallet";
+
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "ADMINISTRER";
+
+/* Corruption Error alert title */
+"Alert.corruptionError" = "Lokal korruptionsfejl";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "Lokal korruptionsfejl";
+
+/* Error alert title */
+"Alert.error" = "Fejl";
+
+/* No internet alert message */
+"Alert.noInternet" = "Ingen internetforbindelse fundet. Tjek din forbindelse og prøv igen.";
+
+/* Warning alert title */
+"Alert.warning" = "Advarsel";
+
+/* 'the addresses were copied'' Alert title */
+"Alerts.copiedAddressesHeader" = "Adresser kopieret";
+
+/* Addresses Copied Alert sub header */
+"Alerts.copiedAddressesSubheader" = "Alle pungens adresser er kopieret.";
+
+/* Alert Header Label (the paper key was set) */
+"Alerts.paperKeySet" = "Paper key indstillet";
+
+/* Alert Subheader label (playfully positive) */
+"Alerts.paperKeySetSubheader" = "Fedt!";
+
+/* Alert Header label (the PIN was set) */
+"Alerts.pinSet" = "PIN indstillet";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Domæneopløsning";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Din adresse blev løst!";
+
+/* Send failure alert header label (the send failed to happen) */
+"Alerts.sendFailure" = "Afsendelse mislykkedes";
+
+/* Send success alert header label (confirmation that the send happened) */
+"Alerts.sendSuccess" = "Send bekræftelse";
+
+/* Send success alert subheader label (e.g. the money was sent) */
+"Alerts.sendSuccessSubheader" = "Pengene blev sendt!";
+
+/* JSON Serialization error message */
+"ApiClient.jsonError" = "JSON serialiseringsfejl";
+
+/* Wallet not ready error message */
+"ApiClient.notReady" = "Pung ikke klar";
+
+/* API Token error message */
+"ApiClient.tokenError" = "Kunne ikke hente API-nøgle";
+
+/* buy button */
+"Button.buy" = "købe";
+
+/* Cancel button label */
+"Button.cancel" = "Annuller";
+
+/* Ignore button label */
+"Button.ignore" = "Ignorer";
+
+/* menu button */
+"Button.menu" = "menu";
+
+/* No button */
+"Button.no" = "Nej";
+
+/* OK button label */
+"Button.ok" = "OK";
+
+/* receive button */
+"Button.receive" = "modtag";
+
+/* resetFields */
+"Button.resetFields" = "Nulstil felter";
+
+/* send button */
+"Button.send" = "send";
+
+/* Settings button label */
+"Button.settings" = "Indstillinger";
+
+/* Settings button label */
+"Button.submit" = "Send";
+
+/* Yes button */
+"Button.yes" = "Ja";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "KØBE";
+
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "• Køb gavekort \n • Genopfyld forudbetalte telefoner \n • Steam, Amazon, Hotels.com \n • Fungerer i 170 lande";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "• Skift Litecoin til andre kryptos \n • Ingen ID krævet \n • Køb med kreditkort \n • Global dækning";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "Købe Litecoin";
+
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Køb LTC med mange fiat-par\n• Betal med flere metoder\n• Global betalingsudbyder";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• Få Litecoin inden for 5 minutter! \n • Køb Litecoin via kreditkort \n • Pas eller stats-ID";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "Købe Litecoin";
+
+/* Camera plugin instruction */
+"CameraPlugin.centerInstruction" = "Centrer dit ID i boksen";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Udvekslingsoplysninger:";
+
+/* Amount to Send: ($1.00) */
+"Confirmation.amountLabel" = "Beløb der skal sendes:";
+
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "Beløb til donation:";
+
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "Netværksgebyr:";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "Behandlingstid: Disse transaktioner tager %1$@ minutter at behandle.";
+
+/* eg. Processing time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingTime" = "Behandlingstid: denne transaktion vil tage %1$@ minutter at behandle.";
+
+/* Label for "send" button on final confirmation screen */
+"Confirmation.send" = "Send";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "BETALING:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "ADRESSE:";
+
+/* Confirmation Screen title */
+"Confirmation.title" = "Bekræftelse";
+
+/* To: (address) */
+"Confirmation.to" = "Til";
+
+/* Total Cost: ($5.00) */
+"Confirmation.totalLabel" = "Samlede omkostninger:";
+
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "De indtastede ord stemmer ikke overens med din papirnøgle. Prøv igen.";
+
+/* Confirm paper phrase view label. */
+"ConfirmPaperPhrase.label" = "For at sørge for, at alt blev skrevet korrekt, bedes du indtaste følgende ord fra din paper key.";
+
+/* Word label eg. Word #1, Word #2 */
+"ConfirmPaperPhrase.word" = "Ord #%1$@";
+
+/* as of a time or date */
+"Conjunction.asOf" = "fra";
+
+/* No comment provided by engineer. */
+"Copy" = "Kopi";
+
+/* Litecoin denomination picker label */
+"DefaultCurrency.bitcoinLabel" = "Litecoin visningsenhed";
+
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "Vælge:";
+
+/* Exchange rate label */
+"DefaultCurrency.rateLabel" = "Valutakurs";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableMessage" = "Denne enhed er ikke konfigureret til at sende e-mail med iOS mailappen.";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableTitle" = "E-mail utilgængelig";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableMessage" = "Denne enhed er ikke konfigureret til at sende beskeder.";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableTitle" = "Beskeder utilgængelig";
+
+/* You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button] */
+"FaceIDSettings.customizeText" = "PLACEHOLDER";
+
+/* Face Id screen label */
+"FaceIDSettings.label" = "PLACEHOLDER";
+
+/* Link Text (see FaceIdSettings.customizeText) */
+"FaceIDSettings.linkText" = "PLACEHOLDER";
+
+/* Face id switch label. */
+"FaceIDSettings.switchLabel" = "PLACEHOLDER";
+
+/* Face ID settings view title */
+"FaceIDSettings.title" = "PLACEHOLDER";
+
+/* Face ID unavailable alert message */
+"FaceIDSettings.unavailableAlertMessage" = "PLACEHOLDER";
+
+/* Face ID unavailable alert title */
+"FaceIDSettings.unavailableAlertTitle" = "PLACEHOLDER";
+
+/* Face Id spending limit screen title */
+"FaceIDSpendingLimit.title" = "PLACEHOLDER";
+
+/* Economy fee */
+"FeeSelector.economy" = "Økonomi";
+
+/* Fee Selector economly fee description */
+"FeeSelector.economyLabel" = "Forventet leveringstid: 10+ minutter";
+
+/* Warning message for economy fee */
+"FeeSelector.economyWarning" = "Denne mulighed er ikke anbefalet for tidsfølsomme transaktioner.";
+
+/* Luxury fee */
+"FeeSelector.luxury" = "Luksus";
+
+/* Fee Selector luxury fee description */
+"FeeSelector.luxuryLabel" = "Anslået levering: 2,5 - 5 minutter";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "Denne mulighed garanterer næsten accept af din transaktion, selvom du betaler en præmie.";
+
+/* Regular fee */
+"FeeSelector.regular" = "Almindelig";
+
+/* Fee Selector regular fee description */
+"FeeSelector.regularLabel" = "Anslået levering: 2,5 - 5+ minutter";
+
+/* Fee Selector title */
+"FeeSelector.title" = "Behandlingshastighed";
+
+/* Confirm */
+"Fragment.confirm" = "Bekræfte";
+
+/* Or */
+"Fragment.or" = "eller";
+
+/* sorry */
+"Fragment.sorry" = "Undskyld";
+
+/* to */
+"Fragment.to" = "til";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "HISTORIE";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Aktuel LTC-værdi i";
+
+/* Checking private key balance progress view text */
+"Import.checking" = "Tjekker beløb på privat nøgle...";
+
+/* Sweep private key confirmation message */
+"Import.confirm" = "Send %1$@ fra denne private nøgle til din pung? Litecoin netværket vil modtage et gebyr på %2$@.";
+
+/* Duplicate key error message */
+"Import.Error.duplicate" = "Denne private nøgle findes allerede i din pung.";
+
+/* empty private key error message */
+"Import.Error.empty" = "Denne private nøgle er tom.";
+
+/* High fees error message */
+"Import.Error.highFees" = "Transaktionsgebyrer vil koste mere end der er midler til på denne private nøgle.";
+
+/* Not a valid private key error message */
+"Import.Error.notValid" = "Ikke en gyldig privat nøgle";
+
+/* Import signing error message */
+"Import.Error.signing" = "Fejl ved underskrivelse af transaktion";
+
+/* Import button label */
+"Import.importButton" = "Importer";
+
+/* Importing wallet progress view label */
+"Import.importing" = "Importerer pung";
+
+/* Caption for graphics */
+"Import.leftCaption" = "Pung bliver importeret";
+
+/* Import wallet intro screen message */
+"Import.message" = "Import af en pung overfører alle pengene fra din anden pung til din Litewallet pung, via en enkelt overførsel.";
+
+/* Enter password alert view title */
+"Import.password" = "Denne private nøgle er beskyttet med et kodeord.";
+
+/* password textfield placeholder */
+"Import.passwordPlaceholder" = "adgangskode";
+
+/* Caption for graphics */
+"Import.rightCaption" = "Din Litewallet pung";
+
+/* Scan Private key button label */
+"Import.scan" = "Scan privat nøgle";
+
+/* Import wallet success alert title */
+"Import.success" = "Succes";
+
+/* Successfully imported wallet message body */
+"Import.SuccessBody" = "Importeret til din pung.";
+
+/* Import Wallet screen title */
+"Import.title" = "Importer pung";
+
+/* Unlocking Private key activity view message. */
+"Import.unlockingActivity" = "Låser op for nøgle";
+
+/* Import wallet intro warning message */
+"Import.warning" = "Import af en pung inkluderer ikke transaktionshistorik eller andre oplysninger.";
+
+/* Wrong password alert message */
+"Import.wrongPassword" = "Forkert adgangskode, prøv venligst igen.";
+
+/* Close app button */
+"JailbreakWarnings.close" = "Luk";
+
+/* Ignore jailbreak warning button */
+"JailbreakWarnings.ignore" = "Ignorer";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithBalance" = "ENHEDENS SIKKERHED ER KOMPROMITTERET\n Enhver 'jailbreak' app kan få adgang til Litewallets nøgledata og stjæle dine Litecoin! Ryd straks denne pung og gendan på en sikker enhed.";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithoutBalance" = "ENHEDENS SIKKERHED ER KOMPROMITTERET\n Enhver 'jailbreak' app kan få adgang til Litewallets nøgledata og stjæle dine Litecoin. Brug kun Litewallet på en ikke jailbreaket enhed.";
+
+/* Jailbreak warning title */
+"JailbreakWarnings.title" = "ADVARSEL";
+
+/* Wipe wallet button */
+"JailbreakWarnings.wipe" = "Ryd";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "KORT";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Kortbalance";
+
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Log ud og aktiver 2FA for at tillade overførsler";
+
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Registrering og login\n- Tilgængelig kortsaldo\n- Nulstil adgangskode\n- Ingen overførsel til Litewallet\n- Kun USA";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Card har i øjeblikket begrænset funktionalitet i Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Besøg litecoin.getblockcard.com for fuld adgang";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin-kort Beta";
+
+/* Enter code */
+"LitecoinCard.enterCode" = "Indtast kode";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Indtast koden, der for nylig blev sendt til din Litecoin Card -kontos e -mail.";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Login mislykkedes";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Glemt kodeord?";
+
+/* Login */
+"LitecoinCard.login" = "Log på";
+
+/* Logout */
+"LitecoinCard.logout" = "Log ud";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin -kort";
+
+/* Register */
+"LitecoinCard.registerCard" = "Tilmeld";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Tilmeld dig Litecoin-kort";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Registrerer bruger ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Vejnavn";
+
+/* city */
+"LitecoinCard.Registration.city" = "By";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "bekræft kodeord";
+
+/* country */
+"LitecoinCard.Registration.country" = "Land";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "fornavn";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identifikation";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Kend din kunde ID-type";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID-type";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "efternavn";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Mobilnummer";
+
+/* password */
+"LitecoinCard.Registration.password" = "adgangskode";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Stat / provins";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "Email";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Må ikke være tom";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ugyldig emailadresse";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobilnummeret skal have mindst 10 cifre";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobilnummer er påkrævet";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Adgangskoden skal indeholde mindst 6 tegn";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Adgangskoden skal bestå af mere end 6 tegn med mindst et tegn og et numerisk tegn";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Adgangskode er påkrævet";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "påkrævet område";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Postnummer";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Der var et problem med din registrering. Kontroller dine data, og prøv igen.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "Du har tilmeldt dig! Kontroller og bekræft din e-mail. Så kom tilbage for at logge ind.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Nulstille kodeord";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Indtast den e-mail-adresse, der er knyttet til din Litecoin Card-konto, og se efter en e-mail med nulstillingsinstruktioner.";
+
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Overfør til kort";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Overførsel til Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Vælg den overførende tegnebog:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adresse";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Skub for at indstille overførselsbeløb";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Start overførsel";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Overførsel";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Der opstod en fejl. Skift venligst 2FA til *Aktiveret*, indtast den e -mailede kode, og prøv igen.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA Ikke aktiveret";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA aktiveret";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Besøg https://litecoin.dashboard.getblockcard.com/password/forgot for at nulstille din adgangskode.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
+/* Location services disabled error */
+"LocationPlugin.disabled" = "Placeringstjenester er deaktiveret.";
+
+/* No permissions for location services */
+"LocationPlugin.notAuthorized" = "Litewallet har ikke adgang til placeringstjenester.";
+
+/* No comment provided by engineer. */
+"Malformed URI" = "Fejlformet URI";
+
+/* Balance */
+"ManageWallet.balance" = "Balance";
+
+/* Wallet creation date prefix */
+"ManageWallet.creationDatePrefix" = "Du lavede din pung den %1$@";
+
+/* Manage wallet description text */
+"ManageWallet.description" = "Din pungs navn vises kun i din kontos transaktionshistorik, og kan ikke ses af nogen andre.";
+
+/* Change Wallet name textfield label */
+"ManageWallet.textFeildLabel" = "Pungens navn";
+
+/* Manage wallet modal title */
+"ManageWallet.title" = "Administrer pung";
+
+/* Buy Litecoin title */
+"MenuButton.buy" = "Køb Litecoin";
+
+/* Menu button title */
+"MenuButton.customer.support" = "Kunde support";
+
+/* Menu button title */
+"MenuButton.lock" = "Lås pung";
+
+/* Menu button title */
+"MenuButton.security" = "Sikkerhedscenter";
+
+/* Menu button title */
+"MenuButton.settings" = "Indstillinger";
+
+/* Menu button title */
+"MenuButton.support" = "Support";
+
+/* button label */
+"MenuViewController.createButton" = "Opret ny pung";
+
+/* Menu modal title */
+"MenuViewController.modalTitle" = "Menu";
+
+/* button label */
+"MenuViewController.recoverButton" = "Gendan pung";
+
+/* No comment provided by engineer. */
+"No wallet" = "Ingen tegnebog";
+
+/* Switch to automatic mode button label */
+"NodeSelector.automaticButton" = "Skift til automatisk tilstand";
+
+/* Node is connected label */
+"NodeSelector.connected" = "Forbundet";
+
+/* Enter node ip address view body */
+"NodeSelector.enterBody" = "Indtast node-IP-adresse og port (valgfrit)";
+
+/* Enter Node ip address view title */
+"NodeSelector.enterTitle" = "Indtast node";
+
+/* Switch to manual mode button label */
+"NodeSelector.manualButton" = "Skift til manuel tilstand";
+
+/* Node address label */
+"NodeSelector.nodeLabel" = "Nuværende primære node";
+
+/* Node is not connected label */
+"NodeSelector.notConnected" = "Ikke forbundet";
+
+/* Node status label */
+"NodeSelector.statusLabel" = "Node forbindelsesstatus";
+
+/* Node Selector view title */
+"NodeSelector.title" = "Litecoin-nodes";
+
+/* Bad Payment request alert title */
+"PaymentProtocol.Errors.badPaymentRequest" = "Dårlig betalingsanmodning";
+
+/* Error opening payment protocol file message */
+"PaymentProtocol.Errors.corruptedDocument" = "Ikke understøttet eller beskadiget dokument";
+
+/* Missing certificate payment protocol error message */
+"PaymentProtocol.Errors.missingCertificate" = "manglende certifikat";
+
+/* Request expired payment protocol error message */
+"PaymentProtocol.Errors.requestExpired" = "anmodning udløbet";
+
+/* Payment too small alert title */
+"PaymentProtocol.Errors.smallOutputError" = "Kunne ikke foretage betaling";
+
+/* Amount too small error message */
+"PaymentProtocol.Errors.smallPayment" = "Litecoin betalinger kan ikke være mindre end %1$@.";
+
+/* Output too small error message. */
+"PaymentProtocol.Errors.smallTransaction" = "Litecoin transaktionsoutput kan ikke være mindre end $@.";
+
+/* Unsupported signature type payment protocol error message */
+"PaymentProtocol.Errors.unsupportedSignatureType" = "ikke understøttet signaturtype";
+
+/* Untrusted certificate payment protocol error message */
+"PaymentProtocol.Errors.untrustedCertificate" = "certifikat der ikke er tillid til";
+
+/* Dismiss button. */
+"Prompts.dismiss" = "AFSKEDIGE";
+
+/* Enable face ID prompt body */
+"Prompts.FaceId.body" = "PLACEHOLDER";
+
+/* Enable face ID prompt title */
+"Prompts.FaceId.title" = "PLACEHOLDER";
+
+/* No passcode set warning body */
+"Prompts.NoPasscode.body" = "En adgangskode til enheden er nødvendig for at beskytte din wallet. Gå til indstillinger og slå adgangskode til.";
+
+/* No Passcode set warning title */
+"Prompts.NoPasscode.title" = "Slå enhedens adgangskode til";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Blive ved";
+
+/* Warning about paper key. */
+"Prompts.PaperKey.body" = "Din Papirnøgle skal gemmes i tilfælde af du nogensinde mister eller skifter telefon. Tryk her for at fortsætte.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "Afbestille";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Aktiver";
+
+/* An action is required (You must do this action). */
+"Prompts.PaperKey.title" = "Handling påkrævet";
+
+/* Transaction rejected prompt body */
+"Prompts.RecommendRescan.body" = "Din pung er muligvis ikke synkroniseret. Dette kan ofte løses ved at genskanne blokkæden.";
+
+/* Transaction rejected prompt title */
+"Prompts.RecommendRescan.title" = "Transaktion afvist";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet er blevet opgraderet til at bruge en 6-cifret PIN. Tryk her for at opgradere.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "Opgader PIN";
+
+/* Share data prompt body */
+"Prompts.ShareData.body" = "Hjælp med at forbedre Litewallet ved at dele dine anonyme data med os";
+
+/* Share data prompt title */
+"Prompts.ShareData.title" = "Del anonyme data";
+
+/* Enable touch ID prompt body */
+"Prompts.TouchId.body" = "Tryk her for at aktivere Touch ID";
+
+/* Enable touch ID prompt title */
+"Prompts.TouchId.title" = "Aktiver Touch ID";
+
+/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
+"PushNotifications.body" = "Slå notifikationer til for at modtage særlige meddelelser fra Litewallet i fremtiden.";
+
+/* Push notifications toggle switch label */
+"PushNotifications.label" = "Push notifikationer";
+
+/* Push notifications are off label */
+"PushNotifications.off" = "Fra";
+
+/* Push notifications are on label */
+"PushNotifications.on" = "Til";
+
+/* Push notifications settings view title label */
+"PushNotifications.title" = "Notifikationer";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "Modtage";
+
+/* Address copied message. */
+"Receive.copied" = "Kopieret til udklipsholder.";
+
+/* Share via email button label */
+"Receive.emailButton" = "E-mail";
+
+/* Request button label */
+"Receive.request" = "Anmod om et beløb";
+
+/* Share button label */
+"Receive.share" = "Del";
+
+/* Share via text message (SMS) */
+"Receive.textButton" = "SMS";
+
+/* Receive modal title */
+"Receive.title" = "Modtag";
+
+/* Done button text */
+"RecoverWallet.done" = "Færdig";
+
+/* Recover wallet header */
+"RecoverWallet.header" = "Gendan pung";
+
+/* Reset PIN with paper key: header */
+"RecoverWallet.header_reset_pin" = "Nulstil PIN";
+
+/* Enter paper key instruction */
+"RecoverWallet.instruction" = "Indtast paper key";
+
+/* Recover wallet intro */
+"RecoverWallet.intro" = "Gendan dit Litewallet med din paper key.";
+
+/* Invalid paper key message */
+"RecoverWallet.invalid" = "Den paper key du indtastede er ugyldig. Dobbelttjek hvert ord og prøv igen.";
+
+/* Previous button accessibility label */
+"RecoverWallet.leftArrow" = "Venstre pil";
+
+/* Next button label */
+"RecoverWallet.next" = "Næste";
+
+/* Reset PIN with paper key: more information button. */
+"RecoverWallet.reset_pin_more_info" = "Tryk her for flere oplysninger.";
+
+/* Next button accessibility label */
+"RecoverWallet.rightArrow" = "Højre pil";
+
+/* Recover wallet sub-header */
+"RecoverWallet.subheader" = "Indtast paper key til pungen du vil gendanne.";
+
+/* Reset PIN with paper key: sub-header */
+"RecoverWallet.subheader_reset_pin" = "For at nulstille din PIN, skal du indtaste ordene fra din paper key i boksene nedenfor.";
+
+/* No amount entered error message. */
+"RequestAnAmount.noAmount" = "Indtast venligst et beløb først.";
+
+/* Request a specific amount of Litecoin */
+"RequestAnAmount.title" = "Anmod om et beløb";
+
+/* Alert action button label */
+"ReScan.alertAction" = "Synkroniser";
+
+/* Alert message body */
+"ReScan.alertMessage" = "Du vil ikke kunne sende penge mens du synkroniserer.";
+
+/* Alert message title */
+"ReScan.alertTitle" = "Synkroniser med blokkæde?";
+
+/* extimated time */
+"ReScan.body1" = "20-45 minutter";
+
+/* Syncing explanation */
+"ReScan.body2" = "Hvis en transaktion vises som gennemført i Litecoin netværket, men ikke i dit Litewallet.";
+
+/* Syncing explanation */
+"ReScan.body3" = "Du modtager gentagne gange en fejlmeddelelse om at din transaktion er blevet afvist.";
+
+/* Start Sync button label */
+"ReScan.buttonTitle" = "Start synkronisering";
+
+/* Sync blockchain view footer */
+"ReScan.footer" = "Du vil ikke kunne bruge penge, når du synkroniserer med blokkæden.";
+
+/* Sync Blockchain view header */
+"ReScan.header" = "Synkroniser blokkæde";
+
+/* Subheader label */
+"ReScan.subheader1" = "Anslået tid";
+
+/* Subheader label */
+"ReScan.subheader2" = "Hvornår skal der synkroniseres?";
+
+/* Reset walet button  title */
+"resetButton" = "Ja, nulstil tegnebogen";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "Slet min Litewallet";
+
+/* Scan bitcoin address camera flash toggle */
+"Scanner.flashButtonLabel" = "Kamerablitz";
+
+/* Complete filter label */
+"Search.complete" = "færdig";
+
+/* Pending filter label */
+"Search.pending" = "afventer";
+
+/* Received filter label */
+"Search.received" = "modtaget";
+
+/* Sent filter label */
+"Search.sent" = "sendt";
+
+/* Face ID button title */
+"SecurityCenter.faceIdTitle" = "PLACEHOLDER";
+
+/* Security Center Info */
+"SecurityCenter.info" = "Aktiver alle sikkerhedsfunktioner for maksimal beskyttelse.";
+
+/* Paper Key button description */
+"SecurityCenter.paperKeyDescription" = "Den eneste måde at få adgang til dine Litecoin på, hvis du mister eller opgraderer din telefon.";
+
+/* Paper Key button title */
+"SecurityCenter.paperKeyTitle" = "Paper key";
+
+/* PIN button description */
+"SecurityCenter.pinDescription" = "Beskytter dit Litewallet mod uberettigede brugere.";
+
+/* PIN button title */
+"SecurityCenter.pinTitle" = "6-cifret PIN";
+
+/* Security Center Title */
+"SecurityCenter.title" = "Sikkerhedscenter";
+
+/* Touch ID button description */
+"SecurityCenter.touchIdDescription" = "Lås dit Break op og send penge op til en vis grænse.";
+
+/* Touch ID button title */
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/* Send money amount label */
+"Send.amountLabel" = "Beløb";
+
+/* Balance: $4.00 */
+"Send.balance" = "Balance: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "SENDE";
+
+/* Camera not allowed message */
+"Send.cameraunavailableMessage" = "Gå til Indstillinger og giv adgang til kamera.";
+
+/* Camera not allowed alert title */
+"Send.cameraUnavailableTitle" = "Litewallet har ikke adgang til kameraet";
+
+/* Warning when sending to self. */
+"Send.containsAddress" = "Destinationen er din egen adresse. Du kan ikke sende til dig selv.";
+
+/* Could not create transaction alert title */
+"Send.creatTransactionError" = "Kunne ikke oprette transaktion.";
+
+/* Description for sending money label */
+"Send.descriptionLabel" = "Memo";
+
+/* Emtpy pasteboard error message */
+"Send.emptyPasteboard" = "Tegnebord er tomt";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Indtast en Litecoin-adresse";
+
+/* Network Fee: $0.01 */
+"Send.fee" = "Netværksafgift: %1$@";
+
+/* Payee identity not certified alert title. */
+"Send.identityNotCertified" = "Betalingsmodtagerens identitet er ikke bekræftet.";
+
+/* Insufficient funds error */
+"Send.insufficientFunds" = "ikke nok penge";
+
+/* Invalid address alert message */
+"Send.invalidAddressMessage" = "Modtageradressen er ikke en gyldig Litecoin-adresse.";
+
+/* Invalid address on pasteboard message */
+"Send.invalidAddressOnPasteboard" = "Tegnebord indeholder ikke en gyldig Litecoin adresse.";
+
+/* Invalid address alert title */
+"Send.invalidAddressTitle" = "Ugyldig adresse";
+
+/* Is rescanning error message */
+"Send.isRescanning" = "Afsendelse er deaktiveret under en ny scanning.";
+
+/* Loading request activity view message */
+"Send.loadingRequest" = "Behandler Anmodning";
+
+/* Empty address alert message */
+"Send.noAddress" = "Indtast modtagerens adresse.";
+
+/* Emtpy amount alert message */
+"Send.noAmount" = "Indtast et beløb, der skal sendes.";
+
+/* Paste button label */
+"Send.pasteLabel" = "Indsæt";
+
+/* Could not publish transaction alert title */
+"Send.publishTransactionError" = "Kunne ikke offentliggøre transaktion.";
+
+/* Could not load remote request error message */
+"Send.remoteRequestError" = "Kunne ikke behandle betalingsanmodning";
+
+/* Scan button label */
+"Send.scanLabel" = "Scan";
+
+/* Send button label (the action, "press here to send") */
+"Send.sendLabel" = "Send";
+
+/* Send screen title (as in "this is the screen for sending money") */
+"Send.title" = "Send penge";
+
+/* Send money to label */
+"Send.toLabel" = "Til";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Kig op";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Beklager, domænet blev ikke fundet. [Fejl: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Opslag mislykkedes";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Indtast et .crypto- eller .zil-domæne";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Problem med systemopslag. [Fejl: %2$d]";
+
+/* Adress already used alert message - first part */
+"Send.UsedAddress.firstLine" = "Litecoin adresser er kun beregnet til en enkelt anvendelse.";
+
+/* Adress already used alert message - second part */
+"Send.UsedAddress.secondLIne" = "Genbrug reducerer privatliv for både dig og modtageren og kan resultere i tab, hvis modtageren ikke har direkte kontrol over adressen.";
+
+/* Adress already used alert title */
+"Send.UsedAddress.title" = "Adresse allerede brugt";
+
+/* About label */
+"Settings.about" = "Om";
+
+/* Advanced Settings title */
+"Settings.advancedTitle" = "Avancerede indstillinger";
+
+/* Blockchain settings section header */
+"Settings.blockchain" = "blockchain";
+
+/* i.e. the currency which will be displayed */
+"Settings.currency" = "Vis valuta";
+
+/* Current Locale */
+"Settings.currentLocale" = "Nuværende landestandard:";
+
+/* Join Early access label */
+"Settings.earlyAccess" = "Tilmeld dig Early Access";
+
+/* Are you enjoying Litewallet alert message body */
+"Settings.enjoying" = "Nyder du Litewallet?";
+
+/* Face ID spending limit label */
+"Settings.faceIdLimit" = "PLACEHOLDER";
+
+/* Import wallet label */
+"Settings.importTitle" = "Importer pung";
+
+/* Languages label */
+"Settings.languages" = "Sprog";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "Miljø:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewallet-partnere";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Litewallet version:";
+
+/* Manage settings section header */
+"Settings.manage" = "Administrer";
+
+/* Notifications label */
+"Settings.notifications" = "Notifikationer";
+
+/* Leave review button label */
+"Settings.review" = "Giv os en anmeldelse";
+
+/* Share anonymous data label */
+"Settings.shareData" = "Del anonyme data";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "Social";
+
+/* Support settings section header */
+"Settings.support" = "Support";
+
+/* Sync blockchain label */
+"Settings.sync" = "Synkroniser blokkæde";
+
+/* Settings title */
+"Settings.title" = "Indstillinger";
+
+/* Touch ID spending limit label */
+"Settings.touchIdLimit" = "Touch ID brugsgrænse";
+
+/* Wallet Settings section header */
+"Settings.wallet" = "Wallet";
+
+/* Start or recover another wallet menu label. */
+"Settings.wipe" = "Start/gendan en anden wallet";
+
+/* Share data view body */
+"ShareData.body" = "Hjælp med at forbedre Litewallet ved at dele dine anonyme data med os. Dette inkluderer ikke finansielle oplysninger. Vi respekterer dit finansielle privatliv.";
+
+/* Share data header */
+"ShareData.header" = "Del data?";
+
+/* Share data switch label. */
+"ShareData.toggleLabel" = "Del anonyme data?";
+
+/* Current spending limit: */
+"SpendingLimit.title" = "Nuværende forbrugsgrænse: ";
+
+/* button label */
+"StartPaperPhrase.againButtonTitle" = "Skriv paper key ned igen";
+
+/* Paper key explanation text. */
+"StartPaperPhrase.body" = "Din paper key er den eneste måde at gendanne dit Litewallet på, hvis din telefon mistes, stjæles, går i stykker eller opgraderes.\n\nVi viser dig en liste over word du skal skrive ned på et papir, og holde sikkert.";
+
+/* button label */
+"StartPaperPhrase.buttonTitle" = "Skriv paper key ned";
+
+/* Argument is date */
+"StartPaperPhrase.date" = "Du skrev sidst din paper key ned den %1$@";
+
+/* Start view message */
+"StartViewController.message" = "Den mest sikre og trygge måde at bruge Litecoins på.";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "Støt Litecoin Foundation";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Tilslutning...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Rescanning ...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Succes!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Synkronisering ...";
+
+/* Syncing view connectiong state header text */
+"SyncingView.connecting" = "Tilslutter";
+
+/* Syncing view syncing state header text */
+"SyncingView.syncing" = "Synkroniserer";
+
+/* 6 d (6 days) */
+"TimeSince.days" = "%1$@ d";
+
+/* 6 h (6 hours) */
+"TimeSince.hours" = "%1$@ h";
+
+/* 6 m (6 minutes) */
+"TimeSince.minutes" = "%1$@ m";
+
+/* 6 s (6 seconds) */
+"TimeSince.seconds" = "%1$@ s";
+
+/* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"TouchIdSettings.customizeText" = "Du kan tilpasse forbrugsgrænsen for dit Touch ID fra %1$@.";
+
+/* Touch Id screen label */
+"TouchIdSettings.label" = "Brug dit fingeraftryk til at låse op for dit Litewallet og sende penge op til en vis grænse.";
+
+/*  ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "1$@ (%2$@)";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"TouchIdSettings.linkText" = "Touch ID forbrugsgrænseside";
+
+/* Spending Limit: b100,000 ($100) */
+"TouchIdSettings.spendingLimit" = "Brugsgrænse: %1$@ (%2$@)";
+
+/* Touch id switch label. */
+"TouchIdSettings.switchLabel" = "Aktiver Touch ID til Litewallet";
+
+/* Touch ID settings view title */
+"TouchIdSettings.title" = "Touch ID";
+
+/* Touch ID unavailable alert message */
+"TouchIdSettings.unavailableAlertMessage" = "Du har ikke indstillet Touch ID på denne enhed. Gå til Indstillinger -> Touch ID og Adgangskode og indstil det nu.";
+
+/* Touch ID unavailable alert title */
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID ikke indstillet";
+
+/* Always require passcode option */
+"TouchIdSpendingLimit" = "Kræv altid adgangskode";
+
+/* Touch ID spending limit screen body */
+"TouchIdSpendingLimit.body" = "Du bliver bedt om at indtaste din 6-cifrede PIN for at sende en transaktion over din brugsgrænse, og hver 48 timer siden du sidst indtastede din 6-cifrede PIN.";
+
+/* Touch Id spending limit screen title */
+"TouchIdSpendingLimit.title" = "Touch ID brugsgrænse";
+
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Mængde detaljer:";
+
+/* Availability status text */
+"Transaction.available" = "Tilgængelig at bruge";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Blok:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "BEMÆRK:";
+
+/* Transaction complete label */
+"Transaction.complete" = "Færdig";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Detaljer om transaktionssluttebeløb";
+
+/* eg. Ending balance: $50.00 */
+"Transaction.ending" = "Slutbalance: %1$@";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDayReceived" = "Valutakurs ved modtagelsestidspunkt:";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDaySent" = "Valutakurs ved afsendelsestidspunkt:";
+
+/* (b600 fee) */
+"Transaction.fee" = "(%1$@ gebyr)";
+
+/* Invalid transaction */
+"Transaction.invalid" = "UGYLDIG";
+
+/* Timestamp label for event that just happened */
+"Transaction.justNow" = "netop nu";
+
+/* Receive status text: 'In progress: 20%' */
+"Transaction.receivedStatus" = "I gang: %1$@";
+
+/* Send status text: 'In progress: 20%' */
+"Transaction.sendingStatus" = "I gang: %1$@";
+
+/* eg. Starting balance: $50.00 */
+"Transaction.starting" = "Startbalance: %1$@";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Detaljer for transaktionsstartbeløb";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
+/* Waiting to be confirmed string */
+"Transaction.waiting" = "Venter på bekræftelse. Nogen forhandlere kræver bekræftelse for at gennemføre en transaktion. Anslået tid: 1-2 timer.";
+
+/* e.g. I received money from an account. */
+"TransactionDetails.account" = "konto";
+
+/* Amount section header */
+"TransactionDetails.amountHeader" = "Beløb";
+
+/* Block height label */
+"TransactionDetails.blockHeightLabel" = "Bekræftet i blok";
+
+/* Memo section header */
+"TransactionDetails.commentsHeader" = "Memo";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "Kopieret";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "Kopier alle detaljer";
+
+/* Empty transaction list message. */
+"TransactionDetails.emptyMessage" = "Dine transaktioner vil vises her.";
+
+/* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
+"TransactionDetails.from" = "på %1$@";
+
+/* Less button title */
+"TransactionDetails.less" = "Mindre";
+
+/* Moved $5.00 (as in "I moved $5 to another location") */
+"TransactionDetails.moved" = "Flyttede %1$@";
+
+/* Moved $5.00 */
+"TransactionDetails.movedAmountDescription" = "Flyttet <b>%1@</b>";
+
+/* eg. Confirmed in Block: Not Confirmed */
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Ikke bekræftet";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "fra";
+
+/* "Received [$5] at [which of my addresses]" => This is the "Received [$5]" part. */
+"TransactionDetails.received" = "Modtaget %1$@";
+
+/* Received $5.00 */
+"TransactionDetails.receivedAmountDescription" = "Modtaget <b>%1@</b>";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "Modtag adresse";
+
+/* "Sent [$5] to [address]" => This is the "Sent [$5]" part. */
+"TransactionDetails.sent" = "Sendt %1$@";
+
+/* Sent $5.00 */
+"TransactionDetails.sentAmountDescription" = "Sendt <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "Tx ID:";
+
+/* Status section header */
+"TransactionDetails.statusHeader" = "Status";
+
+/* Transaction Details Title */
+"TransactionDetails.title" = "Transaktionsoplysninger";
+
+/* "Sent [$5] to [address]" => This is the "to [address]" part. */
+"TransactionDetails.to" = "til %1$@";
+
+/* Transaction ID header */
+"TransactionDetails.txHashHeader" = "Litecoin transaktions-ID";
+
+/* (this transaction was) Received at this address: */
+"TransactionDirection.address" = "Modtaget på denne adresse";
+
+/* (this transaction was) Sent to this address: */
+"TransactionDirection.to" = "Sendt til denne adresse";
+
+/* Disabled until date */
+"UnlockScreen.disabled" = "Deaktiveret indtil: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "Indtast PIN-kode";
+
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "Lås op med FaceID";
+
+/* My Address button title */
+"UnlockScreen.myAddress" = "Min adresse";
+
+/* Reset PIN with Paper Key button label. */
+"UnlockScreen.resetPin" = "Nulstil PIN";
+
+/* Scan button title */
+"UnlockScreen.scan" = "Scan";
+
+/* TouchID prompt text */
+"UnlockScreen.touchIdPrompt" = "Lås op for dit Litewallet.";
+
+/* Unlock with TouchID accessibility label */
+"UnlockScreen.touchIdText" = "Lås op med Touch ID";
+
+/* Wallet unlocked message */
+"UnlockScreen.unlocked" = "Pung låst op";
+
+/* Update PIN caption text */
+"UpdatePin.caption" = "Husk denne PIN. Hvis du glemmer den, vil du ikke kunne få adgang til dine Litecoin.";
+
+/* PIN creation info. */
+"UpdatePin.createInstruction" = "Din PIN bliver brugt til at låse op for dit Litewallet og sende penge.";
+
+/* Update PIN title */
+"UpdatePin.createTitle" = "Indstil PIN";
+
+/* Update PIN title */
+"UpdatePin.createTitleConfirm" = "Genindtast PIN";
+
+/* Enter current PIN instruction */
+"UpdatePin.enterCurrent" = "Indtast din nuværende PIN.";
+
+/* Enter new PIN instruction */
+"UpdatePin.enterNew" = "Indtast din nye PIN.";
+
+/* Re-Enter new PIN instruction */
+"UpdatePin.reEnterNew" = "Genindtast din nye PIN.";
+
+/* Update PIN failure error message. */
+"UpdatePin.setPinError" = "Beklager, kunne ikke opdatere PIN.";
+
+/* Update PIN failure alert view title */
+"UpdatePin.setPinErrorTitle" = "Fejl ved opdatering af PIN";
+
+/* Update PIN title */
+"UpdatePin.updateTitle" = "Opdater PIN";
+
+/* Authorize to copy wallet addresses alert message */
+"URLHandling.addressaddressListAlertMessage" = "Kopier pungadresse til udklipsholderen?";
+
+/* Authorize to copy wallet address PIN view prompt. */
+"URLHandling.addressList" = "Tillad at kopiere pungadresse til udklipsholder";
+
+/* Authorize to copy wallet address alert title */
+"URLHandling.addressListAlertTitle" = "Kopier pungadresse";
+
+/* Copy wallet addresses alert button label */
+"URLHandling.copy" = "Kopier";
+
+/* Verify PIN for transaction view body */
+"VerifyPin.authorize" = "Indtast venligst din PIN for at godkende denne transaktion.";
+
+/* Verify PIN view body */
+"VerifyPin.continueBody" = "Indtast din PIN for at fortsætte.";
+
+/* Verify PIN view title */
+"VerifyPin.title" = "PIN påkrævet";
+
+/* Authorize transaction with touch id message */
+"VerifyPin.touchIdMessage" = "Godkend denne transaktion";
+
+/* 'No wallet' warning for watch app */
+"Watch.noWalletWarning" = "Åben Litewallet iPhone appen for at konfigurere din pung.";
+
+/* Dismiss button label */
+"Webview.dismiss" = "Afvis";
+
+/* Webview loading error message */
+"Webview.errorMessage" = "Der var en fejl ved indlæsning af indholdet. Prøv igen.";
+
+/* Updating webview message */
+"Webview.updating" = "Opdaterer...";
+
+/* Welcome screen text. (?) will be replaced with the help icon users should look for. */
+"Welcome.body" = "Velkommen til Litewallet!";
+
+/* Top title of welcome screen */
+"Welcome.title" = "Velkommen til Litewallet!";
+
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "Slet database";
+
+/* Wipe wallet alert message */
+"WipeWallet.alertMessage" = "Er du sikker på at du vil slette denne wallet?";
+
+/* Wipe wallet alert title */
+"WipeWallet.alertTitle" = "Slet wallet?";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "Slet database";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "Dette sletter databasen, men bevarer PIN-koden og sætningen. Bekræft din eksisterende PIN-kode, udsæd, og vent på at synkronisere med den nye db";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "Slet & synkroniser";
+
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "Glem din frø sætning eller pinkode?";
+
+/* Failed wipe wallet alert message */
+"WipeWallet.failedMessage" = "Fejl ved sletning af wallet.";
+
+/* Failed wipe wallet alert title */
+"WipeWallet.failedTitle" = "Fejl";
+
+/* Enter phrase to wipe wallet instruction. */
+"WipeWallet.instruction" = "Indtast denne wallets gendannelsessætning for at slette den og starte eller gendanne en anden. Din nuværende saldo forbliver med denne sætning.";
+
+/* Start wipe wallet view message */
+"WipeWallet.startMessage" = "Påbegyndelse eller gendannelse af en anden tegnebog giver mulighed for at få adgang samt administrere en Litewallet tegnebog på denne enhed.";
+
+/* Start wipe wallet view warning */
+"WipeWallet.startWarning" = "Du vil ikke længere være i stand til at få adgang til din nuværende Litewallet tegnebog fra denne enhed. Saldoen vil forblive på frasen.";
+
+/* Wipe wallet navigation item title. */
+"WipeWallet.title" = "Start eller gendan en anden wallet.";
+
+/* Warning Alert */
+"WipeWallet.warningAlert" = "Denne handling vil slette din Litewallet!";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "Sletning af din tegnebog betyder, at den private nøgle og sletning af appdata vil være væk. Du kan miste Litecoin for altid!\n\n\nIngen på Litewallet-teamet kan hente dette frø for dig. Vi er ikke ansvarlige, hvis du undlader at følge denne advarsel.";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "LÆS VENLIGST!";
+
+/* Wipe wallet button title */
+"WipeWallet.wipe" = "Slet";
+
+/* Wiping activity message */
+"WipeWallet.wiping" = "Sletter...";
+
+/* Paper key instructions. */
+"WritePaperPhrase.instruction" = "Skriv hvert ord ned i rækkefølge og opbevar den et sikkert sted.";
+
+/* button label */
+"WritePaperPhrase.next" = "Næste";
+
+/* button label */
+"WritePaperPhrase.previous" = "Forrige";
+
+/* 1 of 3 */
+"WritePaperPhrase.step" = "%1$d af %2$d";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "";

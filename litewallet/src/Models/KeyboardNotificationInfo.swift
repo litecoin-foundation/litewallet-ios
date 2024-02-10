@@ -30,6 +30,5 @@ struct KeyboardNotificationInfo {
 		self.animationDuration = animationDuration.doubleValue
 		self.animationCurve = animationCurve.uintValue
 	}
-
 	private let animationCurve: UInt
 }

@@ -30,7 +30,6 @@ struct Partner {
 	static func partnerKeyPath(name: PartnerName) -> String {
 		/// Switch the config file based on the environment
 		var filePath: String
-
 		// Loads the release Partner Keys config file.
 		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
 		                                         ofType: "plist")

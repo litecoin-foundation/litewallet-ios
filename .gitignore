@@ -48,5 +48,9 @@ BuildTools/.swiftpm
 Modules/litewallet-partner-api-ios
 litewallet-partner-api-ios
 
+<<<<<<< HEAD
 
 
+=======
+/partner-keys.plist
+>>>>>>> release/v3.11.1
