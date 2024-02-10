@@ -78,9 +78,9 @@ struct ClearButton: ViewModifier {
 	@IBInspectable var leftInset: CGFloat = 5.0
 	@IBInspectable var rightInset: CGFloat = 5.0
 
-	override func drawText(in rect: CGRect) {
+	override func drawText(in _: CGRect) {
 		let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-		super.drawText(in: rect.inset(by: insets))
+		// super.drawText(in: rect.inset(by: UIEdgeInsetsInsetRect))
 	}
 
 	override var intrinsicContentSize: CGSize {

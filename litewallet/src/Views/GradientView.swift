@@ -24,7 +24,7 @@ extension UIView {
 		image.contentMode = .scaleToFill
 		addSubview(image)
 		image.constrain(toSuperviewEdges: nil)
-		sendSubviewToBack(image)
+		sendSubview(toBack: image)
 	}
 }
 
@@ -44,6 +44,6 @@ extension UIView {
 		image.contentMode = .scaleToFill
 		addSubview(image)
 		image.constrain(toSuperviewEdges: nil)
-		sendSubviewToBack(image)
+		sendSubview(toBack: image)
 	}
 }

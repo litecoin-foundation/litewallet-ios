@@ -53,8 +53,11 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		addSubviews()
 		addConstraints()
 		setData()
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)),
+		                                       name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),
+		                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 	}
 
 	private func addSubviews() {
@@ -67,9 +70,9 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		container.addSubview(faq)
 		container.addSubview(moreInfoButton)
 
-		addChild(enterPhrase)
+		addChildViewController(enterPhrase)
 		container.addSubview(enterPhrase.view)
-		enterPhrase.didMove(toParent: self)
+		enterPhrase.didMove(toParentViewController: self)
 	}
 
 	private func addConstraints() {
@@ -186,7 +189,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 
 	@objc private func keyboardWillShow(notification: Notification) {
 		guard let userInfo = notification.userInfo else { return }
-		guard let frameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+		guard let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
 		var contentInset = scrollView.contentInset
 		if contentInset.bottom == 0.0 {
 			contentInset.bottom = frameValue.cgRectValue.height + 44.0

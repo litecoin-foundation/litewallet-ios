@@ -18,8 +18,11 @@ class ManageWalletViewController: UIViewController, ModalPresentable, Subscriber
 		addSubviews()
 		addConstraints()
 		setData()
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)),
+		                                       name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),
+		                                       name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 	}
 
 	override func viewDidDisappear(_ animated: Bool) {

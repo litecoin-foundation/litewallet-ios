@@ -20,7 +20,7 @@ final class HostingTransactionCell<Content: View>: UITableViewCell {
 
 		let requiresControllerMove = hostingController.parent != parentController
 		if requiresControllerMove {
-			parentController.addChild(hostingController)
+			parentController.addChildViewController(hostingController)
 		}
 
 		if !contentView.subviews.contains(hostingController.view) {

@@ -59,16 +59,16 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 			vcWKVC.uuidString = uuidString
 			vcWKVC.timestamp = Int(Date().timeIntervalSince1970)
 
-			addChild(vcWKVC)
+			addChildViewController(vcWKVC)
 			view.addSubview(vcWKVC.view)
-			vcWKVC.didMove(toParent: self)
+			vcWKVC.didMove(toParentViewController: self)
 
 			vcWKVC.didDismissChildView = {
-				for vc in self.children {
+				for vc in self.childViewControllers {
 					DispatchQueue.main.async {
-						vc.willMove(toParent: nil)
+						vc.willMove(toParentViewController: nil)
 						vc.view.removeFromSuperview()
-						vc.removeFromParent()
+						vc.removeFromParentViewController()
 					}
 				}
 			}

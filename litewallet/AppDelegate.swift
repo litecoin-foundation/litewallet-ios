@@ -60,10 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.didEnterBackground()
 	}
 
-	func applicationWillResignActive(_: UIApplication) {
-		applicationController.willResignActive()
-	}
-
 	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool
 	{
 		return false // disable extensions such as custom keyboards for security purposes

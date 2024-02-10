@@ -38,9 +38,9 @@ class ModalViewController: UIViewController, Subscriber {
 		view.addSubview(scrollView)
 		scrollView.addSubview(scrollViewContent)
 
-		addChild(childViewController)
+		addChildViewController(childViewController)
 		scrollViewContent.addSubview(childViewController.view)
-		childViewController.didMove(toParent: self)
+		childViewController.didMove(toParentViewController: self)
 	}
 
 	private func addConstraints() {

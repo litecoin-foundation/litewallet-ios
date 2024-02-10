@@ -49,7 +49,7 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber {
 			self.setExchangeRateLabel()
 		})
 
-		tableView.sectionHeaderHeight = UITableView.automaticDimension
+		tableView.sectionHeaderHeight = UITableViewAutomaticDimension
 		tableView.estimatedSectionHeaderHeight = 140.0
 		tableView.backgroundColor = .whiteTint
 		tableView.separatorStyle = .none

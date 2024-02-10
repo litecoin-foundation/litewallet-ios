@@ -17,10 +17,10 @@ struct KeyboardNotificationInfo {
 
 	init?(_ userInfo: [AnyHashable: Any]?) {
 		guard let userInfo = userInfo else { return nil }
-		guard let endFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-		      let startFrame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue,
-		      let animationDuration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
-		      let animationCurve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+		guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
+		      let startFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue,
+		      let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
+		      let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
 		else {
 			return nil
 		}
