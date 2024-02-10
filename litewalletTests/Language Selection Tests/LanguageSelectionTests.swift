@@ -1,4 +1,4 @@
-@testable import loafwallet
+@testable import litewallet
 import XCTest
 
 final class LanguageSelectionTests: XCTestCase {

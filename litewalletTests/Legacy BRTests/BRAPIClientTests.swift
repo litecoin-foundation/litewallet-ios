@@ -1,5 +1,5 @@
 import BRCore
-@testable import loafwallet
+@testable import litewallet
 import XCTest
 
 class FakeAuthenticator: WalletAuthenticator {

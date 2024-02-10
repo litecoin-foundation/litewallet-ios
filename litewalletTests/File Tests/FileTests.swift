@@ -6,7 +6,7 @@
 //  Copyright © 2021 Litecoin Foundation. All rights reserved.
 //
 import Firebase
-@testable import loafwallet
+@testable import litewallet
 import XCTest
 
 class FileTests: XCTestCase {

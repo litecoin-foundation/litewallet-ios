@@ -13,7 +13,7 @@ extension View {
 	                        emailString _: Binding<String>,
 	                        message: String) -> some View
 	{
-		loafwallet.ForgotAlertView(isShowingForgot: isShowingForgot, presenting: self,
+		litewallet.ForgotAlertView(isShowingForgot: isShowingForgot, presenting: self,
 		                           mainMessage: message)
 	}
 
