@@ -343,7 +343,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 		// MARK: - Tab View Controllers Configuration
 
 		switch NSStringFromClass(contentController.classForCoder) {
-		case "loafwallet.TransactionsViewController":
+		case "litewallet.TransactionsViewController":
 
 			guard let transactionVC = contentController as? TransactionsViewController
 			else {
@@ -354,7 +354,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			transactionVC.walletManager = walletManager
 			transactionVC.isLtcSwapped = store?.state.isLtcSwapped
 
-		case "loafwallet.BuyTableViewController":
+		case "litewallet.BuyTableViewController":
 			guard let buyVC = contentController as? BuyTableViewController
 			else {
 				return
@@ -362,7 +362,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			buyVC.store = store
 			buyVC.walletManager = walletManager
 
-		case "loafwallet.SendLTCViewController":
+		case "litewallet.SendLTCViewController":
 			guard let sendVC = contentController as? SendLTCViewController
 			else {
 				return
@@ -370,7 +370,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
 			sendVC.store = store
 
-		case "loafwallet.ReceiveLTCViewController":
+		case "litewallet.ReceiveLTCViewController":
 			guard let receiveVC = contentController as? ReceiveLTCViewController
 			else {
 				return
