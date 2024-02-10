@@ -2,7 +2,6 @@ import Foundation
 import SwiftUI
 
 extension View {
-
 	/// From Stack Overflow
 	/// https://stackoverflow.com/questions/56760335/round-specific-corners-swiftui
 

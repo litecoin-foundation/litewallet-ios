@@ -874,6 +874,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "残高: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "手数料: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "送信";
 
@@ -900,6 +903,12 @@
 
 /* Network Fee: $0.01 */
 "Send.fee" = "ネットワーク手数料: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "料金: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "料金:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "受取人の本人確認が行われていません。";
@@ -1080,7 +1089,7 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "あなたが最後に紙の鍵を書き留めたのは %1$@です";
- 
+
 /* Start view tagline */
 "StartViewController.tagline" = "最も安全にリテコインを使う手段。";
 
@@ -1447,12 +1456,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "手数料: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "料金: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "料金:";
- 
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";

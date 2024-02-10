@@ -1072,9 +1072,6 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "Je hebt voor het laatst je papieren sleutel opgeschreven op %1$@";
 
-/* Start view message */
-"StartViewController.message" = "De veiligste en betrouwbaarste manier om Litecoin te gebruiken.";
-
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Steun de Stichting Litecoin";
 
@@ -1438,6 +1435,12 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d van %2$d";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "";
+
+/* Fees Blank: */
+"Send.feeBlank" = "";
+
 /* domain */
 "Send.UnstoppableDomains.domain" = "";
 
@@ -1449,3 +1452,6 @@
 
 /* Change language alert message */
 "Settings.ChangeLanguage.alertMessage" = "";
+
+/* Start view tagline */
+"StartViewController.tagline" = "";

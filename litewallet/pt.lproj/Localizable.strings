@@ -875,6 +875,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Saldo: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Taxa: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "SEND";
 
@@ -901,6 +904,12 @@
 
 /* Network Fee: $0.01 */
 "Send.fee" = "Taxa de rede: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Tarifas: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Tarifas:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "A identidade do beneficiário não está certificada.";
@@ -1081,9 +1090,9 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "A última vez que escreveu a sua chave de papel foi em %1$@";
- 
+
 /* Start view tagline */
-"StartViewController.tagline" =  "A maneira mais segura e fácil de usar Litecoin.";
+"StartViewController.tagline" = "A maneira mais segura e fácil de usar Litecoin.";
 
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Apoiar a Fundação Litecoin";
@@ -1448,11 +1457,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "Taxa: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Tarifas: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Tarifas:";
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";

@@ -1072,9 +1072,6 @@
 /* Argument is date */
 "StartPaperPhrase.date" = "Du skrev sidst din paper key ned den %1$@";
 
-/* Start view message */
-"StartViewController.message" = "Den mest sikre og trygge måde at bruge Litecoins på.";
-
 /* Support the Litecoin Foundation */
 "SupportTheFoundation.title" = "Støt Litecoin Foundation";
 
@@ -1438,6 +1435,12 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d af %2$d";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "";
+
+/* Fees Blank: */
+"Send.feeBlank" = "";
+
 /* domain */
 "Send.UnstoppableDomains.domain" = "";
 
@@ -1449,3 +1452,6 @@
 
 /* Change language alert message */
 "Settings.ChangeLanguage.alertMessage" = "";
+
+/* Start view tagline */
+"StartViewController.tagline" = "";
