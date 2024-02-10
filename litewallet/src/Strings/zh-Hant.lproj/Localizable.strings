@@ -628,6 +628,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "萊特幣節點";
 
+/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
+"Notifications.body" = "開啟通知，好在未來收到 Litewallet 的特別訊息。";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "推播";
+
+/* Push notifications are off label */
+"Notifications.off" = "關閉";
+
+/* Push notifications are on label */
+"Notifications.on" = "開啟";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "通知";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "不良的付款請求";
 
@@ -708,21 +723,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "啟用 Touch ID";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "開啟通知，好在未來收到 Litewallet 的特別訊息。";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "推播";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "關閉";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "開啟";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "通知";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "接收";

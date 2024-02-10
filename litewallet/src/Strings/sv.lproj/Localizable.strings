@@ -712,21 +712,6 @@
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Aktivera Touch ID";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "Slå på aviseringar för att få särskilda meddelanden från Litewallet i framtiden.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Push-meddelanden";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Av";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "På";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Meddelanden";
-
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "MOTTA";
 
@@ -1434,6 +1419,21 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d av %2$d";
+
+/* Push notifications settings view body */
+"Notifications.body" = "";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "";
+
+/* Push notifications are off label */
+"Notifications.off" = "";
+
+/* Push notifications are on label */
+"Notifications.on" = "";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "";
 
 /* Fee: $0.01 */
 "Send.bareFee" = "";

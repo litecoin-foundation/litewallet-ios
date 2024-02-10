@@ -631,6 +631,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin Düğümleri";
 
+/* Push notifications settings view body */
+"Notifications.body" = "İleride Litewallet'ten özel mesajlar almak için bildirimleri açın.";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "Push Bildirimleri";
+
+/* Push notifications are off label */
+"Notifications.off" = "Kapalı";
+
+/* Push notifications are on label */
+"Notifications.on" = "Açık";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "Bildirimler";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Kötü Ödeme İsteği";
 
@@ -711,21 +726,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID'yi Etkinleştir";
-
-/* Push notifications settings view body */
-"PushNotifications.body" = "İleride Litewallet'ten özel mesajlar almak için bildirimleri açın.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Push Bildirimleri";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Kapalı";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Açık";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Bildirimler";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "AL";

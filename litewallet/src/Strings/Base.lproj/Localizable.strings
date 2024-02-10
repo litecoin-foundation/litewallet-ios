@@ -461,19 +461,19 @@
 "Prompts.SetPin.title" = "Set PIN";
 
 /* Push notifications settings view body */
-"PushNotifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
+"Notifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
 
 /* Push notifications toggle switch label */
-"PushNotifications.label" = "Push Notifications";
+"Notifications.label" = "Push Notifications";
 
 /* Push notifications are off label */
-"PushNotifications.off" = "Off";
+"Notifications.off" = "Off";
 
 /* Push notifications are on label */
-"PushNotifications.on" = "On";
+"Notifications.on" = "On";
 
 /* Push notifications settings view title label */
-"PushNotifications.title" = "Notifications";
+"Notifications.title" = "Notifications";
 
 /* Address copied message. */
 "Receive.copied" = "Copied to clipboard.";

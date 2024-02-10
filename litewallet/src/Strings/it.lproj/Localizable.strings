@@ -709,21 +709,6 @@
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Attiva Touch ID";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "Attiva le notifiche per ricevere messaggi speciali da Litewallet in futuro.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Notifiche Push";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Spento";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Acceso";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Notifiche";
-
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "RICEVERE";
 
@@ -1458,3 +1443,18 @@
 
 /* Network Fee: ($1.00) */
 "Confirmation.feeLabel" = "";
+
+/* Push notifications settings view body */
+"Notifications.body" = "";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "";
+
+/* Push notifications are off label */
+"Notifications.off" = "";
+
+/* Push notifications are on label */
+"Notifications.on" = "";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "";

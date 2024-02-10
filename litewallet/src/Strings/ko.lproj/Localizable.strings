@@ -628,6 +628,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin 노드";
 
+/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
+"Notifications.body" = "알림을 켜두시면, 향후 브레드의 특별 메시지를 수신할 수 있습니다.";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "푸시 알림";
+
+/* Push notifications are off label */
+"Notifications.off" = "Off";
+
+/* Push notifications are on label */
+"Notifications.on" = "On";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "알림";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "틀린 결제 요청";
 
@@ -708,21 +723,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID 켜";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "알림을 켜두시면, 향후 브레드의 특별 메시지를 수신할 수 있습니다.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "푸시 알림";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Off";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "On";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "알림";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "받다";

@@ -629,6 +629,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Nós de Litecoin";
 
+/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
+"Notifications.body" = "Ative as notificações para receber mensagens especiais da Litewallet no futuro.";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "Notificações Push";
+
+/* Push notifications are off label */
+"Notifications.off" = "Desligado";
+
+/* Push notifications are on label */
+"Notifications.on" = "Ligado";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "Notificações";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Pedido de Pagamento Inválido";
 
@@ -709,21 +724,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Ativar Touch ID";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "Ative as notificações para receber mensagens especiais da Litewallet no futuro.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Notificações Push";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Desligado";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Ligado";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Notificações";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "RECEIVE";

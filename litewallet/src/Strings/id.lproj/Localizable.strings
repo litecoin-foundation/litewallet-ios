@@ -628,6 +628,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin Nodes";
 
+/* Push notifications settings view body */
+"Notifications.body" = "Aktifkan pemberitahuan untuk menerima pesan khusus dari Litewallet di masa mendatang.";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "Notifikasi dorongan";
+
+/* Push notifications are off label */
+"Notifications.off" = "Mati";
+
+/* Push notifications are on label */
+"Notifications.on" = "Hidup";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "Notifikasi";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Permintaan Pembayaran salah";
 
@@ -708,21 +723,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Aktifkan Sentuh ID";
-
-/* Push notifications settings view body */
-"PushNotifications.body" = "Aktifkan pemberitahuan untuk menerima pesan khusus dari Litewallet di masa mendatang.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Notifikasi dorongan";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Mati";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Hidup";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Notifikasi";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "MENERIMA";

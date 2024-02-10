@@ -631,6 +631,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Вузли Litecoin";
 
+/* Push notifications settings view body */
+"Notifications.body" = "Увімкніть сповіщення, щоб у майбутньому отримувати спеціальні повідомлення від Litewallet.";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "Push-повідомлення";
+
+/* Push notifications are off label */
+"Notifications.off" = "Вимкнено";
+
+/* Push notifications are on label */
+"Notifications.on" = "Увімкнено";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "Сповіщення";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Поганий запит на оплату";
 
@@ -711,21 +726,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Увімкнути Touch ID";
-
-/* Push notifications settings view body */
-"PushNotifications.body" = "Увімкніть сповіщення, щоб у майбутньому отримувати спеціальні повідомлення від Litewallet.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Push-повідомлення";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Вимкнено";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Увімкнено";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Сповіщення";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "ОТРИМАТИ";

@@ -628,6 +628,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Биткойн-узлы";
 
+/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
+"Notifications.body" = "Включите уведомления, чтобы в будущем получать от Litewallet важные сообщения.";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "Push-уведомления";
+
+/* Push notifications are off label */
+"Notifications.off" = "Отключено";
+
+/* Push notifications are on label */
+"Notifications.on" = "Включено";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "Уведомления";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Неверный запрос на совершение платежа";
 
@@ -708,21 +723,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Активировать функцию Touch ID";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "Включите уведомления, чтобы в будущем получать от Litewallet важные сообщения.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Push-уведомления";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Отключено";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Включено";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Уведомления";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "ПОЛУЧАТЬ";

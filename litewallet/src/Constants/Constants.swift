@@ -125,3 +125,6 @@ enum FalsePositiveRates: Double {
 	case semiPrivate = 0.00008
 	case anonymous = 0.0005
 }
+
+
+enum CustomEvent {}

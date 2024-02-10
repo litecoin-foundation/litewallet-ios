@@ -628,6 +628,21 @@
 /* Node Selector view title */
 "NodeSelector.title" = "リテコインノード";
 
+/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
+"Notifications.body" = "今後、Litewalletからの特別なメッセージを受け取るために通知をオンにしてください。";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "プッシュ通知";
+
+/* Push notifications are off label */
+"Notifications.off" = "オフ";
+
+/* Push notifications are on label */
+"Notifications.on" = "オン";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "通知";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "不正な支払い要求";
 
@@ -708,21 +723,6 @@
 
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch IDを有効化する";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "今後、Litewalletからの特別なメッセージを受け取るために通知をオンにしてください。";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "プッシュ通知";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "オフ";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "オン";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "通知";
 
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "受信する";

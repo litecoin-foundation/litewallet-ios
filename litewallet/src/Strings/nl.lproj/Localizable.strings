@@ -712,21 +712,6 @@
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "Touch ID Inschakelen";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"PushNotifications.body" = "Zet notificaties aan om in de toekomst speciale berichten van Litewallet te ontvangen.";
-
-/* Push notifications toggle switch label */
-"PushNotifications.label" = "Push Meldingen";
-
-/* Push notifications are off label */
-"PushNotifications.off" = "Uit";
-
-/* Push notifications are on label */
-"PushNotifications.on" = "Aan";
-
-/* Push notifications settings view title label */
-"PushNotifications.title" = "Notificaties";
-
 /* Receive Bar Item Title */
 "Receive.barItemTitle" = "TE ONTVANGEN";
 
@@ -1434,6 +1419,21 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d van %2$d";
+
+/* Push notifications settings view body */
+"Notifications.body" = "";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "";
+
+/* Push notifications are off label */
+"Notifications.off" = "";
+
+/* Push notifications are on label */
+"Notifications.on" = "";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "";
 
 /* Fee: $0.01 */
 "Send.bareFee" = "";
