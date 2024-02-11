@@ -39,8 +39,10 @@ extension WalletManager: WalletAuthenticator {
 	private static var failedPins = [String]()
 
 	convenience init(store: Store, dbPath: String? = nil) throws {
-		if !UIApplication.shared.isProtectedDataAvailable {
-			throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecNotAvailable))
+		Task {
+			if await !UIApplication.shared.isProtectedDataAvailable {
+				throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecNotAvailable))
+			}
 		}
 
 		if try keychainItem(key: KeychainKey.seed) as Data? != nil { // upgrade from old keychain scheme

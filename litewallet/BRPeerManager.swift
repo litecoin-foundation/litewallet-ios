@@ -56,7 +56,7 @@ class BRPeerManager {
 		return BRPeerManagerConnectStatus(cPtr) == BRPeerStatusConnected
 	}
 
-	// connect to bitcoin peer-to-peer network (also call this whenever networkIsReachable() status changes)
+	// connect to litecoin peer-to-peer network (also call this whenever networkIsReachable() status changes)
 	func connect() {
 		if let fixedAddress = UserDefaults.customNodeIP {
 			setFixedPeer(address: fixedAddress, port: UserDefaults.customNodePort ?? C.standardPort)
@@ -64,7 +64,7 @@ class BRPeerManager {
 		BRPeerManagerConnect(cPtr)
 	}
 
-	// disconnect from bitcoin peer-to-peer network
+	// disconnect from litecoin peer-to-peer network
 	func disconnect() {
 		BRPeerManagerDisconnect(cPtr)
 	}
@@ -113,7 +113,7 @@ class BRPeerManager {
 		return String(cString: BRPeerManagerDownloadPeerName(cPtr))
 	}
 
-	// publishes tx to bitcoin network
+	// publishes tx to litecoin network
 	func publishTx(_ tx: BRTxRef, completion: @escaping (Bool, BRPeerManagerError?) -> Void) {
 		BRPeerManagerPublishTx(cPtr, tx, Unmanaged.passRetained(CompletionWrapper(completion)).toOpaque())
 			{ info, error in
