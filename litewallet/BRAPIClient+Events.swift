@@ -98,7 +98,6 @@ class EventManager {
 			                                       	self?.saveEvent(key)
 			                                       	if note.name == UIScene.didEnterBackgroundNotification {
 			                                       		self?.persistToDisk()
-			                                       		self?.sendToServer()
 			                                       	}
 			                                       })
 		}
@@ -131,9 +130,8 @@ class EventManager {
 		return UserDefaults.hasAquiredShareDataPermission
 	}
 
-	func sync(completion: @escaping () -> Void) {
+	func sync(completion _: @escaping () -> Void) {
 		guard shouldRecordData else { removeData(); return }
-		sendToServer(completion: completion)
 	}
 
 	private func pushEvent(eventName: String, attributes: [String: String]) {
@@ -173,62 +171,6 @@ class EventManager {
 				}
 			}
 			myself.buffer.removeAll()
-		}
-	}
-
-	private func sendToServer(completion: (() -> Void)? = nil) {
-		queue.addOperation { [weak self] in
-			guard let myself = self else { return }
-			let dataDirectory = myself.unsentDataDirectory
-
-			do {
-				try FileManager.default.contentsOfDirectory(atPath: dataDirectory)
-			} catch {
-				print("error: \(error)")
-			}
-
-			guard let files = try? FileManager.default.contentsOfDirectory(atPath: dataDirectory) else { print("Unable to read event data directory"); return }
-			files.forEach { baseName in
-				// 1: read the json in
-				let fileName = NSString(string: dataDirectory).appendingPathComponent("/\(baseName)")
-				guard let inputStream = InputStream(fileAtPath: fileName) else { return }
-				inputStream.open()
-				guard let fileContents = try? JSONSerialization.jsonObject(with: inputStream, options: []) as? [[String: Any]] else { return }
-				guard let inArray = fileContents else { return }
-				// 2: transform it into the json data the server expects
-				let eventDump = myself.eventTupleArrayToDictionary(inArray)
-				guard let body = try? JSONSerialization.data(withJSONObject: eventDump, options: []) else { return }
-
-				// 3: send off the request and await response
-				var request = URLRequest(url: myself.adaptor.url("/events", args: nil))
-				request.httpMethod = "POST"
-				request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-				request.httpBody = body
-
-				myself.adaptor.dataTaskWithRequest(request, authenticated: true, retryCount: 0, handler: { data, resp, err in
-					if let resp = resp {
-						if resp.statusCode != 200 {
-							if let data = data {
-								print("[EventManager] Error uploading event data to server: STATUS=\(resp.statusCode), connErr=\(String(describing: err)), data=\(String(describing: String(data: data, encoding: .utf8)))")
-							}
-						} else {
-							if let data = data {
-								print("[EventManager] Successfully sent \(eventDump.count) events to server \(fileName) => \(resp.statusCode) data=\(String(describing: String(data: data, encoding: .utf8)))")
-							}
-						}
-					}
-
-					// 4. remove the file from disk since we no longer need it
-					myself.queue.addOperation {
-						do {
-							try FileManager.default.removeItem(atPath: fileName)
-						} catch {
-							print("[EventManager] Unable to remove evnets file at path \(fileName) \(error)")
-						}
-					}
-					completion?()
-				}).resume()
-			}
 		}
 	}
 

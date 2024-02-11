@@ -73,8 +73,6 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func setup() {
-		setupDefaults()
-		countLaunches()
 		setupRootViewController()
 		window?.makeKeyAndVisible()
 		offMainInitialization()

@@ -877,6 +877,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Баланс: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Комісія: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "НАДІСЛАТИ";
 
@@ -903,6 +906,12 @@
 
 /* Network Fee: $0.01 */
 "Send.fee" = "Плата за мережу: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Збори: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Збори:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Особа одержувача не підтверджена.";
@@ -1449,12 +1458,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d з %2$d";
-
-/* Fee: $0.01 */
-"Send.bareFee" = "Комісія: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Збори: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Збори:";

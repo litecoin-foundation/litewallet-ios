@@ -5,7 +5,7 @@ import SwiftUI
 import UIKit
 import WebKit
 
-struct SignupWebView: UIViewRepresentable {
+struct SignupWebViewRepresentable: UIViewRepresentable {
 	@Binding
 	var userAction: Bool
 
@@ -74,9 +74,9 @@ struct SignupWebView: UIViewRepresentable {
 			print("::: message \(message)")
 		}
 
-		let parent: SignupWebView
+		let parent: SignupWebViewRepresentable
 
-		init(_ parent: SignupWebView) {
+		init(_ parent: SignupWebViewRepresentable) {
 			self.parent = parent
 		}
 	}

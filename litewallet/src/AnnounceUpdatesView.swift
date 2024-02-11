@@ -71,8 +71,8 @@ struct AnnounceUpdatesView: View {
 							isEmailFieldFocused.toggle()
 						}
 
-					SignupWebView(userAction: $didComplete,
-					              urlString: C.signupURL)
+					SignupWebViewRepresentable(userAction: $didComplete,
+					                           urlString: C.signupURL)
 						.frame(width: width)
 						.frame(height: pageHeight)
 						.edgesIgnoringSafeArea(.all)

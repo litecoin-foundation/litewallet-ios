@@ -877,6 +877,9 @@
 /* Fee: $0.01 */
 "Send.bareFee" = "요금: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "요금: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "보내다";
 
@@ -906,6 +909,12 @@
 
 /* Fees: $0.01*/
 "Send.fee" = "수수료: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "수수료: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "수수료:";
 
 /* Fees Blank: */
 "Send.feeBlank" = "수수료:";
@@ -1456,11 +1465,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "요금: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "수수료: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "수수료:";
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";
