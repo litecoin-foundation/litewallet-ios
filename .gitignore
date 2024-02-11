@@ -1,19 +1,7 @@
 ## Litewallet related
-<<<<<<< HEAD
-litewallet/GoogleService-Info.plist
-loafwallet/GoogleService-Info.plist
-GoogleService-Info.plist
 
-## Sensitive Partner API 
-Modules/litewallet-partner-api-ios
-litewallet-partner-api-ios
-/partner-keys.plist
-partner-keys.plist
-litewallet/partner-keys.plist
-=======
 litewallet/partner-keys.plist
 litewallet/GoogleService-Info.plist
->>>>>>> release/v3.12.0
 
 ## Build generated
 build/
@@ -49,15 +37,8 @@ Package.resolved
 BuildTools/.build
 BuildTools/.swiftpm
 
-<<<<<<< HEAD
-# Sensitive Partner API 
-Modules/litewallet-partner-api-ios
-litewallet-partner-api-ios
-=======
-
 # Sensitive Partner API 
 Modules/litewallet-partner-api-ios
 litewallet-partner-api-ios
 /partner-keys.plist
 partner-keys.plist
->>>>>>> release/v3.12.0
