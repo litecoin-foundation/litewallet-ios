@@ -12,7 +12,7 @@ class LanguageSelectionViewController: UITableViewController {
 
 	func setupUI() {
 		tableView.register(SeparatorCell.self)
-		tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+		tableView.sectionHeaderHeight = UITableView.automaticDimension
 		tableView.backgroundColor = .whiteTint
 		tableView.separatorStyle = .none
 

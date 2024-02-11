@@ -69,14 +69,9 @@ class ConfirmPaperPhraseViewController: UITableViewController {
 		setupSubViews()
 		firstWordCell.confirmPhraseView?.textField.becomeFirstResponder()
 
-		NotificationCenter.default.addObserver(forName: UIApplication.NSNotification.Name,
+		NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification,
 		                                       object: nil,
 		                                       queue: nil) { [weak self] _ in
-
-//
-			//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)),
-			//                                                   name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-
 			self?.dismiss(animated: true,
 			              completion: nil)
 		}

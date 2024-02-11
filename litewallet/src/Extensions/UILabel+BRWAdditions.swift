@@ -31,9 +31,10 @@ extension UILabel {
 
 	func pushNewText(_ newText: String) {
 		let animation = CATransition()
-		animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-		animation.type = CATransitionType(string: kCATransitionPush) as String
-		animation.subtype = CATransitionSubtype(string: kCATransitionFromTop) as String
+		animation.timingFunction = CAMediaTimingFunction(name:
+			CAMediaTimingFunctionName.easeInEaseOut)
+		animation.type = CATransitionType.push
+		animation.subtype = CATransitionSubtype.fromTop
 		animation.duration = C.animationDuration
 		layer.add(animation, forKey: "kCATransitionPush")
 		text = newText

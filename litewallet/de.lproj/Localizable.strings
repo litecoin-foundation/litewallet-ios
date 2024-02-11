@@ -1089,7 +1089,7 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "Du hast dir deinen Offlineschlüssel zuletzt am %1$@ notiert";
-
+  
 /* Start view tagline */
 "StartViewController.tagline" = "Die sicherste Option zur Nutzung von Litecoin.";
 
@@ -1456,5 +1456,11 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
+/* Fee: $0.01 */
+"Send.bareFee" = "Gebühr: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Gebühren: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Gebühren:";

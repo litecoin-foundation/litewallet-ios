@@ -58,17 +58,16 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 			vcWKVC.currentWalletAddress = currentWalletAddress
 			vcWKVC.uuidString = uuidString
 			vcWKVC.timestamp = Int(Date().timeIntervalSince1970)
-
-			addChildViewController(vcWKVC)
+			addChild(vcWKVC)
 			view.addSubview(vcWKVC.view)
-			vcWKVC.didMove(toParentViewController: self)
+			vcWKVC.didMove(toParent: self)
 
 			vcWKVC.didDismissChildView = {
-				for vc in self.childViewControllers {
+				for vc in self.children {
 					DispatchQueue.main.async {
-						vc.willMove(toParentViewController: nil)
+						vc.willMove(toParent: nil)
 						vc.view.removeFromSuperview()
-						vc.removeFromParentViewController()
+						vc.removeFromParent()
 					}
 				}
 			}

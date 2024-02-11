@@ -1456,5 +1456,11 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
+/* Fee: $0.01 */
+"Send.bareFee" = "费用: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "费用: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "费用:";

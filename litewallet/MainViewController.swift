@@ -102,6 +102,7 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 			tabVC.view.alpha = 0
 			tabVC.view.layoutIfNeeded()
 		})
+        
 		UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
 			tabVC.view.alpha = 1
 		}) { _ in

@@ -55,7 +55,7 @@ class ApplicationController: Subscriber, Trackable {
 	func launch(application: UIApplication, window: UIWindow?) {
 		self.application = application
 		self.window = window
-		application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+		application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 		setup()
 		reachability.didChange = { isReachable in
 			if !isReachable {
@@ -73,6 +73,8 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func setup() {
+		setupDefaults()
+		countLaunches()
 		setupRootViewController()
 		window?.makeKeyAndVisible()
 		offMainInitialization()

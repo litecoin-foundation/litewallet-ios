@@ -1092,7 +1092,7 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "您最近一次在 %1$@ 寫下了您的紙本金鑰";
-
+ 
 /* Start view tagline */
 "StartViewController.tagline" = "使用莱特币最安全、最简单的方式。";
 
@@ -1459,5 +1459,11 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
+/* Fee: $0.01 */
+"Send.bareFee" = "費用: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "費用: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "費用:";
