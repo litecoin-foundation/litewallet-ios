@@ -23,13 +23,10 @@ struct WebView: UIViewRepresentable {
 	}
 
 	func updateUIView(_ webview: WKWebView, context _: Context) {
-		print("::: webview \(webview.frame.size)")
-
 		webview.endEditing(true)
 
 		if scrollToSignup {
 			let point = CGPoint(x: 0, y: webview.scrollView.contentSize.height - webview.frame.size.height / 2)
-			print("::: point \(point)")
 
 			webview.scrollView.setContentOffset(point, animated: true)
 			DispatchQueue.main.async {
