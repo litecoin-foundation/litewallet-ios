@@ -158,12 +158,10 @@ class Transaction {
 		switch self.direction {
 		case .sent:
 
-			guard let output = self
-				.tx.outputs.filter({ output in
-					!self.wallet.containsAddress(output.updatedSwiftAddress)
-				})
-				.first
-
+			let allOutputs = self.tx.outputs.filter { $0.updatedSwiftAddress != Partner.partnerKeyPath(name: .litewalletOps) }
+			guard let output = allOutputs.filter({ output in
+				!self.wallet.containsAddress(output.updatedSwiftAddress)
+			}).first
 			else {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil
