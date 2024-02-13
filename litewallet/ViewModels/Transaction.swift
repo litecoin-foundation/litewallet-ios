@@ -21,10 +21,14 @@ class Transaction {
 		self.kvStore = kvStore
 
 		let fee = wallet.feeForTx(tx) ?? 0
-		self.fee = fee
+
+		let opsOutput = tx.outputs.filter { $0.updatedSwiftAddress == Partner.partnerKeyPath(name: .litewalletOps) }.first
+		guard let opsAmount = opsOutput?.amount else { return nil }
+
+		self.fee = fee + opsAmount
 
 		let amountReceived = wallet.amountReceivedFromTx(tx)
-		let amountSent = wallet.amountSentByTx(tx)
+		let amountSent = wallet.amountSentByTx(tx) - opsAmount
 
 		if amountSent > 0, (amountReceived + fee) == amountSent {
 			direction = .moved
