@@ -176,13 +176,13 @@ class AmountViewController: UIViewController, Trackable {
 			])
 		})
 		editFee.constrain([
-			editFee.leadingAnchor.constraint(equalTo: feeLabel.trailingAnchor, constant: -8.0),
+			editFee.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
 			editFee.centerYAnchor.constraint(equalTo: feeLabel.centerYAnchor, constant: -1.0),
 			editFee.widthAnchor.constraint(equalToConstant: 44.0),
 			editFee.heightAnchor.constraint(equalToConstant: 44.0),
 		])
 		bottomBorder.constrain([
-			bottomBorder.topAnchor.constraint(greaterThanOrEqualTo: currencyToggle.bottomAnchor, constant: C.padding[2]),
+			bottomBorder.topAnchor.constraint(greaterThanOrEqualTo: currencyToggle.bottomAnchor, constant: C.padding[3]),
 			bottomBorder.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			bottomBorder.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			bottomBorder.trailingAnchor.constraint(equalTo: view.trailingAnchor),
