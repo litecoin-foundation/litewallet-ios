@@ -150,7 +150,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		// MARK: - AmountView Callbacks
 
 		amountView.balanceTextForAmount = { [weak self] amount, rate in
-			self?.balanceTextForAmount(amount: amount, rate: rate)
+			self?.balanceTextForAmountWithFormattedFees(amount: amount, rate: rate)
 		}
 
 		amountView.didUpdateAmount = { [weak self] amount in
@@ -207,45 +207,57 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 	}
 
-	private func balanceTextForAmount(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?)
+	private func balanceTextForAmountWithFormattedFees(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?)
 	{
+		// DEV: KCW 12-FEB-24
+		// The results of this output is doing double duty and the method is a nightmare.
+		// The parent view controller uses the numbers and the text is used in this View Controller
+
 		let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
 		let balanceText = balanceAmount.description
 
 		let balanceOutput = String(format: S.Send.balance.localize(), balanceText)
-		var feeOutput = ""
+		var combinedFeesOutput = ""
 		var balanceColor: UIColor = .grayTextTint
-
-		/// Check the amount is greater than zero and if user is opting out of fees
-		if let amount = amount, amount > 0 {
-			let tieredOpsFee = tieredOpsFee(amount: amount.rawValue)
-			let totalAmountToCalculateFees = hasActivatedInlineFees ? (amount.rawValue + tieredOpsFee) : amount.rawValue
-
-			let fee = sender.feeForTx(amount: totalAmountToCalculateFees)
-
-			let feeAmountLabel = DisplayAmount(amount: Satoshis(rawValue: fee) + tieredOpsFee,
-			                                   state: store.state,
-			                                   selectedRate: rate,
-			                                   minimumFractionDigits: 2)
-
-			let feeText = feeAmountLabel.description.replacingZeroFeeWithTenCents()
-			feeOutput = hasActivatedInlineFees ? String(format: S.Send.fee.localize(), feeText) :
-				String(format: S.Send.feeBlank.localize(), feeText)
-
-			if balance >= (fee + tieredOpsFee), amount.rawValue > (balance - (fee + tieredOpsFee)) {
-				balanceColor = .litewalletOrange
-			}
-		}
 
 		let balanceStyle = [
 			NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
 			NSAttributedString.Key.foregroundColor: balanceColor,
 		]
 
-		let balanceAttributes: [NSAttributedString.Key: Any] = balanceStyle
-		let feeAttributes: [NSAttributedString.Key: Any] = balanceStyle
+		/// Check the amount is greater than zero and if user is opting out of fees
+		if let amount = amount, amount > 0 {
+			let tieredOpsFee = tieredOpsFee(amount: amount.rawValue)
+			let totalAmountToCalculateFees = (amount.rawValue + tieredOpsFee)
 
-		return (NSAttributedString(string: balanceOutput, attributes: balanceAttributes), NSAttributedString(string: feeOutput, attributes: feeAttributes))
+			let networkFee = sender.feeForTx(amount: totalAmountToCalculateFees)
+
+			let networkFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee),
+			                                     state: store.state,
+			                                     selectedRate: rate,
+			                                     minimumFractionDigits: 2).description
+
+			let serviceFeeAmount = DisplayAmount(amount: Satoshis(rawValue: tieredOpsFee),
+			                                     state: store.state,
+			                                     selectedRate: rate,
+			                                     minimumFractionDigits: 2).description
+
+			let totalFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee + tieredOpsFee),
+			                                   state: store.state,
+			                                   selectedRate: rate,
+			                                   minimumFractionDigits: 2).description
+			let combinedfeeText = networkFeeAmount.description.replacingZeroFeeWithTenCents() +
+				serviceFeeAmount.description.replacingZeroFeeWithTenCents() +
+				totalFeeAmount.description.replacingZeroFeeWithTenCents()
+
+			combinedFeesOutput = "(\(S.Send.networkFee.localize()) + \(S.Send.serviceFee.localize())): \(networkFeeAmount) + \(serviceFeeAmount) = \(totalFeeAmount)"
+
+			if balance >= (networkFee + tieredOpsFee), amount.rawValue > (balance - (networkFee + tieredOpsFee)) {
+				balanceColor = .litewalletOrange
+			}
+		}
+
+		return (NSAttributedString(string: balanceOutput, attributes: balanceStyle), NSAttributedString(string: combinedFeesOutput, attributes: balanceStyle))
 	}
 
 	@objc private func pasteTapped() {
