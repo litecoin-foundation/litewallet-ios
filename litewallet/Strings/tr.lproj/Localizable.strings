@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Bağışlanacak Miktar:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Ağ Ücreti:";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "İşlem süresi: Bu işlemlerin işlenmesi %1$@ dakika sürecektir.";
 
@@ -201,9 +198,6 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Kelime #%1$@";
-
-/* as of a time or date */
-"Conjunction.asOf" = "itibariyle";
 
 /* Copy. */
 "Copy" = "Kopyala";
@@ -379,174 +373,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Sil";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "Kart";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Kart bakiyesi";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Çıkış Yap ve Transferlere izin vermek için 2FA'yı Etkinleştir";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Kayıt ve Giriş \n- Kullanılabilir kart bakiyesi \n- Parolayı sıfırla \n- Litewallet'e aktarım yok \n- Yalnızca ABD";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin Kartı şu anda Litewallet'te sınırlı işlevselliğe sahiptir.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Tam erişim için litecoin.getblockcard.com adresini ziyaret edin";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin Kartı Beta";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Enter Code";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Enter the code that was recently sent to your Litecoin Card account email.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Giriş başarısız oldu";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Parolanızı mı unuttunuz?";
-
-/* Login */
-"LitecoinCard.login" = "Giriş Yap";
-
-/* Logout */
-"LitecoinCard.logout" = "Oturumu Kapat";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Litecoin Card";
-
-/* Register */
-"LitecoinCard.registerCard" = "Kayıt Ol";
-
-/* Litecoin card */
-"LitecoinCard.registerCardPhrase" = "Litecoin Kartı için Kaydol";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Kullanıcı kaydediliyor ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Adres";
-
-/* city */
-"LitecoinCard.Registration.city" = "Şehir";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "Parolayı onayla";
-
-/* country */
-"LitecoinCard.Registration.country" = "Ülke";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "Adı";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Kimlik";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Kimlik Numarası";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "Kimlik Türü";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "Soyadı";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Cep telefonu numarası";
-
-/* password */
-"LitecoinCard.Registration.password" = "Parola";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Eyalet / İl";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "E-posta (Kullanıcı Adı)";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Boş olmamalıdır";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Geçersiz E-posta Adresi";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Cep telefonu numarası en az 10 basamaklı olmalıdır";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Cep telefonu numarası gerekli";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Parola en az 6 karakter içermelidir";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Parola, en az bir karakter ve bir sayısal karakter içeren 6 karakterden fazla olmalıdır";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Parola Gerekli";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "Gerekli alan";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Posta Kodu / Posta Kodu";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Kaydınız ile ilgili bir sorun oluştu. \nLütfen verilerinizi kontrol edin ve tekrar deneyin.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Kayıt oldunuz! \nLütfen e-postanızı kontrol edin ve onaylayın. Sonra tekrar giriş yapın.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Parolayı sıfırla";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Litecoin Kart hesabınızla ilişkili e-posta adresini girin ve sıfırlama talimatlarını içeren bir e-posta arayın.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Karta Aktarma";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Litewallet'a aktarın";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Aktarılan cüzdanı seçin:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Adres";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Litewallet bakiyesi";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Transfer miktarını ayarlamak için kaydırın";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Aktarımı başlat";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Aktar";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Bir hata oluştu. Lütfen 2FA'yı *Etkin* olarak değiştirin, e-postayla gönderilen kodu girin ve tekrar deneyin.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA Not Enabled";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA Enabled";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Parolanızı sıfırlamak için https://litecoin.dashboard.getblockcard.com/password/forgot\n adresini ziyaret edin.";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -630,21 +456,6 @@
 
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin Düğümleri";
-
-/* Push notifications settings view body */
-"Notifications.body" = "İleride Litewallet'ten özel mesajlar almak için bildirimleri açın.";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "Push Bildirimleri";
-
-/* Push notifications are off label */
-"Notifications.off" = "Kapalı";
-
-/* Push notifications are on label */
-"Notifications.on" = "Açık";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "Bildirimler";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Kötü Ödeme İsteği";
@@ -903,9 +714,6 @@
 
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Bir Litecoin adresi girin";
-
-/* Network Fee: $0.01 */
-"Send.fee" = "Ağ Ücreti:%1$@";
 
 /* Fees: $0.01*/
 "Send.fee" = "Ücretler: %1$@";
@@ -1458,3 +1266,12 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";

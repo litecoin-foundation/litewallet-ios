@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Beløb til donation:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Netværksgebyr:";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "Behandlingstid: Disse transaktioner tager %1$@ minutter at behandle.";
 
@@ -201,9 +198,6 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Ord #%1$@";
-
-/* as of a time or date */
-"Conjunction.asOf" = "fra";
 
 /* No comment provided by engineer. */
 "Copy" = "Kopi";
@@ -378,174 +372,6 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Ryd";
-
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "KORT";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Kortbalance";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Log ud og aktiver 2FA for at tillade overførsler";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Registrering og login\n- Tilgængelig kortsaldo\n- Nulstil adgangskode\n- Ingen overførsel til Litewallet\n- Kun USA";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin Card har i øjeblikket begrænset funktionalitet i Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Besøg litecoin.getblockcard.com for fuld adgang";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin-kort Beta";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Indtast kode";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Indtast koden, der for nylig blev sendt til din Litecoin Card -kontos e -mail.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Login mislykkedes";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Glemt kodeord?";
-
-/* Login */
-"LitecoinCard.login" = "Log på";
-
-/* Logout */
-"LitecoinCard.logout" = "Log ud";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Litecoin -kort";
-
-/* Register */
-"LitecoinCard.registerCard" = "Tilmeld";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "Tilmeld dig Litecoin-kort";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Registrerer bruger ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Vejnavn";
-
-/* city */
-"LitecoinCard.Registration.city" = "By";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "bekræft kodeord";
-
-/* country */
-"LitecoinCard.Registration.country" = "Land";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "fornavn";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Identifikation";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Kend din kunde ID-type";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "ID-type";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "efternavn";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Mobilnummer";
-
-/* password */
-"LitecoinCard.Registration.password" = "adgangskode";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Stat / provins";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "Email";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Må ikke være tom";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ugyldig emailadresse";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobilnummeret skal have mindst 10 cifre";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobilnummer er påkrævet";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Adgangskoden skal indeholde mindst 6 tegn";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Adgangskoden skal bestå af mere end 6 tegn med mindst et tegn og et numerisk tegn";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Adgangskode er påkrævet";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "påkrævet område";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Postnummer";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Der var et problem med din registrering. Kontroller dine data, og prøv igen.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Du har tilmeldt dig! Kontroller og bekræft din e-mail. Så kom tilbage for at logge ind.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Nulstille kodeord";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Indtast den e-mail-adresse, der er knyttet til din Litecoin Card-konto, og se efter en e-mail med nulstillingsinstruktioner.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Overfør til kort";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Overførsel til Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Vælg den overførende tegnebog:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Adresse";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Skub for at indstille overførselsbeløb";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Start overførsel";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Overførsel";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Der opstod en fejl. Skift venligst 2FA til *Aktiveret*, indtast den e -mailede kode, og prøv igen.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA Ikke aktiveret";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA aktiveret";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Besøg https://litecoin.dashboard.getblockcard.com/password/forgot for at nulstille din adgangskode.";
 
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
@@ -1420,26 +1246,20 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d af %2$d";
 
-/* Push notifications settings view body */
-"Notifications.body" = "";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "";
-
-/* Push notifications are off label */
-"Notifications.off" = "";
-
-/* Push notifications are on label */
-"Notifications.on" = "";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "";
+/* Signup cancel */
+"Notifications.signupCancel" = "";
 
 /* Fee: $0.01 */
 "Send.bareFee" = "";
 
 /* Fees Blank: */
 "Send.feeBlank" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";
 
 /* domain */
 "Send.UnstoppableDomains.domain" = "";

@@ -460,21 +460,6 @@
 /* Upgrade PIN prompt title. */
 "Prompts.SetPin.title" = "Set PIN";
 
-/* Push notifications settings view body */
-"Notifications.body" = "Turn on notifications to receive special messages from Litewallet in the future.";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "Push Notifications";
-
-/* Push notifications are off label */
-"Notifications.off" = "Off";
-
-/* Push notifications are on label */
-"Notifications.on" = "On";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "Notifications";
-
 /* Address copied message. */
 "Receive.copied" = "Copied to clipboard.";
 
@@ -1075,9 +1060,6 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
 
-/* as of a time or date */
-"Conjunction.asOf" = "as of";
-
 /* No comment provided by engineer. */
 "Copy" = "Copy";
 
@@ -1470,3 +1452,12 @@
 
 /* Fees Blank: */
 "Send.feeBlank" = "Fees:";
+
+/* Network */
+"Send.networkFee" = "Network";
+
+/* Service */
+"Send.serviceFee" = "Service";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "No, thanks.";

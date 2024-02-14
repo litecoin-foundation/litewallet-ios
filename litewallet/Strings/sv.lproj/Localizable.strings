@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Belopp att donera:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Nätverks-avgift";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "Bearbetningstid: Dessa transaktioner tar %1$@ minuter att behandla.";
 
@@ -201,9 +198,6 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Ord #%1$@";
-
-/* as of a time or date */
-"Conjunction.asOf" = "från och med";
 
 /* No comment provided by engineer. */
 "Copy" = "Kopia";
@@ -378,174 +372,6 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Töm";
-
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "KORT";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Kortbalans";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Logga ut och aktivera 2FA för att tillåta överföringar";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Registrering & inloggning\n- Tillgängligt kortsaldo\n- Återställ lösenord\n- Ingen överföring till Litewallet\n- Endast USA";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin Card har för närvarande begränsad funktionalitet i Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Besök litecoin.getblockcard.com för fullständig åtkomst";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin-kort Beta";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Ange kod";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Ange koden som nyligen skickades till ditt Litecoin -kortkontots e -postadress.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Inloggningen misslyckades";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Glömt ditt lösenord?";
-
-/* Login */
-"LitecoinCard.login" = "Logga in";
-
-/* Logout */
-"LitecoinCard.logout" = "Logga ut";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Litecoin -kort";
-
-/* Register */
-"LitecoinCard.registerCard" = "Registrera";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "Registrera dig för Litecoin-kort";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Registrerar användare ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Gatuadress";
-
-/* city */
-"LitecoinCard.Registration.city" = "Stad";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "bekräfta lösenord";
-
-/* country */
-"LitecoinCard.Registration.country" = "Land";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "förnamn";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Identifiering";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Känn din kund ID-typ";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "ID-typ";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "efternamn";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Mobilnummer";
-
-/* password */
-"LitecoinCard.Registration.password" = "Lösenord";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Stat / provins";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "E-mail";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Får inte vara tom";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ogiltig e-postadress";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Mobilnumret måste innehålla minst tio siffror";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobilnummer krävs";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Lösenordet måste innehålla minst sex tecken";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Lösenordet måste innehålla mer än sex tecken, med minst ett tecken och ett numeriskt tecken";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Lösenord krävs";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "obligatoriskt fält";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Postnummer";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Det uppstod ett problem med din registrering.\nKontrollera dina uppgifter och försök igen.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Du har registrerat dig! Kontrollera och bekräfta din e-post.\nKom sedan tillbaka för att logga in.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Återställ lösenord";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Ange e-postadressen som är kopplad till ditt Litecoin-kortkonto och leta efter ett e-postmeddelande med återställningsinstruktioner.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Överför till kort";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Överför till Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Välj den överförande plånboken:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Adress";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Litewallet -balans";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Skjut för att ställa in överföringsbelopp";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Starta överföringen";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Överföra";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Det var ett problem. Växla 2FA till *Enabled *, ange den mejlade koden och försök igen.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA Ej aktiverat";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA aktiverat";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Besök https://litecoin.dashboard.getblockcard.com/password/forgot för att återställa ditt lösenord.";
 
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
@@ -1420,26 +1246,20 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d av %2$d";
 
-/* Push notifications settings view body */
-"Notifications.body" = "";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "";
-
-/* Push notifications are off label */
-"Notifications.off" = "";
-
-/* Push notifications are on label */
-"Notifications.on" = "";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "";
+/* Signup cancel */
+"Notifications.signupCancel" = "";
 
 /* Fee: $0.01 */
 "Send.bareFee" = "";
 
 /* Fees Blank: */
 "Send.feeBlank" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";
 
 /* domain */
 "Send.UnstoppableDomains.domain" = "";

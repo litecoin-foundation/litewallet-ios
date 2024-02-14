@@ -199,9 +199,6 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "단어 #%1$@";
 
-/* as of a time or date */
-"Conjunction.asOf" = "현재";
-
 /* No comment provided by engineer. */
 "Copy" = "부";
 
@@ -376,174 +373,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "초기화";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "카드";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "카드 잔액";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "전송을 허용하려면 로그아웃 및 2FA 활성화";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "-등록 및 로그인\n-사용 가능한 카드 잔액\n- 암호를 재설정\n-Litewallet으로 양도 불가\n-미국 만 해당";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "라이트 코인 카드는 현재 라이트 월렛에서 제한된 기능을 가지고 있습니다.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "전체 액세스를 위해 litecoin.getblockcard.com을 방문하십시오.";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "라이트 코인 카드 베타";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "코드를 입력";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "최근에 Litecoin 카드 계정 이메일로 전송된 코드를 입력하십시오.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "로그인 실패";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "비밀번호를 잊으 셨나요?";
-
-/* Login */
-"LitecoinCard.login" = "로그인";
-
-/* Logout */
-"LitecoinCard.logout" = "로그 아웃";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "라이트코인 카드";
-
-/* Register */
-"LitecoinCard.registerCard" = "레지스터";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "라이트 코인 카드 등록";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "사용자 등록 중 ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "주소";
-
-/* city */
-"LitecoinCard.Registration.city" = "시티";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "비밀번호 확인";
-
-/* country */
-"LitecoinCard.Registration.country" = "국가";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "이름";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "신분증";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "고객 파악 ID 유형";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "ID 유형";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "성";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "휴대폰 번호";
-
-/* password */
-"LitecoinCard.Registration.password" = "암호";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "주 / 도";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "ID 유형";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "비워 둘 수 없습니다.";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "잘못된 이메일 주소";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "휴대 전화 번호는 10 자리 이상이어야합니다.";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "휴대폰 번호가 필요합니다.";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "비밀번호는 6 자 이상이어야합니다.";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "비밀번호는 6 자 이상이어야하며 최소 1 개의 문자와 1 개의 숫자가 있어야합니다.";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "비밀번호가 필요합니다";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "필수 필드";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "우편 번호";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "등록에 문제가 있습니다. 데이터를 확인하고 다시 시도하십시오.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "등록하셨습니다! 이메일을 확인하고 확인하십시오. 그런 다음 다시 로그인하십시오.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "암호를 재설정";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "라이트 코인 카드 계정과 연결된 이메일 주소를 입력하고 재설정 지침이있는 이메일을 찾으십시오.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "카드로 이체";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "라이트월렛으로 이체";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "이체 지갑 선택:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "주소";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "균형 Litewallet";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "슬라이드하여 송금 금액 설정";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "전송 시작";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "옮기다";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "오류가있었습니다. 2FA를 '사용'으로 전환하고 이메일로 전송된 코드를 입력한 후 다시 시도하십시오.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA 비활성화";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA 활성화";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "https://litecoin.dashboard.getblockcard.com/password/forgot을 방문하여 암호를 재설정하십시오.";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -627,21 +456,6 @@
 
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin 노드";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"Notifications.body" = "알림을 켜두시면, 향후 브레드의 특별 메시지를 수신할 수 있습니다.";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "푸시 알림";
-
-/* Push notifications are off label */
-"Notifications.off" = "Off";
-
-/* Push notifications are on label */
-"Notifications.on" = "On";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "알림";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "틀린 결제 요청";
@@ -900,9 +714,6 @@
 
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "라이트 코인 주소를 입력하세요";
-
-/* Network Fee: $0.01 */
-"Send.fee" = "네트워크 비용: %1$@";
 
 /* Fees: $0.01*/
 "Send.fee" = "수수료: %1$@";
@@ -1456,5 +1267,11 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
+/* Signup cancel */
+"Notifications.signupCancel" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";

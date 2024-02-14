@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Te doneren bedrag:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Netwerkkosten:";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "Verwerkingstijd: het verwerken van deze transacties duurt %1$@ minuten.";
 
@@ -201,9 +198,6 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Woord #%1$@";
-
-/* as of a time or date */
-"Conjunction.asOf" = "vanaf";
 
 /* No comment provided by engineer. */
 "Copy" = "Kopiëren";
@@ -378,174 +372,6 @@
 
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Wissen";
-
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "KAART";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Kaartsaldo";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Uitloggen en 2FA inschakelen om overdrachten toe te staan";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Registratie en inloggen\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instellen\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin Card heeft momenteel beperkte functionaliteit in Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Bezoek litecoin.getblockcard.com voor volledige toegang";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Voer code in";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Voer de code in die onlangs naar uw Litecoin Card-account is verzonden.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Inloggen mislukt";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Wachtwoord vergeten?";
-
-/* Login */
-"LitecoinCard.login" = "Log in";
-
-/* Logout */
-"LitecoinCard.logout" = "Uitloggen";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Litecoin-kaart";
-
-/* Register */
-"LitecoinCard.registerCard" = "Registreren";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "Registreer voor Litecoin Card";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Gebruiker registreren ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Woonadres";
-
-/* city */
-"LitecoinCard.Registration.city" = "stad";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "bevestig wachtwoord";
-
-/* country */
-"LitecoinCard.Registration.country" = "Land";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "Voornaam";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Identificatie";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Ken uw klant ID Type";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "ID Type";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "achternaam";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Mobiele nummer";
-
-/* password */
-"LitecoinCard.Registration.password" = "wachtwoord";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Staat / Provincie";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "E-mail";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Mag niet leeg zijn";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ongeldig e-mailadres";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Het mobiele nummer moet minimaal 10 cijfers hebben";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobiel nummer is vereist";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Wachtwoord moet minimaal 6 tekens bevatten";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Wachtwoord moet uit meer dan 6 tekens bestaan, met minimaal één teken en één numeriek teken";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Een wachtwoord is verplicht";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "verplicht veld";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Postcode";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Er is een probleem opgetreden met uw registratie. Controleer uw gegevens en probeer het opnieuw.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "U bent geregistreerd! Controleer en bevestig uw e-mail. Kom dan terug om in te loggen.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Wachtwoord opnieuw instellen";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Voer het e-mailadres in dat is gekoppeld aan uw Litecoin Card-account en zoek een e-mail met resetinstructies.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Overboeken naar kaart";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Overzetten naar Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Kies de overmakende portemonnee:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Adres";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Litewallet-saldo";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Schuif om het overboekingsbedrag in te stellen";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Overdracht starten";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Overdracht";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Er is een fout opgetreden. Zet a.u.b. 2FA op *Enabled*, voer de code per e-mail in en probeer het opnieuw.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA niet ingeschakeld";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA ingeschakeld";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Ga naar https://litecoin.dashboard.getblockcard.com/password/forgot om uw wachtwoord te resetten.";
 
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
@@ -1420,26 +1246,20 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d van %2$d";
 
-/* Push notifications settings view body */
-"Notifications.body" = "";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "";
-
-/* Push notifications are off label */
-"Notifications.off" = "";
-
-/* Push notifications are on label */
-"Notifications.on" = "";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "";
+/* Signup cancel */
+"Notifications.signupCancel" = "";
 
 /* Fee: $0.01 */
 "Send.bareFee" = "";
 
 /* Fees Blank: */
 "Send.feeBlank" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";
 
 /* domain */
 "Send.UnstoppableDomains.domain" = "";

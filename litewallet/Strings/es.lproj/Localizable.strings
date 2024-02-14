@@ -200,9 +200,6 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Palabra #%1$@";
 
-/* as of a time or date */
-"Conjunction.asOf" = "a partir de";
-
 /* No comment provided by engineer. */
 "Copy" = "Copiar";
 
@@ -377,175 +374,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Borrar";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "TARJETA";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Balance de tarjeta";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Cerrar sesión y habilitar 2FA para permitir transferencias";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Registro e inicio de sesión\n- Saldo de tarjeta disponible\n- Restablecer contraseña\n- Sin transferencia a Litewallet\n- Estados Unidos solamente";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "La tarjeta Litecoin actualmente tiene una funcionalidad limitada en Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Visite litecoin.getblockcard.com para obtener acceso completo";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Tarjeta Litecoin Beta";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Introduzca el código";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Ingrese el código que se envió recientemente al correo electrónico de su cuenta de tarjeta Litecoin.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "error de inicio de sesion";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "¿Se te olvidó tu contraseña?";
-
-/* Login */
-"LitecoinCard.login" = "Iniciar sesión";
-
-/* Logout */
-"LitecoinCard.logout" = "Cerrar sesión";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Tarjeta Litecoin";
-
-/* Register */
-"LitecoinCard.registerCard" = "Registrarse";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "Registrarse para la tarjeta Litecoin";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Registrando usuario ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Dirección";
-
-/* city */
-"LitecoinCard.Registration.city" = "Ciudad";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "Confirmar contraseña";
-
-/* country */
-"LitecoinCard.Registration.country" = "País";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "primer nombre";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Identificación";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Conozca a su cliente Tipo de identificación";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "tipo de identificación";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "apellido";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Número de teléfono móvil";
-
-/* password */
-"LitecoinCard.Registration.password" = "contraseña";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Provincia del estado";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "Email";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "No debe estar vacío";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Dirección de correo electrónico inválida";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "El número de móvil debe tener al menos 10 dígitos";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Se requiere un número de celular";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "La contraseña debe tener al menos 6 caracteres";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "La contraseña debe tener más de 6 caracteres, con al menos un carácter y un carácter numérico";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Se requiere contraseña";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "Campo requerido";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Código postal";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Hubo un problema con tu registro. Verifique sus datos y vuelva a intentarlo.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "¡Te has registrado! Por favor revise y confirme su correo electrónico. Luego vuelve a iniciar sesión.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Restablecer la contraseña";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Ingrese la dirección de correo electrónico asociada con su cuenta de tarjeta Litecoin y busque un correo electrónico con instrucciones para restablecer.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Transferir a tarjeta";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Transferencia a Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Elija la billetera de transferencia:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Dirección";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Saldo de Litewallet
-";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Desliza para establecer el monto de la transferencia";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Iniciar transferencia";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Transferir";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Hubo un error. Cambie 2FA a * Habilitado *, ingrese el código enviado por correo electrónico y vuelva a intentarlo.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA no habilitado";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA habilitado";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Visita https://litecoin.dashboard.getblockcard.com/password/forgot para restablecer tu contraseña.";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -629,21 +457,6 @@
 
 /* Node Selector view title */
 "NodeSelector.title" = "Nodos Litecoin";
-
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"Notifications.body" = "Activa las notificaciones para recibir mensajes especiales de Litewallet en el futuro.";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "Notificaciones push";
-
-/* Push notifications are off label */
-"Notifications.off" = "Desactivado";
-
-/* Push notifications are on label */
-"Notifications.on" = "Activado";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "Notificaciones";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Solicitud de pago incorrecta";
@@ -902,9 +715,6 @@
 
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Introduzca una dirección de Litecoin";
-
-/* Network Fee: $0.01 */
-"Send.fee" = "Tarifa de red: %1$@";
 
 /* Fees: $0.01*/
 "Send.fee" = "Honorarios: %1$@";
@@ -1458,5 +1268,11 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
+/* Signup cancel */
+"Notifications.signupCancel" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";
