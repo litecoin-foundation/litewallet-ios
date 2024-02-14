@@ -454,6 +454,27 @@
 /* Node status label */
 "NodeSelector.statusLabel" = "Status Koneksi Node";
 
+/* Node Selector view title */
+"NodeSelector.title" = "Node Litecoin";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "Alamat email";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Masukkan di sini";
+
+/* "Email title" */
+"Notifications.emailTitle" = "Jangan lewatkan apa -apa!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Bahasa yang disukai:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Daftar untuk mendengar tentang pembaruan & kontes.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Tidak, terima kasih.";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Permintaan Pembayaran salah";
 
@@ -739,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "Memuat Permintaan";
 
+/* Network */
+"Send.networkFee" = "Jaringan";
+
 /* Empty address alert message */
 "Send.noAddress" = "Silakan masukkan alamat penerima.";
 
@@ -759,6 +783,9 @@
 
 /* Send button label */
 "Send.sendLabel" = "Kirim";
+
+/* Service */
+"Send.serviceFee" = "Melayani";
 
 /* Send modal title */
 "Send.title" = "Kirim";
@@ -1263,15 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d dari %2$d";
-
-/* Node Selector view title */
-"NodeSelector.title" = "";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

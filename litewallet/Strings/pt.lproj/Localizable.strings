@@ -458,6 +458,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Nós de Litecoin";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "Endereço de email";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Entre aqui";
+
+/* "Email title" */
+"Notifications.emailTitle" = "Não perca nada!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Língua preferida:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Inscreva -se para ouvir sobre atualizações e concursos.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Não, obrigado.";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Pedido de Pagamento Inválido";
 
@@ -743,6 +761,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "A carregar o pedido";
 
+/* Network */
+"Send.networkFee" = "Rede";
+
 /* Empty address alert message */
 "Send.noAddress" = "Por favor, introduza o endereço do destinatário.";
 
@@ -763,6 +784,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "Enviar";
+
+/* Service */
+"Send.serviceFee" = "Serviço";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "Enviar";
@@ -1267,12 +1291,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

@@ -1246,6 +1246,21 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d van %2$d";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "";
+
+/* "Email title" */
+"Notifications.emailTitle" = "";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "";
+
 /* Signup cancel */
 "Notifications.signupCancel" = "";
 

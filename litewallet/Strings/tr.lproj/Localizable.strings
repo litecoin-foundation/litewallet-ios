@@ -457,6 +457,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin Düğümleri";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "E -posta adresi";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Buraya Gir";
+
+/* "Email title" */
+"Notifications.emailTitle" = "Bir şey kaçırmayın!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Tercih edilen dil:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Güncellemeleri ve yarışmaları duymak için kaydolun.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Hayır, teşekkürler.";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Kötü Ödeme İsteği";
 
@@ -742,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "Yükleme İsteği";
 
+/* Network */
+"Send.networkFee" = "Ağ";
+
 /* Empty address alert message */
 "Send.noAddress" = "Lütfen alıcının adresini girin.";
 
@@ -762,6 +783,9 @@
 
 /* Send button label */
 "Send.sendLabel" = "Gönder";
+
+/* Service */
+"Send.serviceFee" = "Hizmet";
 
 /* Send modal title */
 "Send.title" = "Gönder";
@@ -1266,12 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

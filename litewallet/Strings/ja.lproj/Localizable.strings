@@ -457,6 +457,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "リテコインノード";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "電子メールアドレス";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "ここに入力";
+
+/* "Email title" */
+"Notifications.emailTitle" = "見逃さないでください！";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "優先言語：";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "更新とコンテストについて聞いてサインアップしてください。";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "結構です。";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "不正な支払い要求";
 
@@ -742,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "ロード要求";
 
+/* Network */
+"Send.networkFee" = "通信網";
+
 /* Empty address alert message */
 "Send.noAddress" = "受取人のアドレスを入力してください。";
 
@@ -762,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "送金する";
+
+/* Service */
+"Send.serviceFee" = "通信網";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "送金";
@@ -1266,12 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

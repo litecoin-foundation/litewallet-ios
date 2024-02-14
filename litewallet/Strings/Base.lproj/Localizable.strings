@@ -1460,13 +1460,19 @@
 "Send.serviceFee" = "Service";
 
 /* Signup cancel */
-"Notifications.signupCancel" = "No, thanks.";
+"Notifications.signupCancel" = "No, thanks";
 
+/* "Email title" */
+"Notifications.emailTitle" = "Don't a miss a thing!";
 
-//Notifications.emailTitle = Localization(key: "Notifications.emailTitle", value: "Don't a miss a thing!", comment: "Email title")
-//Notifications.pitchMessage = Localization(key: "Notifications.pitchMessage", value: "Sign up to hear about updates & contests from the Litewallet team!\nAccept notifications to get live news, price & market information!", comment: "Pitch to get user to sign up")
-//Notifications.emailLabel = Localization(key: "Notifications.emailLabel", value: "Email address", comment: "Email address label")
-//Notifications.emailPlaceholder = Localization(key: "Notifications.emailPlaceholder", value: "Enter here", comment: "Email address placeholder")
-//Notifications.languagePreference = Localization(key: "Notifications.languagePreference", value: "Preferred language:", comment: "Language preference label")
-//Notifications.signupCancel = Localization(key: "Notifications.signupCancel", value: "No, thanks", comment: "Signup cancel")
-//    }
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Sign up to hear about updates & contests.";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "Email address";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Enter here";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Preferred language:";

@@ -457,6 +457,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin-Nodes";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "E-Mail-Adresse";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Hier eintreten";
+
+/* "Email title" */
+"Notifications.emailTitle" = "Miss nichts verpassen!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Bevorzugte Sprache:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Melden Sie sich an, um über Updates und Wettbewerbe zu erfahren.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Nein danke.";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Ungültige Zahlungsanforderung";
 
@@ -742,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "Anfrage wird geladen";
 
+/* Network */
+"Send.networkFee" = "Netzwerk";
+
 /* Empty address alert message */
 "Send.noAddress" = "Bitte gib die Adresse des Empfängers ein.";
 
@@ -762,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "Senden";
+
+/* Service */
+"Send.serviceFee" = "Service";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "Senden";
@@ -1266,12 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

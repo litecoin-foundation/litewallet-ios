@@ -454,6 +454,27 @@
 /* Node status label */
 "NodeSelector.statusLabel" = "節點連線狀態";
 
+/* Node Selector view title */
+"NodeSelector.title" = "萊特幣節點";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "電子郵件地址";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "在這裡輸入";
+
+/* "Email title" */
+"Notifications.emailTitle" = "不要錯過一件事！";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "首選語言：";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "註冊以了解更新和競賽。";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "不，謝謝。";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "不良的付款請求";
 
@@ -739,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "正在載入要求";
 
+/* Network */
+"Send.networkFee" = "網絡";
+
 /* Empty address alert message */
 "Send.noAddress" = "請輸入收受者的地址。";
 
@@ -759,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "寄送";
+
+/* Service */
+"Send.serviceFee" = "服務";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "寄送";
@@ -1263,15 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
-
-/* Node Selector view title */
-"NodeSelector.title" = "";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

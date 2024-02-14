@@ -457,6 +457,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "莱特币节点";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "电子邮件地址";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "在这里输入";
+
+/* "Email title" */
+"Notifications.emailTitle" = "不要错过一件事！";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "首选语言：";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "注册以了解更新和竞赛。";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "不，谢谢。";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "假的付款请求";
 
@@ -742,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "加载请求中";
 
+/* Network */
+"Send.networkFee" = "网络";
+
 /* Empty address alert message */
 "Send.noAddress" = "请输入收件人地址。";
 
@@ -762,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "发送";
+
+/* Service */
+"Send.serviceFee" = "服务";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "发送";
@@ -1266,12 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

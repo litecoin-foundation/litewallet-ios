@@ -454,6 +454,27 @@
 /* Node status label */
 "NodeSelector.statusLabel" = "Состояние подключения узла";
 
+/* Node Selector view title */
+"NodeSelector.title" = "Узлы Лайткоин";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "Адрес электронной почты";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Вход здесь";
+
+/* "Email title" */
+"Notifications.emailTitle" = "Не пропустите ничего!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Предпочтительный язык:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Зарегистрируйтесь, чтобы услышать об обновлениях и конкурсах.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Нет, спасибо.";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Неверный запрос на совершение платежа";
 
@@ -739,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "Загрузка запроса";
 
+/* Network */
+"Send.networkFee" = "Сеть";
+
 /* Empty address alert message */
 "Send.noAddress" = "Пожалуйста, введите адрес получателя.";
 
@@ -759,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "Отправить";
+
+/* Service */
+"Send.serviceFee" = "Услуга";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "Отправить";
@@ -1263,15 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d из %2$d";
-
-/* Node Selector view title */
-"NodeSelector.title" = "";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

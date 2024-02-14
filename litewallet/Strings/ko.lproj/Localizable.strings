@@ -457,6 +457,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Litecoin 노드";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "이메일 주소";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "여기에 입력하십시오";
+
+/* "Email title" */
+"Notifications.emailTitle" = "놓치지 마세요!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "선호하는 언어:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "업데이트 및 컨테스트에 대해 들어 보려면 가입하십시오.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "고맙지 만 사양 할게.";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "틀린 결제 요청";
 
@@ -742,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "요청 불러오는 중";
 
+/* Network */
+"Send.networkFee" = "회로망";
+
 /* Empty address alert message */
 "Send.noAddress" = "수신인의 주소를 입력하세요.";
 
@@ -762,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "보내기";
+
+/* Service */
+"Send.serviceFee" = "서비스";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "보내기";
@@ -1266,12 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d의 %1$d";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";
