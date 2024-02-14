@@ -137,7 +137,7 @@ struct StartView: View {
 							                    language: startViewModel.currentLanguage,
 							                    didTapContinue: $didContinue)
 								.environmentObject(startViewModel)
-								.navigationBarBackButtonHidden(true)
+								.navigationBarBackButtonHidden(false)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
@@ -163,7 +163,7 @@ struct StartView: View {
 							                    language: startViewModel.currentLanguage,
 							                    didTapContinue: $didContinue)
 								.environmentObject(startViewModel)
-								.navigationBarBackButtonHidden(true)
+								.navigationBarBackButtonHidden(false)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
