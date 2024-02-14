@@ -15,11 +15,6 @@ let BRAPIClientErrorDomain = "BRApiClientErrorDomain"
 	}
 }
 
-public enum BRAPIClientError: Error {
-	case malformedDataError
-	case unknownError
-}
-
 public typealias URLSessionTaskHandler = (Data?, HTTPURLResponse?, NSError?) -> Void
 public typealias URLSessionChallengeHandler = (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
 
