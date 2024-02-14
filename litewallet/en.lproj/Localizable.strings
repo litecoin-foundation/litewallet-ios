@@ -877,6 +877,12 @@
 /* Balance: $4.00 */
 "Send.balance" = "Balance: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Fee: %1$@";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Fee: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "SEND";
 
@@ -903,6 +909,18 @@
 
 /* Network Fee: $0.01 */
 "Send.fee" = "Network Fee: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Fees: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Fees: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Fees:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Fees:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Payee identity isn't certified.";
@@ -1449,12 +1467,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d of %2$d";
-
-/* Fee: $0.01 */
-"Send.bareFee" = "Fee: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Fees: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Fees:";

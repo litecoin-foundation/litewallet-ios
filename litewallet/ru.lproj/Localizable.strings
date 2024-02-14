@@ -874,6 +874,12 @@
 /* Balance: $4.00 */
 "Send.balance" = "Баланс: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Платеж: %1$@";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "Платеж: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "ОТПРАВИТЬ";
 
@@ -900,6 +906,18 @@
 
 /* Network Fee: $0.01 */
 "Send.fee" = "Комиссия сети: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Сборы: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Сборы: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Сборы:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Сборы:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Личность получателя платежа не сертифицирована.";
@@ -1080,7 +1098,7 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "Вы выписывали свой бумажный ключ в последний раз %1$@";
- 
+
 /* Start view tagline */
 "StartViewController.tagline" = "Самый безопасный и простой способ использовать Litecoin";
 
@@ -1447,14 +1465,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d из %2$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "Платеж: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Сборы: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Сборы:";
- 
-
-
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";

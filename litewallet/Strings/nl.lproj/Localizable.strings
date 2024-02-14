@@ -1,0 +1,1457 @@
+/* About screen blog label */
+"About.blog" = "Blog";
+
+/* About screen footer */
+"About.footer" = "Gemaakt door het globale Litewallet team. Versie %1$@";
+
+/* Privay Policy button label */
+"About.privacy" = "Privacyverklaring";
+
+/* About screen reddit label */
+"About.reddit" = "Reddit";
+
+/* About screen title */
+"About.title" = "Over";
+
+/* About screen twitter label */
+"About.twitter" = "Twitter";
+
+/* Close modal button accessibility label */
+"AccessibilityLabels.close" = "Sluiten";
+
+/* Support center accessibiliy label */
+"AccessibilityLabels.faq" = "Ondersteuningscentrum";
+
+/* Loading Wallet Message */
+"Account.loadingMessage" = "Portemonnee Laden";
+
+/* Default wallet name */
+"AccountHeader.defaultWalletName" = "Mijn Litewallet";
+
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "BEHEREN";
+
+/* Corruption Error alert title */
+"Alert.corruptionError" = "Lokale corruptiefout";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "Uw lokale database is beschadigd. Ga naar Instellingen> Blockchain: Instellingen> Verwijder database om te vernieuwen";
+
+/* Error alert title */
+"Alert.error" = "Error";
+
+/* No internet alert message */
+"Alert.noInternet" = "Er is geen internetconnectie gevonden. Controleer je connectie en probeer opnieuw.";
+
+/* Warning alert title */
+"Alert.warning" = "Waarschuwing";
+
+/* 'the addresses were copied'' Alert title */
+"Alerts.copiedAddressesHeader" = "Adressen Gekopieerd";
+
+/* Addresses Copied Alert sub header */
+"Alerts.copiedAddressesSubheader" = "Alle portemonnee adressen zijn succesvol gekopieerd.";
+
+/* Alert Header Label (the paper key was set) */
+"Alerts.paperKeySet" = "Papieren Sleutel Set.";
+
+/* Alert Subheader label (playfully positive) */
+"Alerts.paperKeySetSubheader" = "Geweldig!";
+
+/* Alert Header label (the PIN was set) */
+"Alerts.pinSet" = "PIN Set.";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "Domeinresolutie";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "Uw adres is opgelost!";
+
+/* Send failure alert header label (the send failed to happen) */
+"Alerts.sendFailure" = "Zending mislukt";
+
+/* Send success alert header label (confirmation that the send happened) */
+"Alerts.sendSuccess" = "Zending Bevestiging";
+
+/* Send success alert subheader label (e.g. the money was sent) */
+"Alerts.sendSuccessSubheader" = "Geld Verstuurd!";
+
+/* JSON Serialization error message */
+"ApiClient.jsonError" = "JSON Serialisatie Error";
+
+/* Wallet not ready error message */
+"ApiClient.notReady" = "Portemonnee niet gereed";
+
+/* API Token error message */
+"ApiClient.tokenError" = "Niet in staat op API teken te vinden";
+
+/* buy button */
+"Button.buy" = "kopen";
+
+/* Cancel button label */
+"Button.cancel" = "Annuleren";
+
+/* Ignore button label */
+"Button.ignore" = "Negeren";
+
+/* menu button */
+"Button.menu" = "menu";
+
+/* No button */
+"Button.no" = "Nee";
+
+/* OK button label */
+"Button.ok" = "OK";
+
+/* receive button */
+"Button.receive" = "ontvangen";
+
+/* resetFields */
+"Button.resetFields" = "Reset velden";
+
+/* send button */
+"Button.send" = "versturen";
+
+/* Settings button label */
+"Button.settings" = "Instellingen";
+
+/* Settings button label */
+"Button.submit" = "Indienen";
+
+/* Yes button */
+"Button.yes" = "Ja";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "KOPEN";
+
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "• Cadeaubonnen kopen \n • Prepaid-telefoons bijvullen \n • Steam, Amazon, Hotels.com \n • Werkt in 170 landen";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "• Litecoin wijzigen voor andere crypto's \n • Geen ID vereist \n • Kopen via creditcard \n • Wereldwijde dekking";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "Koop Litecoin";
+
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• Koop LTC met veel fiat-paren\n• Betaal met meerdere methoden\n• Wereldwijde betalingsprovider";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• Krijg Litecoin in 5 minuten! \n • Koop Litecoin via creditcard \n • Paspoort of staat ID";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "Koop Litecoin";
+
+/* Camera plugin instruction */
+"CameraPlugin.centerInstruction" = "Centreer je ID in het vak";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "Uitwisselingsgegevens:";
+
+/* Amount to Send: ($1.00) */
+"Confirmation.amountLabel" = "Bedrag om te Versturen:";
+
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "Te doneren bedrag:";
+
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "Netwerkkosten:";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "Verwerkingstijd: het verwerken van deze transacties duurt %1$@ minuten.";
+
+/* eg. Processing time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingTime" = "Verwerkingstijd: Deze transactie zal %1$@ minuten kosten om te verwerken.";
+
+/* Label for "send" button on final confirmation screen */
+"Confirmation.send" = "Versturen";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "VERGOEDING:";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "ADRES:";
+
+/* Confirmation Screen title */
+"Confirmation.title" = "Bevestiging";
+
+/* To: (address) */
+"Confirmation.to" = "Naar";
+
+/* Total Cost: ($5.00) */
+"Confirmation.totalLabel" = "Totale Prijs:";
+
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "De ingevoerde woorden komen niet overeen met uw papieren sleutel. Probeer het opnieuw.";
+
+/* Confirm paper phrase view label. */
+"ConfirmPaperPhrase.label" = "Voer de volgende woorden in van je papieren sleutel om te verzekeren dat alles correct is opgeschreven.";
+
+/* Word label eg. Word #1, Word #2 */
+"ConfirmPaperPhrase.word" = "Woord #%1$@";
+
+/* as of a time or date */
+"Conjunction.asOf" = "vanaf";
+
+/* No comment provided by engineer. */
+"Copy" = "Kopiëren";
+
+/* Litecoin denomination picker label */
+"DefaultCurrency.bitcoinLabel" = "Litecoin-eenheid";
+
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "Kiezen:";
+
+/* Exchange rate label */
+"DefaultCurrency.rateLabel" = "Wisselkoers";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableMessage" = "Dit apparaat is niet geconfigureerd om e-mails te sturen via de iOS Mail app.";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableTitle" = "E-mail Niet Beschikbaar";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableMessage" = "Dit apparaat is niet geconfigureerd om berichten te sturen.";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableTitle" = "Bericht Sturen Onbeschikbaar";
+
+/* You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button] */
+"FaceIDSettings.customizeText" = "PLACEHOLDER";
+
+/* Face Id screen label */
+"FaceIDSettings.label" = "PLACEHOLDER";
+
+/* Link Text (see FaceIdSettings.customizeText) */
+"FaceIDSettings.linkText" = "PLACEHOLDER";
+
+/* Face id switch label. */
+"FaceIDSettings.switchLabel" = "PLACEHOLDER";
+
+/* Face ID settings view title */
+"FaceIDSettings.title" = "PLACEHOLDER";
+
+/* Face ID unavailable alert message */
+"FaceIDSettings.unavailableAlertMessage" = "PLACEHOLDER";
+
+/* Face ID unavailable alert title */
+"FaceIDSettings.unavailableAlertTitle" = "PLACEHOLDER";
+
+/* Face Id spending limit screen title */
+"FaceIDSpendingLimit.title" = "PLACEHOLDER";
+
+/* Economy fee */
+"FeeSelector.economy" = "Enonomy";
+
+/* Fee Selector economly fee description */
+"FeeSelector.economyLabel" = "Geschatte Bezorgingstijd: 10+ minuten";
+
+/* Warning message for economy fee */
+"FeeSelector.economyWarning" = "Deze optie wordt niet aangeraden voor tijdgevoelige transacties.";
+
+/* Luxury fee */
+"FeeSelector.luxury" = "Luxe";
+
+/* Fee Selector luxury fee description */
+"FeeSelector.luxuryLabel" = "Verwachte levertijd: 2,5 - 5 minuten";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "Deze optie garandeert vrijwel acceptatie van uw transactie, hoewel u een premie betaalt.";
+
+/* Regular fee */
+"FeeSelector.regular" = "Normaal";
+
+/* Fee Selector regular fee description */
+"FeeSelector.regularLabel" = "Verwachte levertijd: 2,5 - 5+ minuten";
+
+/* Fee Selector title */
+"FeeSelector.title" = "Verwerkingssnelheid";
+
+/* Confirm */
+"Fragment.confirm" = "Bevestigen";
+
+/* Or */
+"Fragment.or" = "of";
+
+/* sorry */
+"Fragment.sorry" = "Sorry";
+
+/* to */
+"Fragment.to" = "tot";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "GESCHIEDENIS";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "Huidige LTC-waarde in";
+
+/* Checking private key balance progress view text */
+"Import.checking" = "Persoonlijke sleutel balans checken...";
+
+/* Sweep private key confirmation message */
+"Import.confirm" = "%1$@ van deze persoonlijke sleutel naar je portemonnee sturen? Het Litecoin netwerk zal een heffing ontvangen van %2$@.";
+
+/* Duplicate key error message */
+"Import.Error.duplicate" = "Deze persoonlijke sleutel zit al in je portemonnee.";
+
+/* empty private key error message */
+"Import.Error.empty" = "Deze persoonlijke sleutel is leeg.";
+
+/* High fees error message */
+"Import.Error.highFees" = "Transactiekosten zouden hoger zijn dan de fondsen die op deze private sleutel aanwezig zijn.";
+
+/* Not a valid private key error message */
+"Import.Error.notValid" = "Geen geldige persoonlijke sleutel";
+
+/* Import signing error message */
+"Import.Error.signing" = "Error transactie ondertekenen";
+
+/* Import button label */
+"Import.importButton" = "Importeren";
+
+/* Importing wallet progress view label */
+"Import.importing" = "Portemonnee Importeren";
+
+/* Caption for graphics */
+"Import.leftCaption" = "Portemonnee die geïmporteerd kan worden";
+
+/* Import wallet intro screen message */
+"Import.message" = "Door een portemonnee te importeren plaats je het geld van je andere portemonnee naar je Litewallet portemonnee via een enkele transactie.";
+
+/* Enter password alert view title */
+"Import.password" = "Deze persoonlijke sleutel is beveiligd met een wachtwoord.";
+
+/* password textfield placeholder */
+"Import.passwordPlaceholder" = "wachtwoord";
+
+/* Caption for graphics */
+"Import.rightCaption" = "Jouw Litewallet Portemonnee";
+
+/* Scan Private key button label */
+"Import.scan" = "Scan Persoonlijke Sleutel";
+
+/* Import wallet success alert title */
+"Import.success" = "Succes";
+
+/* Successfully imported wallet message body */
+"Import.SuccessBody" = "Succesvol portemonnee geïmporteerd.";
+
+/* Import Wallet screen title */
+"Import.title" = "Importeer Portemonnee";
+
+/* Unlocking Private key activity view message. */
+"Import.unlockingActivity" = "Sleutel Ontgrendelen";
+
+/* Import wallet intro warning message */
+"Import.warning" = "Door een portemonnee te importeren zet je niet de transactie geschiedenis of andere details over.";
+
+/* Wrong password alert message */
+"Import.wrongPassword" = "Verkeerd wachtwoord, probeer alstublieft opnieuw.";
+
+/* Close app button */
+"JailbreakWarnings.close" = "Sluiten";
+
+/* Ignore jailbreak warning button */
+"JailbreakWarnings.ignore" = "Negeren";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithBalance" = "APPARAAT BEVEILIGING BESCHADIGD\nElke 'jailbreak' app heeft toegang tot de sleutelhanger data van Litewallet en kan hiermee je Litecoins stelen! Wis deze portemonnee direct en herstel het op een veilig apparaat.";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithoutBalance" = "APPARAAT BEVEILIGING BESCHADIGD\nElke 'jailbreak' app heeft toegang tot de sleutelhanger data van Litewallet en kan hiermee je Litecoins stelen. Gebruik Litewallet a.u.b. alleen op een niet-gejailbreakt apparaat.";
+
+/* Jailbreak warning title */
+"JailbreakWarnings.title" = "WAARSCHUWING";
+
+/* Wipe wallet button */
+"JailbreakWarnings.wipe" = "Wissen";
+
+/* Card Bar Item Title */
+"LitecoinCard.barItemTitle" = "KAART";
+
+/* Card balance */
+"LitecoinCard.cardBalance" = "Kaartsaldo";
+
+/* Message when 2FA is off and user is viewing the Card Balance */
+"LitecoinCard.cardBalanceOnlyDescription" = "Uitloggen en 2FA inschakelen om overdrachten toe te staan";
+
+/* Features and limitations */
+"LitecoinCard.Disclaimer.bullets" = "- Registratie en inloggen\n- Beschikbaar kaartsaldo\n- Wachtwoord opnieuw instellen\n- Geen overdracht naar Litewallet\n- Alleen in de USA.";
+
+/* Description of the status */
+"LitecoinCard.Disclaimer.description" = "Litecoin Card heeft momenteel beperkte functionaliteit in Litewallet.";
+
+/* Referral to the website */
+"LitecoinCard.Disclaimer.referral" = "Bezoek litecoin.getblockcard.com voor volledige toegang";
+
+/* Beta Testing Litecoin Card */
+"LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";
+
+/* Enter code */
+"LitecoinCard.enterCode" = "Voer code in";
+
+/* Enter code details */
+"LitecoinCard.enterCode.detail" = "Voer de code in die onlangs naar uw Litecoin Card-account is verzonden.";
+
+/* Failed Login */
+"LitecoinCard.failed.login" = "Inloggen mislukt";
+
+/* Forgot password? */
+"LitecoinCard.forgotPassword" = "Wachtwoord vergeten?";
+
+/* Login */
+"LitecoinCard.login" = "Log in";
+
+/* Logout */
+"LitecoinCard.logout" = "Uitloggen";
+
+/* Card Bar Item Title */
+"LitecoinCard.name" = "Litecoin-kaart";
+
+/* Register */
+"LitecoinCard.registerCard" = "Registreren";
+
+/* Register for Litecoin Card */
+"LitecoinCard.registerCardPhrase" = "Registreer voor Litecoin Card";
+
+/* Registering user... */
+"LitecoinCard.registering.user" = "Gebruiker registreren ...";
+
+/* address */
+"LitecoinCard.Registration.address" = "Woonadres";
+
+/* city */
+"LitecoinCard.Registration.city" = "stad";
+
+/* confirm password */
+"LitecoinCard.Registration.confirmPassword" = "bevestig wachtwoord";
+
+/* country */
+"LitecoinCard.Registration.country" = "Land";
+
+/* First name */
+"LitecoinCard.Registration.firstName" = "Voornaam";
+
+/* identification */
+"LitecoinCard.Registration.identification" = "Identificatie";
+
+/* kycIDNumber */
+"LitecoinCard.Registration.kycIDNumber" = "Ken uw klant ID Type";
+
+/* kycIDType */
+"LitecoinCard.Registration.kycIDType" = "ID Type";
+
+/* SSN */
+"LitecoinCard.Registration.kycSSN" = "SSN";
+
+/* Last name */
+"LitecoinCard.Registration.lastName" = "achternaam";
+
+/* mobile number */
+"LitecoinCard.Registration.mobileNumber" = "Mobiele nummer";
+
+/* password */
+"LitecoinCard.Registration.password" = "wachtwoord";
+
+/* state province */
+"LitecoinCard.Registration.stateProvince" = "Staat / Provincie";
+
+/* registraition username / email */
+"LitecoinCard.Registration.usernameEmail" = "E-mail";
+
+/* must not be empty */
+"LitecoinCard.Registration.ValidationError.empty" = "Mag niet leeg zijn";
+
+/* Invalid email address */
+"LitecoinCard.Registration.ValidationError.invalidEmail" = "Ongeldig e-mailadres";
+
+/* Mobile number 10 digits required */
+"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Het mobiele nummer moet minimaal 10 cijfers hebben";
+
+/* Mobile number required */
+"LitecoinCard.Registration.ValidationError.numberRequired" = "Mobiel nummer is vereist";
+
+/* 6 Password characters required */
+"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Wachtwoord moet minimaal 6 tekens bevatten";
+
+/* Captial and numeric password characters required */
+"LitecoinCard.Registration.ValidationError.passwordComposition" = "Wachtwoord moet uit meer dan 6 tekens bestaan, met minimaal één teken en één numeriek teken";
+
+/* Password required */
+"LitecoinCard.Registration.ValidationError.passwordRequired" = "Een wachtwoord is verplicht";
+
+/* Required field */
+"LitecoinCard.Registration.ValidationError.requiredField" = "verplicht veld";
+
+/* zip post Code */
+"LitecoinCard.Registration.zipPostCode" = "Postcode";
+
+/* Registration failure */
+"LitecoinCard.registrationFailure" = "Er is een probleem opgetreden met uw registratie. Controleer uw gegevens en probeer het opnieuw.";
+
+/* Registration success */
+"LitecoinCard.registrationSuccess" = "U bent geregistreerd! Controleer en bevestig uw e-mail. Kom dan terug om in te loggen.";
+
+/* Reset Litecoin card password */
+"LitecoinCard.resetPassword" = "Wachtwoord opnieuw instellen";
+
+/* Reset password detail */
+"LitecoinCard.resetPasswordDetail" = "Voer het e-mailadres in dat is gekoppeld aan uw Litecoin Card-account en zoek een e-mail met resetinstructies.";
+
+/* Transfer to card label */
+"LitecoinCard.Transfer.amountToCard" = "Overboeken naar kaart";
+
+/* Transfer to Litewallet label */
+"LitecoinCard.Transfer.amountToLitewallet" = "Overzetten naar Litewallet";
+
+/* Description of action */
+"LitecoinCard.Transfer.description" = "Kies de overmakende portemonnee:";
+
+/* Destination address label */
+"LitecoinCard.Transfer.destinationAddress" = "Adres";
+
+/* Litewallet balance label */
+"LitecoinCard.Transfer.litewalletBalance" = "Litewallet-saldo";
+
+/* Set transfer amount label */
+"LitecoinCard.Transfer.setAmount" = "Schuif om het overboekingsbedrag in te stellen";
+
+/* Start transfer label */
+"LitecoinCard.Transfer.startTransfer" = "Overdracht starten";
+
+/* Transfer title */
+"LitecoinCard.Transfer.title" = "Overdracht";
+
+/* 2FA Error message */
+"LitecoinCard.twoFAErrorMessage" = "Er is een fout opgetreden. Zet a.u.b. 2FA op *Enabled*, voer de code per e-mail in en probeer het opnieuw.";
+
+/* Message when 2FA is off */
+"LitecoinCard.twoFAOff" = "2FA niet ingeschakeld";
+
+/* Message when 2FA is on */
+"LitecoinCard.twoFAOn" = "2FA ingeschakeld";
+
+/* Litecoin card visit */
+"LitecoinCard.visit.toReset" = "Ga naar https://litecoin.dashboard.getblockcard.com/password/forgot om uw wachtwoord te resetten.";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
+/* Location services disabled error */
+"LocationPlugin.disabled" = "Locatievoorzieningen zijn uitgeschakeld.";
+
+/* No permissions for location services */
+"LocationPlugin.notAuthorized" = "Litewallet heeft geen toestemming om locatievoorzieningen te gebruiken.";
+
+/* No comment provided by engineer. */
+"Malformed URI" = "Misvormde URI";
+
+/* Balance */
+"ManageWallet.balance" = "Saldo";
+
+/* Wallet creation date prefix */
+"ManageWallet.creationDatePrefix" = "Je hebt je portemonnee gecreëerd op %1$@";
+
+/* Manage wallet description text */
+"ManageWallet.description" = "Jouw portemonnee naam zal alleen verschijnen in je account transactie geschiedenis en kan door niemand anders worden gezien.";
+
+/* Change Wallet name textfield label */
+"ManageWallet.textFeildLabel" = "Portemonnee Naam";
+
+/* Manage wallet modal title */
+"ManageWallet.title" = "Portemonnee Beheren";
+
+/* Buy Litecoin title */
+"MenuButton.buy" = "Litecoins Kopen";
+
+/* Menu button title */
+"MenuButton.customer.support" = "Klantenservice";
+
+/* Menu button title */
+"MenuButton.lock" = "Portemonnee Vergrendelen";
+
+/* Menu button title */
+"MenuButton.security" = "Veiligheidscentrum";
+
+/* Menu button title */
+"MenuButton.settings" = "Instellingen";
+
+/* Menu button title */
+"MenuButton.support" = "Ondersteuning";
+
+/* button label */
+"MenuViewController.createButton" = "Nieuwe Portemonnee Creëren";
+
+/* Menu modal title */
+"MenuViewController.modalTitle" = "Menu";
+
+/* button label */
+"MenuViewController.recoverButton" = "Portemonnee Herstellen";
+
+/* No comment provided by engineer. */
+"No wallet" = "Geen portemonnee";
+
+/* Switch to automatic mode button label */
+"NodeSelector.automaticButton" = "Omschakelen naar automatische modus";
+
+/* Node is connected label */
+"NodeSelector.connected" = "Verbonden";
+
+/* Enter node ip address view body */
+"NodeSelector.enterBody" = "Voer het IP-adres en de poort (optioneel) van de node in";
+
+/* Enter Node ip address view title */
+"NodeSelector.enterTitle" = "Node invoeren";
+
+/* Switch to manual mode button label */
+"NodeSelector.manualButton" = "Omschakelen naar handmatige modus";
+
+/* Node address label */
+"NodeSelector.nodeLabel" = "Huidige primaire node";
+
+/* Node is not connected label */
+"NodeSelector.notConnected" = "Niet Verbonden";
+
+/* Node status label */
+"NodeSelector.statusLabel" = "Connectiestatus van de node";
+
+/* Node Selector view title */
+"NodeSelector.title" = "Litecoin-nodes";
+
+/* Bad Payment request alert title */
+"PaymentProtocol.Errors.badPaymentRequest" = "Slecht Betalingsverzoek";
+
+/* Error opening payment protocol file message */
+"PaymentProtocol.Errors.corruptedDocument" = "Niet-ondersteund of beschadigd document";
+
+/* Missing certificate payment protocol error message */
+"PaymentProtocol.Errors.missingCertificate" = "missend certificaat";
+
+/* Request expired payment protocol error message */
+"PaymentProtocol.Errors.requestExpired" = "verzoek verlopen";
+
+/* Payment too small alert title */
+"PaymentProtocol.Errors.smallOutputError" = "Kon de betaling niet uitvoeren";
+
+/* Amount too small error message */
+"PaymentProtocol.Errors.smallPayment" = "Litecoin betalingen kunnen niet minder zijn dan %1$@.";
+
+/* Output too small error message. */
+"PaymentProtocol.Errors.smallTransaction" = "Litecoin transactie outputs kunnen niet minder zijn dan $@.";
+
+/* Unsupported signature type payment protocol error message */
+"PaymentProtocol.Errors.unsupportedSignatureType" = "niet-ondersteund handtekening type";
+
+/* Untrusted certificate payment protocol error message */
+"PaymentProtocol.Errors.untrustedCertificate" = "niet-vertrouwd certificaat";
+
+/* Dismiss button. */
+"Prompts.dismiss" = "VERWERPEN";
+
+/* Enable face ID prompt body */
+"Prompts.FaceId.body" = "PLACEHOLDER";
+
+/* Enable face ID prompt title */
+"Prompts.FaceId.title" = "PLACEHOLDER";
+
+/* No passcode set warning body */
+"Prompts.NoPasscode.body" = "Er is een apparaat-pascode nodig om je portomonnee te beschermen. Ga naar de instellingen en zet je pascode aan.";
+
+/* No Passcode set warning title */
+"Prompts.NoPasscode.title" = "Zet pascode voor apparaat aan";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "Doorgaan met";
+
+/* Warning about paper key. */
+"Prompts.PaperKey.body" = "Uw Papiersleutel moet opgeslagen worden voor het geval dat u uw telefoon ooit verliest of vervangt. Klik hier om door te gaan.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "annuleren";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "Inschakelen";
+
+/* An action is required (You must do this action). */
+"Prompts.PaperKey.title" = "Actie Vereist";
+
+/* Transaction rejected prompt body */
+"Prompts.RecommendRescan.body" = "Je portemonnee is misschien niet gesynchroniseerd. Dit kan vaak worden verholpen door de blokketen opnieuw te scannen.";
+
+/* Transaction rejected prompt title */
+"Prompts.RecommendRescan.title" = "Transactie Geweigerd";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet is geüpgrade naar een 6-cijferige PIN. Tik hier om te upgraden.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "PIN Upgraden";
+
+/* Share data prompt body */
+"Prompts.ShareData.body" = "Help ons bij het verbeteren van Litewallet door je anonieme data met ons te delen";
+
+/* Share data prompt title */
+"Prompts.ShareData.title" = "Deel Anonieme Data";
+
+/* Enable touch ID prompt body */
+"Prompts.TouchId.body" = "Tik hier om Touch ID in te schakelen";
+
+/* Enable touch ID prompt title */
+"Prompts.TouchId.title" = "Touch ID Inschakelen";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "TE ONTVANGEN";
+
+/* Address copied message. */
+"Receive.copied" = "Gekopieerd naar plakbord.";
+
+/* Share via email button label */
+"Receive.emailButton" = "E-mail";
+
+/* Request button label */
+"Receive.request" = "Een bedrag aanvragen";
+
+/* Share button label */
+"Receive.share" = "Delen";
+
+/* Share via text message (SMS) */
+"Receive.textButton" = "Bericht";
+
+/* Receive modal title */
+"Receive.title" = "Ontvangen";
+
+/* Done button text */
+"RecoverWallet.done" = "Voltooid";
+
+/* Recover wallet header */
+"RecoverWallet.header" = "Portemonnee Herstellen";
+
+/* Reset PIN with paper key: header */
+"RecoverWallet.header_reset_pin" = "PIN Resetten";
+
+/* Enter paper key instruction */
+"RecoverWallet.instruction" = "Papieren Sleutel Invoeren";
+
+/* Recover wallet intro */
+"RecoverWallet.intro" = "Herstel je Litewallet met je papieren sleutel.";
+
+/* Invalid paper key message */
+"RecoverWallet.invalid" = "De papieren sleutel die je hebt ingevoerd is ongeldig. Check ieder woord a.u.b. en probeer het opnieuw.";
+
+/* Previous button accessibility label */
+"RecoverWallet.leftArrow" = "Linker Pijl";
+
+/* Next button label */
+"RecoverWallet.next" = "Volgende";
+
+/* Reset PIN with paper key: more information button. */
+"RecoverWallet.reset_pin_more_info" = "Tik hier voor meer informatie.";
+
+/* Next button accessibility label */
+"RecoverWallet.rightArrow" = "Rechter Pijl";
+
+/* Recover wallet sub-header */
+"RecoverWallet.subheader" = "Voer de papieren sleutel in voor de portemonnee die je wilt herstellen.";
+
+/* Reset PIN with paper key: sub-header */
+"RecoverWallet.subheader_reset_pin" = "Om je PIN te resetten moet je de woorden van je papieren sleutel in onderstaande velden invoeren.";
+
+/* No amount entered error message. */
+"RequestAnAmount.noAmount" = "Vul alstublieft eerst een bedrag in.";
+
+/* Request a specific amount of Litecoin */
+"RequestAnAmount.title" = "Een bedrag aanvragen";
+
+/* Alert action button label */
+"ReScan.alertAction" = "Synchroniseren";
+
+/* Alert message body */
+"ReScan.alertMessage" = "Je zult niet in staat zijn om geld te versturen wanneer je aan het synchroniseren bent.";
+
+/* Alert message title */
+"ReScan.alertTitle" = "Synchroniseren met Blockchain?";
+
+/* extimated time */
+"ReScan.body1" = "20-45 minuten";
+
+/* Syncing explanation */
+"ReScan.body2" = "Als een transactie als voltooid staat op het Litecoin netwerk maar niet in je Litewallet.";
+
+/* Syncing explanation */
+"ReScan.body3" = "Je kreeg herhaaldelijk een foutmelding die zei dat je transactie werd afgewezen.";
+
+/* Start Sync button label */
+"ReScan.buttonTitle" = "Start Synchronisatie";
+
+/* Sync blockchain view footer */
+"ReScan.footer" = "Je zult niet in staat zijn om geld te versturen wanneer je aan het synchroniseren bent met de blokketen.";
+
+/* Sync Blockchain view header */
+"ReScan.header" = "Synchroniseer Blockchain";
+
+/* Subheader label */
+"ReScan.subheader1" = "Geschatte tijd";
+
+/* Subheader label */
+"ReScan.subheader2" = "Wanneer Synchroniseren?";
+
+/* Reset walet button  title */
+"resetButton" = "Ja, portemonnee opnieuw instellen";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "Mijn Litewallet verwijderen";
+
+/* Scan Litecoin address camera flash toggle */
+"Scanner.flashButtonLabel" = "Camera Flits";
+
+/* Complete filter label */
+"Search.complete" = "complete";
+
+/* Pending filter label */
+"Search.pending" = "in afwachting van";
+
+/* Received filter label */
+"Search.received" = "ontvangen";
+
+/* Sent filter label */
+"Search.sent" = "verstuurd";
+
+/* Face ID button title */
+"SecurityCenter.faceIdTitle" = "PLACEHOLDER";
+
+/* Security Center Info */
+"SecurityCenter.info" = "Activeer alle veiligheidsmaatregelen voor maximale bescherming.";
+
+/* Paper Key button description */
+"SecurityCenter.paperKeyDescription" = "De enige manier om toegang te hebben tot je Litecoins is als je je telefoon verliest of upgrade.";
+
+/* Paper Key button title */
+"SecurityCenter.paperKeyTitle" = "Papieren Sleutel";
+
+/* PIN button description */
+"SecurityCenter.pinDescription" = "Beschermt je Litewallet van ongeautoriseerde gebruikers.";
+
+/* PIN button title */
+"SecurityCenter.pinTitle" = "6-cijferige PIN";
+
+/* Security Center Title */
+"SecurityCenter.title" = "Veiligheidscentrum";
+
+/* Touch ID button description */
+"SecurityCenter.touchIdDescription" = "Ontgrendel je Litewallet handig en stuur geld tot een bepaalde ingestelde limiet.";
+
+/* Touch ID button title */
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/* Send money amount label */
+"Send.amountLabel" = "Bedrag";
+
+/* Balance: $4.00 */
+"Send.balance" = "Balans: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "STUREN";
+
+/* Camera not allowed message */
+"Send.cameraunavailableMessage" = "Ga naar Instellingen om camera gebruik toe te staan.";
+
+/* Camera not allowed alert title */
+"Send.cameraUnavailableTitle" = "Litewallet heeft geen toestemming voor het gebruik van de camera";
+
+/* Warning when sending to self. */
+"Send.containsAddress" = "De bestemming is je eigen adres. Je kunt het niet naar jezelf sturen.";
+
+/* Could not create transaction alert title */
+"Send.creatTransactionError" = "Kon de transactie niet creëren.";
+
+/* Description for sending money label */
+"Send.descriptionLabel" = "Memo";
+
+/* Emtpy pasteboard error message */
+"Send.emptyPasteboard" = "Plakbord is leeg";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "Voer een Litecoin-adres in";
+
+/* Network Fee: $0.01 */
+"Send.fee" = "Netwerkkosten: %1$@";
+
+/* Payee identity not certified alert title. */
+"Send.identityNotCertified" = "Begunstigde is niet gecertifcieerd.";
+
+/* Insufficient funds error */
+"Send.insufficientFunds" = "onvoldoende middelen";
+
+/* Invalid address alert message */
+"Send.invalidAddressMessage" = "Het bestemmingsadres is geen geldig Litecoin-adres.";
+
+/* Invalid address on pasteboard message */
+"Send.invalidAddressOnPasteboard" = "Plakbord bevat geen geldig Litecoin adres.";
+
+/* Invalid address alert title */
+"Send.invalidAddressTitle" = "Ongeldig Adres";
+
+/* Is rescanning error message */
+"Send.isRescanning" = "Zenden is uitgeschakeld tijdens volledig opnieuw scannen";
+
+/* Loading request activity view message */
+"Send.loadingRequest" = "Verzoek aan het laden";
+
+/* Empty address alert message */
+"Send.noAddress" = "Voer a.u.b. het adres van de begunstigde in.";
+
+/* Emtpy amount alert message */
+"Send.noAmount" = "Voer a.u.b. een bedrag in om te versturen.";
+
+/* Paste button label */
+"Send.pasteLabel" = "Plakken";
+
+/* Could not publish transaction alert title */
+"Send.publishTransactionError" = "Kon de transactie niet publiceren.";
+
+/* Could not load remote request error message */
+"Send.remoteRequestError" = "Kon de betalingsaanvraag niet laden";
+
+/* Scan button label */
+"Send.scanLabel" = "Scannen";
+
+/* Send button label (the action, "press here to send") */
+"Send.sendLabel" = "Versturen";
+
+/* Send screen title (as in "this is the screen for sending money") */
+"Send.title" = "Versturen";
+
+/* Send money to label */
+"Send.toLabel" = "Naar";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "Opzoeken";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "Sorry, het domein is niet gevonden. [Fout: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "Opzoeken mislukt";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "Voer een .crypto- of .zil-domein in";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "Systeem opzoeken probleem. [Fout: %2$d]";
+
+/* Adress already used alert message - first part */
+"Send.UsedAddress.firstLine" = "Litecoin adressen zijn alleen bedoeld voor enkel gebruik.";
+
+/* Adress already used alert message - second part */
+"Send.UsedAddress.secondLIne" = "Hergebruikt vermindert privacy voor zowel jou en de ontvanger en kan resulteren in verlies als de ontvanger niet direct het adres beheert.";
+
+/* Adress already used alert title */
+"Send.UsedAddress.title" = "Adres Al Gebruikt";
+
+/* About label */
+"Settings.about" = "Over";
+
+/* Advanced Settings title */
+"Settings.advancedTitle" = "Geavanceerde instellingen";
+
+/* Blockchain settings section header */
+"Settings.blockchain" = "blockchain";
+
+/* i.e. the currency which will be displayed */
+"Settings.currency" = "Toon valuta";
+
+/* Current Locale */
+"Settings.currentLocale" = "Huidige landinstelling:";
+
+/* Join Early access label */
+"Settings.earlyAccess" = "Doe Mee aan Early Access";
+
+/* Are you enjoying Litewallet alert message body */
+"Settings.enjoying" = "Vind je Litewallet leuk?";
+
+/* Face ID spending limit label */
+"Settings.faceIdLimit" = "PLACEHOLDER";
+
+/* Import wallet label */
+"Settings.importTitle" = "Importeer Portemonnee";
+
+/* Languages label */
+"Settings.languages" = "talen";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "Milieu:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewallet-partners";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Litewallet-versie:";
+
+/* Manage settings section header */
+"Settings.manage" = "Beheer";
+
+/* Notifications label */
+"Settings.notifications" = "Notificaties";
+
+/* Leave review button label */
+"Settings.review" = "Laat een review achter";
+
+/* Share anonymous data label */
+"Settings.shareData" = "Deel Anonieme Data";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "Sociaal";
+
+/* Support settings section header */
+"Settings.support" = "Ondersteuning";
+
+/* Sync blockchain label */
+"Settings.sync" = "Synchroniseer Blockchain";
+
+/* Settings title */
+"Settings.title" = "Instellingen";
+
+/* Touch ID spending limit label */
+"Settings.touchIdLimit" = "Touch ID Bestedingslimiet";
+
+/* Wallet Settings section header */
+"Settings.wallet" = "Portemonnee";
+
+/* Start or recover another wallet menu label. */
+"Settings.wipe" = "Begin of herstel een andere portomonnee";
+
+/* Share data view body */
+"ShareData.body" = "Help om Litewallet te verbeteren door je anonieme data met ons te delen. Dit bevat geen financiële informatie. We respecteren je financiële privacy.";
+
+/* Share data header */
+"ShareData.header" = "Data Delen?";
+
+/* Share data switch label. */
+"ShareData.toggleLabel" = "Anonieme Data Delen?";
+
+/* Current spending limit: */
+"SpendingLimit.title" = "Huidige bestedingslimiet: ";
+
+/* button label */
+"StartPaperPhrase.againButtonTitle" = "Schrijf Papieren Sleutel Opnieuw Op";
+
+/* Paper key explanation text. */
+"StartPaperPhrase.body" = "Je papieren sleutel is de enige manier om je Litewallet te herstellen als je telefoon verloren, gestolen, kapot of geüpgrade is.\n\nWe zullen je een lijst met woorden laten zie die je op een papiertje moet schrijven en veilig moet bewaren.";
+
+/* button label */
+"StartPaperPhrase.buttonTitle" = "Schrijf Papieren Sleutel Op";
+
+/* Argument is date */
+"StartPaperPhrase.date" = "Je hebt voor het laatst je papieren sleutel opgeschreven op %1$@";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "Steun de Stichting Litecoin";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "Verbinden...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "Opnieuw scannen ...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "Succes!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "Synchroniseren ...";
+
+/* Syncing view connectiong state header text */
+"SyncingView.connecting" = "Aan het verbinden";
+
+/* Syncing view syncing state header text */
+"SyncingView.syncing" = "Aan het synchroniseren";
+
+/* 6 d (6 days) */
+"TimeSince.days" = "%1$@ d";
+
+/* 6 h (6 hours) */
+"TimeSince.hours" = "%1$@ h";
+
+/* 6 m (6 minutes) */
+"TimeSince.minutes" = "%1$@ m";
+
+/* 6 s (6 seconds) */
+"TimeSince.seconds" = "%1$@ s";
+
+/* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"TouchIdSettings.customizeText" = "Je kunt je Touch-ID uitgavenlimiet aanpassen van de %1$@.";
+
+/* Touch Id screen label */
+"TouchIdSettings.label" = "Gebruik je vingerafdruk om je Litewallet te ontgrendelen en geld tot een ingestelde limiet te versturen.";
+
+/*  ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"TouchIdSettings.linkText" = "Touch-ID uitgavenlimietscherm";
+
+/* Spending Limit: b100,000 ($100) */
+"TouchIdSettings.spendingLimit" = "Bestedingslimiet: %1$@ (%2$@)";
+
+/* Touch id switch label. */
+"TouchIdSettings.switchLabel" = "Schakel Touch ID in voor Litewallet";
+
+/* Touch ID settings view title */
+"TouchIdSettings.title" = "Touch ID";
+
+/* Touch ID unavailable alert message */
+"TouchIdSettings.unavailableAlertMessage" = "Je hebt je Touch ID niet ingesteld op dit apparaat. Ga naar Instellingen -> Touch ID & Wachtwoord om het nu in te stellen.";
+
+/* Touch ID unavailable alert title */
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID Niet Ingesteld";
+
+/* Always require passcode option */
+"TouchIdSpendingLimit" = "Vraag altijd naar wachtwoord";
+
+/* Touch ID spending limit screen body */
+"TouchIdSpendingLimit.body" = "Je zal gevraagd worden om je 6-cijferige PIN in te voeren om elke transactie boven je bestedingslimiet te versturen, en elke 48 uur sinds de laatste keer dat je je 6-cijferige PIN hebt ingevoerd.";
+
+/* Touch Id spending limit screen title */
+"TouchIdSpendingLimit.title" = "Touch ID Bestedingslimiet";
+
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "Uitwisselingsgegevens: ";
+
+/* Availability status text */
+"Transaction.available" = "Beschikbaar om te besteden";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "Blok:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "Memo: ";
+
+/* Transaction complete label */
+"Transaction.complete" = "Compleet";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "Detail eindbedrag transactie";
+
+/* eg. Ending balance: $50.00 */
+"Transaction.ending" = "Eindbalans: %1$@";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDayReceived" = "Wisselkoers bij ontvangst:";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDaySent" = "Wisselkoers bij verzending:";
+
+/* (b600 fee) */
+"Transaction.fee" = "(%1$@ fee)";
+
+/* Invalid transaction */
+"Transaction.invalid" = "ONGELDIG";
+
+/* Timestamp label for event that just happened */
+"Transaction.justNow" = "zojuist";
+
+/* Receive status text: 'In progress: 20%' */
+"Transaction.receivedStatus" = "In uitvoering: %1$@";
+
+/* Send status text: 'In progress: 20%' */
+"Transaction.sendingStatus" = "In uitvoering: %1$@";
+
+/* eg. Starting balance: $50.00 */
+"Transaction.starting" = "Startbalans: %1$@";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "Transactie startbedrag detail";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
+/* Waiting to be confirmed string */
+"Transaction.waiting" = "Wachtend op bevestiging. Sommige handelaren willen bevestiging om een transactie af te roden. Geschatte tijd: 1-2 uur.";
+
+/* e.g. I received money from an account. */
+"TransactionDetails.account" = "account";
+
+/* Amount section header */
+"TransactionDetails.amountHeader" = "Bedrag";
+
+/* Block height label */
+"TransactionDetails.blockHeightLabel" = "Bevestigd in blok";
+
+/* Memo section header */
+"TransactionDetails.commentsHeader" = "Memo";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "Gekopieerd";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "Kopieer alle details";
+
+/* Empty transaction list message. */
+"TransactionDetails.emptyMessage" = "Je transacties zullen hier verschijnen.";
+
+/* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
+"TransactionDetails.from" = "op %1$@";
+
+/* Less button title */
+"TransactionDetails.less" = "Minder";
+
+/* Moved $5.00 (as in "I moved $5 to another location") */
+"TransactionDetails.moved" = "%1$@ verplaatst";
+
+/* Moved $5.00 */
+"TransactionDetails.movedAmountDescription" = "<b>%1@</b> verplaatst";
+
+/* eg. Confirmed in Block: Not Confirmed */
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Niet bevestigd";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "vanaf";
+
+/* "Received [$5] at [which of my addresses]" => This is the "Received [$5]" part. */
+"TransactionDetails.received" = "Ontvangen %1$@";
+
+/* Received $5.00 */
+"TransactionDetails.receivedAmountDescription" = "Ontvangen <b>%1@</b>";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "ONTVANG ADRES";
+
+/* "Sent [$5] to [address]" => This is the "Sent [$5]" part. */
+"TransactionDetails.sent" = "Verstuurd %1$@";
+
+/* Sent $5.00 */
+"TransactionDetails.sentAmountDescription" = "Verstuurd <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "Tx ID:";
+
+/* Status section header */
+"TransactionDetails.statusHeader" = "Status";
+
+/* Transaction Details Title */
+"TransactionDetails.title" = "Transactie Details";
+
+/* "Sent [$5] to [address]" => This is the "to [address]" part. */
+"TransactionDetails.to" = "aan %1$@";
+
+/* Transaction ID header */
+"TransactionDetails.txHashHeader" = "Litecoin Transactie-ID";
+
+/* (this transaction was) Received at this address: */
+"TransactionDirection.address" = "Ontvangen op dit adres";
+
+/* (this transaction was) Sent to this address: */
+"TransactionDirection.to" = "Verstuurd naar dit adres";
+
+/* Disabled until date */
+"UnlockScreen.disabled" = "Uitgeschakeld tot: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "Voer Pin-code in";
+
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "Ontgrendel met FaceID";
+
+/* My Address button title */
+"UnlockScreen.myAddress" = "Mijn Adres";
+
+/* Reset PIN with Paper Key button label. */
+"UnlockScreen.resetPin" = "PIN Resetten";
+
+/* Scan button title */
+"UnlockScreen.scan" = "Scannen";
+
+/* TouchID prompt text */
+"UnlockScreen.touchIdPrompt" = "Ontgrendel je Litewallet.";
+
+/* Unlock with TouchID accessibility label */
+"UnlockScreen.touchIdText" = "Ontgrendel met Touch ID";
+
+/* Wallet unlocked message */
+"UnlockScreen.unlocked" = "Portemonnee Ontgrendeld";
+
+/* Update PIN caption text */
+"UpdatePin.caption" = "Onthoud deze PIN. Als je deze vergeet, zul je niet in staat zijn om bij je Litecoins te kunnen.";
+
+/* PIN creation info. */
+"UpdatePin.createInstruction" = "Je PIN zal worden gebruikt om je Litewallet te ontgrendelen en geld te versturen.";
+
+/* Update PIN title */
+"UpdatePin.createTitle" = "PIN Instellen";
+
+/* Update PIN title */
+"UpdatePin.createTitleConfirm" = "Voer PIN opnieuw in";
+
+/* Enter current PIN instruction */
+"UpdatePin.enterCurrent" = "Voer je huidige PIN in.";
+
+/* Enter new PIN instruction */
+"UpdatePin.enterNew" = "Voer je nieuwe PIN in.";
+
+/* Re-Enter new PIN instruction */
+"UpdatePin.reEnterNew" = "Voer je nieuwe PIN opnieuw in.";
+
+/* Update PIN failure error message. */
+"UpdatePin.setPinError" = "Sorry, we konden je PIN niet updaten.";
+
+/* Update PIN failure alert view title */
+"UpdatePin.setPinErrorTitle" = "Update PIN Error";
+
+/* Update PIN title */
+"UpdatePin.updateTitle" = "Update PIN";
+
+/* Authorize to copy wallet addresses alert message */
+"URLHandling.addressaddressListAlertMessage" = "Portemonnee adressen naar plakbord kopiëren?";
+
+/* Authorize to copy wallet address PIN view prompt. */
+"URLHandling.addressList" = "Autoriseer om portemonnee adres naar plakbord te kopiëren";
+
+/* Authorize to copy wallet address alert title */
+"URLHandling.addressListAlertTitle" = "Kopieer Portemonnee Adressen";
+
+/* Copy wallet addresses alert button label */
+"URLHandling.copy" = "Kopiëren";
+
+/* Verify PIN for transaction view body */
+"VerifyPin.authorize" = "Voer alstublieft uw PIN in om deze transactie te autoriseren.";
+
+/* Verify PIN view body */
+"VerifyPin.continueBody" = "Voer a.u.b. je PIN in om verder te gaan.";
+
+/* Verify PIN view title */
+"VerifyPin.title" = "PIN Vereist";
+
+/* Authorize transaction with touch id message */
+"VerifyPin.touchIdMessage" = "Autoriseer deze transactie";
+
+/* 'No wallet' warning for watch app */
+"Watch.noWalletWarning" = "Open de Litewallet iPhone app om je portemonnee in te stellen.";
+
+/* Dismiss button label */
+"Webview.dismiss" = "Verwerpen";
+
+/* Webview loading error message */
+"Webview.errorMessage" = "Er was een error bij het laden van de inhoud. Probeer a.u.b. opnieuw.";
+
+/* Updating webview message */
+"Webview.updating" = "Updaten...";
+
+/* Welcome screen text. (?) will be replaced with the help icon users should look for. */
+"Welcome.body" = "Welkom bij Litewallet!";
+
+/* Top title of welcome screen */
+"Welcome.title" = "Welkom bij Litewallet!";
+
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "Database verwijderen";
+
+/* Wipe wallet alert message */
+"WipeWallet.alertMessage" = "Weet je zeker dat je deze portomonnee wilt verwijderen?";
+
+/* Wipe wallet alert title */
+"WipeWallet.alertTitle" = "Portomonnee wissen?";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "Verwijder database";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "Hiermee wordt de database verwijderd, maar worden de pincode en zinsdeel behouden. Bevestig uw bestaande pincode, start en wacht om te synchroniseren met de nieuwe DB";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "Verwijderen en synchroniseren";
+
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "Vergeet uw startzin of pincode?";
+
+/* Failed wipe wallet alert message */
+"WipeWallet.failedMessage" = "Wissen van portomonnee niet gelukt";
+
+/* Failed wipe wallet alert title */
+"WipeWallet.failedTitle" = "Mislukt";
+
+/* Enter phrase to wipe wallet instruction. */
+"WipeWallet.instruction" = "Voer de herstelzin van deze portomonnee in om hem te wissen of een anderen te herstellen. Je huidige saldo zal op deze zin blijven.";
+
+/* Start wipe wallet view message */
+"WipeWallet.startMessage" = "Een andere portemonnee beginnen of herstellen zal u toestaan om nog een Litewallet portemonnee op dit apparaat te gebruiken.";
+
+/* Start wipe wallet view warning */
+"WipeWallet.startWarning" = "U zal niet langer uw huidige Litewallet portemonnee kunnen bereiken vanaf dit apparaat. Uw saldo zal hetzelfde blijven.";
+
+/* Wipe wallet navigation item title. */
+"WipeWallet.title" = "Start of herstel een anderen portomonnee";
+
+/* Warning Alert */
+"WipeWallet.warningAlert" = "Deze actie zal je Litewallet wissen!";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "Als u uw portemonnee verwijdert, zijn de privésleutel en het wissen van de app-gegevens verdwenen. U kunt Litecoin voor altijd verliezen!\n\n\nNiemand in het Litewallet-team kan deze seed voor je ophalen. Wij zijn niet verantwoordelijk als u deze waarschuwing niet in acht neemt.";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "GELIEVE TE LEZEN!";
+
+/* Wipe wallet button title */
+"WipeWallet.wipe" = "Wissen";
+
+/* Wiping activity message */
+"WipeWallet.wiping" = "Aan het wissen...";
+
+/* Paper key instructions. */
+"WritePaperPhrase.instruction" = "Schrijf elk woord in de juiste volgorde op en bewaar het op een veilige plek.";
+
+/* button label */
+"WritePaperPhrase.next" = "Volgende";
+
+/* button label */
+"WritePaperPhrase.previous" = "Vorige";
+
+/* 1 of 3 */
+"WritePaperPhrase.step" = "%1$d van %2$d";
+
+/* Push notifications settings view body */
+"Notifications.body" = "";
+
+/* Push notifications toggle switch label */
+"Notifications.label" = "";
+
+/* Push notifications are off label */
+"Notifications.off" = "";
+
+/* Push notifications are on label */
+"Notifications.on" = "";
+
+/* Push notifications settings view title label */
+"Notifications.title" = "";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "";
+
+/* Fees Blank: */
+"Send.feeBlank" = "";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "";
+
+/* Start view tagline */
+"StartViewController.tagline" = "";

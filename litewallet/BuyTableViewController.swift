@@ -58,7 +58,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 			vcWKVC.currentWalletAddress = currentWalletAddress
 			vcWKVC.uuidString = uuidString
 			vcWKVC.timestamp = Int(Date().timeIntervalSince1970)
-
 			addChild(vcWKVC)
 			view.addSubview(vcWKVC.view)
 			vcWKVC.didMove(toParent: self)
