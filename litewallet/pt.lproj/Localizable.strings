@@ -908,6 +908,18 @@
 /* Fees Blank: */
 "Send.feeBlank" = "Tarifas:";
 
+/* Fees: $0.01*/
+"Send.fee" = "Tarifas: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Tarifas: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Tarifas:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Tarifas:";
+
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "A identidade do beneficiário não está certificada.";
 

@@ -226,7 +226,6 @@ enum S {
 		static let commentsHeader = Localization(key: "TransactionDetails.commentsHeader", value: "Memo", comment: "Memo section header")
 		static let amountHeader = Localization(key: "TransactionDetails.amountHeader", value: "Amount", comment: "Amount section header")
 		static let emptyMessage = Localization(key: "TransactionDetails.emptyMessage", value: "Your transactions will appear here.", comment: "Empty transaction list message.")
-
 		static let txHashHeader = Localization(key: "TransactionDetails.txHashHeader", value: "Litecoin Transaction ID", comment: "Transaction ID header")
 		static let sentAmountDescription = Localization(key: "TransactionDetails.sentAmountDescription", value: "Sent <b>%1@</b>", comment: "Sent $5.00")
 		static let receivedAmountDescription = Localization(key: "TransactionDetails.receivedAmountDescription", value: "Received <b>%1@</b>", comment: "Received $5.00")

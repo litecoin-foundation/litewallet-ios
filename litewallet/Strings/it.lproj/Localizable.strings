@@ -721,6 +721,12 @@
 /* Fees Blank: */
 "Send.feeBlank" = "Commissioni:";
 
+/* Fees: $0.01*/
+"Send.fee" = "Commissioni: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Commissioni:";
+
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Identità del beneficiario non certificata.";
 
@@ -1290,3 +1296,7 @@
 
 /* Service */
 "Send.serviceFee" = "";
+
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";
+

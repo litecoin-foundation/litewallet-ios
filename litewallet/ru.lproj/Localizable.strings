@@ -907,6 +907,18 @@
 /* Fees Blank: */
 "Send.feeBlank" = "Сборы:";
 
+/* Fees: $0.01*/
+"Send.fee" = "Сборы: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Сборы: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Сборы:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Сборы:";
+
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Личность получателя платежа не сертифицирована.";
 

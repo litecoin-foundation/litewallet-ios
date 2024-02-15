@@ -910,6 +910,12 @@
 /* Fees Blank: */
 "Send.feeBlank" = "Збори:";
 
+/* Fees: $0.01*/
+"Send.fee" = "Збори: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Збори:";
+
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Особа одержувача не підтверджена.";
 
