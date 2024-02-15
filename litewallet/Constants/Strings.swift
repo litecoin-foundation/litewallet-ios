@@ -66,10 +66,6 @@ enum S {
 		}
 	}
 
-	enum Conjuction {
-		static let asOf = Localization(key: "Conjunction.asOf", value: "as of", comment: "as of a time or date")
-	}
-
 	// MARK: - Generic Button labels
 
 	enum Button {
@@ -115,7 +111,6 @@ enum S {
 		static let cameraUnavailableTitle = Localization(key: "Send.cameraUnavailableTitle", value: "Litewallet is not allowed to access the camera", comment: "Camera not allowed alert title")
 		static let cameraUnavailableMessage = Localization(key: "Send.cameraunavailableMessage", value: "Go to Settings to allow camera access.", comment: "Camera not allowed message")
 		static let balance = Localization(key: "Send.balance", value: "Balance: %1$@", comment: "Balance: $4.00")
-		static let fee = Localization(key: "Send.fees", value: "Fees: %1$@", comment: "Fees: $0.10")
 		static let networkFee = Localization(key: "Send.networkFee", value: "Network", comment: "Network")
 		static let serviceFee = Localization(key: "Send.serviceFee", value: "Service", comment: "Service")
 		static let feeBlank = Localization(key: "Send.feeBlank", value: "Fees:", comment: "Fees: ")
@@ -209,7 +204,7 @@ enum S {
 		static let complete = Localization(key: "Transaction.complete", value: "Complete", comment: "Transaction complete label")
 		static let waiting = Localization(key: "Transaction.waiting", value: "Waiting to be confirmed. Some merchants require confirmation to complete a transaction. Estimated time: 1-2 hours.", comment: "Waiting to be confirmed string")
 		static let starting = Localization(key: "Transaction.starting", value: "Starting balance: %1$@", comment: "eg. Starting balance: $50.00")
-		static let fee = Localization(key: "Transaction.fee", value: "(%1$@ fee)", comment: "(b600 fee)")
+		static let fee = Localization(key: "Transaction.fee", value: "(%1$@ total fees)", comment: "(b600 fee)")
 		static let ending = Localization(key: "Transaction.ending", value: "Ending balance: %1$@", comment: "eg. Ending balance: $50.00")
 		static let exchangeOnDaySent = Localization(key: "Transaction.exchangeOnDaySent", value: "Exchange rate when sent:", comment: "Exchange rate on date header")
 		static let exchangeOnDayReceived = Localization(key: "Transaction.exchangeOnDayReceived", value: "Exchange rate when received:", comment: "Exchange rate on date header")
@@ -231,6 +226,7 @@ enum S {
 		static let commentsHeader = Localization(key: "TransactionDetails.commentsHeader", value: "Memo", comment: "Memo section header")
 		static let amountHeader = Localization(key: "TransactionDetails.amountHeader", value: "Amount", comment: "Amount section header")
 		static let emptyMessage = Localization(key: "TransactionDetails.emptyMessage", value: "Your transactions will appear here.", comment: "Empty transaction list message.")
+
 		static let txHashHeader = Localization(key: "TransactionDetails.txHashHeader", value: "Litecoin Transaction ID", comment: "Transaction ID header")
 		static let sentAmountDescription = Localization(key: "TransactionDetails.sentAmountDescription", value: "Sent <b>%1@</b>", comment: "Sent $5.00")
 		static let receivedAmountDescription = Localization(key: "TransactionDetails.receivedAmountDescription", value: "Received <b>%1@</b>", comment: "Received $5.00")

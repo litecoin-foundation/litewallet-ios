@@ -120,14 +120,17 @@ struct StartView: View {
 							.alertMessage[startViewModel.currentLanguage.rawValue],
 							isPresented: $delayedSelect) {
 								HStack {
-									Button(S.Button.yes.localize(), role: .cancel) {
-										startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
-										selectedLang = false
-									}
-									Button(S.Button.cancel.localize(), role: .destructive) {
-										// Dismisses
-										selectedLang = false
-									}
+									Button(startViewModel
+										.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel) {
+											// Changes and Dismisses
+											startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
+											selectedLang = false
+										}
+									Button(startViewModel
+										.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive) {
+											// Dismisses
+											selectedLang = false
+										}
 								}
 						}
 						Spacer()
@@ -137,7 +140,7 @@ struct StartView: View {
 							                    language: startViewModel.currentLanguage,
 							                    didTapContinue: $didContinue)
 								.environmentObject(startViewModel)
-								.navigationBarBackButtonHidden(true)
+								.navigationBarBackButtonHidden(false)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
@@ -163,7 +166,7 @@ struct StartView: View {
 							                    language: startViewModel.currentLanguage,
 							                    didTapContinue: $didContinue)
 								.environmentObject(startViewModel)
-								.navigationBarBackButtonHidden(true)
+								.navigationBarBackButtonHidden(false)
 						) {
 							ZStack {
 								RoundedRectangle(cornerRadius: bigButtonCornerRadius)

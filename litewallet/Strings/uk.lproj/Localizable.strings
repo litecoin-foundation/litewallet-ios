@@ -166,9 +166,6 @@
 /* Amount to Donate: ($1.00) */
 "Confirmation.donateLabel" = "Сума для пожертвування:";
 
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "Плата за мережу:";
-
 /* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
 "Confirmation.processingAndDonationTime" = "Час обробки: обробка цих трансакцій займе %1$@ хвилин.";
 
@@ -201,9 +198,6 @@
 
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "слово #%1$@";
-
-/* as of a time or date */
-"Conjunction.asOf" = "щодо";
 
 /* No comment provided by engineer. */
 "Copy" = "Копія";
@@ -379,174 +373,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Витерти";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "Картка";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Баланс картки";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Вийдіть із системи та ввімкніть 2FA, щоб дозволити перекази";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Реєстрація та вхід\n- Доступний баланс картки\n- Скидання пароля\n- Немає переказу на Litewallet\n- Лише в США";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Наразі Litecoin Card має обмежену функціональність у Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Відвідайте litecoin.getblockcard.com для повного доступу";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Бета-версія картки Litecoin";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Введіть код";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Введіть код, який нещодавно був надісланий на електронну адресу вашого облікового запису Litecoin Card.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Помилка логіну";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Забули пароль?";
-
-/* Login */
-"LitecoinCard.login" = "Увійти";
-
-/* Logout */
-"LitecoinCard.logout" = "Вийти";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Картка Litecoin";
-
-/* Register */
-"LitecoinCard.registerCard" = "Реєстрація";
-
-/* Litecoin card */
-"LitecoinCard.registerCardPhrase" = "Зареєструйтеся на карту Litecoin";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Реєстрація користувача...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Адреса";
-
-/* city */
-"LitecoinCard.Registration.city" = "Місто";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "Підтвердьте пароль";
-
-/* country */
-"LitecoinCard.Registration.country" = "Країна";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "Ім'я";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Ідентифікація";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Номер документа";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "Тип ідентифікатора";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "Прізвище";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Номер мобільного";
-
-/* password */
-"LitecoinCard.Registration.password" = "Пароль";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "штат / провінція";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "Електронна пошта (ім'я користувача)";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Не має бути порожнім";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Невірна адреса електронної пошти";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Номер мобільного телефону має містити не менше 10 цифр";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Необхідний номер мобільного телефону";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Пароль має містити не менше 6 символів";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Пароль має містити більше 6 символів, принаймні один символ і один символ цифри";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Пароль обов'язковий";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "Обов'язкове поле";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Поштовий індекс";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Виникла проблема з вашою реєстрацією. \nПеревірте свої дані та повторіть спробу.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Ви зареєструвалися!\nПеревірте та підтвердьте свою електронну пошту. Потім поверніться до входу.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Скинути пароль";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Введіть адресу електронної пошти, пов’язану з вашим обліковим записом картки Litecoin, і знайдіть лист із інструкціями для скидання.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Переказ на картку";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Перевести на Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Виберіть гаманець для передачі:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Адреса";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "спрощений баланс гаманця";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Проведіть пальцем, щоб встановити суму переказу";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Почати передачу";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Передача";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Це була помилка. Увімкніть 2FA на *Enabled*, введіть код, надісланий електронною поштою, і повторіть спробу.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA не ввімкнено";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA увімкнено";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Відвідати https://litecoin.dashboard.getblockcard.com/password/forgot\nщоб скинути пароль.";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -630,21 +456,6 @@
 
 /* Node Selector view title */
 "NodeSelector.title" = "Вузли Litecoin";
-
-/* Push notifications settings view body */
-"Notifications.body" = "Увімкніть сповіщення, щоб у майбутньому отримувати спеціальні повідомлення від Litewallet.";
-
-/* Push notifications toggle switch label */
-"Notifications.label" = "Push-повідомлення";
-
-/* Push notifications are off label */
-"Notifications.off" = "Вимкнено";
-
-/* Push notifications are on label */
-"Notifications.on" = "Увімкнено";
-
-/* Push notifications settings view title label */
-"Notifications.title" = "Сповіщення";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Поганий запит на оплату";
@@ -903,9 +714,6 @@
 
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Введіть адресу Litecoin";
-
-/* Network Fee: $0.01 */
-"Send.fee" = "Плата за мережу: %1$@";
 
 /* Fees: $0.01*/
 "Send.fee" = "Збори: %1$@";
@@ -1458,3 +1266,27 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d з %2$d";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "";
+
+/* "Email title" */
+"Notifications.emailTitle" = "";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "";
+
+/* Network */
+"Send.networkFee" = "";
+
+/* Service */
+"Send.serviceFee" = "";

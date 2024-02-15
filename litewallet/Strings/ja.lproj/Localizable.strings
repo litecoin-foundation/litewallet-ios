@@ -199,9 +199,6 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "フレーズ #%1$@";
 
-/* as of a time or date */
-"Conjunction.asOf" = "の時点で";
-
 /* No comment provided by engineer. */
 "Copy" = "コピー";
 
@@ -376,174 +373,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "完全削除";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "カード";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "カード残高";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "ログアウトして2FAを有効にし、転送を許可します";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "-登録とログイン\n-利用可能なカード残高\n- パスワードを再設定する\n-Litewalletへの転送なし\n-米国のみ";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "ライトコインカードは現在、ライトウォレットの機能が制限されています。";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "フルアクセスについては、litecoin.getblockcard.comにアクセスしてください";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "ライトコインカードベータ";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "コードを入力する";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "ライトコインカードアカウントのメールに最近送信されたコードを入力します。";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "ログインに失敗しました";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "パスワードをお忘れですか？";
-
-/* Login */
-"LitecoinCard.login" = "ログインする";
-
-/* Logout */
-"LitecoinCard.logout" = "ログアウト";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "ライトコインカード";
-
-/* Register */
-"LitecoinCard.registerCard" = "登録";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "ライトコインカードに登録";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "ユーザーを登録しています...";
-
-/* address */
-"LitecoinCard.Registration.address" = "住所";
-
-/* city */
-"LitecoinCard.Registration.city" = "市";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "パスワードを認証する";
-
-/* country */
-"LitecoinCard.Registration.country" = "国";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "ファーストネーム";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "識別";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "顧客を知る IDタイプ";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "IDタイプ";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "苗字";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "携帯電話番号";
-
-/* password */
-"LitecoinCard.Registration.password" = "パスワード";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "州/県";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "Eメール";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "空であってはなりません";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "無効なメールアドレス";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "携帯電話番号は10桁以上である必要があります";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "携帯電話番号が必要です";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "パスワードは6文字以上である必要があります";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "パスワードは6文字を超え、少なくとも1文字と1つの数字を使用する必要があります";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "パスワードが必要";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "必須フィールド";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "郵便番号";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "登録に問題がありました。 データを確認して、もう一度お試しください。";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "登録しました！ メールを確認してください。 その後、ログインに戻ります。";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "パスワードを再設定する";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "ライトコインカードアカウントに関連付けられているメールアドレスを入力し、リセット手順が記載されたメールを探します。";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "カードに転送";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Litewalletに転送";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "転送ウォレットを選択します。";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "住所";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Litewalletバランス";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "スライドして転送量を設定";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "転送を開始します";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "移行";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "エラーが発生しました。 2FAを「有効」に切り替え、電子メールで送信されたコードを入力して、再試行してください。";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FAが有効になっていません";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA対応";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "https://litecoin.dashboard.getblockcard.com/password/forgot にアクセスしてパスワードをリセットしてください。";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -628,20 +457,23 @@
 /* Node Selector view title */
 "NodeSelector.title" = "リテコインノード";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"Notifications.body" = "今後、Litewalletからの特別なメッセージを受け取るために通知をオンにしてください。";
+/* "Email address label" */
+"Notifications.emailLabel" = "電子メールアドレス";
 
-/* Push notifications toggle switch label */
-"Notifications.label" = "プッシュ通知";
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "ここに入力";
 
-/* Push notifications are off label */
-"Notifications.off" = "オフ";
+/* "Email title" */
+"Notifications.emailTitle" = "見逃さないでください！";
 
-/* Push notifications are on label */
-"Notifications.on" = "オン";
+/* "Language preference label" */
+"Notifications.languagePreference" = "優先言語：";
 
-/* Push notifications settings view title label */
-"Notifications.title" = "通知";
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "更新とコンテストについて聞いてサインアップしてください。";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "結構です。";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "不正な支払い要求";
@@ -901,9 +733,6 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Litecoinのアドレスを入力してください。";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "ネットワーク手数料: %1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "料金: %1$@";
 
@@ -931,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "ロード要求";
 
+/* Network */
+"Send.networkFee" = "通信網";
+
 /* Empty address alert message */
 "Send.noAddress" = "受取人のアドレスを入力してください。";
 
@@ -951,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "送金する";
+
+/* Service */
+"Send.serviceFee" = "通信網";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "送金";
@@ -1455,6 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$dの%1$d";
-
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";

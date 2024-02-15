@@ -120,12 +120,19 @@ class WalletCoordinator: Subscriber, Trackable {
 		updateTimer?.invalidate()
 		updateTimer = nil
 		DispatchQueue.walletQueue.async {
-			guard let txRefs = self.walletManager.wallet?.transactions else { return }
+			guard let txRefs = self.walletManager.wallet?.transactions else {
+				let properties = ["error_message": "wallet_tx_refs_are_nil"]
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+				return
+			}
 			let transactions = self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
 			if !transactions.isEmpty {
 				DispatchQueue.main.async {
 					self.store.perform(action: WalletChange.setTransactions(transactions))
 				}
+			} else {
+				let properties = ["transactions_info": "no_txs_found_in_wallet"]
+				LWAnalytics.logEventWithParameters(itemName: ._20240214_TI, properties: properties)
 			}
 		}
 	}

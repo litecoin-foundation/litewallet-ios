@@ -200,9 +200,6 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Palavra #%1$@";
 
-/* as of a time or date */
-"Conjunction.asOf" = "as of";
-
 /* No comment provided by engineer. */
 "Copy" = "Copy";
 
@@ -377,174 +374,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Apagar";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "CARTÃO";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Saldo do cartão";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Sair e habilitar 2FA para permitir transferências";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Registro e login\n- Saldo do cartão disponível\n- Redefinir senha\n- Sem transferência para Litewallet\n- Somente nos EUA";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "O cartão Litecoin atualmente tem funcionalidade limitada no Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Visite litecoin.getblockcard.com para acesso total";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin Card Beta";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Coloque o código";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Digite o código que foi enviado recentemente para o e-mail da sua conta do cartão Litecoin.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Falha na autenticação";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Esqueceu a senha?";
-
-/* Login */
-"LitecoinCard.login" = "Conecte-se";
-
-/* Logout */
-"LitecoinCard.logout" = "Sair";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Litecoin Card";
-
-/* Register */
-"LitecoinCard.registerCard" = "Registro";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "Registre-se para Cartão Litecoin";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Registrando usuário ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Endereço";
-
-/* city */
-"LitecoinCard.Registration.city" = "Cidade";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "Confirme a Senha";
-
-/* country */
-"LitecoinCard.Registration.country" = "País";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "primeiro nome";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Identificação";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Conheça seu cliente Tipo de identificação";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "Tipo de ID";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "último nome";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Número de celular";
-
-/* password */
-"LitecoinCard.Registration.password" = "senha";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Estado / Província";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "E-mail";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Não deve estar vazio";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Endereço de email invalido";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "O número do celular deve ter pelo menos 10 dígitos";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "O número do celular é obrigatório";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "A senha deve ter pelo menos 6 caracteres";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "A senha deve ter mais de 6 caracteres, com pelo menos um caractere e um caractere numérico";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Senha requerida";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "Campo obrigatório";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Código postal";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "Ocorreu um problema com seu registro. Verifique seus dados e tente novamente.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Você se inscreveu! Verifique e confirme seu e-mail. Em seguida, volte para fazer o login.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Redefinir senha";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Digite o endereço de e-mail associado à sua conta do cartão Litecoin e procure um e-mail com as instruções de reinicialização.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Transferir para cartão";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Transferir para Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Escolha a carteira de transferência:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Endereço";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Litewallet balance";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Deslize para definir o valor da transferência";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Iniciar transferência";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Transferir";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Havia um erro. Alterne 2FA para *Ativado*, digite o código enviado por e-mail e tente novamente.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA não habilitado";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA habilitado";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Visite https://litecoin.dashboard.getblockcard.com/password/forgot para redefinir a sua palavra-passe.";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -629,20 +458,23 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Nós de Litecoin";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"Notifications.body" = "Ative as notificações para receber mensagens especiais da Litewallet no futuro.";
+/* "Email address label" */
+"Notifications.emailLabel" = "Endereço de email";
 
-/* Push notifications toggle switch label */
-"Notifications.label" = "Notificações Push";
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Entre aqui";
 
-/* Push notifications are off label */
-"Notifications.off" = "Desligado";
+/* "Email title" */
+"Notifications.emailTitle" = "Não perca nada!";
 
-/* Push notifications are on label */
-"Notifications.on" = "Ligado";
+/* "Language preference label" */
+"Notifications.languagePreference" = "Língua preferida:";
 
-/* Push notifications settings view title label */
-"Notifications.title" = "Notificações";
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Inscreva -se para ouvir sobre atualizações e concursos.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Não, obrigado.";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Pedido de Pagamento Inválido";
@@ -902,9 +734,6 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Introduzir um endereço Litecoin";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Taxa de rede: %1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "Tarifas: %1$@";
 
@@ -932,6 +761,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "A carregar o pedido";
 
+/* Network */
+"Send.networkFee" = "Rede";
+
 /* Empty address alert message */
 "Send.noAddress" = "Por favor, introduza o endereço do destinatário.";
 
@@ -952,6 +784,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "Enviar";
+
+/* Service */
+"Send.serviceFee" = "Serviço";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "Enviar";
@@ -1456,6 +1291,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d de %2$d";
-
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";

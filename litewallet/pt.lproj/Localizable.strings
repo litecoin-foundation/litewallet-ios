@@ -878,9 +878,6 @@
 /* Fee: $0.01 */
 "Send.bareFee" = "Taxa: %1$@";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "Taxa: %1$@";
-
 /* Send Bar Item Title */
 "Send.barItemTitle" = "SEND";
 
@@ -905,17 +902,8 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Introduzir um endereço Litecoin";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Taxa de rede: %1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "Tarifas: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Tarifas: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Tarifas:";
 
 /* Fees Blank: */
 "Send.feeBlank" = "Tarifas:";

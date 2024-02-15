@@ -4,9 +4,6 @@ import Foundation
 typealias BRTxRef = UnsafeMutablePointer<BRTransaction>
 typealias BRBlockRef = UnsafeMutablePointer<BRMerkleBlock>
 
-// Used for convert byte array to LTC Address
-let characterLengthConstant = 75
-
 /// BRPeerManagerError: Error
 enum BRPeerManagerError: Error {
 	case posixError(errorCode: Int32, description: String)
