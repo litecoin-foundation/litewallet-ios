@@ -718,11 +718,11 @@
 /* Fees: $0.01*/
 "Send.fee" = "Commissioni: %1$@";
 
-/* Fees Blank: */
-"Send.feeBlank" = "Commissioni:";
-
 /* Fees: $0.01*/
 "Send.fee" = "Commissioni: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Commissioni:";
 
 /* Fees Blank: */
 "Send.feeBlank" = "Commissioni:";
@@ -1296,7 +1296,3 @@
 
 /* Service */
 "Send.serviceFee" = "";
-
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
-
