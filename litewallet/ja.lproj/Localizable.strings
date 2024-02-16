@@ -904,18 +904,6 @@
 /* Fees: $0.01*/
 "Send.fee" = "料金: %1$@";
 
-/* Fees: $0.01*/
-"Send.fee" = "料金: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "料金: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "料金:";
-
-/* Fees Blank: */
-"Send.feeBlank" = "料金:";
-
 /* Fees Blank: */
 "Send.feeBlank" = "料金:";
 
@@ -1467,3 +1455,4 @@
 
 /* Network Fee: ($1.00) */
 "Confirmation.feeLabel" = "";
+

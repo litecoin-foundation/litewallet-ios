@@ -907,12 +907,6 @@
 /* Fees: $0.01*/
 "Send.fee" = "Збори: %1$@";
 
-/* Fees: $0.01*/
-"Send.fee" = "Збори: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Збори:";
-
 /* Fees Blank: */
 "Send.feeBlank" = "Збори:";
 
