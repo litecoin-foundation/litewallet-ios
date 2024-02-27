@@ -30,8 +30,6 @@ class WritePaperPhraseViewController: UIViewController {
 		}
 	}
 
-	var lastWordSeen: (() -> Void)?
-
 	init(store: Store, walletManager: WalletManager, pin: String, callback: @escaping () -> Void) {
 		self.store = store
 		self.walletManager = walletManager

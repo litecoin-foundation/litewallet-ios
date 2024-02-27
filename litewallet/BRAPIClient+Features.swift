@@ -33,10 +33,4 @@ extension BRAPIClient {
 			}
 		}.resume()
 	}
-
-	static func featureEnabled(_ flag: BRFeatureFlags) -> Bool {
-		if E.isDebug || E.isTestFlight { return true }
-		let defaults = UserDefaults.standard
-		return defaults.bool(forKey: BRAPIClient.defaultsKeyForFeatureFlag(flag.description))
-	}
 }

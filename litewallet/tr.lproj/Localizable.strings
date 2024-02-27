@@ -904,9 +904,6 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Bir Litecoin adresi girin";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Ağ Ücreti:%1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "Ücretler: %1$@";
 

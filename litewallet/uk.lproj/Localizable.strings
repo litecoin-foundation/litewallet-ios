@@ -904,9 +904,6 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Введіть адресу Litecoin";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Плата за мережу: %1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "Збори: %1$@";
 

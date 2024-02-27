@@ -206,21 +206,6 @@ enum CustomEvent: String {
 	/// User tapped balance
 	case _20200207_DTHB = "did_tap_header_balance"
 
-	/// Ternio API Wallet details failure
-	case _20210405_TAWDF = "ternio_api_wallet_details_failure"
-
-	/// Ternio API Authenticate Enable 2FA change
-	case _20210804_TAA2FAC = "ternio_API_auth_2FA_change"
-
-	/// Ternio API Wallet details success
-	case _20210804_TAWDS = "ternio_API_wallet_details_success"
-
-	/// Ternio API Login
-	case _20210804_TAULI = "ternio_API_user_log_in"
-
-	/// Ternio API Logout
-	case _20210804_TAULO = "ternio_API_user_log_out"
-
 	/// Heartbeat check If event even happens
 	case _20210427_HCIEEH = "heartbeat_check_if_event_even_happens"
 
@@ -235,4 +220,7 @@ enum CustomEvent: String {
 
 	/// User signup
 	case _20240101_US = "user_signup"
+
+	/// Transactions info
+	case _20240214_TI = "transactions_info"
 }

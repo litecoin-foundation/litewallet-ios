@@ -21,10 +21,14 @@ class Transaction {
 		self.kvStore = kvStore
 
 		let fee = wallet.feeForTx(tx) ?? 0
-		self.fee = fee
+
+		let opsOutput = tx.outputs.filter { $0.updatedSwiftAddress == Partner.partnerKeyPath(name: .litewalletOps) }.first
+		guard let opsAmount = opsOutput?.amount else { return nil }
+
+		self.fee = fee + opsAmount
 
 		let amountReceived = wallet.amountReceivedFromTx(tx)
-		let amountSent = wallet.amountSentByTx(tx)
+		let amountSent = wallet.amountSentByTx(tx) - opsAmount
 
 		if amountSent > 0, (amountReceived + fee) == amountSent {
 			direction = .moved
@@ -158,12 +162,10 @@ class Transaction {
 		switch self.direction {
 		case .sent:
 
-			guard let output = self
-				.tx.outputs.filter({ output in
-					!self.wallet.containsAddress(output.updatedSwiftAddress)
-				})
-				.first
-
+			let allOutputs = self.tx.outputs.filter { $0.updatedSwiftAddress != Partner.partnerKeyPath(name: .litewalletOps) }
+			guard let output = allOutputs.filter({ output in
+				!self.wallet.containsAddress(output.updatedSwiftAddress)
+			}).first
 			else {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil

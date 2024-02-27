@@ -199,9 +199,6 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "Слово #%1$@";
 
-/* as of a time or date */
-"Conjunction.asOf" = "по состоянию на";
-
 /* No comment provided by engineer. */
 "Copy" = "копия";
 
@@ -376,174 +373,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "Очистить";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "КАРТА";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "Баланс карты";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "Выйдите из системы и включите 2FA, чтобы разрешить переводы";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- Регистрация и вход\n- Доступный баланс карты\n- Сброс пароля\n- Без перевода на Litewallet\n- Только США";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin Card в настоящее время имеет ограниченную функциональность в Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "Посетите litecoin.getblockcard.com для полного доступа";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Бета-версия карты Litecoin";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "Введите код";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "Введите код, который недавно был отправлен на электронную почту вашей учетной записи Litecoin Card.";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "Ошибка входа";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "Забыли пароль?";
-
-/* Login */
-"LitecoinCard.login" = "Авторизоваться";
-
-/* Logout */
-"LitecoinCard.logout" = "Выйти";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "Карта Litecoin";
-
-/* Register */
-"LitecoinCard.registerCard" = "регистр";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "Зарегистрируйтесь для получения карты Litecoin";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "Регистрация пользователя ...";
-
-/* address */
-"LitecoinCard.Registration.address" = "Адрес улицы";
-
-/* city */
-"LitecoinCard.Registration.city" = "город";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "Подтвердите Пароль";
-
-/* country */
-"LitecoinCard.Registration.country" = "Страна";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "Имя";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "Идентификация";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "Знай своего клиента Тип ID";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "Тип ID";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "фамилия";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "Номер мобильного";
-
-/* password */
-"LitecoinCard.Registration.password" = "пароль";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "Штат / провинция";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "Эл. адрес";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "Не должно быть пустым";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "Неверный адрес электронной почты";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "Номер мобильного телефона должен состоять не менее чем из 10 цифр.";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "Требуется номер мобильного телефона";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "Пароль должен состоять не менее чем из 6 символов.";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "Пароль должен содержать более 6 символов, по крайней мере, один символ и один цифровой символ.";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "Необходим пароль";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "Обязательное поле";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "Почтовый индекс";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "При регистрации возникла проблема. Пожалуйста, проверьте свои данные и попробуйте еще раз.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "Вы зарегистрировались! Пожалуйста, проверьте и подтвердите свою электронную почту. Затем вернитесь к логину.";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "Сброс пароля";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "Введите адрес электронной почты, связанный с вашей учетной записью Litecoin Card, и найдите письмо с инструкциями по сбросу.";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "Перевод на карту";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "Перевод в Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "Выберите кошелек для перевода:";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "Адрес";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "Баланс Litewallet";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "Сдвиньте, чтобы установить сумму перевода";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "Начать перевод";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "Передача";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "Это была ошибка. Переведите переключатель 2FA в положение *Включено*, введите полученный по электронной почте код и повторите попытку.";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA не включена";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "2FA включен";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "Посетите https://litecoin.dashboard.getblockcard.com/password/forgot, чтобы сбросить пароль.";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -626,22 +455,25 @@
 "NodeSelector.statusLabel" = "Состояние подключения узла";
 
 /* Node Selector view title */
-"NodeSelector.title" = "Биткойн-узлы";
+"NodeSelector.title" = "Узлы Лайткоин";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"Notifications.body" = "Включите уведомления, чтобы в будущем получать от Litewallet важные сообщения.";
+/* "Email address label" */
+"Notifications.emailLabel" = "Адрес электронной почты";
 
-/* Push notifications toggle switch label */
-"Notifications.label" = "Push-уведомления";
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Вход здесь";
 
-/* Push notifications are off label */
-"Notifications.off" = "Отключено";
+/* "Email title" */
+"Notifications.emailTitle" = "Не пропустите ничего!";
 
-/* Push notifications are on label */
-"Notifications.on" = "Включено";
+/* "Language preference label" */
+"Notifications.languagePreference" = "Предпочтительный язык:";
 
-/* Push notifications settings view title label */
-"Notifications.title" = "Уведомления";
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Зарегистрируйтесь, чтобы услышать об обновлениях и конкурсах.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Нет, спасибо.";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Неверный запрос на совершение платежа";
@@ -901,9 +733,6 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Введите адрес Litecoin";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Комиссия сети: %1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "Сборы: %1$@";
 
@@ -931,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "Загрузка запроса";
 
+/* Network */
+"Send.networkFee" = "Сеть";
+
 /* Empty address alert message */
 "Send.noAddress" = "Пожалуйста, введите адрес получателя.";
 
@@ -951,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "Отправить";
+
+/* Service */
+"Send.serviceFee" = "Услуга";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "Отправить";
@@ -1455,6 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d из %2$d";
-
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";

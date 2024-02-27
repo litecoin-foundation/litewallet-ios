@@ -8,7 +8,6 @@ import WebKit
 	var wkProcessPool: WKProcessPool
 	var webView: WKWebView?
 	var server = BRHTTPServer()
-	var debugEndpoint: String?
 	var mountPoint: String
 	var walletManager: WalletManager
 	let store: Store
@@ -16,10 +15,7 @@ import WebKit
 	let partner: String?
 	let activityIndicator: UIActivityIndicatorView
 	var didLoad = false
-	var didAppear = false
-	var didLoadTimeout = 2500
-	var waitTimeout = 90
-	// we are also a socket server which sends didview/didload events to the listening client(s)
+	var didAppear = false // we are also a socket server which sends didview/didload events to the listening client(s)
 	var sockets = [String: BRWebSocket]()
 
 	// this is the data that occasionally gets sent to the above connected sockets
@@ -33,8 +29,6 @@ import WebKit
 	var indexUrl: URL {
 		return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
 	}
-
-	private let messageUIPresenter = MessageUIPresenter()
 
 	init(partner: String?, mountPoint: String = "/", walletManager: WalletManager, store: Store, noAuthApiClient: BRAPIClient? = nil)
 	{

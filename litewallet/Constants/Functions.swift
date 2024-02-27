@@ -39,24 +39,16 @@ func strongify<Context: AnyObject, Arguments>(_ context: Context?, closure: @esc
 	}
 }
 
-/// Description: 1701029422
+/// Description: 1707828867
 func tieredOpsFee(amount: UInt64) -> UInt64 {
 	switch amount {
-	case 0 ..< 1_398_000:
-		return 69900
-	case 1_398_000 ..< 6_991_000:
-		return 111_910
-	case 6_991_000 ..< 27_965_000:
-		return 279_700
-	case 27_965_000 ..< 139_820_000:
-		return 699_540
-	case 139_820_000 ..< 279_653_600:
-		return 1_049_300
-	case 279_653_600 ..< 699_220_000:
-		return 1_398_800
-	case 699_220_000 ..< 1_398_440_000:
-		return 2_797_600
+	case 0 ..< 250_000_000:
+		return 350_000
+	case 250_000_000 ..< 1_000_000_000:
+		return 1_500_000
+	case _ where amount > 1_000_000_000:
+		return 3_500_000
 	default:
-		return 2_797_600
+		return 3_500_000
 	}
 }

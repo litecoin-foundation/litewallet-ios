@@ -199,9 +199,6 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "字組 #%1$@";
 
-/* as of a time or date */
-"Conjunction.asOf" = "作為";
-
 /* No comment provided by engineer. */
 "Copy" = "複製";
 
@@ -376,174 +373,6 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "抹除";
 
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "卡";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "卡餘額";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "註銷並啟用 2FA 以允許傳輸";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "-註冊和登錄\n-可用卡餘額\n-重置密碼\n-不能轉移到Litewallet\n-僅限美國";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "Litecoin卡當前在Litewallet中具有有限的功能。";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "訪問litecoin.getblockcard.com以獲取完全訪問權限";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "Litecoin卡測試版";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "輸入代碼";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "輸入最近發送到您的萊特幣卡帳戶電子郵件的代碼。";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "登錄失敗";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "忘記密碼？";
-
-/* Login */
-"LitecoinCard.login" = "登錄";
-
-/* Logout */
-"LitecoinCard.logout" = "登出";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "萊特幣卡";
-
-/* Register */
-"LitecoinCard.registerCard" = "寄存器";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCardPhrase" = "註冊萊特幣卡";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "正在註冊用戶...";
-
-/* address */
-"LitecoinCard.Registration.address" = "街道地址";
-
-/* city */
-"LitecoinCard.Registration.city" = "市";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "確認密碼";
-
-/* country */
-"LitecoinCard.Registration.country" = "國家";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "名字";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "身份證明";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "了解你的顧客 證件類型";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "證件類型";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "SSN";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "姓";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "手機號碼";
-
-/* password */
-"LitecoinCard.Registration.password" = "密碼";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "州/省";
-
-/* registraition username / email */
-"LitecoinCard.Registration.usernameEmail" = "電子郵件";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "必填項目";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "無效的郵件地址";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "手機號碼必須至少有10位數字";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "手機號碼為必填項";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "密碼必須至少包含6個字符";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "密碼必須超過6個字符，並且至少包含一個字符和一個數字字符";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "密碼是必需的";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "不能為空";
-
-/* zip post Code */
-"LitecoinCard.Registration.zipPostCode" = "郵編";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "您的註冊有問題。 請檢查您的數據，然後重試。";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "您已經註冊！ 請檢查並確認您的電子郵件。 然後返回登錄。";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "重設密碼";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "輸入與您的Litecoin卡帳戶關聯的電子郵件地址，並查找包含重置說明的電子郵件。";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "轉入卡";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "轉移到Litewallet";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "選擇轉賬錢包：";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "地址";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "輕錢包餘額";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "滑動設置轉賬金額";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "開始傳輸";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "轉移";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "有一個錯誤。 請將 2FA 切換為 *Enabled*，輸入電子郵件代碼，然後重試。";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "2FA 未啟用";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "啟用 2FA";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "訪問https://litecoin.dashboard.getblockcard.com/password/forgot重設密碼。";
-
 /* Litewallet name */
 "Litewallet.name" = "Litewallet";
 
@@ -628,20 +457,23 @@
 /* Node Selector view title */
 "NodeSelector.title" = "萊特幣節點";
 
-/* Notifications will be added later but users can set their preferences now, which is why we specify "in the future". */
-"Notifications.body" = "開啟通知，好在未來收到 Litewallet 的特別訊息。";
+/* "Email address label" */
+"Notifications.emailLabel" = "電子郵件地址";
 
-/* Push notifications toggle switch label */
-"Notifications.label" = "推播";
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "在這裡輸入";
 
-/* Push notifications are off label */
-"Notifications.off" = "關閉";
+/* "Email title" */
+"Notifications.emailTitle" = "不要錯過一件事！";
 
-/* Push notifications are on label */
-"Notifications.on" = "開啟";
+/* "Language preference label" */
+"Notifications.languagePreference" = "首選語言：";
 
-/* Push notifications settings view title label */
-"Notifications.title" = "通知";
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "註冊以了解更新和競賽。";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "不，謝謝。";
 
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "不良的付款請求";
@@ -901,9 +733,6 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "輸入萊特幣地址";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "網路費：%1$@";
-
 /* Fees: $0.01*/
 "Send.fee" = "費用: %1$@";
 
@@ -931,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "正在載入要求";
 
+/* Network */
+"Send.networkFee" = "網絡";
+
 /* Empty address alert message */
 "Send.noAddress" = "請輸入收受者的地址。";
 
@@ -951,6 +783,9 @@
 
 /* Send button label (the action, "press here to send") */
 "Send.sendLabel" = "寄送";
+
+/* Service */
+"Send.serviceFee" = "服務";
 
 /* Send screen title (as in "this is the screen for sending money") */
 "Send.title" = "寄送";
@@ -978,9 +813,6 @@
 
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "輸入域";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
@@ -1458,6 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
-
-/* Network Fee: ($1.00) */
-"Confirmation.feeLabel" = "";
