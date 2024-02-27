@@ -48,6 +48,8 @@ class StartViewModel: ObservableObject {
 		self.walletManager = walletManager
 		staticTagline = taglines[0]
 
+		// loadResourcesWithTag(tags: audioTagArray)
+
 		// checkForWalletAndSync()
 	}
 
@@ -112,6 +114,8 @@ class StartViewModel: ObservableObject {
 				AudioServicesDisposeSystemSoundID(soundId)
 			}, nil)
 			AudioServicesPlaySystemSound(id)
+		} else {
+			print("NO AUDIO")
 		}
 	}
 

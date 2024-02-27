@@ -58,20 +58,20 @@ enum LanguageSelection: Int, CaseIterable, Equatable, Identifiable {
 
 	var voiceFilename: String {
 		switch self {
-		case .English: return "English"
+		case .English: return "En"
 		case .ChineseTraditional: return "中國人"
 		case .ChineseSimplified: return "中國人"
-		case .French: return "Français"
-		case .German: return "Deutsch"
-		case .Indonesian: return "BahasaIndonesia"
-		case .Italian: return "Italiano"
+		case .French: return "Fr"
+		case .German: return "De"
+		case .Indonesian: return "Id"
+		case .Italian: return "It"
 		case .Japan: return "日本語"
-		case .Korean: return "한국인"
-		case .Portuguese: return "Português"
-		case .Russian: return "Русский"
-		case .Spanish: return "Español"
-		case .Turkish: return "Türkçe"
-		case .Ukrainian: return "українська"
+		case .Korean: return "Ko"
+		case .Portuguese: return "Pt"
+		case .Russian: return "Ru"
+		case .Spanish: return "Es"
+		case .Turkish: return "Tr"
+		case .Ukrainian: return "Uk"
 		}
 	}
 }

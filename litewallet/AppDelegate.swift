@@ -9,10 +9,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
 	let pushNotifications = PushNotifications.shared
+
+	var resourceRequest: NSBundleResourceRequest?
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
-		setFirebaseConfiguration()
+		requestResourceWith(tag: ["initial-resources", "speakTag"]) {
+			// Firebase
+			self.setFirebaseConfiguration()
 
+			// Pusher
+			self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusherStaging))
+			let generaliOSInterest = "general-ios"
+			let debugGeneraliOSInterest = "debug-general-ios"
+
+			try? self.pushNotifications
+				.addDeviceInterest(interest: generaliOSInterest)
+			try? self.pushNotifications
+				.addDeviceInterest(interest: debugGeneraliOSInterest)
+
+			let interests = self.pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
+			let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
+			let interestesDict: [String: String] = ["device_id": device,
+			                                        "pusher_interests": interests]
+
+			LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
+			                                   properties: interestesDict)
+		} onFailure: { error in
+
+			let properties: [String: String] = ["error_type": "on_demand_resources_not_found",
+			                                    "error_description": "\(error.debugDescription)"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+			                                   properties: properties)
+		}
 		updateCurrentUserLocale(localeId: Locale.current.identifier)
 
 		guard let thisWindow = window else { return false }
@@ -26,24 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		LWAnalytics.logEventWithParameters(itemName: ._20191105_AL)
 
 		Bundle.setLanguage(UserDefaults.selectedLanguage)
-
-		// Pusher
-		pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusherStaging))
-		// pushNotifications.registerForRemoteNotifications()
-		let generaliOSInterest = "general-ios"
-		let debugGeneraliOSInterest = "debug-general-ios"
-
-		try? pushNotifications
-			.addDeviceInterest(interest: generaliOSInterest)
-		try? pushNotifications
-			.addDeviceInterest(interest: debugGeneraliOSInterest)
-
-		let interests = pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
-		let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
-		let interestesDict: [String: String] = ["device_id": device,
-		                                        "pusher_interests": interests]
-
-		LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI, properties: interestesDict)
 
 		return true
 	}
@@ -115,6 +126,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			UserDefaults.userIsInUSA = true
 		} else {
 			UserDefaults.userIsInUSA = false
+		}
+	}
+
+	func requestResourceWith(tag: [String],
+	                         onSuccess: @escaping () -> Void,
+	                         onFailure _: @escaping (NSError) -> Void)
+	{
+		resourceRequest = NSBundleResourceRequest(tags: Set(tag))
+
+		guard let request = resourceRequest else { return }
+
+		request.endAccessingResources()
+		request.loadingPriority = NSBundleResourceRequestLoadingPriorityUrgent
+		request.conditionallyBeginAccessingResources { areResourcesAvailable in
+
+			DispatchQueue.main.async {
+				if !areResourcesAvailable {
+					request.beginAccessingResources { error in
+						guard error != nil else {
+							let properties: [String: String] = ["error_type": "on_demand_resources_not_found",
+							                                    "error_description": "\(error.debugDescription)"]
+							LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+							                                   properties: properties)
+
+							return
+						}
+						onSuccess()
+					}
+				} else {
+					onSuccess()
+				}
+			}
+		}
+	}
+
+	/// Use for another resource heavy view
+	/// Inspired by https://www.youtube.com/watch?v=B5RV8p4-9a8&t=178s
+
+	private func preloadResourceWithTags(tags: [String]) {
+		let tags = Set(tags)
+		let resourceRequest = NSBundleResourceRequest(tags: tags)
+
+		resourceRequest.endAccessingResources()
+		resourceRequest.loadingPriority = 0.8
+		resourceRequest.beginAccessingResources { error in
+			guard error != nil else {
+				print("::: Error accessing resources \(error.debugDescription)")
+				return
+			}
+		}
+	}
+
+	/// load audio files
+	/// - Parameter tags: asset tags
+	private func loadResourcesWithTag(tags: [String]) {
+		let tags = Set(tags)
+		let resourceRequest = NSBundleResourceRequest(tags: tags)
+
+		resourceRequest.endAccessingResources()
+		resourceRequest.loadingPriority = 0.8
+		resourceRequest.conditionallyBeginAccessingResources { resourcesAvailable in
+			if !resourcesAvailable {
+				resourceRequest.beginAccessingResources { error in
+					guard error != nil else {
+						print("::: Error accessing resources \(error.debugDescription)")
+						return
+					}
+				}
+			}
 		}
 	}
 }

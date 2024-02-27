@@ -55,8 +55,10 @@ struct Partner {
 		case .litewalletOps:
 
 			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
-			   let key = dictionary["litewallet-ops"] as? String
+			   let opsArray = dictionary["litewallet-ops"] as? [String]
 			{
+				let randomInt = Int.random(in: 0 ..< opsArray.count)
+				let key = opsArray[randomInt]
 				return key
 			} else {
 				let errorDescription = "ERROR-LITEWALLET-OPS_KEY"
@@ -99,5 +101,25 @@ struct Partner {
 				return errorDescription
 			}
 		}
+	}
+
+	static func litewalletOpsSet() -> Set<String> {
+		// Loads the release Partner Keys config file.
+
+		var setOfAddresses = Set<String>()
+		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
+		                                         ofType: "plist")
+
+		else {
+			return [""]
+		}
+
+		if let dictionary = NSDictionary(contentsOfFile: releasePath) as? [String: AnyObject],
+		   let opsArray = dictionary["litewallet-ops"] as? [String]
+		{
+			setOfAddresses = Set(opsArray)
+		}
+
+		return setOfAddresses
 	}
 }
