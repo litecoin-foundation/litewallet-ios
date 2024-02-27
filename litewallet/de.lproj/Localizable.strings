@@ -874,6 +874,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Guthaben: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Gebühr: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "SENDEN";
 
@@ -898,8 +901,26 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Geben Sie eine Litecoin-Adresse ein";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Netzwerkgebühr: %1$@";
+/* Fees: $0.01*/
+"Send.fee" = "Gebühren: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Gebühren: %1$@";
+
+/* Fees: $0.01*/
+"Send.fee" = "Gebühren: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Gebühren:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Gebühren:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Gebühren:";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Gebühren:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "die Identität des Zahlungsempfängers ist nicht bestätigt.";
@@ -1080,7 +1101,7 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "Du hast dir deinen Offlineschlüssel zuletzt am %1$@ notiert";
-  
+
 /* Start view tagline */
 "StartViewController.tagline" = "Die sicherste Option zur Nutzung von Litecoin.";
 
@@ -1447,14 +1468,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d von %2$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "Gebühr: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Gebühren: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Gebühren:";
- 
-
-
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";

@@ -25,7 +25,7 @@ struct TransactionModalView: View {
 	var body: some View {
 		VStack(spacing: 1.0) {
 			HStack {
-				Text("Transaction Details")
+				Text(S.TransactionDetails.title.localize())
 					.font(Font(UIFont.barlowSemiBold(size: 18.0)))
 					.foregroundColor(.white)
 					.frame(minWidth: 0, maxWidth: .infinity)

@@ -134,7 +134,7 @@ class StartViewModel: ObservableObject {
 	// MARK: - Lengthy elements
 
 	///  Set these to the bottom to make the others more readable
-
+	///   These are semi-hardcoded because the state is in flux
 	let taglines: [String] = [
 		"The most secure and easiest way to use Litecoin.",
 		"使用莱特币最安全、最简单的方式。",
@@ -168,6 +168,41 @@ class StartViewModel: ObservableObject {
 		"Dili Türkçe olarak değiştirmek istediğinizden emin misiniz?",
 		"Ви впевнені, що хочете змінити мову на українську?",
 	]
+
+	let yesLabel: [String] = [
+		"Yes",
+		"是的",
+		"是的",
+		"Oui",
+		"Ja",
+		"Ya",
+		"SÌ",
+		"はい",
+		"예",
+		"Sim",
+		"Да",
+		"Sí",
+		"Evet",
+		"Так",
+	]
+
+	let cancelLabel: [String] = [
+		"Cancel",
+		"取消",
+		"取消",
+		"Annuler",
+		"Stornieren",
+		"Membatalkan",
+		"Annulla",
+		"キャンセル",
+		"취소",
+		"Cancelar",
+		"Отмена",
+		"Cancelar",
+		"İptal etmek",
+		"Скасувати",
+	]
+
 	func stringToCurrentLanguage(languageString: String) -> LanguageSelection {
 		switch languageString {
 		case "English":

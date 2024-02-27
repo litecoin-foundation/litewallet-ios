@@ -874,6 +874,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "餘額：%1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "費用: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "發送";
 
@@ -898,8 +901,11 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "輸入萊特幣地址";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "網路費：%1$@";
+/* Fees: $0.01*/
+"Send.fee" = "費用: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "費用:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "受款人身分未經認證。";
@@ -969,12 +975,6 @@
 
 /* Enter domain */
 "Send.UnstoppableDomains.simpleplaceholder" = "輸入域";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
 
 /* UDSystemError */
 "Send.UnstoppableDomains.udSystemError" = "系統查找問題。 [錯誤：%2$d]";
@@ -1086,7 +1086,7 @@
 
 /* Argument is date */
 "StartPaperPhrase.date" = "您最近一次在 %1$@ 寫下了您的紙本金鑰";
- 
+
 /* Start view tagline */
 "StartViewController.tagline" = "使用莱特币最安全、最简单的方式。";
 
@@ -1453,11 +1453,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%2$d 之 %1$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "費用: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "費用: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "費用:";
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";

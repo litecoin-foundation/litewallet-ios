@@ -1,0 +1,1292 @@
+/* About screen blog label */
+"About.blog" = "博客";
+
+/* About screen footer */
+"About.footer" = "由全球 Litewallet 团队制作。版本%1$@";
+
+/* Privay Policy button label */
+"About.privacy" = "隐私政策";
+
+/* About screen reddit label */
+"About.reddit" = "Reddit";
+
+/* About screen title */
+"About.title" = "关于";
+
+/* About screen twitter label */
+"About.twitter" = "Twitter";
+
+/* Close modal button accessibility label */
+"AccessibilityLabels.close" = "关闭";
+
+/* Support center accessibiliy label */
+"AccessibilityLabels.faq" = "支持中心";
+
+/* Loading Wallet Message */
+"Account.loadingMessage" = "正在加载钱包";
+
+/* Default wallet name */
+"AccountHeader.defaultWalletName" = "我的 Litewallet";
+
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "管理";
+
+/* Corruption Error alert title */
+"Alert.corruptionError" = "本地腐败错误";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "您的本地数据库已损坏。转到设置>区块链：设置>删除数据库以刷新";
+
+/* Error alert title */
+"Alert.error" = "错误";
+
+/* No internet alert message */
+"Alert.noInternet" = "未发现互联网连接。检查您的连接并重试。";
+
+/* Warning alert title */
+"Alert.warning" = "警告";
+
+/* 'the addresses were copied'' Alert title */
+"Alerts.copiedAddressesHeader" = "地址已复制";
+
+/* Addresses Copied Alert sub header */
+"Alerts.copiedAddressesSubheader" = "所有的钱包地址已被成功复制。";
+
+/* Alert Header Label (the paper key was set) */
+"Alerts.paperKeySet" = "纸上密钥已设置";
+
+/* Alert Subheader label (playfully positive) */
+"Alerts.paperKeySetSubheader" = "太棒了！";
+
+/* Alert Header label (the PIN was set) */
+"Alerts.pinSet" = "PIN 已设置";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "域解析";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "您的地址已解决!";
+
+/* Send failure alert header label (the send failed to happen) */
+"Alerts.sendFailure" = "发送失败";
+
+/* Send success alert header label (confirmation that the send happened) */
+"Alerts.sendSuccess" = "发送确认";
+
+/* Send success alert subheader label (e.g. the money was sent) */
+"Alerts.sendSuccessSubheader" = "钱已发送！";
+
+/* JSON Serialization error message */
+"ApiClient.jsonError" = "JSON 串行化错误";
+
+/* Wallet not ready error message */
+"ApiClient.notReady" = "钱包尚未备好";
+
+/* API Token error message */
+"ApiClient.tokenError" = "无法检索 API 令牌";
+
+/* buy button */
+"Button.buy" = "购买";
+
+/* Cancel button label */
+"Button.cancel" = "取消";
+
+/* Ignore button label */
+"Button.ignore" = "忽略";
+
+/* menu button */
+"Button.menu" = "菜单";
+
+/* No button */
+"Button.no" = "不";
+
+/* OK button label */
+"Button.ok" = "好";
+
+/* receive button */
+"Button.receive" = "收到";
+
+/* resetFields */
+"Button.resetFields" = "重新设置领域";
+
+/* send button */
+"Button.send" = "发送";
+
+/* Settings button label */
+"Button.settings" = "设置";
+
+/* Settings button label */
+"Button.submit" = "提交";
+
+/* Yes button */
+"Button.yes" = "是";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "购买";
+
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "•购买礼品卡 \n •为预付费电话充值 \n •Steam，Amazon，Hotels.com \n •在170个国家/地区工作";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "•将Litecoin更改为其他加密货币 \n •无需ID \n •通过信用卡购买 \n •全球覆盖";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "购买 Łitecoin";
+
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "•购买具有许多法定货币对的LTC\n•以多种方式支付\n•全球支付提供商";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• 5分钟内获得Litecoin！\n •通过信用卡购买Litecoin \n •护照或州ID";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "购买 Łitecoin";
+
+/* Camera plugin instruction */
+"CameraPlugin.centerInstruction" = "将您的身份证号集中在方框中";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "交易所详情：";
+
+/* Amount to Send: ($1.00) */
+"Confirmation.amountLabel" = "发送金额：";
+
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "捐款金额";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "处理时间：这些交易将花费 ％1$@ 分钟来处理。";
+
+/* eg. Processing time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingTime" = "处理时间：此交易需要 %1$@ 分钟以进行处理。";
+
+/* Label for "send" button on final confirmation screen */
+"Confirmation.send" = "发送";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "费用";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "地址";
+
+/* Confirmation Screen title */
+"Confirmation.title" = "确认";
+
+/* To: (address) */
+"Confirmation.to" = "至";
+
+/* Total Cost: ($5.00) */
+"Confirmation.totalLabel" = "费用总计：";
+
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "输入的单词与您的纸键不匹配。请再试一遍。";
+
+/* Confirm paper phrase view label. */
+"ConfirmPaperPhrase.label" = "为确保一切均被正确地书写，请在您的纸键输入以下文字。";
+
+/* Word label eg. Word #1, Word #2 */
+"ConfirmPaperPhrase.word" = "单词#%1$@";
+
+/* No comment provided by engineer. */
+"Copy" = "复制";
+
+/* Litecoin denomination picker label */
+"DefaultCurrency.bitcoinLabel" = "莱特币显示单位";
+
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "选择:";
+
+/* Exchange rate label */
+"DefaultCurrency.rateLabel" = "汇率";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableMessage" = "此设备未进行配置，无法用 iOS 邮件应用发送电子邮件。";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableTitle" = "电子邮箱不可用";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableMessage" = "本设备未被配置来发送消息。";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableTitle" = "消息发送不可用";
+
+/* You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button] */
+"FaceIDSettings.customizeText" = "PLACEHOLDER";
+
+/* Face Id screen label */
+"FaceIDSettings.label" = "PLACEHOLDER";
+
+/* Link Text (see FaceIdSettings.customizeText) */
+"FaceIDSettings.linkText" = "PLACEHOLDER";
+
+/* Face id switch label. */
+"FaceIDSettings.switchLabel" = "PLACEHOLDER";
+
+/* Face ID settings view title */
+"FaceIDSettings.title" = "PLACEHOLDER";
+
+/* Face ID unavailable alert message */
+"FaceIDSettings.unavailableAlertMessage" = "PLACEHOLDER";
+
+/* Face ID unavailable alert title */
+"FaceIDSettings.unavailableAlertTitle" = "PLACEHOLDER";
+
+/* Face Id spending limit screen title */
+"FaceIDSpendingLimit.title" = "PLACEHOLDER";
+
+/* Economy fee */
+"FeeSelector.economy" = "经济";
+
+/* Fee Selector economly fee description */
+"FeeSelector.economyLabel" = "预计交付时间：10 分钟以上";
+
+/* Warning message for economy fee */
+"FeeSelector.economyWarning" = "对于有时效性的交易，不推荐使用此选项。";
+
+/* Luxury fee */
+"FeeSelector.luxury" = "豪华";
+
+/* Fee Selector luxury fee description */
+"FeeSelector.luxuryLabel" = "预计送达时间：2.5 - 5 分钟";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "尽管您要支付一定的费用，但此选项实际上可以保证您接受交易。";
+
+/* Regular fee */
+"FeeSelector.regular" = "常规";
+
+/* Fee Selector regular fee description */
+"FeeSelector.regularLabel" = "预计送达时间：2.5 - 5+ 分钟";
+
+/* Fee Selector title */
+"FeeSelector.title" = "处理速度";
+
+/* Confirm */
+"Fragment.confirm" = "确认";
+
+/* Or */
+"Fragment.or" = "要么";
+
+/* sorry */
+"Fragment.sorry" = "对不起";
+
+/* to */
+"Fragment.to" = "到";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "历史";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "当前的LTC值";
+
+/* Checking private key balance progress view text */
+"Import.checking" = "正在查看私人密钥余额...";
+
+/* Sweep private key confirmation message */
+"Import.confirm" = "从这个私人密钥中发送 %1$@ 到您的钱包吗？莱特币网络将收到 %2$@ 费用。";
+
+/* Duplicate key error message */
+"Import.Error.duplicate" = "本私钥已在您的钱包里。";
+
+/* empty private key error message */
+"Import.Error.empty" = "本私钥为空。";
+
+/* High fees error message */
+"Import.Error.highFees" = "交易费将超过本私钥的可用资金。";
+
+/* Not a valid private key error message */
+"Import.Error.notValid" = "并非有效私钥";
+
+/* Import signing error message */
+"Import.Error.signing" = "错误签名交易";
+
+/* Import button label */
+"Import.importButton" = "导入";
+
+/* Importing wallet progress view label */
+"Import.importing" = "导入钱包";
+
+/* Caption for graphics */
+"Import.leftCaption" = "待导入钱包";
+
+/* Import wallet intro screen message */
+"Import.message" = "导入钱包，利用单笔交易将您其他钱包里的所有钱转移到您的 Litewallet  钱包。";
+
+/* Enter password alert view title */
+"Import.password" = "本私钥受到密码保护。";
+
+/* password textfield placeholder */
+"Import.passwordPlaceholder" = "密码";
+
+/* Caption for graphics */
+"Import.rightCaption" = "您的 Litewallet 钱包";
+
+/* Scan Private key button label */
+"Import.scan" = "扫描私钥";
+
+/* Import wallet success alert title */
+"Import.success" = "成功";
+
+/* Successfully imported wallet message body */
+"Import.SuccessBody" = "成功导入钱包。";
+
+/* Import Wallet screen title */
+"Import.title" = "导入钱包";
+
+/* Unlocking Private key activity view message. */
+"Import.unlockingActivity" = "解锁键";
+
+/* Import wallet intro warning message */
+"Import.warning" = "导入钱包不包括交易记录或其他细节。";
+
+/* Wrong password alert message */
+"Import.wrongPassword" = "密码错误，请重试。";
+
+/* Close app button */
+"JailbreakWarnings.close" = "关闭";
+
+/* Ignore jailbreak warning button */
+"JailbreakWarnings.ignore" = "忽略";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithBalance" = "设备安全性受损\n任何'越狱'应用都可能访问 Litewallet 的密钥链数据并盗取您的莱特币！立即擦除这个钱包并在一台安全设备上进行恢复。";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithoutBalance" = "设备安全性受损\n任何'越狱'应用都可能访问 Litewallet 的密钥链数据并盗取您的莱特币！请您仅在未越狱设备上使用 Litewallet 。";
+
+/* Jailbreak warning title */
+"JailbreakWarnings.title" = "警告";
+
+/* Wipe wallet button */
+"JailbreakWarnings.wipe" = "擦除";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
+/* Location services disabled error */
+"LocationPlugin.disabled" = "位置服务被禁用。";
+
+/* No permissions for location services */
+"LocationPlugin.notAuthorized" = "Litewallet 无权限访问位置服务。";
+
+/* No comment provided by engineer. */
+"Malformed URI" = "URI格式错误";
+
+/* Balance */
+"ManageWallet.balance" = "平衡";
+
+/* Wallet creation date prefix */
+"ManageWallet.creationDatePrefix" = "您在%1$@上创建了您的钱包";
+
+/* Manage wallet description text */
+"ManageWallet.description" = "您的钱包名称仅出现在您的帐户交易记录中，其他任何人无法看到。";
+
+/* Change Wallet name textfield label */
+"ManageWallet.textFeildLabel" = "钱包名称";
+
+/* Manage wallet modal title */
+"ManageWallet.title" = "管理钱包";
+
+/* Buy Litecoin title */
+"MenuButton.buy" = "购买莱特币";
+
+/* Menu button title */
+"MenuButton.customer.support" = "客户支持";
+
+/* Menu button title */
+"MenuButton.lock" = "锁住钱包";
+
+/* Menu button title */
+"MenuButton.security" = "安全中心";
+
+/* Menu button title */
+"MenuButton.settings" = "设置";
+
+/* Menu button title */
+"MenuButton.support" = "支持";
+
+/* button label */
+"MenuViewController.createButton" = "创建新的钱包";
+
+/* Menu modal title */
+"MenuViewController.modalTitle" = "菜单";
+
+/* button label */
+"MenuViewController.recoverButton" = "恢复钱包";
+
+/* No comment provided by engineer. */
+"No wallet" = "没有钱包";
+
+/* Switch to automatic mode button label */
+"NodeSelector.automaticButton" = "切换到自动模式";
+
+/* Node is connected label */
+"NodeSelector.connected" = "已连接";
+
+/* Enter node ip address view body */
+"NodeSelector.enterBody" = "输入节点 IP 地址和端口（可选）";
+
+/* Enter Node ip address view title */
+"NodeSelector.enterTitle" = "输入节点";
+
+/* Switch to manual mode button label */
+"NodeSelector.manualButton" = "切换到手动模式";
+
+/* Node address label */
+"NodeSelector.nodeLabel" = "当前主要节点";
+
+/* Node is not connected label */
+"NodeSelector.notConnected" = "未连接";
+
+/* Node status label */
+"NodeSelector.statusLabel" = "节点连接状态";
+
+/* Node Selector view title */
+"NodeSelector.title" = "莱特币节点";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "电子邮件地址";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "在这里输入";
+
+/* "Email title" */
+"Notifications.emailTitle" = "不要错过一件事！";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "首选语言：";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "注册以了解更新和竞赛。";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "不，谢谢。";
+
+/* Bad Payment request alert title */
+"PaymentProtocol.Errors.badPaymentRequest" = "假的付款请求";
+
+/* Error opening payment protocol file message */
+"PaymentProtocol.Errors.corruptedDocument" = "不受支持或受损的文档";
+
+/* Missing certificate payment protocol error message */
+"PaymentProtocol.Errors.missingCertificate" = "缺失的证书";
+
+/* Request expired payment protocol error message */
+"PaymentProtocol.Errors.requestExpired" = "请求已过期";
+
+/* Payment too small alert title */
+"PaymentProtocol.Errors.smallOutputError" = "无法付款";
+
+/* Amount too small error message */
+"PaymentProtocol.Errors.smallPayment" = "莱特币支付不能小于%1$@。";
+
+/* Output too small error message. */
+"PaymentProtocol.Errors.smallTransaction" = "莱特币交易输出不能小于 $@。";
+
+/* Unsupported signature type payment protocol error message */
+"PaymentProtocol.Errors.unsupportedSignatureType" = "不受支持的签名类型";
+
+/* Untrusted certificate payment protocol error message */
+"PaymentProtocol.Errors.untrustedCertificate" = "不可信证书";
+
+/* Dismiss button. */
+"Prompts.dismiss" = "DISMISS";
+
+/* Enable face ID prompt body */
+"Prompts.FaceId.body" = "PLACEHOLDER";
+
+/* Enable face ID prompt title */
+"Prompts.FaceId.title" = "PLACEHOLDER";
+
+/* No passcode set warning body */
+"Prompts.NoPasscode.body" = "需要设备密码才能保护您的钱包。转到设置并开启密码。";
+
+/* No Passcode set warning title */
+"Prompts.NoPasscode.title" = "开启设备密码";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "继续";
+
+/* Warning about paper key. */
+"Prompts.PaperKey.body" = "为了应对手机丢失或者更换， 请您务必写下你的纸键。点击此处继续。";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "取消";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "启用";
+
+/* An action is required (You must do this action). */
+"Prompts.PaperKey.title" = "需要采取的行动";
+
+/* Transaction rejected prompt body */
+"Prompts.RecommendRescan.body" = "您的钱包可能不同步。通常可通过重新扫描区块链来修复。";
+
+/* Transaction rejected prompt title */
+"Prompts.RecommendRescan.title" = "交易被拒";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "Litewallet 已升级到使用 6 位 PIN。点击此处升级。";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "升级 PIN";
+
+/* Share data prompt body */
+"Prompts.ShareData.body" = "与我们分享您的匿名数据来帮助改善 Litewallet。";
+
+/* Share data prompt title */
+"Prompts.ShareData.title" = "分享匿名数据";
+
+/* Enable touch ID prompt body */
+"Prompts.TouchId.body" = "点击此处以启用触摸 ID";
+
+/* Enable touch ID prompt title */
+"Prompts.TouchId.title" = "启用触摸 ID";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "接收";
+
+/* Address copied message. */
+"Receive.copied" = "已复制到剪贴板。";
+
+/* Share via email button label */
+"Receive.emailButton" = "电子邮件";
+
+/* Request button label */
+"Receive.request" = "申请金额";
+
+/* Share button label */
+"Receive.share" = "分享";
+
+/* Share via text message (SMS) */
+"Receive.textButton" = "短信";
+
+/* Receive modal title */
+"Receive.title" = "接收";
+
+/* Done button text */
+"RecoverWallet.done" = "完成";
+
+/* Recover wallet header */
+"RecoverWallet.header" = "恢复钱包";
+
+/* Reset PIN with paper key: header */
+"RecoverWallet.header_reset_pin" = "复位 PIN";
+
+/* Enter paper key instruction */
+"RecoverWallet.instruction" = "输入纸键";
+
+/* Recover wallet intro */
+"RecoverWallet.intro" = "用您的纸键恢复您的 Litewallet。";
+
+/* Invalid paper key message */
+"RecoverWallet.invalid" = "您输入的纸键无效。请仔细检查每个单词并重试。";
+
+/* Previous button accessibility label */
+"RecoverWallet.leftArrow" = "左箭头键";
+
+/* Next button label */
+"RecoverWallet.next" = "下一个";
+
+/* Reset PIN with paper key: more information button. */
+"RecoverWallet.reset_pin_more_info" = "点击此处以获取更多信息。";
+
+/* Next button accessibility label */
+"RecoverWallet.rightArrow" = "右箭头键";
+
+/* Recover wallet sub-header */
+"RecoverWallet.subheader" = "输入您想恢复的钱包的纸键。";
+
+/* Reset PIN with paper key: sub-header */
+"RecoverWallet.subheader_reset_pin" = "要重置 PIN 码，请在下面的框中输入纸上密钥中的单词。";
+
+/* No amount entered error message. */
+"RequestAnAmount.noAmount" = "请先输入金额。";
+
+/* Request a specific amount of Litecoin */
+"RequestAnAmount.title" = "申请金额";
+
+/* Alert action button label */
+"ReScan.alertAction" = "同步";
+
+/* Alert message body */
+"ReScan.alertMessage" = "您不能在同步的同时寄钱。";
+
+/* Alert message title */
+"ReScan.alertTitle" = "与区块链同步？";
+
+/* extimated time */
+"ReScan.body1" = "20-45 分钟";
+
+/* Syncing explanation */
+"ReScan.body2" = "如果某次交易在莱特币网络上显示为已完成，却不在您的 Litewallet 里。";
+
+/* Syncing explanation */
+"ReScan.body3" = "你反复得到交易被拒绝的出错信息。";
+
+/* Start Sync button label */
+"ReScan.buttonTitle" = "开始同步";
+
+/* Sync blockchain view footer */
+"ReScan.footer" = "您不能在与区块链同步的同时寄钱。";
+
+/* Sync Blockchain view header */
+"ReScan.header" = "同步区块链";
+
+/* Subheader label */
+"ReScan.subheader1" = "估计时间";
+
+/* Subheader label */
+"ReScan.subheader2" = "何时同步？";
+
+/* Reset walet button  title */
+"resetButton" = "是的，重置钱包";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "删除我的 Litewallet";
+
+/* Scan Litecoin address camera flash toggle */
+"Scanner.flashButtonLabel" = "相机闪光灯";
+
+/* Complete filter label */
+"Search.complete" = "完成";
+
+/* Pending filter label */
+"Search.pending" = "待定";
+
+/* Received filter label */
+"Search.received" = "已收到";
+
+/* Sent filter label */
+"Search.sent" = "已发送";
+
+/* Face ID button title */
+"SecurityCenter.faceIdTitle" = "PLACEHOLDER";
+
+/* Security Center Info */
+"SecurityCenter.info" = "启用所有安全功能以获得最大保护。";
+
+/* Paper Key button description */
+"SecurityCenter.paperKeyDescription" = "若您丢失或升级您的手机，访问您的莱特币的唯一方法。";
+
+/* Paper Key button title */
+"SecurityCenter.paperKeyTitle" = "纸键";
+
+/* PIN button description */
+"SecurityCenter.pinDescription" = "保护您的 Litewallet 免遭未授权用户盗用。";
+
+/* PIN button title */
+"SecurityCenter.pinTitle" = "6 位 PIN";
+
+/* Security Center Title */
+"SecurityCenter.title" = "安全中心";
+
+/* Touch ID button description */
+"SecurityCenter.touchIdDescription" = "方便地解锁 Litewallet，在设定限额下汇钱。";
+
+/* Touch ID button title */
+"SecurityCenter.touchIdTitle" = "触摸 ID";
+
+/* Send money amount label */
+"Send.amountLabel" = "金额";
+
+/* Balance: $4.00 */
+"Send.balance" = "余额：%1$@";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "费用: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "发送";
+
+/* Camera not allowed message */
+"Send.cameraunavailableMessage" = "前往“设置”以允许访问照相机。";
+
+/* Camera not allowed alert title */
+"Send.cameraUnavailableTitle" = "Litewallet 不允许访问照相机";
+
+/* Warning when sending to self. */
+"Send.containsAddress" = "目标是您自己的地址。您不能发送给您自己。";
+
+/* Could not create transaction alert title */
+"Send.creatTransactionError" = "无法创建交易。";
+
+/* Description for sending money label */
+"Send.descriptionLabel" = "备忘录";
+
+/* Emtpy pasteboard error message */
+"Send.emptyPasteboard" = "粘贴板为空";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "输入一个Litecoin地址";
+
+/* Fees: $0.01*/
+"Send.fee" = "费用: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "费用:";
+
+/* Payee identity not certified alert title. */
+"Send.identityNotCertified" = "收款人身份未经认证。";
+
+/* Insufficient funds error */
+"Send.insufficientFunds" = "不充足的资金";
+
+/* Invalid address alert message */
+"Send.invalidAddressMessage" = "目标地址不是有效的莱特币地址。";
+
+/* Invalid address on pasteboard message */
+"Send.invalidAddressOnPasteboard" = "粘贴板中没有有效的莱特币地址";
+
+/* Invalid address alert title */
+"Send.invalidAddressTitle" = "无效地址";
+
+/* Is rescanning error message */
+"Send.isRescanning" = "完全扫描期间发送功能已被禁用。";
+
+/* Loading request activity view message */
+"Send.loadingRequest" = "加载请求中";
+
+/* Network */
+"Send.networkFee" = "网络";
+
+/* Empty address alert message */
+"Send.noAddress" = "请输入收件人地址。";
+
+/* Emtpy amount alert message */
+"Send.noAmount" = "请输入汇款金额。";
+
+/* Paste button label */
+"Send.pasteLabel" = "粘贴";
+
+/* Could not publish transaction alert title */
+"Send.publishTransactionError" = "无法发布交易。";
+
+/* Could not load remote request error message */
+"Send.remoteRequestError" = "无法加载支付请求";
+
+/* Scan button label */
+"Send.scanLabel" = "扫描";
+
+/* Send button label (the action, "press here to send") */
+"Send.sendLabel" = "发送";
+
+/* Service */
+"Send.serviceFee" = "服务";
+
+/* Send screen title (as in "this is the screen for sending money") */
+"Send.title" = "发送";
+
+/* Send money to label */
+"Send.toLabel" = "至";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "领域";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "进入一个";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "抬头";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "抱歉，找不到域。 [错误: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "查找失败";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "输入 .crypto、.wallet、.zil、.nft、.blockchain、.bitcoin、.coin、.888、.dao 或 .x 域。";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "输入域";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "系统查找问题。 [错误：%2$d]";
+
+/* Adress already used alert message - first part */
+"Send.UsedAddress.firstLine" = "莱特币地址仅供一次性使用。";
+
+/* Adress already used alert message - second part */
+"Send.UsedAddress.secondLIne" = "重复使用会削弱您和收件人的隐私，如果收件人不直接控制地址，可能会导致损失。";
+
+/* Adress already used alert title */
+"Send.UsedAddress.title" = "地址已被使用";
+
+/* About label */
+"Settings.about" = "关于";
+
+/* Advanced Settings title */
+"Settings.advancedTitle" = "高级设置";
+
+/* Blockchain settings section header */
+"Settings.blockchain" = "区块链";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "您确定要更改语言吗？";
+
+/* i.e. the currency which will be displayed */
+"Settings.currency" = "显示币种";
+
+/* Current Locale */
+"Settings.currentLocale" = "当前语言环境：";
+
+/* Join Early access label */
+"Settings.earlyAccess" = "加入早期访问";
+
+/* Are you enjoying Litewallet alert message body */
+"Settings.enjoying" = "您喜欢 Litewallet 吗？";
+
+/* Face ID spending limit label */
+"Settings.faceIdLimit" = "PLACEHOLDER";
+
+/* Import wallet label */
+"Settings.importTitle" = "导入钱包";
+
+/* Languages label */
+"Settings.languages" = "语言能力";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "环境：";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "Litewallet合作伙伴";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "Litewallet版本：";
+
+/* Manage settings section header */
+"Settings.manage" = "管理";
+
+/* Notifications label */
+"Settings.notifications" = "通知";
+
+/* Leave review button label */
+"Settings.review" = "给我们评论";
+
+/* Share anonymous data label */
+"Settings.shareData" = "分享匿名数据";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "社会的";
+
+/* Support settings section header */
+"Settings.support" = "支持";
+
+/* Sync blockchain label */
+"Settings.sync" = "同步区块链";
+
+/* Settings title */
+"Settings.title" = "设置";
+
+/* Touch ID spending limit label */
+"Settings.touchIdLimit" = "触摸 ID 支出限制";
+
+/* Wallet Settings section header */
+"Settings.wallet" = "钱包";
+
+/* Start or recover another wallet menu label. */
+"Settings.wipe" = "开始/恢复另一钱包";
+
+/* Share data view body */
+"ShareData.body" = "同我们分享您的匿名数据来帮助改善 Litewallet。这不包括任何财务信息。我们尊重您的财务隐私。";
+
+/* Share data header */
+"ShareData.header" = "共享数据？";
+
+/* Share data switch label. */
+"ShareData.toggleLabel" = "共享匿名数据？";
+
+/* Current spending limit: */
+"SpendingLimit.title" = "当前支出限额：";
+
+/* button label */
+"StartPaperPhrase.againButtonTitle" = "再次书写纸键";
+
+/* Paper key explanation text. */
+"StartPaperPhrase.body" = "如果您的手机丢失、被盗、损坏或升级，纸上密钥是恢复 Litewallet 的唯一方法。\n\n\n我们将向您显示一张单词表，请将其写在纸上并保存在安全的地方。";
+
+/* button label */
+"StartPaperPhrase.buttonTitle" = "写下纸键";
+
+/* Argument is date */
+"StartPaperPhrase.date" = "您最后一次记录纸上密钥是在 %1$@";
+
+/* Start view tagline */
+"StartViewController.tagline" = "使用莱特币最安全且最可靠的方式。";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "支持Litecoin基金会";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "正在连线...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "重新扫描中...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "成功！";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "同步中...";
+
+/* Syncing view connectiong state header text */
+"SyncingView.connecting" = "连接中";
+
+/* Syncing view syncing state header text */
+"SyncingView.syncing" = "同步中";
+
+/* 6 d (6 days) */
+"TimeSince.days" = "%1$@ 天";
+
+/* 6 h (6 hours) */
+"TimeSince.hours" = "%1$@ 小时";
+
+/* 6 m (6 minutes) */
+"TimeSince.minutes" = "%1$@ 分钟";
+
+/* 6 s (6 seconds) */
+"TimeSince.seconds" = "%1$@ 秒";
+
+/* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"TouchIdSettings.customizeText" = "你可以自定义从 %1$@ 的 Touch ID 支出限额。";
+
+/* Touch Id screen label */
+"TouchIdSettings.label" = "请用指纹解锁 Litewallet 并在设定限额下汇钱。";
+
+/*  ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"TouchIdSettings.linkText" = "Touch ID 支出限额屏幕";
+
+/* Spending Limit: b100,000 ($100) */
+"TouchIdSettings.spendingLimit" = "支出限制：%1$@ (%2$@)";
+
+/* Touch id switch label. */
+"TouchIdSettings.switchLabel" = "针对 Litewallet 启用触摸 ID";
+
+/* Touch ID settings view title */
+"TouchIdSettings.title" = "触摸 ID";
+
+/* Touch ID unavailable alert message */
+"TouchIdSettings.unavailableAlertMessage" = "您尚未在本设备上设置触摸 ID。现在前往设置 -> 触摸 ID和密码进行设置。";
+
+/* Touch ID unavailable alert title */
+"TouchIdSettings.unavailableAlertTitle" = "触摸 ID 未设置";
+
+/* Always require passcode option */
+"TouchIdSpendingLimit" = "始终需要密码";
+
+/* Touch ID spending limit screen body */
+"TouchIdSpendingLimit.body" = "如需发送超过您支出金额限制的任何交易，您将需要输入您的 6 位数 PIN 码。在您输入 6 位数 PIN 码后每 48 小时您都需要重新输入该 PIN 码。";
+
+/* Touch Id spending limit screen title */
+"TouchIdSpendingLimit.title" = "触摸 ID 支出限制";
+
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "金额明细：";
+
+/* Availability status text */
+"Transaction.available" = "可供支出";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "块：";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "备忘录：";
+
+/* Transaction complete label */
+"Transaction.complete" = "完成";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "交易结束金额明细";
+
+/* eg. Ending balance: $50.00 */
+"Transaction.ending" = "期末余额：%1$@";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDayReceived" = "接收时汇率：";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDaySent" = "发送时汇率：";
+
+/* (b600 fee) */
+"Transaction.fee" = "(%1$@ 费用)";
+
+/* Invalid transaction */
+"Transaction.invalid" = "无效";
+
+/* Timestamp label for event that just happened */
+"Transaction.justNow" = "刚刚";
+
+/* Receive status text: 'In progress: 20%' */
+"Transaction.receivedStatus" = "进行中：%1$@";
+
+/* Send status text: 'In progress: 20%' */
+"Transaction.sendingStatus" = "进行中：%1$@";
+
+/* eg. Starting balance: $50.00 */
+"Transaction.starting" = "期初余额：%1$@";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "交易开始金额明细";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "Tx ID:";
+
+/* Waiting to be confirmed string */
+"Transaction.waiting" = "等待确认中。部分商家需要进行确认以完成交易。预估时间：1-2 小时。";
+
+/* e.g. I received money from an account. */
+"TransactionDetails.account" = "账户";
+
+/* Amount section header */
+"TransactionDetails.amountHeader" = "金额";
+
+/* Block height label */
+"TransactionDetails.blockHeightLabel" = "已在区块中确认";
+
+/* Memo section header */
+"TransactionDetails.commentsHeader" = "备忘录";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "复制的";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "复制所有详细信息";
+
+/* Empty transaction list message. */
+"TransactionDetails.emptyMessage" = "您的交易将显示在这里。";
+
+/* "Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part. */
+"TransactionDetails.from" = "在 %1$@";
+
+/* Less button title */
+"TransactionDetails.less" = "减";
+
+/* Moved $5.00 (as in "I moved $5 to another location") */
+"TransactionDetails.moved" = "移出 %1$@";
+
+/* Moved $5.00 */
+"TransactionDetails.movedAmountDescription" = "已移动 <b>%1@</b>";
+
+/* eg. Confirmed in Block: Not Confirmed */
+"TransactionDetails.notConfirmedBlockHeightLabel" = "未确认";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "作为";
+
+/* "Received [$5] at [which of my addresses]" => This is the "Received [$5]" part. */
+"TransactionDetails.received" = "已接收 %1$@";
+
+/* Received $5.00 */
+"TransactionDetails.receivedAmountDescription" = "已收到 <b>%1@</b>";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "接收地址";
+
+/* "Sent [$5] to [address]" => This is the "Sent [$5]" part. */
+"TransactionDetails.sent" = "已发送 %1$@";
+
+/* Sent $5.00 */
+"TransactionDetails.sentAmountDescription" = "已发送 <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "Tx ID:";
+
+/* Status section header */
+"TransactionDetails.statusHeader" = "状态";
+
+/* Transaction Details Title */
+"TransactionDetails.title" = "交易详情";
+
+/* "Sent [$5] to [address]" => This is the "to [address]" part. */
+"TransactionDetails.to" = "到 %1$@";
+
+/* Transaction ID header */
+"TransactionDetails.txHashHeader" = "莱特币交易 ID";
+
+/* (this transaction was) Received at this address: */
+"TransactionDirection.address" = "已在此地址接收";
+
+/* (this transaction was) Sent to this address: */
+"TransactionDirection.to" = "已汇至此地址";
+
+/* Disabled until date */
+"UnlockScreen.disabled" = "在此日期前禁用：%1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "输入密码";
+
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "使用FaceID解锁";
+
+/* My Address button title */
+"UnlockScreen.myAddress" = "我的地址";
+
+/* Reset PIN with Paper Key button label. */
+"UnlockScreen.resetPin" = "复位 PIN";
+
+/* Scan button title */
+"UnlockScreen.scan" = "扫描";
+
+/* TouchID prompt text */
+"UnlockScreen.touchIdPrompt" = "解锁您的 Litewallet。";
+
+/* Unlock with TouchID accessibility label */
+"UnlockScreen.touchIdText" = "使用 TouchID 解锁";
+
+/* Wallet unlocked message */
+"UnlockScreen.unlocked" = "钱包已解锁";
+
+/* Update PIN caption text */
+"UpdatePin.caption" = "请牢记此 PIN 码。如果您忘记，您将无法访问您的莱特币。";
+
+/* PIN creation info. */
+"UpdatePin.createInstruction" = "您的 PIN 码将用于解锁您的 Litewallet 并发送款项。";
+
+/* Update PIN title */
+"UpdatePin.createTitle" = "设置 PIN 码";
+
+/* Update PIN title */
+"UpdatePin.createTitleConfirm" = "重新输入 PIN 码";
+
+/* Enter current PIN instruction */
+"UpdatePin.enterCurrent" = "输入您当前的 PIN 码。";
+
+/* Enter new PIN instruction */
+"UpdatePin.enterNew" = "输入您的新 PIN 码。";
+
+/* Re-Enter new PIN instruction */
+"UpdatePin.reEnterNew" = "重新输入您的新 PIN 码。";
+
+/* Update PIN failure error message. */
+"UpdatePin.setPinError" = "抱歉，无法更新 PIN 码。";
+
+/* Update PIN failure alert view title */
+"UpdatePin.setPinErrorTitle" = "更新 PIN 码错误";
+
+/* Update PIN title */
+"UpdatePin.updateTitle" = "更新 PIN 码";
+
+/* Authorize to copy wallet addresses alert message */
+"URLHandling.addressaddressListAlertMessage" = "是否拷贝钱包地址到剪贴板？";
+
+/* Authorize to copy wallet address PIN view prompt. */
+"URLHandling.addressList" = "授权以拷贝钱包地址到剪贴板";
+
+/* Authorize to copy wallet address alert title */
+"URLHandling.addressListAlertTitle" = "拷贝钱包地址";
+
+/* Copy wallet addresses alert button label */
+"URLHandling.copy" = "拷贝";
+
+/* Verify PIN for transaction view body */
+"VerifyPin.authorize" = "请输入您的个人识别码（PIN）以便授权此交易。";
+
+/* Verify PIN view body */
+"VerifyPin.continueBody" = "请输入您的 PIN 码以继续。";
+
+/* Verify PIN view title */
+"VerifyPin.title" = "PIN 码为必填项";
+
+/* Authorize transaction with touch id message */
+"VerifyPin.touchIdMessage" = "授权此交易";
+
+/* 'No wallet' warning for watch app */
+"Watch.noWalletWarning" = "打开 Litewallet iPhone app 以设置您的钱包。";
+
+/* Dismiss button label */
+"Webview.dismiss" = "忽略";
+
+/* Webview loading error message */
+"Webview.errorMessage" = "载入内容时发生错误。请重试。";
+
+/* Updating webview message */
+"Webview.updating" = "正在更新...";
+
+/* Welcome screen text. (?) will be replaced with the help icon users should look for. */
+"Welcome.body" = "欢迎使用Litewallet！";
+
+/* Top title of welcome screen */
+"Welcome.title" = "欢迎使用Litewallet！";
+
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "删除数据库";
+
+/* Wipe wallet alert message */
+"WipeWallet.alertMessage" = "您确认要删除此钱包吗？";
+
+/* Wipe wallet alert title */
+"WipeWallet.alertTitle" = "擦除钱包吗？";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "删除数据库";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "这将删除数据库，但保留PIN和短语。确认您现有的PIN码，种子并等待同步到新数据库";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "删除并同步";
+
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "忘记您的种子词组或PIN吗？";
+
+/* Failed wipe wallet alert message */
+"WipeWallet.failedMessage" = "擦除钱包失败。";
+
+/* Failed wipe wallet alert title */
+"WipeWallet.failedTitle" = "失败";
+
+/* Enter phrase to wipe wallet instruction. */
+"WipeWallet.instruction" = "输入此钱包的恢复短语以擦除并启动或恢复另一钱包。您的当前余额将保留。";
+
+/* Start wipe wallet view message */
+"WipeWallet.startMessage" = "开始或恢复另一个钱包能让你在这个设备上管理和使用不同的Litewallet钱包";
+
+/* Start wipe wallet view warning */
+"WipeWallet.startWarning" = "您无法再在这个设备上使用现在的Litewallet钱包。 现在的一切资金都留在纸键上。";
+
+/* Wipe wallet navigation item title. */
+"WipeWallet.title" = "启动或恢复另一钱包";
+
+/* Warning Alert */
+"WipeWallet.warningAlert" = "此操作将擦除您的 Litewallet！";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "删除你的钱包意味着私钥和擦除应用程序数据将消失。你可能永远失去莱特币！\n\n\nLitewallet 团队中的任何人都无法为您检索此种子。如果您不注意此警告，我们概不负责。";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "请阅读！";
+
+/* Wipe wallet button title */
+"WipeWallet.wipe" = "擦除";
+
+/* Wiping activity message */
+"WipeWallet.wiping" = "正在擦除...";
+
+/* Paper key instructions. */
+"WritePaperPhrase.instruction" = "按顺序写下每个词并保存到安全位置。";
+
+/* button label */
+"WritePaperPhrase.next" = "下一个";
+
+/* button label */
+"WritePaperPhrase.previous" = "上一步";
+
+/* 1 of 3 */
+"WritePaperPhrase.step" = "%1$d / %2$d";

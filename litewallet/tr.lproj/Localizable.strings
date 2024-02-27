@@ -877,6 +877,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Bakiye:%1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Ücret: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "GÖNDER";
 
@@ -901,8 +904,11 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "Bir Litecoin adresi girin";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "Ağ Ücreti:%1$@";
+/* Fees: $0.01*/
+"Send.fee" = "Ücretler: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Ücretler:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Alacaklı kimliği onaylı değil.";
@@ -1449,14 +1455,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d/%2$d";
-
-/* Fee: $0.01 */
-"Send.bareFee" = "Ücret: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Ücretler: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Ücretler:";
-
-

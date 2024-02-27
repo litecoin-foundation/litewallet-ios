@@ -874,6 +874,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "Saldo: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "Tassa: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "SPEDIRE";
 
@@ -900,6 +903,9 @@
 
 /* Network Fee: $0.01 */
 "Send.fee" = "Spese network: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "Commissioni:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "Identità del beneficiario non certificata.";
@@ -1447,11 +1453,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d di %2$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "Tassa: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "Commissioni: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "Commissioni:";
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";

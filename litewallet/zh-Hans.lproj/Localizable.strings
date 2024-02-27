@@ -874,6 +874,9 @@
 /* Balance: $4.00 */
 "Send.balance" = "余额：%1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "费用: %1$@";
+
 /* Send Bar Item Title */
 "Send.barItemTitle" = "发送";
 
@@ -898,8 +901,11 @@
 /* Enter LTC Address */
 "Send.enterLTCAddress" = "输入一个Litecoin地址";
 
-/* Network Fee: $0.01 */
-"Send.fee" = "网络费：%1$@";
+/* Fees: $0.01*/
+"Send.fee" = "费用: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "费用:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "收款人身份未经认证。";
@@ -1447,11 +1453,5 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d / %2$d";
 
-/* Fee: $0.01 */
-"Send.bareFee" = "费用: %1$@";
-
-/* Fees: $0.01*/
-"Send.fee" = "费用: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "费用:";
+/* Network Fee: ($1.00) */
+"Confirmation.feeLabel" = "";
