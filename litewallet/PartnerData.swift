@@ -61,7 +61,7 @@ struct Partner {
 				let key = opsArray[randomInt]
 				return key
 			} else {
-				let errorDescription = "ERROR-LITEWALLET-OPS_KEY"
+				let errorDescription = "error-litewallet-opskey"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}

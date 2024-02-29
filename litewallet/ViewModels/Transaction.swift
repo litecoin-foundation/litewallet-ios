@@ -24,16 +24,20 @@ class Transaction {
 		let fee = wallet.feeForTx(tx) ?? 0
 
 		var outputAddresses = Set<String>()
+		var opsAmount = UInt64(0)
 
 		tx.outputs.enumerated().forEach { _, output in
 			outputAddresses.insert(output.updatedSwiftAddress)
 		}
 
 		let outputAddress = opsAddressSet.intersection(outputAddresses).first
-		guard let targetAddress = outputAddress else { return nil }
-		let opsOutput = tx.outputs.filter { $0.updatedSwiftAddress == targetAddress }.first
+		let opsOutput = tx.outputs.filter { $0.updatedSwiftAddress == outputAddress }.first
 
-		guard let opsAmount = opsOutput?.amount else { return nil }
+		if let targetAddress = outputAddress,
+		   let opsOutput = tx.outputs.filter({ $0.updatedSwiftAddress == targetAddress }).first
+		{
+			opsAmount = opsOutput.amount
+		}
 
 		self.fee = fee + opsAmount
 
