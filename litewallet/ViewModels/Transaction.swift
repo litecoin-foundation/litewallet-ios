@@ -31,8 +31,6 @@ class Transaction {
 		}
 
 		let outputAddress = opsAddressSet.intersection(outputAddresses).first
-		let opsOutput = tx.outputs.filter { $0.updatedSwiftAddress == outputAddress }.first
-
 		if let targetAddress = outputAddress,
 		   let opsOutput = tx.outputs.filter({ $0.updatedSwiftAddress == targetAddress }).first
 		{
@@ -173,58 +171,51 @@ class Transaction {
 	private var kvStore: BRReplicatedKVStore?
 
 	lazy var toAddress: String? = {
+		var outputAddresses = Set<String>()
+		tx.outputs.enumerated().forEach { _, output in
+			outputAddresses.insert(output.updatedSwiftAddress)
+		}
+		let usedOpsAddress = outputAddresses.intersection(opsAddressSet).first
+		let nonOpsAddressesSet = self.tx.outputs.filter { $0.updatedSwiftAddress != usedOpsAddress }
+
 		switch self.direction {
 		case .sent:
 
-			var outputAddresses = Set<String>()
-			tx.outputs.enumerated().forEach { _, output in
-				outputAddresses.insert(output.updatedSwiftAddress)
-			}
-
-			let outputAddress = opsAddressSet.intersection(outputAddresses).first
-			guard let targetAddress = outputAddress else {
-				let properties = ["error": "no_address_found"]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-				                                   properties: properties)
-				return nil
-			}
-
-			let allOutputs = self.tx.outputs.filter { $0.updatedSwiftAddress != outputAddress }
-			guard let output = allOutputs.filter({ output in
+			let toAddressOutput = nonOpsAddressesSet.filter { output in
 				!self.wallet.containsAddress(output.updatedSwiftAddress)
-			}).first
-			else {
-				let properties = ["error": "no_address_found"]
+			}.first
+
+			guard let toAddress = toAddressOutput?.updatedSwiftAddress else {
+				let properties = ["error": "no_sent_address_found"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
 				                                   properties: properties)
-				return nil
+				return "---ERROR---"
 			}
-
-			return output.updatedSwiftAddress
+			return toAddress
 
 		case .received:
-			var outputAddresses = Set<String>()
-			tx.outputs.enumerated().forEach { _, output in
-				outputAddresses.insert(output.updatedSwiftAddress)
-			}
-			let outputAddress = opsAddressSet.intersection(outputAddresses).first
 
-			guard let output = self.tx.outputs.filter({ output in
+			let toAddressOutput = nonOpsAddressesSet.filter { output in
 				self.wallet.containsAddress(output.updatedSwiftAddress)
+			}.first
 
-			}).first
-			else {
-				let properties = ["error": "no_address_found"]
+			guard let fromAddress = toAddressOutput?.updatedSwiftAddress else {
+				let properties = ["error": "no_received_address_found"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
 				                                   properties: properties)
-				return nil
+				return "---ERROR---"
 			}
-			return output.updatedSwiftAddress
+			return fromAddress
 
 		case .moved:
 			guard let output = self.tx.outputs.filter({ output in
 				self.wallet.containsAddress(output.updatedSwiftAddress)
-			}).first else { return nil }
+			}).first else {
+				let properties = ["error": "no_moved_address_found"]
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+				                                   properties: properties)
+				return "---ERROR---"
+			}
 			return output.updatedSwiftAddress
 		}
 	}()

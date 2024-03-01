@@ -129,6 +129,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 
+	/// On Demand Resources
+	/// Use for another resource heavy view
+	/// Inspired by https://www.youtube.com/watch?v=B5RV8p4-9a8&t=178s
 	func requestResourceWith(tag: [String],
 	                         onSuccess: @escaping () -> Void,
 	                         onFailure _: @escaping (NSError) -> Void)
@@ -156,43 +159,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					}
 				} else {
 					onSuccess()
-				}
-			}
-		}
-	}
-
-	/// Use for another resource heavy view
-	/// Inspired by https://www.youtube.com/watch?v=B5RV8p4-9a8&t=178s
-
-	private func preloadResourceWithTags(tags: [String]) {
-		let tags = Set(tags)
-		let resourceRequest = NSBundleResourceRequest(tags: tags)
-
-		resourceRequest.endAccessingResources()
-		resourceRequest.loadingPriority = 0.8
-		resourceRequest.beginAccessingResources { error in
-			guard error != nil else {
-				print("::: Error accessing resources \(error.debugDescription)")
-				return
-			}
-		}
-	}
-
-	/// load audio files
-	/// - Parameter tags: asset tags
-	private func loadResourcesWithTag(tags: [String]) {
-		let tags = Set(tags)
-		let resourceRequest = NSBundleResourceRequest(tags: tags)
-
-		resourceRequest.endAccessingResources()
-		resourceRequest.loadingPriority = 0.8
-		resourceRequest.conditionallyBeginAccessingResources { resourcesAvailable in
-			if !resourcesAvailable {
-				resourceRequest.beginAccessingResources { error in
-					guard error != nil else {
-						print("::: Error accessing resources \(error.debugDescription)")
-						return
-					}
 				}
 			}
 		}

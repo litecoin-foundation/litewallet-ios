@@ -53,7 +53,7 @@ class Sender {
 	{
 		transaction = walletManager.wallet?.createOpsTransaction(forAmount: amount,
 		                                                         toAddress: to,
-		                                                         opsFee: tieredOpsFee(amount: amount),
+		                                                         opsFee: tieredOpsFee(store: store, amount: amount),
 		                                                         opsAddress: Partner.partnerKeyPath(name: .litewalletOps))
 
 		return transaction != nil
