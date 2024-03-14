@@ -1,3 +1,5 @@
+import BRCore
+import Foundation
 import UIKit
 
 func guardProtected(queue: DispatchQueue, callback: @escaping () -> Void) {

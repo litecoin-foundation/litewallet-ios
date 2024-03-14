@@ -30,11 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 			let interests = self.pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
 			let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
-			let interestesDict: [String: String] = ["device_id": device,
-			                                        "pusher_interests": interests]
+			let interestsDict: [String: String] = ["device_id": device,
+			                                       "pusher_interests": interests]
+
+			print("::: ops \(Partner.partnerKeyPath(name: .litewalletOps))")
 
 			LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
-			                                   properties: interestesDict)
+			                                   properties: interestsDict)
 		} onFailure: { error in
 
 			let properties: [String: String] = ["error_type": "on_demand_resources_not_found",
