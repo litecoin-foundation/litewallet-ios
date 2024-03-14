@@ -14,7 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
-		requestResourceWith(tag: ["initial-resources", "speakTag"]) {
+		requestResourceWith(tag: ["initial-resources", "speakTag"]) { [self] in
+			// Ops
+			let startDate = Partner.partnerKeyPath(name: .litewalletStart)
+			if startDate == "error-litewallet-start-key" {
+				let errorDescription = "partnerkey_data_missing"
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+			}
 			// Firebase
 			self.setFirebaseConfiguration()
 
@@ -33,10 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let interestsDict: [String: String] = ["device_id": device,
 			                                       "pusher_interests": interests]
 
-			print("::: ops \(Partner.partnerKeyPath(name: .litewalletOps))")
-
 			LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
 			                                   properties: interestsDict)
+
+			applicationController.registerBGProcess()
+
 		} onFailure: { error in
 
 			let properties: [String: String] = ["error_type": "on_demand_resources_not_found",

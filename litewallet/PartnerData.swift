@@ -35,7 +35,10 @@ struct Partner {
 		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
 		                                         ofType: "plist")
 		else {
-			return "ERROR: FILE-NOT-FOUND"
+			let errorDescription = "partnerkey_data_missing"
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+
+			return "error: FILE-NOT-FOUND"
 		}
 		filePath = releasePath
 
@@ -47,7 +50,7 @@ struct Partner {
 			{
 				return "https://mainnet.infura.io/v3/" + key
 			} else {
-				let errorDescription = "ERROR-INFURA_KEY"
+				let errorDescription = "infura_key_missing"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -61,7 +64,7 @@ struct Partner {
 				let key = opsArray[randomInt]
 				return key
 			} else {
-				let errorDescription = "error-litewallet-opskey"
+				let errorDescription = "error_litewallet_opskey"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -73,7 +76,7 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "ERROR-LITEWALLET-START_KEY"
+				let errorDescription = "error_litewallet_start_key"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -85,7 +88,7 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "ERROR-PUSHER-ID_KEY"
+				let errorDescription = "error_pusher_id_key"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -97,7 +100,7 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "ERROR-PUSHER-ID_KEY"
+				let errorDescription = "error_pusher_id_key"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -105,13 +108,15 @@ struct Partner {
 	}
 
 	static func litewalletOpsSet() -> Set<String> {
-		// Loads the release Partner Keys config file.
-
+		// Loads the Partner Keys config file.
 		var setOfAddresses = Set<String>()
 		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
 		                                         ofType: "plist")
 
 		else {
+			let errorDescription = "partnerkey_data_missing"
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+
 			return [""]
 		}
 

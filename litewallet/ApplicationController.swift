@@ -1,3 +1,4 @@
+import BackgroundTasks
 import StoreKit
 import UIKit
 
@@ -55,7 +56,6 @@ class ApplicationController: Subscriber, Trackable {
 	func launch(application: UIApplication, window: UIWindow?) {
 		self.application = application
 		self.window = window
-		application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 		setup()
 		reachability.didChange = { isReachable in
 			if !isReachable {
@@ -100,6 +100,42 @@ class ApplicationController: Subscriber, Trackable {
 		})
 
 		TransactionManager.sharedInstance.fetchTransactionData(store: store)
+	}
+
+	func registerBGProcess() {
+		/// Register for Backgroud Tasks
+		BGTaskScheduler.shared.register(
+			forTaskWithIdentifier: LWBGTaskidentifier.fetch.rawValue,
+			using: nil
+		) { task in
+			self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
+		}
+	}
+
+	func handleAppRefreshTask(task: BGAppRefreshTask) {
+		task.expirationHandler = { [weak self] in
+			self?.willEnterForeground()
+			task.setTaskCompleted(success: false)
+		}
+		didEnterBackground()
+		task.setTaskCompleted(success: true)
+
+		scheduleBackgroundChainandFiatDataFetch()
+	}
+
+	func scheduleBackgroundChainandFiatDataFetch() {
+		let litewalletFetchTask = BGAppRefreshTaskRequest(identifier: LWBGTaskidentifier.fetch.rawValue
+		)
+		litewalletFetchTask.earliestBeginDate = Date(timeIntervalSinceNow: 60)
+		do {
+			try BGTaskScheduler.shared.submit(litewalletFetchTask)
+			let properties = ["application_info": "bgtaskscheduler_started"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
+		} catch {
+			let properties = ["error": "unable_to_submit_task",
+			                  "error_message": "\(error.localizedDescription)"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		}
 	}
 
 	func willEnterForeground() {
@@ -201,7 +237,8 @@ class ApplicationController: Subscriber, Trackable {
 			}
 
 			exchangeUpdater?.refresh(completion: {
-				NSLog("Rates were updated")
+				let properties = ["application_controller": "rate_was_updated"]
+				LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			})
 		}
 	}

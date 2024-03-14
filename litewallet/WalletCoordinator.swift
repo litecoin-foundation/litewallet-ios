@@ -139,6 +139,17 @@ class WalletCoordinator: Subscriber, Trackable {
 
 	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) -> [Transaction]
 	{
+		///  Send analytical  data for any nils in this method
+		if kvStore == nil {
+			let properties = ["error_message": "replicated_kv_store_is_nil"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		}
+
+		if rate == nil {
+			let properties = ["error_message": "rate_is_nil"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		}
+
 		return transactions.compactMap { $0 }.sorted {
 			if $0.pointee.timestamp == 0 {
 				return true
