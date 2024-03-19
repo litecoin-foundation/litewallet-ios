@@ -1,3 +1,5 @@
+import BRCore
+import Foundation
 import UIKit
 
 func guardProtected(queue: DispatchQueue, callback: @escaping () -> Void) {
@@ -39,16 +41,28 @@ func strongify<Context: AnyObject, Arguments>(_ context: Context?, closure: @esc
 	}
 }
 
-/// Description: 1707828867
-func tieredOpsFee(amount: UInt64) -> UInt64 {
-	switch amount {
-	case 0 ..< 250_000_000:
-		return 350_000
-	case 250_000_000 ..< 1_000_000_000:
-		return 1_500_000
-	case _ where amount > 1_000_000_000:
-		return 3_500_000
+/// Description: 1709405141
+func tieredOpsFee(store: Store, amount: UInt64) -> UInt64 {
+	var usdRate = 67.000
+	if let liveRate = store.state.rates.filter({ $0.code == "USD" }).first?.rate {
+		usdRate = liveRate
+	}
+	let usdInLTC = Double(amount) * usdRate / 100_000_000
+
+	switch usdInLTC {
+	case 0 ..< 20.00:
+		return UInt64(0.20 / usdRate * 100_000_000)
+	case 20.00 ..< 50.00:
+		return UInt64(0.30 / usdRate * 100_000_000)
+	case 50.00 ..< 100.00:
+		return UInt64(1.00 / usdRate * 100_000_000)
+	case 100.00 ..< 500.00:
+		return UInt64(2.00 / usdRate * 100_000_000)
+	case 500.00 ..< 1000.00:
+		return UInt64(2.50 / usdRate * 100_000_000)
+	case _ where usdInLTC > 1000.00:
+		return UInt64(3.00 / usdRate * 100_000_000)
 	default:
-		return 3_500_000
+		return UInt64(3.00 / usdRate * 100_000_000)
 	}
 }

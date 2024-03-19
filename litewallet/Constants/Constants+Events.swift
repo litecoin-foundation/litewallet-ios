@@ -126,6 +126,11 @@ enum FalsePositiveRates: Double {
 	case anonymous = 0.0005
 }
 
+enum LWBGTaskidentifier: String {
+	case fetch = "com.litecoin.fetchLitewallet"
+	case backup = "com.litecoin.backupLitewallet"
+}
+
 /// Custom Event Enum: Events related to different user based actions
 enum CustomEvent: String {
 	/// App Launched
@@ -223,4 +228,7 @@ enum CustomEvent: String {
 
 	/// Transactions info
 	case _20240214_TI = "transactions_info"
+
+	/// Transactions info
+	case _20240315_AI = "application_info"
 }
