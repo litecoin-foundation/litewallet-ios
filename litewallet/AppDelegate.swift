@@ -41,9 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 			LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
 			                                   properties: interestsDict)
-
-			applicationController.registerBGProcess()
-
 		} onFailure: { error in
 
 			let properties: [String: String] = ["error_type": "on_demand_resources_not_found",
@@ -118,11 +115,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Load a Firebase debug config file.
 		// let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
 
-		let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+		guard let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") else {
+			let properties = ["error_message": "gs_info_file_missing"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+			                                   properties: properties)
+			assertionFailure("Couldn't load google services file")
+			return
+		}
 
-		if let fboptions = FirebaseOptions(contentsOfFile: filePath!) {
+		if let fboptions = FirebaseOptions(contentsOfFile: filePath) {
 			FirebaseApp.configure(options: fboptions)
 		} else {
+			let properties = ["error_message": "firebase_config_failed"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
+			                                   properties: properties)
 			assertionFailure("Couldn't load Firebase config file")
 		}
 	}
