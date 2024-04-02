@@ -102,42 +102,6 @@ class ApplicationController: Subscriber, Trackable {
 		TransactionManager.sharedInstance.fetchTransactionData(store: store)
 	}
 
-	func registerBGProcess() {
-		/// Register for Backgroud Tasks
-		BGTaskScheduler.shared.register(
-			forTaskWithIdentifier: LWBGTaskidentifier.fetch.rawValue,
-			using: nil
-		) { task in
-			self.handleAppRefreshTask(task: task as! BGAppRefreshTask)
-		}
-	}
-
-	func handleAppRefreshTask(task: BGAppRefreshTask) {
-		task.expirationHandler = { [weak self] in
-			self?.willEnterForeground()
-			task.setTaskCompleted(success: false)
-		}
-		didEnterBackground()
-		task.setTaskCompleted(success: true)
-
-		scheduleBackgroundChainandFiatDataFetch()
-	}
-
-	func scheduleBackgroundChainandFiatDataFetch() {
-		let litewalletFetchTask = BGAppRefreshTaskRequest(identifier: LWBGTaskidentifier.fetch.rawValue
-		)
-		litewalletFetchTask.earliestBeginDate = Date(timeIntervalSinceNow: 60)
-		do {
-			try BGTaskScheduler.shared.submit(litewalletFetchTask)
-			let properties = ["application_info": "bgtaskscheduler_started"]
-			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
-		} catch {
-			let properties = ["error": "unable_to_submit_task",
-			                  "error_message": "\(error.localizedDescription)"]
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
-		}
-	}
-
 	func willEnterForeground() {
 		guard let walletManager = walletManager else { return }
 		guard !walletManager.noWallet else { return }
@@ -277,18 +241,22 @@ class ApplicationController: Subscriber, Trackable {
 	private func initKVStoreCoordinator() {
 		guard let kvStore = walletManager?.apiClient?.kv
 		else {
-			NSLog("kvStore not initialized")
+			let properties = ["applications_info": "kvstore_not_initialized"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			return
 		}
 
 		guard kvStoreCoordinator == nil
 		else {
-			NSLog("kvStoreCoordinator not initialized")
+			let properties = ["applications_info": "kvstorecoordinator_not_initialized"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			return
 		}
 
 		kvStore.syncAllKeys { error in
-			print("KV finished syncing. err: \(String(describing: error))")
+			let properties = ["error_message": "kv_finished_syning",
+			                  "error": "\(String(describing: error))"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			self.walletCoordinator?.kvStore = kvStore
 			self.kvStoreCoordinator = KVStoreCoordinator(store: self.store, kvStore: kvStore)
 			self.kvStoreCoordinator?.retreiveStoredWalletInfo()
