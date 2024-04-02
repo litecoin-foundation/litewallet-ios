@@ -12,8 +12,8 @@ struct TransactionStatusTuple {
 class Transaction {
 	// MARK: - Public
 
-	private let opsAddressSet: Set<String> = Partner.litewalletOpsSet()
 
+	private let opsAddressSet: Set<String> = Partner.litewalletOpsSet()
 	init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
 		guard let wallet = walletManager.wallet else { return nil }
 		guard let peerManager = walletManager.peerManager else { return nil }
@@ -21,6 +21,7 @@ class Transaction {
 		self.tx = tx
 		self.wallet = wallet
 		self.kvStore = kvStore
+    
 		let fee = wallet.feeForTx(tx) ?? 0
 
 		var outputAddresses = Set<String>()
@@ -210,6 +211,7 @@ class Transaction {
 		case .moved:
 			guard let output = self.tx.outputs.filter({ output in
 				self.wallet.containsAddress(output.updatedSwiftAddress)
+
 			}).first else {
 				let properties = ["error": "no_moved_address_found"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,

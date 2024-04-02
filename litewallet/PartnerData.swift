@@ -35,9 +35,7 @@ struct Partner {
 		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
 		                                         ofType: "plist")
 		else {
-			let errorDescription = "partnerkey_data_missing"
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
-
 			return "error: FILE-NOT-FOUND"
 		}
 		filePath = releasePath
@@ -68,7 +66,6 @@ struct Partner {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
-
 		case .litewalletStart:
 
 			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
@@ -88,6 +85,7 @@ struct Partner {
 			{
 				return key
 			} else {
+
 				let errorDescription = "error_pusher_id_key"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
@@ -100,7 +98,8 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "error_pusher_id_key"
+        let errorDescription = "error_pusher_id_key"
+
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}

@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
 			                                   properties: properties)
 		}
+    
 		updateCurrentUserLocale(localeId: Locale.current.identifier)
 
 		guard let thisWindow = window else { return false }

@@ -119,6 +119,7 @@ class WalletCoordinator: Subscriber, Trackable {
 	@objc private func updateTransactions() {
 		updateTimer?.invalidate()
 		updateTimer = nil
+
 		Task {
 			guard let txRefs = self.walletManager.wallet?.transactions else {
 				let properties = ["error_message": "wallet_tx_refs_are_nil"]

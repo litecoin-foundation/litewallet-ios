@@ -48,8 +48,6 @@ class StartViewModel: ObservableObject {
 		self.walletManager = walletManager
 		staticTagline = taglines[0]
 
-		// loadResourcesWithTag(tags: audioTagArray)
-
 		// checkForWalletAndSync()
 	}
 

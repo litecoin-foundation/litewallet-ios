@@ -45,6 +45,7 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 		else {
 			let errorDescription = "store_not_initialized"
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+
 			return
 		}
 

@@ -195,6 +195,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		// MARK: - SendButton Model Callbacks / Actions
 
 		sendButtonCell.rootView.doSendTransaction = {
+
 			if let sendAddress = self.sendAddressCell.address,
 			   sendAddress.isValidAddress
 			{
@@ -231,6 +232,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		var combinedFeesOutput = ""
 		var balanceColor: UIColor = .grayTextTint
 
+<
 		/// Check the amount is greater than zero and amount satoshis are not nil
 		if let currentRate = currentRate,
 		   let enteredAmount = enteredAmount,

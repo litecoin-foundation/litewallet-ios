@@ -56,6 +56,7 @@ class ApplicationController: Subscriber, Trackable {
 	func launch(application: UIApplication, window: UIWindow?) {
 		self.application = application
 		self.window = window
+
 		setup()
 		reachability.didChange = { isReachable in
 			if !isReachable {
@@ -114,6 +115,7 @@ class ApplicationController: Subscriber, Trackable {
 		exchangeUpdater?.refresh(completion: {})
 		feeUpdater?.refresh()
 		walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
+
 		if modalPresenter?.walletManager == nil {
 			modalPresenter?.walletManager = walletManager
 		}
@@ -128,6 +130,7 @@ class ApplicationController: Subscriber, Trackable {
 		exchangeUpdater?.refresh(completion: {})
 		feeUpdater?.refresh()
 		walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
+
 		if modalPresenter?.walletManager == nil {
 			modalPresenter?.walletManager = walletManager
 		}
@@ -220,6 +223,7 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func startDataFetchers() {
+
 		initKVStoreCoordinator()
 		feeUpdater?.refresh()
 		defaultsUpdater?.refresh()
@@ -257,6 +261,7 @@ class ApplicationController: Subscriber, Trackable {
 			let properties = ["error_message": "kv_finished_syning",
 			                  "error": "\(String(describing: error))"]
 			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
+
 			self.walletCoordinator?.kvStore = kvStore
 			self.kvStoreCoordinator = KVStoreCoordinator(store: self.store, kvStore: kvStore)
 			self.kvStoreCoordinator?.retreiveStoredWalletInfo()
@@ -300,6 +305,7 @@ class ApplicationController: Subscriber, Trackable {
 			{ self.exchangeUpdater?.refresh(completion: $0) },
 			{ self.feeUpdater?.refresh(completion: $0) },
 			{ self.walletManager?.apiClient?.events?.sync(completion: $0) },
+
 		], completion: {
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_DLDG)
 			group.leave()
