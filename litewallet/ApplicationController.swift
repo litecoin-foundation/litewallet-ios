@@ -169,7 +169,9 @@ class ApplicationController: Subscriber, Trackable {
 		walletCoordinator = WalletCoordinator(walletManager: walletManager, store: store)
 		modalPresenter = ModalPresenter(store: store, walletManager: walletManager, window: window, apiClient: noAuthApiClient)
 		exchangeUpdater = ExchangeUpdater(store: store, walletManager: walletManager)
-		feeUpdater = FeeUpdater(walletManager: walletManager, store: store)
+
+		guard let exchangeUpdaterWithFee = exchangeUpdater else { return }
+		feeUpdater = FeeUpdater(walletManager: walletManager, store: store, exchangeUpdater: exchangeUpdaterWithFee)
 		startFlowController = StartFlowPresenter(store: store, walletManager: walletManager, rootViewController: rootViewController)
 		mainViewController?.walletManager = walletManager
 		defaultsUpdater = UserDefaultsUpdater(walletManager: walletManager)
@@ -225,9 +227,7 @@ class ApplicationController: Subscriber, Trackable {
 		defaultsUpdater?.refresh()
 		walletManager?.apiClient?.events?.up()
 
-		exchangeUpdater?.refresh(completion: {
-			NSLog("::: Refreshed fiat rates")
-		})
+		exchangeUpdater?.refresh(completion: {})
 	}
 
 	private func addWalletCreationListener() {
@@ -265,7 +265,7 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func offMainInitialization() {
-		DispatchQueue.global(qos: .background).async {
+		Task(priority: .background) {
 			_ = Rate.symbolMap // Initialize currency symbol map
 		}
 	}

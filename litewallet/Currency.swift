@@ -3,7 +3,10 @@ import UIKit
 
 class Currency {
 	class func getSymbolForCurrencyCode(code: String) -> String? {
-		let result = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == code }
+		print(" ::: \(code)")
+		let result = Locale.availableIdentifiers.map {
+			Locale(identifier: $0)
+		}.first { $0.currencyCode == code }
 		return result?.currencySymbol
 	}
 }
