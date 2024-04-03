@@ -74,8 +74,8 @@ class TransactionCellViewModel: ObservableObject {
 		amountText = transaction.descriptionString(isLtcSwapped: isLtcSwapped, rate: rate, maxDigits: maxDigits).string
 
 		feeText = transaction.amountDetails(isLtcSwapped: isLtcSwapped, rate: rate, rates: [rate], maxDigits: maxDigits)
-    
-    addressText = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "---ERROR---")
+
+		addressText = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "---ERROR---")
 
 		if transaction.direction == .sent {
 			directionImageText = "arrowtriangle.up.circle.fill"

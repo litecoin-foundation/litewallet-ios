@@ -223,7 +223,6 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func startDataFetchers() {
-
 		initKVStoreCoordinator()
 		feeUpdater?.refresh()
 		defaultsUpdater?.refresh()

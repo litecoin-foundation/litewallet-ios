@@ -12,7 +12,6 @@ struct TransactionStatusTuple {
 class Transaction {
 	// MARK: - Public
 
-
 	private let opsAddressSet: Set<String> = Partner.litewalletOpsSet()
 	init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
 		guard let wallet = walletManager.wallet else { return nil }
@@ -21,7 +20,7 @@ class Transaction {
 		self.tx = tx
 		self.wallet = wallet
 		self.kvStore = kvStore
-    
+
 		let fee = wallet.feeForTx(tx) ?? 0
 
 		var outputAddresses = Set<String>()

@@ -64,6 +64,5 @@ func tieredOpsFee(store: Store, amount: UInt64) -> UInt64 {
 		return UInt64(3.00 / usdRate * 100_000_000)
 	default:
 		return UInt64(3.00 / usdRate * 100_000_000)
-
 	}
 }
