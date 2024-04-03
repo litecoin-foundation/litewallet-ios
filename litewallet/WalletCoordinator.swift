@@ -126,7 +126,12 @@ class WalletCoordinator: Subscriber, Trackable {
 				return
 			}
 
-			let transactions = await self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
+			guard let transactions = await self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate) else {
+				let properties = ["error_message": "transactions_array_is_nil"]
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+				return
+			}
+
 			if !transactions.isEmpty {
 				Task {
 					self.store.perform(action: WalletChange.setTransactions(transactions))
@@ -138,7 +143,7 @@ class WalletCoordinator: Subscriber, Trackable {
 		}
 	}
 
-	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) async -> [Transaction]
+	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) async -> [Transaction]?
 	{
 		///  Send analytical  data for any nils in this method
 		if kvStore == nil {
@@ -151,17 +156,24 @@ class WalletCoordinator: Subscriber, Trackable {
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 		}
 
-		return transactions.compactMap { $0 }.sorted {
-			if $0.pointee.timestamp == 0 {
-				return true
-			} else if $1.pointee.timestamp == 0 {
-				return false
-			} else {
-				return $0.pointee.timestamp > $1.pointee.timestamp
+		Task {
+			let mappedTransactions = transactions.compactMap { $0 }.sorted {
+				if $0.pointee.timestamp == 0 {
+					return true
+				} else if $1.pointee.timestamp == 0 {
+					return false
+				} else {
+					return $0.pointee.timestamp > $1.pointee.timestamp
+				}
+			}.compactMap {
+				Transaction($0, walletManager: walletManager, kvStore: kvStore, rate: rate)
 			}
-		}.compactMap {
-			Transaction($0, walletManager: walletManager, kvStore: kvStore, rate: rate)
+
+			return mappedTransactions
 		}
+		let properties = ["error_message": "make_transaction_view_model_failure"]
+		LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		return nil
 	}
 
 	private func addWalletObservers() {
