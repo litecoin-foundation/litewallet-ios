@@ -78,16 +78,18 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	///   - reduxState: Current ReduxState
 	///   - completion: Signals the initialzation of the view
 	private func initSyncingHeaderView(reduxState: ReduxState, completion: @escaping () -> Void) {
-		syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
-		                                             owner: self,
-		                                             options: nil)?.first as? SyncProgressHeaderView
-		syncingHeaderView?.isRescanning = reduxState.walletState.isRescanning
-		syncingHeaderView?.progress = 0.02 // Small value to show user it is in process
-		syncingHeaderView?.headerMessage = reduxState.walletState.syncState
-		syncingHeaderView?.noSendImageView.alpha = 1.0
-		syncingHeaderView?.timestamp = reduxState.walletState.lastBlockTimestamp
+		Task(priority: .userInitiated) {
+			syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
+			                                             owner: self,
+			                                             options: nil)?.first as? SyncProgressHeaderView
+			syncingHeaderView?.isRescanning = reduxState.walletState.isRescanning
+			syncingHeaderView?.progress = 0.02 // Small value to show user it is in process
+			syncingHeaderView?.headerMessage = reduxState.walletState.syncState
+			syncingHeaderView?.noSendImageView.alpha = 1.0
+			syncingHeaderView?.timestamp = reduxState.walletState.lastBlockTimestamp
 
-		completion()
+			completion()
+		}
 	}
 
 	private func attemptShowPrompt() {
