@@ -119,15 +119,17 @@ class WalletCoordinator: Subscriber, Trackable {
 	@objc private func updateTransactions() {
 		updateTimer?.invalidate()
 		updateTimer = nil
-		DispatchQueue.walletQueue.async {
+
+		Task {
 			guard let txRefs = self.walletManager.wallet?.transactions else {
 				let properties = ["error_message": "wallet_tx_refs_are_nil"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 				return
 			}
-			let transactions = self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
+
+			let transactions = await self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
 			if !transactions.isEmpty {
-				DispatchQueue.main.async {
+				Task {
 					self.store.perform(action: WalletChange.setTransactions(transactions))
 				}
 			} else {
@@ -137,8 +139,19 @@ class WalletCoordinator: Subscriber, Trackable {
 		}
 	}
 
-	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) -> [Transaction]
+	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) async -> [Transaction]
 	{
+		///  Send analytical  data for any nils in this method
+		if kvStore == nil {
+			let properties = ["error_message": "replicated_kv_store_is_nil"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		}
+
+		if rate == nil {
+			let properties = ["error_message": "rate_is_nil"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		}
+
 		return transactions.compactMap { $0 }.sorted {
 			if $0.pointee.timestamp == 0 {
 				return true

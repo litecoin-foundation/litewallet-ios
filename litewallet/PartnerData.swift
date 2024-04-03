@@ -35,7 +35,8 @@ struct Partner {
 		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
 		                                         ofType: "plist")
 		else {
-			return "ERROR: FILE-NOT-FOUND"
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+			return "error: FILE-NOT-FOUND"
 		}
 		filePath = releasePath
 
@@ -47,7 +48,7 @@ struct Partner {
 			{
 				return "https://mainnet.infura.io/v3/" + key
 			} else {
-				let errorDescription = "ERROR-INFURA_KEY"
+				let errorDescription = "infura_key_missing"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -55,11 +56,13 @@ struct Partner {
 		case .litewalletOps:
 
 			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
-			   let key = dictionary["litewallet-ops"] as? String
+			   let opsArray = dictionary["litewallet-ops"] as? [String]
 			{
+				let randomInt = Int.random(in: 0 ..< opsArray.count)
+				let key = opsArray[randomInt]
 				return key
 			} else {
-				let errorDescription = "ERROR-LITEWALLET-OPS_KEY"
+				let errorDescription = "error_litewallet_opskey"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -70,7 +73,7 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "ERROR-LITEWALLET-START_KEY"
+				let errorDescription = "error_litewallet_start_key"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -82,7 +85,8 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "ERROR-PUSHER-ID_KEY"
+
+				let errorDescription = "error_pusher_id_key"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
@@ -94,10 +98,33 @@ struct Partner {
 			{
 				return key
 			} else {
-				let errorDescription = "ERROR-PUSHER-ID_KEY"
+        let errorDescription = "error_pusher_id_key"
+
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 				return errorDescription
 			}
 		}
+	}
+
+	static func litewalletOpsSet() -> Set<String> {
+		// Loads the Partner Keys config file.
+		var setOfAddresses = Set<String>()
+		guard let releasePath = Bundle.main.path(forResource: "partner-keys",
+		                                         ofType: "plist")
+
+		else {
+			let errorDescription = "partnerkey_data_missing"
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+
+			return [""]
+		}
+
+		if let dictionary = NSDictionary(contentsOfFile: releasePath) as? [String: AnyObject],
+		   let opsArray = dictionary["litewallet-ops"] as? [String]
+		{
+			setOfAddresses = Set(opsArray)
+		}
+
+		return setOfAddresses
 	}
 }

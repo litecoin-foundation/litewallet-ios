@@ -115,6 +115,10 @@
 	<string>Used to determine the closest node to you - never recorded or shared with anyone</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to scan barcodes</string>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict/>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>BarlowSemiCondensed-SemiBold.ttf</string>
@@ -126,6 +130,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -201,6 +206,11 @@
 				<string>application/litecoin-paymentack</string>
 			</dict>
 		</dict>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.litecoin.backupLitewallet</string>
+		<string>com.litecoin.fetchLitewallet</string>
 	</array>
 </dict>
 </plist>

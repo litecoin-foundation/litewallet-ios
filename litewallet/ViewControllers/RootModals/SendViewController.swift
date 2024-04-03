@@ -32,14 +32,12 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let currency: ShadowButton
 	private var balance: UInt64 = 0
 	private var amount: Satoshis?
-	private var combinedFee: Satoshis?
 	private var didIgnoreUsedAddressWarning = false
 	private var didIgnoreIdentityNotCertified = false
 	private let initialRequest: PaymentRequest?
 	private let confirmTransitioningDelegate = TransitioningDelegate()
 	private var feeType: FeeType?
 	private let keychainPreferences = Keychain(service: "litewallet.user-prefs")
-	private var adjustmentHeight: CGFloat = 0.0
 	private var buttonToBorder: CGFloat = 0.0
 
 	init(store: Store, sender: Sender, walletManager: WalletManager, initialAddress: String? = nil, initialRequest: PaymentRequest? = nil)
@@ -149,8 +147,8 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 		// MARK: - AmountView Callbacks
 
-		amountView.balanceTextForAmount = { [weak self] amount, rate in
-			self?.balanceTextForAmountWithFormattedFees(amount: amount, rate: rate)
+		amountView.balanceTextForAmount = { [weak self] enteredAmount, rate in
+			self?.balanceTextForAmountWithFormattedFees(enteredAmount: enteredAmount, rate: rate)
 		}
 
 		amountView.didUpdateAmount = { [weak self] amount in
@@ -197,65 +195,82 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		// MARK: - SendButton Model Callbacks / Actions
 
 		sendButtonCell.rootView.doSendTransaction = {
-			guard let sendAddress = self.sendAddressCell.address else { return }
-			if sendAddress.isValidAddress {
+
+			if let sendAddress = self.sendAddressCell.address,
+			   sendAddress.isValidAddress
+			{
 				self.sendTapped()
 			} else {
-				self.showAlert(title: S.LitewalletAlert.error.localize(), message: S.Transaction.invalid.localize(),
+				self.showAlert(title: S.LitewalletAlert.error.localize(),
+				               message: S.Send.enterLTCAddressLabel.localize(),
 				               buttonLabel: S.Button.ok.localize())
 			}
 		}
 	}
 
-	private func balanceTextForAmountWithFormattedFees(amount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?)
+	private func balanceTextForAmountWithFormattedFees(enteredAmount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?)
 	{
-		// DEV: KCW 12-FEB-24
+		/// DEV: KCW 12-FEB-24
 		// The results of this output is doing double duty and the method is a nightmare.
 		// The parent view controller uses the numbers and the text is used in this View Controller
+		var currentRate: Rate?
 
-		let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance), state: store.state, selectedRate: rate, minimumFractionDigits: 2)
+		if rate == nil {
+			currentRate = store.state.currentRate
+		} else {
+			currentRate = rate
+		}
+
+		let balanceAmount = DisplayAmount(amount: Satoshis(rawValue: balance),
+		                                  state: store.state,
+		                                  selectedRate: currentRate,
+		                                  minimumFractionDigits: 2)
+
 		let balanceText = balanceAmount.description
 
 		let balanceOutput = String(format: S.Send.balance.localize(), balanceText)
 		var combinedFeesOutput = ""
 		var balanceColor: UIColor = .grayTextTint
 
-		let balanceStyle = [
-			NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
-			NSAttributedString.Key.foregroundColor: balanceColor,
-		]
+<
+		/// Check the amount is greater than zero and amount satoshis are not nil
+		if let currentRate = currentRate,
+		   let enteredAmount = enteredAmount,
+		   enteredAmount > 0
+		{
+			let tieredOpsFee = tieredOpsFee(store: store, amount: enteredAmount.rawValue)
 
-		/// Check the amount is greater than zero and if user is opting out of fees
-		if let amount = amount, amount > 0 {
-			let tieredOpsFee = tieredOpsFee(amount: amount.rawValue)
-			let totalAmountToCalculateFees = (amount.rawValue + tieredOpsFee)
+			let totalAmountToCalculateFees = (enteredAmount.rawValue + tieredOpsFee)
 
 			let networkFee = sender.feeForTx(amount: totalAmountToCalculateFees)
-
+			let totalFees = (networkFee + tieredOpsFee)
+			let sendTotal = balance + totalFees
 			let networkFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee),
 			                                     state: store.state,
-			                                     selectedRate: rate,
+			                                     selectedRate: currentRate,
 			                                     minimumFractionDigits: 2).description
 
 			let serviceFeeAmount = DisplayAmount(amount: Satoshis(rawValue: tieredOpsFee),
 			                                     state: store.state,
-			                                     selectedRate: rate,
+			                                     selectedRate: currentRate,
 			                                     minimumFractionDigits: 2).description
 
 			let totalFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee + tieredOpsFee),
 			                                   state: store.state,
-			                                   selectedRate: rate,
+			                                   selectedRate: currentRate,
 			                                   minimumFractionDigits: 2).description
-			let combinedfeeText = networkFeeAmount.description.replacingZeroFeeWithTenCents() +
-				serviceFeeAmount.description.replacingZeroFeeWithTenCents() +
-				totalFeeAmount.description.replacingZeroFeeWithTenCents()
 
 			combinedFeesOutput = "(\(S.Send.networkFee.localize()) + \(S.Send.serviceFee.localize())): \(networkFeeAmount) + \(serviceFeeAmount) = \(totalFeeAmount)"
 
-			if balance >= (networkFee + tieredOpsFee), amount.rawValue > (balance - (networkFee + tieredOpsFee)) {
+			if enteredAmount.rawValue > sendTotal || enteredAmount.rawValue > balance {
 				balanceColor = .litewalletOrange
 			}
 		}
+
+		let balanceStyle = [
+			NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
+			NSAttributedString.Key.foregroundColor: balanceColor,
+		]
 
 		return (NSAttributedString(string: balanceOutput, attributes: balanceStyle), NSAttributedString(string: combinedFeesOutput, attributes: balanceStyle))
 	}
@@ -311,7 +326,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 				                 buttonLabel: S.Button.ok.localize())
 			}
 
-			let opsFeeAmount = Satoshis(rawValue: tieredOpsFee(amount: amountToSend.rawValue))
+			let opsFeeAmount = Satoshis(rawValue: tieredOpsFee(store: store, amount: amountToSend.rawValue))
 			let fee = walletManager.wallet?.feeForTx(amount: amountToSend.rawValue + opsFeeAmount.rawValue)
 			let feeInSatoshis = Satoshis(rawValue: fee ?? 0)
 			bareAmount = amountToSend

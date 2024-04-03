@@ -1,3 +1,4 @@
+import BackgroundTasks
 import StoreKit
 import UIKit
 
@@ -55,7 +56,7 @@ class ApplicationController: Subscriber, Trackable {
 	func launch(application: UIApplication, window: UIWindow?) {
 		self.application = application
 		self.window = window
-		application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+
 		setup()
 		reachability.didChange = { isReachable in
 			if !isReachable {
@@ -114,7 +115,7 @@ class ApplicationController: Subscriber, Trackable {
 		exchangeUpdater?.refresh(completion: {})
 		feeUpdater?.refresh()
 		walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
-		walletManager.apiClient?.updateFeatureFlags()
+
 		if modalPresenter?.walletManager == nil {
 			modalPresenter?.walletManager = walletManager
 		}
@@ -129,7 +130,7 @@ class ApplicationController: Subscriber, Trackable {
 		exchangeUpdater?.refresh(completion: {})
 		feeUpdater?.refresh()
 		walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
-		walletManager.apiClient?.updateFeatureFlags()
+
 		if modalPresenter?.walletManager == nil {
 			modalPresenter?.walletManager = walletManager
 		}
@@ -203,7 +204,8 @@ class ApplicationController: Subscriber, Trackable {
 			}
 
 			exchangeUpdater?.refresh(completion: {
-				NSLog("Rates were updated")
+				let properties = ["application_controller": "rate_was_updated"]
+				LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			})
 		}
 	}
@@ -221,7 +223,7 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func startDataFetchers() {
-		walletManager?.apiClient?.updateFeatureFlags()
+
 		initKVStoreCoordinator()
 		feeUpdater?.refresh()
 		defaultsUpdater?.refresh()
@@ -243,18 +245,23 @@ class ApplicationController: Subscriber, Trackable {
 	private func initKVStoreCoordinator() {
 		guard let kvStore = walletManager?.apiClient?.kv
 		else {
-			NSLog("kvStore not initialized")
+			let properties = ["applications_info": "kvstore_not_initialized"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			return
 		}
 
 		guard kvStoreCoordinator == nil
 		else {
-			NSLog("kvStoreCoordinator not initialized")
+			let properties = ["applications_info": "kvstorecoordinator_not_initialized"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
 			return
 		}
 
 		kvStore.syncAllKeys { error in
-			print("KV finished syncing. err: \(String(describing: error))")
+			let properties = ["error_message": "kv_finished_syning",
+			                  "error": "\(String(describing: error))"]
+			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
+
 			self.walletCoordinator?.kvStore = kvStore
 			self.kvStoreCoordinator = KVStoreCoordinator(store: self.store, kvStore: kvStore)
 			self.kvStoreCoordinator?.retreiveStoredWalletInfo()
@@ -298,7 +305,7 @@ class ApplicationController: Subscriber, Trackable {
 			{ self.exchangeUpdater?.refresh(completion: $0) },
 			{ self.feeUpdater?.refresh(completion: $0) },
 			{ self.walletManager?.apiClient?.events?.sync(completion: $0) },
-			{ self.walletManager?.apiClient?.updateFeatureFlags(); $0() },
+
 		], completion: {
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_DLDG)
 			group.leave()

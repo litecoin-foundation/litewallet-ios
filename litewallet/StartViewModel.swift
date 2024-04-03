@@ -75,7 +75,7 @@ class StartViewModel: ObservableObject {
 
 		guard walletManager.setRandomSeedPhrase() != nil else {
 			walletCreationDidFail = true
-			let properties: [String: String] = ["ERROR_MESSAGE": "wallet_creation_fail"]
+			let properties: [String: String] = ["error_message": "wallet_creation_fail"]
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 			return
 		}
@@ -112,6 +112,8 @@ class StartViewModel: ObservableObject {
 				AudioServicesDisposeSystemSoundID(soundId)
 			}, nil)
 			AudioServicesPlaySystemSound(id)
+		} else {
+			print("NO AUDIO")
 		}
 	}
 
