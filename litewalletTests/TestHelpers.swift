@@ -12,7 +12,7 @@ func clearKeychain() {
 	}
 }
 
-func deleteDb() {
+func deleteDatabase() {
 	let fm = FileManager.default
 	let docsUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first!
 	let url = docsUrl.appendingPathComponent("kvstore.sqlite3")
