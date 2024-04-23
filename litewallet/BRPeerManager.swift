@@ -90,13 +90,6 @@ class BRPeerManager {
 		return BRPeerManagerEstimatedBlockHeight(cPtr)
 	}
 
-	// Only show syncing view if more than 2 days behind
-	var shouldShowSyncingView: Bool {
-		let lastBlock = Date(timeIntervalSince1970: TimeInterval(lastBlockTimestamp))
-		let cutoff = Date().addingTimeInterval(-24 * 60 * 60 * 2) // 2 days ago
-		return lastBlock.compare(cutoff) == .orderedAscending
-	}
-
 	// current network sync progress from 0 to 1
 	// startHeight is the block height of the most recent fully completed sync
 	func syncProgress(fromStartHeight: UInt32) -> Double {

@@ -19,6 +19,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	var selectedIndexes = [IndexPath: NSNumber]()
 	var shouldBeSyncing: Bool = false
 	var syncingHeaderView: SyncProgressHeaderView?
+
 	var shouldShowPrompt = true
 
 	private var transactions: [Transaction] = []
@@ -78,18 +79,16 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	///   - reduxState: Current ReduxState
 	///   - completion: Signals the initialzation of the view
 	private func initSyncingHeaderView(reduxState: ReduxState, completion: @escaping () -> Void) {
-		Task(priority: .userInitiated) {
-			syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
-			                                             owner: self,
-			                                             options: nil)?.first as? SyncProgressHeaderView
-			syncingHeaderView?.isRescanning = reduxState.walletState.isRescanning
-			syncingHeaderView?.progress = 0.02 // Small value to show user it is in process
-			syncingHeaderView?.headerMessage = reduxState.walletState.syncState
-			syncingHeaderView?.noSendImageView.alpha = 1.0
-			syncingHeaderView?.timestamp = reduxState.walletState.lastBlockTimestamp
+		syncingHeaderView = Bundle.main.loadNibNamed("SyncProgressHeaderView",
+		                                             owner: self,
+		                                             options: nil)?.first as? SyncProgressHeaderView
+		syncingHeaderView?.isRescanning = reduxState.walletState.isRescanning
+		syncingHeaderView?.progress = 0.02
+		syncingHeaderView?.headerMessage = reduxState.walletState.syncState
+		syncingHeaderView?.noSendImageView.alpha = 1.0
+		syncingHeaderView?.timestamp = reduxState.walletState.lastBlockTimestamp
 
-			completion()
-		}
+		completion()
 	}
 
 	private func attemptShowPrompt() {
@@ -392,7 +391,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		                		self.shouldBeSyncing = true
 		                		self.initSyncingHeaderView(reduxState: reduxState, completion: {
 		                			self.syncingHeaderView?.isRescanning = reduxState.walletState.isRescanning
-		                			self.syncingHeaderView?.progress = 0.02 // Small value to show user it is in process
+		                			self.syncingHeaderView?.progress = 0.02
 		                			self.syncingHeaderView?.headerMessage = reduxState.walletState.syncState
 		                			self.syncingHeaderView?.noSendImageView.alpha = 1.0
 		                			self.syncingHeaderView?.timestamp = reduxState.walletState.lastBlockTimestamp
