@@ -119,7 +119,7 @@ class WalletCoordinator: Subscriber, Trackable {
 	@objc private func updateTransactions() {
 		updateTimer?.invalidate()
 		updateTimer = nil
-		Task {
+		Task.detached {
 			guard let txRefs = self.walletManager.wallet?.transactions else {
 				let properties = ["error_message": "wallet_tx_refs_are_nil"]
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
@@ -129,7 +129,7 @@ class WalletCoordinator: Subscriber, Trackable {
 			let transactions = await self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
 
 			if !transactions.isEmpty {
-				Task {
+				Task.detached {
 					self.store.perform(action: WalletChange.setTransactions(transactions))
 				}
 			} else {
