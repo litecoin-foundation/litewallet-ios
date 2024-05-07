@@ -13,7 +13,7 @@ class Transaction {
 	// MARK: - Public
 
 	private let opsAddressSet: Set<String> = Partner.litewalletOpsSet()
-
+	/// Hassan
 	init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
 		guard let wallet = walletManager.wallet else { return nil }
 		guard let peerManager = walletManager.peerManager else { return nil }
