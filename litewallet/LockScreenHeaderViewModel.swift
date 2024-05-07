@@ -31,11 +31,17 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 		}
 
 		// Price Label
-		let fiatRate = Double(round(100 * currentRate.rate / 100))
-		let formattedFiatString = String(format: "%.02f", fiatRate)
+		let formattedRate = String(format: "%.02f", currentRate.rate)
 		currencyCode = currentRate.code
-		let currencySymbol = Currency.getSymbolForCurrencyCode(code: currencyCode) ?? ""
-		currentValueInFiat = String(currencySymbol + formattedFiatString)
+
+		if let symbol = Rate.symbolMap[currencyCode] {
+			currentValueInFiat = String(symbol + formattedRate)
+		} else {
+			let properties = ["error_message": "fiat_symbol_not_found",
+			                  "missing_code": "\(currencyCode)"]
+			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+			currentValueInFiat = String("" + formattedRate)
+		}
 	}
 
 	// MARK: - Add Subscriptions

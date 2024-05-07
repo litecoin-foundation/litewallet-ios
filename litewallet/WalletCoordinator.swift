@@ -158,7 +158,8 @@ class WalletCoordinator: Subscriber, Trackable {
 
 		return transactions.compactMap { $0 }.sorted {
 			$0.pointee.timestamp > $1.pointee.timestamp
-		}.compactMap {
+		}
+		.compactMap {
 			Transaction($0, walletManager: walletManager, kvStore: kvStore, rate: rate)
 		}
 	}
