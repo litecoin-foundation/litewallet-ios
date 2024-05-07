@@ -1,5 +1,6 @@
 import BRCore
 import Foundation
+
 // import libbz2
 import UIKit
 
@@ -23,8 +24,7 @@ public extension String {
 	}
 
 	static var urlQuoteCharacterSet: CharacterSet {
-		if let cset = (NSMutableCharacterSet.urlQueryAllowed as NSCharacterSet).mutableCopy() as? NSMutableCharacterSet
-		{
+		if let cset = (NSMutableCharacterSet.urlQueryAllowed as NSCharacterSet).mutableCopy() as? NSMutableCharacterSet {
 			cset.removeCharacters(in: "?=&")
 			return cset as CharacterSet
 		}
@@ -40,17 +40,16 @@ public extension String {
 
 		var result = Data(count: 128 / 8)
 		let resultCount = result.count
-		return result.withUnsafeMutableBytes
-			{ (resultBytes: UnsafeMutablePointer<CUnsignedChar>) -> String in
-				data.withUnsafeBytes { dataBytes in
-					BRMD5(resultBytes, dataBytes, data.count)
-				}
-				var hash = String()
-				for i in 0 ..< resultCount {
-					hash = hash.appendingFormat("%02x", resultBytes[i])
-				}
-				return hash
+		return result.withUnsafeMutableBytes { (resultBytes: UnsafeMutablePointer<CUnsignedChar>) -> String in
+			data.withUnsafeBytes { dataBytes in
+				BRMD5(resultBytes, dataBytes, data.count)
 			}
+			var hash = String()
+			for i in 0 ..< resultCount {
+				hash = hash.appendingFormat("%02x", resultBytes[i])
+			}
+			return hash
+		}
 	}
 
 	func base58DecodedData() -> Data {
@@ -287,30 +286,27 @@ public extension Data {
 		let offt = Int(offset)
 		let size = MemoryLayout<UInt8>.size
 		if count < offt + size { return 0 }
-		return subdata(in: offt ..< (offt + size)).withUnsafeBytes
-			{ (ptr: UnsafePointer<UInt8>) -> UInt8 in
-				ptr.pointee
-			}
+		return subdata(in: offt ..< (offt + size)).withUnsafeBytes { (ptr: UnsafePointer<UInt8>) -> UInt8 in
+			ptr.pointee
+		}
 	}
 
 	func uInt32(atOffset offset: UInt) -> UInt32 {
 		let offt = Int(offset)
 		let size = MemoryLayout<UInt32>.size
 		if count < offt + size { return 0 }
-		return subdata(in: offt ..< (offt + size)).withUnsafeBytes
-			{ (ptr: UnsafePointer<UInt32>) -> UInt32 in
-				CFSwapInt32LittleToHost(ptr.pointee)
-			}
+		return subdata(in: offt ..< (offt + size)).withUnsafeBytes { (ptr: UnsafePointer<UInt32>) -> UInt32 in
+			CFSwapInt32LittleToHost(ptr.pointee)
+		}
 	}
 
 	func uInt64(atOffset offset: UInt) -> UInt64 {
 		let offt = Int(offset)
 		let size = MemoryLayout<UInt64>.size
 		if count < offt + size { return 0 }
-		return subdata(in: offt ..< (offt + size)).withUnsafeBytes
-			{ (ptr: UnsafePointer<UInt64>) -> UInt64 in
-				CFSwapInt64LittleToHost(ptr.pointee)
-			}
+		return subdata(in: offt ..< (offt + size)).withUnsafeBytes { (ptr: UnsafePointer<UInt64>) -> UInt64 in
+			CFSwapInt64LittleToHost(ptr.pointee)
+		}
 	}
 
 	func compactSign(key: BRKey) -> Data {
@@ -327,11 +323,10 @@ public extension Data {
 		gettimeofday(&tv, nil)
 		var t = UInt64(tv.tv_usec) * 1_000_000 + UInt64(tv.tv_usec)
 		let p = [UInt8](repeating: 0, count: 4)
-		return Data(bytes: &t, count: MemoryLayout<UInt64>.size).withUnsafeBytes
-			{ (dat: UnsafePointer<UInt8>) -> [UInt8] in
-				let buf = UnsafeBufferPointer(start: dat, count: MemoryLayout<UInt64>.size)
-				return p + Array(buf)
-			}
+		return Data(bytes: &t, count: MemoryLayout<UInt64>.size).withUnsafeBytes { (dat: UnsafePointer<UInt8>) -> [UInt8] in
+			let buf = UnsafeBufferPointer(start: dat, count: MemoryLayout<UInt64>.size)
+			return p + Array(buf)
+		}
 	}
 
 	func chacha20Poly1305AEADEncrypt(key: BRKey) -> Data {
@@ -399,8 +394,7 @@ public extension Date {
 
 	// this is lifted from: https://github.com/Fykec/NSDate-RFC1123/blob/master/NSDate%2BRFC1123.swift
 	// Copyright © 2015 Foster Yin. All rights reserved.
-	fileprivate static func cachedThreadLocalObjectWithKey<T: AnyObject>(_ key: String, create: () -> T) -> T
-	{
+	fileprivate static func cachedThreadLocalObjectWithKey<T: AnyObject>(_ key: String, create: () -> T) -> T {
 		let threadDictionary = Thread.current.threadDictionary
 		if let cachedObject = threadDictionary[key] as! T? {
 			return cachedObject

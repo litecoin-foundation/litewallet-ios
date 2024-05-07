@@ -84,8 +84,7 @@ extension DescriptionSendCell: UITextViewDelegate {
 		return true
 	}
 
-	func textView(_ textView: UITextView, shouldChangeTextIn _: NSRange, replacementText text: String) -> Bool
-	{
+	func textView(_ textView: UITextView, shouldChangeTextIn _: NSRange, replacementText text: String) -> Bool {
 		guard text.rangeOfCharacter(from: CharacterSet.newlines) == nil
 		else {
 			textView.resignFirstResponder()

@@ -1,11 +1,12 @@
 import BRCore
 import Foundation
+
 // import sqlite3
 import SQLite3
 import SystemConfiguration
 
-internal let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
-internal let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
+let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
 
 enum WalletManagerError: Error {
 	case sqliteError(errorCode: Int32, description: String)
@@ -20,13 +21,13 @@ private func SafeSqlite3ColumnBlob<T>(statement: OpaquePointer, iCol: Int32) -> 
 // After instantiating a WalletManager object, call myWalletManager.peerManager.connect() to begin syncing.
 
 class WalletManager: BRWalletListener, BRPeerManagerListener {
-	internal var didInitWallet = false
-	internal let dbPath: String
-	internal var db: OpaquePointer?
+	var didInitWallet = false
+	let dbPath: String
+	var db: OpaquePointer?
 	private var txEnt: Int32 = 0
 	private var blockEnt: Int32 = 0
 	private var peerEnt: Int32 = 0
-	internal let store: Store
+	let store: Store
 	var masterPubKey = BRMasterPubKey()
 	var earliestKeyTime: TimeInterval = 0
 
@@ -68,7 +69,7 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 	}
 
 	// TODO: Pass the fpRate from User Preferences
-	internal lazy var lazyPeerManager: BRPeerManager? = {
+	lazy var lazyPeerManager: BRPeerManager? = {
 		if let wallet = self.wallet {
 			return BRPeerManager(wallet: wallet, earliestKeyTime: self.earliestKeyTime, blocks: self.loadBlocks(), peers: self.loadPeers(), listener: self, fpRate: FalsePositiveRates.semiPrivate.rawValue)
 		} else {
@@ -76,9 +77,9 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 		}
 	}()
 
-	internal lazy var lazyWallet: BRWallet? = BRWallet(transactions: self.loadTransactions(),
-	                                                   masterPubKey: self.masterPubKey,
-	                                                   listener: self)
+	lazy var lazyWallet: BRWallet? = BRWallet(transactions: self.loadTransactions(),
+	                                          masterPubKey: self.masterPubKey,
+	                                          listener: self)
 
 	private lazy var lazyAPIClient: BRAPIClient? = {
 		guard let wallet = self.wallet else { return nil }
@@ -92,9 +93,8 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 
 	lazy var allWordsLists: [[NSString]] = {
 		var array: [[NSString]] = []
-		Bundle.main.localizations.forEach { lang in
-			if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang)
-			{
+		for lang in Bundle.main.localizations {
+			if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang) {
 				if let words = NSArray(contentsOfFile: path) as? [NSString] {
 					array.append(words)
 				}
@@ -106,9 +106,8 @@ class WalletManager: BRWalletListener, BRPeerManagerListener {
 	lazy var allWords: Set<String> = {
 		var set: Set<String> = Set()
 
-		Bundle.main.localizations.forEach { lang in
-			if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang)
-			{
+		for lang in Bundle.main.localizations {
+			if let path = Bundle.main.path(forResource: "BIP39Words", ofType: "plist", inDirectory: nil, forLocalization: lang) {
 				if let words = NSArray(contentsOfFile: path) as? [NSString] {
 					set.formUnion(words.map { $0 as String })
 				}

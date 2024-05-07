@@ -98,8 +98,7 @@ extension AddressCell: UITextFieldDelegate {
 		return true
 	}
 
-	func textField(_: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool
-	{
+	func textField(_: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
 		if let request = PaymentRequest(string: string) {
 			didReceivePaymentRequest?(request)
 			return false

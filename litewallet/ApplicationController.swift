@@ -273,8 +273,7 @@ class ApplicationController: Subscriber, Trackable {
 	func performBackgroundFetch() {
 		saveEvent("appController.performBackgroundFetch")
 		let group = DispatchGroup()
-		if let peerManager = walletManager?.peerManager, peerManager.syncProgress(fromStartHeight: peerManager.lastBlockHeight) < 1.0
-		{
+		if let peerManager = walletManager?.peerManager, peerManager.syncProgress(fromStartHeight: peerManager.lastBlockHeight) < 1.0 {
 			group.enter()
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_DEDG)
 

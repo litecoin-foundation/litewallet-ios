@@ -2,10 +2,10 @@ import BRCore
 import Foundation
 
 class PaymentProtocolDetails {
-	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>
-	internal var isManaged: Bool
+	let cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>
+	var isManaged: Bool
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>) {
+	init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolDetails>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
@@ -68,13 +68,13 @@ class PaymentProtocolDetails {
 }
 
 class PaymentProtocolRequest {
-	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>
-	internal var isManaged: Bool
+	let cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>
+	var isManaged: Bool
 	private var cName: String?
 	private var errMsg: String?
 	private var didValidate: Bool = false
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>) {
+	init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolRequest>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
@@ -233,10 +233,10 @@ class PaymentProtocolRequest {
 }
 
 class PaymentProtocolPayment {
-	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>
-	internal var isManaged: Bool
+	let cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>
+	var isManaged: Bool
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>) {
+	init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolPayment>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}
@@ -274,8 +274,7 @@ class PaymentProtocolPayment {
 		return [BRTxRef?](UnsafeBufferPointer(start: cPtr.pointee.transactions, count: cPtr.pointee.txCount))
 	}
 
-	var refundTo: [BRTxOutput]
-	{ // where to send refunds, if a refund is necessary, refundTo[n].amount defaults to 0
+	var refundTo: [BRTxOutput] { // where to send refunds, if a refund is necessary, refundTo[n].amount defaults to 0
 		return [BRTxOutput](UnsafeBufferPointer(start: cPtr.pointee.refundTo, count: cPtr.pointee.refundToCount))
 	}
 
@@ -290,10 +289,10 @@ class PaymentProtocolPayment {
 }
 
 class PaymentProtocolACK {
-	internal let cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>
-	internal var isManaged: Bool
+	let cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>
+	var isManaged: Bool
 
-	internal init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>) {
+	init(_ cPtr: UnsafeMutablePointer<BRPaymentProtocolACK>) {
 		self.cPtr = cPtr
 		isManaged = false
 	}

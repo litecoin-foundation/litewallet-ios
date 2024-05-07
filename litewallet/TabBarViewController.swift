@@ -130,7 +130,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
 		let priceLabelArray = [primaryBalanceLabel, secondaryBalanceLabel, equalsLabel]
 
-		priceLabelArray.enumerated().forEach { _, view in
+		for (_, view) in priceLabelArray.enumerated() {
 			view?.backgroundColor = .clear
 			view?.textColor = .white
 		}
@@ -311,7 +311,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			return
 		}
 
-		array.forEach { item in
+		for item in array {
 			switch item.tag {
 			case 0: item.title = S.History.barItemTitle.localize()
 			case 1: item.title = S.Send.barItemTitle.localize()

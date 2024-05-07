@@ -81,8 +81,7 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber {
 		return rates.count
 	}
 
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-	{
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 		let rate = rates[indexPath.row]
 		cell.textLabel?.text = "\(rate.code) (\(rate.currencySymbol))"

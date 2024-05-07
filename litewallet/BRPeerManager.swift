@@ -115,17 +115,16 @@ class BRPeerManager {
 
 	// publishes tx to litecoin network
 	func publishTx(_ tx: BRTxRef, completion: @escaping (Bool, BRPeerManagerError?) -> Void) {
-		BRPeerManagerPublishTx(cPtr, tx, Unmanaged.passRetained(CompletionWrapper(completion)).toOpaque())
-			{ info, error in
-				guard let info = info else { return }
-				guard error == 0
-				else {
-					let err = BRPeerManagerError.posixError(errorCode: error, description: String(cString: strerror(error)))
-					return Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(false, err)
-				}
-
-				Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(true, nil)
+		BRPeerManagerPublishTx(cPtr, tx, Unmanaged.passRetained(CompletionWrapper(completion)).toOpaque()) { info, error in
+			guard let info = info else { return }
+			guard error == 0
+			else {
+				let err = BRPeerManagerError.posixError(errorCode: error, description: String(cString: strerror(error)))
+				return Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(false, err)
 			}
+
+			Unmanaged<CompletionWrapper>.fromOpaque(info).takeRetainedValue().completion(true, nil)
+		}
 	}
 
 	// number of connected peers that have relayed the given unconfirmed transaction

@@ -12,8 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var resourceRequest: NSBundleResourceRequest?
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-	{
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		requestResourceWith(tag: ["initial-resources", "speakTag"]) { [self] in
 			// Ops
 			let startDate = Partner.partnerKeyPath(name: .litewalletStart)
@@ -77,13 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.didEnterBackground()
 	}
 
-	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool
-	{
+	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool {
 		return false // disable extensions such as custom keyboards for security purposes
 	}
 
-	func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool
-	{
+	func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 		return applicationController.open(url: url)
 	}
 

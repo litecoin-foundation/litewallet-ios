@@ -175,17 +175,16 @@ class ScanViewController: UIViewController, Trackable {
 }
 
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
-	func metadataOutput(_: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from _: AVCaptureConnection)
-	{
+	func metadataOutput(_: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from _: AVCaptureConnection) {
 		if let data = metadataObjects as? [AVMetadataMachineReadableCodeObject] {
 			if data.isEmpty {
 				guide.state = .normal
 			} else {
-				data.forEach {
-					guard let uri = $0.stringValue
+				for data in data {
+					guard let uri = data.stringValue
 					else {
 						NSLog("ERROR: URI String not found")
-						return
+						continue
 					}
 					if completion != nil, guide.state != .positive {
 						handleURI(uri)

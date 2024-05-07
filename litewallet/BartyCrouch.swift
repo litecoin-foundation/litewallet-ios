@@ -24,8 +24,7 @@ enum BartyCrouch {
 		case turkey = "tr"
 	}
 
-	static func translate(key: String, translations: [SupportedLanguage: String], comment _: String? = nil) -> String
-	{
+	static func translate(key: String, translations: [SupportedLanguage: String], comment _: String? = nil) -> String {
 		let typeName = String(describing: BartyCrouch.self)
 		let methodName = #function
 

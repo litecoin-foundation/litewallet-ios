@@ -42,15 +42,14 @@ extension BRKey {
 
 	// WIF private key
 	mutating func privKey() -> String? {
-		return autoreleasepool
-			{ // wrapping in autoreleasepool ensures sensitive memory is wiped and freed immediately
-				let count = BRKeyPrivKey(&self, nil, 0)
-				var data = CFDataCreateMutable(secureAllocator, count) as Data
-				data.count = count
-				guard data.withUnsafeMutableBytes({ BRKeyPrivKey(&self, $0, count) }) != 0 else { return nil }
-				return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
-				                                                CFStringBuiltInEncodings.UTF8.rawValue) as String
-			}
+		return autoreleasepool { // wrapping in autoreleasepool ensures sensitive memory is wiped and freed immediately
+			let count = BRKeyPrivKey(&self, nil, 0)
+			var data = CFDataCreateMutable(secureAllocator, count) as Data
+			data.count = count
+			guard data.withUnsafeMutableBytes({ BRKeyPrivKey(&self, $0, count) }) != 0 else { return nil }
+			return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
+			                                                CFStringBuiltInEncodings.UTF8.rawValue) as String
+		}
 	}
 
 	// encrypts key with passphrase

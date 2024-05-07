@@ -9,8 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
 	let pushNotifications = PushNotifications.shared
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-	{
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		setFirebaseConfiguration()
 
 		updateCurrentUserLocale(localeId: Locale.current.identifier)
@@ -64,13 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.willResignActive()
 	}
 
-	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool
-	{
+	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool {
 		return false // disable extensions such as custom keyboards for security purposes
 	}
 
-	func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool
-	{
+	func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 		return applicationController.open(url: url)
 	}
 

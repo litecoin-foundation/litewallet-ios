@@ -10,8 +10,7 @@ let kQRImageSide: CGFloat = 110.0
 let kFiveYears: Double = 157_680_000.0
 let kTodaysEpochTime: TimeInterval = Date().timeIntervalSince1970
 
-class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber, Trackable
-{
+class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber, Trackable {
 	@IBOutlet var tableView: UITableView!
 
 	var store: Store?
@@ -102,8 +101,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		}
 
 		let types = PromptType.defaultOrder
-		if let type = types.first(where: { $0.shouldPrompt(walletManager: walletManager, state: store.state) })
-		{
+		if let type = types.first(where: { $0.shouldPrompt(walletManager: walletManager, state: store.state) }) {
 			saveEvent("prompt.\(type.name).displayed")
 			currentPromptType = type
 			if type == .biometrics {
@@ -120,7 +118,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	/// Update displayed transactions. Used mainly when the database needs an update
 	/// - Parameter txHash: String reprsentation of the TX
 	private func updateTransactions(txHash: String) {
-		transactions.enumerated().forEach { i, tx in
+		for (i, tx) in transactions.enumerated() {
 			if tx.hash == txHash {
 				DispatchQueue.main.async {
 					self.tableView.beginUpdates()
@@ -272,8 +270,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 	// MARK: - UITableView Support Methods
 
-	private func configurePromptCell(promptType: PromptType?, indexPath: IndexPath) -> PromptTableViewCell
-	{
+	private func configurePromptCell(promptType: PromptType?, indexPath: IndexPath) -> PromptTableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "PromptTVC2", for: indexPath) as? PromptTableViewCell
 		else {
 			NSLog("ERROR No cell found")

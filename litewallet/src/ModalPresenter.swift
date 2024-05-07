@@ -443,10 +443,9 @@ class ModalPresenter: Subscriber, Trackable {
 				nc.setWhiteStyle()
 				nc.delegate = myself.wipeNavigationDelegate
 				let start = StartWipeWalletViewController {
-					let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet
-						{
-							myself.wipeWallet()
-						})
+					let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet {
+						myself.wipeWallet()
+					})
 					nc.pushViewController(recover, animated: true)
 				}
 				start.addCloseNavigationItem(tintColor: .white)
@@ -715,8 +714,7 @@ class ModalPresenter: Subscriber, Trackable {
 			presentLoginScan()
 		} else {
 			LWAnalytics.logEventWithParameters(itemName: ._20210427_HCIEEH)
-			if let presented = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.presentedViewController
-			{
+			if let presented = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.presentedViewController {
 				presented.dismiss(animated: true, completion: {
 					self.presentLoginScan()
 				})
@@ -833,8 +831,7 @@ class ModalPresenter: Subscriber, Trackable {
 }
 
 class SecurityCenterNavigationDelegate: NSObject, UINavigationControllerDelegate {
-	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool)
-	{
+	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool) {
 		guard let coordinator = navigationController.topViewController?.transitionCoordinator else { return }
 
 		if coordinator.isInteractive {

@@ -28,9 +28,7 @@ enum PromptType {
 	case noPasscode
 	case shareData
 
-	static var defaultOrder: [PromptType] = {
-		[.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
-	}()
+	static var defaultOrder: [PromptType] = [.recommendRescan, .upgradePin, .paperKey, .noPasscode, .biometrics, .shareData]
 
 	var title: String {
 		switch self {

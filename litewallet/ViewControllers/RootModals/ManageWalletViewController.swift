@@ -125,8 +125,7 @@ extension ManageWalletViewController: UITextFieldDelegate {
 		return true
 	}
 
-	func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool
-	{
+	func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
 		guard let text = textField.text else { return true }
 		if text.utf8.count + string.utf8.count > maxWalletNameLength {
 			return false

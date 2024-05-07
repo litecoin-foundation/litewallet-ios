@@ -62,7 +62,8 @@ class WritePaperPhraseViewController: UIViewController {
 
 		NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification,
 		                                       object: nil,
-		                                       queue: nil) { [weak self] _ in
+		                                       queue: nil)
+		{ [weak self] _ in
 			self?.dismiss(animated: true, completion: nil)
 		}
 	}
@@ -87,7 +88,7 @@ class WritePaperPhraseViewController: UIViewController {
 		])
 		label.constrainBottomCorners(sidePadding: C.padding[3], bottomPadding: C.padding[2])
 
-		phraseViews.enumerated().forEach { index, phraseView in
+		for (index, phraseView) in phraseViews.enumerated() {
 			// The first phrase should initially be on the screen
 			let constant = index == 0 ? 0.0 : phraseOffscreenOffset
 			let xConstraint = NSLayoutConstraint(item: phraseView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: constant)

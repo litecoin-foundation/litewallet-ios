@@ -272,8 +272,7 @@ extension WalletManager: WalletAuthenticator {
 	}
 
 	// sign the given transaction using biometric authentication
-	func signTransaction(_ tx: BRTxRef, biometricsPrompt: String, completion: @escaping (BiometricsResult) -> Void)
-	{
+	func signTransaction(_ tx: BRTxRef, biometricsPrompt: String, completion: @escaping (BiometricsResult) -> Void) {
 		do {
 			let spendLimit: Int64 = try keychainItem(key: KeychainKey.spendLimit) ?? 0
 			guard let wallet = wallet, wallet.amountSentByTx(tx) - wallet.amountReceivedFromTx(tx) + wallet.totalSent <= UInt64(spendLimit)
@@ -592,8 +591,7 @@ private func setKeychainItem<T>(key: String, item: T?, authenticated: Bool = fal
 		if SecItemCopyMatching(query as CFDictionary, nil) != errSecItemNotFound {
 			status = SecItemDelete(query as CFDictionary)
 		}
-	} else if SecItemCopyMatching(query as CFDictionary, nil) != errSecItemNotFound
-	{ // update existing item
+	} else if SecItemCopyMatching(query as CFDictionary, nil) != errSecItemNotFound { // update existing item
 		let update = [kSecAttrAccessible as String: accessible,
 		              kSecValueData as String: data as Any]
 		status = SecItemUpdate(query as CFDictionary, update as CFDictionary)

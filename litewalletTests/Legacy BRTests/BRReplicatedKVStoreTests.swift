@@ -10,8 +10,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 		self.testCase = testCase
 	}
 
-	func keys(_ completionFunc: @escaping ([(String, UInt64, Date, BRRemoteKVStoreError?)], BRRemoteKVStoreError?) -> Void)
-	{
+	func keys(_ completionFunc: @escaping ([(String, UInt64, Date, BRRemoteKVStoreError?)], BRRemoteKVStoreError?) -> Void) {
 		print("[TestRemoteKVStore] KEYS")
 		DispatchQueue.main.async {
 			let res = self.db.map { t -> (String, UInt64, Date, BRRemoteKVStoreError?) in
@@ -32,8 +31,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 		}
 	}
 
-	func get(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, [UInt8], BRRemoteKVStoreError?) -> Void)
-	{
+	func get(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, [UInt8], BRRemoteKVStoreError?) -> Void) {
 		print("[TestRemoteKVStore] GET \(key) \(version)")
 		DispatchQueue.main.async {
 			guard let obj = self.db[key]
@@ -47,8 +45,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 		}
 	}
 
-	func put(_ key: String, value: [UInt8], version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void)
-	{
+	func put(_ key: String, value: [UInt8], version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void) {
 		print("[TestRemoteKVStore] PUT \(key) \(version)")
 		DispatchQueue.main.async {
 			guard let obj = self.db[key]
@@ -69,8 +66,7 @@ class BRReplicatedKVStoreTestAdapter: BRRemoteKVStoreAdaptor {
 		}
 	}
 
-	func del(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void)
-	{
+	func del(_ key: String, version: UInt64, completionFunc: @escaping (UInt64, Date, BRRemoteKVStoreError?) -> Void) {
 		print("[TestRemoteKVStore] DEL \(key) \(version)")
 		DispatchQueue.main.async {
 			guard let obj = self.db[key]

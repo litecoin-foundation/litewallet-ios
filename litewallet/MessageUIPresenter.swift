@@ -110,15 +110,13 @@ class MessageUIPresenter: NSObject, Trackable {
 }
 
 extension MessageUIPresenter: MFMailComposeViewControllerDelegate {
-	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith _: MFMailComposeResult, error _: Error?)
-	{
+	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith _: MFMailComposeResult, error _: Error?) {
 		dismiss(controller)
 	}
 }
 
 extension MessageUIPresenter: MFMessageComposeViewControllerDelegate {
-	func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith _: MessageComposeResult)
-	{
+	func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith _: MessageComposeResult) {
 		dismiss(controller)
 	}
 }

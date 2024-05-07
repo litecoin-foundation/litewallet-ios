@@ -3,8 +3,7 @@ import UIKit
 import WebKit
 
 @available(iOS 8.0, *)
-@objc open class BRWebViewController: UIViewController, WKNavigationDelegate, BRWebSocketClient, WKScriptMessageHandler
-{
+@objc open class BRWebViewController: UIViewController, WKNavigationDelegate, BRWebSocketClient, WKScriptMessageHandler {
 	var wkProcessPool: WKProcessPool
 	var webView: WKWebView?
 	var server = BRHTTPServer()
@@ -30,8 +29,7 @@ import WebKit
 		return URL(string: "http://127.0.0.1:\(server.port)\(mountPoint)")!
 	}
 
-	init(partner: String?, mountPoint: String = "/", walletManager: WalletManager, store: Store, noAuthApiClient: BRAPIClient? = nil)
-	{
+	init(partner: String?, mountPoint: String = "/", walletManager: WalletManager, store: Store, noAuthApiClient: BRAPIClient? = nil) {
 		wkProcessPool = WKProcessPool()
 		self.mountPoint = mountPoint
 		self.walletManager = walletManager
@@ -79,20 +77,18 @@ import WebKit
 		view.addSubview(webView!)
 
 		let center = NotificationCenter.default
-		center.addObserver(forName: .UIApplicationDidBecomeActive, object: nil, queue: .main)
-			{ [weak self] _ in
-				self?.didAppear = true
-				if let info = self?.webViewInfo {
-					self?.sendToAllSockets(data: info)
-				}
+		center.addObserver(forName: .UIApplicationDidBecomeActive, object: nil, queue: .main) { [weak self] _ in
+			self?.didAppear = true
+			if let info = self?.webViewInfo {
+				self?.sendToAllSockets(data: info)
 			}
-		center.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: .main)
-			{ [weak self] _ in
-				self?.didAppear = false
-				if let info = self?.webViewInfo {
-					self?.sendToAllSockets(data: info)
-				}
+		}
+		center.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: .main) { [weak self] _ in
+			self?.didAppear = false
+			if let info = self?.webViewInfo {
+				self?.sendToAllSockets(data: info)
 			}
+		}
 
 		activityIndicator.activityIndicatorViewStyle = .white
 		activityIndicator.color = .darkGray
@@ -154,8 +150,7 @@ import WebKit
 		activityIndicator.isHidden = true
 	}
 
-	public func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage)
-	{
+	public func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage) {
 		guard let response = message.body as? String else { return }
 
 		let URLString = URL(string: "https://checkout.simplexcc.com/payments/new")
