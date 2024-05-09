@@ -1,0 +1,138 @@
+# name: Litewallet
+#
+# ############
+# # Options
+# ############
+#
+# options:
+#   minimumXcodeGenVersion: 2.40.0
+#   groupSortPosition: top
+#   generateEmptyDirectories: true
+#   deploymentTarget:
+#     iOS: "15.0"
+#     macOS: "10.15"
+#
+# ############
+# # fileGroups
+# ############
+#
+# fileGroups:
+#   - config
+#
+# ############
+# # Configs
+# ############
+#
+# configs:
+#   Debug: debug
+#   Release: release
+#
+# ############
+# # Packages
+# ############
+#
+# packages:
+#   Firebase:
+#     url: https://github.com/firebase/firebase-ios-sdk
+#     from: 10.23.0
+#
+#   KeychainAccess:
+#     url: https://github.com/kishikawakatsumi/KeychainAccess
+#     from: 4.2.0
+#
+#   UnstoppableDomainsResolution:
+#     url: https://github.com/unstoppabledomains/resolution-swift
+#     from: 6.1.0
+#
+#   PushNotifications:
+#     url: https://github.com/pusher/push-notifications-swift
+#     from: 4.0.0
+#
+# ############
+# # Targets
+# ############
+#
+# targets:
+#   Litewallet:
+#     dependencies:
+#       - package: Firebase
+#       - package: KeychainAccess
+#       - package: UnstoppableDomainsResolution
+#       - package: PushNotifications
+#   # litewalletTests:
+#   #   dependencies:
+#   #     - package: litewallet
+#   # unbound:
+#   #   dependencies:
+#   #     - package: submodules
+#   # BRCore:
+#   #   dependencies:
+#   #     - package: submodules
+#   # nettle:
+#   #   dependencies:
+#   #     - package: submodules
+#
+# ############
+# # Settings
+# ############
+#
+# settings:
+#   PRODUCT_BUNDLE_IDENTIFIER: $(AS_BUNDLE_IDENTIFIER)
+#
+# # ############
+# # # Include
+# # ############
+# #
+# # include:
+# #   - path: xcodegen/project_ios.yml
+# #     relativePaths: false
+# #   - path: xcodegen/project_macos.yml
+# #     relativePaths: false
+
+
+name: litewallet
+include:
+  - base.yml
+  
+############
+# Options
+############
+options:
+  bundleIdPrefix: com.litecoin.loafwallet
+  
+############
+# Packages
+############
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 10.23.0
+
+  KeychainAccess:
+    url: https://github.com/kishikawakatsumi/KeychainAccess
+    from: 4.2.0
+
+  UnstoppableDomainsResolution:
+    url: https://github.com/unstoppabledomains/resolution-swift
+    from: 6.1.0
+
+  PushNotifications:
+    url: https://github.com/pusher/push-notifications-swift
+    from: 4.0.0
+targets:
+  litewallet:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources: [litewallet]
+    settings:
+      configs:
+        debug:
+          CUSTOM_BUILD_SETTING: my_debug_value
+        release:
+          CUSTOM_BUILD_SETTING: my_release_value
+    dependencies:
+      - target: litewallet
+      - framework: unbound
+      - sdk: nettle
+      - sdk: BRCore
