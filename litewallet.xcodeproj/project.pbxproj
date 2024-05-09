@@ -249,6 +249,7 @@
 		C32142FA25C988C800BECCD0 /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32142F925C988C800BECCD0 /* TransactionCellViewModel.swift */; };
 		C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DAE0625925B7E003FC978 /* Color+Extension.swift */; };
 		C32DB42F26488CAA00017D26 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32DB42E26488CAA00017D26 /* TabBarViewController.swift */; };
+		C33685092BECE8B10069CBC7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C33685082BECE8B10069CBC7 /* PrivacyInfo.xcprivacy */; };
 		C339752127001BEC0071FED6 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C339752027001BEC0071FED6 /* EmailValidation.swift */; };
 		C3423C182B781C6B0051BD6D /* PushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = C3423C172B781C6B0051BD6D /* PushNotifications */; };
 		C3423C1A2B79039D0051BD6D /* LaunchCardHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3423C192B79039D0051BD6D /* LaunchCardHostingController.swift */; };
@@ -1400,6 +1401,7 @@
 		C32142F925C988C800BECCD0 /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
 		C32DAE0625925B7E003FC978 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C32DB42E26488CAA00017D26 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C33685082BECE8B10069CBC7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		C339752027001BEC0071FED6 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		C3423C192B79039D0051BD6D /* LaunchCardHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCardHostingController.swift; sourceTree = "<group>"; };
 		C3423C1B2B7903CA0051BD6D /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -2870,6 +2872,7 @@
 		75A2A7871DA5934300A983D8 = {
 			isa = PBXGroup;
 			children = (
+				C33685082BECE8B10069CBC7 /* PrivacyInfo.xcprivacy */,
 				75A2A7921DA5934300A983D8 /* litewallet */,
 				2465873723A5AAD100A32E9E /* litewalletTests */,
 				75A2A80B1DA5936F00A983D8 /* TodayExtension */,
@@ -3756,6 +3759,7 @@
 				C3423C492B796D820051BD6D /* Ko.mp3 in Resources */,
 				24B8FAD72162B6FB00A155B1 /* bitrefill_index.html in Resources */,
 				75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */,
+				C33685092BECE8B10069CBC7 /* PrivacyInfo.xcprivacy in Resources */,
 				C3423C3F2B796D820051BD6D /* Pt.mp3 in Resources */,
 				24D5F23822599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */,
 				24D5F25922599C0B00225462 /* BarlowSemiCondensed-Medium.ttf in Resources */,
@@ -4530,7 +4534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240509.0;
+				CURRENT_PROJECT_VERSION = 240509.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
@@ -4887,7 +4891,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240509.0;
+				CURRENT_PROJECT_VERSION = 240509.1;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5028,7 +5032,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240509.0;
+				CURRENT_PROJECT_VERSION = 240509.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
