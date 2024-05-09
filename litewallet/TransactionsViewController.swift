@@ -35,7 +35,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		didSet {
 			if currentPromptType != nil, oldValue == nil {
 				DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+					guard let self = self else { return }
 					self.tableView.beginUpdates()
 					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 					self.tableView.endUpdates()
