@@ -34,9 +34,12 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	private var currentPromptType: PromptType? {
 		didSet {
 			if currentPromptType != nil, oldValue == nil {
-				tableView.beginUpdates()
-				tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-				tableView.endUpdates()
+				DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+					self.tableView.beginUpdates()
+					self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+					self.tableView.endUpdates()
+				}
 			}
 		}
 	}
