@@ -4,7 +4,7 @@ import UIKit
 
 private let lastBlockHeightKey = "LastBlockHeightKey"
 private let progressUpdateInterval: TimeInterval = 1.0
-private let updateDebounceInterval: TimeInterval = 3.0
+private let updateDebounceInterval: TimeInterval = 1.0
 
 class WalletCoordinator: Subscriber, Trackable {
 	var kvStore: BRReplicatedKVStore? {

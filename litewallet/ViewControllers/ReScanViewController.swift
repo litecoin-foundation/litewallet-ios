@@ -3,7 +3,6 @@ import UIKit
 class ReScanViewController: UIViewController, Subscriber {
 	init(store: Store) {
 		self.store = store
-		faq = .buildFaqButton(store: store, articleId: ArticleIds.nothing)
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -12,7 +11,6 @@ class ReScanViewController: UIViewController, Subscriber {
 	private let button = ShadowButton(title: S.ReScan.buttonTitle.localize(), type: .primary)
 	private let footer = UILabel.wrapping(font: .customBody(size: 16.0), color: .secondaryGrayText)
 	private let store: Store
-	private let faq: UIButton
 
 	deinit {
 		store.unsubscribe(self)
@@ -26,7 +24,6 @@ class ReScanViewController: UIViewController, Subscriber {
 
 	private func addSubviews() {
 		view.addSubview(header)
-		view.addSubview(faq)
 		view.addSubview(body)
 		view.addSubview(button)
 		view.addSubview(footer)
@@ -36,21 +33,16 @@ class ReScanViewController: UIViewController, Subscriber {
 		header.constrain([
 			header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
 			header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: C.padding[2]),
-		])
-		faq.constrain([
-			faq.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -C.padding[2]),
-			faq.centerYAnchor.constraint(equalTo: header.centerYAnchor),
-			faq.widthAnchor.constraint(equalToConstant: 44.0),
-			faq.heightAnchor.constraint(equalToConstant: 44.0),
+			header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: C.padding[-2]),
 		])
 		body.constrain([
 			body.leadingAnchor.constraint(equalTo: header.leadingAnchor),
 			body.topAnchor.constraint(equalTo: header.bottomAnchor, constant: C.padding[2]),
-			body.trailingAnchor.constraint(equalTo: faq.trailingAnchor),
+			body.trailingAnchor.constraint(equalTo: header.trailingAnchor),
 		])
 		footer.constrain([
 			footer.leadingAnchor.constraint(equalTo: header.leadingAnchor),
-			footer.trailingAnchor.constraint(equalTo: faq.trailingAnchor),
+			footer.trailingAnchor.constraint(equalTo: header.trailingAnchor),
 			footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -C.padding[3]),
 		])
 		button.constrain([
@@ -90,10 +82,10 @@ class ReScanViewController: UIViewController, Subscriber {
 		let bodyAttributes = [NSAttributedString.Key.font: UIFont.customBody(size: 16.0),
 		                      NSAttributedString.Key.foregroundColor: UIColor.darkText]
 
-		body.append(NSAttributedString(string: "\(S.ReScan.subheader1)\n", attributes: headerAttributes))
-		body.append(NSAttributedString(string: "\(S.ReScan.body1)\n\n", attributes: bodyAttributes))
-		body.append(NSAttributedString(string: "\(S.ReScan.subheader2)\n", attributes: headerAttributes))
-		body.append(NSAttributedString(string: "\(S.ReScan.body2)\n\n\(S.ReScan.body3)", attributes: bodyAttributes))
+		body.append(NSAttributedString(string: "\(S.ReScan.subheader1.localize())\n", attributes: headerAttributes))
+		body.append(NSAttributedString(string: "\(S.ReScan.body1.localize())\n\n", attributes: bodyAttributes))
+		body.append(NSAttributedString(string: "\(S.ReScan.subheader2.localize())\n", attributes: headerAttributes))
+		body.append(NSAttributedString(string: "\(S.ReScan.body2.localize())\n\n\(S.ReScan.body3.localize())", attributes: bodyAttributes))
 		return body
 	}
 
