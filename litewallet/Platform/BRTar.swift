@@ -137,8 +137,7 @@ class BRTar {
 		}
 	}
 
-	fileprivate static func readTypeAtLocation(_ location: UInt64, fromHandle handle: FileHandle) -> BRTarType
-	{
+	fileprivate static func readTypeAtLocation(_ location: UInt64, fromHandle handle: FileHandle) -> BRTarType {
 		log("reading type at location \(location)")
 		handle.seek(toFileOffset: location + tarTypePosition)
 		let typeDat = handle.readData(ofLength: 1)
@@ -147,8 +146,7 @@ class BRTar {
 		return ret
 	}
 
-	fileprivate static func readNameAtLocation(_ location: UInt64, fromHandle handle: FileHandle) throws -> String
-	{
+	fileprivate static func readNameAtLocation(_ location: UInt64, fromHandle handle: FileHandle) throws -> String {
 		handle.seek(toFileOffset: location + tarNamePosition)
 		let dat = handle.readData(ofLength: Int(tarNameSize))
 		guard let ret = String(bytes: dat, encoding: String.Encoding.ascii)
@@ -159,8 +157,7 @@ class BRTar {
 		return ret
 	}
 
-	fileprivate static func readSizeAtLocation(_ location: UInt64, fromHandle handle: FileHandle) -> UInt64
-	{
+	fileprivate static func readSizeAtLocation(_ location: UInt64, fromHandle handle: FileHandle) -> UInt64 {
 		handle.seek(toFileOffset: location + tarSizePosition)
 		let sizeDat = handle.readData(ofLength: Int(tarSizeSize))
 		let octal = NSString(data: sizeDat, encoding: String.Encoding.ascii.rawValue)!

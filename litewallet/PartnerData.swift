@@ -56,7 +56,6 @@ struct Partner {
 			}
 
 		case .litewalletOps:
-
 			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
 			   let opsArray = dictionary["litewallet-ops"] as? [String]
 			{

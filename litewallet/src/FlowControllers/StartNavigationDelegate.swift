@@ -7,8 +7,7 @@ class StartNavigationDelegate: NSObject, UINavigationControllerDelegate {
 		self.store = store
 	}
 
-	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool)
-	{
+	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool) {
 		if viewController is RecoverWalletIntroViewController {
 			navigationController.navigationBar.tintColor = .white
 			navigationController.navigationBar.titleTextAttributes = [

@@ -81,8 +81,7 @@ class ModalTransitionDelegate: NSObject, Subscriber {
 }
 
 extension ModalTransitionDelegate: UIViewControllerTransitioningDelegate {
-	func animationController(forPresented presented: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning?
-	{
+	func animationController(forPresented presented: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		presentedViewController = presented
 		return PresentModalAnimator(shouldCoverBottomGap: type == .regular, completion: {
 			let panGr = UIPanGestureRecognizer(target: self, action: #selector(ModalTransitionDelegate.didUpdate(gr:)))
@@ -93,13 +92,11 @@ extension ModalTransitionDelegate: UIViewControllerTransitioningDelegate {
 		})
 	}
 
-	func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning?
-	{
+	func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		return DismissModalAnimator()
 	}
 
-	func interactionControllerForDismissal(using _: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
-	{
+	func interactionControllerForDismissal(using _: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
 		return isInteractive ? interactiveTransition : nil
 	}
 }

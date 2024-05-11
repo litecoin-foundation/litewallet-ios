@@ -13,8 +13,7 @@ extension BRAPIClient {
 		task.resume()
 	}
 
-	func exchangeRates(isFallback: Bool = false, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void)
-	{
+	func exchangeRates(isFallback: Bool = false, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
 		let request = isFallback ? URLRequest(url: URL(string: fallbackRatesURL)!) : URLRequest(url: URL(string: APIServer.baseUrl + "v1/rates")!)
 		_ = dataTaskWithRequest(request) { data, _, error in
 			if error == nil, let data = data,

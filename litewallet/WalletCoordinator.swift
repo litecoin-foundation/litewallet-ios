@@ -3,8 +3,8 @@ import Foundation
 import UIKit
 
 private let lastBlockHeightKey = "LastBlockHeightKey"
-private let progressUpdateInterval: TimeInterval = 0.5
-private let updateDebounceInterval: TimeInterval = 0.4
+private let progressUpdateInterval: TimeInterval = 1.0
+private let updateDebounceInterval: TimeInterval = 3.0
 
 class WalletCoordinator: Subscriber, Trackable {
 	var kvStore: BRReplicatedKVStore? {
@@ -119,46 +119,45 @@ class WalletCoordinator: Subscriber, Trackable {
 	@objc private func updateTransactions() {
 		updateTimer?.invalidate()
 		updateTimer = nil
-		Task {
-			guard let txRefs = self.walletManager.wallet?.transactions else {
-				let properties = ["error_message": "wallet_tx_refs_are_nil"]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
-				return
-			}
 
-			let transactions = await self.makeTransactionViewModels(transactions: txRefs, walletManager: self.walletManager, kvStore: self.kvStore, rate: self.store.state.currentRate)
-			if !transactions.isEmpty {
-				Task {
-					self.store.perform(action: WalletChange.setTransactions(transactions))
+		Task {
+			do {
+				guard let wallet = self.walletManager.wallet else {
+					debugPrint("Wallet not found!")
+					return
 				}
-			} else {
-				let properties = ["transactions_info": "no_txs_found_in_wallet"]
-				LWAnalytics.logEventWithParameters(itemName: ._20240214_TI, properties: properties)
+
+				let transactions = try await self.makeTransactionViewModels(transactions: wallet.transactions,
+				                                                            walletManager: self.walletManager,
+				                                                            kvStore: self.kvStore,
+				                                                            rate: self.store.state.currentRate)
+
+				if !transactions.isEmpty {
+					Task {
+						self.store.perform(action: WalletChange.setTransactions(transactions))
+					}
+				} else {
+					LWAnalytics.logEventWithParameters(itemName: ._20240214_TI, properties: ["transactions_info": "no_txs_found_in_wallet"])
+				}
+			} catch {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error_message": error.localizedDescription])
 			}
 		}
 	}
 
-	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) async -> [Transaction]
-	{
-		///  Send analytical  data for any nils in this method
-		if kvStore == nil {
-			let properties = ["error_message": "replicated_kv_store_is_nil"]
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) async throws -> [Transaction] {
+		guard let kvStore = kvStore else {
+			// throw MakeTransactionError.replicatedKVStoreNotFound
+			return []
 		}
 
-		if rate == nil {
-			let properties = ["error_message": "rate_is_nil"]
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+		guard let rate = rate else {
+			// throw MakeTransactionError.rateNotFound
+			return []
 		}
 
 		return transactions.compactMap { $0 }.sorted {
-			if $0.pointee.timestamp == 0 {
-				return true
-			} else if $1.pointee.timestamp == 0 {
-				return false
-			} else {
-				return $0.pointee.timestamp > $1.pointee.timestamp
-			}
+			$0.pointee.timestamp > $1.pointee.timestamp
 		}.compactMap {
 			Transaction($0, walletManager: walletManager, kvStore: kvStore, rate: rate)
 		}

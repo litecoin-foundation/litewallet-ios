@@ -40,8 +40,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	private let keychainPreferences = Keychain(service: "litewallet.user-prefs")
 	private var buttonToBorder: CGFloat = 0.0
 
-	init(store: Store, sender: Sender, walletManager: WalletManager, initialAddress: String? = nil, initialRequest: PaymentRequest? = nil)
-	{
+	init(store: Store, sender: Sender, walletManager: WalletManager, initialAddress: String? = nil, initialRequest: PaymentRequest? = nil) {
 		self.store = store
 		self.sender = sender
 		self.walletManager = walletManager
@@ -207,8 +206,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		}
 	}
 
-	private func balanceTextForAmountWithFormattedFees(enteredAmount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?)
-	{
+	private func balanceTextForAmountWithFormattedFees(enteredAmount: Satoshis?, rate: Rate?) -> (NSAttributedString?, NSAttributedString?) {
 		/// DEV: KCW 12-FEB-24
 		// The results of this output is doing double duty and the method is a nightmare.
 		// The parent view controller uses the numbers and the text is used in this View Controller
@@ -489,14 +487,13 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		let isValid = protoReq.isValid()
 		var isOutputTooSmall = false
 
-		if let errorMessage = protoReq.errorMessage, errorMessage == S.PaymentProtocol.Errors.requestExpired.localize(), !isValid
-		{
+		if let errorMessage = protoReq.errorMessage, errorMessage == S.PaymentProtocol.Errors.requestExpired.localize(), !isValid {
 			return showAlert(title: S.PaymentProtocol.Errors.badPaymentRequest.localize(), message: errorMessage, buttonLabel: S.Button.ok.localize())
 		}
 
 		// TODO: check for duplicates of already paid requests
 		var requestAmount = Satoshis(0)
-		protoReq.details.outputs.forEach { output in
+		for output in protoReq.details.outputs {
 			if output.amount > 0, output.amount < wallet.minOutputAmount {
 				isOutputTooSmall = true
 			}
@@ -511,8 +508,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 				self?.didIgnoreUsedAddressWarning = true
 				self?.confirmProtocolRequest(protoReq: protoReq)
 			})
-		} else if let message = protoReq.errorMessage, !message.utf8.isEmpty, (protoReq.commonName?.utf8.count)! > 0, !didIgnoreIdentityNotCertified
-		{
+		} else if let message = protoReq.errorMessage, !message.utf8.isEmpty, (protoReq.commonName?.utf8.count)! > 0, !didIgnoreIdentityNotCertified {
 			return showError(title: S.Send.identityNotCertified.localize(), message: message, ignore: { [weak self] in
 				self?.didIgnoreIdentityNotCertified = true
 				self?.confirmProtocolRequest(protoReq: protoReq)

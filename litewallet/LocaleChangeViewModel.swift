@@ -1,4 +1,5 @@
 import Foundation
+
 class LocaleChangeViewModel: ObservableObject {
 	// MARK: - Combine Variables
 

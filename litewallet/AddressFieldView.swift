@@ -53,8 +53,7 @@ struct AddressFieldView: UIViewRepresentable {
 			parent = textField
 		}
 
-		func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-		{
+		func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 			if let currentValue = textField.text as NSString? {
 				let proposedValue = currentValue.replacingCharacters(in: range, with: string) as String
 				parent.text = proposedValue

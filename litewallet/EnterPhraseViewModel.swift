@@ -1,4 +1,5 @@
 import Foundation
+
 class EnterPhraseViewModel: ObservableObject {
 	// MARK: - Combine Variables
 

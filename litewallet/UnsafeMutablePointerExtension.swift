@@ -93,8 +93,7 @@ extension UnsafeMutablePointer where Pointee == BRTransaction {
 		return BRTransactionHash(self)
 	}
 
-	public static func == (l: UnsafeMutablePointer<Pointee>, r: UnsafeMutablePointer<Pointee>) -> Bool
-	{
+	public static func == (l: UnsafeMutablePointer<Pointee>, r: UnsafeMutablePointer<Pointee>) -> Bool {
 		return BRTransactionEq(l, r) != 0
 	}
 }

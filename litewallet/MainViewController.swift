@@ -141,23 +141,21 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 	}
 
 	private func addAppLifecycleNotificationEvents() {
-		NotificationCenter.default.addObserver(forName: UIScene.didActivateNotification, object: nil, queue: nil)
-			{ _ in
-				UIView.animate(withDuration: 0.1, animations: {
-					self.blurView.alpha = 0.0
-				}, completion: { _ in
-					self.blurView.removeFromSuperview()
-				})
-			}
+		NotificationCenter.default.addObserver(forName: UIScene.didActivateNotification, object: nil, queue: nil) { _ in
+			UIView.animate(withDuration: 0.1, animations: {
+				self.blurView.alpha = 0.0
+			}, completion: { _ in
+				self.blurView.removeFromSuperview()
+			})
+		}
 
-		NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification, object: nil, queue: nil)
-			{ _ in
-				if !self.isLoginRequired, !self.store.state.isPromptingBiometrics {
-					self.blurView.alpha = 1.0
-					self.view.addSubview(self.blurView)
-					self.blurView.constrain(toSuperviewEdges: nil)
-				}
+		NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification, object: nil, queue: nil) { _ in
+			if !self.isLoginRequired, !self.store.state.isPromptingBiometrics {
+				self.blurView.alpha = 1.0
+				self.view.addSubview(self.blurView)
+				self.blurView.constrain(toSuperviewEdges: nil)
 			}
+		}
 	}
 
 	private func showJailbreakWarnings(isJailbroken: Bool) {

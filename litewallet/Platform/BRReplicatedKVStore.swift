@@ -13,6 +13,12 @@ public enum BRReplicatedKVStoreError: Error {
 	case malformedData
 }
 
+/// MakeTransactionError: Error
+public enum MakeTransactionError: Error {
+	case replicatedKVStoreNotFound
+	case rateNotFound
+}
+
 public enum BRRemoteKVStoreError: Error {
 	case notFound
 	case conflict
@@ -203,7 +209,7 @@ open class BRReplicatedKVStore: NSObject {
 			deleted = sqlite3_column_int(stmt, 3) > 0
 			ret = Array(UnsafeBufferPointer<UInt8>(start: blob?.assumingMemoryBound(to: UInt8.self), count: Int(blobLength)))
 		}
-		return (curVer, time, deleted, encrypted ? try decrypt(ret) : ret)
+		return try (curVer, time, deleted, encrypted ? decrypt(ret) : ret)
 	}
 
 	/// Set the value of a key locally in the database. If syncImmediately is true (the default) then immediately
@@ -330,8 +336,7 @@ open class BRReplicatedKVStore: NSObject {
 
 	////        return 0
 	//    }
-	func remoteVersion(_ key: String) throws -> Int
-	{ // this would be UInt64.. but it makes the compiler crash
+	func remoteVersion(_ key: String) throws -> Int { // this would be UInt64.. but it makes the compiler crash
 		try checkKey(key)
 		var ret: UInt64 = 0
 		try txn {
@@ -737,11 +742,10 @@ open class BRReplicatedKVStore: NSObject {
 		gettimeofday(&tv, nil)
 		var t = UInt64(tv.tv_usec) * 1_000_000 + UInt64(tv.tv_usec)
 		let p = [UInt8](repeating: 0, count: 4)
-		return Data(bytes: &t, count: MemoryLayout<UInt64>.size).withUnsafeBytes
-			{ (dat: UnsafePointer<UInt8>) -> [UInt8] in
-				let buf = UnsafeBufferPointer(start: dat, count: MemoryLayout<UInt64>.size)
-				return p + Array(buf)
-			}
+		return Data(bytes: &t, count: MemoryLayout<UInt64>.size).withUnsafeBytes { (dat: UnsafePointer<UInt8>) -> [UInt8] in
+			let buf = UnsafeBufferPointer(start: dat, count: MemoryLayout<UInt64>.size)
+			return p + Array(buf)
+		}
 	}
 
 	fileprivate func log(_ s: String) {

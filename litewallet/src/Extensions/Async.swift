@@ -1,10 +1,9 @@
 import Foundation
 
 enum Async {
-	static func parallel(callbacks: [(@escaping () -> Void) -> Void], completion: @escaping () -> Void)
-	{
+	static func parallel(callbacks: [(@escaping () -> Void) -> Void], completion: @escaping () -> Void) {
 		let dispatchGroup = DispatchGroup()
-		callbacks.forEach { cb in
+		for cb in callbacks {
 			dispatchGroup.enter()
 			cb {
 				dispatchGroup.leave()

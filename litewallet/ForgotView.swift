@@ -11,7 +11,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 	var isShowingForgot: Bool
 
 	@State
-	var email: String = ""
+	var email = ""
 
 	let presenting: Presenting
 
@@ -21,7 +21,7 @@ struct ForgotAlertView<Presenting>: View where Presenting: View {
 	var detailMessage: String = S.LitecoinCard.resetPasswordDetail.localize()
 
 	@State
-	var didCheckEmailAddress: Bool = false
+	var didCheckEmailAddress = false
 
 	var body: some View {
 		GeometryReader { (_: GeometryProxy) in
