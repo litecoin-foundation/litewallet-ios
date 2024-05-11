@@ -13,6 +13,12 @@ public enum BRReplicatedKVStoreError: Error {
 	case malformedData
 }
 
+/// MakeTransactionError: Error
+public enum MakeTransactionError: Error {
+	case replicatedKVStoreNotFound
+	case rateNotFound
+}
+
 public enum BRRemoteKVStoreError: Error {
 	case notFound
 	case conflict

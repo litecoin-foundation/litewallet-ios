@@ -321,8 +321,8 @@
 		C3FDADED28B2DB090054FC80 /* SendAddressHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDADEC28B2DB090054FC80 /* SendAddressHostingController.swift */; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
-		C738969F2BEA3C0200029095 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C738969E2BEA3C0200029095 /* GoogleService-Info.plist */; };
-		C73896A12BEA3C4900029095 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C73896A02BEA3C4900029095 /* partner-keys.plist */; };
+		C738969F2BEA3C0200029095 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C738969E2BEA3C0200029095 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
+		C73896A12BEA3C4900029095 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C73896A02BEA3C4900029095 /* partner-keys.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
 		CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CF71E67A8E500DFA146 /* TransactionDirection.swift */; };

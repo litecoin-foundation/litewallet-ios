@@ -147,12 +147,12 @@ class WalletCoordinator: Subscriber, Trackable {
 
 	func makeTransactionViewModels(transactions: [BRTxRef?], walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) async throws -> [Transaction] {
 		guard let kvStore = kvStore else {
-//			throw MakeTransactionError.replicatedKVStoreNotFound
+			// throw MakeTransactionError.replicatedKVStoreNotFound
 			return []
 		}
 
 		guard let rate = rate else {
-//			throw MakeTransactionError.rateNotFound
+			// throw MakeTransactionError.rateNotFound
 			return []
 		}
 

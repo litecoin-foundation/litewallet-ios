@@ -56,18 +56,17 @@ struct Partner {
 			}
 
 		case .litewalletOps:
-			return "ltc1qrk9t25v3s2r64knehcgdu9n4pwl2ccvf8z49fa"
-//			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
-//			   let opsArray = dictionary["litewallet-ops"] as? [String]
-//			{
-//				let randomInt = Int.random(in: 0 ..< opsArray.count)
-//				let key = opsArray[randomInt]
-//				return key
-//			} else {
-//				let errorDescription = "error_litewallet_opskey"
-//				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
-//				return errorDescription
-//			}
+			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
+			   let opsArray = dictionary["litewallet-ops"] as? [String]
+			{
+				let randomInt = Int.random(in: 0 ..< opsArray.count)
+				let key = opsArray[randomInt]
+				return key
+			} else {
+				let errorDescription = "error_litewallet_opskey"
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
+				return errorDescription
+			}
 
 		case .litewalletStart:
 
