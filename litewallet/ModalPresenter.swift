@@ -494,7 +494,17 @@ class ModalPresenter: Subscriber, Trackable {
 					settingsNav.pushViewController(localeView, animated: true)
 				}),
 				Setting(title: S.Settings.sync.localize(), callback: {
-					settingsNav.pushViewController(ReScanViewController(store: self.store), animated: true)
+					let alert = UIAlertController(title: S.ReScan.alertTitle.localize(), message: S.ReScan.alertMessage.localize(), preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .default, handler: { _ in
+						alert.dismiss(animated: true)
+					}))
+					alert.addAction(UIAlertAction(title: S.ReScan.alertAction.localize(), style: .default, handler: { _ in
+						self.store.trigger(name: .rescan)
+						LWAnalytics.logEventWithParameters(itemName: ._20200112_DSR)
+						alert.dismiss(animated: true)
+						self.topViewController?.dismiss(animated: true)
+					}))
+					self.topViewController?.present(alert, animated: true)
 				}),
 				Setting(title: S.UpdatePin.updateTitle.localize(), callback: strongify(self) { myself in
 					let updatePin = UpdatePinViewController(store: myself.store, walletManager: walletManager, type: .update)

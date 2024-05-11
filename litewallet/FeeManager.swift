@@ -36,13 +36,15 @@ class FeeUpdater: Trackable {
 
 	private let maxFeePerKB = Fees.usingDefaultValues.luxury
 	private var timer: Timer?
-	private let feeUpdateInterval: TimeInterval = 15 // meet Nyquist for api server interval (30)
+	private let feeUpdateInterval: TimeInterval = 3
+	private var exchangeUpdater: ExchangeUpdater
 
 	// MARK: - Public
 
-	init(walletManager: WalletManager, store: Store) {
+	init(walletManager: WalletManager, store: Store, exchangeUpdater: ExchangeUpdater) {
 		self.walletManager = walletManager
 		self.store = store
+		self.exchangeUpdater = exchangeUpdater
 	}
 
 	func refresh(completion: @escaping () -> Void) {
@@ -79,5 +81,9 @@ class FeeUpdater: Trackable {
 
 	@objc func intervalRefresh() {
 		refresh(completion: {})
+		exchangeUpdater.refresh(completion: {
+			/// DEV: For testing
+			/// NSLog("::: Rate updated")
+		})
 	}
 }

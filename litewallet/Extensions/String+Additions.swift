@@ -103,6 +103,39 @@ extension String {
 	}
 }
 
+// MARK: - Language code String
+
+extension String {
+	/// 14  Languages
+	/// Locale.current.identifier)
+	static func preferredLanguageInterest(currentId: String) -> String {
+		var codeId = ""
+		if (currentId == "zh_CN") || (currentId == "zh_SG") {
+			return "general-chinese-simplified"
+		} else if (currentId == "zh_TW") || (currentId == "zh_HK") {
+			return "general-chinese-traditional"
+		} else {
+			codeId = String(currentId.suffix(2))
+		}
+
+		switch codeId {
+		case "en": return "general-english"
+		case "fr": return "general-french"
+		case "de": return "general-german"
+		case "id": return "general-indonesian"
+		case "it": return "general-italian"
+		case "ja": return "general-japanese"
+		case "ko": return "general-korean"
+		case "pt": return "general-portuguese"
+		case "ru": return "general-russian"
+		case "es": return "general-spanish"
+		case "tr": return "general-turkish"
+		case "uk": return "general-ukrainian"
+		default: return "general-english"
+		}
+	}
+}
+
 extension UnicodeScalar {
 	var nibble: UInt8? {
 		if value >= 48, value <= 57 {

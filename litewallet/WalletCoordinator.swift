@@ -4,7 +4,7 @@ import UIKit
 
 private let lastBlockHeightKey = "LastBlockHeightKey"
 private let progressUpdateInterval: TimeInterval = 1.0
-private let updateDebounceInterval: TimeInterval = 3.0
+private let updateDebounceInterval: TimeInterval = 1.0
 
 class WalletCoordinator: Subscriber, Trackable {
 	var kvStore: BRReplicatedKVStore? {
@@ -158,7 +158,8 @@ class WalletCoordinator: Subscriber, Trackable {
 
 		return transactions.compactMap { $0 }.sorted {
 			$0.pointee.timestamp > $1.pointee.timestamp
-		}.compactMap {
+		}
+		.compactMap {
 			Transaction($0, walletManager: walletManager, kvStore: kvStore, rate: rate)
 		}
 	}

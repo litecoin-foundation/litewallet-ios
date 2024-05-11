@@ -6,7 +6,6 @@ enum PartnerName {
 	case litewalletOps
 	case litewalletStart
 	case pusher
-	case pusherStaging
 }
 
 struct Partner {
@@ -84,18 +83,6 @@ struct Partner {
 
 			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
 			   let key = dictionary["pusher-instance-id"] as? String
-			{
-				return key
-			} else {
-				let errorDescription = "error_pusher_id_key"
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
-				return errorDescription
-			}
-
-		case .pusherStaging:
-
-			if let dictionary = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
-			   let key = dictionary["pusher-staging-instance-id"] as? String
 			{
 				return key
 			} else {
