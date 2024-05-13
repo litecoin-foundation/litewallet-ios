@@ -55,20 +55,6 @@ class UnstoppableDomainViewModel: ObservableObject {
 		}
 	}
 
-	func resolveDomain() {
-		isDomainResolving = true
-
-		// Added timing peroformance probes to see what the average time is
-		let timestamp: String = dateFormatter?.string(from: Date()) ?? ""
-
-		LWAnalytics.logEventWithParameters(itemName:
-			CustomEvent._20201121_SIL,
-			properties:
-			["start_time": timestamp])
-
-		resolveUDAddress(domainName: searchString)
-	}
-
 	private func resolveUDAddress(domainName: String) {
 		// This group is created to allow the threads to complete.
 		// Otherwise, we may never get in the callback relative to UDR v4.0.0

@@ -32,9 +32,6 @@ class FeeUpdater: Trackable {
 
 	private let walletManager: WalletManager
 	private let store: Store
-	private lazy var minFeePerKB: UInt64 = Fees.usingDefaultValues.economy
-
-	private let maxFeePerKB = Fees.usingDefaultValues.luxury
 	private var timer: Timer?
 	private let feeUpdateInterval: TimeInterval = 3
 	private var exchangeUpdater: ExchangeUpdater

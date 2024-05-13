@@ -1,14 +1,5 @@
 import UIKit
 
-struct WalletAddressData {
-	var address: String
-	var qrCode: UIImage
-	var balance: Double
-	var balanceText: String {
-		String(balance) + " Ł"
-	}
-}
-
 class ReceiveLTCViewController: UIViewController {
 	var store: Store?
 	override func viewDidLoad() {

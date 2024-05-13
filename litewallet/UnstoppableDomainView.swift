@@ -8,16 +8,7 @@ struct UnstoppableDomainView: View {
 	var viewModel: UnstoppableDomainViewModel
 
 	@State
-	private var didReceiveLTCfromUD: Bool = false
-
-	@State
-	private var shouldDisableLookupButton: Bool = true
-
-	@State
 	private var didStartEditing: Bool = false
-
-	@State
-	private var shouldStartScroll: Bool = false
 
 	init(viewModel: UnstoppableDomainViewModel) {
 		self.viewModel = viewModel

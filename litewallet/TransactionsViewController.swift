@@ -15,11 +15,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 	var store: Store?
 	var walletManager: WalletManager?
-	var selectedIndexes = [IndexPath: NSNumber]()
 	var shouldBeSyncing: Bool = false
 	var syncingHeaderView: SyncProgressHeaderView?
-
-	var shouldShowPrompt = true
 
 	private var transactions: [Transaction] = []
 	private var allTransactions: [Transaction] = [] {

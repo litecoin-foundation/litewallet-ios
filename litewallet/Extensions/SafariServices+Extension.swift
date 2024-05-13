@@ -67,8 +67,8 @@ class SignupWebView: WKWebView, WKNavigationDelegate {
 
 		webView.evaluateJavaScript(scriptContent, completionHandler: { height, error in
 
-			print(height)
-			print(error)
+			debugPrint(height ?? 0.0)
+			debugPrint(error)
 		})
 
 		webView.evaluateJavaScript("document.body.innerHTML", completionHandler: { (value: Any!, error: Error!) in
@@ -76,20 +76,8 @@ class SignupWebView: WKWebView, WKNavigationDelegate {
 				// Error logic
 				return
 			}
-			// webView.invalidateIntrinsicContentSize()
 
-			//            let js = "document.getElementById(\"MY_TEXTFIELD_ID\").focus();"
-			//            webView.evaluateJavaScript(js)
-
-			//       webview.canBecomeFocused = true
-
-			// document.getElementById('myID').focus();
-
-			// webview.scrollView.setZoomScale(0.3, animated: true)
-
-			let result = value as? String
-
-			print(value)
+			debugPrint(value ?? "Empty string")
 		})
 	}
 }
