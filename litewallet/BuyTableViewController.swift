@@ -9,14 +9,15 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet var bitrefillDetailsLabel: UILabel!
 	@IBOutlet var bitrefillCellContainerView: UIView!
 	@IBAction func didTapBitrefill(_: UIButton) {
-		guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935")
-		else {
-			return
-		}
-
-		let sfSafariVC = SFSafariViewController(url: url)
-		sfSafariVC.delegate = self
-		present(sfSafariVC, animated: true)
+		/// DEV: Until Compliance data is sent . KCW_051624
+		//		guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935")
+		//		else {
+		//			return
+		//		}
+		//
+		//		let sfSafariVC = SFSafariViewController(url: url)
+		//		sfSafariVC.delegate = self
+		//		present(sfSafariVC, animated: true)
 	}
 
 	// MARK: Moonpay UI
@@ -39,41 +40,9 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		present(sfSafariVC, animated: true)
 	}
 
-	// MARK: Simplex UI
-
-	@IBOutlet var simplexLogoImageView: UIImageView!
-	@IBOutlet var simplexHeaderLabel: UILabel!
-	@IBOutlet var simplexDetailsLabel: UILabel!
-	@IBOutlet var simplexCellContainerView: UIView!
-	@IBOutlet var simplexCurrencySegmentedControl: UISegmentedControl!
-
 	private var currencyCode: String = "USD"
 	private let uuidString: String = UIDevice.current.identifierForVendor?.uuidString ?? ""
 	private let currentWalletAddress: String = WalletManager.sharedInstance.wallet?.receiveAddress ?? ""
-
-	@IBAction func didTapSimplex(_: Any) {
-		if let vcWKVC = UIStoryboard(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController {
-			vcWKVC.currencyCode = currencyCode
-			vcWKVC.currentWalletAddress = currentWalletAddress
-			vcWKVC.uuidString = uuidString
-			vcWKVC.timestamp = Int(Date().timeIntervalSince1970)
-			addChild(vcWKVC)
-			view.addSubview(vcWKVC.view)
-			vcWKVC.didMove(toParent: self)
-
-			vcWKVC.didDismissChildView = {
-				for vc in self.children {
-					DispatchQueue.main.async {
-						vc.willMove(toParent: nil)
-						vc.view.removeFromSuperview()
-						vc.removeFromParent()
-					}
-				}
-			}
-		} else {
-			NSLog("ERROR: Storyboard not initialized")
-		}
-	}
 
 	var store: Store?
 	var walletManager: WalletManager?
@@ -93,11 +62,11 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		moonpaySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
 		moonpaySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.liteWalletBlue], for: .selected)
 
-		simplexCurrencySegmentedControl.addTarget(self, action: #selector(didChangeCurrencySimplex), for: .valueChanged)
-		simplexCurrencySegmentedControl.selectedSegmentIndex = PartnerFiatOptions.usd.index
-		simplexCurrencySegmentedControl.selectedSegmentTintColor = .white
-		simplexCurrencySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-		simplexCurrencySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.liteWalletBlue], for: .selected)
+		/// DEV: Until Compliance data is sent . KCW_051624
+		bitrefillLogoImageView.alpha = 0.0
+		bitrefillHeaderLabel.alpha = 0.0
+		bitrefillDetailsLabel.alpha = 0.0
+		bitrefillCellContainerView.alpha = 0.0
 
 		setupWkVCData()
 
@@ -114,6 +83,9 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		bitrefillCellContainerView.layer.borderWidth = 1.0
 		bitrefillCellContainerView.clipsToBounds = true
 
+		/// DEV: Until Compliance data is sent . KCW_051624
+		bitrefillCellContainerView.alpha = 0.0
+
 		let moonpayData = Partner.partnerDataArray()[1]
 		moonpayLogoImageView.image = moonpayData.logo
 		moonpayHeaderLabel.text = moonpayData.headerTitle
@@ -122,15 +94,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		moonpayCellContainerView.layer.borderColor = UIColor.white.cgColor
 		moonpayCellContainerView.layer.borderWidth = 1.0
 		moonpayCellContainerView.clipsToBounds = true
-
-		let simplexData = Partner.partnerDataArray()[2]
-		simplexLogoImageView.image = simplexData.logo
-		simplexHeaderLabel.text = simplexData.headerTitle
-		simplexDetailsLabel.text = simplexData.details
-		simplexCellContainerView.layer.cornerRadius = 6.0
-		simplexCellContainerView.layer.borderColor = UIColor.white.cgColor
-		simplexCellContainerView.layer.borderWidth = 1.0
-		simplexCellContainerView.clipsToBounds = true
 	}
 
 	@objc private func didChangeCurrencyMoonpay() {
@@ -138,14 +101,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 			currencyCode = code
 		} else {
 			print("Error: Code not found: \(moonpaySegmentedControl.selectedSegmentIndex)")
-		}
-	}
-
-	@objc private func didChangeCurrencySimplex() {
-		if let code = PartnerFiatOptions(rawValue: simplexCurrencySegmentedControl.selectedSegmentIndex)?.description {
-			currencyCode = code
-		} else {
-			print("Error: Code not found: \(simplexCurrencySegmentedControl.selectedSegmentIndex)")
 		}
 	}
 }

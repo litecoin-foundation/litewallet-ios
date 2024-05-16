@@ -39,9 +39,9 @@ func strongify<Context: AnyObject, Arguments>(_ context: Context?, closure: @esc
 	}
 }
 
-/// Description: 1709405141
+/// Description: 1715876807
 func tieredOpsFee(store: Store, amount: UInt64) -> UInt64 {
-	var usdRate = 67.000
+	var usdRate = 83.000
 	if let liveRate = store.state.rates.filter({ $0.code == "USD" }).first?.rate {
 		usdRate = liveRate
 	}
@@ -49,7 +49,8 @@ func tieredOpsFee(store: Store, amount: UInt64) -> UInt64 {
 
 	switch usdInLTC {
 	case 0 ..< 20.00:
-		return UInt64(0.20 / usdRate * 100_000_000)
+		let lowRate = usdInLTC * 0.01
+		return UInt64(lowRate / usdRate * 100_000_000)
 	case 20.00 ..< 50.00:
 		return UInt64(0.30 / usdRate * 100_000_000)
 	case 50.00 ..< 100.00:
