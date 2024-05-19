@@ -277,7 +277,6 @@
 		C3423C4A2B796D820051BD6D /* It.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3423C3C2B796D820051BD6D /* It.mp3 */; settings = {ASSET_TAGS = (speakTag, ); }; };
 		C3423C4B2B796D820051BD6D /* Ru.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3423C3D2B796D820051BD6D /* Ru.mp3 */; settings = {ASSET_TAGS = (speakTag, ); }; };
 		C350788C27DCB10700A50819 /* TextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350788B27DCB10700A50819 /* TextView+Extension.swift */; };
-		C3511A1A2B6FE9770036CFDE /* UnstoppableDomainsResolution in Frameworks */ = {isa = PBXBuildFile; productRef = C3511A192B6FE9770036CFDE /* UnstoppableDomainsResolution */; };
 		C3543A27264AFE490005D17A /* LocaleChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A26264AFE490005D17A /* LocaleChangeView.swift */; };
 		C3543A29264AFE720005D17A /* LocaleChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3543A28264AFE720005D17A /* LocaleChangeViewModel.swift */; };
 		C354C4632590059500675E0E /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354C4622590059500675E0E /* TransactionsViewModel.swift */; };
@@ -299,9 +298,6 @@
 		C3BD4A5325975C6000D97079 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BD4A5225975C6000D97079 /* View+Extension.swift */; };
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
 		C3D4379F2566EA3E00F423E1 /* LWActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */; };
-		C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */; };
-		C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */; };
-		C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */; };
 		C3E751C22AF689BA005571CA /* BRKeyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E751C12AF689BA005571CA /* BRKeyExtension.swift */; };
 		C3E751C42AF68A50005571CA /* BRAddressExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E751C32AF68A50005571CA /* BRAddressExtension.swift */; };
 		C3E751C62AF68A8E005571CA /* BRTxInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E751C52AF68A8E005571CA /* BRTxInputExtension.swift */; };
@@ -315,7 +311,6 @@
 		C3EFA9A3265080FF005C59B5 /* LockScreenHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */; };
 		C3EFA9A62651A808005C59B5 /* LockScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */; };
 		C3F7BCDC25FEC6AD00694C28 /* FailedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */; };
-		C3F7BCDD25FEC6AD00694C28 /* DomainResolutionFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */; };
 		C3F7BCDE25FEC6AD00694C28 /* AlertFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */; };
 		C3F7BD0325FEC77100694C28 /* TransactionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F7BD0225FEC77100694C28 /* TransactionModalView.swift */; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
@@ -1452,9 +1447,6 @@
 		C3BDB42826CC0338004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
-		C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainView.swift; sourceTree = "<group>"; };
-		C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModel.swift; sourceTree = "<group>"; };
-		C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoppableDomainViewModelTests.swift; sourceTree = "<group>"; };
 		C3E751C12AF689BA005571CA /* BRKeyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRKeyExtension.swift; sourceTree = "<group>"; };
 		C3E751C32AF68A50005571CA /* BRAddressExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRAddressExtension.swift; sourceTree = "<group>"; };
 		C3E751C52AF68A8E005571CA /* BRTxInputExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRTxInputExtension.swift; sourceTree = "<group>"; };
@@ -1468,7 +1460,6 @@
 		C3EFA9A2265080FF005C59B5 /* LockScreenHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenHeaderViewModel.swift; sourceTree = "<group>"; };
 		C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenTests.swift; sourceTree = "<group>"; };
 		C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedAlertView.swift; sourceTree = "<group>"; };
-		C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainResolutionFailure.swift; sourceTree = "<group>"; };
 		C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFailureView.swift; sourceTree = "<group>"; };
 		C3F7BD0225FEC77100694C28 /* TransactionModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModalView.swift; sourceTree = "<group>"; };
 		C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellView.swift; sourceTree = "<group>"; };
@@ -1660,7 +1651,6 @@
 			files = (
 				24D91D0B2166923E0077A619 /* UserNotifications.framework in Frameworks */,
 				C35C122A293D48340009022D /* KeychainAccess in Frameworks */,
-				C3511A1A2B6FE9770036CFDE /* UnstoppableDomainsResolution in Frameworks */,
 				22A9A9661DF61FEE000F0016 /* WebKit.framework in Frameworks */,
 				22A9A9641DF61FE7000F0016 /* Security.framework in Frameworks */,
 				22A9A9621DF61FE0000F0016 /* SystemConfiguration.framework in Frameworks */,
@@ -2075,7 +2065,6 @@
 			children = (
 				24470E4423A608A700ADDA27 /* AmountTests.swift */,
 				2494037523AD35C000369261 /* BuyWKWebVCTests.swift */,
-				C3D783BF2565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift */,
 				C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */,
 			);
 			path = "Class Tests";
@@ -3072,7 +3061,6 @@
 				C32142E825C97CB900BECCD0 /* Transactions */,
 				C35ABD08257404D2002BB9BB /* Partners */,
 				C35ABD0925740518002BB9BB /* About */,
-				C3D783A52565EA1E0004FF70 /* Unstoppable */,
 				C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */,
 				C30029E125D0185500F08C2B /* StandardDividerView.swift */,
 				C30029EA25D019BC00F08C2B /* CopyButtonView.swift */,
@@ -3105,15 +3093,6 @@
 				C3B7C3ED255FF59200E98A64 /* ConstantsTests.swift */,
 			);
 			path = "Constants Tests";
-			sourceTree = "<group>";
-		};
-		C3D783A52565EA1E0004FF70 /* Unstoppable */ = {
-			isa = PBXGroup;
-			children = (
-				C3D783A62565EA4A0004FF70 /* UnstoppableDomainView.swift */,
-				C3D783B62565EA6B0004FF70 /* UnstoppableDomainViewModel.swift */,
-			);
-			name = Unstoppable;
 			sourceTree = "<group>";
 		};
 		C3E751C02AF689A0005571CA /* BRExtensions */ = {
@@ -3151,7 +3130,6 @@
 			isa = PBXGroup;
 			children = (
 				C3F7BCDB25FEC6AC00694C28 /* AlertFailureView.swift */,
-				C3F7BCDA25FEC6AC00694C28 /* DomainResolutionFailure.swift */,
 				C3F7BCD925FEC6AC00694C28 /* FailedAlertView.swift */,
 			);
 			name = Alerts;
@@ -3593,7 +3571,6 @@
 				C35C1221293D464A0009022D /* FirebaseAuth */,
 				C35C1223293D464A0009022D /* FirebaseCrashlytics */,
 				C35C1229293D48340009022D /* KeychainAccess */,
-				C3511A192B6FE9770036CFDE /* UnstoppableDomainsResolution */,
 				C3423C172B781C6B0051BD6D /* PushNotifications */,
 			);
 			productName = breadwallet;
@@ -3723,7 +3700,6 @@
 			packageReferences = (
 				C35C121E293D464A0009022D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C35C1228293D48330009022D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				C3511A182B6FE9770036CFDE /* XCRemoteSwiftPackageReference "resolution-swift" */,
 				C3423C162B7816EA0051BD6D /* XCRemoteSwiftPackageReference "push-notifications-swift" */,
 			);
 			productRefGroup = 75A2A7911DA5934300A983D8 /* Products */;
@@ -3921,7 +3897,6 @@
 				24470E3823A5FEF200ADDA27 /* SpendingLimitTests.swift in Sources */,
 				24470E3E23A6000900ADDA27 /* WalletAuthenticationTests.swift in Sources */,
 				24470E2A23A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift in Sources */,
-				C3D783C02565ECF60004FF70 /* UnstoppableDomainViewModelTests.swift in Sources */,
 				C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */,
 				24470E3C23A5FFD700ADDA27 /* TouchIdEnabledTests.swift in Sources */,
 				24470E3A23A5FF5700ADDA27 /* TestHelpers.swift in Sources */,
@@ -4046,7 +4021,6 @@
 				CE45C1FD1E7650F5002C3847 /* KVStoreCoordinator.swift in Sources */,
 				754AE0BC1DFE8A46007FD001 /* BRCore.swift in Sources */,
 				24306797238F3DF900EBEA99 /* BartyCrouch.swift in Sources */,
-				C3D783B72565EA6B0004FF70 /* UnstoppableDomainViewModel.swift in Sources */,
 				CEC6AA3B1DEE4EB000EE5AFD /* CGRect+Additions.swift in Sources */,
 				C3423C2A2B7905330051BD6D /* SafariServices+Extension.swift in Sources */,
 				CE45C1FB1E74F89C002C3847 /* WalletInfo.swift in Sources */,
@@ -4164,7 +4138,6 @@
 				24B8FADF2163C4D400A155B1 /* Currency.swift in Sources */,
 				222C42501E90492800078EB5 /* BRAPIClient+KV.swift in Sources */,
 				2494037E23AE0C7100369261 /* SyncProgressHeaderView.swift in Sources */,
-				C3F7BCDD25FEC6AD00694C28 /* DomainResolutionFailure.swift in Sources */,
 				C339752127001BEC0071FED6 /* EmailValidation.swift in Sources */,
 				CE5E6C941EB7964900A476DB /* WalletDisabledView.swift in Sources */,
 				CEF3E8341DE57166007C0A9E /* AnimatableIcon.swift in Sources */,
@@ -4240,7 +4213,6 @@
 				CE760EDC1E561DF900EFAC2B /* SecurityCenterViewController.swift in Sources */,
 				CEEC70861E94397D00EF788E /* UserDefaults+Additions.swift in Sources */,
 				C3F7BD0325FEC77100694C28 /* TransactionModalView.swift in Sources */,
-				C3D783A72565EA4B0004FF70 /* UnstoppableDomainView.swift in Sources */,
 				CE3D4C571EF5D5740016B1C8 /* ReachabilityMonitor.swift in Sources */,
 				C3423C1A2B79039D0051BD6D /* LaunchCardHostingController.swift in Sources */,
 				C32142FA25C988C800BECCD0 /* TransactionCellViewModel.swift in Sources */,
@@ -4530,7 +4502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240516.1;
+				CURRENT_PROJECT_VERSION = 240519.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
@@ -4546,7 +4518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.13.4;
+				MARKETING_VERSION = 3.13.5;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources speakTag";
 				OTHER_SWIFT_FLAGS = "-DDebug $(inherited)";
@@ -4887,7 +4859,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240516.1;
+				CURRENT_PROJECT_VERSION = 240519.1;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4902,7 +4874,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.13.4;
+				MARKETING_VERSION = 3.13.5;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources speakTag";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -5028,7 +5000,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240516.1;
+				CURRENT_PROJECT_VERSION = 240519.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
@@ -5044,7 +5016,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.13.4;
+				MARKETING_VERSION = 3.13.5;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources speakTag";
 				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet $(inherited)";
@@ -5236,14 +5208,6 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		C3511A182B6FE9770036CFDE /* XCRemoteSwiftPackageReference "resolution-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/unstoppabledomains/resolution-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.0;
-			};
-		};
 		C35C121E293D464A0009022D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -5267,11 +5231,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3423C162B7816EA0051BD6D /* XCRemoteSwiftPackageReference "push-notifications-swift" */;
 			productName = PushNotifications;
-		};
-		C3511A192B6FE9770036CFDE /* UnstoppableDomainsResolution */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3511A182B6FE9770036CFDE /* XCRemoteSwiftPackageReference "resolution-swift" */;
-			productName = UnstoppableDomainsResolution;
 		};
 		C35C121F293D464A0009022D /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

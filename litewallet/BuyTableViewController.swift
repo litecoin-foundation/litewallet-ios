@@ -9,15 +9,14 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet var bitrefillDetailsLabel: UILabel!
 	@IBOutlet var bitrefillCellContainerView: UIView!
 	@IBAction func didTapBitrefill(_: UIButton) {
-		/// DEV: Until Compliance data is sent . KCW_051624
-		//		guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935")
-		//		else {
-		//			return
-		//		}
-		//
-		//		let sfSafariVC = SFSafariViewController(url: url)
-		//		sfSafariVC.delegate = self
-		//		present(sfSafariVC, animated: true)
+		guard let url = URL(string: "https://www.bitrefill.com/?ref=bAshL935")
+		else {
+			return
+		}
+
+		let sfSafariVC = SFSafariViewController(url: url)
+		sfSafariVC.delegate = self
+		present(sfSafariVC, animated: true)
 	}
 
 	// MARK: Moonpay UI
@@ -62,12 +61,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		moonpaySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
 		moonpaySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.liteWalletBlue], for: .selected)
 
-		/// DEV: Until Compliance data is sent . KCW_051624
-		bitrefillLogoImageView.alpha = 0.0
-		bitrefillHeaderLabel.alpha = 0.0
-		bitrefillDetailsLabel.alpha = 0.0
-		bitrefillCellContainerView.alpha = 0.0
-
 		setupWkVCData()
 
 		LWAnalytics.logEventWithParameters(itemName: ._20191105_DTBT)
@@ -82,9 +75,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		bitrefillCellContainerView.layer.borderColor = UIColor.white.cgColor
 		bitrefillCellContainerView.layer.borderWidth = 1.0
 		bitrefillCellContainerView.clipsToBounds = true
-
-		/// DEV: Until Compliance data is sent . KCW_051624
-		bitrefillCellContainerView.alpha = 0.0
 
 		let moonpayData = Partner.partnerDataArray()[1]
 		moonpayLogoImageView.image = moonpayData.logo
