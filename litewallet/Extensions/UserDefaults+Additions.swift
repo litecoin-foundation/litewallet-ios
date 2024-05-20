@@ -53,7 +53,7 @@ extension UserDefaults {
 			} else {
 				currencyCode = defaults.string(forKey: defaultCurrencyCodeKey)!
 			}
-			let acceptedCurrencyCodes = ["USD", "EUR", "JPY", "BGN", "CZK", "DKK", "GBP", "HUF", "PLN", "RON", "SEK", "CHF", "NOK", "HRK", "RUB", "TRY", "AUD", "BRL", "CAD", "CNY", "HKD", "IDR", "ILS", "INR", "KRW", "MXN", "MYR", "NZD", "PHP", "SDG", "THB", "ZAR"]
+			let acceptedCurrencyCodes = ["USD", "EUR", "JPY", "BGN", "CZK", "DKK", "GBP", "HUF", "PLN", "RON", "SEK", "CHF", "NOK", "HRK", "TRY", "AUD", "BRL", "CAD", "CNY", "HKD", "IDR", "ILS", "INR", "KRW", "MXN", "MYR", "NZD", "PHP", "SDG", "THB", "ZAR"]
 
 			if !(acceptedCurrencyCodes.contains(currencyCode)) {
 				return "USD"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +32,8 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="KaL-Vn-Yfq">
             <objects>
-                <viewController storyboardIdentifier="TabBarViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cEo-Qi-bYI" userLabel="Tab Bar View Controller" customClass="TabBarViewController" customModule="loafwallet" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5A-w8-5n5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="TabBarViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cEo-Qi-bYI" userLabel="Tab Bar View Controller" customClass="TabBarViewController" customModule="litewallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qc8-eV-fQy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +119,6 @@
                         <outlet property="walletBalanceLabel" destination="8tK-Tt-zyE" id="00m-yp-T28"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O5A-w8-5n5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4010" y="522"/>
         </scene>
@@ -127,7 +127,7 @@
             <objects>
                 <viewController id="OcB-dV-AfP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KFy-EF-Bhg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Eg4-W0-GCf"/>
                         <color key="backgroundColor" red="0.232668072" green="0.40775811670000001" blue="0.65472602840000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,6 +137,95 @@
             </objects>
             <point key="canvasLocation" x="-3151" y="430"/>
         </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="gub-63-gtJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXk-yY-M5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="NoBuyTabBarViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dmr-23-OJT" userLabel="Tab Bar View Controller" customClass="NoBuyTabBarViewController" customModule="litewallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Vp-kH-Ks0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF4-Yw-RAF">
+                                <rect key="frame" x="0.0" y="589" width="414" height="98"/>
+                                <viewLayoutGuide key="safeArea" id="TXQ-qP-8Nc"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="History" image="history_icon" selectedImage="history_icon" id="fJ7-Gn-6uj" userLabel="History"/>
+                                    <tabBarItem tag="1" title="Send" image="send_icon" selectedImage="send_icon" id="Q3a-Cb-gHb" userLabel="Send"/>
+                                    <tabBarItem tag="2" title="Receive" image="receive_icon" selectedImage="receive_icon" id="3cQ-2L-I8W" userLabel="Receive"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dmr-23-OJT" id="VI0-UP-K9x"/>
+                                </connections>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDW-X4-KHA">
+                                <rect key="frame" x="0.0" y="20" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYi-Dd-SM0">
+                                        <rect key="frame" x="380" y="18" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="Ktb-hA-gNl"/>
+                                            <constraint firstAttribute="height" constant="24" id="pfU-mm-lSp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="settingsWhite"/>
+                                        <connections>
+                                            <action selector="showSettingsAction:" destination="dmr-23-OJT" eventType="touchUpInside" id="6zw-fv-iwl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUg-8j-LTG">
+                                        <rect key="frame" x="10" y="4" width="32.333333333333336" height="18"/>
+                                        <fontDescription key="fontDescription" name="BarlowSemiCondensed-Medium" family="Barlow Semi Condensed Medium" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="gVy-M8-SCE"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HOz-rO-AM8"/>
+                                    <constraint firstItem="TYi-Dd-SM0" firstAttribute="centerY" secondItem="rDW-X4-KHA" secondAttribute="centerY" id="cDP-zq-AyN"/>
+                                    <constraint firstItem="SUg-8j-LTG" firstAttribute="top" secondItem="gVy-M8-SCE" secondAttribute="top" constant="4" id="pEn-9O-dnJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="TYi-Dd-SM0" secondAttribute="trailing" constant="10" id="xxx-7z-2A3"/>
+                                    <constraint firstItem="SUg-8j-LTG" firstAttribute="leading" secondItem="gVy-M8-SCE" secondAttribute="leading" constant="10" id="ze8-Qf-SgQ"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEQ-cp-bG1">
+                                <rect key="frame" x="0.0" y="80" width="414" height="509"/>
+                                <viewLayoutGuide key="safeArea" id="4G2-KM-hqd"/>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="edZ-uw-XFx"/>
+                        <color key="backgroundColor" red="0.20539733769999999" green="0.36322331429999999" blue="0.61663442850000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="edZ-uw-XFx" firstAttribute="trailing" secondItem="ZEQ-cp-bG1" secondAttribute="trailing" id="96L-Tq-SLA"/>
+                            <constraint firstItem="ZEQ-cp-bG1" firstAttribute="top" secondItem="rDW-X4-KHA" secondAttribute="bottom" id="Nff-KV-TE6"/>
+                            <constraint firstItem="EF4-Yw-RAF" firstAttribute="bottom" secondItem="edZ-uw-XFx" secondAttribute="bottom" id="RQl-Y8-CqS"/>
+                            <constraint firstItem="rDW-X4-KHA" firstAttribute="leading" secondItem="edZ-uw-XFx" secondAttribute="leading" id="U4e-qe-xGd"/>
+                            <constraint firstItem="ZEQ-cp-bG1" firstAttribute="leading" secondItem="edZ-uw-XFx" secondAttribute="leading" id="aQb-QL-zD5"/>
+                            <constraint firstItem="edZ-uw-XFx" firstAttribute="trailing" secondItem="rDW-X4-KHA" secondAttribute="trailing" id="bZQ-ni-oqA"/>
+                            <constraint firstItem="rDW-X4-KHA" firstAttribute="top" secondItem="edZ-uw-XFx" secondAttribute="top" id="r3x-7r-1r3"/>
+                            <constraint firstItem="EF4-Yw-RAF" firstAttribute="trailing" secondItem="edZ-uw-XFx" secondAttribute="trailing" id="seD-ZK-epD"/>
+                            <constraint firstItem="EF4-Yw-RAF" firstAttribute="top" secondItem="ZEQ-cp-bG1" secondAttribute="bottom" id="tjJ-5X-Pbv"/>
+                            <constraint firstItem="EF4-Yw-RAF" firstAttribute="leading" secondItem="edZ-uw-XFx" secondAttribute="leading" id="u0d-ui-cOI"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="containerView" destination="ZEQ-cp-bG1" id="ycs-FN-BHb"/>
+                        <outlet property="headerView" destination="rDW-X4-KHA" id="QPH-e3-Tft"/>
+                        <outlet property="settingsButton" destination="TYi-Dd-SM0" id="SdZ-Y0-SNu"/>
+                        <outlet property="tabBar" destination="EF4-Yw-RAF" id="T71-MD-nMf"/>
+                        <outlet property="walletBalanceLabel" destination="SUg-8j-LTG" id="ngx-yJ-PcF"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-4010" y="522"/>
+        </scene>
     </scenes>
     <resources>
         <image name="history_icon" width="32" height="32"/>
@@ -145,7 +234,7 @@
         <image name="send_icon" width="20" height="24"/>
         <image name="settingsWhite" width="170.66667175292969" height="170.66667175292969"/>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

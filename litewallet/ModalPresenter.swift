@@ -209,42 +209,6 @@ class ModalPresenter: Subscriber, Trackable {
 		})
 	}
 
-	private func presentFailureAlert(_: AlertFailureType,
-	                                 errorMessage: String,
-	                                 completion: @escaping () -> Void)
-	{
-		let hostingViewController = UIHostingController(rootView: AlertFailureView(alertFailureType: .failedResolution,
-		                                                                           errorMessage: errorMessage))
-
-		guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
-		      let failureAlertView = hostingViewController.view else { return }
-		let size = window.bounds.size
-		window.addSubview(failureAlertView)
-
-		let topConstraint = failureAlertView.constraint(.top, toView: window, constant: size.height)
-		failureAlertView.constrain([
-			failureAlertView.constraint(.width, constant: size.width),
-			failureAlertView.constraint(.height, constant: alertHeight + 50.0),
-			failureAlertView.constraint(.leading, toView: window, constant: nil),
-			topConstraint,
-		])
-		window.layoutIfNeeded()
-
-		UIView.spring(0.6, animations: {
-			topConstraint?.constant = size.height - self.alertHeight
-			window.layoutIfNeeded()
-		}, completion: { _ in
-			UIView.spring(0.6, delay: 5.0, animations: {
-				topConstraint?.constant = size.height
-				window.layoutIfNeeded()
-			}, completion: { _ in
-				// TODO: - Make these callbacks generic
-				completion()
-				failureAlertView.removeFromSuperview()
-			})
-		})
-	}
-
 	private func rootModalViewController(_ type: RootModal) -> UIViewController? {
 		switch type {
 		case .none:
@@ -321,14 +285,6 @@ class ModalPresenter: Subscriber, Trackable {
 		}
 		sendVC.onPublishSuccess = { [weak self] in
 			self?.presentAlert(.sendSuccess, completion: {})
-		}
-
-		sendVC.onResolvedSuccess = { [weak self] in
-			self?.presentAlert(.resolvedSuccess, completion: {})
-		}
-
-		sendVC.onResolutionFailure = { [weak self] failureMessage in
-			self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
 		}
 		return root
 	}
