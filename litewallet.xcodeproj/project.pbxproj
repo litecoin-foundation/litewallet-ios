@@ -316,6 +316,14 @@
 		C3F8F1422C04DEA2006C3211 /* NoBuyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1412C04DEA2006C3211 /* NoBuyTabBarViewController.swift */; };
 		C3F8F1442C04F6BE006C3211 /* Dakar, Senegal.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1432C04F6BE006C3211 /* Dakar, Senegal.gpx */; };
 		C3F8F1462C05269A006C3211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
+		C3F8F1492C077A30006C3211 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1482C077A30006C3211 /* MainTabView.swift */; };
+		C3F8F14B2C077BF4006C3211 /* HistoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F14A2C077BF4006C3211 /* HistoryTabView.swift */; };
+		C3F8F14D2C077C07006C3211 /* SendTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F14C2C077C07006C3211 /* SendTabView.swift */; };
+		C3F8F14F2C077C15006C3211 /* ReceiveTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F14E2C077C15006C3211 /* ReceiveTabView.swift */; };
+		C3F8F1512C077C33006C3211 /* BuyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1502C077C33006C3211 /* BuyTabView.swift */; };
+		C3F8F1532C077F48006C3211 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1522C077F48006C3211 /* MainTabViewController.swift */; };
+		C3F8F1552C0780A6006C3211 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1542C0780A6006C3211 /* MainTabViewModel.swift */; };
+		C3F8F1572C07B6EA006C3211 /* HistoryViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1562C07B6EA006C3211 /* HistoryViewControllerRepresentable.swift */; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
 		C73896A12BEA3C4900029095 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C73896A02BEA3C4900029095 /* partner-keys.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
@@ -1467,6 +1475,14 @@
 		C3F8F1412C04DEA2006C3211 /* NoBuyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBuyTabBarViewController.swift; sourceTree = "<group>"; };
 		C3F8F1432C04F6BE006C3211 /* Dakar, Senegal.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Dakar, Senegal.gpx"; sourceTree = "<group>"; };
 		C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3F8F1482C077A30006C3211 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C3F8F14A2C077BF4006C3211 /* HistoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTabView.swift; sourceTree = "<group>"; };
+		C3F8F14C2C077C07006C3211 /* SendTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTabView.swift; sourceTree = "<group>"; };
+		C3F8F14E2C077C15006C3211 /* ReceiveTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveTabView.swift; sourceTree = "<group>"; };
+		C3F8F1502C077C33006C3211 /* BuyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTabView.swift; sourceTree = "<group>"; };
+		C3F8F1522C077F48006C3211 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		C3F8F1542C0780A6006C3211 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		C3F8F1562C07B6EA006C3211 /* HistoryViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellView.swift; sourceTree = "<group>"; };
 		C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellViewModel.swift; sourceTree = "<group>"; };
 		C73896A02BEA3C4900029095 /* partner-keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "partner-keys.plist"; sourceTree = "<group>"; };
@@ -2007,6 +2023,7 @@
 			isa = PBXGroup;
 			children = (
 				24313C7C23820C1900A83F69 /* TransactionsViewController.swift */,
+				C3F8F1562C07B6EA006C3211 /* HistoryViewControllerRepresentable.swift */,
 			);
 			name = Transactions;
 			sourceTree = "<group>";
@@ -3025,6 +3042,7 @@
 		C35ABD07257404C6002BB9BB /* SwiftUI+UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C3F8F1472C077A06006C3211 /* MainView */,
 				C3B419C92BFCF0C900EBD935 /* Buy */,
 				C3423C272B7905330051BD6D /* SafariServices+Extension.swift */,
 				C3423C292B7905330051BD6D /* SignupWebView.swift */,
@@ -3115,6 +3133,20 @@
 				C3EFA9A52651A808005C59B5 /* LockScreenTests.swift */,
 			);
 			path = "Lock Screen Tests";
+			sourceTree = "<group>";
+		};
+		C3F8F1472C077A06006C3211 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				C3F8F1482C077A30006C3211 /* MainTabView.swift */,
+				C3F8F1522C077F48006C3211 /* MainTabViewController.swift */,
+				C3F8F14A2C077BF4006C3211 /* HistoryTabView.swift */,
+				C3F8F14C2C077C07006C3211 /* SendTabView.swift */,
+				C3F8F14E2C077C15006C3211 /* ReceiveTabView.swift */,
+				C3F8F1502C077C33006C3211 /* BuyTabView.swift */,
+				C3F8F1542C0780A6006C3211 /* MainTabViewModel.swift */,
+			);
+			name = MainView;
 			sourceTree = "<group>";
 		};
 		C3FF4D5D28AC5A2000713139 /* Send */ = {
@@ -4008,6 +4040,7 @@
 				C3E751D12AF68C84005571CA /* BRMasterKeyExtension.swift in Sources */,
 				C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */,
 				C36375A328BD38A500CFB3D8 /* SendButtonHostingController.swift in Sources */,
+				C3F8F1512C077C33006C3211 /* BuyTabView.swift in Sources */,
 				CEE659E71F65A936001FF29D /* RetryTimer.swift in Sources */,
 				248BFE2623AB302200CE1A71 /* BuyWKWebViewController.swift in Sources */,
 				CE90571A1DFF18B2006BA848 /* ScanViewController.swift in Sources */,
@@ -4032,8 +4065,10 @@
 				CEE659E91F664C73001FF29D /* WelcomeViewController.swift in Sources */,
 				24313C8723821B8C00A83F69 /* PromptTableViewCell.swift in Sources */,
 				2228734F1E916FC30044BA15 /* BRAPIClient+Wallet.swift in Sources */,
+				C3F8F14B2C077BF4006C3211 /* HistoryTabView.swift in Sources */,
 				C3423C222B79047D0051BD6D /* StartViewModel.swift in Sources */,
 				CEAA9EA81DC3342E0066731D /* PinView.swift in Sources */,
+				C3F8F1552C0780A6006C3211 /* MainTabViewModel.swift in Sources */,
 				CE1D84B61EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift in Sources */,
 				CE4B6C1A1E219CA600CF935B /* WalletCoordinator.swift in Sources */,
 				CE6D0E5C1E14BFA700137DF1 /* KeyboardNotificationInfo.swift in Sources */,
@@ -4068,6 +4103,8 @@
 				CE124D001E69170900DFA146 /* SyncingView.swift in Sources */,
 				2494037823AD53B900369261 /* ChildViewTransitioningDelegate.swift in Sources */,
 				CE20C90E1DBE52B000C8397A /* UIView+BRWAdditions.swift in Sources */,
+				C3F8F14D2C077C07006C3211 /* SendTabView.swift in Sources */,
+				C3F8F14F2C077C15006C3211 /* ReceiveTabView.swift in Sources */,
 				CE6314831E08E5BB00D4AFE0 /* UIView+InitAdditions.swift in Sources */,
 				CEC6AA401DEFC87300EE5AFD /* SendViewController.swift in Sources */,
 				CEAA9E8F1DC074410066731D /* StartPaperPhraseViewController.swift in Sources */,
@@ -4129,9 +4166,11 @@
 				CEF61B161ED2056D00C7EA6A /* NumberFormatter+Additions.swift in Sources */,
 				CEF3E8321DE55540007C0A9E /* CheckView.swift in Sources */,
 				CECCE5A91E0378FB00D99448 /* PinPadViewController.swift in Sources */,
+				C3F8F1532C077F48006C3211 /* MainTabViewController.swift in Sources */,
 				584E24F32951C11A005E0E8B /* Localization.swift in Sources */,
 				C3423C1C2B7903CA0051BD6D /* LaunchView.swift in Sources */,
 				C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */,
+				C3F8F1492C077A30006C3211 /* MainTabView.swift in Sources */,
 				C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */,
 				CEC6AA4B1DEFD24C00EE5AFD /* MenuButtonType.swift in Sources */,
 				584E24FE2951D752005E0E8B /* UITableViewExtension.swift in Sources */,
@@ -4143,6 +4182,7 @@
 				C3423C2B2B7905330051BD6D /* SignupWebViewModel.swift in Sources */,
 				CEE20C341EA5B4550086F724 /* ArticleIds.swift in Sources */,
 				CEE65DF01E39056F0002994D /* Rate.swift in Sources */,
+				C3F8F1572C07B6EA006C3211 /* HistoryViewControllerRepresentable.swift in Sources */,
 				CEE20C361EA5B4620086F724 /* Constants+Events.swift in Sources */,
 				CEC6AA461DEFCE9200EE5AFD /* MenuViewController.swift in Sources */,
 				CEEC707F1E8D6B4100EF788E /* SettingsViewController.swift in Sources */,

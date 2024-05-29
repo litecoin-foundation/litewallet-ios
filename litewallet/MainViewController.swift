@@ -101,26 +101,25 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 		}
 
 		if userIsMoonPaySupported {
-			guard let tabVC = UIStoryboard(name: "Main", bundle: nil)
-				.instantiateViewController(withIdentifier: "TabBarViewController")
-				as? TabBarViewController
-			else {
-				NSLog("TabBarViewController not intialized")
-				return
-			}
+//			guard let tabVC = UIStoryboard(name: "Main", bundle: nil)
+//				.instantiateViewController(withIdentifier: "TabBarViewController")
+//				as? TabBarViewController
+//			else {
+//				NSLog("TabBarViewController not intialized")
+//				return
+//			}
 
-			tabVC.store = store
-			tabVC.walletManager = walletManager
-			tabVC.userIsMoonPaySupported = userIsMoonPaySupported
+			guard let walletManager = walletManager else { return }
 
-			addChildViewController(tabVC, layout: {
-				tabVC.view.constrain(toSuperviewEdges: nil)
-				tabVC.view.alpha = 0
-				tabVC.view.layoutIfNeeded()
+			let mainTabViewController = MainTabViewController(store: store, walletManager: walletManager)
+			addChildViewController(mainTabViewController, layout: {
+				mainTabViewController.view.constrain(toSuperviewEdges: nil)
+				mainTabViewController.view.alpha = 0
+				mainTabViewController.view.layoutIfNeeded()
 			})
 
 			UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
-				tabVC.view.alpha = 1
+				mainTabViewController.view.alpha = 1
 			}) { _ in
 				NSLog("US MainView Controller presented")
 			}
