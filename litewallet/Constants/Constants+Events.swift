@@ -237,4 +237,7 @@ enum CustomEvent: String {
 
 	/// Stop Push Notifications
 	case _20240510_SPN = "stopped_push_notifications"
+
+	/// Unsupported by Moonpay
+	case _20240527_UBM = "unsupported_by_moonpay"
 }

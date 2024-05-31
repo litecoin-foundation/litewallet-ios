@@ -15,7 +15,7 @@ enum PartnerFiatOptions: Int, CustomStringConvertible {
 	case cad
 	case aud
 	case idr
-	case rub
+	case tur
 	case jpy
 	case eur
 	case gbp
@@ -30,7 +30,7 @@ enum PartnerFiatOptions: Int, CustomStringConvertible {
 		case .cad: return "CAD"
 		case .aud: return "AUD"
 		case .idr: return "IDR"
-		case .rub: return "RUB"
+		case .tur: return "TRY"
 		case .jpy: return "JPY"
 		case .eur: return "EUR"
 		case .gbp: return "GBP"
@@ -43,7 +43,7 @@ enum PartnerFiatOptions: Int, CustomStringConvertible {
 		case .cad: return 0
 		case .aud: return 1
 		case .idr: return 2
-		case .rub: return 3
+		case .tur: return 3
 		case .jpy: return 4
 		case .eur: return 5
 		case .gbp: return 6

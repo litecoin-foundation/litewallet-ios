@@ -52,7 +52,7 @@ open class TxMetaData: BRKVStoreObject, BRCoding {
 		var del: Bool
 		var bytes: [UInt8]
 
-		print("[BRTxMetadataObject] find \(txHash.txKey)")
+		print("[BRTxMetadataObject] find  txHash \(txHash.txKey)")
 		do {
 			(ver, date, del, bytes) = try store.get(txHash.txKey)
 			let bytesDat = Data(bytes: &bytes, count: bytes.count)
@@ -72,7 +72,7 @@ open class TxMetaData: BRKVStoreObject, BRCoding {
 		var del: Bool
 		var bytes: [UInt8]
 
-		print("[BRTxMetadataObject] find \(txKey)")
+		print("[BRTxMetadataObject] find txKey \(txKey)")
 		do {
 			(ver, date, del, bytes) = try store.get(txKey)
 			let bytesDat = Data(bytes: &bytes, count: bytes.count)

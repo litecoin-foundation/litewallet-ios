@@ -100,9 +100,6 @@ class SearchHeaderView: UIView {
 		}
 	}
 
-	private let sentFilter: TransactionFilter = { $0.direction == .sent }
-	private let receivedFilter: TransactionFilter = { $0.direction == .received }
-
 	override func layoutSubviews() {
 		guard !hasSetup else { return }
 		setup()

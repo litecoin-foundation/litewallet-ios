@@ -9,9 +9,6 @@ struct SupportLitecoinFoundationView: View {
 	@ObservedObject
 	var viewModel: SupportLitecoinFoundationViewModel
 
-	@State
-	private var showSupportLFPage: Bool = false
-
 	// MARK: - Public
 
 	var supportSafariView = SupportSafariView(url: FoundationSupport.url,

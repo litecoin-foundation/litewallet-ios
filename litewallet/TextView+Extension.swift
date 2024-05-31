@@ -18,7 +18,6 @@ struct TextView: UIViewRepresentable {
 		placeholder = placeholderString
 	}
 
-	let udModel = UnstoppableDomainViewModel()
 	func makeUIView(context _: Context) -> UITextView {
 		let textView = UITextView()
 		textView.autocapitalizationType = .sentences

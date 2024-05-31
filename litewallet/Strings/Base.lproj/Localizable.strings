@@ -1069,9 +1069,6 @@
 /* $53.09/L + 1.07% */
 "Confirmation.amountDetailLabel" = "Exchange details:";
 
-/* Short Network Fee: ($1.00) */
-"Confirmation.shortFeeLabel" = "FEE:";
-
 /* Address label */
 "Confirmation.staticAddressLabel" = "ADDRESS:";
 
@@ -1428,18 +1425,6 @@
 
 /* sorry */
 "Fragment.sorry" = "sorry";
-
-/* 2FA Error message */
-"LitecoinCard.twoFAErrorMessage" = "There was an error. Please toggle 2FA to *Enabled*, enter the emailed code, and try again.";
-
-/* Enter domain */
-"Send.UnstoppableDomains.simpleplaceholder" = "Enter domain";
-
-/* Enter a */
-"Send.UnstoppableDomains.enterA" = "Enter a";
-
-/* domain */
-"Send.UnstoppableDomains.domain" = "domain";
 
 /* Change language alert message */
 "Settings.ChangeLanguage.alertMessage" = "Are you sure you want to change the language to %l?";

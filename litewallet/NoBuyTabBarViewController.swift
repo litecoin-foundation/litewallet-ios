@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
+class NoBuyTabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDelegate {
 	let kInitialChildViewControllerIndex = 0 // TransactionsViewController
 	@IBOutlet var headerView: UIView!
 	@IBOutlet var containerView: UIView!
@@ -19,8 +19,8 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	private var regularConstraints: [NSLayoutConstraint] = []
 	private var swappedConstraints: [NSLayoutConstraint] = []
 	private let currencyTapView = UIView()
-	private let storyboardNames: [String] = ["Transactions", "Send", "Receive", "Buy"]
-	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "ReceiveLTCViewController", "BuyHostingController"]
+	private let storyboardNames: [String] = ["Transactions", "Send", "Receive"]
+	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "ReceiveLTCViewController"]
 	var viewControllers: [UIViewController] = []
 	var activeController: UIViewController?
 	var updateTimer: Timer?
@@ -90,7 +90,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
 	func addViewControllers() {
 		for (index, storyboardID) in storyboardIDs.enumerated() {
-			if storyboardID == "BuyHostingController" {
+			if storyboardID == "BuyHostingController" && (userIsMoonPaySupported != nil) {
 				let hostingController = BuyHostingController()
 				viewControllers.append(hostingController)
 			} else {
@@ -322,7 +322,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			case 0: item.title = S.History.barItemTitle.localize()
 			case 1: item.title = S.Send.barItemTitle.localize()
 			case 2: item.title = S.Receive.barItemTitle.localize()
-			case 3: item.title = S.BuyCenter.barItemTitle.localize()
 			default:
 				item.title = "NO-TITLE"
 				NSLog("ERROR: UITabbar item count is wrong")
@@ -349,14 +348,6 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			transactionVC.store = store
 			transactionVC.walletManager = walletManager
 			transactionVC.isLtcSwapped = store?.state.isLtcSwapped
-
-		case "litewallet.BuyHostingController":
-			guard let buyHC = contentController as? BuyHostingController
-			else {
-				return
-			}
-
-			buyHC.isLoaded = true
 
 		case "litewallet.SendLTCViewController":
 			guard let sendVC = contentController as? SendLTCViewController
@@ -401,7 +392,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	}
 }
 
-extension TabBarViewController {
+extension NoBuyTabBarViewController {
 	@objc private func currencySwitchTapped() {
 		view.layoutIfNeeded()
 		guard let store = store else { return }

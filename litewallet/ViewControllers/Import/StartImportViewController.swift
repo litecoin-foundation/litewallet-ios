@@ -1,9 +1,7 @@
 import BRCore
 import UIKit
 
-private let mainURL = "https://insight.litecore.io/api/addrs/utxo"
-private let fallbackURL = "https://insight.litecore.io/api/addrs/utxo"
-private let testnetURL = "https://testnet.litecore.io/api/addrs/utxo"
+private let mainURL = "https://litecoinspace.org/graphs/mempool"
 
 class StartImportViewController: UIViewController {
 	init(walletManager: WalletManager, store: Store) {
@@ -158,7 +156,7 @@ class StartImportViewController: UIViewController {
 				return
 			}
 
-			let urlString = E.isTestnet ? testnetURL : mainURL
+			let urlString = mainURL
 			let request = NSMutableURLRequest(url: URL(string: urlString)!,
 			                                  cachePolicy: .reloadIgnoringLocalCacheData,
 			                                  timeoutInterval: 20.0)
