@@ -66,14 +66,16 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 
 			NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
 			                                       object: nil,
-			                                       queue: nil) { _ in
+			                                       queue: nil)
+			{ _ in
 				self.showJailbreakWarnings(isJailbroken: isJailbroken)
 			}
 		}
 
 		NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification,
 		                                       object: nil,
-		                                       queue: nil) { _ in
+		                                       queue: nil)
+		{ _ in
 			if UserDefaults.writePaperPhraseDate != nil
 			{}
 		}

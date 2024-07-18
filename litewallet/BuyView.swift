@@ -63,7 +63,8 @@ struct BuyView: View {
 					HStack {
 						VStack {
 							Picker(S.BuyCenter.buyDetail.localize() + " " + viewModel.receivingAddress,
-							       selection: $viewModel.selectedCode) {
+							       selection: $viewModel.selectedCode)
+							{
 								ForEach(rankedFiatCodes, id: \.self) {
 									BuyTileView(code: $0)
 								}
