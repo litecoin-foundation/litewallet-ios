@@ -12,9 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var resourceRequest: NSBundleResourceRequest?
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-	{
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		requestResourceWith(tag: ["initial-resources", "speakTag"]) { [self] in
+
+			// Language
+			updateCurrentUserLocale(localeId: Locale.current.identifier)
+			Bundle.setLanguage(UserDefaults.selectedLanguage)
+
 			// Ops
 			let startDate = Partner.partnerKeyPath(name: .litewalletStart)
 			if startDate == "error-litewallet-start-key" {
@@ -25,14 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			self.setFirebaseConfiguration()
 
 			// Pusher
-			self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusherStaging))
-			let generaliOSInterest = "general-ios"
-			let debugGeneraliOSInterest = "debug-general-ios"
+			self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
+			let generalInterest = String.preferredLanguageInterest(currentId: UserDefaults.selectedLanguage)
+			let debugGeneralInterest = "debug-general"
+
+			try? self.pushNotifications.clearDeviceInterests()
 
 			try? self.pushNotifications
-				.addDeviceInterest(interest: generaliOSInterest)
+				.addDeviceInterest(interest: generalInterest)
 			try? self.pushNotifications
-				.addDeviceInterest(interest: debugGeneraliOSInterest)
+				.addDeviceInterest(interest: debugGeneralInterest)
 
 			let interests = self.pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
 			let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
@@ -41,6 +47,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 			LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
 			                                   properties: interestsDict)
+
+			let current = UNUserNotificationCenter.current()
+
+			current.getNotificationSettings(completionHandler: { settings in
+
+				debugPrint(settings.debugDescription)
+				if settings.authorizationStatus == .denied {
+					self.pushNotifications.clearAllState {
+						LWAnalytics.logEventWithParameters(itemName: ._20240506_DPN)
+					}
+
+					self.pushNotifications.stop {
+						LWAnalytics.logEventWithParameters(itemName: ._20240510_SPN)
+					}
+				}
+			})
+
 		} onFailure: { error in
 
 			let properties: [String: String] = ["error_type": "on_demand_resources_not_found",
@@ -48,8 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
 			                                   properties: properties)
 		}
-
-		updateCurrentUserLocale(localeId: Locale.current.identifier)
 
 		guard let thisWindow = window else { return false }
 
@@ -60,8 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.launch(application: application, window: thisWindow)
 
 		LWAnalytics.logEventWithParameters(itemName: ._20191105_AL)
-
-		Bundle.setLanguage(UserDefaults.selectedLanguage)
 
 		return true
 	}
@@ -78,13 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		applicationController.didEnterBackground()
 	}
 
-	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool
-	{
+	func application(_: UIApplication, shouldAllowExtensionPointIdentifier _: UIApplication.ExtensionPointIdentifier) -> Bool {
 		return false // disable extensions such as custom keyboards for security purposes
 	}
 
-	func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool
-	{
+	func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 		return applicationController.open(url: url)
 	}
 

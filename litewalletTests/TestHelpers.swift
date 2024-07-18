@@ -7,7 +7,7 @@ func clearKeychain() {
 	               kSecClassCertificate as String,
 	               kSecClassKey as String,
 	               kSecClassIdentity as String]
-	classes.forEach { className in
+	for className in classes {
 		SecItemDelete([kSecClass as String: className] as CFDictionary)
 	}
 }

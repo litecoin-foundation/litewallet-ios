@@ -23,16 +23,14 @@ func guardProtected(queue: DispatchQueue, callback: @escaping () -> Void) {
 	}
 }
 
-func strongify<Context: AnyObject>(_ context: Context, closure: @escaping (Context) -> Void) -> () -> Void
-{
+func strongify<Context: AnyObject>(_ context: Context, closure: @escaping (Context) -> Void) -> () -> Void {
 	return { [weak context] in
 		guard let strongContext = context else { return }
 		closure(strongContext)
 	}
 }
 
-func strongify<Context: AnyObject, Arguments>(_ context: Context?, closure: @escaping (Context, Arguments) -> Void) -> (Arguments) -> Void
-{
+func strongify<Context: AnyObject, Arguments>(_ context: Context?, closure: @escaping (Context, Arguments) -> Void) -> (Arguments) -> Void {
 	return { [weak context] arguments in
 		guard let strongContext = context else { return }
 		closure(strongContext, arguments)

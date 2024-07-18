@@ -231,4 +231,13 @@ enum CustomEvent: String {
 
 	/// Transactions info
 	case _20240315_AI = "application_info"
+
+	/// Disabled Push Notifications
+	case _20240506_DPN = "disabled_push_notifications"
+
+	/// Stop Push Notifications
+	case _20240510_SPN = "stopped_push_notifications"
+
+	/// Unsupported by Moonpay
+	case _20240527_UBM = "unsupported_by_moonpay"
 }

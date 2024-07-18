@@ -20,12 +20,13 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 	private var swappedConstraints: [NSLayoutConstraint] = []
 	private let currencyTapView = UIView()
 	private let storyboardNames: [String] = ["Transactions", "Send", "Receive", "Buy"]
-	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "ReceiveLTCViewController", "BuyTableViewController"]
+	var storyboardIDs: [String] = ["TransactionsViewController", "SendLTCViewController", "ReceiveLTCViewController", "BuyHostingController"]
 	var viewControllers: [UIViewController] = []
 	var activeController: UIViewController?
 	var updateTimer: Timer?
 	var store: Store?
 	var walletManager: WalletManager?
+	var userIsMoonPaySupported: Bool?
 	var exchangeRate: Rate? {
 		didSet { setBalances() }
 	}
@@ -89,8 +90,13 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
 	func addViewControllers() {
 		for (index, storyboardID) in storyboardIDs.enumerated() {
-			let controller = UIStoryboard(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
-			viewControllers.append(controller)
+			if storyboardID == "BuyHostingController" {
+				let hostingController = BuyHostingController()
+				viewControllers.append(hostingController)
+			} else {
+				let controller = UIStoryboard(name: storyboardNames[index], bundle: nil).instantiateViewController(withIdentifier: storyboardID)
+				viewControllers.append(controller)
+			}
 		}
 	}
 
@@ -130,7 +136,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 
 		let priceLabelArray = [primaryBalanceLabel, secondaryBalanceLabel, equalsLabel]
 
-		priceLabelArray.enumerated().forEach { _, view in
+		for (_, view) in priceLabelArray.enumerated() {
 			view?.backgroundColor = .clear
 			view?.textColor = .white
 		}
@@ -311,7 +317,7 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			return
 		}
 
-		array.forEach { item in
+		for item in array {
 			switch item.tag {
 			case 0: item.title = S.History.barItemTitle.localize()
 			case 1: item.title = S.Send.barItemTitle.localize()
@@ -344,13 +350,13 @@ class TabBarViewController: UIViewController, Subscriber, Trackable, UITabBarDel
 			transactionVC.walletManager = walletManager
 			transactionVC.isLtcSwapped = store?.state.isLtcSwapped
 
-		case "litewallet.BuyTableViewController":
-			guard let buyVC = contentController as? BuyTableViewController
+		case "litewallet.BuyHostingController":
+			guard let buyHC = contentController as? BuyHostingController
 			else {
 				return
 			}
-			buyVC.store = store
-			buyVC.walletManager = walletManager
+
+			buyHC.isLoaded = true
 
 		case "litewallet.SendLTCViewController":
 			guard let sendVC = contentController as? SendLTCViewController

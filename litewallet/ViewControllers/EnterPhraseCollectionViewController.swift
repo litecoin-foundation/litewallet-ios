@@ -59,8 +59,7 @@ class EnterPhraseCollectionViewController: UICollectionViewController {
 		return 12
 	}
 
-	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-	{
+	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let item = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
 		guard let enterPhraseCell = item as? EnterPhraseCell else { return item }
 		enterPhraseCell.index = indexPath.row

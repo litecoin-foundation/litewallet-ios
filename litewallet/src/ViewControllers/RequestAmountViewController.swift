@@ -193,8 +193,7 @@ class RequestAmountViewController: UIViewController {
 		presentText?(text, qrCode.image!)
 	}
 
-	private func toggle(alertView: InViewAlert, shouldAdjustPadding: Bool, shouldShrinkAfter: Bool = false)
-	{
+	private func toggle(alertView: InViewAlert, shouldAdjustPadding: Bool, shouldShrinkAfter: Bool = false) {
 		share.isEnabled = false
 		address.isUserInteractionEnabled = false
 

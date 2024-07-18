@@ -286,14 +286,6 @@ class ModalPresenter: Subscriber, Trackable {
 		sendVC.onPublishSuccess = { [weak self] in
 			self?.presentAlert(.sendSuccess, completion: {})
 		}
-
-		sendVC.onResolvedSuccess = { [weak self] in
-			self?.presentAlert(.resolvedSuccess, completion: {})
-		}
-
-		sendVC.onResolutionFailure = { [weak self] failureMessage in
-			self?.presentFailureAlert(.failedResolution, errorMessage: failureMessage, completion: {})
-		}
 		return root
 	}
 
@@ -407,10 +399,9 @@ class ModalPresenter: Subscriber, Trackable {
 				nc.setWhiteStyle()
 				nc.delegate = myself.wipeNavigationDelegate
 				let start = StartWipeWalletViewController {
-					let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet
-						{
-							myself.wipeWallet()
-						})
+					let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet {
+						myself.wipeWallet()
+					})
 					nc.pushViewController(recover, animated: true)
 				}
 				start.addCloseNavigationItem(tintColor: .white)
@@ -459,7 +450,17 @@ class ModalPresenter: Subscriber, Trackable {
 					settingsNav.pushViewController(localeView, animated: true)
 				}),
 				Setting(title: S.Settings.sync.localize(), callback: {
-					settingsNav.pushViewController(ReScanViewController(store: self.store), animated: true)
+					let alert = UIAlertController(title: S.ReScan.alertTitle.localize(), message: S.ReScan.alertMessage.localize(), preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .default, handler: { _ in
+						alert.dismiss(animated: true)
+					}))
+					alert.addAction(UIAlertAction(title: S.ReScan.alertAction.localize(), style: .default, handler: { _ in
+						self.store.trigger(name: .rescan)
+						LWAnalytics.logEventWithParameters(itemName: ._20200112_DSR)
+						alert.dismiss(animated: true)
+						self.topViewController?.dismiss(animated: true)
+					}))
+					self.topViewController?.present(alert, animated: true)
 				}),
 				Setting(title: S.UpdatePin.updateTitle.localize(), callback: strongify(self) { myself in
 					let updatePin = UpdatePinViewController(store: myself.store, walletManager: walletManager, type: .update)
@@ -679,8 +680,7 @@ class ModalPresenter: Subscriber, Trackable {
 			presentLoginScan()
 		} else {
 			LWAnalytics.logEventWithParameters(itemName: ._20210427_HCIEEH)
-			if let presented = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.presentedViewController
-			{
+			if let presented = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.presentedViewController {
 				presented.dismiss(animated: true, completion: {
 					self.presentLoginScan()
 				})
@@ -797,8 +797,7 @@ class ModalPresenter: Subscriber, Trackable {
 }
 
 class SecurityCenterNavigationDelegate: NSObject, UINavigationControllerDelegate {
-	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool)
-	{
+	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated _: Bool) {
 		guard let coordinator = navigationController.topViewController?.transitionCoordinator else { return }
 
 		if coordinator.isInteractive {

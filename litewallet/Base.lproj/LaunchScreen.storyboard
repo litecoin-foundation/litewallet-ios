@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,18 +19,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litecoinFoundationLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4Uy-2W-2oq">
-                                <rect key="frame" x="125" y="310" width="125" height="47"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new-logotype-white" translatesAutoresizingMaskIntoConstraints="NO" id="UyL-pz-ADP">
+                                <rect key="frame" x="67.5" y="249.5" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="wF8-SG-7m4"/>
+                                    <constraint firstAttribute="height" constant="128" id="2T7-QM-N2k"/>
+                                    <constraint firstAttribute="width" secondItem="UyL-pz-ADP" secondAttribute="height" multiplier="15:8" id="gVV-Cv-OOs"/>
+                                    <constraint firstAttribute="width" constant="240" id="qRO-re-ZCk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="litecoinFoundationLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4Uy-2W-2oq">
+                                <rect key="frame" x="137" y="587.5" width="101" height="54.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4Uy-2W-2oq" secondAttribute="height" multiplier="50:27" id="LXi-Mv-tv8"/>
+                                    <constraint firstAttribute="height" constant="54.5" id="kNp-6s-xRq"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.24313725489999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.086274509799999996" green="0.24313725489999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4Uy-2W-2oq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e7w-QI-2ig"/>
-                            <constraint firstItem="4Uy-2W-2oq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="g5u-1h-SRX"/>
+                            <constraint firstItem="4Uy-2W-2oq" firstAttribute="centerX" secondItem="UyL-pz-ADP" secondAttribute="centerX" id="LCk-KH-GoU"/>
+                            <constraint firstItem="UyL-pz-ADP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UlD-yW-hJ1"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="4Uy-2W-2oq" secondAttribute="bottom" constant="25" id="f5H-Dd-1vk"/>
+                            <constraint firstItem="UyL-pz-ADP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="lUV-Or-9fO"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -42,5 +53,6 @@
     </scenes>
     <resources>
         <image name="litecoinFoundationLogo" width="126.33333587646484" height="47"/>
+        <image name="new-logotype-white" width="3688" height="825"/>
     </resources>
 </document>

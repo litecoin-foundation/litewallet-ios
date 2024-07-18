@@ -22,8 +22,16 @@ public extension Bundle {
 			object_setClass(Bundle.main, BundleEx.self as AnyClass)
 		}
 
-		if let temp = language {
-			guard let bundle = Bundle(path: Bundle.main.path(forResource: temp, ofType: "lproj")!) else {
+		if var temp = language {
+			if temp == "zh" {
+				temp = "zh-Hans"
+			}
+
+			guard let path = Bundle.main.path(forResource: temp, ofType: "lproj") else {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+				return
+			}
+			guard let bundle = Bundle(path: path) else {
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return
 			}

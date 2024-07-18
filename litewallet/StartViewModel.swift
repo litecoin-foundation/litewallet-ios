@@ -48,6 +48,8 @@ class StartViewModel: ObservableObject {
 		self.walletManager = walletManager
 		staticTagline = taglines[0]
 
+		// loadResourcesWithTag(tags: audioTagArray)
+
 		// checkForWalletAndSync()
 	}
 
@@ -66,43 +68,29 @@ class StartViewModel: ObservableObject {
 		didTapRecover = completion
 	}
 
-	private func checkForWalletAndSync() {
-		/// Test seed count
-		guard seedWords.count == 12 else { return }
-
-		/// Set for default.  This model needs a initial value
-		walletManager.forceSetPin(newPin: Partner.partnerKeyPath(name: .litewalletStart))
-
-		guard walletManager.setRandomSeedPhrase() != nil else {
-			walletCreationDidFail = true
-			let properties: [String: String] = ["error_message": "wallet_creation_fail"]
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
-			return
-		}
-
-		store.perform(action: WalletChange.setWalletCreationDate(Date()))
-		DispatchQueue.walletQueue.async {
-			self.walletManager.peerManager?.connect()
-			DispatchQueue.main.async {
-				self.store.trigger(name: .didCreateOrRecoverWallet)
-			}
-		}
-	}
-
-	func updateHeader() {
-		switch tappedIndex {
-		case 0:
-			headerTitle = S.CreateStep.MainTitle.intro.localize()
-		case 1:
-			headerTitle = S.CreateStep.MainTitle.checkboxes.localize()
-		case 2:
-			headerTitle = S.CreateStep.MainTitle.seedPhrase.localize()
-		case 3:
-			headerTitle = S.CreateStep.MainTitle.finished.localize()
-		default:
-			headerTitle = S.CreateStep.MainTitle.intro.localize()
-		}
-	}
+	/// DEV: For checking wallet
+//	private func checkForWalletAndSync() {
+//		/// Test seed count
+//		guard seedWords.count == 12 else { return }
+//
+//		/// Set for default.  This model needs a initial value
+//		walletManager.forceSetPin(newPin: Partner.partnerKeyPath(name: .litewalletStart))
+//
+//		guard walletManager.setRandomSeedPhrase() != nil else {
+//			walletCreationDidFail = true
+//			let properties = ["error_message": "wallet_creation_fail"]
+//			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+//			return
+//		}
+//
+//		store.perform(action: WalletChange.setWalletCreationDate(Date()))
+//		DispatchQueue.walletQueue.async {
+//			self.walletManager.peerManager?.connect()
+//			DispatchQueue.main.async {
+//				self.store.trigger(name: .didCreateOrRecoverWallet)
+//			}
+//		}
+//	}
 
 	func speakLanguage() {
 		if let url = Bundle.main.url(forResource: currentLanguage.voiceFilename, withExtension: "mp3") {
@@ -127,10 +115,6 @@ class StartViewModel: ObservableObject {
 			                                object: nil,
 			                                userInfo: nil)
 		}
-	}
-
-	func generateNewSeedPhrase() -> [String] {
-		return [""]
 	}
 
 	// MARK: - Lengthy elements
@@ -205,38 +189,39 @@ class StartViewModel: ObservableObject {
 		"Скасувати",
 	]
 
-	func stringToCurrentLanguage(languageString: String) -> LanguageSelection {
-		switch languageString {
-		case "English":
-			return LanguageSelection(rawValue: 0)!
-		case "中國人":
-			return LanguageSelection(rawValue: 1)!
-		case "中国人":
-			return LanguageSelection(rawValue: 2)!
-		case "Français":
-			return LanguageSelection(rawValue: 3)!
-		case "Deutsch":
-			return LanguageSelection(rawValue: 4)!
-		case "Bahasa Indonesia":
-			return LanguageSelection(rawValue: 5)!
-		case "Italiano":
-			return LanguageSelection(rawValue: 6)!
-		case "日本語":
-			return LanguageSelection(rawValue: 7)!
-		case "한국인":
-			return LanguageSelection(rawValue: 8)!
-		case "Português":
-			return LanguageSelection(rawValue: 9)!
-		case "Русский":
-			return LanguageSelection(rawValue: 10)!
-		case "Español":
-			return LanguageSelection(rawValue: 11)!
-		case "Türkçe":
-			return LanguageSelection(rawValue: 12)!
-		case "українська":
-			return LanguageSelection(rawValue: 13)!
-		default:
-			return LanguageSelection(rawValue: 0)!
-		}
-	}
+	/// DEV: For debugging
+//	func stringToCurrentLanguage(languageString: String) -> LanguageSelection {
+//		switch languageString {
+//		case "English":
+//			return LanguageSelection(rawValue: 0)!
+//		case "中國人":
+//			return LanguageSelection(rawValue: 1)!
+//		case "中国人":
+//			return LanguageSelection(rawValue: 2)!
+//		case "Français":
+//			return LanguageSelection(rawValue: 3)!
+//		case "Deutsch":
+//			return LanguageSelection(rawValue: 4)!
+//		case "Bahasa Indonesia":
+//			return LanguageSelection(rawValue: 5)!
+//		case "Italiano":
+//			return LanguageSelection(rawValue: 6)!
+//		case "日本語":
+//			return LanguageSelection(rawValue: 7)!
+//		case "한국인":
+//			return LanguageSelection(rawValue: 8)!
+//		case "Português":
+//			return LanguageSelection(rawValue: 9)!
+//		case "Русский":
+//			return LanguageSelection(rawValue: 10)!
+//		case "Español":
+//			return LanguageSelection(rawValue: 11)!
+//		case "Türkçe":
+//			return LanguageSelection(rawValue: 12)!
+//		case "українська":
+//			return LanguageSelection(rawValue: 13)!
+//		default:
+//			return LanguageSelection(rawValue: 0)!
+//		}
+//	}
 }

@@ -20,8 +20,6 @@ class TransactionCellViewModel: ObservableObject {
 
 	var feeText: String = ""
 
-	var directionText: String = ""
-
 	var directionImageText: String = ""
 
 	var directionArrowColor: Color = .clear

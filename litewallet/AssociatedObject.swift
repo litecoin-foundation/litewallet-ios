@@ -1,7 +1,6 @@
 import Foundation
 
-func associatedObject<T: AnyObject>(_ base: AnyObject, key: UnsafePointer<UInt8>, initialiser: () -> T) -> T
-{
+func associatedObject<T: AnyObject>(_ base: AnyObject, key: UnsafePointer<UInt8>, initialiser: () -> T) -> T {
 	if let associated = objc_getAssociatedObject(base, key) as? T {
 		return associated
 	}
@@ -10,8 +9,7 @@ func associatedObject<T: AnyObject>(_ base: AnyObject, key: UnsafePointer<UInt8>
 	return associated
 }
 
-func lazyAssociatedObject<T: AnyObject>(_ base: AnyObject, key: UnsafePointer<UInt8>, initialiser: () -> T?) -> T?
-{
+func lazyAssociatedObject<T: AnyObject>(_ base: AnyObject, key: UnsafePointer<UInt8>, initialiser: () -> T?) -> T? {
 	if let associated = objc_getAssociatedObject(base, key) as? T {
 		return associated
 	}

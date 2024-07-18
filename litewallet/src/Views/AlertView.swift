@@ -25,7 +25,6 @@ enum AlertType {
 			return S.SecurityAlerts.copiedAddressesHeader.localize()
 		case .sweepSuccess:
 			return S.Import.success.localize()
-
 		// Failure(s)
 		case .failedResolution:
 			return S.SecurityAlerts.sendFailure.localize()
@@ -46,7 +45,6 @@ enum AlertType {
 			return S.SecurityAlerts.copiedAddressesSubheader.localize()
 		case .sweepSuccess:
 			return S.Import.successBody.localize()
-
 		// Failure(s)
 		case .failedResolution:
 			return S.SecurityAlerts.resolvedSuccessSubheader.localize()
@@ -74,11 +72,9 @@ func == (lhs: AlertType, rhs: AlertType) -> Bool {
 		return true
 	case (.sweepSuccess(_), .sweepSuccess(_)):
 		return true
-
 	// Failure(s)
 	case (.failedResolution, .failedResolution):
 		return true
-
 	default:
 		return false
 	}

@@ -1,8 +1,7 @@
 import Foundation
 
 extension NumberFormatter {
-	static func formattedString(amount: Satoshis, rate: Rate?, minimumFractionDigits: Int?, maxDigits: Int) -> String
-	{
+	static func formattedString(amount: Satoshis, rate: Rate?, minimumFractionDigits: Int?, maxDigits: Int) -> String {
 		let displayAmount = Amount(amount: amount.rawValue, rate: rate ?? Rate.empty, maxDigits: maxDigits)
 		var formatter: NumberFormatter
 		var output = ""

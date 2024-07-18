@@ -1,8 +1,7 @@
 import Foundation
 import SystemConfiguration
 
-private func callback(reachability _: SCNetworkReachability, flags _: SCNetworkReachabilityFlags, info: UnsafeMutableRawPointer?)
-{
+private func callback(reachability _: SCNetworkReachability, flags _: SCNetworkReachabilityFlags, info: UnsafeMutableRawPointer?) {
 	guard let info = info else { return }
 	let reachability = Unmanaged<ReachabilityMonitor>.fromOpaque(info).takeUnretainedValue()
 	reachability.notify()
@@ -40,8 +39,7 @@ class ReachabilityMonitor: Trackable {
 
 	private var flags: SCNetworkReachabilityFlags {
 		var flags = SCNetworkReachabilityFlags(rawValue: 0)
-		if let reachability = networkReachability, withUnsafeMutablePointer(to: &flags, { SCNetworkReachabilityGetFlags(reachability, UnsafeMutablePointer($0)) }) == true
-		{
+		if let reachability = networkReachability, withUnsafeMutablePointer(to: &flags, { SCNetworkReachabilityGetFlags(reachability, UnsafeMutablePointer($0)) }) == true {
 			return flags
 		} else {
 			return []

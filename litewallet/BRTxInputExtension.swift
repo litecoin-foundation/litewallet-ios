@@ -18,9 +18,4 @@ extension BRTxInput {
 		get { return [UInt8](UnsafeBufferPointer(start: script, count: scriptLen)) }
 		set { BRTxInputSetScript(&self, newValue, newValue.count) }
 	}
-
-	var swiftSignature: [UInt8] {
-		get { return [UInt8](UnsafeBufferPointer(start: signature, count: sigLen)) }
-		set { BRTxInputSetSignature(&self, newValue, newValue.count) }
-	}
 }

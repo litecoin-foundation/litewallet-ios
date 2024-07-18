@@ -1,9 +1,7 @@
 import BRCore
 import UIKit
 
-private let mainURL = "https://insight.litecore.io/api/addrs/utxo"
-private let fallbackURL = "https://insight.litecore.io/api/addrs/utxo"
-private let testnetURL = "https://testnet.litecore.io/api/addrs/utxo"
+private let mainURL = "https://litecoinspace.org/graphs/mempool"
 
 class StartImportViewController: UIViewController {
 	init(walletManager: WalletManager, store: Store) {
@@ -158,24 +156,23 @@ class StartImportViewController: UIViewController {
 				return
 			}
 
-			let urlString = E.isTestnet ? testnetURL : mainURL
+			let urlString = mainURL
 			let request = NSMutableURLRequest(url: URL(string: urlString)!,
 			                                  cachePolicy: .reloadIgnoringLocalCacheData,
 			                                  timeoutInterval: 20.0)
 			request.httpMethod = "POST"
 			request.httpBody = "addrs=\(address)".data(using: .utf8)
-			let task = URLSession.shared.dataTask(with: request as URLRequest)
-				{ [weak self] data, _, error in
-					guard let myself = self else { return }
-					guard error == nil else { print("error: \(error!)"); return }
-					guard let data = data,
-					      let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
-					      let json = jsonData as? [[String: Any]] else { return }
+			let task = URLSession.shared.dataTask(with: request as URLRequest) { [weak self] data, _, error in
+				guard let myself = self else { return }
+				guard error == nil else { print("error: \(error!)"); return }
+				guard let data = data,
+				      let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
+				      let json = jsonData as? [[String: Any]] else { return }
 
-					DispatchQueue.main.async {
-						myself.handleData(data: json, key: key)
-					}
+				DispatchQueue.main.async {
+					myself.handleData(data: json, key: key)
 				}
+			}
 			task.resume()
 		})
 	}
@@ -191,7 +188,7 @@ class StartImportViewController: UIViewController {
 		}
 		let outputs = data.compactMap { SimpleUTXO(json: $0) }
 		let balance = outputs.map { $0.satoshis }.reduce(0, +)
-		outputs.forEach { output in
+		for output in outputs {
 			tx.addInput(txHash: output.hash, index: output.index, amount: output.satoshis, script: output.script)
 		}
 
@@ -221,8 +218,7 @@ class StartImportViewController: UIViewController {
 		})
 	}
 
-	private func publish(tx: UnsafeMutablePointer<BRTransaction>, balance: UInt64, fee: UInt64, key: BRKey)
-	{
+	private func publish(tx: UnsafeMutablePointer<BRTransaction>, balance: UInt64, fee: UInt64, key: BRKey) {
 		present(importingActivity, animated: true, completion: {
 			guard let wallet = self.walletManager.wallet else { return }
 			guard let script = BRAddress(string: wallet.receiveAddress)?.scriptPubKey else { return }

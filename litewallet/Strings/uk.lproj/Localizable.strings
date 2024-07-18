@@ -457,6 +457,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "Вузли Litecoin";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "Адреса електронної пошти";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "Введіть тут";
+
+/* "Email title" */
+"Notifications.emailTitle" = "Нічого не пропустіть!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "Бажана мова:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "Підпишіться, щоб дізнаватися про оновлення та конкурси.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "Ні, дякую";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "Поганий запит на оплату";
 
@@ -742,6 +760,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "Запит на завантаження";
 
+/* Network */
+"Send.networkFee" = "Мережа";
+
 /* Empty address alert message */
 "Send.noAddress" = "Будь ласка, введіть адресу одержувача.";
 
@@ -762,6 +783,9 @@
 
 /* Send button label */
 "Send.sendLabel" = "Надіслати";
+
+/* Service */
+"Send.serviceFee" = "Сервіс";
 
 /* Send modal title */
 "Send.title" = "Надіслати";
@@ -1266,27 +1290,3 @@
 
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d з %2$d";
-
-/* "Email address label" */
-"Notifications.emailLabel" = "";
-
-/* "Email address placeholder" */
-"Notifications.emailPlaceholder" = "";
-
-/* "Email title" */
-"Notifications.emailTitle" = "";
-
-/* "Language preference label" */
-"Notifications.languagePreference" = "";
-
-/* "Pitch to get user to sign up" */
-"Notifications.pitchMessage" = "";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "";
-
-/* Network */
-"Send.networkFee" = "";
-
-/* Service */
-"Send.serviceFee" = "";

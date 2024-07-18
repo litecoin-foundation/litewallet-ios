@@ -278,8 +278,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 
 	// MARK: URLSession Delegate
 
-	public func urlSession(_: URLSession, task _: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
-	{
+	public func urlSession(_: URLSession, task _: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
 		if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
 			if challenge.protectionSpace.host == host, challenge.protectionSpace.serverTrust != nil {
 				log("URLSession challenge accepted!")
@@ -292,11 +291,9 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 		}
 	}
 
-	public func urlSession(_: URLSession, task: URLSessionTask, willPerformHTTPRedirection _: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void)
-	{
+	public func urlSession(_: URLSession, task: URLSessionTask, willPerformHTTPRedirection _: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
 		var actualRequest = request
-		if let currentReq = task.currentRequest, var curHost = currentReq.url?.host, let curScheme = currentReq.url?.scheme
-		{
+		if let currentReq = task.currentRequest, var curHost = currentReq.url?.host, let curScheme = currentReq.url?.scheme {
 			if let curPort = currentReq.url?.port, curPort != 443, curPort != 80 {
 				curHost = "\(curHost):\(curPort)"
 			}
@@ -304,8 +301,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 				// follow the redirect if we're interacting with our API
 				actualRequest = decorateRequest(request)
 				log("redirecting \(String(describing: currentReq.url)) to \(String(describing: request.url))")
-				if let curAuth = currentReq.allHTTPHeaderFields?["Authorization"], curAuth.hasPrefix("Litewallet")
-				{
+				if let curAuth = currentReq.allHTTPHeaderFields?["Authorization"], curAuth.hasPrefix("Litewallet") {
 					// add authentication because the previous request was authenticated
 					log("adding authentication to redirected request")
 					actualRequest = signRequest(actualRequest)

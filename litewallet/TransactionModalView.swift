@@ -1,19 +1,11 @@
 import SwiftUI
 import UIKit
 
-private let qrImageSize = 180.0
-
 struct TransactionModalView: View {
 	@ObservedObject
 	var viewModel: TransactionCellViewModel
 
 	let dataRowHeight: CGFloat = 65.0
-
-	@State
-	var isDisplayed: Bool = false
-
-	@State
-	var didCopy: Bool = false
 
 	@State
 	var copiedData: String = ""

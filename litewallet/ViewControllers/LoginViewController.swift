@@ -31,9 +31,8 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 			pinView = PinView(style: .login, length: store.state.pinLength)
 		}
 
-		let viewModel = LockScreenViewModel(store: self.store)
+		let viewModel = LockScreenViewModel(store: store)
 		headerView = UIHostingController(rootView: LockScreenHeaderView(viewModel: viewModel))
-
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -51,7 +50,7 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 		return view
 	}()
 
-	private let headerView: UIHostingController<LockScreenHeaderView>
+	private var headerView: UIHostingController<LockScreenHeaderView>
 	private let pinPadViewController = PinPadViewController(style: .clear, keyboardType: .pinPad, maxDigits: 0)
 	private let pinViewContainer = UIView()
 	private var pinView: PinView?
@@ -59,6 +58,15 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 	private let disabledView: WalletDisabledView
 	private let activityView = UIActivityIndicatorView(style: .large)
 	private let wipeBannerButton = UIButton()
+	private let enterPINLabel = UILabel(font: .barlowSemiBold(size: 18), color: .white)
+	private var pinPadBottom: NSLayoutConstraint?
+	private var topControlTop: NSLayoutConstraint?
+	private var unlockTimer: Timer?
+	private var pinPadBackground = UIView()
+	private var hasAttemptedToShowBiometrics = false
+	private var isResetting = false
+	private let versionLabel = UILabel(font: .barlowRegular(size: 12), color: .white)
+	private var isWalletEmpty = false
 
 	var delegate: LoginViewControllerDelegate?
 
@@ -89,17 +97,6 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 		return button
 	}()
 
-	private let enterPINLabel = UILabel(font: .barlowSemiBold(size: 18), color: .white)
-	private var pinPadBottom: NSLayoutConstraint?
-	private var topControlTop: NSLayoutConstraint?
-	private var unlockTimer: Timer?
-	private var pinPadBackground = UIView()
-	private var hasAttemptedToShowBiometrics = false
-	private let lockedOverlay = UIVisualEffectView()
-	private var isResetting = false
-	private let versionLabel = UILabel(font: .barlowRegular(size: 12), color: .white)
-	private var isWalletEmpty = false
-
 	override func viewDidLoad() {
 		checkWalletBalance()
 		addSubviews()
@@ -116,18 +113,17 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 			guard let walletManager = self?.walletManager else { return }
 			self?.isResetting = true
 			let nc = UINavigationController()
-			let recover = EnterPhraseViewController(store: store, walletManager: walletManager, reason: .validateForResettingPin
-				{ phrase in
-					let updatePin = UpdatePinViewController(store: store, walletManager: walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
-					nc.pushViewController(updatePin, animated: true)
-					updatePin.resetFromDisabledWillSucceed = {
-						self?.disabledView.isHidden = true
-					}
-					updatePin.resetFromDisabledSuccess = {
-						self?.authenticationSucceded()
-						LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWP)
-					}
-				})
+			let recover = EnterPhraseViewController(store: store, walletManager: walletManager, reason: .validateForResettingPin { phrase in
+				let updatePin = UpdatePinViewController(store: store, walletManager: walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
+				nc.pushViewController(updatePin, animated: true)
+				updatePin.resetFromDisabledWillSucceed = {
+					self?.disabledView.isHidden = true
+				}
+				updatePin.resetFromDisabledSuccess = {
+					self?.authenticationSucceded()
+					LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWP)
+				}
+			})
 			recover.addCloseNavigationItem()
 			nc.viewControllers = [recover]
 			nc.navigationBar.tintColor = .darkText
@@ -432,7 +428,6 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 		if let disabledUntil = walletManager?.walletDisabledUntil {
 			let now = Date().timeIntervalSince1970
 			if disabledUntil > now {
-				saveEvent("login.locked")
 				let disabledUntilDate = Date(timeIntervalSince1970: disabledUntil)
 				let unlockInterval = disabledUntil - now
 				let df = DateFormatter()

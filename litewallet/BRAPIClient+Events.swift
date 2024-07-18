@@ -28,7 +28,7 @@ private var emKey: UInt8 = 1
 extension BRAPIClient {
 	var events: EventManager? {
 		return lazyAssociatedObject(self, key: &emKey) {
-			return EventManager(adaptor: self)
+			EventManager(adaptor: self)
 		}
 	}
 
@@ -90,10 +90,10 @@ class EventManager {
 		defer { isSubscribed = true }
 
 		// slurp up app lifecycle events and save them as events
-		eventToNotifications.forEach { key, value in
+		for (key, value) in eventToNotifications {
 			NotificationCenter.default.addObserver(forName: value,
 			                                       object: nil,
-			                                       queue: self.queue,
+			                                       queue: queue,
 			                                       using: { [weak self] note in
 			                                       	self?.saveEvent(key)
 			                                       	if note.name == UIScene.didEnterBackgroundNotification {
@@ -121,7 +121,7 @@ class EventManager {
 
 	func down() {
 		guard isSubscribed else { return }
-		eventToNotifications.forEach { _, value in
+		for (_, value) in eventToNotifications {
 			NotificationCenter.default.removeObserver(self, name: value, object: nil)
 		}
 	}
@@ -163,8 +163,7 @@ class EventManager {
 				let dataToSerialize = myself.buffer.map { $0.dictionary }
 				guard JSONSerialization.isValidJSONObject(dataToSerialize) else { print("Invalid json"); return }
 				var error: NSError?
-				if JSONSerialization.writeJSONObject(dataToSerialize, to: outputStream, options: [], error: &error) == 0
-				{
+				if JSONSerialization.writeJSONObject(dataToSerialize, to: outputStream, options: [], error: &error) == 0 {
 					print("[EventManager] Unable to write JSON for events file: \(String(describing: error))")
 				} else {
 					print("[EventManager] saved \(myself.buffer.count) events to disk")
@@ -178,7 +177,7 @@ class EventManager {
 		queue.addOperation { [weak self] in
 			guard let myself = self else { return }
 			guard let files = try? FileManager.default.contentsOfDirectory(atPath: myself.unsentDataDirectory) else { return }
-			files.forEach { baseName in
+			for baseName in files {
 				let fileName = NSString(string: myself.unsentDataDirectory).appendingPathComponent("/\(baseName)")
 				do {
 					try FileManager.default.removeItem(atPath: fileName)

@@ -28,7 +28,7 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 	private let sections: [String]
 	private var rows: [String: [Setting]]
 	private let cellIdentifier = "CellIdentifier"
-	internal var titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
+	var titleLabel = UILabel(font: .customBold(size: 26.0), color: .darkText)
 	let customTitle: String
 	private var walletIsEmpty = true
 
@@ -68,8 +68,7 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 		return rows[sections[section]]?.count ?? 0
 	}
 
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-	{
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
 		if let setting = rows[sections[indexPath.section]]?[indexPath.row] {
@@ -162,8 +161,7 @@ class SettingsViewController: UITableViewController, CustomTitleView {
 		didScrollForCustomTitle(yOffset: scrollView.contentOffset.y)
 	}
 
-	override func scrollViewWillEndDragging(_: UIScrollView, withVelocity _: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
-	{
+	override func scrollViewWillEndDragging(_: UIScrollView, withVelocity _: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		scrollViewWillEndDraggingForCustomTitle(yOffset: targetContentOffset.pointee.y)
 	}
 

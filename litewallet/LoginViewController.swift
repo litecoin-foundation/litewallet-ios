@@ -116,18 +116,17 @@ class LoginViewController: UIViewController, Subscriber, Trackable {
 			guard let walletManager = self?.walletManager else { return }
 			self?.isResetting = true
 			let nc = UINavigationController()
-			let recover = EnterPhraseViewController(store: store, walletManager: walletManager, reason: .validateForResettingPin
-				{ phrase in
-					let updatePin = UpdatePinViewController(store: store, walletManager: walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
-					nc.pushViewController(updatePin, animated: true)
-					updatePin.resetFromDisabledWillSucceed = {
-						self?.disabledView.isHidden = true
-					}
-					updatePin.resetFromDisabledSuccess = {
-						self?.authenticationSucceded()
-						LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWP)
-					}
-				})
+			let recover = EnterPhraseViewController(store: store, walletManager: walletManager, reason: .validateForResettingPin { phrase in
+				let updatePin = UpdatePinViewController(store: store, walletManager: walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
+				nc.pushViewController(updatePin, animated: true)
+				updatePin.resetFromDisabledWillSucceed = {
+					self?.disabledView.isHidden = true
+				}
+				updatePin.resetFromDisabledSuccess = {
+					self?.authenticationSucceded()
+					LWAnalytics.logEventWithParameters(itemName: ._20200217_DUWP)
+				}
+			})
 			recover.addCloseNavigationItem()
 			nc.viewControllers = [recover]
 			nc.navigationBar.tintColor = .darkText

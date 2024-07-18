@@ -110,8 +110,7 @@ class PinPadViewController: UICollectionViewController {
 		return items.count
 	}
 
-	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-	{
+	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let item = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
 		guard let pinPadCell = item as? GenericPinPadCell else { return item }
 		pinPadCell.text = items[indexPath.item]
@@ -237,10 +236,10 @@ class GenericPinPadCell: UICollectionViewCell {
 		setup()
 	}
 
-	internal let topLabel = UILabel(font: .customBody(size: 28.0))
-	internal let centerLabel = UILabel(font: .customBody(size: 28.0))
-	internal let sublabel = UILabel(font: .customBody(size: 11.0))
-	internal let imageView = UIImageView()
+	let topLabel = UILabel(font: .customBody(size: 28.0))
+	let centerLabel = UILabel(font: .customBody(size: 28.0))
+	let sublabel = UILabel(font: .customBody(size: 11.0))
+	let imageView = UIImageView()
 
 	private func setup() {
 		setAppearance()

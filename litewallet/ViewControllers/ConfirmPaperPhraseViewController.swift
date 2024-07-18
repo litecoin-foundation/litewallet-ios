@@ -41,12 +41,11 @@ class ConfirmPaperPhraseViewController: UITableViewController {
 		return wordArray
 	}()
 
-	private lazy var confirmFirstPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.0 + 1)"), word: self.words[self.fourIndices.0])
-	}()
+	private lazy var confirmFirstPhrase: ConfirmPhrase = .init(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.0 + 1)"), word: self.words[self.fourIndices.0])
 
-	private lazy var confirmSecondPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.1 + 1)"), word: self.words[self.fourIndices.1]) }()
-	private lazy var confirmThirdPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.2 + 1)"), word: self.words[self.fourIndices.2]) }()
-	private lazy var confirmFourthPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.3 + 1)"), word: self.words[self.fourIndices.3]) }()
+	private lazy var confirmSecondPhrase: ConfirmPhrase = .init(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.1 + 1)"), word: self.words[self.fourIndices.1])
+	private lazy var confirmThirdPhrase: ConfirmPhrase = .init(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.2 + 1)"), word: self.words[self.fourIndices.2])
+	private lazy var confirmFourthPhrase: ConfirmPhrase = .init(text: String(format: S.ConfirmPaperPhrase.word.localize(), "\(self.fourIndices.3 + 1)"), word: self.words[self.fourIndices.3])
 
 	var store: Store?
 	var walletManager: WalletManager?
@@ -71,7 +70,8 @@ class ConfirmPaperPhraseViewController: UITableViewController {
 
 		NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification,
 		                                       object: nil,
-		                                       queue: nil) { [weak self] _ in
+		                                       queue: nil)
+		{ [weak self] _ in
 			self?.dismiss(animated: true,
 			              completion: nil)
 		}

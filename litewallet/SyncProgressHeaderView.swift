@@ -39,7 +39,7 @@ class SyncProgressHeaderView: UITableViewCell, Subscriber {
 				headerLabel.text = S.SyncingHeader.rescanning.localize()
 				timestampLabel.text = ""
 				progressView.alpha = 0.0
-				noSendImageView.alpha = 0.0
+				noSendImageView.alpha = 1.0
 			} else {
 				headerLabel.text = ""
 				timestampLabel.text = ""

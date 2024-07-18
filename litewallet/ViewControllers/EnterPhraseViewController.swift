@@ -8,8 +8,7 @@ enum PhraseEntryReason {
 
 typealias EnterPhraseCallback = (String) -> Void
 
-class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomTitleView, Trackable
-{
+class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomTitleView, Trackable {
 	init(store: Store, walletManager: WalletManager, reason: PhraseEntryReason) {
 		self.store = store
 		self.walletManager = walletManager
@@ -37,7 +36,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 	private let enterPhrase: EnterPhraseCollectionViewController
 	private let errorLabel = UILabel.wrapping(font: .customBody(size: 16.0), color: .litewalletOrange)
 	private let instruction = UILabel(font: .customBold(size: 14.0), color: .darkText)
-	internal let titleLabel = UILabel.wrapping(font: .customBold(size: 26.0), color: .darkText)
+	let titleLabel = UILabel.wrapping(font: .customBold(size: 26.0), color: .darkText)
 	private let subheader = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
 	private let faq: UIButton
 	private let scrollView = UIScrollView()
@@ -205,8 +204,7 @@ class EnterPhraseViewController: UIViewController, UIScrollViewDelegate, CustomT
 		didScrollForCustomTitle(yOffset: scrollView.contentOffset.y)
 	}
 
-	func scrollViewWillEndDragging(_: UIScrollView, withVelocity _: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
-	{
+	func scrollViewWillEndDragging(_: UIScrollView, withVelocity _: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		scrollViewWillEndDraggingForCustomTitle(yOffset: targetContentOffset.pointee.y)
 	}
 

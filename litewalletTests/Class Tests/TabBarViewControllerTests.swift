@@ -4,6 +4,8 @@ import XCTest
 class TabBarViewControllerTests: XCTestCase {
 	var viewController: TabBarViewController!
 
+	var noBuyVewController: NoBuyTabBarViewController!
+
 	override func setUpWithError() throws {
 		viewController = UIStoryboard(name: "Main",
 		                              bundle: nil)
@@ -11,16 +13,26 @@ class TabBarViewControllerTests: XCTestCase {
 			TabBarViewController
 
 		viewController.loadViewIfNeeded()
+
+		noBuyVewController = UIStoryboard(name: "Main",
+		                                  bundle: nil)
+			.instantiateViewController(withIdentifier: "NoBuyTabBarViewController") as?
+			NoBuyTabBarViewController
+
+		noBuyVewController.loadViewIfNeeded()
 	}
 
 	override func tearDownWithError() throws {
 		viewController = nil
+		noBuyVewController = nil
 	}
 
 	func testTabBarItemCount() throws {
 		// There should be 4 tabs in this version for all users
 
 		XCTAssertTrue(viewController.tabBar.items?.count == 4)
+
+		XCTAssertTrue(noBuyVewController.tabBar.items?.count == 3)
 	}
 
 	func testTabBarItemRange() throws {
@@ -33,5 +45,11 @@ class TabBarViewControllerTests: XCTestCase {
 		XCTAssertTrue(viewController.tabBar.items?[2].tag == 2)
 
 		XCTAssertTrue(viewController.tabBar.items?[3].tag == 3)
+
+		XCTAssertTrue(noBuyVewController.tabBar.items?[0].tag == 0)
+
+		XCTAssertTrue(noBuyVewController.tabBar.items?[1].tag == 1)
+
+		XCTAssertTrue(noBuyVewController.tabBar.items?[2].tag == 2)
 	}
 }

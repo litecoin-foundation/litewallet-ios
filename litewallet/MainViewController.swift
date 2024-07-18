@@ -66,14 +66,16 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 
 			NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
 			                                       object: nil,
-			                                       queue: nil) { _ in
+			                                       queue: nil)
+			{ _ in
 				self.showJailbreakWarnings(isJailbroken: isJailbroken)
 			}
 		}
 
 		NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification,
 		                                       object: nil,
-		                                       queue: nil) { _ in
+		                                       queue: nil)
+		{ _ in
 			if UserDefaults.writePaperPhraseDate != nil
 			{}
 		}
@@ -86,29 +88,68 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 	func didUnlockLogin() {
 		let hasSeenAnnounce = UserDefaults.standard.bool(forKey: hasSeenAnnounceView)
 
-		guard let tabVC = UIStoryboard(name: "Main", bundle: nil)
-			.instantiateViewController(withIdentifier: "TabBarViewController")
-			as? TabBarViewController
-		else {
-			NSLog("TabBarViewController not intialized")
-			return
+		// Check Locale - Assume unsupported if nil
+		let currentLocaleCountry = Locale.current.regionCode ?? "RU"
+		var userIsMoonPaySupported = true
+		for unsupportedLocale in UnsupportedCountries.allCases {
+			let truncatedCode = unsupportedLocale.localeCode.suffix(2)
+
+			if currentLocaleCountry == truncatedCode {
+				userIsMoonPaySupported = false
+				let unsupportedDict: [String: String] = ["unsupported_country": unsupportedLocale.localeCode]
+				LWAnalytics.logEventWithParameters(itemName: ._20240527_UBM, properties: unsupportedDict)
+				break
+			}
 		}
 
-		tabVC.store = store
-		tabVC.walletManager = walletManager
+		if userIsMoonPaySupported {
+			guard let tabVC = UIStoryboard(name: "Main", bundle: nil)
+				.instantiateViewController(withIdentifier: "TabBarViewController")
+				as? TabBarViewController
+			else {
+				NSLog("TabBarViewController not intialized")
+				return
+			}
 
-		addChildViewController(tabVC, layout: {
-			tabVC.view.constrain(toSuperviewEdges: nil)
-			tabVC.view.alpha = 0
-			tabVC.view.layoutIfNeeded()
-		})
+			tabVC.store = store
+			tabVC.walletManager = walletManager
+			tabVC.userIsMoonPaySupported = userIsMoonPaySupported
 
-		UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
-			tabVC.view.alpha = 1
-		}) { _ in
-			NSLog("US MainView Controller presented")
+			addChildViewController(tabVC, layout: {
+				tabVC.view.constrain(toSuperviewEdges: nil)
+				tabVC.view.alpha = 0
+				tabVC.view.layoutIfNeeded()
+			})
+
+			UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
+				tabVC.view.alpha = 1
+			}) { _ in
+				NSLog("US MainView Controller presented")
+			}
+		} else {
+			guard let noBuyTabVC = UIStoryboard(name: "Main", bundle: nil)
+				.instantiateViewController(withIdentifier: "NoBuyTabBarViewController")
+				as? NoBuyTabBarViewController
+			else {
+				NSLog("TabBarViewController not intialized")
+				return
+			}
+
+			noBuyTabVC.store = store
+			noBuyTabVC.walletManager = walletManager
+
+			addChildViewController(noBuyTabVC, layout: {
+				noBuyTabVC.view.constrain(toSuperviewEdges: nil)
+				noBuyTabVC.view.alpha = 0
+				noBuyTabVC.view.layoutIfNeeded()
+			})
+
+			UIView.animate(withDuration: 0.3, delay: 0.1, options: .transitionCrossDissolve, animations: {
+				noBuyTabVC.view.alpha = 1
+			}) { _ in
+				NSLog("US MainView Controller presented")
+			}
 		}
-
 		delay(4.0) {
 			self.appDelegate.pushNotifications.registerForRemoteNotifications()
 		}
@@ -141,23 +182,21 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 	}
 
 	private func addAppLifecycleNotificationEvents() {
-		NotificationCenter.default.addObserver(forName: UIScene.didActivateNotification, object: nil, queue: nil)
-			{ _ in
-				UIView.animate(withDuration: 0.1, animations: {
-					self.blurView.alpha = 0.0
-				}, completion: { _ in
-					self.blurView.removeFromSuperview()
-				})
-			}
+		NotificationCenter.default.addObserver(forName: UIScene.didActivateNotification, object: nil, queue: nil) { _ in
+			UIView.animate(withDuration: 0.1, animations: {
+				self.blurView.alpha = 0.0
+			}, completion: { _ in
+				self.blurView.removeFromSuperview()
+			})
+		}
 
-		NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification, object: nil, queue: nil)
-			{ _ in
-				if !self.isLoginRequired, !self.store.state.isPromptingBiometrics {
-					self.blurView.alpha = 1.0
-					self.view.addSubview(self.blurView)
-					self.blurView.constrain(toSuperviewEdges: nil)
-				}
+		NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification, object: nil, queue: nil) { _ in
+			if !self.isLoginRequired, !self.store.state.isPromptingBiometrics {
+				self.blurView.alpha = 1.0
+				self.view.addSubview(self.blurView)
+				self.blurView.constrain(toSuperviewEdges: nil)
 			}
+		}
 	}
 
 	private func showJailbreakWarnings(isJailbroken: Bool) {

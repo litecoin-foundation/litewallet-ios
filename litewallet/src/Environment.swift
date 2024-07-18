@@ -126,7 +126,7 @@ struct E {
 	}()
 
 	static var isIPhone4: Bool {
-		return (UIScreen.main.bounds.size.height == 480.0)
+		return UIScreen.main.bounds.size.height == 480.0
 	}
 
 	static var isIPhone5: Bool {
@@ -134,24 +134,22 @@ struct E {
 	}
 
 	static var isIPhoneX: Bool {
-		return (UIScreen.main.bounds.size.height == 812.0)
+		return UIScreen.main.bounds.size.height == 812.0
 	}
 
 	static var isIPhone8Plus: Bool {
-		return (UIScreen.main.bounds.size.height == 736.0)
+		return UIScreen.main.bounds.size.height == 736.0
 	}
 
 	static var isIPhoneXsMax: Bool {
-		return (UIScreen.main.bounds.size.height == 812.0)
+		return UIScreen.main.bounds.size.height == 812.0
 	}
 
 	static var isIPad: Bool {
-		return (UIDevice.current.userInterfaceIdiom == .pad)
+		return UIDevice.current.userInterfaceIdiom == .pad
 	}
 
-	static let is32Bit: Bool = {
-		MemoryLayout<Int>.size == MemoryLayout<UInt32>.size
-	}()
+	static let is32Bit: Bool = MemoryLayout<Int>.size == MemoryLayout<UInt32>.size
 
 	static var screenHeight: CGFloat {
 		return UIScreen.main.bounds.size.height

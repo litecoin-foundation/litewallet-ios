@@ -84,8 +84,7 @@ class Transaction {
 		}
 
 		var exchangeRateInfo = ""
-		if let metaData = metaData, let currentRate = rates.filter({ $0.code.lowercased() == metaData.exchangeRateCurrency.lowercased() }).first
-		{
+		if let metaData = metaData, let currentRate = rates.filter({ $0.code.lowercased() == metaData.exchangeRateCurrency.lowercased() }).first {
 			let difference = (currentRate.rate - metaData.exchangeRate) / metaData.exchangeRate * 100.0
 			let prefix = difference > 0.0 ? "+" : "-"
 			let firstLine = direction == .sent ? S.Transaction.exchangeOnDaySent : S.Transaction.exchangeOnDayReceived
@@ -101,28 +100,23 @@ class Transaction {
 		return "\(amountString)\n\(startingString)\n\(endingString)\n\(exchangeRateInfo)"
 	}
 
-	func amountDetailsAmountString(isLtcSwapped: Bool, rate: Rate, rates _: [Rate], maxDigits: Int) -> String
-	{
+	func amountDetailsAmountString(isLtcSwapped: Bool, rate: Rate, rates _: [Rate], maxDigits: Int) -> String {
 		let feeAmount = Amount(amount: fee, rate: rate, maxDigits: maxDigits)
 		let feeString = direction == .sent ? String(format: S.Transaction.fee.localize(), "\(feeAmount.string(isLtcSwapped: isLtcSwapped))") : ""
 		return "\(direction.sign)\(Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped)) \(feeString)"
 	}
 
-	func amountDetailsStartingBalanceString(isLtcSwapped: Bool, rate: Rate, rates _: [Rate], maxDigits: Int) -> String
-	{
+	func amountDetailsStartingBalanceString(isLtcSwapped: Bool, rate: Rate, rates _: [Rate], maxDigits: Int) -> String {
 		return String(format: S.Transaction.starting.localize(), "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))")
 	}
 
-	func amountDetailsEndingBalanceString(isLtcSwapped: Bool, rate: Rate, rates _: [Rate], maxDigits: Int) -> String
-	{
+	func amountDetailsEndingBalanceString(isLtcSwapped: Bool, rate: Rate, rates _: [Rate], maxDigits: Int) -> String {
 		return String(format: String(format: S.Transaction.ending.localize(), "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isLtcSwapped: isLtcSwapped))"))
 	}
 
-	func amountExchangeString(isLtcSwapped _: Bool, rate _: Rate, rates: [Rate], maxDigits _: Int) -> String
-	{
+	func amountExchangeString(isLtcSwapped _: Bool, rate _: Rate, rates: [Rate], maxDigits _: Int) -> String {
 		var exchangeRateInfo = ""
-		if let metaData = metaData, let currentRate = rates.filter({ $0.code.lowercased() == metaData.exchangeRateCurrency.lowercased() }).first
-		{
+		if let metaData = metaData, let currentRate = rates.filter({ $0.code.lowercased() == metaData.exchangeRateCurrency.lowercased() }).first {
 			let difference = (currentRate.rate - metaData.exchangeRate) / metaData.exchangeRate * 100.0
 			let prefix = difference > 0.0 ? "+" : "-"
 			let nf = NumberFormatter()
@@ -355,8 +349,7 @@ private extension String {
 	}
 }
 
-private func makeStatus(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRPeerManager, confirms: Int, direction: TransactionDirection) -> String
-{
+private func makeStatus(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRPeerManager, confirms: Int, direction: TransactionDirection) -> String {
 	let tx = txRef.pointee
 	guard wallet.transactionIsValid(txRef)
 	else {

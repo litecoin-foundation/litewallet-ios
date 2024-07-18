@@ -14,8 +14,7 @@ class UpdatePinViewController: UIViewController, Subscriber {
 	var resetFromDisabledSuccess: (() -> Void)?
 	var resetFromDisabledWillSucceed: (() -> Void)?
 
-	init(store: Store, walletManager: WalletManager, type: UpdatePinType, showsBackButton: Bool = true, phrase: String? = nil)
-	{
+	init(store: Store, walletManager: WalletManager, type: UpdatePinType, showsBackButton: Bool = true, phrase: String? = nil) {
 		self.store = store
 		self.walletManager = walletManager
 		self.phrase = phrase

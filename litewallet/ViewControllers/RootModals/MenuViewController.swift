@@ -14,7 +14,7 @@ class MenuViewController: UIViewController, Trackable {
 	fileprivate let buttons: [MenuButton] = {
 		let types: [MenuButtonType] = [.security, .customerSupport, .settings, .lock]
 		return types.compactMap {
-			return MenuButton(type: $0)
+			MenuButton(type: $0)
 		}
 	}()
 
@@ -22,7 +22,7 @@ class MenuViewController: UIViewController, Trackable {
 
 	override func viewDidLoad() {
 		var previousButton: UIView?
-		buttons.forEach { button in
+		for button in buttons {
 			button.addTarget(self, action: #selector(MenuViewController.didTapButton(button:)), for: .touchUpInside)
 			view.addSubview(button)
 			var topConstraint: NSLayoutConstraint?

@@ -5,13 +5,11 @@ private let duration: TimeInterval = 0.4
 class TransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
 	var shouldShowMaskView = true
 
-	func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning?
-	{
+	func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		return PresentGenericAnimator(shouldShowMaskView: shouldShowMaskView)
 	}
 
-	func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning?
-	{
+	func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		return DismissGenericAnimator()
 	}
 }

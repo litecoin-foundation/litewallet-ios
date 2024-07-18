@@ -4,7 +4,6 @@ enum AlertType {
 	case pinSet(callback: () -> Void)
 	case paperKeySet(callback: () -> Void)
 	case sendSuccess
-	case resolvedSuccess
 	case addressesCopied
 	case sweepSuccess(callback: () -> Void)
 
@@ -19,13 +18,10 @@ enum AlertType {
 			return S.SecurityAlerts.paperKeySet.localize()
 		case .sendSuccess:
 			return S.SecurityAlerts.sendSuccess.localize()
-		case .resolvedSuccess:
-			return S.SecurityAlerts.resolvedSuccess.localize()
 		case .addressesCopied:
 			return S.SecurityAlerts.copiedAddressesHeader.localize()
 		case .sweepSuccess:
 			return S.Import.success.localize()
-
 		// Failure(s)
 		case .failedResolution:
 			return S.SecurityAlerts.sendFailure.localize()
@@ -40,13 +36,10 @@ enum AlertType {
 			return S.SecurityAlerts.paperKeySetSubheader.localize()
 		case .sendSuccess:
 			return S.SecurityAlerts.sendSuccessSubheader.localize()
-		case .resolvedSuccess:
-			return S.SecurityAlerts.resolvedSuccessSubheader.localize()
 		case .addressesCopied:
 			return S.SecurityAlerts.copiedAddressesSubheader.localize()
 		case .sweepSuccess:
 			return S.Import.successBody.localize()
-
 		// Failure(s)
 		case .failedResolution:
 			return S.SecurityAlerts.resolvedSuccessSubheader.localize()
@@ -68,17 +61,13 @@ func == (lhs: AlertType, rhs: AlertType) -> Bool {
 		return true
 	case (.sendSuccess, .sendSuccess):
 		return true
-	case (.resolvedSuccess, .resolvedSuccess):
-		return true
 	case (.addressesCopied, .addressesCopied):
 		return true
 	case (.sweepSuccess(_), .sweepSuccess(_)):
 		return true
-
 	// Failure(s)
 	case (.failedResolution, .failedResolution):
 		return true
-
 	default:
 		return false
 	}

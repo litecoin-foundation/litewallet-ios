@@ -88,8 +88,8 @@ class Sender {
 		self.comment = comment
 		self.feePerKb = feePerKb
 
-		if UserDefaults.isBiometricsEnabled &&
-			walletManager.canUseBiometrics(forTx: tx)
+		if UserDefaults.isBiometricsEnabled,
+		   walletManager.canUseBiometrics(forTx: tx)
 		{
 			DispatchQueue.walletQueue.async { [weak self] in
 				guard let myself = self else { return }

@@ -1,5 +1,6 @@
 import BackgroundTasks
 import StoreKit
+import SwiftUI
 import UIKit
 
 let timeSinceLastExitKey = "TimeSinceLastExit"
@@ -56,7 +57,6 @@ class ApplicationController: Subscriber, Trackable {
 	func launch(application: UIApplication, window: UIWindow?) {
 		self.application = application
 		self.window = window
-
 		setup()
 		reachability.didChange = { isReachable in
 			if !isReachable {
@@ -74,6 +74,8 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func setup() {
+		setupDefaults()
+		countLaunches()
 		setupRootViewController()
 		window?.makeKeyAndVisible()
 		offMainInitialization()
@@ -114,8 +116,7 @@ class ApplicationController: Subscriber, Trackable {
 		}
 		exchangeUpdater?.refresh(completion: {})
 		feeUpdater?.refresh()
-		walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
-
+		// walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
 		if modalPresenter?.walletManager == nil {
 			modalPresenter?.walletManager = walletManager
 		}
@@ -129,8 +130,7 @@ class ApplicationController: Subscriber, Trackable {
 		}
 		exchangeUpdater?.refresh(completion: {})
 		feeUpdater?.refresh()
-		walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
-
+		// walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
 		if modalPresenter?.walletManager == nil {
 			modalPresenter?.walletManager = walletManager
 		}
@@ -146,7 +146,7 @@ class ApplicationController: Subscriber, Trackable {
 		if !store.state.isLoginRequired {
 			UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: timeSinceLastExitKey)
 		}
-		walletManager?.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
+		// walletManager?.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
 	}
 
 	func performFetch(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -172,7 +172,9 @@ class ApplicationController: Subscriber, Trackable {
 		walletCoordinator = WalletCoordinator(walletManager: walletManager, store: store)
 		modalPresenter = ModalPresenter(store: store, walletManager: walletManager, window: window, apiClient: noAuthApiClient)
 		exchangeUpdater = ExchangeUpdater(store: store, walletManager: walletManager)
-		feeUpdater = FeeUpdater(walletManager: walletManager, store: store)
+
+		guard let exchangeUpdaterWithFee = exchangeUpdater else { return }
+		feeUpdater = FeeUpdater(walletManager: walletManager, store: store, exchangeUpdater: exchangeUpdaterWithFee)
 		startFlowController = StartFlowPresenter(store: store, walletManager: walletManager, rootViewController: rootViewController)
 		mainViewController?.walletManager = walletManager
 		defaultsUpdater = UserDefaultsUpdater(walletManager: walletManager)
@@ -228,9 +230,7 @@ class ApplicationController: Subscriber, Trackable {
 		defaultsUpdater?.refresh()
 		walletManager?.apiClient?.events?.up()
 
-		exchangeUpdater?.refresh(completion: {
-			NSLog("::: Refreshed fiat rates")
-		})
+		exchangeUpdater?.refresh(completion: {})
 	}
 
 	private func addWalletCreationListener() {
@@ -260,7 +260,6 @@ class ApplicationController: Subscriber, Trackable {
 			let properties = ["error_message": "kv_finished_syning",
 			                  "error": "\(String(describing: error))"]
 			LWAnalytics.logEventWithParameters(itemName: ._20240315_AI, properties: properties)
-
 			self.walletCoordinator?.kvStore = kvStore
 			self.kvStoreCoordinator = KVStoreCoordinator(store: self.store, kvStore: kvStore)
 			self.kvStoreCoordinator?.retreiveStoredWalletInfo()
@@ -269,7 +268,7 @@ class ApplicationController: Subscriber, Trackable {
 	}
 
 	private func offMainInitialization() {
-		DispatchQueue.global(qos: .background).async {
+		Task(priority: .background) {
 			_ = Rate.symbolMap // Initialize currency symbol map
 		}
 	}
@@ -277,8 +276,7 @@ class ApplicationController: Subscriber, Trackable {
 	func performBackgroundFetch() {
 		saveEvent("appController.performBackgroundFetch")
 		let group = DispatchGroup()
-		if let peerManager = walletManager?.peerManager, peerManager.syncProgress(fromStartHeight: peerManager.lastBlockHeight) < 1.0
-		{
+		if let peerManager = walletManager?.peerManager, peerManager.syncProgress(fromStartHeight: peerManager.lastBlockHeight) < 1.0 {
 			group.enter()
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_DEDG)
 
@@ -304,7 +302,6 @@ class ApplicationController: Subscriber, Trackable {
 			{ self.exchangeUpdater?.refresh(completion: $0) },
 			{ self.feeUpdater?.refresh(completion: $0) },
 			{ self.walletManager?.apiClient?.events?.sync(completion: $0) },
-
 		], completion: {
 			LWAnalytics.logEventWithParameters(itemName: ._20200111_DLDG)
 			group.leave()
@@ -321,4 +318,41 @@ class ApplicationController: Subscriber, Trackable {
 			self.fetchCompletionHandler = nil
 		}
 	}
+}
+
+extension ApplicationController {
+	func setupDefaults() {
+		if UserDefaults.standard.object(forKey: shouldRequireLoginTimeoutKey) == nil {
+			UserDefaults.standard.set(60.0 * 3.0, forKey: shouldRequireLoginTimeoutKey) // Default 3 min timeout
+		}
+		if UserDefaults.standard.object(forKey: hasSeenAnnounceView) == nil {
+			UserDefaults.standard.set(false, forKey: hasSeenAnnounceView) // Hasnt seen the Announce View
+		}
+	}
+
+	func countLaunches() {
+		if var launchNumber = UserDefaults.standard.object(forKey: numberOfLitewalletLaunches) as? Int {
+			launchNumber += 1
+			UserDefaults.standard.set(NSNumber(value: launchNumber), forKey: numberOfLitewalletLaunches)
+			if launchNumber == 5 {
+				if #available(iOS 14, *) {
+					if self.window != nil,
+					   let scene = self.window?.windowScene
+					{
+						SKStoreReviewController.requestReview(in: scene)
+					}
+
+				} else {
+					SKStoreReviewController.requestReview()
+				}
+
+				LWAnalytics.logEventWithParameters(itemName: ._20200125_DSRR)
+			}
+		} else {
+			UserDefaults.standard.set(NSNumber(value: 1), forKey: numberOfLitewalletLaunches)
+		}
+	}
+
+	func willResignActive()
+	{}
 }

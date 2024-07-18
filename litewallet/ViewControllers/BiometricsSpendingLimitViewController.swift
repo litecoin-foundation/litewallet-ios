@@ -56,8 +56,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
 		return limits.count
 	}
 
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-	{
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 		let limit = limits[indexPath.row]
 		if limit == 0 {

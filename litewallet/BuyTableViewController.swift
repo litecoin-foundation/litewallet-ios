@@ -52,8 +52,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	private let currentWalletAddress: String = WalletManager.sharedInstance.wallet?.receiveAddress ?? ""
 
 	@IBAction func didTapSimplex(_: Any) {
-		if let vcWKVC = UIStoryboard(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController
-		{
+		if let vcWKVC = UIStoryboard(name: "Buy", bundle: nil).instantiateViewController(withIdentifier: "BuyWKWebViewController") as? BuyWKWebViewController {
 			vcWKVC.currencyCode = currencyCode
 			vcWKVC.currentWalletAddress = currentWalletAddress
 			vcWKVC.uuidString = uuidString
@@ -135,8 +134,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	}
 
 	@objc private func didChangeCurrencyMoonpay() {
-		if let code = PartnerFiatOptions(rawValue: moonpaySegmentedControl.selectedSegmentIndex)?.description
-		{
+		if let code = PartnerFiatOptions(rawValue: moonpaySegmentedControl.selectedSegmentIndex)?.description {
 			currencyCode = code
 		} else {
 			print("Error: Code not found: \(moonpaySegmentedControl.selectedSegmentIndex)")
@@ -144,8 +142,7 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 	}
 
 	@objc private func didChangeCurrencySimplex() {
-		if let code = PartnerFiatOptions(rawValue: simplexCurrencySegmentedControl.selectedSegmentIndex)?.description
-		{
+		if let code = PartnerFiatOptions(rawValue: simplexCurrencySegmentedControl.selectedSegmentIndex)?.description {
 			currencyCode = code
 		} else {
 			print("Error: Code not found: \(simplexCurrencySegmentedControl.selectedSegmentIndex)")

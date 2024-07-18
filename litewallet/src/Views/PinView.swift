@@ -39,7 +39,7 @@ class PinView: UIView {
 	}
 
 	func fill(_ number: Int) {
-		filled.enumerated().forEach { index, circle in
+		for (index, circle) in filled.enumerated() {
 			circle.isHidden = index > number - 1
 		}
 	}
@@ -81,7 +81,7 @@ class PinView: UIView {
 	}
 
 	private func addCircleContraints(_ circles: [Circle]) {
-		circles.enumerated().forEach { index, circle in
+		for (index, circle) in circles.enumerated() {
 			addSubview(circle)
 			let leadingConstraint: NSLayoutConstraint?
 			if index == 0 {
