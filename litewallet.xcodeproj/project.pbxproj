@@ -230,7 +230,6 @@
 		759DA0BB1DAC2A4F008CC49B /* ecc-256.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD7B81DAA16810075898E /* ecc-256.c */; };
 		759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 755CD9D11DAA197C0075898E /* libBRCore.a */; };
 		75A2A7941DA5934300A983D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7931DA5934300A983D8 /* AppDelegate.swift */; };
-		75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79A1DA5934300A983D8 /* Assets.xcassets */; };
 		75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */; };
 		75A2A80A1DA5936F00A983D8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */; };
 		75A2A8101DA5936F00A983D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A80E1DA5936F00A983D8 /* MainInterface.storyboard */; };
@@ -295,6 +294,7 @@
 		C3B7C3EE255FF59200E98A64 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B7C3ED255FF59200E98A64 /* ConstantsTests.swift */; };
 		C3BD4A5325975C6000D97079 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BD4A5225975C6000D97079 /* View+Extension.swift */; };
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
+		C3D41F3A2C4A4C0200887523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D41F392C4A4C0200887523 /* Assets.xcassets */; };
 		C3D4379F2566EA3E00F423E1 /* LWActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */; };
 		C3DBBE312BFE15AF00B95939 /* BuyTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBBE302BFE15AF00B95939 /* BuyTileView.swift */; };
 		C3E5A9052BFDEEF1002FBE04 /* BuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A9042BFDEEF1002FBE04 /* BuyViewModel.swift */; };
@@ -318,7 +318,7 @@
 		C3F8F1462C05269A006C3211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
-		C73896A12BEA3C4900029095 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C73896A02BEA3C4900029095 /* partner-keys.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
+		C7FD407F2C48FAF60010C0E6 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
 		CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CF71E67A8E500DFA146 /* TransactionDirection.swift */; };
@@ -1365,7 +1365,6 @@
 		759DA0A01DAB838D008CC49B /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
 		75A2A7901DA5934300A983D8 /* Litewallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Litewallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7931DA5934300A983D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75A2A79A1DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75A2A79D1DA5934300A983D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75A2A79F1DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2A7F21DA5935F00A983D8 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
@@ -1446,6 +1445,7 @@
 		C3BDB42726CC028F004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		C3BDB42826CC0338004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
+		C3D41F392C4A4C0200887523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
 		C3DBBE302BFE15AF00B95939 /* BuyTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTileView.swift; sourceTree = "<group>"; };
 		C3E5A9042BFDEEF1002FBE04 /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
@@ -1469,7 +1469,7 @@
 		C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellView.swift; sourceTree = "<group>"; };
 		C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellViewModel.swift; sourceTree = "<group>"; };
-		C73896A02BEA3C4900029095 /* partner-keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "partner-keys.plist"; sourceTree = "<group>"; };
+		C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "partner-keys.plist"; sourceTree = "<group>"; };
 		CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUTXO.swift; path = Models/SimpleUTXO.swift; sourceTree = "<group>"; };
 		CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ModalPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CE0FC0F81F72417200E7C626 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -2901,8 +2901,8 @@
 				22A9A9311DF61930000F0016 /* Platform */,
 				CEAA9E9C1DC2F8270066731D /* Fonts */,
 				24670EAC2368EDE7006093E0 /* LFColorPalette.xcassets */,
-				75A2A79A1DA5934300A983D8 /* Assets.xcassets */,
 				CE5E6C991EB9135000A476DB /* Icon.xcassets */,
+				C3D41F392C4A4C0200887523 /* Assets.xcassets */,
 				75A2A79C1DA5934300A983D8 /* LaunchScreen.storyboard */,
 				75A2A79F1DA5934300A983D8 /* Info.plist */,
 				C31C27662BA327640047F855 /* PrivacyInfo.xcprivacy */,
@@ -2974,7 +2974,7 @@
 		C3055B662B8E593A002A0882 /* LaunchDataResources */ = {
 			isa = PBXGroup;
 			children = (
-				C73896A02BEA3C4900029095 /* partner-keys.plist */,
+				C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */,
 				C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */,
 				C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */,
 			);
@@ -3713,6 +3713,7 @@
 			files = (
 				C3423C492B796D820051BD6D /* Ko.mp3 in Resources */,
 				75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */,
+				C3D41F3A2C4A4C0200887523 /* Assets.xcassets in Resources */,
 				C33685092BECE8B10069CBC7 /* PrivacyInfo.xcprivacy in Resources */,
 				C3423C3F2B796D820051BD6D /* Pt.mp3 in Resources */,
 				24D5F23822599C0B00225462 /* BarlowSemiCondensed-Italic.ttf in Resources */,
@@ -3720,7 +3721,7 @@
 				24313C9B23824F5800A83F69 /* Transactions.storyboard in Resources */,
 				C3423C412B796D820051BD6D /* En.mp3 in Resources */,
 				222319B21F279B3C00008F20 /* POSTBouncer.html in Resources */,
-				C73896A12BEA3C4900029095 /* partner-keys.plist in Resources */,
+				C7FD407F2C48FAF60010C0E6 /* partner-keys.plist in Resources */,
 				24670EAE2368EDE7006093E0 /* LFColorPalette.xcassets in Resources */,
 				24313CA523824F5800A83F69 /* Buy.storyboard in Resources */,
 				24D5F23B22599C0B00225462 /* BarlowSemiCondensed-Bold.ttf in Resources */,
@@ -3754,7 +3755,6 @@
 				24393B5C23C259400075218D /* Phrase.storyboard in Resources */,
 				C3F8F1462C05269A006C3211 /* GoogleService-Info.plist in Resources */,
 				C3423C422B796D820051BD6D /* coinflip.aiff in Resources */,
-				75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4486,7 +4486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240527.6;
+				CURRENT_PROJECT_VERSION = 240719.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
@@ -4844,7 +4844,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240527.6;
+				CURRENT_PROJECT_VERSION = 240719.0;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4986,7 +4986,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 240527.6;
+				CURRENT_PROJECT_VERSION = 240719.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
