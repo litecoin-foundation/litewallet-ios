@@ -37,7 +37,7 @@ extension BRAPIClient {
 				}
 			} else {
 				if isFallback {
-					let properties: [String: String] = ["error_message": "is_fallback_no_rate_array_returned"]
+					let properties = ["error_message": "is_fallback_no_rate_array_returned"]
 					LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 					handler([], "Error fetching from fallback url")
 				} else {
