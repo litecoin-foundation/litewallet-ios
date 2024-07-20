@@ -1,8 +1,10 @@
 import BRCore
+import Firebase
+import FirebaseMessaging
 import MachO
-import PushNotifications
 import SwiftUI
 import UIKit
+import UserNotifications
 
 class MainViewController: UIViewController, Subscriber, LoginViewControllerDelegate {
 	// MARK: - Private
@@ -149,7 +151,9 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 			}
 		}
 		delay(4.0) {
-			self.appDelegate.pushNotifications.registerForRemoteNotifications()
+			// Register for Firebase Messaging
+			let application = UIApplication.shared
+			application.registerForRemoteNotifications()
 		}
 	}
 

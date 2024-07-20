@@ -1,14 +1,15 @@
 import Firebase
+import FirebaseCore
+import FirebaseMessaging
 import LocalAuthentication
-import PushNotifications
 import SwiftUI
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
-	let pushNotifications = PushNotifications.shared
 
 	var resourceRequest: NSBundleResourceRequest?
 
@@ -25,44 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				let errorDescription = "partnerkey_data_missing"
 				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 			}
-			// Firebase
-			self.setFirebaseConfiguration()
 
-			// Pusher
-			self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
-			let generalInterest = String.preferredLanguageInterest(currentId: UserDefaults.selectedLanguage)
-			let debugGeneralInterest = "debug-general"
-
-			try? self.pushNotifications.clearDeviceInterests()
-
-			try? self.pushNotifications
-				.addDeviceInterest(interest: generalInterest)
-			try? self.pushNotifications
-				.addDeviceInterest(interest: debugGeneralInterest)
-
-			let interests = self.pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
-			let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
-			let interestsDict: [String: String] = ["device_id": device,
-			                                       "pusher_interests": interests]
-
-			LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
-			                                   properties: interestsDict)
-
-			let current = UNUserNotificationCenter.current()
-
-			current.getNotificationSettings(completionHandler: { settings in
-
-				debugPrint(settings.debugDescription)
-				if settings.authorizationStatus == .denied {
-					self.pushNotifications.clearAllState {
-						LWAnalytics.logEventWithParameters(itemName: ._20240506_DPN)
-					}
-
-					self.pushNotifications.stop {
-						LWAnalytics.logEventWithParameters(itemName: ._20240510_SPN)
-					}
-				}
-			})
+			// Call Firebase
+			self.setFirebaseConfigurationMethod()
 
 		} onFailure: { error in
 
@@ -114,25 +80,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	/// Pusher Related funcs
-	func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-		pushNotifications.registerDeviceToken(deviceToken)
+	func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken _: Data) {
+		// Firebase Messaging
+		// pushNotifications.registerDeviceToken(deviceToken)
 
 		let acceptanceDict: [String: String] = ["did_accept": "true",
 		                                        "date_accepted": Date().ISO8601Format()]
 		LWAnalytics.logEventWithParameters(itemName: ._20231225_UAP, properties: acceptanceDict)
 	}
 
-	func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+	func application(_: UIApplication, didReceiveRemoteNotification _: [AnyHashable: Any],
 	                 fetchCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void)
 	{
-		pushNotifications.handleNotification(userInfo: userInfo)
+		// Firebase Messaging
+		//  pushNotifications.handleNotification(userInfo: userInfo)
 	}
 
 	/// Sets the correct Google Services  plist file
-	private func setFirebaseConfiguration() {
+	private func setFirebaseConfigurationMethod() {
 		// Load a Firebase debug config file.
 		// let filePath = Bundle.main.path(forResource: "Debug-GoogleService-Info", ofType: "plist")
-
 		guard let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") else {
 			let properties = ["error_message": "gs_info_file_missing"]
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
@@ -143,6 +110,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		if let fboptions = FirebaseOptions(contentsOfFile: filePath) {
 			FirebaseApp.configure(options: fboptions)
+
+			// [START set_messaging_delegate]
+			Messaging.messaging().delegate = self
+			// [END set_messaging_delegate]
+
+			// Register for remote notifications. This shows a permission dialog on first run, to
+			// show the dialog at a more appropriate time move this registration accordingly.
+			// [START register_for_notifications]
+
+			UNUserNotificationCenter.current().delegate = self
+
+			let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+			UNUserNotificationCenter.current().requestAuthorization(
+				options: authOptions,
+				completionHandler: { _, _ in }
+			)
+
+			// Firebase Messaging
+			//            self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
+			//            let generalInterest = String.preferredLanguageInterest(currentId: UserDefaults.selectedLanguage)
+			//            let debugGeneralInterest = "debug-general"
+			//
+			//            try? self.pushNotifications.clearDeviceInterests()
+			//
+			//            try? self.pushNotifications
+			//                .addDeviceInterest(interest: generalInterest)
+			//            try? self.pushNotifications
+			//                .addDeviceInterest(interest: debugGeneralInterest)
+			//
+			//            let interests = self.pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
+			//            let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
+			//            let interestsDict: [String: String] = ["device_id": device,
+			//                                                   "pusher_interests": interests]
+			//
+			//            LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
+			//                                               properties: interestsDict)
+			//
+			//            let current = UNUserNotificationCenter.current()
+			//
+			//            current.getNotificationSettings(completionHandler: { settings in
+			//
+			//                debugPrint(settings.debugDescription)
+			//                if settings.authorizationStatus == .denied {
+			//                    self.pushNotifications.clearAllState {
+			//                        LWAnalytics.logEventWithParameters(itemName: ._20240506_DPN)
+			//                    }
+			//
+			//                    self.pushNotifications.stop {
+			//                        LWAnalytics.logEventWithParameters(itemName: ._20240510_SPN)
+			//                    }
+			//                }
+			//            })
+
 		} else {
 			let properties = ["error_message": "firebase_config_failed"]
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
