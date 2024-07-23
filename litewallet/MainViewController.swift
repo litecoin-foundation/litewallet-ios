@@ -178,9 +178,49 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 	}
 
 	private func addSubscriptions() {
+		/// Simple Redux
 		store.subscribe(self, selector: { $0.isLoginRequired != $1.isLoginRequired },
 		                callback: { self.isLoginRequired = $0.isLoginRequired
 		                })
+
+		/// Firebase Messaging
+		let generalTopic = String.preferredLanguageInterest(currentId: UserDefaults.selectedLanguage)
+		let debugTopic = "debug-tpoic"
+		let allTopics: [String] = [generalTopic, debugTopic]
+
+		let topicsJoined = allTopics.joined(separator: "|")
+		let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
+		let topicsDict: [String: String] = ["device_id": device,
+		                                    "topics": topicsJoined]
+
+		LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI, properties: topicsDict)
+
+		Messaging.messaging().subscribe(toTopic: debugTopic) { error in
+			if error != nil {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+			}
+		}
+
+		Messaging.messaging().subscribe(toTopic: generalTopic) { error in
+			if error != nil {
+				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
+			}
+		}
+
+		//DEV; Add the analytics parts for the FCM
+		//            current.getNotificationSettings(completionHandler: { settings in
+		//
+		//                debugPrint(settings.debugDescription)
+		//                if settings.authorizationStatus == .denied {
+		//                    self.pushNotifications.clearAllState {
+		//                        LWAnalytics.logEventWithParameters(itemName: ._20240506_DPN)
+		//                    }
+		//
+		//                    self.pushNotifications.stop {
+		//                        LWAnalytics.logEventWithParameters(itemName: ._20240510_SPN)
+		//                    }
+		//                }
+		//            })
 	}
 
 	private func addAppLifecycleNotificationEvents() {

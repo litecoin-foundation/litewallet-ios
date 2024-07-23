@@ -7,9 +7,10 @@ import UIKit
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
+	let gcmMessageIDKey = "gcm.litewawllet_message_id"
 
 	var resourceRequest: NSBundleResourceRequest?
 
@@ -79,21 +80,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 		return true
 	}
 
-	/// Pusher Related funcs
-	func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken _: Data) {
-		// Firebase Messaging
-		// pushNotifications.registerDeviceToken(deviceToken)
-
+	func application(_: UIApplication,
+	                 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+	{
 		let acceptanceDict: [String: String] = ["did_accept": "true",
-		                                        "date_accepted": Date().ISO8601Format()]
+		                                        "date_accepted": Date().ISO8601Format(),
+		                                        "apns_token_status": "\(deviceToken)"]
 		LWAnalytics.logEventWithParameters(itemName: ._20231225_UAP, properties: acceptanceDict)
 	}
 
-	func application(_: UIApplication, didReceiveRemoteNotification _: [AnyHashable: Any],
-	                 fetchCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void)
+	func application(_: UIApplication,
+	                 didFailToRegisterForRemoteNotificationsWithError error: Error)
 	{
-		// Firebase Messaging
-		//  pushNotifications.handleNotification(userInfo: userInfo)
+		print("Unable to register for remote notifications: \(error.localizedDescription)")
+	}
+
+	func application(_: UIApplication,
+	                 didReceiveRemoteNotification userInfo: [AnyHashable: Any])
+	{
+		/// Print message ID.
+		if let messageID = userInfo[gcmMessageIDKey] {
+			print("Message ID: \(messageID) \n \(userInfo)")
+		}
 	}
 
 	/// Sets the correct Google Services  plist file
@@ -111,14 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 		if let fboptions = FirebaseOptions(contentsOfFile: filePath) {
 			FirebaseApp.configure(options: fboptions)
 
-			// [START set_messaging_delegate]
 			Messaging.messaging().delegate = self
-			// [END set_messaging_delegate]
-
-			// Register for remote notifications. This shows a permission dialog on first run, to
-			// show the dialog at a more appropriate time move this registration accordingly.
-			// [START register_for_notifications]
-
 			UNUserNotificationCenter.current().delegate = self
 
 			let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -126,42 +127,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 				options: authOptions,
 				completionHandler: { _, _ in }
 			)
-
-			// Firebase Messaging
-			//            self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
-			//            let generalInterest = String.preferredLanguageInterest(currentId: UserDefaults.selectedLanguage)
-			//            let debugGeneralInterest = "debug-general"
-			//
-			//            try? self.pushNotifications.clearDeviceInterests()
-			//
-			//            try? self.pushNotifications
-			//                .addDeviceInterest(interest: generalInterest)
-			//            try? self.pushNotifications
-			//                .addDeviceInterest(interest: debugGeneralInterest)
-			//
-			//            let interests = self.pushNotifications.getDeviceInterests()?.joined(separator: "|") ?? ""
-			//            let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
-			//            let interestsDict: [String: String] = ["device_id": device,
-			//                                                   "pusher_interests": interests]
-			//
-			//            LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI,
-			//                                               properties: interestsDict)
-			//
-			//            let current = UNUserNotificationCenter.current()
-			//
-			//            current.getNotificationSettings(completionHandler: { settings in
-			//
-			//                debugPrint(settings.debugDescription)
-			//                if settings.authorizationStatus == .denied {
-			//                    self.pushNotifications.clearAllState {
-			//                        LWAnalytics.logEventWithParameters(itemName: ._20240506_DPN)
-			//                    }
-			//
-			//                    self.pushNotifications.stop {
-			//                        LWAnalytics.logEventWithParameters(itemName: ._20240510_SPN)
-			//                    }
-			//                }
-			//            })
 
 		} else {
 			let properties = ["error_message": "firebase_config_failed"]
@@ -214,6 +179,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 					onSuccess()
 				}
 			}
+		}
+	}
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+	// Receive displayed notifications for iOS 10 devices.
+	func userNotificationCenter(_: UNUserNotificationCenter,
+	                            willPresent notification: UNNotification) async
+		-> UNNotificationPresentationOptions
+	{
+		let userInfo = notification.request.content.userInfo
+		if let messageID = userInfo[gcmMessageIDKey] {
+			print("Message ID: \(messageID) \n \(userInfo)")
+		}
+
+		// All options
+		return [[.badge, .sound, .banner]]
+	}
+
+	func userNotificationCenter(_: UNUserNotificationCenter,
+	                            didReceive response: UNNotificationResponse) async
+	{
+		let userInfo = response.notification.request.content.userInfo
+
+		if let messageID = userInfo[gcmMessageIDKey] {
+			print("Message ID: \(messageID) \n \(userInfo)")
 		}
 	}
 }

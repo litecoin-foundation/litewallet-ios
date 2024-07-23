@@ -291,7 +291,6 @@
 		C3BD4A5325975C6000D97079 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BD4A5225975C6000D97079 /* View+Extension.swift */; };
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
 		C3D41F3A2C4A4C0200887523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D41F392C4A4C0200887523 /* Assets.xcassets */; };
-		C3D41F3C2C4A625000887523 /* PushHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D41F3B2C4A625000887523 /* PushHelper.swift */; };
 		C3D41F3F2C4A64D700887523 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C3D41F3E2C4A64D700887523 /* FirebaseAnalytics */; };
 		C3D41F412C4A64D700887523 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C3D41F402C4A64D700887523 /* FirebaseCrashlytics */; };
 		C3D41F432C4A64D700887523 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = C3D41F422C4A64D700887523 /* FirebaseInAppMessaging-Beta */; };
@@ -1449,7 +1448,6 @@
 		C3BDB42826CC0338004DAE77 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
 		C3D41F392C4A4C0200887523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C3D41F3B2C4A625000887523 /* PushHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushHelper.swift; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
 		C3DBBE302BFE15AF00B95939 /* BuyTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTileView.swift; sourceTree = "<group>"; };
 		C3E5A9042BFDEEF1002FBE04 /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
@@ -3328,7 +3326,6 @@
 				24313C732381E73200A83F69 /* TransactionManager.swift */,
 				24470E4623A6B6E900ADDA27 /* MockSeeds.swift */,
 				584E24F22951C119005E0E8B /* Localization.swift */,
-				C3D41F3B2C4A625000887523 /* PushHelper.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -4138,7 +4135,6 @@
 				CEF3E8321DE55540007C0A9E /* CheckView.swift in Sources */,
 				CECCE5A91E0378FB00D99448 /* PinPadViewController.swift in Sources */,
 				584E24F32951C11A005E0E8B /* Localization.swift in Sources */,
-				C3D41F3C2C4A625000887523 /* PushHelper.swift in Sources */,
 				C3423C1C2B7903CA0051BD6D /* LaunchView.swift in Sources */,
 				C32DAE0725925B7E003FC978 /* Color+Extension.swift in Sources */,
 				C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */,
