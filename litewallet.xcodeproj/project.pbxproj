@@ -239,6 +239,7 @@
 		C30029E225D0185500F08C2B /* StandardDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029E125D0185500F08C2B /* StandardDividerView.swift */; };
 		C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029EA25D019BC00F08C2B /* CopyButtonView.swift */; };
 		C3019EE32B8FEFED00FAF648 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */; };
+		C31045612CDBB94700C11FDE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31045602CDBB94600C11FDE /* GoogleService-Info.plist */; };
 		C316CF49261887FC00E4C09B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */; };
 		C3188E2726431E750008ADD1 /* Debug-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */; };
@@ -315,7 +316,6 @@
 		C3F8F13E2C04C3A7006C3211 /* MoonpayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F13D2C04C3A7006C3211 /* MoonpayHelper.swift */; };
 		C3F8F1422C04DEA2006C3211 /* NoBuyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8F1412C04DEA2006C3211 /* NoBuyTabBarViewController.swift */; };
 		C3F8F1442C04F6BE006C3211 /* Dakar, Senegal.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1432C04F6BE006C3211 /* Dakar, Senegal.gpx */; };
-		C3F8F1462C05269A006C3211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
 		C73896A12BEA3C4900029095 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C73896A02BEA3C4900029095 /* partner-keys.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
@@ -1386,6 +1386,7 @@
 		C30029E125D0185500F08C2B /* StandardDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDividerView.swift; sourceTree = "<group>"; };
 		C30029EA25D019BC00F08C2B /* CopyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButtonView.swift; sourceTree = "<group>"; };
 		C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
+		C31045602CDBB94600C11FDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Debug-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerTests.swift; sourceTree = "<group>"; };
@@ -1466,7 +1467,6 @@
 		C3F8F13D2C04C3A7006C3211 /* MoonpayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonpayHelper.swift; sourceTree = "<group>"; };
 		C3F8F1412C04DEA2006C3211 /* NoBuyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBuyTabBarViewController.swift; sourceTree = "<group>"; };
 		C3F8F1432C04F6BE006C3211 /* Dakar, Senegal.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Dakar, Senegal.gpx"; sourceTree = "<group>"; };
-		C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellView.swift; sourceTree = "<group>"; };
 		C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressCellViewModel.swift; sourceTree = "<group>"; };
 		C73896A02BEA3C4900029095 /* partner-keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "partner-keys.plist"; sourceTree = "<group>"; };
@@ -2975,8 +2975,8 @@
 			isa = PBXGroup;
 			children = (
 				C73896A02BEA3C4900029095 /* partner-keys.plist */,
-				C3F8F1452C05269A006C3211 /* GoogleService-Info.plist */,
 				C3188E2526431E750008ADD1 /* Debug-GoogleService-Info.plist */,
+				C31045602CDBB94600C11FDE /* GoogleService-Info.plist */,
 			);
 			name = LaunchDataResources;
 			sourceTree = "<group>";
@@ -3752,7 +3752,7 @@
 				C3423C402B796D820051BD6D /* De.mp3 in Resources */,
 				24DFCE6823B89CDE001F17F8 /* Settings.storyboard in Resources */,
 				24393B5C23C259400075218D /* Phrase.storyboard in Resources */,
-				C3F8F1462C05269A006C3211 /* GoogleService-Info.plist in Resources */,
+				C31045612CDBB94700C11FDE /* GoogleService-Info.plist in Resources */,
 				C3423C422B796D820051BD6D /* coinflip.aiff in Resources */,
 				75A2A79B1DA5934300A983D8 /* Assets.xcassets in Resources */,
 			);
