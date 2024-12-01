@@ -470,6 +470,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            	case let .creationError(message):
 		            		self?.showAlert(title: S.Send.createTransactionError.localize(), message: message, buttonLabel: S.Button.ok.localize())
 		            		self?.saveEvent("send.publishFailed", attributes: ["errorMessage": message])
+
 		            	case let .publishFailure(error):
 		            		if case let .posixError(code, description) = error {
 		            			self?.showAlert(title: S.SecurityAlerts.sendFailure.localize(), message: "\(description) (\(code))", buttonLabel: S.Button.ok.localize())

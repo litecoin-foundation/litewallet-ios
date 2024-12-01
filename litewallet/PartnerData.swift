@@ -36,7 +36,6 @@ struct Partner {
 		else {
 			let errorDescription = "partnerkey_data_missing"
 			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
-
 			return "error: FILE-NOT-FOUND"
 		}
 		filePath = releasePath
