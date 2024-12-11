@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "İşleme Hızı";
 
+/* "Fragment.back" */
+"Fragment.back" = "Geri dönmek";
+
 /* Confirm */
 "Fragment.confirm" = "Confirm";
 

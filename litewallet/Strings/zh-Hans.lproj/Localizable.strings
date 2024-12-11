@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "处理速度";
 
+/* "Fragment.back" */
+"Fragment.back" = "后退";
+
 /* Confirm */
 "Fragment.confirm" = "确认";
 

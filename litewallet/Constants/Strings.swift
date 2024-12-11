@@ -716,5 +716,6 @@ enum S {
 		static let confirm = Localization(key: "Fragment.confirm", value: "confirm", comment: "Confirm")
 		static let to = Localization(key: "Fragment.to", value: "to", comment: "to")
 		static let sorry = Localization(key: "Fragment.sorry", value: "sorry", comment: "sorry")
+		static let back = Localization(key: "Fragment.back", value: "Back", comment: "Back")
 	}
 }

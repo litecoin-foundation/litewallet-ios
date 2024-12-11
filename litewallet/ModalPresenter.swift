@@ -357,6 +357,7 @@ class ModalPresenter: Subscriber, Trackable {
 		guard let walletManager = walletManager else { return }
 		let settingsNav = UINavigationController()
 		let sections = ["About", "Wallet", "Manage", "Support", "Blockchain"]
+
 		let rows = [
 			"About": [Setting(title: S.Settings.litewalletVersion.localize(), accessoryText: {
 				AppVersion.string
@@ -421,6 +422,7 @@ class ModalPresenter: Subscriber, Trackable {
 						let showSeedsView = UIHostingController(rootView:
 							SeedWordContainerView(walletManager: walletManager))
 						settingsNav.pushViewController(showSeedsView, animated: true)
+
 					}),
 				],
 			"Manage": [

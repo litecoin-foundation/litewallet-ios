@@ -275,6 +275,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Velocidade de processamento";
 
+/* "Fragment.back" */
+"Fragment.back" = "Retornar";
+
 /* Confirm */
 "Fragment.confirm" = "confirme";
 

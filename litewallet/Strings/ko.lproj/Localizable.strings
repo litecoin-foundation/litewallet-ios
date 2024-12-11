@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "처리 속도";
 
+/* "Fragment.back" */
+"Fragment.back" = "반품";
+
 /* Confirm */
 "Fragment.confirm" = "확인하다";
 
