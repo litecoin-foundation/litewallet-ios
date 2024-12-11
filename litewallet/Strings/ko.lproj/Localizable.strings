@@ -910,6 +910,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "익명 데이터를 공유하시겠습니까?";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "시드 문구 표시";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "이것이 당신의 시드 단어입니다. 이것을 누구에게 보여주면 그들은 당신의 라이트코인을 가져갈 수 있습니다.";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "현재 지출 한도";
 

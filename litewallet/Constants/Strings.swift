@@ -386,6 +386,7 @@ enum S {
 		static let litewalletPartners = Localization(key: "Settings.litewallet.partners", value: "Litewallet Partners:", comment: "Litewallet Partners")
 		static let currentLocale = Localization(key: "Settings.currentLocale", value: "Current Locale:", comment: "Current Locale")
 		static let changeLanguageMessage = Localization(key: "Settings.ChangeLanguage.alertMessage", value: nil, comment: nil)
+		static let showSeed = Localization(key: "Settings.ShowSeed", value: "Show Seed", comment: "Show Seed")
 	}
 
 	enum About {
@@ -703,6 +704,11 @@ enum S {
 	enum Welcome {
 		static let title = Localization(key: "Welcome.title", value: "Welcome to Litewallet", comment: "Welcome view title")
 		static let body = Localization(key: "Welcome.body", value: "Litewallet now has a brand new look and some new features.\n\nAll coins are displayed in lites (ł). 1 Litecoin (Ł) = 1000 lites (ł).", comment: "Welcome view body text")
+	}
+
+	enum ShowWords {
+		static let modalTitle = Localization(key: "ShowWords.modalTitle", value: "Show seed phrase", comment: "ShowWords.modalTitle")
+		static let titleWarning = Localization(key: "ShowWords.titleWarning", value: "These are your seed words. If you show them to anyone, they can take your Litecoin", comment: "ShowWords.titleWarning")
 	}
 
 	enum Fragments {

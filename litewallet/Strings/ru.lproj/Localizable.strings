@@ -910,6 +910,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Поделиться анонимными данными?";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "Показать начальную фразу";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "Это ваши seed-слова. Если вы покажете их кому-нибудь, они могут забрать ваши Litecoin";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "Текущий лимит расходов:";
 

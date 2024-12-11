@@ -1290,3 +1290,9 @@
 
 /* Service */
 "Send.serviceFee" = "";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "";

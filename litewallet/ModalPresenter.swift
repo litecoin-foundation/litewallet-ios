@@ -377,41 +377,52 @@ class ModalPresenter: Subscriber, Trackable {
 			}),
 
 			],
-			"Wallet": [Setting(title: S.Settings.importTile.localize(), callback: { [weak self] in
-				guard let myself = self else { return }
-				guard let walletManager = myself.walletManager else { return }
-				let importNav = ModalNavigationController()
-				importNav.setClearNavbar()
-				importNav.setWhiteStyle()
-				let start = StartImportViewController(walletManager: walletManager, store: myself.store)
-				start.addCloseNavigationItem(tintColor: .white)
-				start.navigationItem.title = S.Import.title.localize()
-				importNav.viewControllers = [start]
-				settingsNav.dismiss(animated: true, completion: {
-					myself.topViewController?.present(importNav, animated: true, completion: nil)
-				})
-			}),
-			Setting(title: S.Settings.wipe.localize(), callback: { [weak self] in
-				guard let myself = self else { return }
-				guard let walletManager = myself.walletManager else { return }
-				let nc = ModalNavigationController()
-				nc.setClearNavbar()
-				nc.setWhiteStyle()
-				nc.delegate = myself.wipeNavigationDelegate
-				let start = StartWipeWalletViewController {
-					let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet {
-						myself.wipeWallet()
-					})
-					nc.pushViewController(recover, animated: true)
-				}
-				start.addCloseNavigationItem(tintColor: .white)
-				start.navigationItem.title = S.WipeWallet.title.localize()
-				nc.viewControllers = [start]
-				settingsNav.dismiss(animated: true, completion: {
-					myself.topViewController?.present(nc, animated: true, completion: nil)
-				})
-			}),
-			],
+			"Wallet":
+				[
+					Setting(title: S.Settings.importTile.localize(), callback: { [weak self] in
+						guard let myself = self else { return }
+						guard let walletManager = myself.walletManager else { return }
+						let importNav = ModalNavigationController()
+						importNav.setClearNavbar()
+						importNav.setWhiteStyle()
+						let start = StartImportViewController(walletManager: walletManager, store: myself.store)
+						start.addCloseNavigationItem(tintColor: .white)
+						start.navigationItem.title = S.Import.title.localize()
+						importNav.viewControllers = [start]
+						settingsNav.dismiss(animated: true, completion: {
+							myself.topViewController?.present(importNav, animated: true, completion: nil)
+						})
+					}),
+					Setting(title: S.Settings.wipe.localize(), callback: { [weak self] in
+						guard let myself = self else { return }
+						guard let walletManager = myself.walletManager else { return }
+						let nc = ModalNavigationController()
+						nc.setClearNavbar()
+						nc.setWhiteStyle()
+						nc.delegate = myself.wipeNavigationDelegate
+						let start = StartWipeWalletViewController {
+							let recover = EnterPhraseViewController(store: myself.store, walletManager: walletManager, reason: .validateForWipingWallet {
+								myself.wipeWallet()
+							})
+							nc.pushViewController(recover, animated: true)
+						}
+						start.addCloseNavigationItem(tintColor: .white)
+						start.navigationItem.title = S.WipeWallet.title.localize()
+						nc.viewControllers = [start]
+						settingsNav.dismiss(animated: true, completion: {
+							myself.topViewController?.present(nc, animated: true, completion: nil)
+						})
+					}),
+					Setting(title: S.ShowWords.modalTitle.localize(), callback: { [weak self] in
+
+						guard let myself = self else { return }
+						guard let walletManager = myself.walletManager else { return }
+
+						let showSeedsView = UIHostingController(rootView:
+							SeedWordContainerView(walletManager: walletManager))
+						settingsNav.pushViewController(showSeedsView, animated: true)
+					}),
+				],
 			"Manage": [
 				Setting(title: S.Settings.languages.localize(), callback: strongify(self) { _ in
 					settingsNav.pushViewController(LanguageSelectionViewController(), animated: true)

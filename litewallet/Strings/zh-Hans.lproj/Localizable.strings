@@ -910,6 +910,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "共享匿名数据？";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "显示种子短语";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "这些是你的种子词。如果你把它们给任何人看，他们就可以拿走你的莱特币";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "当前支出限额：";
 

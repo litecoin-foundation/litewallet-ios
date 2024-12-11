@@ -16,12 +16,6 @@ class StartViewModel: ObservableObject {
 	var walletCreationDidFail: Bool = false
 
 	@Published
-	var seedWords: [SeedWord] = [SeedWord(word: "indicate"), SeedWord(word: "material"), SeedWord(word: "property"),
-	                             SeedWord(word: "banana"), SeedWord(word: "tuition"), SeedWord(word: "lemon"),
-	                             SeedWord(word: "banana"), SeedWord(word: "tuition"), SeedWord(word: "lemon"),
-	                             SeedWord(word: "banana"), SeedWord(word: "tuition"), SeedWord(word: "surround")]
-
-	@Published
 	var pinDigits = ""
 
 	@Published

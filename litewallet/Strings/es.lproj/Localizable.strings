@@ -911,6 +911,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "¿Compartir datos anónimos?";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "Mostrar frase semilla";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "Estas son tus palabras clave. Si se las muestras a alguien, pueden quedarse con tus Litecoin.";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "Límite de gasto actual: ";
 

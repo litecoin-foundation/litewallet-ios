@@ -1288,5 +1288,11 @@
 /* Change language alert message */
 "Settings.ChangeLanguage.alertMessage" = "";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "";
+
 /* Start view tagline */
 "StartViewController.tagline" = "";

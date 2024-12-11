@@ -910,6 +910,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "匿名データをシェアしますか?";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "シードフレーズを表示";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "これらはあなたのシードワードです。これを誰かに見せると、ライトコインを盗まれてしまう可能性があります。";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "現在の支出制限：";
 

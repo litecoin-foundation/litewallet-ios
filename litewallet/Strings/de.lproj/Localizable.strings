@@ -910,6 +910,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Anonyme Nutzungsdaten übermitteln?";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "Seed-Phrase anzeigen";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "Dies sind Ihre Seed-Wörter. Wenn Sie sie jemandem zeigen, kann dieser Ihre Litecoin nehmen";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "Aktuelles Ausgabenlimit:";
 
