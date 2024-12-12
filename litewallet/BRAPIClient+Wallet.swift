@@ -1,7 +1,5 @@
 import Foundation
 
-private let fallbackRatesURL = "https://api-dev.lite-wallet.org/v1/rates"
-
 extension BRAPIClient {
 	func feePerKb(_ handler: @escaping (_ fees: Fees, _ error: String?) -> Void) {
 		let req = URLRequest(url: url("/fee-per-kb"))
@@ -13,7 +11,7 @@ extension BRAPIClient {
 	}
 
 	func exchangeRates(isFallback: Bool = false, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
-		let request = isFallback ? URLRequest(url: URL(string: fallbackRatesURL)!) : URLRequest(url: URL(string: APIServer.baseUrl + "v1/rates")!)
+		let request = isFallback ? URLRequest(url: URL(string: APIServer().devBaseUrl + "v1/rates")!) : URLRequest(url: URL(string: APIServer().baseUrl + "v1/rates")!)
 		dataTaskWithRequest(request) { data, _, error in
 			if error == nil, let data = data,
 			   let parsedData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)

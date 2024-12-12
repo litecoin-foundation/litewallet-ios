@@ -241,6 +241,9 @@
 		C3019EE32B8FEFED00FAF648 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */; };
 		C30808A52D0A23530063E793 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = C30808A42D0A23530063E793 /* AppsFlyerLib-Static */; };
 		C30808A72D0B70160063E793 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C30808A62D0B70160063E793 /* GoogleService-Info.plist */; };
+		C30808A92D0B758B0063E793 /* RemoteConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30808A82D0B758B0063E793 /* RemoteConfigHelper.swift */; };
+		C30808AB2D0B77F80063E793 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C30808AA2D0B77F80063E793 /* FirebaseRemoteConfigSwift */; };
+		C30808AD2D0C399D0063E793 /* remote-config-defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = C30808AC2D0C399D0063E793 /* remote-config-defaults.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C316CF49261887FC00E4C09B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */; };
 		C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */; };
 		C32142EA25C97CD900BECCD0 /* TransactionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32142E925C97CD900BECCD0 /* TransactionCellView.swift */; };
@@ -287,7 +290,8 @@
 		C36375A528BD390C00CFB3D8 /* SendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36375A428BD390C00CFB3D8 /* SendButtonView.swift */; };
 		C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF5E28F18D2C00FBCB24 /* LocalWebView.swift */; };
 		C36DBF6128F1988900FBCB24 /* LocalWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */; };
-		C37D51572CFBB5DB003E206E /* Debug-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C37D51562CFBB5DB003E206E /* Debug-GoogleService-Info.plist */; };
+		C37D51572CFBB5DB003E206E /* Debug-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C37D51562CFBB5DB003E206E /* Debug-GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
+		C37D51592CFBB5E4003E206E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C37D51582CFBB5E4003E206E /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C39443F9269DDAD3002703E9 /* LitewalletIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39443F8269DDAD3002703E9 /* LitewalletIconView.swift */; };
 		C39A71472608CB4300E7B640 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A71462608CB4300E7B640 /* EmptyTableViewCell.swift */; };
 		C3B419CB2BFCF14100EBD935 /* BuyHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B419CA2BFCF14100EBD935 /* BuyHostingController.swift */; };
@@ -321,7 +325,7 @@
 		C3F8F1442C04F6BE006C3211 /* Dakar, Senegal.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1432C04F6BE006C3211 /* Dakar, Senegal.gpx */; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
-		C7FD407F2C48FAF60010C0E6 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */; };
+		C7FD407F2C48FAF60010C0E6 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
 		CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CF71E67A8E500DFA146 /* TransactionDirection.swift */; };
@@ -1389,7 +1393,8 @@
 		C30029E125D0185500F08C2B /* StandardDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDividerView.swift; sourceTree = "<group>"; };
 		C30029EA25D019BC00F08C2B /* CopyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButtonView.swift; sourceTree = "<group>"; };
 		C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
-		C30808A62D0B70160063E793 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C30808A82D0B758B0063E793 /* RemoteConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigHelper.swift; sourceTree = "<group>"; };
+		C30808AC2D0C399D0063E793 /* remote-config-defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "remote-config-defaults.plist"; sourceTree = "<group>"; };
 		C31045602CDBB94600C11FDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerTests.swift; sourceTree = "<group>"; };
@@ -1672,6 +1677,7 @@
 				C35C1224293D464A0009022D /* FirebaseCrashlytics in Frameworks */,
 				C35C1220293D464A0009022D /* FirebaseAnalytics in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
+				C30808AB2D0B77F80063E793 /* FirebaseRemoteConfigSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2986,6 +2992,7 @@
 				C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */,
 				C30808A62D0B70160063E793 /* GoogleService-Info.plist */,
 				C37D51562CFBB5DB003E206E /* Debug-GoogleService-Info.plist */,
+				C30808AC2D0C399D0063E793 /* remote-config-defaults.plist */,
 			);
 			name = LaunchDataResources;
 			sourceTree = "<group>";
@@ -3355,6 +3362,7 @@
 				24B8FADE2163C4D400A155B1 /* Currency.swift */,
 				24313C732381E73200A83F69 /* TransactionManager.swift */,
 				24470E4623A6B6E900ADDA27 /* MockSeeds.swift */,
+				C30808A82D0B758B0063E793 /* RemoteConfigHelper.swift */,
 				584E24F22951C119005E0E8B /* Localization.swift */,
 			);
 			name = Models;
@@ -3589,6 +3597,7 @@
 				C35C1229293D48340009022D /* KeychainAccess */,
 				C3423C172B781C6B0051BD6D /* PushNotifications */,
 				C30808A42D0A23530063E793 /* AppsFlyerLib-Static */,
+				C30808AA2D0B77F80063E793 /* FirebaseRemoteConfigSwift */,
 			);
 			productName = breadwallet;
 			productReference = 75A2A7901DA5934300A983D8 /* Litewallet.app */;
@@ -3783,6 +3792,7 @@
 				2485F7D023728C19005962F1 /* RELEASE_NOTES.md in Resources */,
 				24B523AD238A53DC0030594D /* BIP39Words.plist in Resources */,
 				24313CAA23824F9800A83F69 /* Main.storyboard in Resources */,
+				C30808AD2D0C399D0063E793 /* remote-config-defaults.plist in Resources */,
 				24D5F25F22599C0B00225462 /* BarlowSemiCondensed-Regular.ttf in Resources */,
 				C3423C402B796D820051BD6D /* De.mp3 in Resources */,
 				24DFCE6823B89CDE001F17F8 /* Settings.storyboard in Resources */,
@@ -4265,6 +4275,7 @@
 				CE6D0F971DE8B73A00BD4BCF /* ModalTransitionDelegate.swift in Sources */,
 				C3E751C82AF68AEB005571CA /* UnsafeMutablePointerExtension.swift in Sources */,
 				C3BD4A5325975C6000D97079 /* View+Extension.swift in Sources */,
+				C30808A92D0B758B0063E793 /* RemoteConfigHelper.swift in Sources */,
 				C3E5A9052BFDEEF1002FBE04 /* BuyViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5264,6 +5275,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C30808A32D0A23530063E793 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
 			productName = "AppsFlyerLib-Static";
+		C30808AA2D0B77F80063E793 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C35C121E293D464A0009022D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
 		};
 		C3423C172B781C6B0051BD6D /* PushNotifications */ = {
 			isa = XCSwiftPackageProductDependency;
