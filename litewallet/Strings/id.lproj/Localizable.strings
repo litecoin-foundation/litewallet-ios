@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Kecepatan pemrosesan";
 
+/* "Fragment.back" */
+"Fragment.back" = "Kembali";
+
 /* Confirm */
 "Fragment.confirm" = "Mengonfirmasi";
 
@@ -909,6 +912,12 @@
 
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Bagikan Data Anonim?";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "Tampilkan frase awal";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "Ini adalah kata-kata benih Anda. Jika Anda menunjukkannya kepada siapa pun, mereka dapat mengambil Litecoin Anda";
 
 /* Current spending limit: */
 "SpendingLimit.title" = "Batas Pengeluaran Saat Ini: ";

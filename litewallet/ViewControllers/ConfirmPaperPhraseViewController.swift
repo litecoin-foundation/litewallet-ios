@@ -70,8 +70,7 @@ class ConfirmPaperPhraseViewController: UITableViewController {
 
 		NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification,
 		                                       object: nil,
-		                                       queue: nil)
-		{ [weak self] _ in
+		                                       queue: nil) { [weak self] _ in
 			self?.dismiss(animated: true,
 			              completion: nil)
 		}
