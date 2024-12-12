@@ -118,23 +118,20 @@ struct StartView: View {
 						       alignment: .center)
 						.alert(startViewModel
 							.alertMessage[startViewModel.currentLanguage.rawValue],
-							isPresented: $delayedSelect)
-						{
-							HStack {
-								Button(startViewModel
-									.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel)
-								{
-									// Changes and Dismisses
-									startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
-									selectedLang = false
+							isPresented: $delayedSelect) {
+								HStack {
+									Button(startViewModel
+										.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel) {
+											// Changes and Dismisses
+											startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
+											selectedLang = false
+										}
+									Button(startViewModel
+										.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive) {
+											// Dismisses
+											selectedLang = false
+										}
 								}
-								Button(startViewModel
-									.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive)
-								{
-									// Dismisses
-									selectedLang = false
-								}
-							}
 						}
 						Spacer()
 						NavigationLink(destination:
