@@ -2,7 +2,13 @@ import Foundation
 
 enum BartyCrouch {
 	enum SupportedLanguage: String {
-		// TODO: remove unsupported languages from the following cases list & add any missing languages
+		/* NOTE: remove unsupported languages from the following cases list & add any missing languages
+		 When adding more localizations:
+		 1. Copy the new label here in from the Strings.swift file
+		 2. Include the English version
+		 3. Go to a translator and add the localization within the Localizable file
+		 4. Test
+		 */
 		case chineseSimplified = "zh-Hans"
 		case chineseTraditional = "zh-Hant"
 		case english = "en"

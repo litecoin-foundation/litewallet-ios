@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Швидкість обробки";
 
+/* "Fragment.back" */
+"Fragment.back" = "Повернення";
+
 /* Confirm */
 "Fragment.confirm" = "підтвердити";
 
@@ -909,6 +912,12 @@
 
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Поділитися анонімними даними?";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "Показати вихідну фразу";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "Це ваші початкові слова. Якщо ви покажете їх комусь, вони можуть забрати ваш Litecoin";
 
 /* Current spending limit: */
 "SpendingLimit.title" = "Поточний ліміт витрат: ";

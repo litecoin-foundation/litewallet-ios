@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "Processing Speed";
 
+/* "Fragment.back" */
+"Fragment.back" = "Back";
+
 /* Confirm */
 "Fragment.confirm" = "confirm";
 
@@ -909,6 +912,12 @@
 
 /* Share data switch label. */
 "ShareData.toggleLabel" = "Share Anonymous Data?";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "Show seed phrase";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "These are your seed words. If you show them to anyone, they can take your Litecoin";
 
 /* Current spending limit: */
 "SpendingLimit.title" = "Current Spending Limit: ";

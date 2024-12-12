@@ -258,7 +258,6 @@
 		C3423C242B7904B80051BD6D /* SeedWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3423C232B7904B80051BD6D /* SeedWordView.swift */; };
 		C3423C262B7904E30051BD6D /* AnnounceUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3423C252B7904E30051BD6D /* AnnounceUpdatesView.swift */; };
 		C3423C2A2B7905330051BD6D /* SafariServices+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3423C272B7905330051BD6D /* SafariServices+Extension.swift */; };
-		C3423C2B2B7905330051BD6D /* SignupWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3423C282B7905330051BD6D /* SignupWebViewModel.swift */; };
 		C3423C2C2B7905330051BD6D /* SignupWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3423C292B7905330051BD6D /* SignupWebView.swift */; };
 		C3423C3E2B796D820051BD6D /* 日本語.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3423C302B796D820051BD6D /* 日本語.mp3 */; settings = {ASSET_TAGS = (speakTag, ); }; };
 		C3423C3F2B796D820051BD6D /* Pt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3423C312B796D820051BD6D /* Pt.mp3 */; settings = {ASSET_TAGS = (speakTag, ); }; };
@@ -299,6 +298,9 @@
 		C3C8973825CD6B9300241FBE /* HostingTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */; };
 		C3D4379F2566EA3E00F423E1 /* LWActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */; };
 		C3DBBE312BFE15AF00B95939 /* BuyTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBBE302BFE15AF00B95939 /* BuyTileView.swift */; };
+		C3E587AF2CFC7CB4000592D8 /* SeedWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E587AE2CFC7CB4000592D8 /* SeedWordsTests.swift */; };
+		C3E587B22CFC81A3000592D8 /* SeedWordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E587B12CFC81A3000592D8 /* SeedWordContainerView.swift */; };
+		C3E587B42CFC84B5000592D8 /* SeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E587B32CFC84B5000592D8 /* SeedViewModel.swift */; };
 		C3E5A9052BFDEEF1002FBE04 /* BuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A9042BFDEEF1002FBE04 /* BuyViewModel.swift */; };
 		C3E751C22AF689BA005571CA /* BRKeyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E751C12AF689BA005571CA /* BRKeyExtension.swift */; };
 		C3E751C42AF68A50005571CA /* BRAddressExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E751C32AF68A50005571CA /* BRAddressExtension.swift */; };
@@ -1406,7 +1408,6 @@
 		C3423C232B7904B80051BD6D /* SeedWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedWordView.swift; sourceTree = "<group>"; };
 		C3423C252B7904E30051BD6D /* AnnounceUpdatesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceUpdatesView.swift; sourceTree = "<group>"; };
 		C3423C272B7905330051BD6D /* SafariServices+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SafariServices+Extension.swift"; path = "Extensions/SafariServices+Extension.swift"; sourceTree = "<group>"; };
-		C3423C282B7905330051BD6D /* SignupWebViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupWebViewModel.swift; sourceTree = "<group>"; };
 		C3423C292B7905330051BD6D /* SignupWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupWebView.swift; sourceTree = "<group>"; };
 		C3423C302B796D820051BD6D /* 日本語.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "日本語.mp3"; sourceTree = "<group>"; };
 		C3423C312B796D820051BD6D /* Pt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pt.mp3; sourceTree = "<group>"; };
@@ -1451,6 +1452,9 @@
 		C3C8973725CD6B9300241FBE /* HostingTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTransactionCell.swift; sourceTree = "<group>"; };
 		C3D4379E2566EA3E00F423E1 /* LWActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWActivityIndicator.swift; sourceTree = "<group>"; };
 		C3DBBE302BFE15AF00B95939 /* BuyTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTileView.swift; sourceTree = "<group>"; };
+		C3E587AE2CFC7CB4000592D8 /* SeedWordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedWordsTests.swift; sourceTree = "<group>"; };
+		C3E587B12CFC81A3000592D8 /* SeedWordContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedWordContainerView.swift; sourceTree = "<group>"; };
+		C3E587B32CFC84B5000592D8 /* SeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedViewModel.swift; sourceTree = "<group>"; };
 		C3E5A9042BFDEEF1002FBE04 /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
 		C3E751C12AF689BA005571CA /* BRKeyExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRKeyExtension.swift; sourceTree = "<group>"; };
 		C3E751C32AF68A50005571CA /* BRAddressExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRAddressExtension.swift; sourceTree = "<group>"; };
@@ -2081,6 +2085,7 @@
 		2465873723A5AAD100A32E9E /* litewalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				C3E587AD2CFC7C69000592D8 /* Seed Word Tests */,
 				584E24FF2951DA97005E0E8B /* Language Selection Tests */,
 				C3EFA9A42651A7C4005C59B5 /* Lock Screen Tests */,
 				C3B7C3EC255FF56100E98A64 /* Constants Tests */,
@@ -3029,12 +3034,11 @@
 		C35ABD07257404C6002BB9BB /* SwiftUI+UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C3E587B02CFC817D000592D8 /* ShowSeed */,
 				C3B419C92BFCF0C900EBD935 /* Buy */,
 				C3423C272B7905330051BD6D /* SafariServices+Extension.swift */,
 				C3423C292B7905330051BD6D /* SignupWebView.swift */,
-				C3423C282B7905330051BD6D /* SignupWebViewModel.swift */,
 				C3423C252B7904E30051BD6D /* AnnounceUpdatesView.swift */,
-				C3423C232B7904B80051BD6D /* SeedWordView.swift */,
 				C3423C1D2B7904070051BD6D /* StartHostingController.swift */,
 				C3423C212B79047D0051BD6D /* StartViewModel.swift */,
 				C3423C1F2B79046A0051BD6D /* StartView.swift */,
@@ -3096,6 +3100,24 @@
 				C3B7C3ED255FF59200E98A64 /* ConstantsTests.swift */,
 			);
 			path = "Constants Tests";
+			sourceTree = "<group>";
+		};
+		C3E587AD2CFC7C69000592D8 /* Seed Word Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C3E587AE2CFC7CB4000592D8 /* SeedWordsTests.swift */,
+			);
+			path = "Seed Word Tests";
+			sourceTree = "<group>";
+		};
+		C3E587B02CFC817D000592D8 /* ShowSeed */ = {
+			isa = PBXGroup;
+			children = (
+				C3423C232B7904B80051BD6D /* SeedWordView.swift */,
+				C3E587B12CFC81A3000592D8 /* SeedWordContainerView.swift */,
+				C3E587B32CFC84B5000592D8 /* SeedViewModel.swift */,
+			);
+			name = ShowSeed;
 			sourceTree = "<group>";
 		};
 		C3E751C02AF689A0005571CA /* BRExtensions */ = {
@@ -3887,6 +3909,7 @@
 				2494037623AD35C000369261 /* BuyWKWebVCTests.swift in Sources */,
 				24470E3223A5F5B100ADDA27 /* NSDataExtensionTests.swift in Sources */,
 				24470E2C23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift in Sources */,
+				C3E587AF2CFC7CB4000592D8 /* SeedWordsTests.swift in Sources */,
 				C3EFA9A62651A808005C59B5 /* LockScreenTests.swift in Sources */,
 				24470E4023A6004800ADDA27 /* WalletCreationTests.swift in Sources */,
 				24470E3823A5FEF200ADDA27 /* SpendingLimitTests.swift in Sources */,
@@ -4088,6 +4111,7 @@
 				1B3F74241FFB106200CCA50C /* BiometricsSpendingLimitViewController.swift in Sources */,
 				CEC6F8451E886723000795B8 /* PaymentRequest.swift in Sources */,
 				C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */,
+				C3E587B42CFC84B5000592D8 /* SeedViewModel.swift in Sources */,
 				CE4C1CC81ED88B600063E184 /* URLController.swift in Sources */,
 				C3DBBE312BFE15AF00B95939 /* BuyTileView.swift in Sources */,
 				C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */,
@@ -4154,7 +4178,6 @@
 				CEC6AA421DEFC88F00EE5AFD /* ReceiveViewController.swift in Sources */,
 				CEE20C2D1EA288FA0086F724 /* UpdatingLabel.swift in Sources */,
 				CE3D4C591EF743EF0016B1C8 /* Functions.swift in Sources */,
-				C3423C2B2B7905330051BD6D /* SignupWebViewModel.swift in Sources */,
 				CEE20C341EA5B4550086F724 /* ArticleIds.swift in Sources */,
 				CEE65DF01E39056F0002994D /* Rate.swift in Sources */,
 				CEE20C361EA5B4620086F724 /* Constants+Events.swift in Sources */,
@@ -4190,6 +4213,7 @@
 				22A9A94B1DF61945000F0016 /* BRCoding.swift in Sources */,
 				CEF3E8361DE60222007C0A9E /* ModalNavigationController.swift in Sources */,
 				CEB909FA1E5FF242001804DC /* RecoverWalletIntroViewController.swift in Sources */,
+				C3E587B22CFC81A3000592D8 /* SeedWordContainerView.swift in Sources */,
 				CE25BF911DF9ADE700BC67B6 /* UIImage+Utils.swift in Sources */,
 				CEBF33041DDE17A600348FC6 /* Transaction.swift in Sources */,
 				CEAA9E911DC0FDFE0066731D /* UIViewPropertyAnimator+BRWAdditions.swift in Sources */,

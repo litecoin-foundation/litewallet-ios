@@ -274,6 +274,9 @@
 /* Fee Selector title */
 "FeeSelector.title" = "處理速度";
 
+/* "Fragment.back" */
+"Fragment.back" = "後退";
+
 /* Confirm */
 "Fragment.confirm" = "確認";
 
@@ -909,6 +912,12 @@
 
 /* Share data switch label. */
 "ShareData.toggleLabel" = "分享匿名資料？";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "顯示種子短語";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "這些就是你的種子詞。如果您向任何人展示它們，他們就可以拿走您的萊特幣";
 
 /* Current spending limit: */
 "SpendingLimit.title" = "當前支出限額：";

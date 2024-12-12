@@ -1267,6 +1267,9 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d di %2$d";
 
+/* "Fragment.back" */
+"Fragment.back" = "";
+
 /* "Email address label" */
 "Notifications.emailLabel" = "";
 
@@ -1290,3 +1293,9 @@
 
 /* Service */
 "Send.serviceFee" = "";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "";
