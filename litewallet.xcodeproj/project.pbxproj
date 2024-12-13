@@ -58,7 +58,7 @@
 		24313CA523824F5800A83F69 /* Buy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313C9823824F5800A83F69 /* Buy.storyboard */; };
 		24313CAA23824F9800A83F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24313CA823824F9800A83F69 /* Main.storyboard */; };
 		24393B5C23C259400075218D /* Phrase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24393B5B23C259400075218D /* Phrase.storyboard */; };
-		24470E2123A5DA9700ADDA27 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2023A5DA9700ADDA27 /* APIManagerTests.swift */; };
+		24470E2123A5DA9700ADDA27 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2023A5DA9700ADDA27 /* APITests.swift */; };
 		24470E2323A5DB7D00ADDA27 /* WalletManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2223A5DB7D00ADDA27 /* WalletManagerTests.swift */; };
 		24470E2A23A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2923A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift */; };
 		24470E2C23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24470E2B23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift */; };
@@ -735,7 +735,7 @@
 		24375314238AE09700E1B2AE /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		24375315238AE09900E1B2AE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		24393B5B23C259400075218D /* Phrase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Phrase.storyboard; sourceTree = "<group>"; };
-		24470E2023A5DA9700ADDA27 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
+		24470E2023A5DA9700ADDA27 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		24470E2223A5DB7D00ADDA27 /* WalletManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerTests.swift; sourceTree = "<group>"; };
 		24470E2923A5F33000ADDA27 /* BRReplicatedKVStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRReplicatedKVStoreTests.swift; sourceTree = "<group>"; };
 		24470E2B23A5F43B00ADDA27 /* DefaultFiatCurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFiatCurrencyTests.swift; sourceTree = "<group>"; };
@@ -2098,7 +2098,7 @@
 				24470E3923A5FF5700ADDA27 /* TestHelpers.swift */,
 				24470E4323A6088700ADDA27 /* Class Tests */,
 				24470E2823A5F2C000ADDA27 /* Legacy BRTests */,
-				24470E2023A5DA9700ADDA27 /* APIManagerTests.swift */,
+				24470E2023A5DA9700ADDA27 /* APITests.swift */,
 				24470E2223A5DB7D00ADDA27 /* WalletManagerTests.swift */,
 				2465873A23A5AAD100A32E9E /* Info.plist */,
 			);
@@ -3912,7 +3912,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24470E4223A6007200ADDA27 /* WalletInfoTest.swift in Sources */,
-				24470E2123A5DA9700ADDA27 /* APIManagerTests.swift in Sources */,
+				24470E2123A5DA9700ADDA27 /* APITests.swift in Sources */,
 				24470E3423A5F5E600ADDA27 /* PaymentRequestTests.swift in Sources */,
 				584E25012951DAAA005E0E8B /* LanguageSelectionTests.swift in Sources */,
 				24470E2E23A5F4FF00ADDA27 /* BRCoderTests.swift in Sources */,
