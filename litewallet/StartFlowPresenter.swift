@@ -29,7 +29,11 @@ class StartFlowPresenter: Subscriber {
 		                    selector: { $0.isLoginRequired != $1.isLoginRequired },
 		                    callback: { self.handleLoginRequiredChange(state: $0) })
 		store.subscribe(self, name: .lock,
-		                callback: { _ in self.presentLoginFlow(isPresentedForLock: true) })
+		                callback: { _ in
+		                	Task { @MainActor in
+		                		self.presentLoginFlow(isPresentedForLock: true)
+		                	}
+		                })
 	}
 
 	private func handleStartFlowChange(state: ReduxState) {
