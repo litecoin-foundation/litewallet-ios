@@ -36,7 +36,11 @@ class ModalPresenter: Subscriber, Trackable {
 	private func addSubscriptions() {
 		store.subscribe(self,
 		                selector: { $0.rootModal != $1.rootModal },
-		                callback: { self.presentModal($0.rootModal) })
+		                callback: { state in
+		                	Task { @MainActor in
+		                		self.presentModal(state.rootModal)
+		                	}
+		                })
 		store.subscribe(self,
 		                selector: { $0.alert != $1.alert && $1.alert != nil },
 		                callback: { self.handleAlertChange($0.alert) })
