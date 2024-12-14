@@ -1,3 +1,4 @@
+import AppsFlyerLib
 import Firebase
 import LocalAuthentication
 import PushNotifications
@@ -27,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 			// Firebase
 			self.setFirebaseConfiguration()
+
+			// AF
+			AppsFlyerLib.shared().appsFlyerDevKey = Partner.partnerKeyPath(name: .devAF)
+			AppsFlyerLib.shared().appleAppID = "1119332592"
 
 			// Pusher
 			self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
@@ -87,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationDidBecomeActive(_: UIApplication) {
 		UIApplication.shared.applicationIconBadgeNumber = 0
+		AppsFlyerLib.shared().start()
 	}
 
 	func applicationWillEnterForeground(_: UIApplication) {
