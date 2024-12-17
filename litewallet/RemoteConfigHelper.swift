@@ -49,8 +49,6 @@ class RemoteConfigHelper: NSObject {
 				return
 			}
 
-			print("::: Updated keys: \(configUpdate.updatedKeys)")
-
 			self.fetchAndActivateRemoteConfig()
 		}
 	}

@@ -17,7 +17,6 @@ struct APIServer {
 	init() {
 		baseUrl = appDelegate.remoteConfigurationHelper?
 			.getString(key: RemoteConfigKeys.KEY_PROD_API_BASEURL.rawValue) ?? ""
-
 		devBaseUrl = appDelegate.remoteConfigurationHelper?
 			.getString(key: RemoteConfigKeys.KEY_DEV_API_BASEURL.rawValue) ?? ""
 	}
