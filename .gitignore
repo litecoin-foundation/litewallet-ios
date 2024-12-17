@@ -44,3 +44,4 @@ partner-keys.plist
 GoogleService-Info.plist
 *.gpx
 litewallet/remote-config-defaults.plist
+remote-config-defaults.plist
