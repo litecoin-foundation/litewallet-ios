@@ -240,7 +240,7 @@
 		C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029EA25D019BC00F08C2B /* CopyButtonView.swift */; };
 		C3019EE32B8FEFED00FAF648 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */; };
 		C30808A52D0A23530063E793 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = C30808A42D0A23530063E793 /* AppsFlyerLib-Static */; };
-		C30808A72D0B70160063E793 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C30808A62D0B70160063E793 /* GoogleService-Info.plist */; };
+		C30808A72D0B70160063E793 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C30808A62D0B70160063E793 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C316CF49261887FC00E4C09B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316CF48261887FC00E4C09B /* UIApplication+Extension.swift */; };
 		C31891C326733FD400ECE25C /* TabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31891C226733FD400ECE25C /* TabBarViewControllerTests.swift */; };
 		C32142EA25C97CD900BECCD0 /* TransactionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32142E925C97CD900BECCD0 /* TransactionCellView.swift */; };
@@ -287,7 +287,7 @@
 		C36375A528BD390C00CFB3D8 /* SendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36375A428BD390C00CFB3D8 /* SendButtonView.swift */; };
 		C36DBF5F28F18D2C00FBCB24 /* LocalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF5E28F18D2C00FBCB24 /* LocalWebView.swift */; };
 		C36DBF6128F1988900FBCB24 /* LocalWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DBF6028F1988900FBCB24 /* LocalWebViewModel.swift */; };
-		C37D51572CFBB5DB003E206E /* Debug-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C37D51562CFBB5DB003E206E /* Debug-GoogleService-Info.plist */; };
+		C37D51572CFBB5DB003E206E /* Debug-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C37D51562CFBB5DB003E206E /* Debug-GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C39443F9269DDAD3002703E9 /* LitewalletIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39443F8269DDAD3002703E9 /* LitewalletIconView.swift */; };
 		C39A71472608CB4300E7B640 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A71462608CB4300E7B640 /* EmptyTableViewCell.swift */; };
 		C3B419CB2BFCF14100EBD935 /* BuyHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B419CA2BFCF14100EBD935 /* BuyHostingController.swift */; };
@@ -321,7 +321,7 @@
 		C3F8F1442C04F6BE006C3211 /* Dakar, Senegal.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C3F8F1432C04F6BE006C3211 /* Dakar, Senegal.gpx */; };
 		C3FF4D5F28AC5A5800713139 /* SendAddressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D5E28AC5A5800713139 /* SendAddressCellView.swift */; };
 		C3FF4D6128AC5AC100713139 /* SendAddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF4D6028AC5AC100713139 /* SendAddressCellViewModel.swift */; };
-		C7FD407F2C48FAF60010C0E6 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */; };
+		C7FD407F2C48FAF60010C0E6 /* partner-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7FD407E2C48FAF60010C0E6 /* partner-keys.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
 		CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE124CF71E67A8E500DFA146 /* TransactionDirection.swift */; };

@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			// AF
 			AppsFlyerLib.shared().appsFlyerDevKey = Partner.partnerKeyPath(name: .devAF)
 			AppsFlyerLib.shared().appleAppID = "1119332592"
-			
+
 			// Remote Config
 			self.remoteConfigurationHelper = RemoteConfigHelper.sharedInstance
 
