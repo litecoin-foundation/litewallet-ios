@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 
 /// 14  Languages
@@ -142,4 +143,24 @@ struct E {
 	static var screenHeight: CGFloat {
 		return UIScreen.main.bounds.size.height
 	}
+}
+
+/// Remote Config
+enum EnvironmentRemoteConfigKey: String, Equatable {
+	case k20241212_API_1
+	case k20241212_API_2
+
+	var key: String {
+		switch self {
+		case .k20241212_API_1: return "key_api_baseurl_dev_new_enabled"
+		case .k20241212_API_2: return "key_api_baseurl_prod_new_enabled"
+		}
+	}
+
+//	var type: Any {
+//		switch self {
+//		case .k20241212_API_1: return Bool
+//		case .k20241212_API_2: return bool
+//		}
+//	}
 }
