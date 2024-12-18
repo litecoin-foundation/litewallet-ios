@@ -103,7 +103,7 @@ struct BuyView: View {
 							Button(action: {
 								if viewModel.receivingAddress != "" {
 									let timestamp = Int(Date().timeIntervalSince1970)
-									viewModel.urlString = APIServer.baseUrl + "moonpay/buy" + "?address=\(viewModel.receivingAddress)&idate=\(timestamp)&uid=\(viewModel.uuidString)&code=\(viewModel.selectedCode)"
+									viewModel.urlString = APIServer().baseUrl + "moonpay/buy" + "?address=\(viewModel.receivingAddress)&idate=\(timestamp)&uid=\(viewModel.uuidString)&code=\(viewModel.selectedCode)"
 									self.shouldShowSafariVC = true
 								}
 

@@ -1,3 +1,4 @@
+import SwiftUI
 import UIKit
 
 let π: CGFloat = .pi
@@ -10,7 +11,15 @@ struct FoundationSupport {
 }
 
 struct APIServer {
-	static let baseUrl = "https://api-prod.lite-wallet.org/"
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	let baseUrl: String
+	let devBaseUrl: String
+	init() {
+		baseUrl = appDelegate.remoteConfigurationHelper?
+			.getString(key: RemoteConfigKeys.KEY_PROD_API_BASEURL.rawValue) ?? ""
+		devBaseUrl = appDelegate.remoteConfigurationHelper?
+			.getString(key: RemoteConfigKeys.KEY_DEV_API_BASEURL.rawValue) ?? ""
+	}
 }
 
 struct Padding {
@@ -240,4 +249,7 @@ enum CustomEvent: String {
 
 	/// Unsupported by Moonpay
 	case _20240527_UBM = "unsupported_by_moonpay"
+
+	/// Remote Config Changed
+	case _20241213_RCC = "remote_config_changed"
 }

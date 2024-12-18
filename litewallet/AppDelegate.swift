@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let applicationController = ApplicationController()
 	let pushNotifications = PushNotifications.shared
+	var remoteConfigurationHelper: RemoteConfigHelper?
 
 	var resourceRequest: NSBundleResourceRequest?
 
@@ -32,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			// AF
 			AppsFlyerLib.shared().appsFlyerDevKey = Partner.partnerKeyPath(name: .devAF)
 			AppsFlyerLib.shared().appleAppID = "1119332592"
+
+			// Remote Config
+			self.remoteConfigurationHelper = RemoteConfigHelper.sharedInstance
 
 			// Pusher
 			self.pushNotifications.start(instanceId: Partner.partnerKeyPath(name: .pusher))
