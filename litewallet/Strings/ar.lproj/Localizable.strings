@@ -1,0 +1,1301 @@
+/* About screen website label */
+"About.blog" = "الموقع الإلكتروني";
+
+/* About screen footer */
+"About.footer" = "صُنع بواسطة فريق LiteWallet\nمن\nمؤسسة لايتكوين\n%1$@";
+
+/* Privay Policy button label */
+"About.privacy" = "سياسة الخصوصية";
+
+/* About screen reddit label */
+"About.reddit" = "Reddit";
+
+/* About screen title */
+"About.title" = "عن";
+
+/* About screen twitter label */
+"About.twitter" = "تويتر";
+
+/* Close modal button accessibility label */
+"AccessibilityLabels.close" = "إغلاق";
+
+/* Support center accessibiliy label */
+"AccessibilityLabels.faq" = "مركز الدعم";
+
+/* Loading Wallet Message */
+"Account.loadingMessage" = "جارٍ تحميل المحفظة";
+
+/* Default wallet name */
+"AccountHeader.defaultWalletName" = "محفظتي Litewallet";
+
+/* Manage wallet button title */
+"AccountHeader.manageButtonName" = "إدارة";
+
+/* Corruption Error alert title */
+"Alert.corruptionError" = "خطأ في فساد البيانات المحلية";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "قاعدة البيانات المحلية تالفة. اذهب إلى الإعدادات > Blockchain: الإعدادات > حذف قاعدة البيانات للتحديث";
+
+/* Error alert title */
+"Alert.error" = "خطأ";
+
+/* No internet alert message */
+"Alert.noInternet" = "لم يتم العثور على اتصال بالإنترنت. تحقق من الاتصال وحاول مرة أخرى.";
+
+/* Warning alert title */
+"Alert.warning" = "تحذير";
+
+/* 'the addresses were copied'' Alert title */
+"Alerts.copiedAddressesHeader" = "تم نسخ العناوين";
+
+/* Addresses Copied Alert sub header */
+"Alerts.copiedAddressesSubheader" = "تم نسخ جميع عناوين المحفظة بنجاح.";
+
+/* Alert Header Label (the paper key was set) */
+"Alerts.paperKeySet" = "تم تعيين مفتاح الورق";
+
+/* Alert Subheader label (playfully positive) */
+"Alerts.paperKeySetSubheader" = "رائع!";
+
+/* Alert Header label (the PIN was set) */
+"Alerts.pinSet" = "تم تعيين الرقم السري";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "تم حل النطاق";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "تم حل العنوان!";
+
+/* Send failure alert header label (the send failed to happen) */
+"Alerts.sendFailure" = "فشل الإرسال";
+
+/* Send success alert header label (confirmation that the send happened) */
+"Alerts.sendSuccess" = "تأكيد الإرسال";
+
+/* Send success alert subheader label (e.g. the money was sent) */
+"Alerts.sendSuccessSubheader" = "تم إرسال المال!";
+
+/* JSON Serialization error message */
+"ApiClient.jsonError" = "خطأ في تسلسل JSON";
+
+/* Wallet not ready error message */
+"ApiClient.notReady" = "المحفظة غير جاهزة";
+
+/* API Token error message */
+"ApiClient.tokenError" = "غير قادر على استرداد رمز API";
+
+/* buy button */
+"Button.buy" = "اشترِ";
+
+/* Cancel button label */
+"Button.cancel" = "إلغاء";
+
+/* Ignore button label */
+"Button.ignore" = "تجاهل";
+
+/* menu button */
+"Button.menu" = "القائمة";
+
+/* No button */
+"Button.no" = "لا";
+
+/* OK button label */
+"Button.ok" = "موافق";
+
+/* receive button */
+"Button.receive" = "استلام";
+
+/* resetFields */
+"Button.resetFields" = "إعادة تعيين الحقول";
+
+/* send button */
+"Button.send" = "إرسال";
+
+/* Settings button label */
+"Button.settings" = "الإعدادات";
+
+/* Settings button label */
+"Button.submit" = "إرسال";
+
+/* Yes button */
+"Button.yes" = "نعم";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "شراء";
+
+/* Bitrefill buy financial details */
+"BuyCenter.bitrefillFinancialDetails" = "• شراء بطاقات الهدايا\n• إعادة تعبئة الهواتف المدفوعة مسبقًا\n• Steam، Amazon، Hotels.com\n• يعمل في 170 دولة";
+
+/* Bitrefill Title */
+"BuyCenter.BitrefillTitle" = "Bitrefill";
+
+/* Changelly buy financial details */
+"BuyCenter.changellyFinancialDetails" = "• تحويل لايتكوين إلى عملات مشفرة أخرى\n• لا حاجة إلى هوية\n• شراء عبر بطاقة الائتمان\n• تغطية عالمية";
+
+/* Changelly Title */
+"BuyCenter.changellyTitle" = "Changelly";
+
+/* Buy Modal Title */
+"BuyCenter.ModalTitle" = "اشترِ لايتكوين";
+
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• شراء LTC مع العديد من أزواج العملات\n• الدفع بطرق متعددة\n• مزود الدفع العالمي";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
+/* Simplex buy financial details */
+"BuyCenter.simplexFinancialDetails" = "• احصل على لايتكوين في 5 دقائق!\n• شراء لايتكوين عبر بطاقة الائتمان\n• جواز السفر أو بطاقة هوية الدولة";
+
+/* Simplex Title */
+"BuyCenter.simplexTitle" = "Simplex";
+
+/* Buy Center Title */
+"BuyCenter.title" = "اشترِ لايتكوين";
+
+/* Camera plugin instruction */
+"CameraPlugin.centerInstruction" = "ركز بطاقة هويتك في الصندوق";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "تفاصيل الصرف:";
+
+/* Amount to Send: ($1.00) */
+"Confirmation.amountLabel" = "المبلغ الذي سيتم إرساله:";
+
+/* Amount to Donate: ($1.00) */
+"Confirmation.donateLabel" = "المبلغ للتبرع:";
+
+/* eg. Processing with Donation time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingAndDonationTime" = "وقت المعالجة: ستستغرق هذه المعاملات %1$@ دقائق لمعالجتها.";
+
+/* eg. Processing time: This transaction will take 10-30 minutes to process. */
+"Confirmation.processingTime" = "وقت المعالجة: ستستغرق هذه المعاملة %1$@ دقائق لمعالجتها.";
+
+/* Send: (amount) */
+"Confirmation.send" = "إرسال";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "العنوان:";
+
+/* Confirmation Screen title */
+"Confirmation.title" = "تأكيد";
+
+/* To: (address) */
+"Confirmation.to" = "إلى";
+
+/* Total Cost: ($5.00) */
+"Confirmation.totalLabel" = "إجمالي التكلفة:";
+
+/* Confirm paper phrase error message */
+"ConfirmPaperPhrase.error" = "الكلمات المدخلة لا تتطابق مع مفتاح الورق الخاص بك. يرجى المحاولة مرة أخرى.";
+
+/* Confirm paper phrase view label. */
+"ConfirmPaperPhrase.label" = "للتأكد من أنك كتبت كل شيء بشكل صحيح، يرجى إدخال الكلمات التالية من مفتاح الورق الخاص بك.";
+
+/* Word label eg. Word #1, Word #2 */
+"ConfirmPaperPhrase.word" = "الكلمة #%1$@";
+
+/* No comment provided by engineer. */
+"Copy" = "نسخ";
+
+/* Litecoin denomination picker label */
+"DefaultCurrency.bitcoinLabel" = "وحدة عرض لايتكوين";
+
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "اختر:";
+
+/* Exchange rate label */
+"DefaultCurrency.rateLabel" = "سعر الصرف";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableMessage" = "هذا الجهاز غير مهيأ لإرسال البريد الإلكتروني عبر تطبيق البريد في iOS.";
+
+/* Email unavailable alert title */
+"ErrorMessages.emailUnavailableTitle" = "البريد الإلكتروني غير متاح";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableMessage" = "هذا الجهاز غير مهيأ لإرسال الرسائل.";
+
+/* Messaging unavailable alert title */
+"ErrorMessages.messagingUnavailableTitle" = "الرسائل غير متاحة";
+
+/* You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"FaceIDSettings.customizeText" = "يمكنك تخصيص حد الإنفاق باستخدام Face ID من %1$@.";
+
+/* Face ID screen label */
+"FaceIDSettings.label" = "استخدم وجهك لفتح Litewallet وإرسال الأموال حتى حد معين.";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"FaceIDSettings.linkText" = "شاشة حد الإنفاق باستخدام Face ID";
+
+/* Face id switch label. */
+"FaceIDSettings.switchLabel" = "تفعيل Face ID لـ Litewallet";
+
+/* Face ID settings view title */
+"FaceIDSettings.title" = "Face ID";
+
+/* Face ID unavailable alert message */
+"FaceIDSettings.unavailableAlertMessage" = "لم تقم بإعداد Face ID على هذا الجهاز. انتقل إلى الإعدادات-> Face ID & رمز المرور لإعداده الآن.";
+
+/* Face ID unavailable alert title */
+"FaceIDSettings.unavailableAlertTitle" = "لم يتم إعداد Face ID";
+
+/* Face Id spending limit screen title */
+"FaceIDSpendingLimit.title" = "حد الإنفاق باستخدام Face ID";
+
+/* Economy fee */
+"FeeSelector.economy" = "اقتصادي";
+
+/* Fee Selector economy fee description */
+"FeeSelector.economyLabel" = "التسليم المقدر: 10+ دقائق";
+
+/* Warning message for economy fee */
+"FeeSelector.economyWarning" = "لا يُوصى بهذا الخيار للمعاملات التي تحتاج إلى وقت حساس.";
+
+/* Luxury fee */
+"FeeSelector.luxury" = "فاخر";
+
+/* Fee Selector economy fee description */
+"FeeSelector.luxuryLabel" = "الوقت المتوقع للتسليم: 2.5 - 5+ دقائق";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "تضمن هذه الخيار قبول معاملتك تقريبًا على الرغم من أنك تدفع مبلغًا إضافيًا.";
+
+/* Regular fee */
+"FeeSelector.regular" = "عادي";
+
+/* Fee Selector regular fee description */
+"FeeSelector.regularLabel" = "التسليم المقدر: 2.5 - 5+ دقائق";
+
+/* Fee Selector title */
+"FeeSelector.title" = "سرعة المعالجة";
+
+/* Confirm */
+"Fragment.confirm" = "تأكيد";
+
+/* Or */
+"Fragment.or" = "أو";
+
+/* sorry */
+"Fragment.sorry" = "آسف";
+
+/* to */
+"Fragment.to" = "إلى";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "التاريخ";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "القيمة الحالية لـ LTC في";
+
+/* Checking private key balance progress view text */
+"Import.checking" = "جاري التحقق من رصيد المفتاح الخاص...";
+
+/* Sweep private key confirmation message */
+"Import.confirm" = "إرسال %1$@ من هذا المفتاح الخاص إلى محفظتك؟ سيستلم شبكة لايتكوين رسمًا قدره %2$@.";
+
+/* Duplicate key error message */
+"Import.Error.duplicate" = "هذا المفتاح الخاص موجود بالفعل في محفظتك.";
+
+/* empty private key error message */
+"Import.Error.empty" = "هذا المفتاح الخاص فارغ.";
+
+/* High fees error message */
+"Import.Error.highFees" = "ستكلف رسوم المعاملة أكثر من الأموال المتوفرة في هذا المفتاح الخاص.";
+
+/* Not a valid private key error message */
+"Import.Error.notValid" = "مفتاح خاص غير صالح";
+
+/* Import signing error message */
+"Import.Error.signing" = "خطأ في توقيع المعاملة";
+
+/* Import button label */
+"Import.importButton" = "استيراد";
+
+/* Importing wallet progress view label */
+"Import.importing" = "جاري استيراد المحفظة";
+
+/* Caption for graphics */
+"Import.leftCaption" = "المحفظة التي سيتم استيرادها";
+
+/* Import wallet intro screen message */
+"Import.message" = "استيراد محفظة ينقل جميع الأموال من محفظتك الأخرى إلى محفظة Litewallet الخاصة بك باستخدام معاملة واحدة.";
+
+/* Enter password alert view title */
+"Import.password" = "هذا المفتاح الخاص محمي بكلمة مرور.";
+
+/* password textfield placeholder */
+"Import.passwordPlaceholder" = "كلمة المرور";
+
+/* Caption for graphics */
+"Import.rightCaption" = "محفظة Litewallet الخاصة بك";
+
+/* Scan Private key button label */
+"Import.scan" = "مسح المفتاح الخاص";
+
+/* Import wallet success alert title */
+"Import.success" = "نجاح";
+
+/* Successfully imported wallet message body */
+"Import.SuccessBody" = "تم استيراد المحفظة بنجاح.";
+
+/* Import Wallet screen title */
+"Import.title" = "استيراد المحفظة";
+
+/* Unlocking Private key activity view message. */
+"Import.unlockingActivity" = "جاري فتح المفتاح";
+
+/* Import wallet intro warning message */
+"Import.warning" = "استيراد المحفظة لا يشمل تاريخ المعاملات أو التفاصيل الأخرى.";
+
+/* Wrong password alert message */
+"Import.wrongPassword" = "كلمة المرور خاطئة، الرجاء المحاولة مرة أخرى.";
+
+/* Close app button */
+"JailbreakWarnings.close" = "إغلاق";
+
+/* Ignore jailbreak warning button */
+"JailbreakWarnings.ignore" = "تجاهل";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithBalance" = "تم اختراق أمان الجهاز\n يمكن لأي تطبيق 'جيلبريك' الوصول إلى بيانات المفتاح في Litewallet وسرقة لايتكوين! امسح هذه المحفظة فورًا واسترجعها على جهاز آمن.";
+
+/* Jailbreak warning message */
+"JailbreakWarnings.messageWithoutBalance" = "تم اختراق أمان الجهاز\n يمكن لأي تطبيق 'جيلبريك' الوصول إلى بيانات المفتاح في Litewallet وسرقة لايتكوين. يُرجى استخدام Litewallet فقط على جهاز غير مكسر.";
+
+/* Jailbreak warning title */
+"JailbreakWarnings.title" = "تحذير";
+
+/* Wipe wallet button */
+"JailbreakWarnings.wipe" = "مسح";
+
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
+/* Location services disabled error */
+"LocationPlugin.disabled" = "خدمات الموقع غير مفعلّة.";
+
+/* No permissions for location services */
+"LocationPlugin.notAuthorized" = "Litewallet ليس لديه إذن للوصول إلى خدمات الموقع.";
+
+/* No comment provided by engineer. */
+"Malformed URI" = "URI غير صحيح";
+
+/* Balance */
+"ManageWallet.balance" = "الرصيد";
+
+/* Wallet creation date prefix */
+"ManageWallet.creationDatePrefix" = "تم إنشاء محفظتك في %1$@";
+
+/* Manage wallet description text */
+"ManageWallet.description" = "اسم محفظتك يظهر فقط في سجل المعاملات الخاص بحسابك ولا يمكن لأي شخص آخر رؤيته.";
+
+/* Change Wallet name textfield label */
+"ManageWallet.textFeildLabel" = "اسم المحفظة";
+
+/* Manage wallet modal title */
+"ManageWallet.title" = "إدارة المحفظة";
+
+/* Buy Litecoin title */
+"MenuButton.buy" = "شراء لايتكوين";
+
+/* Menu button title */
+"MenuButton.customer.support" = "دعم العملاء";
+
+/* Menu button title */
+"MenuButton.lock" = "قفل المحفظة";
+
+/* Menu button title */
+"MenuButton.security" = "مركز الأمان";
+
+/* Menu button title */
+"MenuButton.settings" = "الإعدادات";
+
+/* Menu button title */
+"MenuButton.support" = "الدعم";
+
+/* button label */
+"MenuViewController.createButton" = "إنشاء محفظة جديدة";
+
+/* Menu modal title */
+"MenuViewController.modalTitle" = "القائمة";
+
+/* button label */
+"MenuViewController.recoverButton" = "استعادة المحفظة";
+
+/* No wallet. */
+"No wallet" = "لا توجد محفظة";
+
+/* Switch to automatic mode button label */
+"NodeSelector.automaticButton" = "التبديل إلى الوضع التلقائي";
+
+/* Node is connected label */
+"NodeSelector.connected" = "متصل";
+
+/* Enter node ip address view body */
+"NodeSelector.enterBody" = "أدخل عنوان IP للنود والمنفذ (اختياري)";
+
+/* Enter Node ip address view title */
+"NodeSelector.enterTitle" = "أدخل النود";
+
+/* Switch to manual mode button label */
+"NodeSelector.manualButton" = "التبديل إلى الوضع اليدوي";
+
+/* Node address label */
+"NodeSelector.nodeLabel" = "النود الأساسي الحالي";
+
+/* Node is not connected label */
+"NodeSelector.notConnected" = "غير متصل";
+
+/* Node status label */
+"NodeSelector.statusLabel" = "حالة اتصال النود";
+
+/* Node Selector view title */
+"NodeSelector.title" = "نودات لايتكوين";
+
+/* "Email address label" */
+"Notifications.emailLabel" = "عنوان البريد الإلكتروني";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "أدخل هنا";
+
+/* "Email title" */
+"Notifications.emailTitle" = "لا تفوت أي شيء!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "اللغة المفضلة:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "اشترك لتسمع عن التحديثات والمسابقات.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "لا، شكراً";
+
+/* Bad Payment request alert title */
+"PaymentProtocol.Errors.badPaymentRequest" = "طلب دفع غير صحيح";
+
+/* Error opening payment protocol file message */
+"PaymentProtocol.Errors.corruptedDocument" = "مستند غير مدعوم أو تالف";
+
+/* Missing certificate payment protocol error message */
+"PaymentProtocol.Errors.missingCertificate" = "شهادة مفقودة";
+
+/* Request expired payment protocol error message */
+"PaymentProtocol.Errors.requestExpired" = "طلب منتهي";
+
+/* Payment too small alert title */
+"PaymentProtocol.Errors.smallOutputError" = "لم يمكن إجراء الدفع";
+
+/* Amount too small error message */
+"PaymentProtocol.Errors.smallPayment" = "لا يمكن أن تكون المدفوعات باللايتكوين أقل من %1$@.";
+
+/* Output too small error message. */
+"PaymentProtocol.Errors.smallTransaction" = "لا يمكن أن تكون مخرجات معاملة اللايتكوين أقل من $@.";
+
+/* Unsupported signature type payment protocol error message */
+"PaymentProtocol.Errors.unsupportedSignatureType" = "نوع التوقيع غير مدعوم";
+
+/* Untrusted certificate payment protocol error message */
+"PaymentProtocol.Errors.untrustedCertificate" = "شهادة غير موثوق بها";
+
+/* Dismiss button. */
+"Prompts.dismiss" = "إغلاق";
+
+/* Enable face ID prompt body */
+"Prompts.FaceId.body" = "اضغط هنا لتفعيل Face ID";
+
+/* Enable face ID prompt title */
+"Prompts.FaceId.title" = "تفعيل Face ID";
+
+/* No passcode set warning body */
+"Prompts.NoPasscode.body" = "تحتاج إلى تعيين رمز مرور لجهازك لحماية محفظتك.";
+
+/* No Passcode set warning title */
+"Prompts.NoPasscode.title" = "تفعيل رمز المرور للجهاز";
+
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "متابعة";
+
+/* Warning about paper key. */
+"Prompts.PaperKey.body" = "يجب حفظ مفتاح الورق في مكان آمن. هو الطريقة الوحيدة لتعديل أو استعادة محفظتك أو نقل اللايتكوين الخاص بك. يُفضل كتابته.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "إلغاء";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "تفعيل";
+
+/* An action is required (You must do this action). */
+"Prompts.PaperKey.title" = "إجراء مطلوب";
+
+/* Transaction rejected prompt body */
+"Prompts.RecommendRescan.body" = "قد تكون محفظتك غير متزامنة. غالبًا ما يمكن إصلاح ذلك بإعادة مسح البلوك تشين.";
+
+/* Transaction rejected prompt title */
+"Prompts.RecommendRescan.title" = "تم رفض المعاملة";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "تتطلب Litewallet رقم PIN مكون من 6 أرقام. يرجى تعيينه وتخزينه في مكان آمن.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "تعيين رقم PIN";
+
+/* Share data prompt body */
+"Prompts.ShareData.body" = "ساعد في تحسين Litewallet بمشاركة بياناتك المجهولة معنا";
+
+/* Share data prompt title */
+"Prompts.ShareData.title" = "مشاركة البيانات المجهولة";
+
+/* Enable touch ID prompt body */
+"Prompts.TouchId.body" = "اضغط هنا لتفعيل Touch ID";
+
+/* Enable touch ID prompt title */
+"Prompts.TouchId.title" = "تفعيل Touch ID";
+
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "استلام";
+
+/* Address copied message. */
+"Receive.copied" = "تم النسخ إلى الحافظة.";
+
+/* Share via email button label */
+"Receive.emailButton" = "بريد إلكتروني";
+
+/* Request button label */
+"Receive.request" = "طلب مبلغ";
+
+/* Share button label */
+"Receive.share" = "مشاركة";
+
+/* Share via text message (SMS) */
+"Receive.textButton" = "رسالة نصية";
+
+/* Receive modal title */
+"Receive.title" = "استلام";
+
+/* Done button text */
+"RecoverWallet.done" = "تم";
+
+/* Recover wallet header */
+"RecoverWallet.header" = "استعادة المحفظة";
+
+/* Reset PIN with paper key: header */
+"RecoverWallet.header_reset_pin" = "إعادة تعيين الرقم السري";
+
+/* Enter paper key instruction */
+"RecoverWallet.instruction" = "أدخل مفتاح الورق";
+
+/* Recover wallet intro */
+"RecoverWallet.intro" = "استعد محفظتك باستخدام مفتاح الورق الخاص بك.";
+
+/* Invalid paper key message */
+"RecoverWallet.invalid" = "مفتاح الورق الذي أدخلته غير صالح. يرجى التحقق من الكلمات مرة أخرى وحاول مجددًا.";
+
+/* Previous button accessibility label */
+"RecoverWallet.leftArrow" = "السهم الأيسر";
+
+/* Next button label */
+"RecoverWallet.next" = "التالي";
+
+/* Reset PIN with paper key: more information button. */
+"RecoverWallet.reset_pin_more_info" = "اضغط هنا للمزيد من المعلومات.";
+
+/* Next button accessibility label */
+"RecoverWallet.rightArrow" = "السهم الأيمن";
+
+/* Recover wallet sub-header */
+"RecoverWallet.subheader" = "أدخل مفتاح الورق للمحفظة التي ترغب في استعادتها.";
+
+/* Reset PIN with paper key: sub-header */
+"RecoverWallet.subheader_reset_pin" = "لإعادة تعيين الرقم السري، أدخل الكلمات من مفتاح الورق في المربعات أدناه.";
+
+/* No amount entered error message. */
+"RequestAnAmount.noAmount" = "يرجى إدخال المبلغ أولاً.";
+
+/* Request a specific amount of Litecoin */
+"RequestAnAmount.title" = "طلب مبلغ";
+
+/* Alert action button label */
+"ReScan.alertAction" = "مزامنة";
+
+/* Alert message body */
+"ReScan.alertMessage" = "لن تتمكن من إرسال الأموال أثناء المزامنة.";
+
+/* Alert message title */
+"ReScan.alertTitle" = "هل ترغب في المزامنة مع البلوك تشين؟";
+
+/* extimated time */
+"ReScan.body1" = "20-45 دقيقة";
+
+/* Syncing explanation */
+"ReScan.body2" = "إذا كانت المعاملة تظهر كمكتملة على شبكة اللايتكوين ولكنها غير موجودة في Litewallet.";
+
+/* Syncing explanation */
+"ReScan.body3" = "إذا تلقيت خطأ يقول إن معملتك تم رفضها.";
+
+/* Start Sync button label */
+"ReScan.buttonTitle" = "بدء المزامنة";
+
+/* Sync blockchain view footer */
+"ReScan.footer" = "لن تتمكن من إرسال الأموال أثناء المزامنة مع البلوك تشين.";
+
+/* Sync Blockchain view header */
+"ReScan.header" = "مزامنة البلوك تشين";
+
+/* Subheader label */
+"ReScan.subheader1" = "الوقت المقدر";
+
+/* Subheader label */
+"ReScan.subheader2" = "متى المزامنة؟";
+
+/* Reset walet button  title */
+"resetButton" = "نعم، إعادة تعيين المحفظة";
+
+/* Warning Empty Wipe title */
+"resetTitle" = "حذف محفظتي من Litewallet";
+
+/* Scan Litecoin address camera flash toggle */
+"Scanner.flashButtonLabel" = "فلاش الكاميرا";
+
+/* Complete filter label */
+"Search.complete" = "مكتمل";
+
+/* Pending filter label */
+"Search.pending" = "معلق";
+
+/* Received filter label */
+"Search.received" = "تم الاستلام";
+
+/* Sent filter label */
+"Search.sent" = "تم الإرسال";
+
+/* Face ID button title */
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/* Security Center Info */
+"SecurityCenter.info" = "تفعيل جميع ميزات الأمان للحصول على أقصى حماية.";
+
+/* Paper Key button description */
+"SecurityCenter.paperKeyDescription" = "الطريقة الوحيدة للوصول إلى اللايتكوين إذا فقدت أو قمت بترقية هاتفك.";
+
+/* Paper Key button title */
+"SecurityCenter.paperKeyTitle" = "مفتاح الورق";
+
+/* PIN button description */
+"SecurityCenter.pinDescription" = "يحمي محفظتك من الوصول غير المصرح به.";
+
+/* PIN button title */
+"SecurityCenter.pinTitle" = "الرقم السري مكون من 6 أرقام";
+
+/* Security Center Title */
+"SecurityCenter.title" = "مركز الأمان";
+
+/* Touch ID/FaceID button description */
+"SecurityCenter.touchIdDescription" = "افتح محفظتك بسهولة وأرسل الأموال حتى حد معين.";
+
+/* Touch ID button title */
+"SecurityCenter.touchIdTitle" = "البصمة";
+
+/* Send money amount label */
+"Send.amountLabel" = "المبلغ";
+
+/* Balance: $4.00 */
+"Send.balance" = "الرصيد: %1$@";
+
+/* Fee: $0.01 */
+"Send.bareFee" = "الرسوم: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "إرسال";
+
+/* Camera not allowed message */
+"Send.cameraunavailableMessage" = "اذهب إلى الإعدادات للسماح بالوصول إلى الكاميرا.";
+
+/* Camera not allowed alert title */
+"Send.cameraUnavailableTitle" = "Litewallet ليس مسموحاً له بالوصول إلى الكاميرا";
+
+/* Warning when sending to self. */
+"Send.containsAddress" = "الوجهة هي عنوانك الخاص. لا يمكنك إرسال الأموال إلى نفسك.";
+
+/* Could not create transaction alert title */
+"Send.creatTransactionError" = "تعذر إنشاء المعاملة.";
+
+/* Description for sending money label */
+"Send.descriptionLabel" = "مذكرة";
+
+/* Empty pasteboard error message */
+"Send.emptyPasteboard" = "الحافظة فارغة";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "أدخل عنوان لايتكوين";
+
+/* Fees: $0.01 */
+"Send.fee" = "الرسوم: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "الرسوم:";
+
+/* Payee identity not certified alert title. */
+"Send.identityNotCertified" = "هوية المستلم غير معتمدة.";
+
+/* Insufficient funds error */
+"Send.insufficientFunds" = "الأموال غير كافية";
+
+/* Invalid address alert message */
+"Send.invalidAddressMessage" = "عنوان الوجهة ليس عنوان Litecoin صالح.";
+
+/* Invalid address on pasteboard message */
+"Send.invalidAddressOnPasteboard" = "الحافظة لا تحتوي على عنوان Litecoin صالح.";
+
+/* Invalid address alert title */
+"Send.invalidAddressTitle" = "عنوان غير صالح";
+
+/* Is rescanning error message */
+"Send.isRescanning" = "الإرسال معطل أثناء المسح الكامل.";
+
+/* Loading request activity view message */
+"Send.loadingRequest" = "جارٍ تحميل الطلب";
+
+/* Network */
+"Send.networkFee" = "الرسوم الشبكية";
+
+/* Empty address alert message */
+"Send.noAddress" = "يرجى إدخال عنوان المستلم.";
+
+/* Empty amount alert message */
+"Send.noAmount" = "يرجى إدخال مبلغ للإرسال.";
+
+/* Paste button label */
+"Send.pasteLabel" = "لصق";
+
+/* Could not publish transaction alert title */
+"Send.publishTransactionError" = "تعذر نشر المعاملة.";
+
+/* Could not load remote request error message */
+"Send.remoteRequestError" = "تعذر تحميل طلب الدفع";
+
+/* Scan button label */
+"Send.scanLabel" = "مسح";
+
+/* Send button label */
+"Send.sendLabel" = "إرسال";
+
+/* Service */
+"Send.serviceFee" = "رسوم الخدمة";
+
+/* Send modal title */
+"Send.title" = "إرسال";
+
+/* Send money to label */
+"Send.toLabel" = "إلى";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "بحث";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "عذرًا، لم يتم العثور على النطاق. [خطأ: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "فشل البحث";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "أدخل اسم مجال .crypto، .wallet، .zil، .nft، .blockchain،\n.bitcoin، .coin، .888، .dao، أو .x.";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "مشكلة في النظام. [خطأ: %2$d]";
+
+/* Address already used alert message - first part */
+"Send.UsedAddress.firstLine" = "عناوين Litecoin مخصصة للاستخدام مرة واحدة فقط.";
+
+/* Address already used alert message - second part */
+"Send.UsedAddress.secondLIne" = "إعادة الاستخدام تقلل الخصوصية لك وللمستلم ويمكن أن تؤدي إلى خسارة إذا لم يتحكم المستلم مباشرة في العنوان.";
+
+/* Address already used alert title */
+"Send.UsedAddress.title" = "تم استخدام العنوان مسبقاً";
+
+/* About label */
+"Settings.about" = "حول";
+
+/* Advanced Settings title */
+"Settings.advancedTitle" = "الإعدادات المتقدمة";
+
+/* Blockchain settings section header */
+"Settings.blockchain" = "البلوكشين";
+
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "هل أنت متأكد أنك تريد تغيير اللغة إلى %l؟";
+
+/* Default currency label */
+"Settings.currency" = "العملة المعروضة";
+
+/* Current Locale */
+"Settings.currentLocale" = "الإعدادات الحالية:";
+
+/* Join Early access label */
+"Settings.earlyAccess" = "انضم إلى الوصول المبكر";
+
+/* Are you enjoying Litewallet alert message body */
+"Settings.enjoying" = "هل تستمتع بـ Litewallet؟";
+
+/* Face ID spending limit label */
+"Settings.faceIdLimit" = "حد الإنفاق باستخدام Face ID";
+
+/* Import wallet label */
+"Settings.importTitle" = "استيراد المحفظة";
+
+/* Languages label */
+"Settings.languages" = "اللغات";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "البيئة:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "شركاء Litewallet";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "إصدار Litewallet:";
+
+/* Manage settings section header */
+"Settings.manage" = "إدارة";
+
+/* Notifications label */
+"Settings.notifications" = "الإشعارات";
+
+/* Leave review button label */
+"Settings.review" = "اترك لنا تقييم";
+
+/* Share anonymous data label */
+"Settings.shareData" = "مشاركة البيانات المجهولة";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "الروابط الاجتماعية";
+
+/* Support settings section header */
+"Settings.support" = "الدعم";
+
+/* Sync blockchain label */
+"Settings.sync" = "مزامنة البلوكشين";
+
+/* Settings title */
+"Settings.title" = "الإعدادات";
+
+/* Touch ID spending limit label */
+"Settings.touchIdLimit" = "حد الإنفاق باستخدام Touch ID";
+
+/* Wallet Settings section header */
+"Settings.wallet" = "المحفظة";
+
+/* Start or recover another wallet menu label. */
+"Settings.wipe" = "ابدأ/استرجع محفظة أخرى";
+
+/* Share data view body */
+"ShareData.body" = "ساعد في تحسين Litewallet بمشاركة بياناتك المجهولة معنا. لا تشمل هذه البيانات أي معلومات مالية. نحن نحترم خصوصيتك المالية.";
+
+/* Share data header */
+"ShareData.header" = "مشاركة البيانات؟";
+
+/* Share data switch label. */
+"ShareData.toggleLabel" = "مشاركة البيانات المجهولة؟";
+
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "عرض عبارة الاستعادة";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "هذه هي كلمات الاستعادة الخاصة بك. إذا عرضتها على أي شخص، يمكنه أخذ Litecoin الخاص بك";
+
+/* Current spending limit: */
+"SpendingLimit.title" = "حد الإنفاق الحالي: ";
+
+/* button label */
+"StartPaperPhrase.againButtonTitle" = "اكتب مفتاح الورق مرة أخرى";
+
+/* Paper key explanation text. */
+"StartPaperPhrase.body" = "مفتاح الورق هو الطريقة الوحيدة لاستعادة محفظتك إذا فقدت هاتفك أو تم سرقته أو تعطل أو تم ترقية النظام.\n\nسنقدم لك قائمة بالكلمات لتكتبها على ورقة وتحتفظ بها بأمان.";
+
+/* button label */
+"StartPaperPhrase.buttonTitle" = "اكتب مفتاح الورق";
+
+/* Argument is date */
+"StartPaperPhrase.date" = "آخر مرة كتبت فيها مفتاح الورق كانت في %1$@";
+
+/* Start view tagline */
+"StartViewController.tagline" = "أكثر الطرق أماناً لاستخدام Litecoin.";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "دعم مؤسسة لايتكوين";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "جاري الاتصال...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "جاري إعادة المسح...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "نجاح!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "جاري المزامنة...";
+
+/* Syncing view connectiong state header text */
+"SyncingView.connecting" = "جارٍ الاتصال";
+
+/* Syncing view syncing state header text */
+"SyncingView.syncing" = "جارٍ المزامنة";
+
+/* 6 d (6 days) */
+"TimeSince.days" = "%1$@ يوم";
+
+/* 6 h (6 hours) */
+"TimeSince.hours" = "%1$@ ساعة";
+
+/* 6 m (6 minutes) */
+"TimeSince.minutes" = "%1$@ دقيقة";
+
+/* 6 s (6 seconds) */
+"TimeSince.seconds" = "%1$@ ثانية";
+
+/* You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button] */
+"TouchIdSettings.customizeText" = "يمكنك تخصيص حد الإنفاق باستخدام Touch ID من %1$@.";
+
+/* Touch Id screen label */
+"TouchIdSettings.label" = "استخدم بصمتك لفتح محفظتك Litewallet وإرسال الأموال حتى الحد المخصص.";
+
+/* ł100,000 ($100) */
+"TouchIdSettings.limitValue" = "%1$@ (%2$@)";
+
+/* Link Text (see TouchIdSettings.customizeText) */
+"TouchIdSettings.linkText" = "شاشة حد الإنفاق باستخدام Touch ID";
+
+/* Spending Limit: b100,000 ($100) */
+"TouchIdSettings.spendingLimit" = "حد الإنفاق: %1$@ (%2$@)";
+
+/* Touch id switch label. */
+"TouchIdSettings.switchLabel" = "تمكين Touch ID لـ Litewallet";
+
+/* Touch ID settings view title */
+"TouchIdSettings.title" = "Touch ID";
+
+/* Touch ID unavailable alert message */
+"TouchIdSettings.unavailableAlertMessage" = "لم تقم بإعداد Touch ID على هذا الجهاز. اذهب إلى الإعدادات -> Touch ID ورقم التعريف لإعداده الآن.";
+
+/* Touch ID unavailable alert title */
+"TouchIdSettings.unavailableAlertTitle" = "لم يتم إعداد Touch ID";
+
+/* Always require passcode option */
+"TouchIdSpendingLimit" = "يتطلب دائمًا رمز المرور";
+
+/* Touch ID spending limit screen body */
+"TouchIdSpendingLimit.body" = "سيُطلب منك إدخال رقم التعريف الشخصي المكون من 6 أرقام لإرسال أي معاملة تتجاوز حد الإنفاق الخاص بك، وكل 48 ساعة منذ آخر مرة أدخلت فيها رقم التعريف الشخصي المكون من 6 أرقام.";
+
+/* Touch Id spending limit screen title */
+"TouchIdSpendingLimit.title" = "حد الإنفاق باستخدام Touch ID";
+
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "تفاصيل المبلغ:";
+
+/* Availability status text */
+"Transaction.available" = "متاح للإنفاق";
+
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "الكتلة:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "مذكرة:";
+
+/* Transaction complete label */
+"Transaction.complete" = "تم";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "تفاصيل المبلغ النهائي للمعاملة";
+
+/* eg. Ending balance: $50.00 */
+"Transaction.ending" = "الرصيد النهائي: %1$@";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDayReceived" = "سعر الصرف عند الاستلام:";
+
+/* Exchange rate on date header */
+"Transaction.exchangeOnDaySent" = "سعر الصرف عند الإرسال:";
+
+/* (b600 fee) */
+"Transaction.fee" = "(رسوم %1$@)";
+
+/* Invalid transaction */
+"Transaction.invalid" = "غير صالح";
+
+/* Timestamp label for event that just happened */
+"Transaction.justNow" = "الآن";
+
+/* Receive status text: 'In progress: 20%' */
+"Transaction.receivedStatus" = "قيد التقدم: %1$@";
+
+/* Send status text: 'In progress: 20%' */
+"Transaction.sendingStatus" = "قيد التقدم: %1$@";
+
+/* eg. Starting balance: $50.00 */
+"Transaction.starting" = "الرصيد الابتدائي: %1$@";
+
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "تفاصيل المبلغ الأولي للمعاملة";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "معرف المعاملة:";
+
+/* Waiting to be confirmed string */
+"Transaction.waiting" = "في انتظار التأكيد. بعض التجار يتطلبون تأكيد لإتمام المعاملة. الوقت المقدر: 1-2 ساعات.";
+
+/* e.g. I received money from an account. */
+"TransactionDetails.account" = "الحساب";
+
+/* Amount section header */
+"TransactionDetails.amountHeader" = "المبلغ";
+
+/* Block height label */
+"TransactionDetails.blockHeightLabel" = "تم التأكيد في الكتلة";
+
+/* Memo section header */
+"TransactionDetails.commentsHeader" = "الملاحظة";
+
+/* Copied */
+"TransactionDetails.copiedAll" = "تم النسخ";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "نسخ جميع التفاصيل";
+
+/* Empty transaction list message. */
+"TransactionDetails.emptyMessage" = "ستظهر معاملاتك هنا.";
+
+/* [received] at <address> (received title 2/2) */
+"TransactionDetails.from" = "في %1$@";
+
+/* Less button title */
+"TransactionDetails.less" = "أقل...";
+
+/* Moved $5.00 */
+"TransactionDetails.moved" = "تم نقل %1$@";
+
+/* Moved $5.00 */
+"TransactionDetails.movedAmountDescription" = "تم نقل <b>%1@</b>";
+
+/* eg. Confirmed in Block: Not Confirmed */
+"TransactionDetails.notConfirmedBlockHeightLabel" = "لم يتم التأكيد";
+
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "كما في";
+
+/* Received $5.00 (received title 1/2) */
+"TransactionDetails.received" = "تم استلام %1$@";
+
+/* Received $5.00 */
+"TransactionDetails.receivedAmountDescription" = "تم استلام <b>%1@</b>";
+
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "عنوان الاستلام";
+
+/* Sent $5.00 (sent title 1/2) */
+"TransactionDetails.sent" = "تم إرسال %1$@";
+
+/* Sent $5.00 */
+"TransactionDetails.sentAmountDescription" = "تم إرسال <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
+
+/* Status section header */
+"TransactionDetails.statusHeader" = "الحالة";
+
+/* Transaction Details Title */
+"TransactionDetails.title" = "تفاصيل المعاملة";
+
+/* [sent] to <address> (sent title 2/2) */
+"TransactionDetails.to" = "إلى %1$@";
+
+/* Transaction ID header */
+"TransactionDetails.txHashHeader" = "معرف معاملة Litecoin";
+
+/* (this transaction was) Received at this address: */
+"TransactionDirection.address" = "تم استلامه في هذا العنوان";
+
+/* (this transaction was) Sent to this address: */
+"TransactionDirection.to" = "تم إرساله إلى هذا العنوان";
+
+/* Disabled until date */
+"UnlockScreen.disabled" = "مغلق حتى: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "أدخل الرقم السري";
+
+/* Unlock with FaceID accessibility label */
+"UnlockScreen.faceIdText" = "افتح باستخدام FaceID";
+
+/* My Address button title */
+"UnlockScreen.myAddress" = "عنواني";
+
+/* Reset PIN with Paper Key button label. */
+"UnlockScreen.resetPin" = "إعادة تعيين الرقم السري";
+
+/* Scan button title */
+"UnlockScreen.scan" = "مسح";
+
+/* TouchID/FaceID prompt text */
+"UnlockScreen.touchIdPrompt" = "افتح Litewallet الخاص بك.";
+
+/* Unlock with TouchID accessibility label */
+"UnlockScreen.touchIdText" = "افتح باستخدام TouchID";
+
+/* Wallet unlocked message */
+"UnlockScreen.unlocked" = "تم فتح المحفظة";
+
+/* Update PIN caption text */
+"UpdatePin.caption" = "تذكر هذا الرقم السري. إذا نسيته، لن تتمكن من الوصول إلى Litecoin الخاص بك.";
+
+/* PIN creation info. */
+"UpdatePin.createInstruction" = "سيُستخدم الرقم السري لفتح Litewallet الخاص بك وإرسال الأموال.";
+
+/* Update PIN title */
+"UpdatePin.createTitle" = "تعيين الرقم السري";
+
+/* Update PIN title */
+"UpdatePin.createTitleConfirm" = "أعد إدخال الرقم السري";
+
+/* Enter current PIN instruction */
+"UpdatePin.enterCurrent" = "أدخل الرقم السري الحالي.";
+
+/* Enter new PIN instruction */
+"UpdatePin.enterNew" = "أدخل الرقم السري الجديد.";
+
+/* Re-Enter new PIN instruction */
+"UpdatePin.reEnterNew" = "أعد إدخال الرقم السري الجديد.";
+
+/* Update PIN failure error message. */
+"UpdatePin.setPinError" = "عذرًا، لم نتمكن من تحديث الرقم السري.";
+
+/* Update PIN failure alert view title */
+"UpdatePin.setPinErrorTitle" = "خطأ في تحديث الرقم السري";
+
+/* Update PIN title */
+"UpdatePin.updateTitle" = "تحديث الرقم السري";
+
+/* Authorize to copy wallet addresses alert message */
+"URLHandling.addressaddressListAlertMessage" = "هل تريد نسخ عناوين المحفظة إلى الحافظة؟";
+
+/* Authorize to copy wallet address PIN view prompt. */
+"URLHandling.addressList" = "إذن لنسخ عنوان المحفظة إلى الحافظة";
+
+/* Authorize to copy wallet address alert title */
+"URLHandling.addressListAlertTitle" = "نسخ عناوين المحفظة";
+
+/* Copy wallet addresses alert button label */
+"URLHandling.copy" = "نسخ";
+
+/* Verify PIN for transaction view body */
+"VerifyPin.authorize" = "يرجى إدخال الرقم السري الخاص بك لتفويض هذه المعاملة.";
+
+/* Verify PIN view body */
+"VerifyPin.continueBody" = "يرجى إدخال الرقم السري الخاص بك للمتابعة.";
+
+/* Verify PIN view title */
+"VerifyPin.title" = "الرقم السري مطلوب";
+
+/* Authorize transaction with touch id message */
+"VerifyPin.touchIdMessage" = "تفويض هذه المعاملة";
+
+/* 'No wallet' warning for watch app */
+"Watch.noWalletWarning" = "افتح تطبيق Litewallet على iPhone لإعداد المحفظة.";
+
+/* Dismiss button label */
+"Webview.dismiss" = "إغلاق";
+
+/* Webview loading error message */
+"Webview.errorMessage" = "حدث خطأ أثناء تحميل المحتوى. يرجى المحاولة مرة أخرى.";
+
+/* Updating webview message */
+"Webview.updating" = "جارٍ التحديث...";
+
+/* Welcome view body text */
+"Welcome.body" = "لقد حصل Litewallet على مظهر جديد وبعض الميزات الجديدة.\n\nجميع العملات تعرض باللايتس (ł). 1 لايتكوين (Ł) = 1000 لايتس (ł).";
+
+/* Welcome view title */
+"Welcome.title" = "مرحبًا بك في Litewallet!";
+
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "حذف قاعدة البيانات";
+
+/* Wipe wallet alert message */
+"WipeWallet.alertMessage" = "هل أنت متأكد أنك تريد حذف هذه المحفظة؟";
+
+/* Wipe wallet alert title */
+"WipeWallet.alertTitle" = "حذف المحفظة؟";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "حذف قاعدة البيانات";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "سيتم حذف قاعدة البيانات ولكن ستظل العبارة والرقم السري محفوظة. قم بتأكيد الرقم السري الحالي وانتظر حتى تكتمل المزامنة مع قاعدة البيانات الجديدة";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "حذف & مزامنة";
+
+/* Warning if user lost phrase */
+"WipeWallet.emptyWallet" = "هل نسيت عبارة الاسترداد أو الرقم السري؟";
+
+/* Failed wipe wallet alert message */
+"WipeWallet.failedMessage" = "فشل في حذف المحفظة.";
+
+/* Failed wipe wallet alert title */
+"WipeWallet.failedTitle" = "فشل";
+
+/* Enter key to wipe wallet instruction. */
+"WipeWallet.instruction" = "للبدء بمحفظة جديدة أو استعادة محفظة موجودة، يجب عليك أولاً مسح المحفظة الحالية. للمتابعة، أدخل مفتاح الورقة الخاص بالمحفظة الحالية.";
+
+/* Start wipe wallet view message */
+"WipeWallet.startMessage" = "بدء أو استعادة محفظة أخرى يتيح لك الوصول إلى وإدارة محفظة Litewallet مختلفة على هذا الجهاز.";
+
+/* Start wipe wallet view warning */
+"WipeWallet.startWarning" = "سيتم إزالة محفظتك الحالية من هذا الجهاز. إذا كنت ترغب في استعادتها في المستقبل، يجب عليك إدخال مفتاح الورقة.";
+
+/* Wipe wallet navigation item title. */
+"WipeWallet.title" = "ابدأ أو استرجع محفظة أخرى";
+
+/* Warning Alert */
+"WipeWallet.warningAlert" = "سيؤدي هذا الإجراء إلى مسح Litewallet الخاص بك!";
+
+/* Warning description */
+"WipeWallet.warningDescription" = "حذف محفظتك يعني أن المفتاح الخاص وبيانات التطبيق ستختفي. قد تفقد لايتكوين الخاص بك إلى الأبد!\n\n\nلا يمكن لأي شخص في فريق Litewallet استرجاع هذه العبارة لك. نحن غير مسؤولين إذا فشلت في قراءة هذا التحذير.";
+
+/* Warning title */
+"WipeWallet.warningTitle" = "يرجى القراءة!";
+
+/* Wipe wallet button title */
+"WipeWallet.wipe" = "مسح";
+
+/* Wiping activity message */
+"WipeWallet.wiping" = "يتم المسح...";
+
+/* Paper key instructions. */
+"WritePaperPhrase.instruction" = "اكتب كل كلمة بالترتيب واحتفظ بها في مكان آمن.";
+
+/* button label */
+"WritePaperPhrase.next" = "التالي";
+
+/* button label */
+"WritePaperPhrase.previous" = "السابق";
+
+/* 1 of 3 */
+"WritePaperPhrase.step" = "%1$d من %2$d";
+
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "";
+
+/* "Fragment.back" */
+"Fragment.back" = "";
+
+/* domain */
+"Send.UnstoppableDomains.domain" = "";
+
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "";
+
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "";

@@ -17,6 +17,7 @@ enum LanguageSelection: Int, CaseIterable, Equatable, Identifiable {
 	case Spanish
 	case Turkish
 	case Ukrainian
+	case Arabic
 	var id: LanguageSelection { self }
 
 	var code: String {
@@ -35,6 +36,7 @@ enum LanguageSelection: Int, CaseIterable, Equatable, Identifiable {
 		case .Spanish: return "es"
 		case .Turkish: return "tr"
 		case .Ukrainian: return "uk"
+		case .Arabic: return "ar"
 		}
 	}
 
@@ -54,6 +56,7 @@ enum LanguageSelection: Int, CaseIterable, Equatable, Identifiable {
 		case .Spanish: return "Español"
 		case .Turkish: return "Türkçe"
 		case .Ukrainian: return "українська"
+		case .Arabic: return "العربية"
 		}
 	}
 
@@ -73,6 +76,7 @@ enum LanguageSelection: Int, CaseIterable, Equatable, Identifiable {
 		case .Spanish: return "Es"
 		case .Turkish: return "Tr"
 		case .Ukrainian: return "Uk"
+		case .Arabic: return "Ar"
 		}
 	}
 }

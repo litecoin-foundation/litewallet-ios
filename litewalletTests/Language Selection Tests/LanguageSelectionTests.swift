@@ -31,4 +31,19 @@ final class LanguageSelectionTests: XCTestCase {
 		XCTAssertEqual(spanish, UserDefaults.selectedLanguage)
 		XCTAssertEqual(S.LitewalletAlert.warning.localize(), "Aviso")
 	}
+
+	func testLocalizationsIncludesArabic() throws {
+		let localizations = viewModel.localizations
+		XCTAssertTrue(localizations.contains("ar"), "Localizations should include Arabic (ar)")
+	}
+
+	func testSetLanguageToArabic() throws {
+		let initialLanguage = UserDefaults.selectedLanguage
+		XCTAssertEqual(initialLanguage, "en")
+
+		let arabic = "ar"
+		viewModel.setLanguage(code: arabic)
+		XCTAssertEqual(UserDefaults.selectedLanguage, arabic, "The selected language should be set to Arabic in UserDefaults")
+		XCTAssertEqual(S.LitewalletAlert.warning.localize(), "تحذير")
+	}
 }
