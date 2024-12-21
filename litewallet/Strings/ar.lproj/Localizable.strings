@@ -31,6 +31,12 @@
 /* Manage wallet button title */
 "AccountHeader.manageButtonName" = "إدارة";
 
+/* Corruption Error alert title */
+"Alert.corruptionError" = "خطأ في فساد البيانات المحلية";
+
+/* Corruption Error alert title */
+"Alert.corruptionMessage" = "قاعدة البيانات المحلية تالفة. اذهب إلى الإعدادات > Blockchain: الإعدادات > حذف قاعدة البيانات للتحديث";
+
 /* Error alert title */
 "Alert.error" = "خطأ";
 
@@ -54,6 +60,12 @@
 
 /* Alert Header label (the PIN was set) */
 "Alerts.pinSet" = "تم تعيين الرقم السري";
+
+/* Resolved Success */
+"Alerts.resolvedSuccess" = "تم حل النطاق";
+
+/* No comment provided by engineer. */
+"Alerts.resolvedSuccessSubheader" = "تم حل العنوان!";
 
 /* Send failure alert header label (the send failed to happen) */
 "Alerts.sendFailure" = "فشل الإرسال";
@@ -94,6 +106,9 @@
 /* receive button */
 "Button.receive" = "استلام";
 
+/* resetFields */
+"Button.resetFields" = "إعادة تعيين الحقول";
+
 /* send button */
 "Button.send" = "إرسال";
 
@@ -105,6 +120,9 @@
 
 /* Yes button */
 "Button.yes" = "نعم";
+
+/* Buy Bar Item Title */
+"BuyCenter.barItemTitle" = "شراء";
 
 /* Bitrefill buy financial details */
 "BuyCenter.bitrefillFinancialDetails" = "• شراء بطاقات الهدايا\n• إعادة تعبئة الهواتف المدفوعة مسبقًا\n• Steam، Amazon، Hotels.com\n• يعمل في 170 دولة";
@@ -121,6 +139,12 @@
 /* Buy Modal Title */
 "BuyCenter.ModalTitle" = "اشترِ لايتكوين";
 
+/* Moonpay buy financial details */
+"BuyCenter.moonpayFinancialDetails" = "• شراء LTC مع العديد من أزواج العملات\n• الدفع بطرق متعددة\n• مزود الدفع العالمي";
+
+/* Moonpay Title */
+"BuyCenter.moonpayTitle" = "Moonpay";
+
 /* Simplex buy financial details */
 "BuyCenter.simplexFinancialDetails" = "• احصل على لايتكوين في 5 دقائق!\n• شراء لايتكوين عبر بطاقة الائتمان\n• جواز السفر أو بطاقة هوية الدولة";
 
@@ -132,6 +156,9 @@
 
 /* Camera plugin instruction */
 "CameraPlugin.centerInstruction" = "ركز بطاقة هويتك في الصندوق";
+
+/* $53.09/L + 1.07% */
+"Confirmation.amountDetailLabel" = "تفاصيل الصرف:";
 
 /* Amount to Send: ($1.00) */
 "Confirmation.amountLabel" = "المبلغ الذي سيتم إرساله:";
@@ -147,6 +174,9 @@
 
 /* Send: (amount) */
 "Confirmation.send" = "إرسال";
+
+/* Address label */
+"Confirmation.staticAddressLabel" = "العنوان:";
 
 /* Confirmation Screen title */
 "Confirmation.title" = "تأكيد";
@@ -166,20 +196,17 @@
 /* Word label eg. Word #1, Word #2 */
 "ConfirmPaperPhrase.word" = "الكلمة #%1$@";
 
+/* No comment provided by engineer. */
+"Copy" = "نسخ";
+
 /* Litecoin denomination picker label */
 "DefaultCurrency.bitcoinLabel" = "وحدة عرض لايتكوين";
 
+/* Label to pick fiat */
+"DefaultCurrency.chooseFiatLabel" = "اختر:";
+
 /* Exchange rate label */
 "DefaultCurrency.rateLabel" = "سعر الصرف";
-
-/* Donate Memo */
-"Donate.memo" = "تبرع لمؤسسة لايتكوين";
-
-/* Donate to the Litecoin Foundation */
-"Donate.title" = "تبرع لمؤسسة لايتكوين (%@)";
-
-/* Donate Confirmation */
-"Donate.title.confirmation" = "تأكيد التبرع";
 
 /* Email unavailable alert title */
 "ErrorMessages.emailUnavailableMessage" = "هذا الجهاز غير مهيأ لإرسال البريد الإلكتروني عبر تطبيق البريد في iOS.";
@@ -226,6 +253,15 @@
 /* Warning message for economy fee */
 "FeeSelector.economyWarning" = "لا يُوصى بهذا الخيار للمعاملات التي تحتاج إلى وقت حساس.";
 
+/* Luxury fee */
+"FeeSelector.luxury" = "فاخر";
+
+/* Fee Selector economy fee description */
+"FeeSelector.luxuryLabel" = "الوقت المتوقع للتسليم: 2.5 - 5+ دقائق";
+
+/* Message for luxury fee */
+"FeeSelector.luxuryMessage" = "تضمن هذه الخيار قبول معاملتك تقريبًا على الرغم من أنك تدفع مبلغًا إضافيًا.";
+
 /* Regular fee */
 "FeeSelector.regular" = "عادي";
 
@@ -234,6 +270,24 @@
 
 /* Fee Selector title */
 "FeeSelector.title" = "سرعة المعالجة";
+
+/* Confirm */
+"Fragment.confirm" = "تأكيد";
+
+/* Or */
+"Fragment.or" = "أو";
+
+/* sorry */
+"Fragment.sorry" = "آسف";
+
+/* to */
+"Fragment.to" = "إلى";
+
+/* History Bar Item Title */
+"History.barItemTitle" = "التاريخ";
+
+/* History Current Litecoin Value */
+"History.currentLitecoinValue" = "القيمة الحالية لـ LTC في";
 
 /* Checking private key balance progress view text */
 "Import.checking" = "جاري التحقق من رصيد المفتاح الخاص...";
@@ -316,6 +370,9 @@
 /* Wipe wallet button */
 "JailbreakWarnings.wipe" = "مسح";
 
+/* Litewallet name */
+"Litewallet.name" = "Litewallet";
+
 /* Location services disabled error */
 "LocationPlugin.disabled" = "خدمات الموقع غير مفعلّة.";
 
@@ -324,6 +381,9 @@
 
 /* No comment provided by engineer. */
 "Malformed URI" = "URI غير صحيح";
+
+/* Balance */
+"ManageWallet.balance" = "الرصيد";
 
 /* Wallet creation date prefix */
 "ManageWallet.creationDatePrefix" = "تم إنشاء محفظتك في %1$@";
@@ -339,6 +399,9 @@
 
 /* Buy Litecoin title */
 "MenuButton.buy" = "شراء لايتكوين";
+
+/* Menu button title */
+"MenuButton.customer.support" = "دعم العملاء";
 
 /* Menu button title */
 "MenuButton.lock" = "قفل المحفظة";
@@ -391,6 +454,24 @@
 /* Node Selector view title */
 "NodeSelector.title" = "نودات لايتكوين";
 
+/* "Email address label" */
+"Notifications.emailLabel" = "عنوان البريد الإلكتروني";
+
+/* "Email address placeholder" */
+"Notifications.emailPlaceholder" = "أدخل هنا";
+
+/* "Email title" */
+"Notifications.emailTitle" = "لا تفوت أي شيء!";
+
+/* "Language preference label" */
+"Notifications.languagePreference" = "اللغة المفضلة:";
+
+/* "Pitch to get user to sign up" */
+"Notifications.pitchMessage" = "اشترك لتسمع عن التحديثات والمسابقات.";
+
+/* Signup cancel */
+"Notifications.signupCancel" = "لا، شكراً";
+
 /* Bad Payment request alert title */
 "PaymentProtocol.Errors.badPaymentRequest" = "طلب دفع غير صحيح";
 
@@ -418,6 +499,9 @@
 /* Untrusted certificate payment protocol error message */
 "PaymentProtocol.Errors.untrustedCertificate" = "شهادة غير موثوق بها";
 
+/* Dismiss button. */
+"Prompts.dismiss" = "إغلاق";
+
 /* Enable face ID prompt body */
 "Prompts.FaceId.body" = "اضغط هنا لتفعيل Face ID";
 
@@ -430,8 +514,17 @@
 /* No Passcode set warning title */
 "Prompts.NoPasscode.title" = "تفعيل رمز المرور للجهاز";
 
+/* Affirm button title. */
+"Prompts.PaperKey.affirm" = "متابعة";
+
 /* Warning about paper key. */
 "Prompts.PaperKey.body" = "يجب حفظ مفتاح الورق في مكان آمن. هو الطريقة الوحيدة لتعديل أو استعادة محفظتك أو نقل اللايتكوين الخاص بك. يُفضل كتابته.";
+
+/* Cancel button. */
+"Prompts.PaperKey.cancel" = "إلغاء";
+
+/* Enable button. */
+"Prompts.PaperKey.enable" = "تفعيل";
 
 /* An action is required (You must do this action). */
 "Prompts.PaperKey.title" = "إجراء مطلوب";
@@ -441,6 +534,12 @@
 
 /* Transaction rejected prompt title */
 "Prompts.RecommendRescan.title" = "تم رفض المعاملة";
+
+/* Upgrade PIN prompt body. */
+"Prompts.SetPin.body" = "تتطلب Litewallet رقم PIN مكون من 6 أرقام. يرجى تعيينه وتخزينه في مكان آمن.";
+
+/* Upgrade PIN prompt title. */
+"Prompts.SetPin.title" = "تعيين رقم PIN";
 
 /* Share data prompt body */
 "Prompts.ShareData.body" = "ساعد في تحسين Litewallet بمشاركة بياناتك المجهولة معنا";
@@ -454,11 +553,8 @@
 /* Enable touch ID prompt title */
 "Prompts.TouchId.title" = "تفعيل Touch ID";
 
-/* Upgrade PIN prompt body. */
-"Prompts.SetPin.body" = "تتطلب Litewallet رقم PIN مكون من 6 أرقام. يرجى تعيينه وتخزينه في مكان آمن.";
-
-/* Upgrade PIN prompt title. */
-"Prompts.SetPin.title" = "تعيين رقم PIN";
+/* Receive Bar Item Title */
+"Receive.barItemTitle" = "استلام";
 
 /* Address copied message. */
 "Receive.copied" = "تم النسخ إلى الحافظة.";
@@ -607,6 +703,12 @@
 /* Balance: $4.00 */
 "Send.balance" = "الرصيد: %1$@";
 
+/* Fee: $0.01 */
+"Send.bareFee" = "الرسوم: %1$@";
+
+/* Send Bar Item Title */
+"Send.barItemTitle" = "إرسال";
+
 /* Camera not allowed message */
 "Send.cameraunavailableMessage" = "اذهب إلى الإعدادات للسماح بالوصول إلى الكاميرا.";
 
@@ -624,6 +726,15 @@
 
 /* Empty pasteboard error message */
 "Send.emptyPasteboard" = "الحافظة فارغة";
+
+/* Enter LTC Address */
+"Send.enterLTCAddress" = "أدخل عنوان لايتكوين";
+
+/* Fees: $0.01 */
+"Send.fee" = "الرسوم: %1$@";
+
+/* Fees Blank: */
+"Send.feeBlank" = "الرسوم:";
 
 /* Payee identity not certified alert title. */
 "Send.identityNotCertified" = "هوية المستلم غير معتمدة.";
@@ -646,6 +757,9 @@
 /* Loading request activity view message */
 "Send.loadingRequest" = "جارٍ تحميل الطلب";
 
+/* Network */
+"Send.networkFee" = "الرسوم الشبكية";
+
 /* Empty address alert message */
 "Send.noAddress" = "يرجى إدخال عنوان المستلم.";
 
@@ -667,11 +781,29 @@
 /* Send button label */
 "Send.sendLabel" = "إرسال";
 
+/* Service */
+"Send.serviceFee" = "رسوم الخدمة";
+
 /* Send modal title */
 "Send.title" = "إرسال";
 
 /* Send money to label */
 "Send.toLabel" = "إلى";
+
+/* Lookup */
+"Send.UnstoppableDomains.lookup" = "بحث";
+
+/* LookupDomainError */
+"Send.UnstoppableDomains.lookupDomainError" = "عذرًا، لم يتم العثور على النطاق. [خطأ: %2$d]";
+
+/* lookupFailureHeader */
+"Send.UnstoppableDomains.lookupFailureHeader" = "فشل البحث";
+
+/* Enter to match domain name to LTC Address */
+"Send.UnstoppableDomains.placeholder" = "أدخل اسم مجال .crypto، .wallet، .zil، .nft، .blockchain،\n.bitcoin، .coin، .888، .dao، أو .x.";
+
+/* UDSystemError */
+"Send.UnstoppableDomains.udSystemError" = "مشكلة في النظام. [خطأ: %2$d]";
 
 /* Address already used alert message - first part */
 "Send.UsedAddress.firstLine" = "عناوين Litecoin مخصصة للاستخدام مرة واحدة فقط.";
@@ -691,8 +823,14 @@
 /* Blockchain settings section header */
 "Settings.blockchain" = "البلوكشين";
 
+/* Change language alert message */
+"Settings.ChangeLanguage.alertMessage" = "هل أنت متأكد أنك تريد تغيير اللغة إلى %l؟";
+
 /* Default currency label */
 "Settings.currency" = "العملة المعروضة";
+
+/* Current Locale */
+"Settings.currentLocale" = "الإعدادات الحالية:";
 
 /* Join Early access label */
 "Settings.earlyAccess" = "انضم إلى الوصول المبكر";
@@ -706,6 +844,18 @@
 /* Import wallet label */
 "Settings.importTitle" = "استيراد المحفظة";
 
+/* Languages label */
+"Settings.languages" = "اللغات";
+
+/* Litewallet environment */
+"Settings.litewallet.environment" = "البيئة:";
+
+/* Litewallet Partners */
+"Settings.litewallet.partners" = "شركاء Litewallet";
+
+/* Litewallet version */
+"Settings.litewallet.version" = "إصدار Litewallet:";
+
 /* Manage settings section header */
 "Settings.manage" = "إدارة";
 
@@ -717,6 +867,9 @@
 
 /* Share anonymous data label */
 "Settings.shareData" = "مشاركة البيانات المجهولة";
+
+/* Litewallet Social links */
+"Settings.socialLinks" = "الروابط الاجتماعية";
 
 /* Support settings section header */
 "Settings.support" = "الدعم";
@@ -745,6 +898,12 @@
 /* Share data switch label. */
 "ShareData.toggleLabel" = "مشاركة البيانات المجهولة؟";
 
+/* "ShowWords.modalTitle" */
+"ShowWords.modalTitle" = "عرض عبارة الاستعادة";
+
+/* "ShowWords.titleWarning" */
+"ShowWords.titleWarning" = "هذه هي كلمات الاستعادة الخاصة بك. إذا عرضتها على أي شخص، يمكنه أخذ Litecoin الخاص بك";
+
 /* Current spending limit: */
 "SpendingLimit.title" = "حد الإنفاق الحالي: ";
 
@@ -762,6 +921,21 @@
 
 /* Start view tagline */
 "StartViewController.tagline" = "أكثر الطرق أماناً لاستخدام Litecoin.";
+
+/* Support the Litecoin Foundation */
+"SupportTheFoundation.title" = "دعم مؤسسة لايتكوين";
+
+/* Syncing view connection state header text */
+"SyncingHeader.connecting" = "جاري الاتصال...";
+
+/* Rescanning header success state header text */
+"SyncingHeader.rescan" = "جاري إعادة المسح...";
+
+/* Syncing header success state header text */
+"SyncingHeader.success" = "نجاح!";
+
+/* Syncing view syncing state header text */
+"SyncingHeader.syncing" = "جاري المزامنة...";
 
 /* Syncing view connectiong state header text */
 "SyncingView.connecting" = "جارٍ الاتصال";
@@ -817,11 +991,23 @@
 /* Touch Id spending limit screen title */
 "TouchIdSpendingLimit.title" = "حد الإنفاق باستخدام Touch ID";
 
+/* Static amount Label */
+"Transaction.amountDetailLabel" = "تفاصيل المبلغ:";
+
 /* Availability status text */
 "Transaction.available" = "متاح للإنفاق";
 
+/* Static blockHeight Label */
+"Transaction.blockHeightLabel" = "الكتلة:";
+
+/* Static comment Label */
+"Transaction.commentLabel" = "مذكرة:";
+
 /* Transaction complete label */
 "Transaction.complete" = "تم";
+
+/* Static end amount Label */
+"Transaction.endAmountDetailLabel" = "تفاصيل المبلغ النهائي للمعاملة";
 
 /* eg. Ending balance: $50.00 */
 "Transaction.ending" = "الرصيد النهائي: %1$@";
@@ -850,6 +1036,12 @@
 /* eg. Starting balance: $50.00 */
 "Transaction.starting" = "الرصيد الابتدائي: %1$@";
 
+/* Static starting amount Label */
+"Transaction.startingAmountDetailLabel" = "تفاصيل المبلغ الأولي للمعاملة";
+
+/* Static TX iD Label */
+"Transaction.txIDLabel" = "معرف المعاملة:";
+
 /* Waiting to be confirmed string */
 "Transaction.waiting" = "في انتظار التأكيد. بعض التجار يتطلبون تأكيد لإتمام المعاملة. الوقت المقدر: 1-2 ساعات.";
 
@@ -865,11 +1057,20 @@
 /* Memo section header */
 "TransactionDetails.commentsHeader" = "الملاحظة";
 
+/* Copied */
+"TransactionDetails.copiedAll" = "تم النسخ";
+
+/* Copy all details */
+"TransactionDetails.copyAllDetails" = "نسخ جميع التفاصيل";
+
 /* Empty transaction list message. */
 "TransactionDetails.emptyMessage" = "ستظهر معاملاتك هنا.";
 
 /* [received] at <address> (received title 2/2) */
 "TransactionDetails.from" = "في %1$@";
+
+/* Less button title */
+"TransactionDetails.less" = "أقل...";
 
 /* Moved $5.00 */
 "TransactionDetails.moved" = "تم نقل %1$@";
@@ -880,17 +1081,26 @@
 /* eg. Confirmed in Block: Not Confirmed */
 "TransactionDetails.notConfirmedBlockHeightLabel" = "لم يتم التأكيد";
 
+/* Prefix for price */
+"TransactionDetails.priceTimeStampPrefix" = "كما في";
+
 /* Received $5.00 (received title 1/2) */
 "TransactionDetails.received" = "تم استلام %1$@";
 
 /* Received $5.00 */
 "TransactionDetails.receivedAmountDescription" = "تم استلام <b>%1@</b>";
 
+/* RECEIVE LTCTitle */
+"TransactionDetails.receivedModalTitle" = "عنوان الاستلام";
+
 /* Sent $5.00 (sent title 1/2) */
 "TransactionDetails.sent" = "تم إرسال %1$@";
 
 /* Sent $5.00 */
 "TransactionDetails.sentAmountDescription" = "تم إرسال <b>%1@</b>";
+
+/* Label for TXID */
+"TransactionDetails.staticTXLabel" = "TXID:";
 
 /* Status section header */
 "TransactionDetails.statusHeader" = "الحالة";
@@ -912,6 +1122,9 @@
 
 /* Disabled until date */
 "UnlockScreen.disabled" = "مغلق حتى: %1$@";
+
+/* Unlock Screen sub-header */
+"UnlockScreen.enterPin" = "أدخل الرقم السري";
 
 /* Unlock with FaceID accessibility label */
 "UnlockScreen.faceIdText" = "افتح باستخدام FaceID";
@@ -1006,11 +1219,23 @@
 /* Welcome view title */
 "Welcome.title" = "مرحبًا بك في Litewallet!";
 
+/* Delete database title */
+"WipeWallet.alertDeleteTitle" = "حذف قاعدة البيانات";
+
 /* Wipe wallet alert message */
 "WipeWallet.alertMessage" = "هل أنت متأكد أنك تريد حذف هذه المحفظة؟";
 
 /* Wipe wallet alert title */
 "WipeWallet.alertTitle" = "حذف المحفظة؟";
+
+/* Delete db */
+"WipeWallet.deleteDatabase" = "حذف قاعدة البيانات";
+
+/* Delete database message */
+"WipeWallet.deleteMessageTitle" = "سيتم حذف قاعدة البيانات ولكن ستظل العبارة والرقم السري محفوظة. قم بتأكيد الرقم السري الحالي وانتظر حتى تكتمل المزامنة مع قاعدة البيانات الجديدة";
+
+/* Delete and sync */
+"WipeWallet.deleteSync" = "حذف & مزامنة";
 
 /* Warning if user lost phrase */
 "WipeWallet.emptyWallet" = "هل نسيت عبارة الاسترداد أو الرقم السري؟";
@@ -1060,410 +1285,17 @@
 /* 1 of 3 */
 "WritePaperPhrase.step" = "%1$d من %2$d";
 
-/* No comment provided by engineer. */
-"Copy" = "نسخ";
+/* Short Network Fee: ($1.00) */
+"Confirmation.shortFeeLabel" = "";
 
-/* Buy Bar Item Title */
-"BuyCenter.barItemTitle" = "شراء";
+/* "Fragment.back" */
+"Fragment.back" = "";
 
-/* $53.09/L + 1.07% */
-"Confirmation.amountDetailLabel" = "تفاصيل الصرف:";
+/* domain */
+"Send.UnstoppableDomains.domain" = "";
 
-/* Address label */
-"Confirmation.staticAddressLabel" = "العنوان:";
+/* Enter a */
+"Send.UnstoppableDomains.enterA" = "";
 
-/* History Bar Item Title */
-"History.barItemTitle" = "التاريخ";
-
-/* Receive Bar Item Title */
-"Receive.barItemTitle" = "استلام";
-
-/* Send Bar Item Title */
-"Send.barItemTitle" = "إرسال";
-
-/* Less button title */
-"TransactionDetails.less" = "أقل...";
-
-/* Prefix for price */
-"TransactionDetails.priceTimeStampPrefix" = "كما في";
-
-/* RECEIVE LTCTitle */
-"TransactionDetails.receivedModalTitle" = "عنوان الاستلام";
-
-/* Label for TXID */
-"TransactionDetails.staticTXLabel" = "TXID:";
-
-/* Unlock Screen sub-header */
-"UnlockScreen.enterPin" = "أدخل الرقم السري";
-
-/* Static amount Label */
-"Transaction.amountDetailLabel" = "تفاصيل المبلغ:";
-
-/* Static blockHeight Label */
-"Transaction.blockHeightLabel" = "الكتلة:";
-
-/* Static comment Label */
-"Transaction.commentLabel" = "مذكرة:";
-
-/* Static TX iD Label */
-"Transaction.txIDLabel" = "معرف المعاملة:";
-
-/* Static end amount Label */
-"Transaction.endAmountDetailLabel" = "تفاصيل المبلغ النهائي للمعاملة";
-
-/* Static starting amount Label */
-"Transaction.startingAmountDetailLabel" = "تفاصيل المبلغ الأولي للمعاملة";
-
-/* Syncing view connection state header text */
-"SyncingHeader.connecting" = "جاري الاتصال...";
-
-/* Syncing header success state header text */
-"SyncingHeader.success" = "نجاح!";
-
-/* Syncing view syncing state header text */
-"SyncingHeader.syncing" = "جاري المزامنة...";
-
-/* Rescanning header success state header text */
-"SyncingHeader.rescan" = "جاري إعادة المسح...";
-
-/* Affirm button title. */
-"Prompts.PaperKey.affirm" = "متابعة";
-
-/* Cancel button. */
-"Prompts.PaperKey.cancel" = "إلغاء";
-
-/* Enable button. */
-"Prompts.PaperKey.enable" = "تفعيل";
-
-/* Dismiss button. */
-"Prompts.dismiss" = "إغلاق";
-
-/* Languages label */
-"Settings.languages" = "اللغات";
-
-/* Label to pick fiat */
-"DefaultCurrency.chooseFiatLabel" = "اختر:";
-
-/* Litewallet environment */
-"Settings.litewallet.environment" = "البيئة:";
-
-/* Litewallet version */
-"Settings.litewallet.version" = "إصدار Litewallet:";
-
-/* Litewallet Social links */
-"Settings.socialLinks" = "الروابط الاجتماعية";
-
-/* Delete db */
-"WipeWallet.deleteDatabase" = "حذف قاعدة البيانات";
-
-/* Delete database title */
-"WipeWallet.alertDeleteTitle" = "حذف قاعدة البيانات";
-
-/* Delete database message */
-"WipeWallet.deleteMessageTitle" = "سيتم حذف قاعدة البيانات ولكن ستظل العبارة والرقم السري محفوظة. قم بتأكيد الرقم السري الحالي وانتظر حتى تكتمل المزامنة مع قاعدة البيانات الجديدة";
-
-/* Delete and sync */
-"WipeWallet.deleteSync" = "حذف & مزامنة";
-
-/* Corruption Error alert title */
-"Alert.corruptionError" = "خطأ في فساد البيانات المحلية";
-
-/* Corruption Error alert title */
-"Alert.corruptionMessage" = "قاعدة البيانات المحلية تالفة. اذهب إلى الإعدادات > Blockchain: الإعدادات > حذف قاعدة البيانات للتحديث";
-
-/* Donate articles to the */
-"Donate.toThe" = "تبرع لـ";
-
-/* Donate */
-"Donate.word" = "تبرع";
-
-/* Luxury fee */
-"FeeSelector.luxury" = "فاخر";
-
-/* Fee Selector economy fee description */
-"FeeSelector.luxuryLabel" = "الوقت المتوقع للتسليم: 2.5 - 5+ دقائق";
-
-/* Message for luxury fee */
-"FeeSelector.luxuryMessage" = "تضمن هذه الخيار قبول معاملتك تقريبًا على الرغم من أنك تدفع مبلغًا إضافيًا.";
-
-/* Support the Litecoin Foundation */
-"SupportTheFoundation.title" = "دعم مؤسسة لايتكوين";
-
-/* Menu button title */
-"MenuButton.customer.support" = "دعم العملاء";
-
-/* Enter to match domain name to LTC Address */
-"Send.UnstoppableDomains.placeholder" = "أدخل اسم مجال .crypto، .wallet، .zil، .nft، .blockchain،\n.bitcoin، .coin، .888، .dao، أو .x.";
-
-/* Or */
-"Fragment.or" = "أو";
-
-/* Enter LTC Address */
-"Send.enterLTCAddress" = "أدخل عنوان لايتكوين";
-
-/* Litewallet Partners */
-"Settings.litewallet.partners" = "شركاء Litewallet";
-
-/* Card Bar Item Title */
-"LitecoinCard.barItemTitle" = "بطاقة";
-
-/* Lookup */
-"Send.UnstoppableDomains.lookup" = "بحث";
-
-/* Forgot password? */
-"LitecoinCard.forgotPassword" = "نسيت كلمة المرور؟";
-
-/* Login */
-"LitecoinCard.login" = "تسجيل الدخول";
-
-/* Register */
-"LitecoinCard.registerCard" = "تسجيل";
-
-/* Litecoin card */
-"LitecoinCard.registerCardPhrase" = "تسجيل بطاقة لايتكوين";
-
-/* Reset Litecoin card password */
-"LitecoinCard.resetPassword" = "إعادة تعيين كلمة المرور";
-
-/* Litecoin card visit */
-"LitecoinCard.visit.toReset" = "قم بزيارة https://litecoin.dashboard.getblockcard.com/password/forgot\nلإعادة تعيين كلمة المرور.";
-
-/* address */
-"LitecoinCard.Registration.address" = "العنوان";
-
-/* city */
-"LitecoinCard.Registration.city" = "المدينة";
-
-/* confirm password */
-"LitecoinCard.Registration.confirmPassword" = "تأكيد كلمة المرور";
-
-/* country */
-"LitecoinCard.Registration.country" = "الدولة";
-
-/* First name */
-"LitecoinCard.Registration.firstName" = "الاسم الأول";
-
-/* kycIDNumber */
-"LitecoinCard.Registration.kycIDNumber" = "رقم الهوية";
-
-/* SSN */
-"LitecoinCard.Registration.kycSSN" = "الرقم التأميني الاجتماعي";
-
-/* Last name */
-"LitecoinCard.Registration.lastName" = "الاسم الأخير";
-
-/* mobile number */
-"LitecoinCard.Registration.mobileNumber" = "رقم الهاتف المحمول";
-
-/* password */
-"LitecoinCard.Registration.password" = "كلمة المرور";
-
-/* state province */
-"LitecoinCard.Registration.stateProvince" = "الولاية / المقاطعة";
-
-/* registration username / email */
-"LitecoinCard.Registration.usernameEmail" = "البريد الإلكتروني (اسم المستخدم)";
-
-/* zip post code */
-"LitecoinCard.Registration.zipPostCode" = "الرمز البريدي";
-
-/* identification */
-"LitecoinCard.Registration.identification" = "الهوية";
-
-/* Register for Litecoin Card */
-"LitecoinCard.registerCard.phrase" = "تسجيل بطاقة لايتكوين";
-
-/* kycIDType */
-"LitecoinCard.Registration.kycIDType" = "نوع الهوية";
-
-/* resetFields */
-"Button.resetFields" = "إعادة تعيين الحقول";
-
-/* Registering user... */
-"LitecoinCard.registering.user" = "جارٍ تسجيل المستخدم ...";
-
-/* Card balance */
-"LitecoinCard.cardBalance" = "رصيد البطاقة";
-
-/* Logout */
-"LitecoinCard.logout" = "تسجيل الخروج";
-
-/* Registration failure */
-"LitecoinCard.registrationFailure" = "كانت هناك مشكلة في تسجيلك. \nيرجى التحقق من بياناتك والمحاولة مرة أخرى.";
-
-/* Registration success */
-"LitecoinCard.registrationSuccess" = "لقد قمت بالتسجيل!\nيرجى التحقق من بريدك الإلكتروني وتأكيده. ثم عد لتسجيل الدخول.";
-
-/* Resolved Success */
-"Alerts.resolvedSuccess" = "تم حل النطاق";
-
-/* No comment provided by engineer. */
-"Alerts.resolvedSuccessSubheader" = "تم حل العنوان!";
-
-/* must not be empty */
-"LitecoinCard.Registration.ValidationError.empty" = "يجب ألا يكون فارغًا";
-
-/* Invalid email address */
-"LitecoinCard.Registration.ValidationError.invalidEmail" = "عنوان البريد الإلكتروني غير صالح";
-
-/* Mobile number 10 digits required */
-"LitecoinCard.Registration.ValidationError.numberDigitsRequired" = "يجب أن يحتوي رقم الهاتف المحمول على 10 أرقام على الأقل";
-
-/* Mobile number required */
-"LitecoinCard.Registration.ValidationError.numberRequired" = "رقم الهاتف المحمول مطلوب";
-
-/* 6 Password characters required */
-"LitecoinCard.Registration.ValidationError.passwordCharacters" = "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل";
-
-/* Captial and numeric password characters required */
-"LitecoinCard.Registration.ValidationError.passwordComposition" = "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل، مع حرف واحد ورقم واحد على الأقل";
-
-/* Password required */
-"LitecoinCard.Registration.ValidationError.passwordRequired" = "كلمة المرور مطلوبة";
-
-/* Required field */
-"LitecoinCard.Registration.ValidationError.requiredField" = "حقل مطلوب";
-
-/* Failed Login */
-"LitecoinCard.failed.login" = "فشل تسجيل الدخول";
-
-/* Copied */
-"TransactionDetails.copiedAll" = "تم النسخ";
-
-/* Copy all details */
-"TransactionDetails.copyAllDetails" = "نسخ جميع التفاصيل";
-
-/* Features and limitations */
-"LitecoinCard.Disclaimer.bullets" = "- التسجيل وتسجيل الدخول\n- رصيد البطاقة المتاح\n- إعادة تعيين كلمة المرور\n- لا يوجد تحويل إلى Litewallet\n- متاح في الولايات المتحدة فقط";
-
-/* Description of the status */
-"LitecoinCard.Disclaimer.description" = "تتمتع بطاقة لايتكوين حاليًا بوظائف محدودة في Litewallet.";
-
-/* Referral to the website */
-"LitecoinCard.Disclaimer.referral" = "قم بزيارة litecoin.getblockcard.com للوصول الكامل";
-
-/* Beta Testing Litecoin Card */
-"LitecoinCard.Disclaimer.title" = "اختبار بطاقة لايتكوين Beta";
-
-/* lookupFailureHeader */
-"Send.UnstoppableDomains.lookupFailureHeader" = "فشل البحث";
-
-/* LookupDomainError */
-"Send.UnstoppableDomains.lookupDomainError" = "عذرًا، لم يتم العثور على النطاق. [خطأ: %2$d]";
-
-/* UDSystemError */
-"Send.UnstoppableDomains.udSystemError" = "مشكلة في النظام. [خطأ: %2$d]";
-
-/* Balance */
-"ManageWallet.balance" = "الرصيد";
-
-/* Moonpay buy financial details */
-"BuyCenter.moonpayFinancialDetails" = "• شراء LTC مع العديد من أزواج العملات\n• الدفع بطرق متعددة\n• مزود الدفع العالمي";
-
-/* Moonpay Title */
-"BuyCenter.moonpayTitle" = "Moonpay";
-
-/* Reset password detail */
-"LitecoinCard.resetPasswordDetail" = "أدخل عنوان البريد الإلكتروني المرتبط بحساب بطاقة لايتكوين الخاصة بك وابحث عن بريد إلكتروني يحتوي على تعليمات إعادة تعيين كلمة المرور.";
-
-/* Current Locale */
-"Settings.currentLocale" = "الإعدادات الحالية:";
-
-/* History Current Litecoin Value */
-"History.currentLitecoinValue" = "القيمة الحالية لـ LTC في";
-
-/* Confirm */
-"Fragment.confirm" = "تأكيد";
-
-/* Enter code */
-"LitecoinCard.enterCode" = "أدخل الرمز";
-
-/* Enter code details */
-"LitecoinCard.enterCode.detail" = "أدخل الرمز الذي تم إرساله مؤخرًا إلى بريدك الإلكتروني المرتبط بحساب بطاقة لايتكوين.";
-
-/* Message when 2FA is on */
-"LitecoinCard.twoFAOn" = "تم تفعيل 2FA";
-
-/* Message when 2FA is off */
-"LitecoinCard.twoFAOff" = "لم يتم تفعيل 2FA";
-
-/* Litewallet balance label */
-"LitecoinCard.Transfer.litewalletBalance" = "رصيد Litewallet";
-
-/* Transfer title */
-"LitecoinCard.Transfer.title" = "التحويل";
-
-/* Description of action */
-"LitecoinCard.Transfer.description" = "اختر محفظة التحويل:";
-
-/* Start transfer label */
-"LitecoinCard.Transfer.startTransfer" = "ابدأ التحويل";
-
-/* Transfer to card label */
-"LitecoinCard.Transfer.amountToCard" = "تحويل إلى البطاقة";
-
-/* Transfer to Litewallet label */
-"LitecoinCard.Transfer.amountToLitewallet" = "التحويل إلى Litewallet";
-
-/* Set transfer amount label */
-"LitecoinCard.Transfer.setAmount" = "اسحب لتحديد مبلغ التحويل";
-
-/* Destination address label */
-"LitecoinCard.Transfer.destinationAddress" = "العنوان";
-
-/* to */
-"Fragment.to" = "إلى";
-
-/* Card Bar Item Title */
-"LitecoinCard.name" = "بطاقة Litecoin";
-
-/* Litewallet name */
-"Litewallet.name" = "Litewallet";
-
-/* Message when 2FA is off and user is viewing the Card Balance */
-"LitecoinCard.cardBalanceOnlyDescription" = "تسجيل الخروج وتفعيل 2FA للسماح بالتحويلات";
-
-/* sorry */
-"Fragment.sorry" = "آسف";
-
-/* Change language alert message */
-"Settings.ChangeLanguage.alertMessage" = "هل أنت متأكد أنك تريد تغيير اللغة إلى %l؟";
-
-/* Fee: $0.01 */
-"Send.bareFee" = "الرسوم: %1$@";
-
-/* Fees: $0.01 */
-"Send.fee" = "الرسوم: %1$@";
-
-/* Fees Blank: */
-"Send.feeBlank" = "الرسوم:";
-
-/* Network */
-"Send.networkFee" = "الرسوم الشبكية";
-
-/* Service */
-"Send.serviceFee" = "رسوم الخدمة";
-
-/* Signup cancel */
-"Notifications.signupCancel" = "لا، شكراً";
-
-/* "Email title" */
-"Notifications.emailTitle" = "لا تفوت أي شيء!";
-
-/* "Pitch to get user to sign up" */
-"Notifications.pitchMessage" = "اشترك لتسمع عن التحديثات والمسابقات.";
-
-/* "Email address label" */
-"Notifications.emailLabel" = "عنوان البريد الإلكتروني";
-
-/* "Email address placeholder" */
-"Notifications.emailPlaceholder" = "أدخل هنا";
-
-/* "Language preference label" */
-"Notifications.languagePreference" = "اللغة المفضلة:";
-
-/* "ShowWords.titleWarning" */
-"ShowWords.titleWarning" = "هذه هي كلمات الاستعادة الخاصة بك. إذا عرضتها على أي شخص، يمكنه أخذ Litecoin الخاص بك";
-
-/* "ShowWords.modalTitle" */
-"ShowWords.modalTitle" = "عرض عبارة الاستعادة";
+/* Enter domain */
+"Send.UnstoppableDomains.simpleplaceholder" = "";
