@@ -130,6 +130,7 @@ class StartViewModel: ObservableObject {
 		"La forma más segura y sencilla de utilizar Litecoin",
 		"Litecoin kullanmanın en güvenli ve en kolay yolu.",
 		"Найбезпечніший і найпростіший спосіб використання Litecoin",
+		"الطريقة الأكثر أمانًا وأسهل لاستخدام لايتكوين.",
 	]
 
 	let alertMessage: [String] = [
@@ -147,6 +148,7 @@ class StartViewModel: ObservableObject {
 		"¿Estás seguro de que quieres cambiar el idioma a español?",
 		"Dili Türkçe olarak değiştirmek istediğinizden emin misiniz?",
 		"Ви впевнені, що хочете змінити мову на українську?",
+		"هل أنت متأكد أنك تريد تغيير اللغة إلى الإنجليزية؟",
 	]
 
 	let yesLabel: [String] = [
@@ -164,6 +166,7 @@ class StartViewModel: ObservableObject {
 		"Sí",
 		"Evet",
 		"Так",
+		"نعم",
 	]
 
 	let cancelLabel: [String] = [
@@ -181,6 +184,7 @@ class StartViewModel: ObservableObject {
 		"Cancelar",
 		"İptal etmek",
 		"Скасувати",
+		"إلغاء",
 	]
 
 	/// DEV: For debugging

@@ -235,6 +235,7 @@
 		75A2A8101DA5936F00A983D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A80E1DA5936F00A983D8 /* MainInterface.storyboard */; };
 		75A2A8141DA5936F00A983D8 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A8081DA5936F00A983D8 /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
+		93D84BDC2D162AE700A74931 /* Ar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93D84BDB2D162AE700A74931 /* Ar.mp3 */; };
 		C30029E225D0185500F08C2B /* StandardDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029E125D0185500F08C2B /* StandardDividerView.swift */; };
 		C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029EA25D019BC00F08C2B /* CopyButtonView.swift */; };
 		C3019EE32B8FEFED00FAF648 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */; };
@@ -1389,6 +1390,11 @@
 		75A2A87C1DA59E4E00A983D8 /* litewallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = litewallet.entitlements; sourceTree = "<group>"; };
 		75C735AF1DAA1C9F00251ECF /* libnettle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnettle.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		93D84BDB2D162AE700A74931 /* Ar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ar.mp3; sourceTree = "<group>"; };
+		93D84BDD2D16B20400A74931 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		93D84BDE2D16B20400A74931 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		93D84BDF2D16B20400A74931 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		93D84BE02D16B20400A74931 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ar; path = ar.lproj/BIP39Words.plist; sourceTree = "<group>"; };
 		C30029E125D0185500F08C2B /* StandardDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDividerView.swift; sourceTree = "<group>"; };
 		C30029EA25D019BC00F08C2B /* CopyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButtonView.swift; sourceTree = "<group>"; };
 		C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
@@ -3027,6 +3033,7 @@
 				C3423C3B2B796D820051BD6D /* Ko.mp3 */,
 				C3423C3C2B796D820051BD6D /* It.mp3 */,
 				C3423C3D2B796D820051BD6D /* Ru.mp3 */,
+				93D84BDB2D162AE700A74931 /* Ar.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -3724,6 +3731,7 @@
 				Base,
 				tr,
 				uk,
+				ar,
 			);
 			mainGroup = 75A2A7871DA5934300A983D8;
 			packageReferences = (
@@ -3790,6 +3798,7 @@
 				CE29901A1EFD6DE50093A0F2 /* Localizable.strings in Resources */,
 				C3423C3E2B796D820051BD6D /* 日本語.mp3 in Resources */,
 				24313C9F23824F5800A83F69 /* Animate.storyboard in Resources */,
+				93D84BDC2D162AE700A74931 /* Ar.mp3 in Resources */,
 				C3423C442B796D820051BD6D /* Fr.mp3 in Resources */,
 				C3423C462B796D820051BD6D /* Id.mp3 in Resources */,
 				24313CA323824F5800A83F69 /* Send.storyboard in Resources */,
@@ -4400,6 +4409,7 @@
 				24375315238AE09900E1B2AE /* ru */,
 				C3BDB42626CC028F004DAE77 /* tr */,
 				C350788A27DCAAA100A50819 /* uk */,
+				93D84BE02D16B20400A74931 /* ar */,
 			);
 			name = BIP39Words.plist;
 			sourceTree = "<group>";
@@ -4409,6 +4419,7 @@
 			children = (
 				75A2A79D1DA5934300A983D8 /* Base */,
 				C350788727DCAAA000A50819 /* uk */,
+				93D84BDD2D16B20400A74931 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -4430,6 +4441,7 @@
 				24B9621B23BA66CF00ECD938 /* en */,
 				C3BDB42726CC028F004DAE77 /* tr */,
 				C350788827DCAAA000A50819 /* uk */,
+				93D84BDE2D16B20400A74931 /* ar */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -4451,6 +4463,7 @@
 				2430679B238F5A2900EBEA99 /* en */,
 				C3BDB42826CC0338004DAE77 /* tr */,
 				C350788927DCAAA000A50819 /* uk */,
+				93D84BDF2D16B20400A74931 /* ar */,
 			);
 			name = Localizable.strings;
 			path = Strings;
