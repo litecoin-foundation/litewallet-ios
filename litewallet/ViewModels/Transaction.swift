@@ -36,18 +36,29 @@ class Transaction {
 		{
 			opsAmount = opsOutput.amount
 		}
-
-		self.fee = fee + opsAmount
+        
+        // Safely calculate fee = fee + opsAmount
+		guard let safeFee = fee.safeAddition(opsAmount) else { return nil }
+		self.fee = safeFee
 
 		let amountReceived = wallet.amountReceivedFromTx(tx)
-		let amountSent = wallet.amountSentByTx(tx) - opsAmount
 
-		if amountSent > 0, (amountReceived + fee) == amountSent {
+		// Safely calculate amountSent = wallet.amountSentByTx(tx) - opsAmount
+		guard let safeAmountSent = wallet.amountSentByTx(tx).safeSubtraction(opsAmount) else { return nil }
+
+		// Safely calculate (amountReceived + fee)
+		guard let safeSum = amountReceived.safeAddition(fee) else { return nil }
+
+		if safeAmountSent > 0, safeAmountSent == safeSum {
 			direction = .moved
-			satoshis = amountSent
-		} else if amountSent > 0 {
+			satoshis = safeAmountSent
+		} else if safeAmountSent > 0 {
+			// Safely calculate (safeAmountSent - amountReceived - fee)
+			guard let safeSatoshis = safeAmountSent
+				.safeSubtraction(amountReceived)?
+				.safeSubtraction(fee) else { return nil }
 			direction = .sent
-			satoshis = amountSent - amountReceived - fee
+			satoshis = safeSatoshis
 		} else {
 			direction = .received
 			satoshis = amountReceived
