@@ -274,7 +274,6 @@
 		C350788C27DCB10700A50819 /* TextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350788B27DCB10700A50819 /* TextView+Extension.swift */; };
 		C353582B2D11D9B500395C45 /* RemoteConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353582A2D11D9B500395C45 /* RemoteConfigHelper.swift */; };
 		C353582D2D11DA4900395C45 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C353582C2D11DA4900395C45 /* FirebaseRemoteConfig */; };
-		C353582F2D11DA4900395C45 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C353582E2D11DA4900395C45 /* FirebaseRemoteConfigSwift */; };
 		C35358332D11E7D100395C45 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35358322D11E7D100395C45 /* APITests.swift */; };
 		C35358372D11EB0600395C45 /* remote-config-defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = C35358362D11EB0600395C45 /* remote-config-defaults.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
 		C35358392D11EB2F00395C45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C35358382D11EB2F00395C45 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = ("initial-resources", ); }; };
@@ -1677,7 +1676,6 @@
 				C3423C182B781C6B0051BD6D /* PushNotifications in Frameworks */,
 				C35C1222293D464A0009022D /* FirebaseAuth in Frameworks */,
 				C35C1224293D464A0009022D /* FirebaseCrashlytics in Frameworks */,
-				C353582F2D11DA4900395C45 /* FirebaseRemoteConfigSwift in Frameworks */,
 				C35C1220293D464A0009022D /* FirebaseAnalytics in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
 			);
@@ -3582,6 +3580,7 @@
 				75A2A78E1DA5934300A983D8 /* Resources */,
 				75A2A8031DA5935F00A983D8 /* Embed App Extensions */,
 				22A9A9831DF63288000F0016 /* Embed Frameworks */,
+				C3D00A6D2D1B10E900AC2840 /* Run Script for CircleCI SPM Caching */,
 				C3A3FFB526FE46E8000FE955 /* Mark Dev Notes */,
 				58A9FE4C291BC37400B75825 /* Count number of swift lines */,
 			);
@@ -3600,7 +3599,6 @@
 				C3423C172B781C6B0051BD6D /* PushNotifications */,
 				C30808A42D0A23530063E793 /* AppsFlyerLib-Static */,
 				C353582C2D11DA4900395C45 /* FirebaseRemoteConfig */,
-				C353582E2D11DA4900395C45 /* FirebaseRemoteConfigSwift */,
 			);
 			productName = breadwallet;
 			productReference = 75A2A7901DA5934300A983D8 /* Litewallet.app */;
@@ -3906,6 +3904,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# http://www.benzado.com/blog/post/329/make-xcode-nag-you-about-unfinished-todos\necho \"make-xcode-nag-you-about-unfinished-todos for swift files only\"\nKEYWORDS=\"DEV:|TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		C3D00A6D2D1B10E900AC2840 /* Run Script for CircleCI SPM Caching */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script for CircleCI SPM Caching";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncp litewallet.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved Package.resolved\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -4512,7 +4528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources";
@@ -4871,7 +4887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC  ";
@@ -5018,7 +5034,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources";
@@ -5164,7 +5180,7 @@
 				2465874023A5AAD100A32E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		755CD9CA1DAA18420075898E /* Build configuration list for PBXNativeTarget "unbound" */ = {
 			isa = XCConfigurationList;
@@ -5174,7 +5190,7 @@
 				755CD9CC1DAA18420075898E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		755CD9D71DAA197D0075898E /* Build configuration list for PBXNativeTarget "BRCore" */ = {
 			isa = XCConfigurationList;
@@ -5184,7 +5200,7 @@
 				755CD9D91DAA197D0075898E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		759DA0DA1DAC8668008CC49B /* Build configuration list for PBXLegacyTarget "submodules" */ = {
 			isa = XCConfigurationList;
@@ -5194,7 +5210,7 @@
 				759DA0D91DAC8668008CC49B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		75A2A78B1DA5934300A983D8 /* Build configuration list for PBXProject "litewallet" */ = {
 			isa = XCConfigurationList;
@@ -5204,7 +5220,7 @@
 				75A2A7DA1DA5934400A983D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "litewallet" */ = {
 			isa = XCConfigurationList;
@@ -5214,7 +5230,7 @@
 				75A2A7E51DA5934400A983D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		75A2A8151DA5936F00A983D8 /* Build configuration list for PBXNativeTarget "TodayExtension" */ = {
 			isa = XCConfigurationList;
@@ -5224,7 +5240,7 @@
 				75A2A8171DA5936F00A983D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		75C735B51DAA1C9F00251ECF /* Build configuration list for PBXNativeTarget "nettle" */ = {
 			isa = XCConfigurationList;
@@ -5234,7 +5250,7 @@
 				75C735B71DAA1C9F00251ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
@@ -5259,8 +5275,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
-				kind = exactVersion;
-				version = 10.23.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
 			};
 		};
 		C35C1228293D48330009022D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
@@ -5288,11 +5304,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C35C121E293D464A0009022D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
-		};
-		C353582E2D11DA4900395C45 /* FirebaseRemoteConfigSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C35C121E293D464A0009022D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfigSwift;
 		};
 		C35C121F293D464A0009022D /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

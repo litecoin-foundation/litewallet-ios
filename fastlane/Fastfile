@@ -2,23 +2,23 @@
 default_platform :ios
 
 platform :ios do
+  
   before_all do
     setup_circle_ci
   end
   
-  desc "Run all the tests"
-  lane :test do
-    scan(
-      workspace: "litewallet.xcworkspace",
-      scheme: "litewallet",
-      devices: ["iPhone 14","iPhone 15"],
-      clean: true
-    )
+  error do |lane, exception|
+    # You can log the error, send a notification, or take any other action
+    UI.error("Error occurred during running the pipeline: #{exception.message}")
+  end
+  
+  desc "Run all the unit tests"
+  lane :all_unit_tests do
+    run_tests(clean: true, devices: ["iPhone 15"], scheme: "litewallet")
   end
 
-  desc "Ad-hoc build"
-  lane :adhoc do
-    match(type: "adhoc")
-    gym(export_method: "ad-hoc")
+  desc "Build and Archive"
+  lane :build_and_archive do
+    build_app(clean: true, scheme: "litewallet")
   end
 end

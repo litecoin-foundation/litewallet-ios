@@ -2,6 +2,8 @@
 import XCTest
 
 class AmountTests: XCTestCase {
+	let mockSeeds = MockSeeds()
+
 	override func setUp() {}
 
 	override func tearDown() {}
@@ -13,7 +15,7 @@ class AmountTests: XCTestCase {
 		let amount = MockSeeds.amount100
 
 		// Then:
-		XCTAssertFalse(amount.amount == 0)
+		XCTAssertTrue(amount.amount == 100)
 	}
 
 	func testPerformanceExample() {
