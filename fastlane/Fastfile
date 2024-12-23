@@ -1,0 +1,24 @@
+# fastlane/Fastfile
+default_platform :ios
+
+platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+  
+  desc "Run all the tests"
+  lane :test do
+    scan(
+      workspace: "litewallet.xcworkspace",
+      scheme: "litewallet",
+      devices: ["iPhone 14","iPhone 15"],
+      clean: true
+    )
+  end
+
+  desc "Ad-hoc build"
+  lane :adhoc do
+    match(type: "adhoc")
+    gym(export_method: "ad-hoc")
+  end
+end
