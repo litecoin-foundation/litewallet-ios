@@ -4538,7 +4538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 241217.1;
+				CURRENT_PROJECT_VERSION = 241223.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
@@ -4555,7 +4555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.13.7;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources speakTag";
 				OTHER_SWIFT_FLAGS = "-DDebug $(inherited)";
@@ -4896,7 +4896,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 241217.1;
+				CURRENT_PROJECT_VERSION = 241223.0;
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4912,7 +4912,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.13.7;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources speakTag";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -5038,7 +5038,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = litewallet/litewallet.entitlements;
-				CURRENT_PROJECT_VERSION = 241217.1;
+				CURRENT_PROJECT_VERSION = 241223.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZV7987N2ZC;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
@@ -5055,7 +5055,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.13.7;
 				ONLY_ACTIVE_ARCH = YES;
 				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = "initial-resources speakTag";
 				OTHER_SWIFT_FLAGS = "-DDebug -DTestnet $(inherited)";
