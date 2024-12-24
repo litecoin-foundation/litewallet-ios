@@ -235,6 +235,7 @@
 		75A2A8101DA5936F00A983D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A80E1DA5936F00A983D8 /* MainInterface.storyboard */; };
 		75A2A8141DA5936F00A983D8 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A8081DA5936F00A983D8 /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
+		9394D6482D1B424100E60FD6 /* UInt64+SafeArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394D6472D1B424100E60FD6 /* UInt64+SafeArithmetic.swift */; };
 		C30029E225D0185500F08C2B /* StandardDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029E125D0185500F08C2B /* StandardDividerView.swift */; };
 		C30029EB25D019BC00F08C2B /* CopyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30029EA25D019BC00F08C2B /* CopyButtonView.swift */; };
 		C3019EE32B8FEFED00FAF648 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */; };
@@ -1389,6 +1390,7 @@
 		75A2A87C1DA59E4E00A983D8 /* litewallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = litewallet.entitlements; sourceTree = "<group>"; };
 		75C735AF1DAA1C9F00251ECF /* libnettle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnettle.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9394D6472D1B424100E60FD6 /* UInt64+SafeArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt64+SafeArithmetic.swift"; sourceTree = "<group>"; };
 		C30029E125D0185500F08C2B /* StandardDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDividerView.swift; sourceTree = "<group>"; };
 		C30029EA25D019BC00F08C2B /* CopyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButtonView.swift; sourceTree = "<group>"; };
 		C3019EE22B8FEFED00FAF648 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
@@ -3258,6 +3260,7 @@
 				584E24F42951D2DB005E0E8B /* BundleExtension.swift */,
 				584E24FB2951D476005E0E8B /* NSNotificationNameExtension.swift */,
 				584E24FD2951D752005E0E8B /* UITableViewExtension.swift */,
+				9394D6472D1B424100E60FD6 /* UInt64+SafeArithmetic.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -4190,6 +4193,7 @@
 				CE4CA7BC1EE3649100373F11 /* BRActivityView.swift in Sources */,
 				CEC6AA421DEFC88F00EE5AFD /* ReceiveViewController.swift in Sources */,
 				CEE20C2D1EA288FA0086F724 /* UpdatingLabel.swift in Sources */,
+				9394D6482D1B424100E60FD6 /* UInt64+SafeArithmetic.swift in Sources */,
 				CE3D4C591EF743EF0016B1C8 /* Functions.swift in Sources */,
 				CEE20C341EA5B4550086F724 /* ArticleIds.swift in Sources */,
 				CEE65DF01E39056F0002994D /* Rate.swift in Sources */,

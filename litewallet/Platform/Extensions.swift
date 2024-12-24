@@ -558,17 +558,3 @@ extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
 		return jstring
 	}
 }
-
-extension UInt64 {
-	/// Performs a safe addition, returning `nil` if overflow occurs.
-	func safeAddition(_ value: UInt64) -> UInt64? {
-		let (result, overflow) = addingReportingOverflow(value)
-		return overflow ? nil : result
-	}
-
-	/// Performs a safe subtraction, returning `nil` if underflow occurs.
-	func safeSubtraction(_ value: UInt64) -> UInt64? {
-		let (result, underflow) = subtractingReportingOverflow(value)
-		return underflow ? nil : result
-	}
-}
