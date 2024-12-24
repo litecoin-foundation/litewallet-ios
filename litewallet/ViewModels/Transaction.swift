@@ -14,72 +14,72 @@ class Transaction {
 
 	private let opsAddressSet: Set<String> = Partner.litewalletOpsSet()
 	/// Hassan
-	init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
-		guard let wallet = walletManager.wallet else { return nil }
-		guard let peerManager = walletManager.peerManager else { return nil }
-
-		self.tx = tx
-		self.wallet = wallet
-		self.kvStore = kvStore
-		let fee = wallet.feeForTx(tx) ?? 0
-
-		var outputAddresses = Set<String>()
-		var opsAmount = UInt64(0)
-
-		for (_, output) in tx.outputs.enumerated() {
-			outputAddresses.insert(output.updatedSwiftAddress)
-		}
-
-		let outputAddress = opsAddressSet.intersection(outputAddresses).first
-		if let targetAddress = outputAddress,
-		   let opsOutput = tx.outputs.filter({ $0.updatedSwiftAddress == targetAddress }).first
-		{
-			opsAmount = opsOutput.amount
-		}
+    init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
+        guard let wallet = walletManager.wallet else { return nil }
+        guard let peerManager = walletManager.peerManager else { return nil }
+        
+        self.tx = tx
+        self.wallet = wallet
+        self.kvStore = kvStore
+        let fee = wallet.feeForTx(tx) ?? 0
+        
+        var outputAddresses = Set<String>()
+        var opsAmount = UInt64(0)
+        
+        for (_, output) in tx.outputs.enumerated() {
+            outputAddresses.insert(output.updatedSwiftAddress)
+        }
+        
+        let outputAddress = opsAddressSet.intersection(outputAddresses).first
+        if let targetAddress = outputAddress,
+           let opsOutput = tx.outputs.filter({ $0.updatedSwiftAddress == targetAddress }).first
+        {
+            opsAmount = opsOutput.amount
+        }
         
         // Safely calculate fee = fee + opsAmount
-		guard let safeFee = fee.safeAddition(opsAmount) else { return nil }
-		self.fee = safeFee
-
-		let amountReceived = wallet.amountReceivedFromTx(tx)
-
-		// Safely calculate amountSent = wallet.amountSentByTx(tx) - opsAmount
-		guard let safeAmountSent = wallet.amountSentByTx(tx).safeSubtraction(opsAmount) else { return nil }
-
-		// Safely calculate (amountReceived + fee)
-		guard let safeSum = amountReceived.safeAddition(fee) else { return nil }
-
-		if safeAmountSent > 0, safeAmountSent == safeSum {
-			direction = .moved
-			satoshis = safeAmountSent
-		} else if safeAmountSent > 0 {
-			// Safely calculate (safeAmountSent - amountReceived - fee)
-			guard let safeSatoshis = safeAmountSent
-				.safeSubtraction(amountReceived)?
-				.safeSubtraction(fee) else { return nil }
-			direction = .sent
-			satoshis = safeSatoshis
-		} else {
-			direction = .received
-			satoshis = amountReceived
-		}
-		timestamp = Int(tx.pointee.timestamp)
-
-		isValid = wallet.transactionIsValid(tx)
-		let transactionBlockHeight = tx.pointee.blockHeight
-		self.blockHeight = tx.pointee.blockHeight == UInt32(INT32_MAX) ? S.TransactionDetails.notConfirmedBlockHeightLabel.localize() : "\(tx.pointee.blockHeight)"
-
-		let blockHeight = peerManager.lastBlockHeight
-		confirms = transactionBlockHeight > blockHeight ? 0 : Int(blockHeight - transactionBlockHeight) + 1
-		status = makeStatus(tx, wallet: wallet, peerManager: peerManager, confirms: confirms, direction: direction)
-
-		hash = tx.pointee.txHash.description
-		metaDataKey = tx.pointee.txHash.txKey
-
-		if let rate = rate, confirms < 6, direction == .received {
-			attemptCreateMetaData(tx: tx, rate: rate)
-		}
-	}
+        guard let safeFee = fee.safeAddition(opsAmount) else { return nil }
+        self.fee = safeFee
+        
+        let amountReceived = wallet.amountReceivedFromTx(tx)
+        
+        // Safely calculate amountSent = wallet.amountSentByTx(tx) - opsAmount
+        guard let safeAmountSent = wallet.amountSentByTx(tx).safeSubtraction(opsAmount) else { return nil }
+        
+        // Safely calculate (amountReceived + fee)
+        guard let safeSum = amountReceived.safeAddition(fee) else { return nil }
+        
+        if safeAmountSent > 0, safeAmountSent == safeSum {
+            direction = .moved
+            satoshis = safeAmountSent
+        } else if safeAmountSent > 0 {
+            // Safely calculate (safeAmountSent - amountReceived - fee)
+            guard let safeSatoshis = safeAmountSent
+                .safeSubtraction(amountReceived)?
+                .safeSubtraction(fee) else { return nil }
+            direction = .sent
+            satoshis = safeSatoshis
+        } else {
+            direction = .received
+            satoshis = amountReceived
+        }
+        timestamp = Int(tx.pointee.timestamp)
+        
+        isValid = wallet.transactionIsValid(tx)
+        let transactionBlockHeight = tx.pointee.blockHeight
+        self.blockHeight = tx.pointee.blockHeight == UInt32(INT32_MAX) ? S.TransactionDetails.notConfirmedBlockHeightLabel.localize() : "\(tx.pointee.blockHeight)"
+        
+        let blockHeight = peerManager.lastBlockHeight
+        confirms = transactionBlockHeight > blockHeight ? 0 : Int(blockHeight - transactionBlockHeight) + 1
+        status = makeStatus(tx, wallet: wallet, peerManager: peerManager, confirms: confirms, direction: direction)
+        
+        hash = tx.pointee.txHash.description
+        metaDataKey = tx.pointee.txHash.txKey
+        
+        if let rate = rate, confirms < 6, direction == .received {
+            attemptCreateMetaData(tx: tx, rate: rate)
+        }
+    }
 
 	func amountDescription(isLtcSwapped: Bool, rate: Rate, maxDigits: Int) -> String {
 		let amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits)
