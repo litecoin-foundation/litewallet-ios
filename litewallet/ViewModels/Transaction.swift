@@ -37,28 +37,29 @@ class Transaction {
             opsAmount = opsOutput.amount
         }
         
-        // Safely calculate fee = fee + opsAmount
-        guard let safeFee = fee.safeAddition(opsAmount) else { return nil }
-        self.fee = safeFee
+        // Ensure the total fee calculation is safe
+        guard let totalFee = fee.safeAddition(opsAmount) else { return nil }
+        self.fee = totalFee
         
+        let cachedFee = totalFee
+
         let amountReceived = wallet.amountReceivedFromTx(tx)
+
+        // Calculate the amount sent, ensuring no underflow occurs
+        guard let amountSentAfterOps = wallet.amountSentByTx(tx).safeSubtraction(opsAmount) else { return nil }
         
-        // Safely calculate amountSent = wallet.amountSentByTx(tx) - opsAmount
-        guard let safeAmountSent = wallet.amountSentByTx(tx).safeSubtraction(opsAmount) else { return nil }
-        
-        // Safely calculate (amountReceived + fee)
-        guard let safeSum = amountReceived.safeAddition(fee) else { return nil }
-        
-        if safeAmountSent > 0, safeAmountSent == safeSum {
+        // Verify total (amountReceived + fee) is within bounds
+        guard let totalReceivedAndFee = amountReceived.safeAddition(cachedFee) else { return nil }
+
+        if amountSentAfterOps > 0, amountSentAfterOps == totalReceivedAndFee {
             direction = .moved
-            satoshis = safeAmountSent
-        } else if safeAmountSent > 0 {
-            // Safely calculate (safeAmountSent - amountReceived - fee)
-            guard let safeSatoshis = safeAmountSent
-                .safeSubtraction(amountReceived)?
-                .safeSubtraction(fee) else { return nil }
+            satoshis = amountSentAfterOps
+        } else if amountSentAfterOps > 0 {
+            // Deduct received amount and fee from sent amount safely
+            guard let intermediateSatoshis = amountSentAfterOps.safeSubtraction(amountReceived),
+                  let finalSatoshis = intermediateSatoshis.safeSubtraction(fee) else { return nil }
             direction = .sent
-            satoshis = safeSatoshis
+            satoshis = finalSatoshis
         } else {
             direction = .received
             satoshis = amountReceived
