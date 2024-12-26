@@ -14,11 +14,11 @@ platform :ios do
   
   desc "Run all the unit tests"
   lane :all_unit_tests do
-    run_tests(clean: true, devices: ["iPhone 15"], scheme: "litewallet")
+    run_tests(clean: true, devices: ["iPhone 15"], scheme: "litewallet", cloned_source_packages_path: "SourcePackages")
   end
 
   desc "Build and Archive"
   lane :build_and_archive do
-    build_app(clean: true, scheme: "litewallet")
+    build_app(clean: true, scheme: "litewallet", cloned_source_packages_path: "SourcePackages")
   end
 end
