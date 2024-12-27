@@ -18,17 +18,11 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber {
 		}
 	}
 
-	private var defaultCurrencyCode: String? {
-		didSet {
-			// Grab index paths of new and old rows when the currency changes
-			let paths: [IndexPath] = rates.enumerated().filter { $0.1.code == defaultCurrencyCode || $0.1.code == oldValue }.map { IndexPath(row: $0.0, section: 0) }
-			tableView.beginUpdates()
-			tableView.reloadRows(at: paths, with: .automatic)
-			tableView.endUpdates()
-
-			setExchangeRateLabel()
-		}
-	}
+    private var defaultCurrencyCode: String? {
+        didSet {
+            updateCurrencyRows(oldCurrencyCode: oldValue)
+        }
+    }
 
 	private let bitcoinLabel = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
 	private let bitcoinSwitch = UISegmentedControl(items: ["photons (\(S.Symbols.photons))", "lites (\(S.Symbols.lites))", "LTC (\(S.Symbols.ltc))"])
@@ -72,6 +66,19 @@ class DefaultCurrencyViewController: UITableViewController, Subscriber {
 			rateLabel.text = "\(bitsAmount.bits) = \(amount.string(forLocal: currentRate.locale))"
 		}
 	}
+    
+    private func updateCurrencyRows(oldCurrencyCode: String?) {
+        // Grab index paths of new and old rows when the currency changes
+        let paths: [IndexPath] = rates.enumerated().filter { $0.1.code == defaultCurrencyCode || $0.1.code == oldCurrencyCode }.map { IndexPath(row: $0.0, section: 0) }
+        
+        Task { @MainActor in
+            tableView.beginUpdates()
+            tableView.reloadRows(at: paths, with: .automatic)
+            tableView.endUpdates()
+            
+            setExchangeRateLabel()
+        }
+    }
 
 	override func numberOfSections(in _: UITableView) -> Int {
 		return 1
