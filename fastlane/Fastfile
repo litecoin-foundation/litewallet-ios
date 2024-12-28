@@ -1,0 +1,24 @@
+# fastlane/Fastfile
+default_platform :ios
+
+platform :ios do
+  
+  before_all do
+    setup_circle_ci
+  end
+  
+  error do |lane, exception|
+    # You can log the error, send a notification, or take any other action
+    UI.error("Error occurred during running the pipeline: #{exception.message}")
+  end
+  
+  desc "Run all the unit tests"
+  lane :all_unit_tests do
+    run_tests(clean: true, devices: ["iPhone 15"], scheme: "litewallet", cloned_source_packages_path: "SourcePackages")
+  end
+
+  desc "Build and Archive"
+  lane :build_and_archive do
+    build_app(clean: true, scheme: "litewallet", cloned_source_packages_path: "SourcePackages")
+  end
+end
