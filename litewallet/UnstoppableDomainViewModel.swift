@@ -61,11 +61,6 @@ class UnstoppableDomainViewModel: ObservableObject {
 		// Added timing peroformance probes to see what the average time is
 		let timestamp: String = dateFormatter?.string(from: Date()) ?? ""
 
-		LWAnalytics.logEventWithParameters(itemName:
-			CustomEvent._20201121_SIL,
-			properties:
-			["start_time": timestamp])
-
 		resolveUDAddress(domainName: searchString)
 	}
 
@@ -87,11 +82,6 @@ class UnstoppableDomainViewModel: ObservableObject {
 			case let .success(returnValue):
 
 				let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
-
-				LWAnalytics.logEventWithParameters(itemName:
-					CustomEvent._20201121_DRIA,
-					properties:
-					["success_time": timestamp])
 				/// Quicker resolution: When the resolution is done, the activity indicatior stops and the address is  updated
 				DispatchQueue.main.async {
 					self.ltcAddress = returnValue
@@ -102,13 +92,6 @@ class UnstoppableDomainViewModel: ObservableObject {
 			case let .failure(error):
 				let errorMessage = DomainResolutionFailure().messageWith(error: error)
 				let timestamp: String = self.dateFormatter?.string(from: Date()) ?? ""
-
-				LWAnalytics.logEventWithParameters(itemName:
-					CustomEvent._20201121_FRIA,
-					properties:
-					["failure_time": timestamp,
-					 "error_message": errorMessage,
-					 "error": error.localizedDescription])
 
 				DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 					self.didFailToResolve?(error.localizedDescription)

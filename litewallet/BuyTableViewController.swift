@@ -100,8 +100,6 @@ class BuyTableViewController: UITableViewController, SFSafariViewControllerDeleg
 		simplexCurrencySegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.liteWalletBlue], for: .selected)
 
 		setupWkVCData()
-
-		LWAnalytics.logEventWithParameters(itemName: ._20191105_DTBT)
 	}
 
 	private func setupWkVCData() {

@@ -56,7 +56,6 @@ struct SignupWebViewRepresentable: UIViewRepresentable {
 				userAction = true
 
 				let signupDict: [String: String] = ["date_accepted": Date().ISO8601Format()]
-				LWAnalytics.logEventWithParameters(itemName: ._20240101_US, properties: signupDict)
 			}
 		}
 	}

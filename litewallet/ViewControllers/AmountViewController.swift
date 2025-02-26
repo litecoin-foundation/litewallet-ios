@@ -56,7 +56,6 @@ class AmountViewController: UIViewController, Trackable {
 
 	init(store: Store,
 	     isPinPadExpandedAtLaunch: Bool,
-	     hasAcceptedFees _: Bool,
 	     isRequesting: Bool = false)
 	{
 		self.store = store

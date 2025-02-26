@@ -11,7 +11,7 @@ extension BRAPIClient {
 	}
 
 	func exchangeRates(isFallback: Bool = false, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
-		let request = isFallback ? URLRequest(url: URL(string: APIServer().devBaseUrl + "v1/rates")!) : URLRequest(url: URL(string: APIServer().baseUrl + "v1/rates")!)
+		let request = URLRequest(url: URL(string: APIServer().baseUrl + "v1/rates")!)
 
 		dataTaskWithRequest(request) { data, _, error in
 			if error == nil, let data = data,
@@ -21,7 +21,6 @@ extension BRAPIClient {
 					guard let array = parsedData as? [Any]
 					else {
 						let properties = ["error_message": "is_fallback_no_rate_array_returned"]
-						LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 						return handler([], "::: /rates didn't return an array")
 					}
 					handler(array.compactMap { Rate(data: $0) }, nil)
@@ -29,7 +28,6 @@ extension BRAPIClient {
 					guard let array = parsedData as? [Any]
 					else {
 						let properties = ["error_message": "is_fallback_parsed_data_fail"]
-						LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 						return handler([], "/rates didn't return an array")
 					}
 					handler(array.compactMap { Rate(data: $0) }, nil)
@@ -37,11 +35,9 @@ extension BRAPIClient {
 			} else {
 				if isFallback {
 					let properties = ["error_message": "is_fallback_no_rate_array_returned"]
-					LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 					handler([], "Error fetching from fallback url")
 				} else {
-					let properties: [String: String] = ["error_message": "is_fallback"]
-					LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
+					let properties = ["error_message": "is_fallback"]
 					self.exchangeRates(isFallback: true, handler)
 				}
 			}

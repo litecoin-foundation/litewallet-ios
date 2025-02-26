@@ -136,12 +136,8 @@ class WalletCoordinator: Subscriber, Trackable {
 					Task {
 						self.store.perform(action: WalletChange.setTransactions(transactions))
 					}
-				} else {
-					LWAnalytics.logEventWithParameters(itemName: ._20240214_TI, properties: ["transactions_info": "no_txs_found_in_wallet"])
-				}
-			} catch {
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error_message": error.localizedDescription])
-			}
+				} else {}
+			} catch {}
 		}
 	}
 

@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		applicationController.launch(application: application, window: thisWindow)
 
-		LWAnalytics.logEventWithParameters(itemName: ._20191105_AL)
-
 		Bundle.setLanguage(UserDefaults.selectedLanguage)
 
 		// Pusher
@@ -41,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let device = UIDevice.current.identifierForVendor?.uuidString ?? "ID"
 		let interestesDict: [String: String] = ["device_id": device,
 		                                        "pusher_interests": interests]
-
-		LWAnalytics.logEventWithParameters(itemName: ._20231202_RIGI, properties: interestesDict)
 
 		return true
 	}
@@ -85,7 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		let acceptanceDict: [String: String] = ["did_accept": "true",
 		                                        "date_accepted": Date().ISO8601Format()]
-		LWAnalytics.logEventWithParameters(itemName: ._20231225_UAP, properties: acceptanceDict)
 	}
 
 	func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],

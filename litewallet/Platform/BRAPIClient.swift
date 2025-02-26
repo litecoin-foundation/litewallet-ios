@@ -39,7 +39,7 @@ open class BRAPIClient: NSObject, URLSessionDelegate, URLSessionTaskDelegate, BR
 	var proto = "https"
 
 	// host is the server(s) on which the API is hosted
-	var host = "api-prod.lite-wallet.org"
+	var host = "api.loafwallet.org"
 
 	// isFetchingAuth is set to true when a request is currently trying to renew authentication (the token)
 	// it is useful because fetching auth is not idempotent and not reentrant, so at most one auth attempt

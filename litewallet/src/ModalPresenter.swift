@@ -366,8 +366,6 @@ class ModalPresenter: Subscriber, Trackable {
 
 				guard let url = URL(string: urlString) else { return }
 
-				LWAnalytics.logEventWithParameters(itemName: ._20201118_DTS)
-
 				let vc = SFSafariViewController(url: url)
 				self?.topViewController?.present(vc, animated: true, completion: nil)
 			})
@@ -713,7 +711,6 @@ class ModalPresenter: Subscriber, Trackable {
 		if topViewController is MainViewController || topViewController is LoginViewController {
 			presentLoginScan()
 		} else {
-			LWAnalytics.logEventWithParameters(itemName: ._20210427_HCIEEH)
 			if let presented = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.presentedViewController {
 				presented.dismiss(animated: true, completion: {
 					self.presentLoginScan()

@@ -1,5 +1,4 @@
 import BRCore
-import FirebaseAnalytics
 import Foundation
 import LocalAuthentication
 import SQLite3
@@ -514,19 +513,16 @@ extension WalletManager: WalletAuthenticator {
 				defer { seed = UInt512() }
 				guard let wallet = wallet
 				else {
-					LWAnalytics.logEventWithParameters(itemName: ._20200111_WNI)
 					return false
 				}
 				guard let phrase: String = try keychainItem(key: KeychainKey.mnemonic)
 				else {
-					LWAnalytics.logEventWithParameters(itemName: ._20200111_PNI)
 					return false
 				}
 
 				BRBIP39DeriveKey(&seed, phrase, nil)
 				return wallet.signTransaction(tx, forkId: forkId, seed: &seed)
 			} catch {
-				LWAnalytics.logEventWithParameters(itemName: ._20200111_UTST)
 				return false
 			}
 		}

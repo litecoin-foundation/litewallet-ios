@@ -19,12 +19,6 @@ struct PartnersView: View {
 				.padding(.top, 50)
 				.padding(.bottom, 60)
 
-			Image("simplexLogoTypeColor")
-				.resizable()
-				.aspectRatio(contentMode: .fit)
-				.frame(width: 200)
-				.padding(.bottom, 60)
-
 			Spacer()
 		}
 	}

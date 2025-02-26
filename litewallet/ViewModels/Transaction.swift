@@ -12,75 +12,47 @@ struct TransactionStatusTuple {
 class Transaction {
 	// MARK: - Public
 
-	private let opsAddressSet: Set<String> = Partner.litewalletOpsSet()
-	/// Hassan
-    init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
-        guard let wallet = walletManager.wallet else { return nil }
-        guard let peerManager = walletManager.peerManager else { return nil }
-        
-        self.tx = tx
-        self.wallet = wallet
-        self.kvStore = kvStore
-        let fee = wallet.feeForTx(tx) ?? 0
-        
-        var outputAddresses = Set<String>()
-        var opsAmount = UInt64(0)
-        
-        for (_, output) in tx.outputs.enumerated() {
-            outputAddresses.insert(output.updatedSwiftAddress)
-        }
-        
-        let outputAddress = opsAddressSet.intersection(outputAddresses).first
-        if let targetAddress = outputAddress,
-           let opsOutput = tx.outputs.filter({ $0.updatedSwiftAddress == targetAddress }).first
-        {
-            opsAmount = opsOutput.amount
-        }
-        
-        // Ensure the total fee calculation is safe
-        guard let totalFee = fee.safeAddition(opsAmount) else { return nil }
-        self.fee = totalFee
-        
-        let cachedFee = totalFee
+	init?(_ tx: BRTxRef, walletManager: WalletManager, kvStore: BRReplicatedKVStore?, rate: Rate?) {
+		guard let wallet = walletManager.wallet else { return nil }
+		guard let peerManager = walletManager.peerManager else { return nil }
 
-        let amountReceived = wallet.amountReceivedFromTx(tx)
+		self.tx = tx
+		self.wallet = wallet
+		self.kvStore = kvStore
 
-        // Calculate the amount sent, ensuring no underflow occurs
-        guard let amountSentAfterOps = wallet.amountSentByTx(tx).safeSubtraction(opsAmount) else { return nil }
-        
-        // Verify total (amountReceived + fee) is within bounds
-        guard let totalReceivedAndFee = amountReceived.safeAddition(cachedFee) else { return nil }
+		let fee = wallet.feeForTx(tx) ?? 0
+		self.fee = fee
 
-        if amountSentAfterOps > 0, amountSentAfterOps == totalReceivedAndFee {
-            direction = .moved
-            satoshis = amountSentAfterOps
-        } else if amountSentAfterOps > 0 {
-            // Deduct received amount and fee from sent amount safely
-            guard let intermediateSatoshis = amountSentAfterOps.safeSubtraction(amountReceived),
-                  let finalSatoshis = intermediateSatoshis.safeSubtraction(fee) else { return nil }
-            direction = .sent
-            satoshis = finalSatoshis
-        } else {
-            direction = .received
-            satoshis = amountReceived
-        }
-        timestamp = Int(tx.pointee.timestamp)
-        
-        isValid = wallet.transactionIsValid(tx)
-        let transactionBlockHeight = tx.pointee.blockHeight
-        self.blockHeight = tx.pointee.blockHeight == UInt32(INT32_MAX) ? S.TransactionDetails.notConfirmedBlockHeightLabel.localize() : "\(tx.pointee.blockHeight)"
-        
-        let blockHeight = peerManager.lastBlockHeight
-        confirms = transactionBlockHeight > blockHeight ? 0 : Int(blockHeight - transactionBlockHeight) + 1
-        status = makeStatus(tx, wallet: wallet, peerManager: peerManager, confirms: confirms, direction: direction)
-        
-        hash = tx.pointee.txHash.description
-        metaDataKey = tx.pointee.txHash.txKey
-        
-        if let rate = rate, confirms < 6, direction == .received {
-            attemptCreateMetaData(tx: tx, rate: rate)
-        }
-    }
+		let amountReceived = wallet.amountReceivedFromTx(tx)
+		let amountSent = wallet.amountSentByTx(tx)
+
+		if amountSent > 0, (amountReceived + fee) == amountSent {
+			direction = .moved
+			satoshis = amountSent
+		} else if amountSent > 0 {
+			direction = .sent
+			satoshis = amountSent - amountReceived - fee
+		} else {
+			direction = .received
+			satoshis = amountReceived
+		}
+		timestamp = Int(tx.pointee.timestamp)
+
+		isValid = wallet.transactionIsValid(tx)
+		let transactionBlockHeight = tx.pointee.blockHeight
+		self.blockHeight = tx.pointee.blockHeight == UInt32(INT32_MAX) ? S.TransactionDetails.notConfirmedBlockHeightLabel.localize() : "\(tx.pointee.blockHeight)"
+
+		let blockHeight = peerManager.lastBlockHeight
+		confirms = transactionBlockHeight > blockHeight ? 0 : Int(blockHeight - transactionBlockHeight) + 1
+		status = makeStatus(tx, wallet: wallet, peerManager: peerManager, confirms: confirms, direction: direction)
+
+		hash = tx.pointee.txHash.description
+		metaDataKey = tx.pointee.txHash.txKey
+
+		if let rate = rate, confirms < 6, direction == .received {
+			attemptCreateMetaData(tx: tx, rate: rate)
+		}
+	}
 
 	func amountDescription(isLtcSwapped: Bool, rate: Rate, maxDigits: Int) -> String {
 		let amount = Amount(amount: satoshis, rate: rate, maxDigits: maxDigits)
@@ -177,51 +149,35 @@ class Transaction {
 	private var kvStore: BRReplicatedKVStore?
 
 	lazy var toAddress: String? = {
-		var outputAddresses = Set<String>()
-		for (_, output) in tx.outputs.enumerated() {
-			outputAddresses.insert(output.updatedSwiftAddress)
-		}
-		let usedOpsAddress = outputAddresses.intersection(opsAddressSet).first
-		let nonOpsAddressesSet = self.tx.outputs.filter { $0.updatedSwiftAddress != usedOpsAddress }
-
 		switch self.direction {
 		case .sent:
 
-			let toAddressOutput = nonOpsAddressesSet.filter { output in
-				!self.wallet.containsAddress(output.updatedSwiftAddress)
-			}.first
+			guard let output = self
+				.tx.outputs.filter({ output in
+					!self.wallet.containsAddress(output.updatedSwiftAddress)
+				})
+				.first
 
-			guard let toAddress = toAddressOutput?.updatedSwiftAddress else {
-				let properties = ["error": "no_sent_address_found"]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-				                                   properties: properties)
-				return "---ERROR---"
+			else {
+				return nil
 			}
-			return toAddress
+
+			return output.updatedSwiftAddress
 
 		case .received:
-
-			let toAddressOutput = nonOpsAddressesSet.filter { output in
+			guard let output = self.tx.outputs.filter({ output in
 				self.wallet.containsAddress(output.updatedSwiftAddress)
-			}.first
 
-			guard let fromAddress = toAddressOutput?.updatedSwiftAddress else {
-				let properties = ["error": "no_received_address_found"]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-				                                   properties: properties)
-				return "---ERROR---"
+			}).first
+			else {
+				return nil
 			}
-			return fromAddress
+			return output.updatedSwiftAddress
 
 		case .moved:
 			guard let output = self.tx.outputs.filter({ output in
 				self.wallet.containsAddress(output.updatedSwiftAddress)
-			}).first else {
-				let properties = ["error": "no_moved_address_found"]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-				                                   properties: properties)
-				return "---ERROR---"
-			}
+			}).first else { return nil }
 			return output.updatedSwiftAddress
 		}
 	}()
@@ -231,9 +187,6 @@ class Transaction {
 	}
 
 	var comment: String? {
-		if metaData?.comment != nil {
-			print("=== memo comments \(metaData?.comment ?? "NO MEMO")")
-		}
 		return metaData?.comment
 	}
 

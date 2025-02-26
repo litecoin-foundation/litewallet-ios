@@ -64,7 +64,6 @@ class BuyViewModel: ObservableObject {
 				}
 			} else {
 				let currencyError: [String: String] = ["error": error?.localizedDescription ?? ""]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: currencyError)
 				completion([])
 			}
 		}

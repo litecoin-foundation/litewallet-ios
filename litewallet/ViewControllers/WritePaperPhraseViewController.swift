@@ -62,7 +62,8 @@ class WritePaperPhraseViewController: UIViewController {
 
 		NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification,
 		                                       object: nil,
-		                                       queue: nil) { [weak self] _ in
+		                                       queue: nil)
+		{ [weak self] _ in
 			self?.dismiss(animated: true, completion: nil)
 		}
 	}

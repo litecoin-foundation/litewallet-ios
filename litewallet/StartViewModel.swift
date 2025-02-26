@@ -62,30 +62,6 @@ class StartViewModel: ObservableObject {
 		didTapRecover = completion
 	}
 
-	/// DEV: For checking wallet
-//	private func checkForWalletAndSync() {
-//		/// Test seed count
-//		guard seedWords.count == 12 else { return }
-//
-//		/// Set for default.  This model needs a initial value
-//		walletManager.forceSetPin(newPin: Partner.partnerKeyPath(name: .litewalletStart))
-//
-//		guard walletManager.setRandomSeedPhrase() != nil else {
-//			walletCreationDidFail = true
-//			let properties = ["error_message": "wallet_creation_fail"]
-//			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
-//			return
-//		}
-//
-//		store.perform(action: WalletChange.setWalletCreationDate(Date()))
-//		DispatchQueue.walletQueue.async {
-//			self.walletManager.peerManager?.connect()
-//			DispatchQueue.main.async {
-//				self.store.trigger(name: .didCreateOrRecoverWallet)
-//			}
-//		}
-//	}
-
 	func speakLanguage() {
 		if let url = Bundle.main.url(forResource: currentLanguage.voiceFilename, withExtension: "mp3") {
 			var id: SystemSoundID = 0

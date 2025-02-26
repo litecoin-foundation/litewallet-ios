@@ -159,7 +159,6 @@ class Transaction {
 				.first
 
 			else {
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil
 			}
 
@@ -171,7 +170,6 @@ class Transaction {
 
 			}).first
 			else {
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return nil
 			}
 			return output.updatedSwiftAddress

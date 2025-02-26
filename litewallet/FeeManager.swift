@@ -1,4 +1,3 @@
-import FirebaseAnalytics
 import Foundation
 
 // this is the default that matches the mobile-api if the server is unavailable
@@ -50,13 +49,11 @@ class FeeUpdater: Trackable {
 			else {
 				let properties: [String: String] = ["ERROR_MESSAGE": String(describing: error),
 				                                    "ERROR_TYPE": "FEE_PER_KB"]
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 				completion()
 				return
 			}
 
 			if newFees == Fees.usingDefaultValues {
-				LWAnalytics.logEventWithParameters(itemName: ._20200301_DUDFPK)
 				self.saveEvent("wallet.didUseDefaultFeePerKB")
 			}
 

@@ -81,7 +81,6 @@ class FeeSelector: UIView {
 				myself.didUpdateFee?(.regular)
 				myself.subheader.text = S.FeeSelector.regularLabel.localize()
 				myself.feeMessageLabel.text = ""
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["FEE_MANAGER": "DID_USE_DEFAULT"])
 			}
 		}
 

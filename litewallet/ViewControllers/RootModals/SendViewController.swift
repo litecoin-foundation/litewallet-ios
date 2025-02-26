@@ -1,5 +1,4 @@
 import BRCore
-import FirebaseAnalytics
 import KeychainAccess
 import LocalAuthentication
 import SwiftUI
@@ -18,7 +17,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 	var parentView: UIView? // ModalPresentable
 	var initialAddress: String?
 	var isPresentedFromLock = false
-	var hasActivatedInlineFees: Bool = true
 
 	// MARK: - Private
 
@@ -49,18 +47,7 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 		currency = ShadowButton(title: S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
 
-		/// User Preference
-		if let opsPreference = keychainPreferences["hasAcceptedFees"],
-		   opsPreference == "false"
-		{
-			hasActivatedInlineFees = false
-		} else {
-			keychainPreferences["has-accepted-fees"] = "true"
-		}
-
-		amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false, hasAcceptedFees: hasActivatedInlineFees)
-
-		LWAnalytics.logEventWithParameters(itemName: ._20191105_VSC)
+		amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false)
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -234,29 +221,19 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		   let enteredAmount = enteredAmount,
 		   enteredAmount > 0
 		{
-			let tieredOpsFee = tieredOpsFee(store: store, amount: enteredAmount.rawValue)
-
-			let totalAmountToCalculateFees = (enteredAmount.rawValue + tieredOpsFee)
-
-			let networkFee = sender.feeForTx(amount: totalAmountToCalculateFees)
-			let totalFees = (networkFee + tieredOpsFee)
-			let sendTotal = balance + totalFees
+			let networkFee = sender.feeForTx(amount: enteredAmount.rawValue)
+			let sendTotal = balance + networkFee
 			let networkFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee),
 			                                     state: store.state,
 			                                     selectedRate: currentRate,
 			                                     minimumFractionDigits: 2).description
 
-			let serviceFeeAmount = DisplayAmount(amount: Satoshis(rawValue: tieredOpsFee),
-			                                     state: store.state,
-			                                     selectedRate: currentRate,
-			                                     minimumFractionDigits: 2).description
-
-			let totalFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee + tieredOpsFee),
+			let totalFeeAmount = DisplayAmount(amount: Satoshis(rawValue: networkFee),
 			                                   state: store.state,
 			                                   selectedRate: currentRate,
 			                                   minimumFractionDigits: 2).description
 
-			combinedFeesOutput = "(\(S.Send.networkFee.localize()) + \(S.Send.serviceFee.localize())): \(networkFeeAmount) + \(serviceFeeAmount) = \(totalFeeAmount)"
+			combinedFeesOutput = "(\(S.Send.networkFee.localize())): \(networkFeeAmount) = \(totalFeeAmount)"
 
 			if enteredAmount.rawValue > sendTotal || enteredAmount.rawValue > balance {
 				balanceColor = .litewalletOrange
@@ -322,15 +299,9 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 				                 buttonLabel: S.Button.ok.localize())
 			}
 
-			let opsFeeAmount = Satoshis(rawValue: tieredOpsFee(store: store, amount: amountToSend.rawValue))
-			let fee = walletManager.wallet?.feeForTx(amount: amountToSend.rawValue + opsFeeAmount.rawValue)
+			let fee = walletManager.wallet?.feeForTx(amount: amountToSend.rawValue)
 			let feeInSatoshis = Satoshis(rawValue: fee ?? 0)
 			bareAmount = amountToSend
-
-			/// Set ops fees
-			if hasActivatedInlineFees {
-				amountToSend = amountToSend + opsFeeAmount
-			}
 
 			if let minOutput = walletManager.wallet?.minOutputAmount {
 				guard amountToSend.rawValue >= minOutput
@@ -356,28 +327,16 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 				                 buttonLabel: S.Button.ok.localize())
 			}
 
-			/// Set Ops or Single Output
-			if hasActivatedInlineFees {
-				guard let bareAmt = bareAmount?.rawValue,
-				      sender.createTransactionWithOpsOutputs(amount: bareAmt, to: address)
-				else {
-					return showAlert(title: S.LitewalletAlert.error.localize(),
-					                 message: S.Send.createTransactionError.localize(),
-					                 buttonLabel: S.Button.ok.localize())
-				}
-			} else {
-				guard let bareAmt = bareAmount?.rawValue,
-				      sender.createTransaction(amount: bareAmt, to: address)
-				else {
-					return showAlert(title: S.LitewalletAlert.error.localize(),
-					                 message: S.Send.createTransactionError.localize(),
-					                 buttonLabel: S.Button.ok.localize())
-				}
+			guard let bareAmt = bareAmount?.rawValue,
+			      sender.createTransaction(amount: bareAmt, to: address)
+			else {
+				return showAlert(title: S.LitewalletAlert.error.localize(),
+				                 message: S.Send.createTransactionError.localize(),
+				                 buttonLabel: S.Button.ok.localize())
 			}
 
 			let confirm = ConfirmationViewController(amount: bareAmount ?? Satoshis(0),
 			                                         txFee: feeInSatoshis,
-			                                         opsFee: opsFeeAmount,
 			                                         feeType: feeType ?? .regular, state: store.state,
 			                                         selectedRate: amountView.selectedRate,
 			                                         minimumFractionDigits: amountView.minimumFractionDigits,
@@ -465,7 +424,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            		self?.saveEvent("send.success")
 		            		self?.sendAddressCell.textField.text = ""
 		            		self?.memoCell.textView.text = ""
-		            		LWAnalytics.logEventWithParameters(itemName: ._20191105_DSL)
 
 		            	case let .creationError(message):
 		            		self?.showAlert(title: S.Send.createTransactionError.localize(), message: message, buttonLabel: S.Button.ok.localize())

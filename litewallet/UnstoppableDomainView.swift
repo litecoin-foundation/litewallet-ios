@@ -86,8 +86,6 @@ struct UnstoppableDomainView: View {
 									}
 
 									UIApplication.shared.open(url, options: [:], completionHandler: nil)
-
-									LWAnalytics.logEventWithParameters(itemName: ._20220822_UTOU)
 								}
 						}
 						.padding([.leading, .trailing], swiftUICellPadding)

@@ -68,7 +68,6 @@ class ReScanViewController: UIViewController, Subscriber {
 		alert.addAction(UIAlertAction(title: S.Button.cancel.localize(), style: .default, handler: nil))
 		alert.addAction(UIAlertAction(title: S.ReScan.alertAction.localize(), style: .default, handler: { _ in
 			self.store.trigger(name: .rescan)
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_DSR)
 
 			self.dismiss(animated: true, completion: nil)
 		}))

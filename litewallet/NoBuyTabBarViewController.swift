@@ -411,8 +411,6 @@ extension NoBuyTabBarViewController {
 			NSLayoutConstraint.activate(!isLTCSwapped ? self.swappedConstraints : self.regularConstraints)
 			self.view.layoutIfNeeded()
 
-			LWAnalytics.logEventWithParameters(itemName: ._20200207_DTHB)
-
 		}) { _ in }
 		store.perform(action: CurrencyChange.toggle())
 	}

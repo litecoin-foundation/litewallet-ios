@@ -26,7 +26,6 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 		guard let currentRate = store?.state.currentRate
 		else {
 			let properties = ["error_message": "rate_not_fetched"]
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 			return
 		}
 
@@ -39,7 +38,6 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 		} else {
 			let properties = ["error_message": "fiat_symbol_not_found",
 			                  "missing_code": "\(currencyCode)"]
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: properties)
 			currentValueInFiat = String("" + formattedRate)
 		}
 	}
@@ -50,7 +48,6 @@ class LockScreenViewModel: ObservableObject, Subscriber {
 		guard let store = store
 		else {
 			let errorDescription = "store_not_initialized"
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR, properties: ["error": errorDescription])
 			return
 		}
 

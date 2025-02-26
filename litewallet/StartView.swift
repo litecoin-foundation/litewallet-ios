@@ -118,73 +118,25 @@ struct StartView: View {
 						       alignment: .center)
 						.alert(startViewModel
 							.alertMessage[startViewModel.currentLanguage.rawValue],
-							isPresented: $delayedSelect) {
-								HStack {
-									Button(startViewModel
-										.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel) {
-											// Changes and Dismisses
-											startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
-											selectedLang = false
-										}
-									Button(startViewModel
-										.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive) {
-											// Dismisses
-											selectedLang = false
-										}
+							isPresented: $delayedSelect)
+						{
+							HStack {
+								Button(startViewModel
+									.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel)
+								{
+									// Changes and Dismisses
+									startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
+									selectedLang = false
 								}
+								Button(startViewModel
+									.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive)
+								{
+									// Dismisses
+									selectedLang = false
+								}
+							}
 						}
 						Spacer()
-						NavigationLink(destination:
-
-							AnnounceUpdatesView(navigateStart: .create,
-							                    language: startViewModel.currentLanguage,
-							                    didTapContinue: $didContinue)
-								.environmentObject(startViewModel)
-								.navigationBarBackButtonHidden(false)
-						) {
-							ZStack {
-								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
-									.frame(width: width * 0.9, height: 45, alignment: .center)
-									.foregroundColor(.white)
-									.shadow(radius: 3, x: 3.0, y: 3.0)
-
-								Text(S.StartViewController.createButton.localize())
-									.frame(width: width * 0.9, height: 45, alignment: .center)
-									.font(buttonFont)
-									.foregroundColor(.litewalletBlue)
-									.overlay(
-										RoundedRectangle(cornerRadius: bigButtonCornerRadius)
-											.stroke(.white, lineWidth: 2.0)
-									)
-							}
-						}
-						.padding([.top, .bottom], 10.0)
-
-						NavigationLink(destination:
-
-							AnnounceUpdatesView(navigateStart: .recover,
-							                    language: startViewModel.currentLanguage,
-							                    didTapContinue: $didContinue)
-								.environmentObject(startViewModel)
-								.navigationBarBackButtonHidden(false)
-						) {
-							ZStack {
-								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
-									.frame(width: width * 0.9, height: 45, alignment: .center)
-									.foregroundColor(Color(UIColor.liteWalletBlue)
-									).shadow(radius: 5, x: 3.0, y: 3.0)
-
-								Text(S.StartViewController.recoverButton.localize())
-									.frame(width: width * 0.9, height: 45, alignment: .center)
-									.font(buttonLightFont)
-									.foregroundColor(Color(UIColor.litecoinWhite))
-									.overlay(
-										RoundedRectangle(cornerRadius: bigButtonCornerRadius)
-											.stroke(.white)
-									)
-							}
-						}
-						.padding([.top, .bottom], 10.0)
 
 						Text(AppVersion.string)
 							.frame(width: 100, alignment: .center)

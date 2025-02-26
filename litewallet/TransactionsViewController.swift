@@ -55,7 +55,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		guard let _ = walletManager
 		else {
 			NSLog("ERROR: Wallet manager Not initialized")
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 			return
 		}
 

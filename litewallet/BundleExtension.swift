@@ -28,11 +28,9 @@ public extension Bundle {
 			}
 
 			guard let path = Bundle.main.path(forResource: temp, ofType: "lproj") else {
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return
 			}
 			guard let bundle = Bundle(path: path) else {
-				LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR)
 				return
 			}
 			objc_setAssociatedObject(Bundle.main, &_bundle, bundle, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

@@ -146,10 +146,6 @@ class Sender {
 					["ERROR_TX": "\(tx.txHash)",
 					 "ERROR_BLOCKHEIGHT": "\(tx.blockHeight)"]
 
-				LWAnalytics.logEventWithParameters(itemName:
-					._20200112_ERR,
-					properties: properties)
-
 				let alert = UIAlertController(title: S.LitewalletAlert.corruptionError.localize(),
 				                              message: S.LitewalletAlert.corruptionMessage.localize(),
 				                              preferredStyle: .alert)
@@ -188,21 +184,18 @@ class Sender {
 		// Fires an event if the rate is not set
 		guard let rate = rate
 		else {
-			LWAnalytics.logEventWithParameters(itemName: ._20200111_RNI)
 			return
 		}
 
 		// Fires an event if the transaction is not set
 		guard let tx = transaction
 		else {
-			LWAnalytics.logEventWithParameters(itemName: ._20200111_TNI)
 			return
 		}
 
 		// Fires an event if the feePerKb is not set
 		guard let feePerKb = feePerKb
 		else {
-			LWAnalytics.logEventWithParameters(itemName: ._20200111_FNI)
 			return
 		}
 
@@ -214,11 +207,7 @@ class Sender {
 		                          comment: comment)
 		do {
 			_ = try kvStore.set(metaData)
-		} catch {
-			LWAnalytics.logEventWithParameters(itemName: ._20200112_ERR,
-			                                   properties: ["error":
-			                                   	String(describing: error)])
-		}
+		} catch {}
 		store.trigger(name: .txMemoUpdated(tx.pointee.txHash.description))
 	}
 }

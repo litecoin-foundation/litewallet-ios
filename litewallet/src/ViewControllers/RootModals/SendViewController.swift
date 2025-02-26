@@ -62,8 +62,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 
 		amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false, hasAcceptedFees: hasActivatedInlineFees)
 
-		LWAnalytics.logEventWithParameters(itemName: ._20191105_VSC)
-
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -440,7 +438,6 @@ class SendViewController: UIViewController, Subscriber, ModalPresentable, Tracka
 		            		self?.saveEvent("send.success")
 		            		self?.sendAddressCell.textField.text = ""
 		            		self?.memoCell.textView.text = ""
-		            		LWAnalytics.logEventWithParameters(itemName: ._20191105_DSL)
 
 		            	case let .creationError(message):
 		            		self?.showAlert(title: S.Send.createTransactionError.localize(), message: message, buttonLabel: S.Button.ok.localize())

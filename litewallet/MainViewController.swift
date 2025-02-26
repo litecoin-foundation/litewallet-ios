@@ -66,14 +66,16 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 
 			NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
 			                                       object: nil,
-			                                       queue: nil) { _ in
+			                                       queue: nil)
+			{ _ in
 				self.showJailbreakWarnings(isJailbroken: isJailbroken)
 			}
 		}
 
 		NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification,
 		                                       object: nil,
-		                                       queue: nil) { _ in
+		                                       queue: nil)
+		{ _ in
 			if UserDefaults.writePaperPhraseDate != nil
 			{}
 		}
@@ -95,7 +97,6 @@ class MainViewController: UIViewController, Subscriber, LoginViewControllerDeleg
 			if currentLocaleCountry == truncatedCode {
 				userIsMoonPaySupported = false
 				let unsupportedDict: [String: String] = ["unsupported_country": unsupportedLocale.localeCode]
-				LWAnalytics.logEventWithParameters(itemName: ._20240527_UBM, properties: unsupportedDict)
 				break
 			}
 		}

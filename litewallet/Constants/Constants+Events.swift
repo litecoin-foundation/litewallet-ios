@@ -7,18 +7,14 @@ let swiftUICellPadding = 12.0
 let bigButtonCornerRadius = 15.0
 
 struct FoundationSupport {
-	static let dashboard = "https://support.litewallet.io/"
+	static let dashboard = "https://chat-mobile.litecoin.com/widget?website_token=1kCbkQay5t4CyvyP9JsrkJWh"
 }
 
 struct APIServer {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	let baseUrl: String
-	let devBaseUrl: String
 	init() {
-		baseUrl = appDelegate.remoteConfigurationHelper?
-			.getString(key: RemoteConfigKeys.KEY_PROD_API_BASEURL.rawValue) ?? ""
-		devBaseUrl = appDelegate.remoteConfigurationHelper?
-			.getString(key: RemoteConfigKeys.KEY_DEV_API_BASEURL.rawValue) ?? ""
+		baseUrl = "https://api.loafwallet.org/"
 	}
 }
 
@@ -51,12 +47,10 @@ struct C {
 	static let btcCurrencyCode = "LTC"
 	static let null = "(null)"
 	static let maxMemoLength = 250
-	static let feedbackEmail = "feedback@litecoinfoundation.zendesk.com"
-	static let supportEmail = "support@litecoinfoundation.zendesk.com"
+	static let feedbackEmail = "contact@litecoin.net"
+	static let supportEmail = "contact@litecoin.net"
 
 	static let reviewLink = "https://itunes.apple.com/app/loafwallet-litecoin-wallet/id1119332592?action=write-review"
-	static let signupURL = "https://litewallet.io/mobile-signup/signup.html"
-	static let stagingSignupURL = "https://staging-litewallet-io.webflow.io/mobile-signup/signup"
 
 	static var standardPort: Int {
 		return E.isTestnet ? 19335 : 9333
@@ -133,123 +127,4 @@ enum FalsePositiveRates: Double {
 	case lowPrivacy = 0.00005
 	case semiPrivate = 0.00008
 	case anonymous = 0.0005
-}
-
-enum LWBGTaskidentifier: String {
-	case fetch = "com.litecoin.fetchLitewallet"
-	case backup = "com.litecoin.backupLitewallet"
-}
-
-/// Custom Event Enum: Events related to different user based actions
-enum CustomEvent: String {
-	/// App Launched
-	case _20191105_AL = "app_launched"
-
-	/// Visit Receive Controller
-	case _20202116_VRC = "visited_received_controller"
-
-	/// Visit Send Controller
-	case _20191105_VSC = "visited_send_controller"
-
-	/// Did Tap Buy Tab Controller
-	case _20191105_DTBT = "did_tap_buy_tab"
-
-	/// Did Send LTC
-	case _20191105_DSL = "did_send_ltc"
-
-	/// Did Tap Support
-	case _20201118_DTS = "did_tap_support"
-
-	/// Entered dispatch group
-	case _20200111_DEDG = "did_enter_dispatch_group"
-
-	/// Left dispatch group
-	case _20200111_DLDG = "did_leave_dispatch_group"
-
-	/// Rate not initialized
-	case _20200111_RNI = "rate_not_initialized"
-
-	/// Fee per kb not initialized
-	case _20200111_FNI = "feeperkb_not_initialized"
-
-	/// Transaction not initialized
-	case _20200111_TNI = "transaction_not_initialized"
-
-	/// Wallet not initialized
-	case _20200111_WNI = "wallet_not_initialized"
-
-	/// Phrase not initialized
-	case _20200111_PNI = "phrase_not_initialized"
-
-	/// Unable to sign transaction
-	case _20200111_UTST = "unable_to_sign_transaction"
-
-	/// Generalized Error
-	case _20200112_ERR = "error"
-
-	/// Keychain Lookup
-	case _20210804_ERR_KLF = "error_key_lookup_failure"
-
-	/// Started resync
-	case _20200112_DSR = "did_start_resync"
-
-	/// Showed review request
-	case _20200125_DSRR = "did_show_review_request"
-
-	/// Unlocked in with PIN
-	case _20200217_DUWP = "did_unlock_with_pin"
-
-	/// App Launched
-	case _20200217_DUWB = "did_unlock_with_biometrics"
-
-	/// Did use default fee per kb
-	case _20200301_DUDFPK = "did_use_default_fee_per_kb"
-
-	/// User tapped support LF
-	case _20201118_DTGS = "did_tap_get_support"
-
-	/// Started IFPS Lookup
-	case _20201121_SIL = "started_IFPS_lookup"
-
-	/// Resolved IPFS Address
-	case _20201121_DRIA = "did_resolve_IPFS_address"
-
-	/// Failed to resolve IPFS Address
-	case _20201121_FRIA = "failed_resolve_IPFS_address"
-
-	/// User tapped balance
-	case _20200207_DTHB = "did_tap_header_balance"
-
-	/// Heartbeat check If event even happens
-	case _20210427_HCIEEH = "heartbeat_check_if_event_even_happens"
-
-	/// User Tapped on  UD Image
-	case _20220822_UTOU = "user_tapped_on_ud"
-
-	/// User registered Pusher interest
-	case _20231202_RIGI = "registered_ios_general_interest"
-
-	/// User accepted pushes
-	case _20231225_UAP = "user_accepted_push"
-
-	/// User signup
-	case _20240101_US = "user_signup"
-
-	/// Transactions info
-	case _20240214_TI = "transactions_info"
-
-	/// Transactions info
-	case _20240315_AI = "application_info"
-
-	/// Disabled Push Notifications
-	case _20240506_DPN = "disabled_push_notifications"
-
-	/// Stop Push Notifications
-	case _20240510_SPN = "stopped_push_notifications"
-
-	/// Unsupported by Moonpay
-	case _20240527_UBM = "unsupported_by_moonpay"
-
-	/// Remote Config Changed
-	case _20241213_RCC = "remote_config_changed"
 }
