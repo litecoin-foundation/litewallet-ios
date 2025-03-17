@@ -55,12 +55,9 @@ struct StartView: View {
 						Text(currentTagline)
 							.font(buttonLightFont)
 							.multilineTextAlignment(.center)
-							.fixedSize(horizontal: false,
-							           vertical: true)
+							.fixedSize(horizontal: false, vertical: true)
 							.foregroundColor(.white)
-							.frame(width: width * 0.7,
-							       height: height * 0.05,
-							       alignment: .center)
+							.frame(width: width * 0.7, height: height * 0.05, alignment: .center)
 							.padding(.top, height * 0.02)
 							.padding(.bottom, height * 0.08)
 							.onAppear {
@@ -90,22 +87,15 @@ struct StartView: View {
 								Image(systemName: "checkmark.message.fill")
 									.resizable()
 									.aspectRatio(contentMode: .fit)
-									.frame(width: squareImageSize,
-									       height: squareImageSize,
-									       alignment: .center)
-									.foregroundColor(selectedLang ?
-										.litewalletGreen : .litecoinGray.opacity(0.4))
+									.frame(width: squareImageSize, height: squareImageSize, alignment: .center)
+									.foregroundColor(selectedLang ? .litewalletGreen : .litecoinGray.opacity(0.4))
 									.shadow(radius: 6, x: 3.0, y: 3.0)
 									.padding(.all, 4.0)
-									.frame(width: width * 0.3,
-									       height: squareButtonSize,
-									       alignment: .center)
-									.offset(CGSize(width: width * 0.18,
-									               height: -height * 0.03))
+									.frame(width: width * 0.3, height: squareButtonSize, alignment: .center)
+									.offset(CGSize(width: width * 0.18, height: -height * 0.03))
 									.scaleEffect(CGSize(width: animationAmount, height: animationAmount))
 									.animation(
-										.easeInOut(duration: 1.8)
-											.repeatCount(5),
+										.easeInOut(duration: 1.8).repeatCount(5),
 										value: animationAmount
 									)
 									.onAppear {
@@ -113,30 +103,67 @@ struct StartView: View {
 									}
 							}
 						}
-						.frame(width: width * 0.9,
-						       height: height * 0.1,
-						       alignment: .center)
-						.alert(startViewModel
-							.alertMessage[startViewModel.currentLanguage.rawValue],
-							isPresented: $delayedSelect)
+						.frame(width: width * 0.9, height: height * 0.1, alignment: .center)
+						.alert(startViewModel.alertMessage[startViewModel.currentLanguage.rawValue],
+						       isPresented: $delayedSelect)
 						{
 							HStack {
-								Button(startViewModel
-									.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel)
-								{
+								Button(startViewModel.yesLabel[startViewModel.currentLanguage.rawValue], role: .cancel) {
 									// Changes and Dismisses
 									startViewModel.setLanguage(code: startViewModel.currentLanguage.code)
 									selectedLang = false
 								}
-								Button(startViewModel
-									.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive)
-								{
+								Button(startViewModel.cancelLabel[startViewModel.currentLanguage.rawValue], role: .destructive) {
 									// Dismisses
 									selectedLang = false
 								}
 							}
 						}
 						Spacer()
+
+						// ✅ Create Wallet Button (Restored)
+						Button(action: {
+							startViewModel.didTapCreate?()
+						}) {
+							ZStack {
+								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
+									.frame(width: width * 0.9, height: 45, alignment: .center)
+									.foregroundColor(.white)
+									.shadow(radius: 3, x: 3.0, y: 3.0)
+
+								Text(S.StartViewController.createButton.localize())
+									.frame(width: width * 0.9, height: 45, alignment: .center)
+									.font(buttonFont)
+									.foregroundColor(.litewalletBlue)
+									.overlay(
+										RoundedRectangle(cornerRadius: bigButtonCornerRadius)
+											.stroke(.white, lineWidth: 2.0)
+									)
+							}
+						}
+						.padding([.top, .bottom], 10.0)
+
+						// ✅ Recover Wallet Button (Restored)
+						Button(action: {
+							startViewModel.didTapRecover?()
+						}) {
+							ZStack {
+								RoundedRectangle(cornerRadius: bigButtonCornerRadius)
+									.frame(width: width * 0.9, height: 45, alignment: .center)
+									.foregroundColor(Color(UIColor.liteWalletBlue))
+									.shadow(radius: 5, x: 3.0, y: 3.0)
+
+								Text(S.StartViewController.recoverButton.localize())
+									.frame(width: width * 0.9, height: 45, alignment: .center)
+									.font(buttonLightFont)
+									.foregroundColor(Color(UIColor.litecoinWhite))
+									.overlay(
+										RoundedRectangle(cornerRadius: bigButtonCornerRadius)
+											.stroke(.white)
+									)
+							}
+						}
+						.padding([.top, .bottom], 10.0)
 
 						Text(AppVersion.string)
 							.frame(width: 100, alignment: .center)
