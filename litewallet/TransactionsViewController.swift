@@ -1,11 +1,13 @@
 import LocalAuthentication
 import SwiftUI
 import UIKit
+import WebKit
 
 let kNormalTransactionCellHeight: CGFloat = 65.0
 let kProgressHeaderHeight: CGFloat = 50.0
 let kDormantHeaderHeight: CGFloat = 1.0
 let kPromptCellHeight: CGFloat = 120.0
+let kDeprecationWarningCellHeight: CGFloat = 160.0
 let kQRImageSide: CGFloat = 110.0
 let kFiveYears: Double = 157_680_000.0
 let kTodaysEpochTime: TimeInterval = Date().timeIntervalSince1970
@@ -64,6 +66,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		}
 
 		tableView.register(HostingTransactionCell<TransactionCellView>.self, forCellReuseIdentifier: "HostingTransactionCell<TransactionCellView>")
+		tableView.register(DeprecationWarningCell.self, forCellReuseIdentifier: "DeprecationWarningCell")
 		transactions = TransactionManager.sharedInstance.transactions
 		rate = TransactionManager.sharedInstance.rate
 
@@ -226,7 +229,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 	func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.section == 0 {
-			return currentPromptType != nil ? kPromptCellHeight : kDormantHeaderHeight
+			if currentPromptType == .deprecationWarning {
+				return kDeprecationWarningCellHeight
+			} else {
+				return currentPromptType != nil ? kPromptCellHeight : kDormantHeaderHeight
+			}
 		} else {
 			return kNormalTransactionCellHeight
 		}
@@ -270,7 +277,36 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 	// MARK: - UITableView Support Methods
 
-	private func configurePromptCell(promptType: PromptType?, indexPath: IndexPath) -> PromptTableViewCell {
+	private func configurePromptCell(promptType: PromptType?, indexPath: IndexPath) -> UITableViewCell {
+		// Handle deprecation warning with custom cell
+		if promptType == .deprecationWarning {
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "DeprecationWarningCell", for: indexPath) as? DeprecationWarningCell
+			else {
+				NSLog("ERROR No deprecation warning cell found")
+				return UITableViewCell()
+			}
+			
+			cell.configure(title: promptType?.title ?? "", body: promptType?.body ?? "")
+			cell.didClose = { [weak self] in
+				self?.saveEvent("prompt.\(String(describing: promptType?.name)).dismissed")
+				self?.currentPromptType = nil
+				self?.reload()
+			}
+			
+			cell.didTapGetNexus = { [weak self] in
+				self?.saveEvent("prompt.deprecationWarning.getNexus")
+				self?.handleGetNexusWallet()
+			}
+			
+			cell.didTapLearnMore = { [weak self] in
+				self?.saveEvent("prompt.deprecationWarning.learnMore")
+				self?.handleLearnMore()
+			}
+			
+			return cell
+		}
+		
+		// Handle regular prompts with existing cell
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "PromptTVC2", for: indexPath) as? PromptTableViewCell
 		else {
 			NSLog("ERROR No cell found")
@@ -441,5 +477,131 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 		})
 
 		reload()
+	}
+	
+	// MARK: - Deprecation Warning Button Handlers
+	
+	private func handleGetNexusWallet() {
+		// Open the App Store or Nexus Wallet website
+		if let url = URL(string: "https://apps.apple.com/app/nexus-wallet/id1234567890") {
+			if UIApplication.shared.canOpenURL(url) {
+				UIApplication.shared.open(url, options: [:], completionHandler: nil)
+			}
+		}
+	}
+	
+	private func handleLearnMore() {
+		// Open a modal web view with information about the transition
+		if let url = URL(string: "https://nexuswallet.com") {
+			let webViewController = ModalWebViewController(url: url, title: "Learn More")
+			let navigationController = UINavigationController(rootViewController: webViewController)
+			navigationController.modalPresentationStyle = .formSheet
+			present(navigationController, animated: true, completion: nil)
+		}
+	}
+}
+
+// MARK: - Modal Web View Controller
+
+class ModalWebViewController: UIViewController {
+	
+	private let webView = WKWebView()
+	private let url: URL
+	private let pageTitle: String
+	private let activityIndicator = UIActivityIndicatorView(style: .medium)
+	
+	init(url: URL, title: String) {
+		self.url = url
+		self.pageTitle = title
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		setupUI()
+		setupWebView()
+		loadWebPage()
+	}
+	
+	private func setupUI() {
+		title = pageTitle
+		view.backgroundColor = .systemBackground
+		
+		// Add close button
+		navigationItem.leftBarButtonItem = UIBarButtonItem(
+			barButtonSystemItem: .done,
+			target: self,
+			action: #selector(closeButtonTapped)
+		)
+		
+		// Setup web view
+		view.addSubview(webView)
+		webView.translatesAutoresizingMaskIntoConstraints = false
+		
+		// Setup activity indicator
+		view.addSubview(activityIndicator)
+		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+		activityIndicator.hidesWhenStopped = true
+		
+		// Constraints
+		NSLayoutConstraint.activate([
+			webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			
+			activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+		])
+	}
+	
+	private func setupWebView() {
+		webView.navigationDelegate = self
+		webView.allowsBackForwardNavigationGestures = true
+	}
+	
+	private func loadWebPage() {
+		activityIndicator.startAnimating()
+		let request = URLRequest(url: url)
+		webView.load(request)
+	}
+	
+	@objc private func closeButtonTapped() {
+		dismiss(animated: true, completion: nil)
+	}
+}
+
+// MARK: - WKNavigationDelegate
+
+extension ModalWebViewController: WKNavigationDelegate {
+	
+	func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+		activityIndicator.startAnimating()
+	}
+	
+	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		activityIndicator.stopAnimating()
+	}
+	
+	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		activityIndicator.stopAnimating()
+		
+		// Show error alert
+		let alert = UIAlertController(
+			title: "Error",
+			message: "Failed to load the webpage. Please check your internet connection and try again.",
+			preferredStyle: .alert
+		)
+		alert.addAction(UIAlertAction(title: "OK", style: .default))
+		present(alert, animated: true)
+	}
+	
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		// Allow all navigation for now, but could add restrictions here if needed
+		decisionHandler(.allow)
 	}
 }
