@@ -129,7 +129,7 @@ class StartFlowPresenter: Subscriber {
 	
 	private func handleGetNexusWallet() {
 		// Try to open the App Store link for Nexus Wallet
-		if let url = URL(string: "https://apps.apple.com/es/app/nexus-wallet-for-litecoin/id6738978436") {
+		if let url = URL(string: "https://apps.apple.com/us/app/nexus-wallet-for-litecoin/id6738978436") {
 			if UIApplication.shared.canOpenURL(url) {
 				UIApplication.shared.open(url, options: [:], completionHandler: nil)
 			}

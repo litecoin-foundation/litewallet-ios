@@ -483,7 +483,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	
 	private func handleGetNexusWallet() {
 		// Open the App Store or Nexus Wallet website
-		if let url = URL(string: "https://apps.apple.com/es/app/nexus-wallet-for-litecoin/id6738978436") {
+		if let url = URL(string: "https://apps.apple.com/us/app/nexus-wallet-for-litecoin/id6738978436") {
 			if UIApplication.shared.canOpenURL(url) {
 				UIApplication.shared.open(url, options: [:], completionHandler: nil)
 			}
@@ -492,7 +492,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 	
 	private func handleLearnMore() {
 		// Open a modal web view with information about the transition
-		if let url = URL(string: "https://nexuswallet.com") {
+		if let url = URL(string: "https://support.nexuswallet.com/hc/nexus-help-center/articles/1749345713-start-using-nexus-wallet-a-simple-guide-for-litewallet-users") {
 			let webViewController = ModalWebViewController(url: url, title: "Learn More")
 			let navigationController = UINavigationController(rootViewController: webViewController)
 			navigationController.modalPresentationStyle = .formSheet
